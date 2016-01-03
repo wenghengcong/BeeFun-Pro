@@ -151,11 +151,11 @@
 			isa = PBXGroup;
 			children = (
 				FE91BA7E1C333859002AECB6 /* Base */,
-				FE91BA7F1C333859002AECB6 /* Gist */,
-				FE91BA801C333859002AECB6 /* Message */,
-				FE91BA811C333859002AECB6 /* Profile */,
-				FE91BA821C333859002AECB6 /* Stars */,
 				FE91BA831C333859002AECB6 /* Trending */,
+				FE91BA801C333859002AECB6 /* Message */,
+				FE91BA821C333859002AECB6 /* Stars */,
+				FE91BA7F1C333859002AECB6 /* Gist */,
+				FE91BA811C333859002AECB6 /* Profile */,
 			);
 			path = View;
 			sourceTree = "<group>";

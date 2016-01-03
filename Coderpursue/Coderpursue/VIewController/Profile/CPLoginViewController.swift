@@ -9,7 +9,11 @@
 import UIKit
 
 class CPLoginViewController: CPBaseViewController {
-
+    
+    // MARK: - Properties
+    
+    // MARK: - Actions
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -10,6 +10,9 @@ import UIKit
 
 class CPProfileViewController: CPBaseViewController {
 
+    @IBOutlet weak var pvc_loginBtn: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

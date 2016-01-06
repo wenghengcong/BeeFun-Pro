@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2A49EFF6B7B4D190245499A7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8CC865E56BA5C5F2757091 /* Pods.framework */; };
+		FE19F93D1C39331B009986FE /* UIColor+Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F93C1C39331B009986FE /* UIColor+Project.swift */; };
+		FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F93E1C394398009986FE /* UIFont+Project.swift */; };
+		FE19F9411C3944C7009986FE /* DeviceCfg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F9401C3944C7009986FE /* DeviceCfg.swift */; };
 		FE91BA871C3338D7002AECB6 /* CPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE91BA861C3338D7002AECB6 /* CPBaseViewController.swift */; };
 		FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE91BA881C3338F9002AECB6 /* CPBaseTableViewController.swift */; };
 		FE91BA8B1C333948002AECB6 /* CPGistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE91BA8A1C333948002AECB6 /* CPGistViewController.swift */; };
@@ -23,6 +26,7 @@
 		FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC0DC441C28B39F0008C7C1 /* LaunchScreen.storyboard */; };
 		FEC0DC511C28B39F0008C7C1 /* CoderpursueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0DC501C28B39F0008C7C1 /* CoderpursueTests.swift */; };
 		FEC0DC5C1C28B39F0008C7C1 /* CoderpursueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0DC5B1C28B39F0008C7C1 /* CoderpursueUITests.swift */; };
+		FED481091C3C7121002956A8 /* CPStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED481081C3C7121002956A8 /* CPStyleGuide.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +50,9 @@
 		1E8CC865E56BA5C5F2757091 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7033FE43E4D993E3792163CE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E55419785C19BA2049E6F4B9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FE19F93C1C39331B009986FE /* UIColor+Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Project.swift"; sourceTree = "<group>"; };
+		FE19F93E1C394398009986FE /* UIFont+Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Project.swift"; sourceTree = "<group>"; };
+		FE19F9401C3944C7009986FE /* DeviceCfg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceCfg.swift; sourceTree = "<group>"; };
 		FE91BA861C3338D7002AECB6 /* CPBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPBaseViewController.swift; sourceTree = "<group>"; };
 		FE91BA881C3338F9002AECB6 /* CPBaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPBaseTableViewController.swift; sourceTree = "<group>"; };
 		FE91BA8A1C333948002AECB6 /* CPGistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGistViewController.swift; sourceTree = "<group>"; };
@@ -67,6 +74,7 @@
 		FEC0DC571C28B39F0008C7C1 /* CoderpursueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderpursueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC0DC5B1C28B39F0008C7C1 /* CoderpursueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderpursueUITests.swift; sourceTree = "<group>"; };
 		FEC0DC5D1C28B39F0008C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FED481081C3C7121002956A8 /* CPStyleGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStyleGuide.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FE19F93A1C390865009986FE /* ProConfig */ = {
+			isa = PBXGroup;
+			children = (
+				FE19F93C1C39331B009986FE /* UIColor+Project.swift */,
+				FE19F93E1C394398009986FE /* UIFont+Project.swift */,
+				FE19F9401C3944C7009986FE /* DeviceCfg.swift */,
+				FED481081C3C7121002956A8 /* CPStyleGuide.swift */,
+			);
+			path = ProConfig;
+			sourceTree = "<group>";
+		};
+		FE19F93B1C390865009986FE /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FE91BA711C333804002AECB6 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,13 +157,6 @@
 			children = (
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		FE91BA741C333804002AECB6 /* ProjectSettings */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ProjectSettings;
 			sourceTree = "<group>";
 		};
 		FE91BA751C333804002AECB6 /* ThidParty */ = {
@@ -291,10 +310,11 @@
 		FEC0DC381C28B39F0008C7C1 /* Coderpursue */ = {
 			isa = PBXGroup;
 			children = (
+				FE19F93A1C390865009986FE /* ProConfig */,
+				FE19F93B1C390865009986FE /* Resources */,
 				FE91BA711C333804002AECB6 /* Helper */,
 				FE91BA721C333804002AECB6 /* Model */,
 				FE91BA731C333804002AECB6 /* Network */,
-				FE91BA741C333804002AECB6 /* ProjectSettings */,
 				FE91BA751C333804002AECB6 /* ThidParty */,
 				FE91BA761C333804002AECB6 /* View */,
 				FE91BA771C333804002AECB6 /* VIewController */,
@@ -509,14 +529,18 @@
 			files = (
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
 				FE91BA911C333989002AECB6 /* CPStarsViewController.swift in Sources */,
+				FE19F9411C3944C7009986FE /* DeviceCfg.swift in Sources */,
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
 				FE91BA971C334C9F002AECB6 /* CPLoginViewController.swift in Sources */,
 				FE91BA871C3338D7002AECB6 /* CPBaseViewController.swift in Sources */,
 				FE91BA8F1C33396E002AECB6 /* CPProfileViewController.swift in Sources */,
+				FE19F93D1C39331B009986FE /* UIColor+Project.swift in Sources */,
 				FE91BA8B1C333948002AECB6 /* CPGistViewController.swift in Sources */,
 				FE91BA931C33399C002AECB6 /* CPTrendingViewController.swift in Sources */,
 				FE91BA951C333AE2002AECB6 /* CPBaseTabBarController.swift in Sources */,
+				FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */,
 				FEC0DC3A1C28B39F0008C7C1 /* AppDelegate.swift in Sources */,
+				FED481091C3C7121002956A8 /* CPStyleGuide.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

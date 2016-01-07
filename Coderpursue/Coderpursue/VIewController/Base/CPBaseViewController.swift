@@ -10,10 +10,20 @@ import UIKit
 
 class CPBaseViewController: UIViewController {
 
+    var needDoWork = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        customView()
+    }
+    
+    func customView() {
+        self.view.backgroundColor = UIColor.viewBackgroundColor()
+        //下面语句添加在CPBaseNavigationController中无效
+        self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarBackgroundColor()
+        self.navigationController?.navigationBar.titleTextAttributes = CPStyleGuide.navTitleTextAttributes()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,5 +41,24 @@ class CPBaseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
+
+
+extension CPBaseViewController : NavigationControllerBackButtonDelegate {
+    
+    func navigationShouldPopOnBackButton() -> Bool {
+        print("back button pressed")
+        if needDoWork {
+            navBack()
+            return false
+        }
+        return true
+    }
+    
+    func navBack() {
+        print("do something")
+
+    }
+}
+

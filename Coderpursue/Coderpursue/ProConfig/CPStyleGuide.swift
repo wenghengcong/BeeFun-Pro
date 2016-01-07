@@ -22,4 +22,27 @@ class CPStyleGuide {
         ]
     }
     
+    class func textFieldTextAttributes() -> [String:AnyObject] {
+        
+        let font = UIFont.largeSizeSystemFont()
+        let color = UIColor.textViewTextColor()
+        
+        return [
+            NSFontAttributeName:font,
+            NSForegroundColorAttributeName:color
+        ]
+    }
+    
+    class func navTitleTextAttributes() -> [String:AnyObject] {
+        
+        let font = UIFont.hugeSizeSystemFont()
+        let color = UIColor.navigationBarTitleTextColor()
+        
+        return [
+            NSFontAttributeName:font,
+            NSForegroundColorAttributeName:color
+        ]
+    }
+    
+    
 }

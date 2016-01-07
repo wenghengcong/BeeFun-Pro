@@ -9,7 +9,11 @@
 import UIKit
 import Foundation
 
+
+
 extension UIColor {
+    
+    static var projectRedColor = "ff113c";
     /**
      return UIColor by hex str
      
@@ -41,13 +45,13 @@ extension UIColor {
     
     class func navigationBarBackgroundColor() -> UIColor {
         //red
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr(projectRedColor, alpha: 1.0)
     }
     
     //MARK: tab bar
     class func tabBarTitleTextColor() -> UIColor {
         //red
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr(projectRedColor, alpha: 1.0)
     }
     
     class func tabBarBackgroundColor() -> UIColor {
@@ -58,12 +62,12 @@ extension UIColor {
     //MARK: label
     class func labelSubtitleTextColor() -> UIColor {
         //black
-        return UIColor.hexStr("000000", alpha: 1.0)
+        return UIColor.hexStr("9b9b9b", alpha: 1.0)
     }
     
     class func labelTitleTextColor() -> UIColor {
         //gray
-        return UIColor.hexStr("9b9b9b", alpha: 1.0)
+        return UIColor.hexStr("000000", alpha: 1.0)
     }
     
     //MARK: text field
@@ -96,11 +100,11 @@ extension UIColor {
     }
     
     class func buttonRedTitleTextColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr(projectRedColor, alpha: 1.0)
     }
     
     class func buttonRedBackgroundColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr(projectRedColor, alpha: 1.0)
     }
     
     //below 3 color group
@@ -109,11 +113,11 @@ extension UIColor {
     }
     
     class func buttonHighlightBackgroundColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr(projectRedColor, alpha: 1.0)
     }
     
     class func buttonSelectedBackgroundColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr(projectRedColor, alpha: 1.0)
     }
     
     //MARK: view
@@ -123,12 +127,12 @@ extension UIColor {
     
     //badege
     class func badgeBackgroundColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0);
+        return UIColor.hexStr(projectRedColor, alpha: 1.0);
     }
     
     //line
     class func lineBackgroundColor() -> UIColor {
-        return UIColor.hexStr("d9d9d9", alpha: 1.0);
+        return UIColor.hexStr("d7d7d7", alpha: 1.0);
     }
     
 }

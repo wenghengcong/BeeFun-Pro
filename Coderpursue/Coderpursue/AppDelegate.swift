@@ -8,6 +8,8 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Alamofire
+import SwiftyJSON
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,6 +20,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.sharedManager().enable = true
+        
+        let parameters:[String:String] = ["client_id":GitHubKey.githubClientID(),
+                                        "redirect_uri":GitHubKey.githubRedirectUrl(),
+                                        "scope":"user",
+                                        "state":"gitstate"]
+        
+        Alamofire.request(.GET, "https://github.com/login/oauth/authorize", parameters:parameters)
+            .responseJSON {
+                response in   switch response.result {
+                case .Success:
+                    if let value = response.result.value {
+                        let json = JSON(value)
+                        print("JSON: \(json)")
+                    }
+                case .Failure(let error):
+                    print(error)
+                }
+//                print(response.request)  // original URL request
+//                print(response.response) // URL response
+//                print(response.data)     // server data
+//                print(response.result)   // result of response serialization
+                
+
+        }
+        
         return true
     }
 

@@ -205,6 +205,7 @@
                     <navigationItem key="navigationItem" title="Profile" id="kWI-VN-UCm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="pvc_editProfileBtn" destination="ach-7c-5uc" id="s4I-dx-2ed"/>
                         <outlet property="pvc_loginBtn" destination="GCd-cT-27L" id="kIu-fA-CBd"/>
                     </connections>
                 </viewController>

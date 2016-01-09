@@ -12,16 +12,38 @@ class CPProfileViewController: CPBaseViewController {
 
     @IBOutlet weak var pvc_loginBtn: UIButton!
     
+    @IBOutlet weak var pvc_editProfileBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        pvc_addButtonTarget()
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func pvc_addButtonTarget() {
+        pvc_editProfileBtn.addTarget(self, action: "pvc_editProfileAction:", forControlEvents: .TouchUpInside)
+        pvc_loginBtn.addTarget(self, action: "pvc_loginAction:", forControlEvents: .TouchUpInside)
+
+    }
+    
+    func pvc_editProfileAction(sender:UIButton!) {
+    }
+    
+    func pvc_loginAction(sender:UIButton) {
+        
+        let loginVC = CPWebViewController()
+        loginVC.url = "m.hao123.com"
+        loginVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(loginVC, animated: true)
+
     }
     
 

@@ -37,7 +37,6 @@ class CPStyleGuide {
         
         let font = UIFont.hugeSizeSystemFont()
         let color = UIColor.navigationBarTitleTextColor()
-        
         return [
             NSFontAttributeName:font,
             NSForegroundColorAttributeName:color

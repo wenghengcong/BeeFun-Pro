@@ -1,11 +1,13 @@
 PODS:
   - Alamofire (3.1.4)
   - IQKeyboardManagerSwift (3.3.5)
+  - SnapKit (0.18.0)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
   - IQKeyboardManagerSwift
+  - SnapKit
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
 
 EXTERNAL SOURCES:
@@ -20,6 +22,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Alamofire: fbc829692f351fa1d8a31dd75fd7f7f56fea31fb
   IQKeyboardManagerSwift: 17f1ebf3fe07f7905369c6dca2da1051b6fea805
+  SnapKit: e1f090a6d47b1dd4bd89b73f72b6746a7835ef3c
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0

@@ -14,14 +14,31 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signin_logo" translatesAutoresizingMaskIntoConstraints="NO" id="WlD-de-Jg5">
+                                <rect key="frame" x="87" y="251" width="200" height="165"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="165" id="53u-fR-Tr5"/>
+                                    <constraint firstAttribute="width" constant="200" id="oof-2U-ZUa"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WlD-de-Jg5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Ghr-VS-GwX"/>
+                            <constraint firstItem="WlD-de-Jg5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="rpL-Px-ffD"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="signin_logo" width="200" height="166"/>
+    </resources>
 </document>

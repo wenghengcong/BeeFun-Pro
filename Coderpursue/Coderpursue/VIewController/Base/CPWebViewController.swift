@@ -41,6 +41,7 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate {
             /* Load a web page into our web view */
             
             if url != nil {
+                
                 let urlTmp = NSURL(string: url!)
                 let urlRequest = NSURLRequest(URL: urlTmp!)
                 theWebView.loadRequest(urlRequest)

@@ -159,9 +159,6 @@
                                         <state key="normal" title="登录">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
-                                        <connections>
-                                            <segue destination="H2q-Fg-o9a" kind="show" id="ccN-m7-JVi"/>
-                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ULF-Qw-8jg">
                                         <rect key="frame" x="0.0" y="160" width="375" height="44"/>

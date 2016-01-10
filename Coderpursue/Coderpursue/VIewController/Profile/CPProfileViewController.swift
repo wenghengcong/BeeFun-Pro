@@ -40,7 +40,7 @@ class CPProfileViewController: CPBaseViewController {
     func pvc_loginAction(sender:UIButton) {
         
         let loginVC = CPWebViewController()
-        loginVC.url = "m.hao123.com"
+        loginVC.url = "https://www.apple.com"
         loginVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(loginVC, animated: true)
 

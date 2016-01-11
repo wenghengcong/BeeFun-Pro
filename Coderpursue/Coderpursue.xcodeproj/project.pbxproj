@@ -18,6 +18,7 @@
 		FE26BCBD1C4231FB00887534 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE26BCBC1C4231FB00887534 /* Alamofire.framework */; };
 		FE26BCBF1C4282BA00887534 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26BCBE1C4282BA00887534 /* NetworkHelper.swift */; };
 		FE26BCC11C44494800887534 /* ObjUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26BCC01C44494800887534 /* ObjUser.swift */; };
+		FE26BCC61C44754C00887534 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE26BCC51C44754C00887534 /* ObjectMapper.framework */; };
 		FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3179AB1C405EF300150370 /* CPWebViewController.swift */; };
 		FE6055C71C4088730073BC0A /* CPGitLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C61C4088730073BC0A /* CPGitLoginViewController.swift */; };
 		FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */; };
@@ -70,6 +71,7 @@
 		FE26BCBC1C4231FB00887534 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		FE26BCBE1C4282BA00887534 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		FE26BCC01C44494800887534 /* ObjUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjUser.swift; sourceTree = "<group>"; };
+		FE26BCC51C44754C00887534 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Pods/../build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		FE3179AB1C405EF300150370 /* CPWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPWebViewController.swift; sourceTree = "<group>"; };
 		FE6055C61C4088730073BC0A /* CPGitLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGitLoginViewController.swift; sourceTree = "<group>"; };
 		FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE26BCC61C44754C00887534 /* ObjectMapper.framework in Frameworks */,
 				FE26BCBD1C4231FB00887534 /* Alamofire.framework in Frameworks */,
 				2A49EFF6B7B4D190245499A7 /* Pods.framework in Frameworks */,
 			);
@@ -127,6 +130,7 @@
 		4D8F6ECC1AEDFB027177FDBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE26BCC51C44754C00887534 /* ObjectMapper.framework */,
 				FE26BCBC1C4231FB00887534 /* Alamofire.framework */,
 				1E8CC865E56BA5C5F2757091 /* Pods.framework */,
 			);

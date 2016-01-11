@@ -8,6 +8,8 @@
 
 import UIKit
 import Alamofire
+import ObjectMapper
+import SwiftyJSON
 
 class CPGitLoginViewController: CPWebViewController {
 
@@ -71,6 +73,8 @@ class CPGitLoginViewController: CPWebViewController {
                 let str = String(data: response.data!, encoding: NSUTF8StringEncoding)
                 //access_token=7c897cd55113db38df41521eb897f47e395df845&scope=public_repo%2Cuser&token_type=bearer
                 print("access: \(str)")
+                
+                
                 
         }
         

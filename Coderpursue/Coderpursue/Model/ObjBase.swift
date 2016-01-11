@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import ObjectMapper
 
-class ObjBase: NSObject {
+class ObjBase: Mappable {
 //    var guid
 //    var obj_type
 //    var create_at
 //    var update_at
 //    
-//    override init() {
-//        
-//    }
+    required init?(_ map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+
+    }
 }

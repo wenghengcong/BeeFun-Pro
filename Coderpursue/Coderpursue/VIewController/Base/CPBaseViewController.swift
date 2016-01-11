@@ -11,6 +11,7 @@ import UIKit
 class CPBaseViewController: UIViewController {
 
     var needDoWork = false
+    var topOffset: CGFloat = 64.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,9 @@ class CPBaseViewController: UIViewController {
         //下面语句添加在CPBaseNavigationController中无效
         self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarBackgroundColor()
         self.navigationController?.navigationBar.titleTextAttributes = CPStyleGuide.navTitleTextAttributes()
+        //返回按钮颜色与文字
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationController?.navigationBar.topItem?.leftBarButtonItem?.title = ""  //no change
     }
 
     override func didReceiveMemoryWarning() {

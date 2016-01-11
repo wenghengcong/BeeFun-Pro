@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A49EFF6B7B4D190245499A7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8CC865E56BA5C5F2757091 /* Pods.framework */; };
+		2A49EFF6B7B4D190245499A7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8CC865E56BA5C5F2757091 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D11C3DC1350005DDE5 /* CPBaseNavigationController.swift */; };
 		FE0FE0D51C3DC1C00005DDE5 /* UINavigationController+Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D41C3DC1C00005DDE5 /* UINavigationController+Pop.swift */; };
 		FE0FE0D71C3DC7BB0005DDE5 /* ObjBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D61C3DC7BB0005DDE5 /* ObjBase.swift */; };
@@ -15,6 +15,9 @@
 		FE19F93D1C39331B009986FE /* UIColor+Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F93C1C39331B009986FE /* UIColor+Project.swift */; };
 		FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F93E1C394398009986FE /* UIFont+Project.swift */; };
 		FE19F9411C3944C7009986FE /* DeviceCfg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F9401C3944C7009986FE /* DeviceCfg.swift */; };
+		FE26BCBD1C4231FB00887534 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE26BCBC1C4231FB00887534 /* Alamofire.framework */; };
+		FE26BCBF1C4282BA00887534 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26BCBE1C4282BA00887534 /* NetworkHelper.swift */; };
+		FE26BCC11C44494800887534 /* ObjUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26BCC01C44494800887534 /* ObjUser.swift */; };
 		FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3179AB1C405EF300150370 /* CPWebViewController.swift */; };
 		FE6055C71C4088730073BC0A /* CPGitLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C61C4088730073BC0A /* CPGitLoginViewController.swift */; };
 		FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */; };
@@ -64,6 +67,9 @@
 		FE19F93C1C39331B009986FE /* UIColor+Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Project.swift"; sourceTree = "<group>"; };
 		FE19F93E1C394398009986FE /* UIFont+Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Project.swift"; sourceTree = "<group>"; };
 		FE19F9401C3944C7009986FE /* DeviceCfg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceCfg.swift; sourceTree = "<group>"; };
+		FE26BCBC1C4231FB00887534 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
+		FE26BCBE1C4282BA00887534 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
+		FE26BCC01C44494800887534 /* ObjUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjUser.swift; sourceTree = "<group>"; };
 		FE3179AB1C405EF300150370 /* CPWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPWebViewController.swift; sourceTree = "<group>"; };
 		FE6055C61C4088730073BC0A /* CPGitLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGitLoginViewController.swift; sourceTree = "<group>"; };
 		FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
@@ -96,6 +102,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE26BCBD1C4231FB00887534 /* Alamofire.framework in Frameworks */,
 				2A49EFF6B7B4D190245499A7 /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -120,6 +127,7 @@
 		4D8F6ECC1AEDFB027177FDBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FE26BCBC1C4231FB00887534 /* Alamofire.framework */,
 				1E8CC865E56BA5C5F2757091 /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -164,6 +172,7 @@
 		FE91BA711C333804002AECB6 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				FE26BCBE1C4282BA00887534 /* NetworkHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -172,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				FE0FE0D61C3DC7BB0005DDE5 /* ObjBase.swift */,
+				FE26BCC01C44494800887534 /* ObjUser.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -559,7 +569,9 @@
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
 				FE91BA911C333989002AECB6 /* CPStarsViewController.swift in Sources */,
 				FE19F9411C3944C7009986FE /* DeviceCfg.swift in Sources */,
+				FE26BCC11C44494800887534 /* ObjUser.swift in Sources */,
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
+				FE26BCBF1C4282BA00887534 /* NetworkHelper.swift in Sources */,
 				FE91BA971C334C9F002AECB6 /* CPLoginViewController.swift in Sources */,
 				FE0FE0D51C3DC1C00005DDE5 /* UINavigationController+Pop.swift in Sources */,
 				FE91BA871C3338D7002AECB6 /* CPBaseViewController.swift in Sources */,
@@ -667,7 +679,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -705,7 +717,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -717,12 +729,19 @@
 			baseConfigurationReference = E55419785C19BA2049E6F4B9 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hengcong Weng (7RMANB5BXZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hengcong Weng (7RMANB5BXZ)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Coderpursue/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cb2044dc-0715-4055-b8b9-59e8f886331c";
+				PROVISIONING_PROFILE = "5dd1e17b-8199-4c85-9e6f-446a66db4ce1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -731,12 +750,19 @@
 			baseConfigurationReference = 7033FE43E4D993E3792163CE /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hengcong Weng (7RMANB5BXZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hengcong Weng (7RMANB5BXZ)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = Coderpursue/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cb2044dc-0715-4055-b8b9-59e8f886331c";
+				PROVISIONING_PROFILE = "5dd1e17b-8199-4c85-9e6f-446a66db4ce1";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

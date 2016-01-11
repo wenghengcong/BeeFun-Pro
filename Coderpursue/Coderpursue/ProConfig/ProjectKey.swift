@@ -12,7 +12,7 @@ struct GitHubKey {
     
     static let gitClientId = "294e97e63b0e68f456ad";
     static let gitClientSecret = "d208e4cc6b9afcdea382e6afae58c8b27bf18377";
-    static let gitRedirectUrl = "http://www.wenghengcong.com"
+    static let gitRedirectUrl = "https://github.com/wenghengcong/Coderpursue"
 
     
     static func githubClientID() -> String{

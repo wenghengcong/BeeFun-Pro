@@ -39,12 +39,21 @@ class CPProfileViewController: CPBaseViewController {
     
     func pvc_loginAction(sender:UIButton) {
         
-        let loginVC = CPWebViewController()
-        loginVC.url = "https://www.apple.com"
+        pvc_showLoginInWebView()
+    }
+    
+    func pvc_showLoginInWebView() {
+        
+        NetworkHelper.clearCookies()
+        
+        let loginVC = CPGitLoginViewController()
+        let url = String(format: "https://github.com/login/oauth/authorize/?client_id=%@&state=%@&redirect_uri=%@&scope=%@",GitHubKey.githubClientID(),"junglesong",GitHubKey.githubRedirectUrl(),"user,public_repo" )
+        loginVC.url = url
         loginVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(loginVC, animated: true)
-
+        
     }
+
     
 
     /*

@@ -10,15 +10,78 @@ import UIKit
 import Foundation
 import Moya
 import Alamofire
+import ObjectMapper
+import SwiftyJSON
+
+typealias SuccessClosure = (result: AnyObject) -> Void
+//typealias SuccessClosure = (result: Mappable) -> Void
+typealias FailClosure = (errorMsg: String?) -> Void
 
 // MARK: - Provider setup
-let GitHubProvider = MoyaProvider<GitHubAPI>()
+
+// (Endpoint<Target>, NSURLRequest -> Void) -> Void
+func endpointResolver() -> MoyaProvider<GitHubAPI>.RequestClosure {
+    return { (endpoint, closure) in
+        let request: NSMutableURLRequest = endpoint.urlRequest.mutableCopy() as! NSMutableURLRequest
+        request.HTTPShouldHandleCookies = false
+        closure(request)
+    }
+}
+
+class GitHupPorvider<Target where Target: TargetType>: MoyaProvider<Target> {
+    
+    override init(endpointClosure: EndpointClosure = MoyaProvider.DefaultEndpointMapping,
+        requestClosure: RequestClosure = MoyaProvider.DefaultRequestMapping,
+        stubClosure: StubClosure = MoyaProvider.NeverStub,
+        manager: Manager = Manager.sharedInstance,
+        plugins: [PluginType] = []) {
+            super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins)
+    }
+    
+}
+
+struct Provider{
+    
+    private static var endpointsClosure = { (target: GitHubAPI) -> Endpoint<GitHubAPI> in
+        
+        var endpoint: Endpoint<GitHubAPI> = Endpoint<GitHubAPI>(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+        // Sign all non-XApp token requests
+        
+        switch target {
+        default:
+            return endpoint.endpointByAddingHTTPHeaderFields(["Authorization": AppToken().access_token ?? ""])
+        }
+    }
+    static func stubBehaviour(_: GitHubAPI) -> Moya.StubBehavior {
+        return .Never
+    }
+    
+    static func DefaultProvider() -> GitHupPorvider<GitHubAPI> {
+        return GitHupPorvider(endpointClosure: endpointsClosure, requestClosure: endpointResolver(), stubClosure:MoyaProvider.NeverStub , manager: Alamofire.Manager.sharedInstance, plugins:[])
+    }
+    
+    private struct SharedProvider {
+        static var instance = Provider.DefaultProvider()
+    }
+    
+    static var sharedProvider:GitHupPorvider<GitHubAPI> {
+        
+        get {
+        return SharedProvider.instance
+        }
+        
+        set (newSharedProvider) {
+            SharedProvider.instance = newSharedProvider
+        }
+        
+    }
+    
+}
 
 
 public enum GitHubAPI {
     
-    case Authorize(client_id:String ,redirect_uri:String ,scope:String,state:String)
-    case AccessToken
+    case User
     
 }
 
@@ -28,10 +91,8 @@ extension GitHubAPI: TargetType {
     public var path: String {
         switch self {
             
-        case .Authorize:
-            return "https://github.com/login/oauth/authorize"
-        case .AccessToken:
-            return "https://github.com/login/oauth/access_token"
+        case .User:
+            return "/user"
 
         }
     }
@@ -40,10 +101,9 @@ extension GitHubAPI: TargetType {
         
         switch self {
             
-        case .Authorize:
+        case .User:
             return .GET
-        case .AccessToken:
-            return .POST
+
         default:
             return .GET
         }
@@ -53,33 +113,19 @@ extension GitHubAPI: TargetType {
         
         switch self {
             
-        case .Authorize(let client_id, let redirect_uri, let scope, let state):
-            return [
-                "client_id":client_id,
-                "redirect_uri":redirect_uri,
-                "scope":scope,
-                "state":state,
-            ]
-        case .AccessToken:
-            return [
-                "":""
-            ]
         default:
             return nil
-            
             
         }
         
         
     }
     
-    
+    //Any target you want to hit must provide some non-nil NSData that represents a sample response. This can be used later for tests or for providing offline support for developers. This should depend on self.
     public var sampleData: NSData {
         switch self {
-        case .Authorize:
-            return "Half measures are as bad as nothing at all.".dataUsingEncoding(NSUTF8StringEncoding)!
-        case .AccessToken:
-            return "Half measures are as bad as nothing at all.".dataUsingEncoding(NSUTF8StringEncoding)!
+        case .User:
+            return "get user info.".dataUsingEncoding(NSUTF8StringEncoding)!
         }
     }
     

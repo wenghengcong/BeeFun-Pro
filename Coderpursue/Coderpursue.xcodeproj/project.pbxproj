@@ -17,7 +17,7 @@
 		FE19F9411C3944C7009986FE /* DeviceCfg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F9401C3944C7009986FE /* DeviceCfg.swift */; };
 		FE26BCBD1C4231FB00887534 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE26BCBC1C4231FB00887534 /* Alamofire.framework */; };
 		FE26BCBF1C4282BA00887534 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26BCBE1C4282BA00887534 /* NetworkHelper.swift */; };
-		FE26BCC11C44494800887534 /* ObjUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26BCC01C44494800887534 /* ObjUser.swift */; };
+		FE26BCC11C44494800887534 /* AppToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE26BCC01C44494800887534 /* AppToken.swift */; };
 		FE26BCC61C44754C00887534 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE26BCC51C44754C00887534 /* ObjectMapper.framework */; };
 		FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3179AB1C405EF300150370 /* CPWebViewController.swift */; };
 		FE6055C71C4088730073BC0A /* CPGitLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C61C4088730073BC0A /* CPGitLoginViewController.swift */; };
@@ -70,7 +70,7 @@
 		FE19F9401C3944C7009986FE /* DeviceCfg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeviceCfg.swift; sourceTree = "<group>"; };
 		FE26BCBC1C4231FB00887534 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		FE26BCBE1C4282BA00887534 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
-		FE26BCC01C44494800887534 /* ObjUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjUser.swift; sourceTree = "<group>"; };
+		FE26BCC01C44494800887534 /* AppToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToken.swift; sourceTree = "<group>"; };
 		FE26BCC51C44754C00887534 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Pods/../build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		FE3179AB1C405EF300150370 /* CPWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPWebViewController.swift; sourceTree = "<group>"; };
 		FE6055C61C4088730073BC0A /* CPGitLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGitLoginViewController.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				FE0FE0D61C3DC7BB0005DDE5 /* ObjBase.swift */,
-				FE26BCC01C44494800887534 /* ObjUser.swift */,
+				FE26BCC01C44494800887534 /* AppToken.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -573,7 +573,7 @@
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
 				FE91BA911C333989002AECB6 /* CPStarsViewController.swift in Sources */,
 				FE19F9411C3944C7009986FE /* DeviceCfg.swift in Sources */,
-				FE26BCC11C44494800887534 /* ObjUser.swift in Sources */,
+				FE26BCC11C44494800887534 /* AppToken.swift in Sources */,
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
 				FE26BCBF1C4282BA00887534 /* NetworkHelper.swift in Sources */,
 				FE91BA971C334C9F002AECB6 /* CPLoginViewController.swift in Sources */,

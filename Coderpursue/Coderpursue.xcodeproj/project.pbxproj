@@ -38,6 +38,8 @@
 		FEC0DC511C28B39F0008C7C1 /* CoderpursueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0DC501C28B39F0008C7C1 /* CoderpursueTests.swift */; };
 		FEC0DC5C1C28B39F0008C7C1 /* CoderpursueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0DC5B1C28B39F0008C7C1 /* CoderpursueUITests.swift */; };
 		FED481091C3C7121002956A8 /* CPStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED481081C3C7121002956A8 /* CPStyleGuide.swift */; };
+		FEF5E58D1C46FA4E00DBF19F /* ObjUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF5E58C1C46FA4E00DBF19F /* ObjUser.swift */; };
+		FEF5E58F1C46FC7500DBF19F /* ObjPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF5E58E1C46FC7500DBF19F /* ObjPlan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		FEC0DC5B1C28B39F0008C7C1 /* CoderpursueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderpursueUITests.swift; sourceTree = "<group>"; };
 		FEC0DC5D1C28B39F0008C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED481081C3C7121002956A8 /* CPStyleGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStyleGuide.swift; sourceTree = "<group>"; };
+		FEF5E58C1C46FA4E00DBF19F /* ObjUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjUser.swift; sourceTree = "<group>"; };
+		FEF5E58E1C46FC7500DBF19F /* ObjPlan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjPlan.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,8 +188,10 @@
 		FE91BA721C333804002AECB6 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FE0FE0D61C3DC7BB0005DDE5 /* ObjBase.swift */,
 				FE26BCC01C44494800887534 /* AppToken.swift */,
+				FE0FE0D61C3DC7BB0005DDE5 /* ObjBase.swift */,
+				FEF5E58C1C46FA4E00DBF19F /* ObjUser.swift */,
+				FEF5E58E1C46FC7500DBF19F /* ObjPlan.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -580,6 +586,8 @@
 				FE0FE0D51C3DC1C00005DDE5 /* UINavigationController+Pop.swift in Sources */,
 				FE91BA871C3338D7002AECB6 /* CPBaseViewController.swift in Sources */,
 				FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */,
+				FEF5E58D1C46FA4E00DBF19F /* ObjUser.swift in Sources */,
+				FEF5E58F1C46FC7500DBF19F /* ObjPlan.swift in Sources */,
 				FE91BA8F1C33396E002AECB6 /* CPProfileViewController.swift in Sources */,
 				FE0FE0D91C3F14F10005DDE5 /* ProjectKey.swift in Sources */,
 				FE19F93D1C39331B009986FE /* UIColor+Project.swift in Sources */,

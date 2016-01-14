@@ -10,6 +10,8 @@ import UIKit
 import Alamofire
 import ObjectMapper
 import SwiftyJSON
+import Moya
+import AlamofireObjectMapper
 
 class CPGitLoginViewController: CPWebViewController {
 
@@ -98,32 +100,37 @@ class CPGitLoginViewController: CPWebViewController {
         let provider = Provider.sharedProvider
         provider.request(.User) { (result) -> () in
             print(result)
+            var success = true
+            var message = "Unable to fetch from GitHub"
+            
             switch result {
             case let .Success(response):
-                let json = response
-   
-            case let .Failure(error):
-                let eror = error
-
-            }
-        }
-        
-        let requestUrl = String(format: "https://api.github.com/user?access_token=%@", token)
-        
-        Alamofire.request(.GET, requestUrl, parameters:nil)
-            .responseJSON { response in
-                
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
+                do {
+                    if let user:ObjUser = Mapper<ObjUser>().map(try response.mapJSON()) {
+                        print(user)
+                        self.navBack()
+                    } else {
+                        success = false
+                    }
+                } catch {
+                    success = false
                 }
-        }
+                //                self.tableView.reloadData()
+            case let .Failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+                success = false
+            }
 
+        }
         
+    }
+    
+    override func navBack() {
+        super.navBack()
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
 }

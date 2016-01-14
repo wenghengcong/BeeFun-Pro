@@ -38,6 +38,9 @@ class GitHupPorvider<Target where Target: TargetType>: MoyaProvider<Target> {
             super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins)
     }
     
+    
+    
+    
 }
 
 struct Provider{
@@ -67,7 +70,7 @@ struct Provider{
     static var sharedProvider:GitHupPorvider<GitHubAPI> {
         
         get {
-        return SharedProvider.instance
+            return SharedProvider.instance
         }
         
         set (newSharedProvider) {
@@ -75,6 +78,30 @@ struct Provider{
         }
         
     }
+    /*
+    static func requestDataWithTarget<T: Mappable>(target: GitHubAPI, type: T.Type , successClosure: SuccessClosure, failClosure: FailClosure) {
+        let _ = sharedProvider.request(target).subscribe { (event) -> Void in
+            switch event {
+            case .Next(let response):
+                let info = Mapper<CommonInfo>().map(JSON(data: response.data,options: .AllowFragments).object)
+                guard info?.code == RequestCode.success.rawValue else {
+                    failClosure(errorMsg: info?.msg)
+                    return
+                }
+                guard let data = info?.data else {
+                    failClosure(errorMsg: "数据为空")
+                    return
+                }
+                successClosure(result: data)
+            case .Error(let error):
+                print("网络请求失败...\(error)")
+            default:
+                break
+            }
+        }
+    }
+    */
+
     
 }
 

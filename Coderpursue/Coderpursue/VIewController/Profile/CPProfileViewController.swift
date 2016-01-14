@@ -43,7 +43,6 @@ class CPProfileViewController: CPBaseViewController {
     }
     
     func pvc_showLoginInWebView() {
-        
         NetworkHelper.clearCookies()
         
         let loginVC = CPGitLoginViewController()

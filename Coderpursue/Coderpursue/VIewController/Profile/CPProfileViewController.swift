@@ -20,6 +20,7 @@ class CPProfileViewController: CPBaseViewController {
         // Do any additional setup after loading the view.
         
         pvc_addButtonTarget()
+        pvc_loadUserinfoData()
     }
 
     
@@ -28,12 +29,23 @@ class CPProfileViewController: CPBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: load data 
+    func pvc_loadUserinfoData() {
+        let user:ObjUser? = ObjUser.loadUserInfo()
+        if user != nil {
+            print("user\(user!.name)")
+        }
+    }
+    
+    // MARK: view
+    
     func pvc_addButtonTarget() {
         pvc_editProfileBtn.addTarget(self, action: "pvc_editProfileAction:", forControlEvents: .TouchUpInside)
         pvc_loginBtn.addTarget(self, action: "pvc_loginAction:", forControlEvents: .TouchUpInside)
 
     }
     
+    // MARK:  action
     func pvc_editProfileAction(sender:UIButton!) {
     }
     
@@ -41,6 +53,9 @@ class CPProfileViewController: CPBaseViewController {
         
         pvc_showLoginInWebView()
     }
+    
+    
+    // MARK: segue
     
     func pvc_showLoginInWebView() {
         NetworkHelper.clearCookies()
@@ -52,8 +67,6 @@ class CPProfileViewController: CPBaseViewController {
         self.navigationController?.pushViewController(loginVC, animated: true)
         
     }
-
-    
 
     /*
     // MARK: - Navigation

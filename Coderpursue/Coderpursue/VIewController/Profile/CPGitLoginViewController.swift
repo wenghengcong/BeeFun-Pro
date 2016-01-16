@@ -11,7 +11,6 @@ import Alamofire
 import ObjectMapper
 import SwiftyJSON
 import Moya
-import AlamofireObjectMapper
 
 class CPGitLoginViewController: CPWebViewController {
 
@@ -100,14 +99,14 @@ class CPGitLoginViewController: CPWebViewController {
         let provider = Provider.sharedProvider
         provider.request(.User) { (result) -> () in
             print(result)
+            
             var success = true
             var message = "Unable to fetch from GitHub"
-            
             switch result {
             case let .Success(response):
                 do {
-                    if let user:ObjUser = Mapper<ObjUser>().map(try response.mapJSON()) {
-                        print(user)
+                    if let gitUser:ObjUser = Mapper<ObjUser>().map(try response.mapJSON()) {
+                        gitUser.saveUserInfo()
                         self.navBack()
                     } else {
                         success = false

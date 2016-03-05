@@ -1,7 +1,7 @@
 //
 //  IQTextView.swift
 // https://github.com/hackiftekhar/IQKeyboardManager
-// Copyright (c) 2013-15 Iftekhar Qurashi.
+// Copyright (c) 2013-16 Iftekhar Qurashi.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -79,7 +79,7 @@ public class IQTextView : UITextView {
         }
     }
     
-    private func refreshPlaceholder() {
+    public func refreshPlaceholder() {
         
         if text.characters.count != 0 {
             placeholderLabel?.alpha = 0

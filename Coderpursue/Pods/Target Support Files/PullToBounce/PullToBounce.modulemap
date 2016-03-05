@@ -1,0 +1,6 @@
+framework module PullToBounce {
+  umbrella header "PullToBounce-umbrella.h"
+
+  export *
+  module * { export * }
+}

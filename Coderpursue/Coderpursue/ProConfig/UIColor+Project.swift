@@ -44,18 +44,18 @@ extension UIColor {
     
     class func navigationBarBackgroundColor() -> UIColor {
         //red
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr("e31100", alpha: 1.0)
     }
     
     //MARK: tab bar
     class func tabBarTitleTextColor() -> UIColor {
         //red
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr("e31100", alpha: 1.0)
     }
     
     class func tabBarBackgroundColor() -> UIColor {
         //light gray
-        return UIColor.hexStr("f8f8f8", alpha: 1.0)
+        return UIColor.whiteColor()
     }
     
     //MARK: label
@@ -99,11 +99,11 @@ extension UIColor {
     }
     
     class func buttonRedTitleTextColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr("e31100", alpha: 1.0)
     }
     
     class func buttonRedBackgroundColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr("e31100", alpha: 1.0)
     }
     
     //below 3 color group
@@ -112,11 +112,11 @@ extension UIColor {
     }
     
     class func buttonHighlightBackgroundColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr("e31100", alpha: 1.0)
     }
     
     class func buttonSelectedBackgroundColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0)
+        return UIColor.hexStr("e31100", alpha: 1.0)
     }
     
     //MARK: view
@@ -126,7 +126,7 @@ extension UIColor {
     
     //badege
     class func badgeBackgroundColor() -> UIColor {
-        return UIColor.hexStr("ff113c", alpha: 1.0);
+        return UIColor.hexStr("e31100", alpha: 1.0);
     }
     
     //line
@@ -134,4 +134,15 @@ extension UIColor {
         return UIColor.hexStr("d9d9d9", alpha: 1.0);
     }
     
+    
+    //MARK: color name
+    class func cpBlackColor() -> UIColor {
+        //white
+        return UIColor.hexStr("000000", alpha: 1.0)
+    }
+    
+    class func cpRedColor() -> UIColor {
+        //red
+        return UIColor.hexStr("e31100", alpha: 1.0)
+    }
 }

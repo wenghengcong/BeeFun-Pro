@@ -11,10 +11,11 @@ import Alamofire
 import ObjectMapper
 import SwiftyJSON
 import Moya
+import Foundation
+
 
 class CPGitLoginViewController: CPWebViewController {
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,11 +30,19 @@ class CPGitLoginViewController: CPWebViewController {
     }
     
     override func webViewDidStartLoad(webView: UIWebView) {
+        
         super.webViewDidStartLoad(webView)
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.labelText = "Loading"
+        
     }
     
     override func webViewDidFinishLoad(webView: UIWebView) {
+        
         super.webViewDidFinishLoad(webView)
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+        
         //get code = ""
         let urlStr:String = (webView.request?.URL?.absoluteString)!
         
@@ -78,7 +87,7 @@ class CPGitLoginViewController: CPWebViewController {
                         let scope = arr[1].substringFromIndex(arr[1].startIndex.advancedBy(7))
                         let tokentype = arr[2].substringFromIndex(arr[2].startIndex.advancedBy(11))
                         
-                        var token = AppToken()
+                        var token = AppToken.sharedInstance
                         token.access_token = String(format: "token %@", accesstoken)
 //                        token.access_token = accesstoken
                         token.token_type = tokentype
@@ -97,17 +106,21 @@ class CPGitLoginViewController: CPWebViewController {
     func getUserinfo(token:String){
         
         let provider = Provider.sharedProvider
-        provider.request(.User) { (result) -> () in
+        provider.request(.MyInfo) { (result) -> () in
             print(result)
             
             var success = true
             var message = "Unable to fetch from GitHub"
+
             switch result {
             case let .Success(response):
                 do {
                     if let gitUser:ObjUser = Mapper<ObjUser>().map(try response.mapJSON()) {
-                        gitUser.saveUserInfo()
+                        ObjUser.saveUserInfo(gitUser)
+                        //post successful noti
                         self.navBack()
+                        NSNotificationCenter.defaultCenter().postNotificationName(CPNotiName.GitLoginSuccessfulNotification, object:nil)
+                        
                     } else {
                         success = false
                     }

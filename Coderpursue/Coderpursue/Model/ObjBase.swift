@@ -15,6 +15,7 @@ class ObjBase: Mappable {
 //    var create_at
 //    var update_at
 //    
+
     required init?(_ map: Map) {
         
     }

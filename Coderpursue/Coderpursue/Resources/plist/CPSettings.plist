@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<dict>
+			<key>itemKey</key>
+			<string>watched</string>
+			<key>itemName</key>
+			<string>Watched</string>
+			<key>itemIcon</key>
+			<string>set_watched</string>
+			<key>itemDisclosure</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>itemKey</key>
+			<string>forked</string>
+			<key>itemName</key>
+			<string>Forked</string>
+			<key>itemIcon</key>
+			<string>set_forked</string>
+			<key>itemDisclosure</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>itemKey</key>
+			<string>settings</string>
+			<key>itemName</key>
+			<string>Settings</string>
+			<key>itemIcon</key>
+			<string>set_settings</string>
+			<key>itemDisclosure</key>
+			<true/>
+		</dict>
+	</array>
+</array>
+</plist>

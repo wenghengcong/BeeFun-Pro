@@ -19,6 +19,9 @@ struct AppToken {
     
     let defaults: NSUserDefaults
     
+    static let sharedInstance = AppToken()
+    
+    
     init(defaults:NSUserDefaults) {
         self.defaults = defaults
     }
@@ -29,7 +32,6 @@ struct AppToken {
     
     var access_token:String? {
         get {
-            
             let key = defaults.stringForKey(DefaultsKeys.TokenKey.rawValue)
             return key
         }

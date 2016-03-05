@@ -186,6 +186,18 @@ public enum GitHubAPI {
     case WatchingRepo(owner:String, repo:String)
     case UnWatchingRepo(owner:String, repo:String)
     
+    //Event
+    case PublicEvents(page:Int,perpage:Int)
+    case RepoEvents(owner:String, repo:String,page:Int,perpage:Int)
+    case RepoIssueEvents(owner:String, repo:String,page:Int,perpage:Int)
+    case RepoPublicNetworkEvents(owner:String, repo:String,page:Int,perpage:Int)
+    case OrgPublicEvent(organization:String,page:Int,perpage:Int)
+    case UserReceivedEvents(username:String ,page:Int,perpage:Int)
+    case UserReceivedPublicEvents(username:String ,page:Int,perpage:Int)
+    case UserEvents(username:String ,page:Int,perpage:Int)
+    case UserPublicEvents(username:String ,page:Int,perpage:Int)
+    case OrgEvents(username:String,organization:String,page:Int,perpage:Int)
+    
 }
 
 extension GitHubAPI: TargetType {
@@ -298,7 +310,33 @@ extension GitHubAPI: TargetType {
         case UnWatchingRepo(let owner,let repo):
             return "/repos/\(owner)/\(repo)/subscription"
 
-            
+            //Event
+        case PublicEvents:
+            return "/events"
+        case RepoEvents(let owner, let repo,_,_):
+            return "/repos/\(owner)/\(repo)/events"
+
+        case RepoIssueEvents(let owner, let repo,_,_):
+            return "/repos/\(owner)/\(repo)/issues/events"
+
+        case RepoPublicNetworkEvents(let owner,let repo,_,_):
+            return "/networks/\(owner)/\(repo)/events"
+
+        case OrgPublicEvent(let organization,_,_):
+            return "/orgs/\(organization)/events"
+
+        case UserReceivedEvents(let username ,_,_):
+            return "/users/\(username)/received_events"
+
+        case UserReceivedPublicEvents(let username ,_,_):
+            return "/users/\(username)/received_events/public"
+        case UserEvents(let username ,_,_):
+            return "/users/\(username)/events"
+        case UserPublicEvents(let username ,_,_):
+            return "/users/\(username)/events/public"
+        case OrgEvents(let username,let organization,_,_):
+            return "/users/\(username)/events/orgs/\(organization)"
+
             
         }
         
@@ -511,11 +549,61 @@ extension GitHubAPI: TargetType {
                 "per_page":perpage,
             ]
             
-            
+            //Event
+        case PublicEvents(let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
+        case RepoEvents(_,_,let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
+        case RepoIssueEvents(_,_,let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
+        case RepoPublicNetworkEvents(_,_,let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
+        case OrgPublicEvent(_,let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
+        case UserReceivedEvents(_,let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
+        case UserReceivedPublicEvents(_,let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
+        case UserEvents(_,let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
+        case UserPublicEvents(_,let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
+        case OrgEvents(_,_,let page,let perpage):
+            return [
+                "page":page,
+                "per_page":perpage,
+            ]
             
         default:
             return nil
-
+            
         }
         
     }

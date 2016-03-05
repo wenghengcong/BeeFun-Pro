@@ -32,6 +32,11 @@ class ObjComment: NSObject,Mappable {
     var created_at:String?
     var updated_at:String?
     var body:String?
+    var position:String?
+    var line:String?
+    var path:String?
+    var commit_id:String?
+
 
     required init?(_ map: Map) {
         //        super.init(map)
@@ -47,6 +52,11 @@ class ObjComment: NSObject,Mappable {
         created_at <- map["created_at"]
         updated_at <- map["updated_at"]
         body <- map["body"]
+        position <- map["position"]
+        line <- map["line"]
+        path <- map["path"]
+        commit_id <- map["commit_id"]
+
         
     }
 }

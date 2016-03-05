@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CPStarredReposCell" rowHeight="85" id="yLE-TZ-D3o" customClass="CPStarredReposCell" customModule="Coderpursue" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CPStarredReposCellIdentifier" rowHeight="85" id="yLE-TZ-D3o" customClass="CPStarredReposCell" customModule="Coderpursue" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yLE-TZ-D3o" id="gGU-Hi-TFB">

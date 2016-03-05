@@ -18,8 +18,8 @@ class CPStarsViewController: CPBaseViewController{
     
     var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories","Event"])
     
-    var cellId = "CPStarredReposCell"
     var reposData:[ObjRepos]! = []
+    var eventsData:[ObjEvent]! = []
     var sortVal:String = "created"
     var directionVal:String = "desc"
     var pageVal = 0
@@ -45,17 +45,25 @@ class CPStarsViewController: CPBaseViewController{
         
         svc_setupSegmentView()
         svc_setupTableView()
+        updateNetrokData()
+        
+    }
+    
+    func updateNetrokData() {
         
         if UserInfoHelper.sharedInstance.isLoginIn {
             self.tableView.hidden = false
-            svc_getUserReposRequest(pageVal)
+            
+            if segControl.selectedSegmentIndex == 0 {
+                svc_getUserReposRequest(pageVal)
+            }else{
+                svc_getUserEventsRequest(pageVal)
+            }
+            
         }else {
             //加载未登录的页面
             self.tableView.hidden = true
-            
-            
         }
-        
     }
     
     func svc_setupSegmentView() {
@@ -72,6 +80,19 @@ class CPStarsViewController: CPBaseViewController{
         
         segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
+        segControl.indexChangeBlock = {
+            (index:Int)-> Void in
+            
+            self.pageVal = 0
+            
+            if index == 0 {
+                self.svc_getUserReposRequest(self.pageVal)
+            }else{
+                self.svc_getUserEventsRequest(self.pageVal)
+
+            }
+        
+        }
         segControl.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(64)
             make.height.equalTo(44)
@@ -109,14 +130,14 @@ class CPStarsViewController: CPBaseViewController{
     func headerRefresh(){
         print("下拉刷新")
         pageVal = 0
-        svc_getUserReposRequest(pageVal)
+        updateNetrokData()
     }
     
     // 底部刷新
     func footerRefresh(){
         print("上拉刷新")
         pageVal++
-        svc_getUserReposRequest(pageVal)
+        updateNetrokData()
     }
     
     
@@ -126,7 +147,7 @@ class CPStarsViewController: CPBaseViewController{
         
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        Provider.sharedProvider.request(.MyStarredRepos(page:pageVal,perpage:10,sort: sortVal,direction: directionVal) ) { (result) -> () in
+        Provider.sharedProvider.request(.MyStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
 
             var success = true
             var message = "Unable to fetch from GitHub"
@@ -157,6 +178,7 @@ class CPStarsViewController: CPBaseViewController{
                     }
                 } catch {
                     success = false
+                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -170,6 +192,57 @@ class CPStarsViewController: CPBaseViewController{
             
         }
     }
+    
+    func svc_getUserEventsRequest(pageVal:Int) {
+        
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        Provider.sharedProvider.request(.UserEvents(username:ObjUser.loadUserInfo()!.name! ,page:pageVal,perpage:10) ) { (result) -> () in
+            
+            var success = true
+            var message = "Unable to fetch from GitHub"
+            
+            if(pageVal == 0) {
+                self.tableView.mj_header.endRefreshing()
+            }else{
+                self.tableView.mj_footer.endRefreshing()
+            }
+            
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            
+            switch result {
+            case let .Success(response):
+                
+                do {
+                    if let events:[ObjEvent]? = try response.mapArray(ObjEvent){
+                        if(pageVal == 0) {
+                            self.eventsData = events!
+                        }else{
+                            self.eventsData = self.eventsData+events!
+                        }
+                        
+                        self.tableView.reloadData()
+                        
+                    } else {
+                        success = false
+                    }
+                } catch {
+                    success = false
+                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                }
+            case let .Failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+                success = false
+                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                
+            }
+        }
+        
+    }
+    
 }
 
 extension CPStarsViewController : UITableViewDataSource {
@@ -179,19 +252,54 @@ extension CPStarsViewController : UITableViewDataSource {
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.reposData.count
+        if segControl.selectedSegmentIndex == 0 {
+            return  self.reposData.count
+        }
+        return self.eventsData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        var cell = tableView .dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as? CPStarredReposCell
-        if cell == nil {
-            cell = CPStarredReposCell(style: UITableViewCellStyle.Default, reuseIdentifier:cellId)
-        }
         let row = indexPath.row
+
+        var cellId = ""
         
-        let repos = self.reposData[row]
-        cell!.objRepos = repos
+        if segControl.selectedSegmentIndex == 0 {
+            
+            cellId = "CPStarredReposCellIdentifier"
+            var cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPStarredReposCell
+            if cell == nil {
+                cell = CPStarredReposCell(style: UITableViewCellStyle.Default, reuseIdentifier:cellId)
+            }
+            
+            //handle line in cell
+            if row == 0 {
+                cell!.topline = true
+            }
+            if (row == reposData.count-1) {
+                cell!.fullline = true
+            }else {
+                cell!.fullline = false
+            }
+            
+            let repos = self.reposData[row]
+            cell!.objRepos = repos
+            
+            return cell!;
+
+        }
+        
+        let event = self.eventsData[row]
+        
+        if (event.type! == EventType.WatchEvent.rawValue) {
+            
+        }
+        
+        cellId = "CPEventStarredCellIdentifier"
+        var cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventStarredCell
+        if cell == nil {
+            cell = CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell
+        }
         
         //handle line in cell
         if row == 0 {
@@ -202,12 +310,27 @@ extension CPStarsViewController : UITableViewDataSource {
         }else {
             cell!.fullline = false
         }
+        cell!.event = event
         
         return cell!;
+
     }
     
 }
 extension CPStarsViewController : UITableViewDelegate {
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if segControl.selectedSegmentIndex == 0 {
+            
+            return 85
+            
+        }else{
+            return 45
+            
+        }
+        return 0
+    }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         

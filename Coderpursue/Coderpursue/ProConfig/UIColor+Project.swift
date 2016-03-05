@@ -145,4 +145,9 @@ extension UIColor {
         //red
         return UIColor.hexStr("e31100", alpha: 1.0)
     }
+    
+    class func cpBlueColor() -> UIColor {
+        //red
+        return UIColor.hexStr("5677fc", alpha: 1.0)
+    }
 }

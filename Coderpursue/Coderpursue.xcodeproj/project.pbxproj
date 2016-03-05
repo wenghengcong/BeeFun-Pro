@@ -18,6 +18,12 @@
 		5EE91F831C7C4E32003F4CBF /* ObjEventPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91F821C7C4E32003F4CBF /* ObjEventPayload.swift */; };
 		5EE91F851C7C4FF9003F4CBF /* ObjEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91F841C7C4FF9003F4CBF /* ObjEvent.swift */; };
 		5EE91F871C7C5922003F4CBF /* ObjCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91F861C7C5922003F4CBF /* ObjCommit.swift */; };
+		5EEE93D81C8B1207003911B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEE93D71C8B1207003911B2 /* Assets.xcassets */; };
+		5EEE93DA1C8BA922003911B2 /* CPEventCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEE93D91C8BA922003911B2 /* CPEventCreateCell.swift */; };
+		5EEE93DE1C8BA93A003911B2 /* CPEventCreateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EEE93DD1C8BA93A003911B2 /* CPEventCreateCell.xib */; };
+		5EF6E3CA1C8AC4A1004F6473 /* CPStarredReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6E3C91C8AC4A1004F6473 /* CPStarredReposCell.swift */; };
+		5EF6E3CC1C8AC4B0004F6473 /* CPEventStarredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6E3CB1C8AC4B0004F6473 /* CPEventStarredCell.swift */; };
+		5EF6E3CE1C8AC4C9004F6473 /* CPEventStarredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EF6E3CD1C8AC4C9004F6473 /* CPEventStarredCell.xib */; };
 		FE02E1E31C4A3EA00087AED6 /* UserInfoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE02E1E21C4A3EA00087AED6 /* UserInfoHelper.swift */; };
 		FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D11C3DC1350005DDE5 /* CPBaseNavigationController.swift */; };
 		FE0FE0D51C3DC1C00005DDE5 /* UINavigationController+Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D41C3DC1C00005DDE5 /* UINavigationController+Pop.swift */; };
@@ -42,7 +48,6 @@
 		FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */; };
 		FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */; };
 		FE3ED3CD1C5C67BA0048BA1D /* CPSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3CC1C5C67BA0048BA1D /* CPSettingsViewController.swift */; };
-		FE3ED3CF1C5CAB1E0048BA1D /* CPStarredReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3CE1C5CAB1E0048BA1D /* CPStarredReposCell.swift */; };
 		FE49DF941C4B5AE600676131 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF931C4B5AE600676131 /* Device.swift */; };
 		FE49DF981C4B5D6A00676131 /* UIDevice+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF971C4B5D6A00676131 /* UIDevice+Model.swift */; };
 		FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */; };
@@ -72,7 +77,6 @@
 		FEAB7EB61C5E2B8500C78E87 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAB7EB51C5E2B8500C78E87 /* DataModel.swift */; };
 		FEC0DC3A1C28B39F0008C7C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0DC391C28B39F0008C7C1 /* AppDelegate.swift */; };
 		FEC0DC411C28B39F0008C7C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC0DC3F1C28B39F0008C7C1 /* Main.storyboard */; };
-		FEC0DC431C28B39F0008C7C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEC0DC421C28B39F0008C7C1 /* Assets.xcassets */; };
 		FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEC0DC441C28B39F0008C7C1 /* LaunchScreen.storyboard */; };
 		FEC0DC511C28B39F0008C7C1 /* CoderpursueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0DC501C28B39F0008C7C1 /* CoderpursueTests.swift */; };
 		FEC0DC5C1C28B39F0008C7C1 /* CoderpursueUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC0DC5B1C28B39F0008C7C1 /* CoderpursueUITests.swift */; };
@@ -108,6 +112,12 @@
 		5EE91F821C7C4E32003F4CBF /* ObjEventPayload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjEventPayload.swift; sourceTree = "<group>"; };
 		5EE91F841C7C4FF9003F4CBF /* ObjEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjEvent.swift; sourceTree = "<group>"; };
 		5EE91F861C7C5922003F4CBF /* ObjCommit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCommit.swift; sourceTree = "<group>"; };
+		5EEE93D71C8B1207003911B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5EEE93D91C8BA922003911B2 /* CPEventCreateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventCreateCell.swift; sourceTree = "<group>"; };
+		5EEE93DD1C8BA93A003911B2 /* CPEventCreateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventCreateCell.xib; sourceTree = "<group>"; };
+		5EF6E3C91C8AC4A1004F6473 /* CPStarredReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStarredReposCell.swift; sourceTree = "<group>"; };
+		5EF6E3CB1C8AC4B0004F6473 /* CPEventStarredCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventStarredCell.swift; sourceTree = "<group>"; };
+		5EF6E3CD1C8AC4C9004F6473 /* CPEventStarredCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventStarredCell.xib; sourceTree = "<group>"; };
 		7033FE43E4D993E3792163CE /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E55419785C19BA2049E6F4B9 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		FE02E1E21C4A3EA00087AED6 /* UserInfoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInfoHelper.swift; sourceTree = "<group>"; };
@@ -137,7 +147,6 @@
 		FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPReposViewController.swift; sourceTree = "<group>"; };
 		FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFollowersViewController.swift; sourceTree = "<group>"; };
 		FE3ED3CC1C5C67BA0048BA1D /* CPSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsViewController.swift; sourceTree = "<group>"; };
-		FE3ED3CE1C5CAB1E0048BA1D /* CPStarredReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CPStarredReposCell.swift; path = Coderpursue/VIewController/Profile/CPStarredReposCell.swift; sourceTree = SOURCE_ROOT; };
 		FE49DF931C4B5AE600676131 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		FE49DF971C4B5D6A00676131 /* UIDevice+Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Model.swift"; sourceTree = "<group>"; };
 		FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsCell.swift; sourceTree = "<group>"; };
@@ -168,7 +177,6 @@
 		FEC0DC361C28B39F0008C7C1 /* Coderpursue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coderpursue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC0DC391C28B39F0008C7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEC0DC401C28B39F0008C7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		FEC0DC421C28B39F0008C7C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FEC0DC451C28B39F0008C7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FEC0DC471C28B39F0008C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEC0DC4C1C28B39F0008C7C1 /* CoderpursueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderpursueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -494,7 +502,11 @@
 		FE91BA821C333859002AECB6 /* Stars */ = {
 			isa = PBXGroup;
 			children = (
-				FE3ED3CE1C5CAB1E0048BA1D /* CPStarredReposCell.swift */,
+				5EF6E3C91C8AC4A1004F6473 /* CPStarredReposCell.swift */,
+				5EF6E3CB1C8AC4B0004F6473 /* CPEventStarredCell.swift */,
+				5EF6E3CD1C8AC4C9004F6473 /* CPEventStarredCell.xib */,
+				5EEE93D91C8BA922003911B2 /* CPEventCreateCell.swift */,
+				5EEE93DD1C8BA93A003911B2 /* CPEventCreateCell.xib */,
 			);
 			path = Stars;
 			sourceTree = "<group>";
@@ -541,8 +553,8 @@
 				FE91BA761C333804002AECB6 /* View */,
 				FE91BA771C333804002AECB6 /* VIewController */,
 				FEC0DC391C28B39F0008C7C1 /* AppDelegate.swift */,
+				5EEE93D71C8B1207003911B2 /* Assets.xcassets */,
 				FEC0DC3F1C28B39F0008C7C1 /* Main.storyboard */,
-				FEC0DC421C28B39F0008C7C1 /* Assets.xcassets */,
 				FE1DE7B51C5104AC00865DD5 /* Coderpursue-Bridging-Header.h */,
 				FEC0DC441C28B39F0008C7C1 /* LaunchScreen.storyboard */,
 				FEC0DC471C28B39F0008C7C1 /* Info.plist */,
@@ -677,9 +689,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */,
-				FEC0DC431C28B39F0008C7C1 /* Assets.xcassets in Resources */,
+				5EF6E3CE1C8AC4C9004F6473 /* CPEventStarredCell.xib in Resources */,
 				FE914DBE1C4BE37B001C3D90 /* CPSettings.plist in Resources */,
+				5EEE93DE1C8BA93A003911B2 /* CPEventCreateCell.xib in Resources */,
 				FEC0DC411C28B39F0008C7C1 /* Main.storyboard in Resources */,
+				5EEE93D81C8B1207003911B2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,6 +774,7 @@
 				FE3ED3C61C5C49700048BA1D /* HMSegmentedControl.m in Sources */,
 				FEAB7EB61C5E2B8500C78E87 /* DataModel.swift in Sources */,
 				FE19F9411C3944C7009986FE /* JSBNotiName.swift in Sources */,
+				5EF6E3CA1C8AC4A1004F6473 /* CPStarredReposCell.swift in Sources */,
 				FE914DC81C4DAC38001C3D90 /* ObjSettings.swift in Sources */,
 				5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */,
 				FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */,
@@ -775,7 +790,6 @@
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
 				FE26BCBF1C4282BA00887534 /* NetworkHelper.swift in Sources */,
 				FE91BA971C334C9F002AECB6 /* CPLoginViewController.swift in Sources */,
-				FE3ED3CF1C5CAB1E0048BA1D /* CPStarredReposCell.swift in Sources */,
 				FE914DC61C4BEEC6001C3D90 /* PlistHelper.swift in Sources */,
 				FE49DF941C4B5AE600676131 /* Device.swift in Sources */,
 				FE0FE0D51C3DC1C00005DDE5 /* UINavigationController+Pop.swift in Sources */,
@@ -799,9 +813,11 @@
 				FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */,
 				FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */,
 				FE91BA951C333AE2002AECB6 /* CPBaseTabBarController.swift in Sources */,
+				5EF6E3CC1C8AC4B0004F6473 /* CPEventStarredCell.swift in Sources */,
 				FE6980E41C5602C40026089B /* ObjPlan.swift in Sources */,
 				5EE91F811C7C4D05003F4CBF /* ObjComment.swift in Sources */,
 				FE17EA3E1C5723050061F624 /* ObjRepos.swift in Sources */,
+				5EEE93DA1C8BA922003911B2 /* CPEventCreateCell.swift in Sources */,
 				5EE91F871C7C5922003F4CBF /* ObjCommit.swift in Sources */,
 				FE6055C71C4088730073BC0A /* CPGitLoginViewController.swift in Sources */,
 				FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */,

@@ -10,7 +10,7 @@ import UIKit
 import SnapKit
 
 class CPBaseViewCell: UITableViewCell {
-
+    
     /**
     *  是否为完整的底部灰线
     */
@@ -57,6 +57,13 @@ class CPBaseViewCell: UITableViewCell {
                 })
             }
         }
+    }
+    
+    static func cellFromNibNamed(nibName:String) -> AnyObject{
+        
+        var nibContents:Array = NSBundle.mainBundle().loadNibNamed(nibName, owner: self, options: nil)
+        let xibBasedCell = nibContents[0]
+        return xibBasedCell
     }
     
     override func awakeFromNib() {

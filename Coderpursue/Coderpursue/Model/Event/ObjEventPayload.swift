@@ -17,6 +17,9 @@
 import UIKit
 import ObjectMapper
 
+
+
+
 class ObjEventPayload: NSObject,Mappable {
     
     //IssueCommentEvent,IssuesEvent,WatchEvent,MemberEvent
@@ -58,7 +61,7 @@ class ObjEventPayload: NSObject,Mappable {
 //    var ref:String?
     var head:String?
     var before:String?
-    var commits:ObjCommit?
+    var commits:[ObjCommit]?
 
     //MemberEvent
     var member:ObjUser?

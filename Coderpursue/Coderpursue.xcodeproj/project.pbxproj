@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A49EFF6B7B4D190245499A7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8CC865E56BA5C5F2757091 /* Pods.framework */; };
+		5E03D58B1C8BCC1D00E8C1FD /* CPEventBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */; };
 		5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */; };
 		5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */; };
 		5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF571C7C065900760F0F /* ObjLabel.swift */; };
@@ -102,6 +103,7 @@
 
 /* Begin PBXFileReference section */
 		1E8CC865E56BA5C5F2757091 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventBaseCell.swift; sourceTree = "<group>"; };
 		5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjMilestone.swift; sourceTree = "<group>"; };
 		5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjPullRequest.swift; sourceTree = "<group>"; };
 		5EE3FF571C7C065900760F0F /* ObjLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjLabel.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				5EF6E3C91C8AC4A1004F6473 /* CPStarredReposCell.swift */,
+				5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */,
 				5EF6E3CB1C8AC4B0004F6473 /* CPEventStarredCell.swift */,
 				5EF6E3CD1C8AC4C9004F6473 /* CPEventStarredCell.xib */,
 				5EEE93D91C8BA922003911B2 /* CPEventCreateCell.swift */,
@@ -814,6 +817,7 @@
 				FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */,
 				FE91BA951C333AE2002AECB6 /* CPBaseTabBarController.swift in Sources */,
 				5EF6E3CC1C8AC4B0004F6473 /* CPEventStarredCell.swift in Sources */,
+				5E03D58B1C8BCC1D00E8C1FD /* CPEventBaseCell.swift in Sources */,
 				FE6980E41C5602C40026089B /* ObjPlan.swift in Sources */,
 				5EE91F811C7C4D05003F4CBF /* ObjComment.swift in Sources */,
 				FE17EA3E1C5723050061F624 /* ObjRepos.swift in Sources */,

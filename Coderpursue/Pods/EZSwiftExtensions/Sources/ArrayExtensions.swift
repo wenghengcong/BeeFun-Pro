@@ -15,38 +15,6 @@ extension Array {
         return self[index]
     }
     
-    /// EZSE: Returns the index of the object
-    public func indexOfObject<T: Equatable>(object: T) -> Int? {
-        for index in 0..<self.count {
-            if let arrayObject = self[index] as? T {
-                if arrayObject == object {
-                    return index
-                }
-            }
-        }
-
-        return nil
-    }
-
-    /// EZSE: Removes the last given object
-    public mutating func removeObject<U: Equatable>(object: U) {
-        for i in (0..<count).reverse() {
-            if let obj = self[i] as? U where obj == object {
-                self.removeAtIndex(i)
-                return
-            }
-        }
-    }
-    
-    /// EZSE: Removes all occurrences of the given object
-    public mutating func removeObjects<U: Equatable>(object: U) {
-        for i in (0..<count).reverse() {
-            if let obj = self[i] as? U where obj == object {
-                self.removeAtIndex(i)
-            }
-        }        
-    }
-    
     /// EZSE: Checks if array contains at least 1 instance of the given object type
     public func containsInstanceOf<T>(object: T) -> Bool {
         for item in self {
@@ -58,8 +26,33 @@ extension Array {
     }
 }
 
-extension Array where Element : Equatable {
+extension Array where Element: Equatable {
+
+    /// EZSE: Returns the indexes of the object
+    public func indexesOf(object: Element) -> [Int] {
+        var indexes = [Int]()
+        for index in 0..<self.count {
+            if self[index] == object {
+                indexes.append(index)
+            }
+        }
+        return indexes
+    }
     
+    /// EZSE: Removes the first given object
+    public mutating func removeObject(object: Element) {
+        if let index = self.indexOf(object) {
+            self.removeAtIndex(index)
+        }
+    }
+    
+    /// EZSE: Removes all occurrences of the given object
+    public mutating func removeObjects(object: Element) {
+        for i in self.indexesOf(object).reverse() {
+            self.removeAtIndex(i)
+        }
+    }
+
     /// EZSE: Checks if the main array contains the parameter array
     public func containsArray(lookFor: [Element]) -> Bool {
         for item in lookFor {

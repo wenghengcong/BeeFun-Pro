@@ -33,6 +33,7 @@ public enum EventType:String {
     case ForkApplyEvent = "ForkApplyEvent"
     case GistEvent = "GistEvent"
     case GollumEvent = "GollumEvent"
+    case IssuesEvent = "IssuesEvent"
     case IssueCommentEvent = "IssueCommentEvent"
     case MemberEvent = "MemberEvent"
     case MembershipEvent = "MembershipEvent"

@@ -13,7 +13,7 @@ pod 'EZSwiftExtensions'
 pod 'XCGLogger'
 pod 'ReachabilitySwift'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
-pod 'PullToBounce'
+#pod 'PullToBounce'
 pod 'MBProgressHUD'
 pod 'MJRefresh'
 pod "SwiftDate", "~> 2.0"

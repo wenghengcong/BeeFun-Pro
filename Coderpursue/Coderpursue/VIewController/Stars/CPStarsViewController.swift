@@ -8,7 +8,6 @@
 
 import UIKit
 import Moya
-import PullToBounce
 import Foundation
 import MJRefresh
 
@@ -22,7 +21,8 @@ class CPStarsViewController: CPBaseViewController{
     var eventsData:[ObjEvent]! = []
     var sortVal:String = "created"
     var directionVal:String = "desc"
-    var pageVal = 0
+    var reposPageVal = 1
+    var eventPageVal = 1
     
     // 顶部刷新
     let header = MJRefreshNormalHeader()
@@ -55,9 +55,9 @@ class CPStarsViewController: CPBaseViewController{
             self.tableView.hidden = false
             
             if segControl.selectedSegmentIndex == 0 {
-                svc_getUserReposRequest(pageVal)
+                svc_getUserReposRequest(self.reposPageVal)
             }else{
-                svc_getUserEventsRequest(pageVal)
+                svc_getUserEventsRequest(self.eventPageVal)
             }
             
         }else {
@@ -83,16 +83,12 @@ class CPStarsViewController: CPBaseViewController{
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
             
-            self.pageVal = 0
-            
-            if index == 0 {
-                self.svc_getUserReposRequest(self.pageVal)
-            }else{
-                self.svc_getUserEventsRequest(self.pageVal)
-
+            if ( (index == 1) && (self.eventPageVal==1) ){
+                self.svc_getUserEventsRequest(self.eventPageVal)
             }
-        
+            
         }
+        
         segControl.snp_makeConstraints { (make) -> Void in
             make.top.equalTo(64)
             make.height.equalTo(44)
@@ -129,14 +125,22 @@ class CPStarsViewController: CPBaseViewController{
     // 顶部刷新
     func headerRefresh(){
         print("下拉刷新")
-        pageVal = 0
+        if segControl.selectedSegmentIndex == 0 {
+            self.reposPageVal = 1
+        }else{
+            self.eventPageVal = 1
+        }
         updateNetrokData()
     }
     
     // 底部刷新
     func footerRefresh(){
         print("上拉刷新")
-        pageVal++
+        if segControl.selectedSegmentIndex == 0 {
+            self.reposPageVal++
+        }else{
+            self.eventPageVal++
+        }
         updateNetrokData()
     }
     
@@ -145,6 +149,8 @@ class CPStarsViewController: CPBaseViewController{
     
     func svc_getUserReposRequest(pageVal:Int) {
         
+        print("page:\(pageVal)")
+        
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         Provider.sharedProvider.request(.MyStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
@@ -152,7 +158,7 @@ class CPStarsViewController: CPBaseViewController{
             var success = true
             var message = "Unable to fetch from GitHub"
             
-            if(pageVal == 0) {
+            if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
             }else{
                 self.tableView.mj_footer.endRefreshing()
@@ -165,7 +171,8 @@ class CPStarsViewController: CPBaseViewController{
                 
                 do {
                     if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
-                        if(pageVal == 0) {
+                        if(pageVal == 1) {
+                            self.reposData.removeAll()
                             self.reposData = repos!
                         }else{
                             self.reposData = self.reposData+repos!
@@ -202,7 +209,7 @@ class CPStarsViewController: CPBaseViewController{
             var success = true
             var message = "Unable to fetch from GitHub"
             
-            if(pageVal == 0) {
+            if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
             }else{
                 self.tableView.mj_footer.endRefreshing()
@@ -215,7 +222,8 @@ class CPStarsViewController: CPBaseViewController{
                 
                 do {
                     if let events:[ObjEvent]? = try response.mapArray(ObjEvent){
-                        if(pageVal == 0) {
+                        if(pageVal == 1) {
+                            self.eventsData.removeAll()
                             self.eventsData = events!
                         }else{
                             self.eventsData = self.eventsData+events!
@@ -289,23 +297,39 @@ extension CPStarsViewController : UITableViewDataSource {
 
         }
         
+        var cell:CPEventBaseCell?
         let event = self.eventsData[row]
+        let eventType:EventType = EventType(rawValue: (event.type!))!
         
-        if (event.type! == EventType.WatchEvent.rawValue) {
+        switch(eventType) {
+        case .WatchEvent:
+            cellId = "CPEventStarredCellIdentifier"
+            cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventStarredCell
+            if cell == nil {
+                cell = (CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell)
+            }
             
-        }
-        
-        cellId = "CPEventStarredCellIdentifier"
-        var cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventStarredCell
-        if cell == nil {
-            cell = CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell
+        case .CreateEvent:
+            cellId = "CPEventCreateCellIdentifier"
+            cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventCreateCell
+            if cell == nil {
+                cell = (CPEventCreateCell.cellFromNibNamed("CPEventCreateCell") as! CPEventCreateCell)
+            }
+            
+        default:
+            cellId = "CPEventStarredCellIdentifier"
+            cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventStarredCell
+            if cell == nil {
+                cell = (CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell)
+            }
+    
         }
         
         //handle line in cell
         if row == 0 {
             cell!.topline = true
         }
-        if (row == reposData.count-1) {
+        if (row == eventsData.count-1) {
             cell!.fullline = true
         }else {
             cell!.fullline = false
@@ -326,7 +350,21 @@ extension CPStarsViewController : UITableViewDelegate {
             return 85
             
         }else{
-            return 45
+            
+            let event = self.eventsData[indexPath.row]
+            let eventType:EventType = EventType(rawValue: (event.type!))!
+            
+            switch(eventType) {
+            case .WatchEvent:
+                return 45
+                
+            case .CreateEvent:
+                return 65
+                
+            default:
+                return 0
+                
+            }
             
         }
         return 0

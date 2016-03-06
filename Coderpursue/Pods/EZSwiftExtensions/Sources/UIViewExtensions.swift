@@ -237,7 +237,7 @@ extension UIView {
     public func setRotationX(x: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, degreesToRadians(x), 1.0, 0.0, 0.0)
+        transform = CATransform3DRotate(transform, x.degreesToRadians(), 1.0, 0.0, 0.0)
         self.layer.transform = transform
     }
     
@@ -245,7 +245,7 @@ extension UIView {
     public func setRotationY(y: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, degreesToRadians(y), 0.0, 1.0, 0.0)
+        transform = CATransform3DRotate(transform, y.degreesToRadians(), 0.0, 1.0, 0.0)
         self.layer.transform = transform
     }
     
@@ -253,7 +253,7 @@ extension UIView {
     public func setRotationZ(z: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, degreesToRadians(z), 0.0, 0.0, 1.0)
+        transform = CATransform3DRotate(transform, z.degreesToRadians(), 0.0, 0.0, 1.0)
         self.layer.transform = transform
     }
     
@@ -261,9 +261,9 @@ extension UIView {
     public func setRotation(x x: CGFloat, y: CGFloat, z: CGFloat) {
         var transform = CATransform3DIdentity
         transform.m34 = 1.0 / -1000.0
-        transform = CATransform3DRotate(transform, degreesToRadians(x), 1.0, 0.0, 0.0)
-        transform = CATransform3DRotate(transform, degreesToRadians(y), 0.0, 1.0, 0.0)
-        transform = CATransform3DRotate(transform, degreesToRadians(z), 0.0, 0.0, 1.0)
+        transform = CATransform3DRotate(transform, x.degreesToRadians(), 1.0, 0.0, 0.0)
+        transform = CATransform3DRotate(transform, y.degreesToRadians(), 0.0, 1.0, 0.0)
+        transform = CATransform3DRotate(transform, z.degreesToRadians(), 0.0, 0.0, 1.0)
         self.layer.transform = transform
     }
     
@@ -274,6 +274,7 @@ extension UIView {
         transform = CATransform3DScale(transform, x, y, 1)
         self.layer.transform = transform
     }
+
 }
 
 // MARK: Layer Extensions
@@ -508,9 +509,10 @@ extension UIView {
     }
     
     /// EZSwiftExtensions
-    public func round() {
-        self.layer.cornerRadius = self.frame.size.width / 2
+    public func roundView() {
+        self.layer.cornerRadius = min(self.frame.size.height, self.frame.size.width) / 2
     }
+    
 }
 
 extension UIView {
@@ -534,5 +536,14 @@ extension UIView {
 
 }
 
+extension UIView {
+    ///EZSE: Loops until it finds the top root view. //TODO: Add to readme
+    func rootView() -> UIView {
+        guard superview != nil else {
+            return self
+        }
+        return superview!.rootView()
+    }
+}
 
 

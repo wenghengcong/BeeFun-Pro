@@ -19,7 +19,6 @@
                         <segue destination="lAP-Eg-5KM" kind="relationship" relationship="viewControllers" id="nBB-2W-5WT"/>
                         <segue destination="n2v-4O-Ysv" kind="relationship" relationship="viewControllers" id="0Lq-P0-aOx"/>
                         <segue destination="3ai-xQ-RFW" kind="relationship" relationship="viewControllers" id="A5f-Pb-a8h"/>
-                        <segue destination="5dk-Fn-pc1" kind="relationship" relationship="viewControllers" id="oV8-9j-N8d"/>
                         <segue destination="CLS-sg-WiJ" kind="relationship" relationship="viewControllers" id="4W4-Im-U5t"/>
                     </connections>
                 </tabBarController>
@@ -503,7 +502,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tf-DB-av5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-74.5" y="850.5"/>
+            <point key="canvasLocation" x="443" y="860"/>
         </scene>
         <!--Message-->
         <scene sceneID="sqn-RG-YNS">
@@ -546,7 +545,7 @@
                         <viewControllerLayoutGuide type="bottom" id="YLf-eo-TBd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oEl-Ku-xcr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

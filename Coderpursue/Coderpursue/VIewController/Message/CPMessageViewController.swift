@@ -19,7 +19,7 @@ class CPMessageViewController: CPBaseViewController {
     
     var newsData:[ObjRepos]! = []
     var notificationsData:[ObjNotification]! = []
-    var issuesData:[ObjEvent]! = []
+    var issuesData:[ObjIssue]! = []
 
     var sortVal:String = "created"
     var directionVal:String = "desc"
@@ -28,8 +28,19 @@ class CPMessageViewController: CPBaseViewController {
     var notisPageVal = 1
     var issuesPageVal = 1
 
+    // MARK: request parameters
+
+    //notification
     var notiAllPar:Bool = false
     var notiPartPar:Bool = false
+    
+    //issue
+    var issueFilterPar:String = "all"
+    var issueStatePar:String = "all"
+    var issueLabelsPar:String = ""
+    var issueSortPar:String = "created"
+    var issueDirectionPar:String = "desc"
+
     
     // 顶部刷新
     let header = MJRefreshNormalHeader()
@@ -61,9 +72,13 @@ class CPMessageViewController: CPBaseViewController {
         if UserInfoHelper.sharedInstance.isLoginIn {
             self.tableView.hidden = false
             
-            mvc_getNewsRequest(self.newsPageVal)
-            mvc_getNotificationsRequest(self.notisPageVal)
-            mvc_getIssuesRequest(self.issuesPageVal)
+            if(segControl.selectedSegmentIndex == 0) {
+                mvc_getNewsRequest(self.newsPageVal)
+            }else if(segControl.selectedSegmentIndex == 1){
+                mvc_getNotificationsRequest(self.notisPageVal)
+            }else{
+                mvc_getIssuesRequest(self.issuesPageVal)
+            }
             
         }else {
             //加载未登录的页面
@@ -88,7 +103,16 @@ class CPMessageViewController: CPBaseViewController {
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
             
-            self.tableView.reloadData()
+            if( (self.segControl.selectedSegmentIndex == 0)&&self.newsData.isEmpty ){
+                self.mvc_getNewsRequest(self.newsPageVal)
+            }else if( (self.segControl.selectedSegmentIndex == 1)&&self.notificationsData.isEmpty ){
+                self.mvc_getNotificationsRequest(self.notisPageVal)
+            }else if( (self.segControl.selectedSegmentIndex == 2)&&self.issuesData.isEmpty ){
+                self.mvc_getIssuesRequest(self.issuesPageVal)
+            }else{
+                self.tableView.reloadData()
+            }
+        
         }
         
         segControl.snp_makeConstraints { (make) -> Void in
@@ -261,7 +285,7 @@ class CPMessageViewController: CPBaseViewController {
         
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        Provider.sharedProvider.request(.UserEvents(username:ObjUser.loadUserInfo()!.name! ,page:pageVal,perpage:10) ) { (result) -> () in
+        Provider.sharedProvider.request(.AllIssues( page:pageVal,perpage:10,filter:issueFilterPar,state:issueStatePar,labels:issueLabelsPar,sort:issueSortPar,direction:issueDirectionPar) ) { (result) -> () in
             
             var success = true
             var message = "Unable to fetch from GitHub"
@@ -278,7 +302,7 @@ class CPMessageViewController: CPBaseViewController {
             case let .Success(response):
                 
                 do {
-                    if let issues:[ObjEvent]? = try response.mapArray(ObjEvent){
+                    if let issues:[ObjIssue]? = try response.mapArray(ObjIssue){
                         if(pageVal == 1) {
                             self.issuesData.removeAll()
                             self.issuesData = issues!
@@ -326,8 +350,7 @@ extension CPMessageViewController : UITableViewDataSource {
         {
             return self.notificationsData.count
         }
-//        return self.issuesData.count
-        return 0
+        return self.issuesData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -384,11 +407,13 @@ extension CPMessageViewController : UITableViewDataSource {
             return cell!;
         }
         
-        var cell:CPEventBaseCell?
-        let event = self.issuesData[row]
-        let eventType:EventType = EventType(rawValue: (event.type!))!
+        cellId = "CPMesIssueCellIdentifier"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMesIssueCell
+        if cell == nil {
+            cell = (CPMesIssueCell.cellFromNibNamed("CPMesIssueCell") as! CPMesIssueCell)
+            
+        }
         
-
         //handle line in cell
         if row == 0 {
             cell!.topline = true
@@ -398,8 +423,8 @@ extension CPMessageViewController : UITableViewDataSource {
         }else {
             cell!.fullline = false
         }
-        cell!.event = event
-        
+        let issue = self.issuesData[row]
+        cell!.issue = issue
         return cell!;
         
     }
@@ -417,7 +442,7 @@ extension CPMessageViewController : UITableViewDelegate {
             
             return 55
         }
-        return 0
+        return 75
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -54,11 +54,11 @@ class CPStarsViewController: CPBaseViewController{
         if UserInfoHelper.sharedInstance.isLoginIn {
             self.tableView.hidden = false
             
-//            if segControl.selectedSegmentIndex == 0 {
+            if segControl.selectedSegmentIndex == 0 {
                 svc_getUserReposRequest(self.reposPageVal)
-//            }else{
+            }else{
                 svc_getUserEventsRequest(self.eventPageVal)
-//            }
+            }
             
         }else {
             //加载未登录的页面
@@ -83,7 +83,14 @@ class CPStarsViewController: CPBaseViewController{
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
             
-            self.tableView.reloadData()
+            if( (self.segControl.selectedSegmentIndex == 0)&&self.reposData.isEmpty ){
+                self.svc_getUserReposRequest(self.reposPageVal)
+            }else if( (self.segControl.selectedSegmentIndex == 1)&&self.eventsData.isEmpty ){
+                self.svc_getUserEventsRequest(self.eventPageVal)
+            }else{
+                self.tableView.reloadData()
+            }
+            
         }
         
         segControl.snp_makeConstraints { (make) -> Void in

@@ -137,7 +137,7 @@ extension UIColor {
     
     //MARK: color name
     class func cpBlackColor() -> UIColor {
-        //white
+        //black
         return UIColor.hexStr("000000", alpha: 1.0)
     }
     

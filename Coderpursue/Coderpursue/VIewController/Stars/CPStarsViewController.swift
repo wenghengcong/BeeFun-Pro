@@ -54,11 +54,11 @@ class CPStarsViewController: CPBaseViewController{
         if UserInfoHelper.sharedInstance.isLoginIn {
             self.tableView.hidden = false
             
-            if segControl.selectedSegmentIndex == 0 {
+//            if segControl.selectedSegmentIndex == 0 {
                 svc_getUserReposRequest(self.reposPageVal)
-            }else{
+//            }else{
                 svc_getUserEventsRequest(self.eventPageVal)
-            }
+//            }
             
         }else {
             //加载未登录的页面
@@ -83,10 +83,7 @@ class CPStarsViewController: CPBaseViewController{
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
             
-            if ( (index == 1) && (self.eventPageVal==1) ){
-                self.svc_getUserEventsRequest(self.eventPageVal)
-            }
-            
+            self.tableView.reloadData()
         }
         
         segControl.snp_makeConstraints { (make) -> Void in
@@ -316,6 +313,13 @@ extension CPStarsViewController : UITableViewDataSource {
                 cell = (CPEventCreateCell.cellFromNibNamed("CPEventCreateCell") as! CPEventCreateCell)
             }
             
+        case .PushEvent:
+            cellId = "CPEventPushCellIdentifier"
+            cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventPushCell
+            if cell == nil {
+                cell = (CPEventPushCell.cellFromNibNamed("CPEventPushCell") as! CPEventPushCell)
+            }
+            
         default:
             cellId = "CPEventStarredCellIdentifier"
             cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventStarredCell
@@ -351,7 +355,7 @@ extension CPStarsViewController : UITableViewDelegate {
             
         }else{
             
-            let event = self.eventsData[indexPath.row]
+            let event:ObjEvent = self.eventsData[indexPath.row]
             let eventType:EventType = EventType(rawValue: (event.type!))!
             
             switch(eventType) {
@@ -360,6 +364,12 @@ extension CPStarsViewController : UITableViewDelegate {
                 
             case .CreateEvent:
                 return 65
+                
+            case .PushEvent:
+                
+                let height:CGFloat = CGFloat( (event.payload?.commits!.count)! ) * 25.0
+                let totalHeight:CGFloat = 65+height
+                return totalHeight
                 
             default:
                 return 0

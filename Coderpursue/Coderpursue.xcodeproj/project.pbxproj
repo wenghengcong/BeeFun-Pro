@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2A49EFF6B7B4D190245499A7 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8CC865E56BA5C5F2757091 /* Pods.framework */; };
 		5E03D58B1C8BCC1D00E8C1FD /* CPEventBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */; };
+		5E03D58D1C8C488D00E8C1FD /* CPEventPushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D58C1C8C488D00E8C1FD /* CPEventPushCell.swift */; };
+		5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */; };
 		5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */; };
 		5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */; };
 		5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF571C7C065900760F0F /* ObjLabel.swift */; };
@@ -104,6 +106,8 @@
 /* Begin PBXFileReference section */
 		1E8CC865E56BA5C5F2757091 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventBaseCell.swift; sourceTree = "<group>"; };
+		5E03D58C1C8C488D00E8C1FD /* CPEventPushCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventPushCell.swift; sourceTree = "<group>"; };
+		5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventPushCell.xib; sourceTree = "<group>"; };
 		5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjMilestone.swift; sourceTree = "<group>"; };
 		5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjPullRequest.swift; sourceTree = "<group>"; };
 		5EE3FF571C7C065900760F0F /* ObjLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjLabel.swift; sourceTree = "<group>"; };
@@ -510,6 +514,8 @@
 				5EF6E3CD1C8AC4C9004F6473 /* CPEventStarredCell.xib */,
 				5EEE93D91C8BA922003911B2 /* CPEventCreateCell.swift */,
 				5EEE93DD1C8BA93A003911B2 /* CPEventCreateCell.xib */,
+				5E03D58C1C8C488D00E8C1FD /* CPEventPushCell.swift */,
+				5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */,
 			);
 			path = Stars;
 			sourceTree = "<group>";
@@ -697,6 +703,7 @@
 				5EEE93DE1C8BA93A003911B2 /* CPEventCreateCell.xib in Resources */,
 				FEC0DC411C28B39F0008C7C1 /* Main.storyboard in Resources */,
 				5EEE93D81C8B1207003911B2 /* Assets.xcassets in Resources */,
+				5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -806,6 +813,7 @@
 				FE19F93D1C39331B009986FE /* UIColor+Project.swift in Sources */,
 				FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */,
 				FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */,
+				5E03D58D1C8C488D00E8C1FD /* CPEventPushCell.swift in Sources */,
 				FE91BA8B1C333948002AECB6 /* CPGistViewController.swift in Sources */,
 				FE0FE0D71C3DC7BB0005DDE5 /* ObjBase.swift in Sources */,
 				5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */,

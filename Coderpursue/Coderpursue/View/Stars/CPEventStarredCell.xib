@@ -24,7 +24,7 @@
                         <rect key="frame" x="10" y="10" width="25" height="25"/>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdI-AF-pCK">
-                        <rect key="frame" x="106" y="6" width="261" height="21"/>
+                        <rect key="frame" x="97" y="7" width="270" height="21"/>
                         <state key="normal" title="mozilla/firefox-ios"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1 day ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlS-ib-hTN">

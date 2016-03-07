@@ -124,7 +124,7 @@ class CPEventCreateCell: CPEventBaseCell {
                 
                 make.leading.equalTo(createLabel.snp_leading)
                 make.top.equalTo(createLabel.snp_bottom).offset(0)
-                make.width.equalTo(18)
+                make.width.equalTo(22)
                 make.height.equalTo(lalHeight)
                 
             })

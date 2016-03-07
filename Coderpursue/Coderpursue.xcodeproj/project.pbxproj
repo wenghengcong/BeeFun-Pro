@@ -11,6 +11,8 @@
 		5E03D58B1C8BCC1D00E8C1FD /* CPEventBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */; };
 		5E03D58D1C8C488D00E8C1FD /* CPEventPushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D58C1C8C488D00E8C1FD /* CPEventPushCell.swift */; };
 		5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */; };
+		5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */; };
+		5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */; };
 		5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */; };
 		5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */; };
 		5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF571C7C065900760F0F /* ObjLabel.swift */; };
@@ -108,6 +110,8 @@
 		5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventBaseCell.swift; sourceTree = "<group>"; };
 		5E03D58C1C8C488D00E8C1FD /* CPEventPushCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventPushCell.swift; sourceTree = "<group>"; };
 		5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventPushCell.xib; sourceTree = "<group>"; };
+		5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesNotificationCell.swift; sourceTree = "<group>"; };
+		5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesNotificationCell.xib; sourceTree = "<group>"; };
 		5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjMilestone.swift; sourceTree = "<group>"; };
 		5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjPullRequest.swift; sourceTree = "<group>"; };
 		5EE3FF571C7C065900760F0F /* ObjLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjLabel.swift; sourceTree = "<group>"; };
@@ -493,6 +497,8 @@
 		FE91BA801C333859002AECB6 /* Message */ = {
 			isa = PBXGroup;
 			children = (
+				5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */,
+				5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -698,6 +704,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */,
+				5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */,
 				5EF6E3CE1C8AC4C9004F6473 /* CPEventStarredCell.xib in Resources */,
 				FE914DBE1C4BE37B001C3D90 /* CPSettings.plist in Resources */,
 				5EEE93DE1C8BA93A003911B2 /* CPEventCreateCell.xib in Resources */,
@@ -807,6 +814,7 @@
 				FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */,
 				FE91BA8F1C33396E002AECB6 /* CPProfileViewController.swift in Sources */,
 				FEAB7EB41C5E08CF00C78E87 /* ObjResponseHeader.swift in Sources */,
+				5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */,
 				FEAB7EB21C5E088400C78E87 /* ObjResponser.swift in Sources */,
 				FE0FE0D91C3F14F10005DDE5 /* ProjectKey.swift in Sources */,
 				FE17EA401C5723270061F624 /* ObjReposSum.swift in Sources */,

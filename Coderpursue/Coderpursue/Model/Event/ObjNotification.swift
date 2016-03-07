@@ -24,6 +24,20 @@
 import UIKit
 import ObjectMapper
 
+
+public enum NotificationReason:String {
+    
+    case Subscribed = "subscribed"
+    case Manual = "manual"
+    case Author = "author"
+    case Comment = "comment"
+    case Mention = "mention"
+    case TeamMention = "team_mention"
+    case StateChange = "state_change"
+    case Assign = "assign"
+
+}
+
 class ObjNotification: NSObject,Mappable {
 
     var id:Int?

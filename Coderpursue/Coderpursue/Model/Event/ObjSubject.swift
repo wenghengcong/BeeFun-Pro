@@ -15,6 +15,13 @@
 import UIKit
 import ObjectMapper
 
+public enum SubjectType:String {
+    
+    case Issue = "Issue"
+    case PullRequest = "PullRequest"
+    
+}
+
 class ObjSubject: NSObject,Mappable {
     
     var title:String?

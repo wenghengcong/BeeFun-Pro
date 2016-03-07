@@ -161,10 +161,10 @@ public enum GitHubAPI {
     
     
     //issue
-    case AllIssues(page:Int,perpage:Int,filter:String,state:String,labels:String,sort:String,direction:String,since:String)
-    case MyIssues(page:Int,perpage:Int,filter:String,state:String,labels:String,sort:String,direction:String,since:String)
-    case OrgIssues(page:Int,perpage:Int,organization:String,filter:String,state:String,labels:String,sort:String,direction:String,since:String)
-    case RepoIssues(page:Int,perpage:Int,owner:String,repo:String,milestone:Int,state:String,assignee:String,creator:String,mentioned:String,labels:String,sort:String,direction:String,since:String)
+    case AllIssues(page:Int,perpage:Int,filter:String,state:String,labels:String,sort:String,direction:String)
+    case MyIssues(page:Int,perpage:Int,filter:String,state:String,labels:String,sort:String,direction:String)
+    case OrgIssues(page:Int,perpage:Int,organization:String,filter:String,state:String,labels:String,sort:String,direction:String)
+    case RepoIssues(page:Int,perpage:Int,owner:String,repo:String,milestone:Int,state:String,assignee:String,creator:String,mentioned:String,labels:String,sort:String,direction:String)
     case RepoSigleIssue(owner:String,repo:String,number:Int)
     case CreateIssue(owner:String ,repo:String ,title:String,body:String,assignee:String,milestone:Int,labels:String)
     case EditIssue(owner:String ,repo:String ,number:Int, title:String,body:String,assignee:String,milestone:Int,labels:String)
@@ -172,9 +172,10 @@ public enum GitHubAPI {
     case UnlockIssue(owner:String ,repo:String ,number:Int)
 
     //notification
-    //page not work,use since to filter notifications
-    case MyNotifications(all:Bool ,participating:Bool,since:String,before:String)
-    case RepoNotifications(owner:String ,repo:String,all:Bool ,participating:Bool,since:String,before:String)
+//    case MyNotifications(page:Int,perpage:Int,all:Bool ,participating:Bool,since:String,before:String)
+
+    case MyNotifications(page:Int,perpage:Int,all:Bool ,participating:Bool)
+    case RepoNotifications(owner:String ,repo:String,all:Bool ,participating:Bool)
     case MarkNotificationsAsRead(last_read_at:String)
     case MarkRepoNotificationsAsRead(owner:String ,repo:String,last_read_at:String)
     
@@ -271,9 +272,9 @@ extension GitHubAPI: TargetType {
             return "/issues"
         case MyIssues:
             return "/user/issues"
-        case OrgIssues(_,_,let organization,_,_,_,_,_,_):
+        case OrgIssues(_,_,let organization,_,_,_,_,_):
             return "/orgs/\(organization)/issues"
-        case RepoIssues(_,_,let owner,let repo,_,_,_,_,_,_,_,_,_):
+        case RepoIssues(_,_,let owner,let repo,_,_,_,_,_,_,_,_):
             return "/repos/\(owner)/\(repo)/issues"
         case RepoSigleIssue(let owner,let repo,let number):
             return "/repos/\(owner)/\(repo)/issues/\(number)"
@@ -289,7 +290,7 @@ extension GitHubAPI: TargetType {
         //notification
         case MyNotifications:
             return "/notifications"
-        case RepoNotifications(let owner,let repo,_,_,_,_):
+        case RepoNotifications(let owner,let repo,_,_):
             return "/repos/\(owner)/\(repo)/notifications"
         case MarkNotificationsAsRead:
             return "/notifications"
@@ -442,7 +443,7 @@ extension GitHubAPI: TargetType {
                 "page":page,
                 "per_page":perpage
             ]
-        case AllIssues(let page,let perpage,let filter,let state,let labels,let sort,let direction,let since):
+        case AllIssues(let page,let perpage,let filter,let state,let labels,let sort,let direction):
             return [
                 "page":page,
                 "per_page":perpage,
@@ -451,9 +452,8 @@ extension GitHubAPI: TargetType {
                 "labels":labels,
                 "sort":sort,
                 "direction":direction,
-                "since":since
             ]
-        case MyIssues(let page,let perpage,let filter,let state,let labels,let sort,let direction,let since):
+        case MyIssues(let page,let perpage,let filter,let state,let labels,let sort,let direction):
             return [
                 "page":page,
                 "per_page":perpage,
@@ -462,10 +462,9 @@ extension GitHubAPI: TargetType {
                 "labels":labels,
                 "sort":sort,
                 "direction":direction,
-                "since":since
             ]
 
-        case OrgIssues(let page,let perpage, _, let filter,let state,let labels,let sort,let direction,let since):
+        case OrgIssues(let page,let perpage, _, let filter,let state,let labels,let sort,let direction):
             return [
                 "page":page,
                 "per_page":perpage,
@@ -474,9 +473,8 @@ extension GitHubAPI: TargetType {
                 "labels":labels,
                 "sort":sort,
                 "direction":direction,
-                "since":since
             ]
-        case RepoIssues(let page,let perpage,_,_,let milestone,let state,let assignee,let creator,let mentioned,let labels,let sort,let direction,let since):
+        case RepoIssues(let page,let perpage,_,_,let milestone,let state,let assignee,let creator,let mentioned,let labels,let sort,let direction):
             return [
                 "page":page,
                 "per_page":perpage,
@@ -488,7 +486,6 @@ extension GitHubAPI: TargetType {
                 "labels":labels,
                 "sort":sort,
                 "direction":direction,
-                "since":since
             ]
 
         case CreateIssue(_,_ ,let title,let body,let assignee,let milestone,let labels):
@@ -501,6 +498,7 @@ extension GitHubAPI: TargetType {
             ]
         case EditIssue(_ ,_ ,_, let title,let body,let assignee,let milestone,let labels):
             return [
+                
                 "title":title,
                 "body":body,
                 "assignee":assignee,
@@ -509,19 +507,17 @@ extension GitHubAPI: TargetType {
             ]
             
         //notification
-        case MyNotifications(let all ,let participating,let since,let before):
+        case MyNotifications(let page,let perpage,let all ,let participating):
             return [
+                "page":page,
+                "per_page":perpage,
                 "all":all,
                 "participating":participating,
-                "since":since,
-                "before":before,
             ]
-        case RepoNotifications(_,_,let all ,let participating,let since,let before):
+        case RepoNotifications(_,_,let all ,let participating):
             return [
                 "all":all,
                 "participating":participating,
-                "since":since,
-                "before":before,
             ]
         case MarkNotificationsAsRead(let last_read_at):
             return [

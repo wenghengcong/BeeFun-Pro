@@ -516,9 +516,22 @@
                     <view key="view" contentMode="scaleToFill" id="j3k-bw-6hK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nt2-UD-XxL">
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="stj-JY-WEa" id="k8S-zK-Zk6"/>
+                                    <outlet property="delegate" destination="stj-JY-WEa" id="npx-Io-WCC"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Message" id="BZf-3C-k9a"/>
+                    <connections>
+                        <outlet property="tableView" destination="nt2-UD-XxL" id="DiN-ii-PjH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xoS-Lj-nwR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -146,8 +146,6 @@ class CPEventPushCell: CPEventBaseCell {
             
 
         }
-
-
         
     }
     

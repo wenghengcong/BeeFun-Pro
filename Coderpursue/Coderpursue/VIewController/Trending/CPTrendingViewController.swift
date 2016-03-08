@@ -48,6 +48,15 @@ class CPTrendingViewController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //test
+        var para:ParaComparison = ParaComparison.init(left: 5, op:ComparisonOperator.Less)
+        let s1 = para.combineComparision()
+        
+        var para2:ParaComparison = ParaComparison.init(left: 5, right: 10, op: ComparisonOperator.Between)
+        let s2 = para2.combineComparision()
+        
+        print("\(s1),\(s2)")
+        
         // Do any additional setup after loading the view.
         tvc_checkUserSignIn()
         

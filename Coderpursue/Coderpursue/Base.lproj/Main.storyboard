@@ -172,9 +172,22 @@
                     <view key="view" contentMode="scaleToFill" id="Der-Hc-LPH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2w5-hE-F4q">
+                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="IYd-sN-OJ9" id="lWu-ui-0MN"/>
+                                    <outlet property="delegate" destination="IYd-sN-OJ9" id="CSM-zu-cuq"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Trending" id="qoa-mp-B6Q"/>
+                    <connections>
+                        <outlet property="tableView" destination="2w5-hE-F4q" id="5JZ-S7-LZD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIR-VO-qip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

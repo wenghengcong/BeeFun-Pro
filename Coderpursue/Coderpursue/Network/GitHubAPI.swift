@@ -199,11 +199,20 @@ public enum GitHubAPI {
     case UserPublicEvents(username:String ,page:Int,perpage:Int)
     case OrgEvents(username:String,organization:String,page:Int,perpage:Int)
     
+    //trending
+    case TrendingRepos(since:String,language:String)
 }
 
 extension GitHubAPI: TargetType {
 
-    public var baseURL: NSURL { return NSURL(string: "https://api.github.com")! }
+    public var baseURL: NSURL {
+        switch self {
+        case .TrendingRepos:
+            return NSURL(string: "http://trending.codehub-app.com/v2")!
+        default:
+            return NSURL(string: "https://api.github.com")!
+        }
+    }
     
     public var path: String {
         switch self {
@@ -338,7 +347,10 @@ extension GitHubAPI: TargetType {
         case OrgEvents(let username,let organization,_,_):
             return "/users/\(username)/events/orgs/\(organization)"
 
-            
+        //trending
+        case TrendingRepos:
+            return "/trending"
+
         }
         
     }
@@ -596,7 +608,12 @@ extension GitHubAPI: TargetType {
                 "page":page,
                 "per_page":perpage,
             ]
-            
+            //trending
+        case TrendingRepos(let since,let language):
+            return [
+                "since":since,
+                "language":language,
+            ]
         default:
             return nil
             

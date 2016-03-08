@@ -123,6 +123,7 @@ class CPStarsViewController: CPBaseViewController{
         footer.setTitle("Loading more ...", forState: .Pulling)
         footer.setTitle("No more data", forState: .NoMoreData)
         footer.setRefreshingTarget(self, refreshingAction: Selector("footerRefresh"))
+        footer.refreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
     

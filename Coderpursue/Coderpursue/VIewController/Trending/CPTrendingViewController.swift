@@ -19,7 +19,7 @@ class CPTrendingViewController: CPBaseViewController {
     
     var reposData:[ObjRepos]! = []
     var devesData:[ObjUser]! = []
-    var showcasesData:[ObjIssue]! = []
+    var showcasesData:[ObjTrendShowcase]! = []
     
     var sortVal:String = "created"
     var directionVal:String = "desc"
@@ -274,20 +274,15 @@ class CPTrendingViewController: CPBaseViewController {
     
     func tvc_getShowcasesRequest() {
         
-        var pageVal = 1
-        
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        Provider.sharedProvider.request(.AllIssues( page:pageVal,perpage:10,filter:issueFilterPar,state:issueStatePar,labels:issueLabelsPar,sort:issueSortPar,direction:issueDirectionPar) ) { (result) -> () in
+        Provider.sharedProvider.request(.TrendingShowcases() ) { (result) -> () in
             
             var success = true
             var message = "Unable to fetch from GitHub"
             
-            if(pageVal == 1) {
-                self.tableView.mj_header.endRefreshing()
-            }else{
-                self.tableView.mj_footer.endRefreshing()
-            }
+            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             
@@ -295,14 +290,10 @@ class CPTrendingViewController: CPBaseViewController {
             case let .Success(response):
                 
                 do {
-                    if let shows:[ObjIssue]? = try response.mapArray(ObjIssue){
-                        if(pageVal == 1) {
-                            self.showcasesData.removeAll()
-                            self.showcasesData = shows!
-                        }else{
-                            self.showcasesData = self.showcasesData+shows!
-                        }
+                    if let shows:[ObjTrendShowcase]? = try response.mapArray(ObjTrendShowcase){
                         
+                        self.showcasesData.removeAll()
+                        self.showcasesData = shows!
                         self.tableView.reloadData()
                         
                     } else {
@@ -343,8 +334,7 @@ extension CPTrendingViewController : UITableViewDataSource {
 //            return self.devesData.count
             return 0
         }
-//        return self.showcasesData.count
-        return 0
+        return self.showcasesData.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -400,29 +390,20 @@ extension CPTrendingViewController : UITableViewDataSource {
             return cell!;
         }
         
-        cellId = "CPMesIssueCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMesIssueCell
+        cellId = "CPTrendingShowcaseCellIdentifier"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingShowcaseCell
         if cell == nil {
-            cell = (CPMesIssueCell.cellFromNibNamed("CPMesIssueCell") as! CPMesIssueCell)
+            cell = (CPTrendingShowcaseCell.cellFromNibNamed("CPTrendingShowcaseCell") as! CPTrendingShowcaseCell)
             
         }
-        
-        //handle line in cell
-        if row == 0 {
-            cell!.topline = true
-        }
-        if (row == showcasesData.count-1) {
-            cell!.fullline = true
-        }else {
-            cell!.fullline = false
-        }
-        let issue = self.showcasesData[row]
-        cell!.issue = issue
+        let showcase = self.showcasesData[row]
+        cell!.showcase = showcase
         return cell!;
         
     }
     
 }
+
 extension CPTrendingViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -435,7 +416,7 @@ extension CPTrendingViewController : UITableViewDelegate {
             
             return 55
         }
-        return 75
+        return 135
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

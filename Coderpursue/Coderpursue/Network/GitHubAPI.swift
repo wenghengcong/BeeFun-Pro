@@ -201,6 +201,8 @@ public enum GitHubAPI {
     
     //trending
     case TrendingRepos(since:String,language:String)
+    case TrendingShowcases()
+    case TrendingShowcase(showcase:String)
 }
 
 extension GitHubAPI: TargetType {
@@ -208,6 +210,10 @@ extension GitHubAPI: TargetType {
     public var baseURL: NSURL {
         switch self {
         case .TrendingRepos:
+            return NSURL(string: "http://trending.codehub-app.com/v2")!
+        case .TrendingShowcases:
+            return NSURL(string: "http://trending.codehub-app.com/v2")!
+        case .TrendingShowcase:
             return NSURL(string: "http://trending.codehub-app.com/v2")!
         default:
             return NSURL(string: "https://api.github.com")!
@@ -350,6 +356,10 @@ extension GitHubAPI: TargetType {
         //trending
         case TrendingRepos:
             return "/trending"
+        case TrendingShowcases:
+            return "/showcases"
+        case TrendingShowcase(let showcase):
+            return "/showcases/\(showcase)"
 
         }
         

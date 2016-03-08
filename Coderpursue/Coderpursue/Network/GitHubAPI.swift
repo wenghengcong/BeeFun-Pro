@@ -203,6 +203,10 @@ public enum GitHubAPI {
     case TrendingRepos(since:String,language:String)
     case TrendingShowcases()
     case TrendingShowcase(showcase:String)
+    
+    //search
+    case SearchUsers(para:ParaSearchUser)
+    
 }
 
 extension GitHubAPI: TargetType {
@@ -360,6 +364,10 @@ extension GitHubAPI: TargetType {
             return "/showcases"
         case TrendingShowcase(let showcase):
             return "/showcases/\(showcase)"
+
+        //search
+        case SearchUsers:
+            return "/search/users"
 
         }
         
@@ -618,11 +626,20 @@ extension GitHubAPI: TargetType {
                 "page":page,
                 "per_page":perpage,
             ]
-            //trending
+        //trending
         case TrendingRepos(let since,let language):
             return [
                 "since":since,
                 "language":language,
+            ]
+            
+        case SearchUsers(let para):
+            return [
+                "q":para.q,
+                "sort":para.sort,
+                "order":para.order,
+                "page":para.page,
+                "per_page":para.perPage,
             ]
         default:
             return nil

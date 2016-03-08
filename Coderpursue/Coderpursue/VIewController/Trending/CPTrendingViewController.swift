@@ -10,6 +10,7 @@ import UIKit
 import Moya
 import Foundation
 import MJRefresh
+import ObjectMapper
 
 class CPTrendingViewController: CPBaseViewController {
 
@@ -21,24 +22,11 @@ class CPTrendingViewController: CPBaseViewController {
     var devesData:[ObjUser]! = []
     var showcasesData:[ObjTrendShowcase]! = []
     
-    var sortVal:String = "created"
-    var directionVal:String = "desc"
-    
-    var devesPageVal = 1
     
     // MARK: request parameters
     
-    //notification
-    var notiAllPar:Bool = false
-    var notiPartPar:Bool = false
-    
-    //issue
-    var issueFilterPar:String = "all"
-    var issueStatePar:String = "all"
-    var issueLabelsPar:String = ""
-    var issueSortPar:String = "created"
-    var issueDirectionPar:String = "desc"
-    
+    //search user para
+    var paraUser:ParaSearchUser = ParaSearchUser.init()
     
     // 顶部刷新
     let header = MJRefreshNormalHeader()
@@ -62,6 +50,12 @@ class CPTrendingViewController: CPBaseViewController {
         
     }
     
+    func resetSearchUserParameters(){
+        
+        paraUser.q = paraUser.combineQuery()
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -82,7 +76,7 @@ class CPTrendingViewController: CPBaseViewController {
             if(segControl.selectedSegmentIndex == 0) {
                 tvc_getReposRequest()
             }else if(segControl.selectedSegmentIndex == 1){
-                tvc_getUserRequest(self.devesPageVal)
+                tvc_getUserRequest()
             }else{
                 tvc_getShowcasesRequest()
             }
@@ -113,7 +107,7 @@ class CPTrendingViewController: CPBaseViewController {
             if( (self.segControl.selectedSegmentIndex == 0)&&self.reposData.isEmpty ){
                 self.tvc_getReposRequest()
             }else if( (self.segControl.selectedSegmentIndex == 1)&&self.devesData.isEmpty ){
-                self.tvc_getUserRequest(self.devesPageVal)
+                self.tvc_getUserRequest()
             }else if( (self.segControl.selectedSegmentIndex == 2)&&self.showcasesData.isEmpty ){
                 self.tvc_getShowcasesRequest()
             }else{
@@ -162,7 +156,7 @@ class CPTrendingViewController: CPBaseViewController {
         if(segControl.selectedSegmentIndex == 0) {
 
         }else if(segControl.selectedSegmentIndex == 1){
-            self.devesPageVal = 1
+            paraUser.page = 1
         }else{
 
         }
@@ -175,7 +169,7 @@ class CPTrendingViewController: CPBaseViewController {
         if(segControl.selectedSegmentIndex == 0) {
 
         }else if(segControl.selectedSegmentIndex == 1){
-            self.devesPageVal++
+            paraUser.page++
         }else{
             
         }
@@ -229,16 +223,18 @@ class CPTrendingViewController: CPBaseViewController {
         }
     }
     
-    func tvc_getUserRequest(pageVal:Int) {
+    func tvc_getUserRequest() {
+        
+        resetSearchUserParameters()
         
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        Provider.sharedProvider.request(.MyNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
+        Provider.sharedProvider.request(.SearchUsers(para:self.paraUser) ) { (result) -> () in
             
             var success = true
             var message = "Unable to fetch from GitHub"
             
-            if(pageVal == 1) {
+            if(self.paraUser.page == 1) {
                 self.tableView.mj_header.endRefreshing()
             }else{
                 self.tableView.mj_footer.endRefreshing()
@@ -250,12 +246,12 @@ class CPTrendingViewController: CPBaseViewController {
             case let .Success(response):
                 
                 do {
-                    if let deves:[ObjUser]? = try response.mapArray(ObjUser){
-                        if(pageVal == 1) {
+                    if let userResult:ObjSearchUserResponse = Mapper<ObjSearchUserResponse>().map(try response.mapJSON() ) {
+                        if(self.paraUser.page == 1) {
                             self.devesData.removeAll()
-                            self.devesData = deves!
+                            self.devesData = userResult.items
                         }else{
-                            self.devesData = self.devesData+deves!
+                            self.devesData = self.devesData+userResult.items!
                         }
                         
                         self.tableView.reloadData()
@@ -340,8 +336,7 @@ extension CPTrendingViewController : UITableViewDataSource {
             return  self.reposData.count
         }else if(segControl.selectedSegmentIndex == 1)
         {
-//            return self.devesData.count
-            return 0
+            return self.devesData.count
         }
         return self.showcasesData.count
     }
@@ -377,10 +372,10 @@ extension CPTrendingViewController : UITableViewDataSource {
             
         }else if(segControl.selectedSegmentIndex == 1) {
             
-            cellId = "CPMesNotificationCellIdentifier"
-            var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMesNotificationCell
+            cellId = "CPTrendingDeveloperCellIdentifier"
+            var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingDeveloperCell
             if cell == nil {
-                cell = (CPMesNotificationCell.cellFromNibNamed("CPMesNotificationCell") as! CPMesNotificationCell)
+                cell = (CPTrendingDeveloperCell.cellFromNibNamed("CPTrendingDeveloperCell") as! CPTrendingDeveloperCell)
                 
             }
             
@@ -394,7 +389,9 @@ extension CPTrendingViewController : UITableViewDataSource {
                 cell!.fullline = false
             }
             
-            let noti = self.devesData[row]
+            let user = self.devesData[row]
+            cell!.user = user
+            cell!.userNo = row
             
             return cell!;
         }
@@ -423,7 +420,7 @@ extension CPTrendingViewController : UITableViewDelegate {
             
         }else if(segControl.selectedSegmentIndex == 1){
             
-            return 55
+            return 71
         }
         return 135
     }

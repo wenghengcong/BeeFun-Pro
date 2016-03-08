@@ -8,26 +8,6 @@
 
 import UIKit
 
-class ParaSearchUser : NSObject{
-
-    var q:String
-    var sort:String
-    var order:String
-    
-    init(query:String ,sort:String ,order:String) {
-        
-        self.q = query
-        self.sort = sort
-        self.order = order
-        
-    }
-    
-    convenience override init() {
-        self.init(query:"" ,sort:"indexed" ,order:"desc")
-    }
-    
-}
-
 public enum SearchUserQueryPrefix:String {
     
     case Type = "type"
@@ -56,5 +36,96 @@ public enum InField:String {
     case FullName = "fullname"
     
 }
+
+
+public class ParaSearchUser : NSObject{
+
+    var q:String
+    var sort:String
+    var order:String
+    
+    //ccombine all parameters to q
+    //now support only one to one,but github api support one to many
+    //such as,type:org type:user,but now support only type:user or type:org
+    var keyword:String?
+    var typePara:UserType?
+    var inPara:InField?
+    var reposPara:String?
+    var locationPara:String?
+    var languagePara:String?
+    var createdPara:String?
+    var followersPara:String?
+    
+    //page
+    var page:Int = 1
+    var perPage:Int = 10
+
+    init(query:String ,sort:String ,order:String) {
+        
+        self.q = query
+        self.sort = sort
+        self.order = order
+        
+    }
+    
+    convenience override init() {
+        self.init(query:"" ,sort:"followers" ,order:"desc")
+    }
+    
+    func combineQuery()->String {
+        
+        var query = ""
+        
+        if(keyword != nil){
+            query += "\(keyword!)"
+        }
+        
+        //type:org
+        if(typePara != nil){
+            let typeStr = typePara!.rawValue
+            query += " type:\(typeStr)"
+        }
+        
+        //in:email
+        if(inPara != nil){
+            let inStr = inPara!.rawValue
+            query += " in:\(inStr)"
+        }
+        
+        //repos:>9000
+        if(reposPara != nil){
+            query += " repos:\(reposPara!)"
+        }
+        
+        //location:iceland
+        if(locationPara != nil){
+            query += " location:\(locationPara!)"
+        }
+        
+        //language:javascript
+        if(languagePara != nil){
+            query += " language:\(languagePara!)"
+        }
+        
+        //created:<2011-01-01
+        if(createdPara != nil){
+            query += " created:\(createdPara!)"
+        }
+        
+        //followers:>=1000
+        if(followersPara != nil){
+            query += " followers:\(followersPara!)"
+        }
+        
+        if(query.isEmpty || (query == "") ){
+            query = "type:user"
+        }
+        
+        return query
+        
+    }
+    
+}
+
 
 

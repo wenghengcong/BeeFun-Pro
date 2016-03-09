@@ -15,16 +15,14 @@ class CPMessageViewController: CPBaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["News","Notifications","Issues"])
+    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Notifications","Issues"])
     
-    var newsData:[ObjRepos]! = []
     var notificationsData:[ObjNotification]! = []
     var issuesData:[ObjIssue]! = []
 
     var sortVal:String = "created"
     var directionVal:String = "desc"
     
-    var newsPageVal = 1
     var notisPageVal = 1
     var issuesPageVal = 1
 
@@ -73,11 +71,10 @@ class CPMessageViewController: CPBaseViewController {
             self.tableView.hidden = false
             
             if(segControl.selectedSegmentIndex == 0) {
-                mvc_getNewsRequest(self.newsPageVal)
-            }else if(segControl.selectedSegmentIndex == 1){
                 mvc_getNotificationsRequest(self.notisPageVal)
-            }else{
+            }else if(segControl.selectedSegmentIndex == 1){
                 mvc_getIssuesRequest(self.issuesPageVal)
+
             }
             
         }else {
@@ -103,11 +100,9 @@ class CPMessageViewController: CPBaseViewController {
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
             
-            if( (self.segControl.selectedSegmentIndex == 0)&&self.newsData.isEmpty ){
-                self.mvc_getNewsRequest(self.newsPageVal)
-            }else if( (self.segControl.selectedSegmentIndex == 1)&&self.notificationsData.isEmpty ){
+            if( (self.segControl.selectedSegmentIndex == 0)&&self.notificationsData.isEmpty ){
                 self.mvc_getNotificationsRequest(self.notisPageVal)
-            }else if( (self.segControl.selectedSegmentIndex == 2)&&self.issuesData.isEmpty ){
+            }else if( (self.segControl.selectedSegmentIndex == 1)&&self.issuesData.isEmpty ){
                 self.mvc_getIssuesRequest(self.issuesPageVal)
             }else{
                 self.tableView.reloadData()
@@ -153,10 +148,8 @@ class CPMessageViewController: CPBaseViewController {
     func headerRefresh(){
         print("下拉刷新")
         if(segControl.selectedSegmentIndex == 0) {
-            self.newsPageVal = 1
-        }else if(segControl.selectedSegmentIndex == 1){
             self.notisPageVal = 1
-        }else{
+        }else if(segControl.selectedSegmentIndex == 1){
             self.issuesPageVal = 1
         }
         updateNetrokData()
@@ -166,69 +159,14 @@ class CPMessageViewController: CPBaseViewController {
     func footerRefresh(){
         print("上拉刷新")
         if(segControl.selectedSegmentIndex == 0) {
-            self.newsPageVal++
-        }else if(segControl.selectedSegmentIndex == 1){
             self.notisPageVal++
-        }else{
+        }else if(segControl.selectedSegmentIndex == 1){
             self.issuesPageVal++
         }
         updateNetrokData()
     }
 
     // MARK: fetch data form request
-    
-    func mvc_getNewsRequest(pageVal:Int) {
-        
-        print("page:\(pageVal)")
-        
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        
-        Provider.sharedProvider.request(.MyStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
-            
-            var success = true
-            var message = "Unable to fetch from GitHub"
-            
-            if(pageVal == 1) {
-                self.tableView.mj_header.endRefreshing()
-            }else{
-                self.tableView.mj_footer.endRefreshing()
-            }
-            
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
-            
-            switch result {
-            case let .Success(response):
-                
-                do {
-                    if let news:[ObjRepos]? = try response.mapArray(ObjRepos){
-                        if(pageVal == 1) {
-                            self.newsData.removeAll()
-                            self.newsData = news!
-                        }else{
-                            self.newsData = self.newsData+news!
-                        }
-                        
-                        self.tableView.reloadData()
-                        
-                    } else {
-                        success = false
-                    }
-                } catch {
-                    success = false
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
-                }
-            case let .Failure(error):
-                guard let error = error as? CustomStringConvertible else {
-                    break
-                }
-                message = error.description
-                success = false
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
-                
-            }
-            
-        }
-    }
     
     func mvc_getNotificationsRequest(pageVal:Int) {
         
@@ -345,12 +283,9 @@ extension CPMessageViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if (segControl.selectedSegmentIndex == 0) {
-//            return  self.newsData.count
-            return 0
-        }else if(segControl.selectedSegmentIndex == 1)
-        {
             return self.notificationsData.count
         }
+        
         return self.issuesData.count
     }
     
@@ -361,35 +296,11 @@ extension CPMessageViewController : UITableViewDataSource {
         var cellId = ""
         
         if segControl.selectedSegmentIndex == 0 {
-            
-            cellId = "CPStarredReposCellIdentifier"
-            var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPStarredReposCell
-            if cell == nil {
-                cell = CPStarredReposCell(style: UITableViewCellStyle.Default, reuseIdentifier:cellId)
-            }
-            
-            //handle line in cell
-            if row == 0 {
-                cell!.topline = true
-            }
-            if (row == newsData.count-1) {
-                cell!.fullline = true
-            }else {
-                cell!.fullline = false
-            }
-            
-            let repos = self.newsData[row]
-            cell!.objRepos = repos
-            
-            return cell!;
-            
-        }else if(segControl.selectedSegmentIndex == 1) {
-            
             cellId = "CPMesNotificationCellIdentifier"
             var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMesNotificationCell
             if cell == nil {
                 cell = (CPMesNotificationCell.cellFromNibNamed("CPMesNotificationCell") as! CPMesNotificationCell)
-
+                
             }
             
             //handle line in cell
@@ -406,6 +317,8 @@ extension CPMessageViewController : UITableViewDataSource {
             cell!.noti = noti
             
             return cell!;
+
+            
         }
         
         cellId = "CPMesIssueCellIdentifier"
@@ -436,11 +349,6 @@ extension CPMessageViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if segControl.selectedSegmentIndex == 0 {
-            
-            return 85
-            
-        }else if(segControl.selectedSegmentIndex == 1){
-            
             return 55
         }
         return 75

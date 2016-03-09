@@ -161,7 +161,7 @@ class ObjRepos: NSObject,Mappable {
     var open_issues_count:Int?
     var owner:ObjUser?
     var permissions:ObjPermissions?
-    var cprivate:Int?              //private同关键字冲突，加c前缀
+    var cprivate:Bool?              //private同关键字冲突，加c前缀
     
     var pulls_url:String?
     var pushed_at:String?
@@ -182,7 +182,7 @@ class ObjRepos: NSObject,Mappable {
     var url:String?
     var watchers:Int?
     var watchers_count:Int?
-
+    var subscribers_count:Int?
     
     struct ReposKey {
         
@@ -263,6 +263,8 @@ class ObjRepos: NSObject,Mappable {
         static let urlKey = "url"
         static let watchersKey = "watchers"
         static let watchersCountKey = "watchers_count"
+        static let subscribersCount = "subscribers_count"
+        
 
     }
     
@@ -352,6 +354,8 @@ class ObjRepos: NSObject,Mappable {
         url <- map[ReposKey.urlKey]
         watchers <- map[ReposKey.watchersKey]
         watchers_count <- map[ReposKey.watchersCountKey]
+        subscribers_count <- map[ReposKey.subscribersCount]
+
     }
 
     

@@ -41,6 +41,12 @@ class CPStarredReposCell: CPBaseViewCell {
             timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
             starNumLabel.text = "\(objRepos!.stargazers_count!)"
             forkNumLabel.text = "\(objRepos!.forks_count!)"
+            
+            if let lan = objRepos!.language {
+                langLabel.text = "\(lan)"
+            }
+            
+
         }
         
     }

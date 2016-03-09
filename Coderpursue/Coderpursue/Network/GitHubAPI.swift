@@ -150,6 +150,8 @@ public enum GitHubAPI {
     case UserRepos(type:String, sort:String ,direction:String, username:String)
     case OrgRepos(type:String, organization:String)
     case PubRepos(page:Int,perpage:Int)
+    case UserSomeRepo(owner:String, repo:String)
+    
     
     //starring
     case ReposStargazers(owner:String ,repo:String)
@@ -270,6 +272,9 @@ extension GitHubAPI: TargetType {
             return "/orgs/\(organization)/repos"
         case PubRepos:
             return "/repositories"
+        case UserSomeRepo(let owner,let repo):
+            return "/repos/\(owner)/\(repo)"
+
             
         //starring
         case ReposStargazers(let owner ,let repo):

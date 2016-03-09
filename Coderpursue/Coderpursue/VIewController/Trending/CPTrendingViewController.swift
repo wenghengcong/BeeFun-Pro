@@ -35,8 +35,34 @@ class CPTrendingViewController: CPBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        tvc_checkUserSignIn()
+        tvc_addNaviBarButtonItem()
+    }
+    
+    func tvc_addNaviBarButtonItem() {
+        
+        let btnName = UIButton()
+        btnName.setImage(UIImage(named: "bubble_consulting_chat-512"), forState: .Normal)
+        btnName.frame = CGRectMake(0, 0, 30, 30)
+        btnName.addTarget(self, action: Selector("tvc_rightButtonTouch"), forControlEvents: .TouchUpInside)
+        
+        //.... Set Right/Left Bar Button item
+        let rightBarButton = UIBarButtonItem()
+        rightBarButton.customView = btnName
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        
+    }
+    
+    func tvc_rightButtonTouch() {
+        
+    }
+    
+    func resetSearchUserParameters(){
         
         //test
+        /*
         var para:ParaComparison = ParaComparison.init(left: 5, op:ComparisonOperator.Less)
         let s1 = para.combineComparision()
         
@@ -44,15 +70,10 @@ class CPTrendingViewController: CPBaseViewController {
         let s2 = para2.combineComparision()
         
         print("\(s1),\(s2)")
-        
-        // Do any additional setup after loading the view.
-        tvc_checkUserSignIn()
-        
-    }
-    
-    func resetSearchUserParameters(){
+        */
         
         paraUser.q = paraUser.combineQuery()
+        
         
     }
     
@@ -427,6 +448,25 @@ extension CPTrendingViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        let repos = self.reposData[indexPath.row]
+
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        self.performSegueWithIdentifier("ShowRepositorySegue", sender: repos)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "ShowRepositorySegue"{
+            let reposVC = segue.destinationViewController as! CPRepositoryViewController
+            reposVC.hidesBottomBarWhenPushed = true
+            
+            let repos = sender as? ObjRepos
+            if(repos != nil){
+                reposVC.repos = repos
+            }
+
+        }
     }
     
 }

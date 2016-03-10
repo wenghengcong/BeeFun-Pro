@@ -12,7 +12,7 @@ import Foundation
 import MJRefresh
 import ObjectMapper
 
-class CPRepositoryViewController: CPBaseViewController {
+class CPTrendingRepositoryViewController: CPBaseViewController {
 
     @IBOutlet weak var reposPoseterV: CPReposPosterView!
     
@@ -105,7 +105,7 @@ class CPRepositoryViewController: CPBaseViewController {
 }
 
 
-extension CPRepositoryViewController : UITableViewDataSource {
+extension CPTrendingRepositoryViewController : UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -133,7 +133,7 @@ extension CPRepositoryViewController : UITableViewDataSource {
     }
     
 }
-extension CPRepositoryViewController : UITableViewDelegate {
+extension CPTrendingRepositoryViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         

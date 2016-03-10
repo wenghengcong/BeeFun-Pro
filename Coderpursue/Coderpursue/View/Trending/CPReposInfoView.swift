@@ -105,7 +105,10 @@ class CPReposInfoView: UIView {
         starBtn.setTitle("\(repo!.stargazers_count!)", forState: .Normal)
         forkBtn.setTitle("\(repo!.forks_count!)", forState: .Normal)
         
-        lanBtn.setTitle("\(repo!.language!)", forState: .Normal)
+        if let lan = repo!.language {
+            lanBtn.setTitle("\(lan)", forState: .Normal)
+        }
+        
         
         if(repo!.cprivate!){
             privateBtn.setTitle("Private", forState: .Normal)

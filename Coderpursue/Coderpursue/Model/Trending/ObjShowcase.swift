@@ -26,6 +26,10 @@ class ObjShowcase: NSObject,Mappable {
     var image_url:String?
     var repositories:[ObjRepos]?
     
+    override init() {
+        super.init()
+    }
+    
     required init?(_ map: Map) {
         //        super.init(map)
     }

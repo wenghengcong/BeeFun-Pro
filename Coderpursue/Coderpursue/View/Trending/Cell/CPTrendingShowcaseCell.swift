@@ -21,11 +21,11 @@ class CPTrendingShowcaseCell: CPBaseViewCell {
     
     @IBOutlet weak var bottomLineV: UIView!
     
-    var showcase:ObjTrendShowcase? {
+    var showcase:ObjShowcase? {
         
         didSet {
             
-            let urlPath:String = showcase!.imageUrl!
+            let urlPath:String = showcase!.image_url!
             
             let cache = KingfisherManager.sharedManager.cache
             

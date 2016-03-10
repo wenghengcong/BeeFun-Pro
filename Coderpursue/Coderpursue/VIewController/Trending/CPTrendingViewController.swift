@@ -16,11 +16,14 @@ class CPTrendingViewController: CPBaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    let segRepos = "Repositoies"
+    let segDeves = "Developers"
+    let segShows = "Showcases"
     var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositoies","Developers","Showcases"])
     
     var reposData:[ObjRepos]! = []
     var devesData:[ObjUser]! = []
-    var showcasesData:[ObjTrendShowcase]! = []
+    var showcasesData:[ObjShowcase]! = []
     
     
     // MARK: request parameters
@@ -316,7 +319,7 @@ class CPTrendingViewController: CPBaseViewController {
             case let .Success(response):
                 
                 do {
-                    if let shows:[ObjTrendShowcase]? = try response.mapArray(ObjTrendShowcase){
+                    if let shows:[ObjShowcase]? = try response.mapArray(ObjShowcase){
                         
                         self.showcasesData.removeAll()
                         self.showcasesData = shows!
@@ -448,17 +451,27 @@ extension CPTrendingViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let repos = self.reposData[indexPath.row]
-
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        self.performSegueWithIdentifier("ShowRepositorySegue", sender: repos)
+
+        if segControl.selectedSegmentIndex == 0 {
+            
+            let repos = self.reposData[indexPath.row]
+            self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: repos)
+        }else if(segControl.selectedSegmentIndex == 1){
+            
+            let dev = self.devesData[indexPath.row]
+            self.performSegueWithIdentifier(SegueTrendingShowDeveloperDetail, sender: dev)
+        }else {
+            
+            let showcase = self.showcasesData[indexPath.row]
+            self.performSegueWithIdentifier(SegueTrendingShowShowcaseDetail, sender: showcase)
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "ShowRepositorySegue"{
-            let reposVC = segue.destinationViewController as! CPRepositoryViewController
+        if (segue.identifier == SegueTrendingShowRepositoryDetail){
+            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true
             
             let repos = sender as? ObjRepos
@@ -466,7 +479,23 @@ extension CPTrendingViewController : UITableViewDelegate {
                 reposVC.repos = repos
             }
 
+        }else if(segue.identifier == SegueTrendingShowDeveloperDetail){
+            let devVC = segue.destinationViewController as! CPTrendingDeveloperViewController
+            devVC.hidesBottomBarWhenPushed = true
+
+            
+        }else if(segue.identifier == SegueTrendingShowShowcaseDetail){
+            
+            let showcaseVC = segue.destinationViewController as! CPTrendingShowcaseViewController
+            showcaseVC.hidesBottomBarWhenPushed = true
+
+            let showcase = sender as? ObjShowcase
+            if(showcase != nil){
+                showcaseVC.showcase = showcase
+            }
+            
         }
+        
     }
     
 }

@@ -85,8 +85,6 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/Alamofire.framework"
-  install_framework "Pods/EZSwiftExtensions.framework"
-  install_framework "Pods/Former.framework"
   install_framework "Pods/IQKeyboardManagerSwift.framework"
   install_framework "Pods/Kingfisher.framework"
   install_framework "Pods/MBProgressHUD.framework"
@@ -96,15 +94,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods/ReachabilitySwift.framework"
   install_framework "Pods/Result.framework"
   install_framework "Pods/SnapKit.framework"
-  install_framework "Pods/Spring.framework"
   install_framework "Pods/SwiftDate.framework"
   install_framework "Pods/SwiftyJSON.framework"
-  install_framework "Pods/XCGLogger.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/Alamofire.framework"
-  install_framework "Pods/EZSwiftExtensions.framework"
-  install_framework "Pods/Former.framework"
   install_framework "Pods/IQKeyboardManagerSwift.framework"
   install_framework "Pods/Kingfisher.framework"
   install_framework "Pods/MBProgressHUD.framework"
@@ -114,8 +108,6 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods/ReachabilitySwift.framework"
   install_framework "Pods/Result.framework"
   install_framework "Pods/SnapKit.framework"
-  install_framework "Pods/Spring.framework"
   install_framework "Pods/SwiftDate.framework"
   install_framework "Pods/SwiftyJSON.framework"
-  install_framework "Pods/XCGLogger.framework"
 fi

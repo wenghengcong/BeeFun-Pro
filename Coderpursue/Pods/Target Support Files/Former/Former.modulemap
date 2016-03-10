@@ -1,6 +1,0 @@
-framework module Former {
-  umbrella header "Former-umbrella.h"
-
-  export *
-  module * { export * }
-}

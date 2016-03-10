@@ -222,9 +222,14 @@ class CPTrendingViewController: CPBaseViewController {
                 
                 do {
                     if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
+                        if(self.paraUser.page == 1){
+                            self.reposData.removeAll()
+                            self.reposData = repos!
+                        }else{
+                            self.reposData = self.reposData+repos!
+                        }
                         
-                        self.reposData.removeAll()
-                        self.reposData = repos!
+
                         self.tableView.reloadData()
                         
                     } else {
@@ -250,6 +255,7 @@ class CPTrendingViewController: CPBaseViewController {
     func tvc_getUserRequest() {
         
         resetSearchUserParameters()
+        print("search user query:\(paraUser.q)")
         
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
@@ -482,7 +488,11 @@ extension CPTrendingViewController : UITableViewDelegate {
         }else if(segue.identifier == SegueTrendingShowDeveloperDetail){
             let devVC = segue.destinationViewController as! CPTrendingDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
-
+            
+            let dev = sender as? ObjUser
+            if(dev != nil){
+                devVC.developer = dev
+            }
             
         }else if(segue.identifier == SegueTrendingShowShowcaseDetail){
             

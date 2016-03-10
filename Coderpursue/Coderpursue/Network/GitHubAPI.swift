@@ -118,7 +118,7 @@ public enum GitHubAPI {
     //user
     case MyInfo
     case UserInfo(username:String)
-    case UpdateUserInfo(name:String, email:String, blog:String, company:String, location:String,hireable:Bool,bio:String)
+    case UpdateUserInfo(name:String, email:String, blog:String, company:String, location:String,hireable:String,bio:String)
     case AllUsers(page:Int,perpage:Int)
     
     //user email
@@ -176,8 +176,8 @@ public enum GitHubAPI {
     //notification
 //    case MyNotifications(page:Int,perpage:Int,all:Bool ,participating:Bool,since:String,before:String)
 
-    case MyNotifications(page:Int,perpage:Int,all:Bool ,participating:Bool)
-    case RepoNotifications(owner:String ,repo:String,all:Bool ,participating:Bool)
+    case MyNotifications(page:Int,perpage:Int,all:String ,participating:String)
+    case RepoNotifications(owner:String ,repo:String,all:String ,participating:String)
     case MarkNotificationsAsRead(last_read_at:String)
     case MarkRepoNotificationsAsRead(owner:String ,repo:String,last_read_at:String)
     
@@ -232,7 +232,7 @@ extension GitHubAPI: TargetType {
         case .MyInfo:
             return "/user"
         case .UserInfo(let username):
-            return "/user/\(username)"
+            return "/users/\(username)"
         case .UpdateUserInfo:
             return "/user"
         case AllUsers(_,_):
@@ -544,10 +544,10 @@ extension GitHubAPI: TargetType {
         //notification
         case MyNotifications(let page,let perpage,let all ,let participating):
             return [
-                "page":page,
-                "per_page":perpage,
                 "all":all,
                 "participating":participating,
+                "page":page,
+                "per_page":perpage
             ]
         case RepoNotifications(_,_,let all ,let participating):
             return [
@@ -677,6 +677,7 @@ private extension String {
 }
 
 public func url(route: TargetType) -> String {
+    print("api:\(route.baseURL.URLByAppendingPathComponent(route.path).absoluteString)")
     return route.baseURL.URLByAppendingPathComponent(route.path).absoluteString
 }
 

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIKit
 import Moya
 import Foundation
 import MJRefresh

@@ -29,7 +29,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="git_starred" translatesAutoresizingMaskIntoConstraints="NO" id="bfi-um-Oz1">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="octicon_star_15" translatesAutoresizingMaskIntoConstraints="NO" id="bfi-um-Oz1">
                         <rect key="frame" x="90" y="60" width="15" height="15"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22068" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvD-JW-CTz">
@@ -38,7 +38,7 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="git_fork" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-Pp-dJa">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="octicon_fork_15" translatesAutoresizingMaskIntoConstraints="NO" id="cwZ-Pp-dJa">
                         <rect key="frame" x="182" y="60" width="15" height="15"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6955" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JtJ-rj-l2x">
@@ -76,7 +76,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="git_fork" width="112" height="112"/>
-        <image name="git_starred" width="48" height="48"/>
+        <image name="octicon_fork_15" width="15" height="15"/>
+        <image name="octicon_star_15" width="15" height="15"/>
     </resources>
 </document>

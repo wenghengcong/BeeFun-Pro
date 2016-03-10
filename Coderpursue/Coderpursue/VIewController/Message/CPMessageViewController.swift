@@ -29,8 +29,8 @@ class CPMessageViewController: CPBaseViewController {
     // MARK: request parameters
 
     //notification
-    var notiAllPar:Bool = false
-    var notiPartPar:Bool = false
+    var notiAllPar:String = "false"
+    var notiPartPar:String = "false"
     
     //issue
     var issueFilterPar:String = "all"
@@ -172,7 +172,7 @@ class CPMessageViewController: CPBaseViewController {
         
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        Provider.sharedProvider.request(.MyNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
+        Provider.sharedProvider.request( .MyNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
             
             var success = true
             var message = "Unable to fetch from GitHub"
@@ -189,6 +189,7 @@ class CPMessageViewController: CPBaseViewController {
             case let .Success(response):
                 
                 do {
+
                     if let notis:[ObjNotification]? = try response.mapArray(ObjNotification){
                         if(pageVal == 1) {
                             self.notificationsData.removeAll()

@@ -27,6 +27,9 @@
 		5E4ABFD91C91046F0041FA89 /* CPTrendingDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFD81C91046F0041FA89 /* CPTrendingDeveloperViewController.swift */; };
 		5E4ABFDB1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFDA1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift */; };
 		5E4ABFDD1C9113140041FA89 /* CPShowcaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFDC1C9113140041FA89 /* CPShowcaseInfoView.swift */; };
+		5E4ABFDF1C916C330041FA89 /* CPDeveloperInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFDE1C916C330041FA89 /* CPDeveloperInfoView.swift */; };
+		5E4ABFE11C9181640041FA89 /* CPDevUserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFE01C9181640041FA89 /* CPDevUserInfoCell.swift */; };
+		5E4ABFE31C9181700041FA89 /* CPDevUserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E4ABFE21C9181700041FA89 /* CPDevUserInfoCell.xib */; };
 		5E546D891C8EDE1800E94997 /* ObjSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546D881C8EDE1800E94997 /* ObjSettings.swift */; };
 		5E546D8D1C8EDE3100E94997 /* AppToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546D8A1C8EDE3100E94997 /* AppToken.swift */; };
 		5E546D8E1C8EDE3100E94997 /* ObjResponseHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546D8B1C8EDE3100E94997 /* ObjResponseHeader.swift */; };
@@ -150,6 +153,9 @@
 		5E4ABFD81C91046F0041FA89 /* CPTrendingDeveloperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingDeveloperViewController.swift; sourceTree = "<group>"; };
 		5E4ABFDA1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingShowcaseViewController.swift; sourceTree = "<group>"; };
 		5E4ABFDC1C9113140041FA89 /* CPShowcaseInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPShowcaseInfoView.swift; sourceTree = "<group>"; };
+		5E4ABFDE1C916C330041FA89 /* CPDeveloperInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPDeveloperInfoView.swift; sourceTree = "<group>"; };
+		5E4ABFE01C9181640041FA89 /* CPDevUserInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPDevUserInfoCell.swift; sourceTree = "<group>"; };
+		5E4ABFE21C9181700041FA89 /* CPDevUserInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPDevUserInfoCell.xib; sourceTree = "<group>"; };
 		5E546D881C8EDE1800E94997 /* ObjSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjSettings.swift; sourceTree = "<group>"; };
 		5E546D8A1C8EDE3100E94997 /* AppToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToken.swift; sourceTree = "<group>"; };
 		5E546D8B1C8EDE3100E94997 /* ObjResponseHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjResponseHeader.swift; sourceTree = "<group>"; };
@@ -295,6 +301,8 @@
 				5E4ABFBA1C9032D40041FA89 /* CPTrendingRepoCell.xib */,
 				5E4ABFBB1C9032D40041FA89 /* CPTrendingShowcaseCell.swift */,
 				5E4ABFBC1C9032D40041FA89 /* CPTrendingShowcaseCell.xib */,
+				5E4ABFE01C9181640041FA89 /* CPDevUserInfoCell.swift */,
+				5E4ABFE21C9181700041FA89 /* CPDevUserInfoCell.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -641,6 +649,7 @@
 				5E4ABFC31C9032FE0041FA89 /* CPReposPosterView.swift */,
 				5E4ABFCF1C907DDE0041FA89 /* CPReposInfoView.swift */,
 				5E4ABFDC1C9113140041FA89 /* CPShowcaseInfoView.swift */,
+				5E4ABFDE1C916C330041FA89 /* CPDeveloperInfoView.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -822,6 +831,7 @@
 				5E4ABFBE1C9032D40041FA89 /* CPTrendingDeveloperCell.xib in Resources */,
 				5EEE93DE1C8BA93A003911B2 /* CPEventCreateCell.xib in Resources */,
 				5E4ABFC21C9032D40041FA89 /* CPTrendingShowcaseCell.xib in Resources */,
+				5E4ABFE31C9181700041FA89 /* CPDevUserInfoCell.xib in Resources */,
 				FEC0DC411C28B39F0008C7C1 /* Main.storyboard in Resources */,
 				5EEE93D81C8B1207003911B2 /* Assets.xcassets in Resources */,
 				5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */,
@@ -927,6 +937,7 @@
 				5EE3FF5A1C7C076E00760F0F /* ObjIssue.swift in Sources */,
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
 				FE26BCBF1C4282BA00887534 /* NetworkHelper.swift in Sources */,
+				5E4ABFDF1C916C330041FA89 /* CPDeveloperInfoView.swift in Sources */,
 				FE91BA971C334C9F002AECB6 /* CPLoginViewController.swift in Sources */,
 				FE914DC61C4BEEC6001C3D90 /* PlistHelper.swift in Sources */,
 				FE49DF941C4B5AE600676131 /* Device.swift in Sources */,
@@ -936,6 +947,7 @@
 				5E4ABFD91C91046F0041FA89 /* CPTrendingDeveloperViewController.swift in Sources */,
 				FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */,
 				FE91BA8F1C33396E002AECB6 /* CPProfileViewController.swift in Sources */,
+				5E4ABFE11C9181640041FA89 /* CPDevUserInfoCell.swift in Sources */,
 				5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */,
 				FE0FE0D91C3F14F10005DDE5 /* ProjectKey.swift in Sources */,
 				FE17EA401C5723270061F624 /* ObjReposSum.swift in Sources */,

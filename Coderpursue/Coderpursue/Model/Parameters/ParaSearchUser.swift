@@ -69,7 +69,7 @@ public class ParaSearchUser : NSObject{
     }
     
     convenience override init() {
-        self.init(query:"" ,sort:"followers" ,order:"desc")
+        self.init(query:"type:user" ,sort:"followers" ,order:"desc")
     }
     
     func combineQuery()->String {

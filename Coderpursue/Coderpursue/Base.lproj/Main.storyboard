@@ -144,11 +144,11 @@
             </objects>
             <point key="canvasLocation" x="443.5" y="50.5"/>
         </scene>
-        <!--Trending-->
+        <!--Explore-->
         <scene sceneID="TB7-hQ-fi8">
             <objects>
                 <navigationController id="lAP-Eg-5KM" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Trending" image="tab_trending" selectedImage="tab_trending_sel" id="6tt-Ce-XeT"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="tab_trending" selectedImage="tab_trending_sel" id="6tt-Ce-XeT"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pV5-to-I10">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -161,7 +161,7 @@
             </objects>
             <point key="canvasLocation" x="-74.5" y="-1436.5"/>
         </scene>
-        <!--Trending-->
+        <!--Explore-->
         <scene sceneID="oAb-6D-aD0">
             <objects>
                 <viewController id="IYd-sN-OJ9" customClass="CPTrendingViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
@@ -184,7 +184,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Trending" id="qoa-mp-B6Q"/>
+                    <navigationItem key="navigationItem" title="Explore" id="qoa-mp-B6Q"/>
                     <connections>
                         <outlet property="tableView" destination="2w5-hE-F4q" id="5JZ-S7-LZD"/>
                         <segue destination="DFV-4I-ATK" kind="show" identifier="ShowRepoDetailSegue" id="wKV-hJ-UO0"/>
@@ -207,13 +207,70 @@
                     <view key="view" contentMode="scaleToFill" id="dWq-Yg-YXS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ETX-Jl-B9B" customClass="CPDeveloperInfoView" customModule="Coderpursue" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="183"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="wenghengcong" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="szz-Ps-1VI">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="735929774@qq.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Hd-PB-L8b">
+                                        <rect key="frame" x="0.0" y="118" width="375" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="zqN-Yx-4yT">
+                                        <rect key="frame" x="152" y="16" width="70" height="70"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCC-gp-l5h">
+                                        <rect key="frame" x="0.0" y="147" width="125" height="36"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Followers"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYN-qc-tcB">
+                                        <rect key="frame" x="250" y="147" width="125" height="36"/>
+                                        <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Following"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwI-GK-LVA">
+                                        <rect key="frame" x="125" y="147" width="125" height="36"/>
+                                        <color key="backgroundColor" red="1" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <state key="normal" title="Starred"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="avatarImgV" destination="zqN-Yx-4yT" id="xrG-J6-BKl"/>
+                                    <outlet property="emailLabel" destination="0Hd-PB-L8b" id="Ug5-33-fJQ"/>
+                                    <outlet property="followerBtn" destination="MCC-gp-l5h" id="uEt-qq-ED8"/>
+                                    <outlet property="followingBtn" destination="eYN-qc-tcB" id="kUm-6V-JiK"/>
+                                    <outlet property="nameLabel" destination="szz-Ps-1VI" id="bkN-oZ-4cU"/>
+                                    <outlet property="reposBtn" destination="hwI-GK-LVA" id="SkE-ab-kYv"/>
+                                </connections>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nsa-EQ-9V5">
+                                <rect key="frame" x="0.0" y="264" width="375" height="403"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="developerInfoV" destination="ETX-Jl-B9B" id="xM5-pC-WvD"/>
+                        <outlet property="tableView" destination="nsa-EQ-9V5" id="POr-KF-U0z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgF-fa-Kvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307.5" y="-1676.5"/>
+            <point key="canvasLocation" x="1656.5" y="-188.5"/>
         </scene>
         <!--Repos-->
         <scene sceneID="ydQ-zN-pRx">
@@ -342,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApR-YE-Z9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814.5" y="-1106.5"/>
+            <point key="canvasLocation" x="1656.5" y="-948.5"/>
         </scene>
         <!--Trending Showcase View Controller-->
         <scene sceneID="H5G-K4-gEm">
@@ -391,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xal-2O-Qto" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1307.5" y="-954.5"/>
+            <point key="canvasLocation" x="1047.5" y="-1446.5"/>
         </scene>
         <!--Profile-->
         <scene sceneID="uph-4U-viH">
@@ -770,10 +827,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="default" width="70" height="70"/>
         <image name="edit_profile" width="25" height="25"/>
         <image name="git_fork" width="112" height="112"/>
         <image name="git_starred" width="48" height="48"/>
-        <image name="profile_bg" width="320" height="160"/>
+        <image name="profile_bg" width="160" height="80"/>
         <image name="signin_logo" width="200" height="166"/>
         <image name="tab_gist" width="25" height="25"/>
         <image name="tab_gist_sel" width="25" height="25"/>

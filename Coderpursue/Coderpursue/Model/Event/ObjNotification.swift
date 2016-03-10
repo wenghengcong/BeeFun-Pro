@@ -40,7 +40,7 @@ public enum NotificationReason:String {
 
 class ObjNotification: NSObject,Mappable {
 
-    var id:Int?
+    var id:String?
     var unread:Bool?
     var reason:String?
     var updated_at:String?

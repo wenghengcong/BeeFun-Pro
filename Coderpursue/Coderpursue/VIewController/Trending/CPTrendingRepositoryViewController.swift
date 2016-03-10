@@ -21,12 +21,15 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var repos:ObjRepos?
+    // 顶部刷新
+    let header = MJRefreshNormalHeader()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         rvc_customView()
+        rvc_setupTableView()
         rvc_updateViewContent()
 //        rvc_getReopsRequest()
     }
@@ -41,16 +44,27 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     }
     
 
-    func svc_setupTableView() {
+    func rvc_setupTableView() {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .None
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
         self.automaticallyAdjustsScrollViewInsets = false
+        // 下拉刷新
+        header.setTitle("Pull down to refresh", forState: .Idle)
+        header.setTitle("Release to refresh", forState: .Pulling)
+        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setRefreshingTarget(self, refreshingAction: Selector("headerRefresh"))
+        // 现在的版本要用mj_header
+        self.tableView.mj_header = header
+    }
+    
+    // 顶部刷新
+    func headerRefresh(){
+        print("下拉刷新")
         
     }
-
     
     func rvc_getReopsRequest(){
         

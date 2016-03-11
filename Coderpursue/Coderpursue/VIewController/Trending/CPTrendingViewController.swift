@@ -44,6 +44,11 @@ class CPTrendingViewController: CPBaseViewController {
         tvc_addNaviBarButtonItem()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Exploer"
+    }
+    
     func tvc_addNaviBarButtonItem() {
         
         let btnName = UIButton()
@@ -470,7 +475,6 @@ extension CPTrendingViewController : UITableViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         if (segue.identifier == SegueTrendingShowRepositoryDetail){
             let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true

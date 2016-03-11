@@ -20,10 +20,12 @@ class CPGitLoginViewController: CPWebViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = "Sign In"
         
     }
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Sign In"
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

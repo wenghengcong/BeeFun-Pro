@@ -27,9 +27,7 @@ class CPBaseViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = CPStyleGuide.navTitleTextAttributes()
         //返回按钮颜色与文字
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationController?.navigationBar.topItem?.leftBarButtonItem?.title = ""  //no change
-        
-        self.navigationController?.navigationBar.topItem!.title = ""
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,15 +36,6 @@ class CPBaseViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
 }
 

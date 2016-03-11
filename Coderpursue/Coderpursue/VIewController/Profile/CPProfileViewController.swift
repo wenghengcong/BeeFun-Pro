@@ -61,8 +61,12 @@ class CPProfileViewController: CPBaseViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    // MARK: load data 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Profile"
+
+    }
+    // MARK: load data
     func pvc_loadUserinfoData() {
         
         pvc_getUserinfoRequest()
@@ -285,7 +289,7 @@ class CPProfileViewController: CPBaseViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+
         if (segue.identifier == SegueProfileShowRepositoryList){
           
             let reposVC = segue.destinationViewController as! CPReposViewController

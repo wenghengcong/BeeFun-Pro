@@ -40,7 +40,10 @@ class CPStarsViewController: CPBaseViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Stars"
+    }
     func svc_checkUserSignIn() {
         
         svc_setupSegmentView()
@@ -394,7 +397,7 @@ extension CPStarsViewController : UITableViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+
         if (segue.identifier == SegueTrendingShowRepositoryDetail){
             let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true

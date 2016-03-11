@@ -44,6 +44,16 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         dvc_updateViewContent()
         dvc_getUserinfoRequest()
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let username = developer!.name {
+            self.title = username
+        }else{
+            self.title = developer!.login!
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -57,13 +67,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     }
     
     func dvc_customView(){
-        
-        if let username = developer!.name {
-            self.title = username
-        }else{
-            self.title = developer!.login!
-        }
-        
+
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.viewBackgroundColor()
         self.navigationItem.leftBarButtonItem?.title = "Back"
@@ -135,11 +139,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         if(developer==nil){
             return
-        }
-        if let username = developer!.name {
-            self.title = username
-        }else{
-            self.title = developer!.login!
         }
         
         devInfoArr.removeAll()
@@ -310,7 +309,7 @@ extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+
         if (segue.identifier == SegueUserToRepository){
             
             let reposVC = segue.destinationViewController as! CPReposViewController

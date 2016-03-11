@@ -46,11 +46,16 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         rvc_userIsLogin()
         rvc_setupTableView()
         rvc_loadAllRequset()
-        self.navigationItem.leftBarButtonItem?.title = "Back"
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = repos!.name!
+
+    }
+    
     func rvc_customView(){
         
-        self.title = repos!.name!
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.whiteColor()
         

@@ -125,6 +125,11 @@ class CPDeveloperInfoView: UIView {
     }
     
     func div_followAction() {
+        if let followerCount = developer!.followers {
+            if(followerCount == 0){
+                return
+            }
+        }
         if( self.userActionDelegate != nil ){
             self.userActionDelegate!.viewFollowAction()
         }
@@ -132,6 +137,11 @@ class CPDeveloperInfoView: UIView {
     }
     
     func div_reposAction() {
+        if let reposCount = developer!.public_repos {
+            if(reposCount == 0){
+                return
+            }
+        }
         if( self.userActionDelegate != nil ){
             self.userActionDelegate!.viewReposAction()
         }
@@ -140,6 +150,11 @@ class CPDeveloperInfoView: UIView {
     
     
     func div_followingAction() {
+        if let followingCount = developer!.following {
+            if(followingCount == 0){
+                return
+            }
+        }
         if( self.userActionDelegate != nil ){
             self.userActionDelegate!.viewFollowingAction()
         }

@@ -42,6 +42,16 @@ class CPFollowersViewController: CPBaseViewController {
         fvc_selectDataSource()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if(viewType == "follower"){
+            self.title = "Follower"
+        }else if(viewType == "following"){
+            self.title = "Following"
+        }
+
+    }
+    
     func fvc_addNaviBarButtonItem() {
         
         /*
@@ -55,11 +65,7 @@ class CPFollowersViewController: CPBaseViewController {
         rightBarButton.customView = btnName
         self.navigationItem.rightBarButtonItem = rightBarButton
         */
-        if(viewType == "follower"){
-            self.title = "Follower"
-        }else if(viewType == "following"){
-            self.title = "Following"
-        }
+
 
     }
     
@@ -283,7 +289,7 @@ extension CPFollowersViewController : UITableViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+
         if(segue.identifier == SegueProfileShowDeveloperDetail){
             
             let devVC = segue.destinationViewController as! CPTrendingDeveloperViewController

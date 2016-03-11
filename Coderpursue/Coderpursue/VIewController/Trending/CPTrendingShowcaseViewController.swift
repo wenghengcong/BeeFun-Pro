@@ -27,12 +27,16 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = showcase.slug
         tsc_setupTableView()
         tsc_updateContentView()
         tsc_getShowcaseRequest()
     }
-
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = showcase.slug
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -179,7 +183,7 @@ extension CPTrendingShowcaseViewController : UITableViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+
         if (segue.identifier == SegueTrendingShowRepositoryDetail){
             
             let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController

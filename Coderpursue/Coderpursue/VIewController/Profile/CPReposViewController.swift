@@ -42,6 +42,10 @@ class CPReposViewController: CPBaseViewController {
         rvc_setupTableView()
         rvc_selectDataSource()
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Repositories"
+    }
     
     func rvc_addNaviBarButtonItem() {
         
@@ -57,11 +61,7 @@ class CPReposViewController: CPBaseViewController {
         self.navigationItem.rightBarButtonItem = rightBarButton
         */
         
-        if let uname = self.username {
-            self.title = uname
-        }else{
-            self.title = "Repositories"
-        }
+
 
     }
     
@@ -317,7 +317,7 @@ extension CPReposViewController : UITableViewDelegate {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
+
         if (segue.identifier == SegueProfileShowRepositoryDetail){
             let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true

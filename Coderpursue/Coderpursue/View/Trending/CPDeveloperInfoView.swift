@@ -8,6 +8,15 @@
 
 import UIKit
 
+
+protocol UserProfileActionProtocol {
+    
+    func viewFollowAction()
+    func viewReposAction()
+    func viewFollowingAction()
+    
+}
+
 class CPDeveloperInfoView: UIView {
 
     @IBOutlet weak var avatarImgV: UIImageView!
@@ -18,6 +27,8 @@ class CPDeveloperInfoView: UIView {
     @IBOutlet weak var reposBtn: UIButton!
     @IBOutlet weak var followingBtn: UIButton!
     
+    var userActionDelegate:UserProfileActionProtocol?
+
     var developer:ObjUser?{
         didSet{
             div_fillData()
@@ -71,8 +82,13 @@ class CPDeveloperInfoView: UIView {
         }
         
         followerBtn.setTitle("0 \nFollower", forState: .Normal)
+        followerBtn.addTarget(self, action: "div_followAction", forControlEvents: .TouchUpInside)
+
         reposBtn.setTitle("0 \nRepositories", forState: .Normal)
+        reposBtn.addTarget(self, action: "div_reposAction", forControlEvents: .TouchUpInside)
+
         followingBtn.setTitle("0 \nFollowing", forState: .Normal)
+        followingBtn.addTarget(self, action: "div_followingAction", forControlEvents: .TouchUpInside)
 
     }
     
@@ -107,5 +123,28 @@ class CPDeveloperInfoView: UIView {
 
         
     }
+    
+    func div_followAction() {
+        if( self.userActionDelegate != nil ){
+            self.userActionDelegate!.viewFollowAction()
+        }
+        
+    }
+    
+    func div_reposAction() {
+        if( self.userActionDelegate != nil ){
+            self.userActionDelegate!.viewReposAction()
+        }
+        
+    }
+    
+    
+    func div_followingAction() {
+        if( self.userActionDelegate != nil ){
+            self.userActionDelegate!.viewFollowingAction()
+        }
+        
+    }
+    
 
 }

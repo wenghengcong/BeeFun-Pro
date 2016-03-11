@@ -920,9 +920,9 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6UL-L4-rCi"/>
-        <segue reference="Uie-OZ-gKU"/>
-        <segue reference="VaJ-wG-uf1"/>
-        <segue reference="2ub-ii-V44"/>
+        <segue reference="Ah2-FE-EYQ"/>
+        <segue reference="4pF-1J-jZn"/>
+        <segue reference="Ocj-6m-P78"/>
+        <segue reference="9bj-WN-PEl"/>
     </inferredMetricsTieBreakers>
 </document>

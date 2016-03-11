@@ -13,6 +13,14 @@ import MJRefresh
 import ObjectMapper
 import SwiftDate
 
+
+public enum CPUserActionType:String {
+    case Follow = "watch"
+    case Repos = "star"
+    case Following = "fork"
+}
+
+
 class CPTrendingDeveloperViewController: CPBaseViewController {
 
     @IBOutlet weak var developerInfoV: CPDeveloperInfoView!
@@ -22,6 +30,8 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     var developer:ObjUser?
     var devInfoArr = [[String:String]]()
     
+    var actionType:CPUserActionType = .Follow
+
     // 顶部刷新
     let header = MJRefreshNormalHeader()
     
@@ -56,8 +66,9 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.viewBackgroundColor()
-        
-        
+        self.navigationItem.leftBarButtonItem?.title = "Back"
+
+        developerInfoV.userActionDelegate = self
     }
     
     func dvc_setupTableView() {
@@ -74,7 +85,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         header.setTitle("Loading ...", forState: .Refreshing)
         header.setRefreshingTarget(self, refreshingAction: Selector("headerRefresh"))
         // 现在的版本要用mj_header
-        self.tableView.mj_header = header
+//        self.tableView.mj_header = header
         
     }
     
@@ -249,4 +260,99 @@ extension CPTrendingDeveloperViewController : UITableViewDelegate {
     }
     
 }
+
+extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
+    
+    
+    func viewFollowAction() {
+        actionType = .Follow
+        segueGotoViewController()
+    }
+    
+    func viewReposAction() {
+        actionType = .Repos
+        segueGotoViewController()
+    }
+    
+    func viewFollowingAction() {
+        actionType = .Following
+        segueGotoViewController()
+    }
+    
+    
+    func segueGotoViewController() {
+        
+        if (!UserInfoHelper.sharedInstance.isLoginIn){
+            CPGlobalHelper.sharedInstance.showError("Please first login in", view: self.view)
+            return
+        }
+        
+        switch(actionType){
+        case .Follow:
+            let uname = developer!.login
+            let dic:[String:String] = ["uname":uname!,"type":"follower"]
+            self.performSegueWithIdentifier(SegueUserToFollower, sender: dic)
+            
+        case .Repos:
+            
+            let uname = developer!.login
+            let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
+            self.performSegueWithIdentifier(SegueUserToRepository, sender: dic)
+
+        case .Following:
+            let uname = developer!.login
+            let dic:[String:String] = ["uname":uname!,"type":"following"]
+            self.performSegueWithIdentifier(SegueUserToFollowing, sender: dic)
+
+        }
+        
+        
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == SegueUserToRepository){
+            
+            let reposVC = segue.destinationViewController as! CPReposViewController
+            reposVC.hidesBottomBarWhenPushed = true
+            
+            let dic = sender as? [String:String]
+            if (dic != nil) {
+                reposVC.dic = dic!
+                reposVC.username = dic!["uname"]
+                reposVC.viewType = dic!["type"]
+            }
+            
+        }else if(segue.identifier == SegueUserToFollowing){
+            
+            let followVC = segue.destinationViewController as! CPFollowersViewController
+            followVC.hidesBottomBarWhenPushed = true
+            
+            let dic = sender as? [String:String]
+            if (dic != nil) {
+                followVC.dic = dic!
+                followVC.username = dic!["uname"]
+                followVC.viewType = dic!["type"]
+            }
+            
+        }else if(segue.identifier == SegueUserToFollower){
+            
+            let followVC = segue.destinationViewController as! CPFollowersViewController
+            followVC.hidesBottomBarWhenPushed = true
+            
+            let dic = sender as? [String:String]
+            if (dic != nil) {
+                followVC.dic = dic!
+                followVC.username = dic!["uname"]
+                followVC.viewType = dic!["type"]
+            }
+            
+        }
+    }
+
+    
+    
+}
+
+
 

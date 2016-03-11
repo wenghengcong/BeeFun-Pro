@@ -62,7 +62,7 @@ class CPReposViewController: CPBaseViewController {
         }else{
             self.title = "Repositories"
         }
-        
+
     }
     
     func rvc_rightButtonTouch() {

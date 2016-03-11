@@ -46,6 +46,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         rvc_userIsLogin()
         rvc_setupTableView()
         rvc_loadAllRequset()
+        self.navigationItem.leftBarButtonItem?.title = "Back"
     }
     func rvc_customView(){
         

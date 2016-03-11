@@ -60,6 +60,7 @@ class CPFollowersViewController: CPBaseViewController {
         }else if(viewType == "following"){
             self.title = "Following"
         }
+
     }
     
     func fvc_rightButtonTouch() {

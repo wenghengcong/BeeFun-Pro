@@ -28,6 +28,8 @@ class CPBaseViewController: UIViewController {
         //返回按钮颜色与文字
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationController?.navigationBar.topItem?.leftBarButtonItem?.title = ""  //no change
+        
+        self.navigationController?.navigationBar.topItem!.title = ""
     }
 
     override func didReceiveMemoryWarning() {

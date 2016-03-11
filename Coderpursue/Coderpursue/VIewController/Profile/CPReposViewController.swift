@@ -105,14 +105,14 @@ class CPReposViewController: CPBaseViewController {
     func headerRefresh(){
         print("下拉刷新")
         reposPageVal = 1
-        rvc_getUserReposRequest()
+        rvc_selectDataSource()
     }
     
     // 底部刷新
     func footerRefresh(){
         print("上拉刷新")
         reposPageVal++
-        rvc_getUserReposRequest()
+        rvc_selectDataSource()
     }
     
     func rvc_updateViewContent() {
@@ -123,14 +123,18 @@ class CPReposViewController: CPBaseViewController {
     func rvc_selectDataSource() {
         
         if(self.viewType == "repositories") {
-            rvc_getUserReposRequest()
+            rvc_getMyReposRequest()
+        }else if(self.viewType == "watched"){
+            rvc_getWatchedReposRequest()
+        }else if(self.viewType == "forked"){
+            rvc_getForkedReposRequst()
         }
         
     }
     
     // MARK: request for repos
     
-    func rvc_getUserReposRequest() {
+    func rvc_getMyReposRequest() {
         
         if (username == nil){
             return
@@ -178,6 +182,58 @@ class CPReposViewController: CPBaseViewController {
         
     }
     
+    func rvc_getWatchedReposRequest() {
+        if (username == nil){
+            return
+        }
+        
+        Provider.sharedProvider.request( .UserWatchedRepos( page:self.reposPageVal,perpage:self.reposPerpage,username:self.username! ) ) { (result) -> () in
+            print(result)
+            
+            var success = true
+            var message = "Unable to fetch from GitHub"
+            
+            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
+            
+            switch result {
+            case let .Success(response):
+                
+                do {
+                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
+                        if(self.reposPageVal == 1) {
+                            self.reposData.removeAll()
+                            self.reposData = repos!
+                        }else{
+                            self.reposData = self.reposData+repos!
+                        }
+                        self.rvc_updateViewContent()
+                        
+                    } else {
+                        success = false
+                    }
+                } catch {
+                    success = false
+                }
+                //                self.tableView.reloadData()
+            case let .Failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+                success = false
+            }
+            
+        }
+
+    }
+    
+    func rvc_getForkedReposRequst() {
+        
+    }
+
+
+    
 }
 
 
@@ -195,10 +251,34 @@ extension CPReposViewController : UITableViewDataSource {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let row = indexPath.row
-        let cellId = "CPMyReposCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMyReposCell
+        var cellId = ""
+        if(self.viewType == "repositories") {
+            cellId = "CPMyReposCellIdentifier"
+            var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMyReposCell
+            if cell == nil {
+                cell = (CPMyReposCell.cellFromNibNamed("CPMyReposCell") as! CPMyReposCell)
+            }
+            
+            //handle line in cell
+            if row == 0 {
+                cell!.topline = true
+            }
+            if (row == reposData.count-1) {
+                cell!.fullline = true
+            }else {
+                cell!.fullline = false
+            }
+            
+            let repos = self.reposData[row]
+            cell!.objRepos = repos
+            
+            return cell!;
+        }
+        
+        cellId = "CPProfileReposCellIdentifier"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPProfileReposCell
         if cell == nil {
-            cell = (CPMyReposCell.cellFromNibNamed("CPMyReposCell") as! CPMyReposCell)
+            cell = (CPProfileReposCell.cellFromNibNamed("CPProfileReposCell") as! CPProfileReposCell)
         }
         
         //handle line in cell

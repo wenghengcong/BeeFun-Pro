@@ -13,16 +13,6 @@
 			<key>itemDisclosure</key>
 			<true/>
 		</dict>
-		<dict>
-			<key>itemKey</key>
-			<string>forked</string>
-			<key>itemName</key>
-			<string>Forked</string>
-			<key>itemIcon</key>
-			<string>octicon_fork_red_20</string>
-			<key>itemDisclosure</key>
-			<true/>
-		</dict>
 	</array>
 	<array>
 		<dict>

@@ -127,9 +127,9 @@ public enum GitHubAPI {
     case DelEmail
     
     //user followers
-    case UserFollowers(username:String)
+    case UserFollowers(page:Int,perpage:Int,username:String)
     case MyFollowers
-    case UserFollowing(username:String)
+    case UserFollowing(page:Int,perpage:Int,username:String)
     case MyFollowing
     case CheckUserFollowing(username:String)
     case CheckFollowing(username:String ,target_user:String)
@@ -137,16 +137,7 @@ public enum GitHubAPI {
     case Unfollow(username:String)
     
     //repository
-    /**
-    *  @param type:String      all, owner, public, private, member. Default: all
-    *  @param sort:String      created, updated, pushed, full_name. Default: full_name
-    *  @param direction:String asc or desc.
-    */
     case MyRepos(type:String, sort:String ,direction:String)
-    /**
-     *  @param type:String      all, owner, member. Default: owner
-     *  @param sort:String       created, updated, pushed, full_name. Default: full_name
-     */
     case UserRepos( username:String ,page:Int,perpage:Int,type:String, sort:String ,direction:String)
     case OrgRepos(type:String, organization:String)
     case PubRepos(page:Int,perpage:Int)
@@ -175,7 +166,6 @@ public enum GitHubAPI {
 
     //notification
 //    case MyNotifications(page:Int,perpage:Int,all:Bool ,participating:Bool,since:String,before:String)
-
     case MyNotifications(page:Int,perpage:Int,all:String ,participating:String)
     case RepoNotifications(owner:String ,repo:String,all:String ,participating:String)
     case MarkNotificationsAsRead(last_read_at:String)
@@ -209,6 +199,9 @@ public enum GitHubAPI {
     //search
     case SearchUsers(para:ParaSearchUser)
     
+    //forks
+    case UserReposForks(page:Int,perpage:Int,sort:String,owner:String,repo:String)
+    case CreateFork(owner:String,repo:String)
 }
 
 extension GitHubAPI: TargetType {
@@ -246,11 +239,11 @@ extension GitHubAPI: TargetType {
             return "/user/emails"
             
         //user followers
-        case UserFollowers(let username):
+        case UserFollowers(_,_,let username):
             return "/user/\(username)/followers"
         case MyFollowers:
             return "/user/followers"
-        case UserFollowing(let username):
+        case UserFollowing(_,_,let username):
             return "/user/\(username)/following"
         case MyFollowing:
             return "/user/following"
@@ -374,6 +367,13 @@ extension GitHubAPI: TargetType {
         case SearchUsers:
             return "/search/users"
 
+        //forks
+        case UserReposForks(_,_,_,let owner,let repo):
+            return "/repos/\(owner)/\(repo)/forks"
+        case CreateFork(let owner,let repo):
+            return "/repos/\(owner)/\(repo)/forks"
+
+            
         }
         
     }
@@ -418,7 +418,8 @@ extension GitHubAPI: TargetType {
         case UnWatchingRepo:
             return .DELETE
    
-            
+        case .CreateFork:
+            return .POST
         default:
             return .GET
 
@@ -428,6 +429,19 @@ extension GitHubAPI: TargetType {
     public var parameters: [String: AnyObject]? {
         
         switch self {
+            
+        //follower
+        case .UserFollowers(let page,let perpage, _):
+            return [
+                "page":page,
+                "per_page":perpage
+            ]
+        case .UserFollowing(let page,let perpage, _):
+            return [
+                "page":page,
+                "per_page":perpage
+            ]
+            
         case .UpdateUserInfo(let name,let email,let blog,let company,let location,let hireable,let bio):
             return [
                     "name": name,
@@ -648,6 +662,15 @@ extension GitHubAPI: TargetType {
                 "page":para.page,
                 "per_page":para.perPage,
             ]
+            
+            //forks
+        case UserReposForks(let page,let perpage,let sort,_,_):
+            return [
+                "page":page,
+                "per_page":perpage,
+                "sort":sort
+            ]
+            
         default:
             return nil
             

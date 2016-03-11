@@ -240,13 +240,13 @@ extension GitHubAPI: TargetType {
             
         //user followers
         case UserFollowers(_,_,let username):
-            return "/user/\(username)/followers"
+            return "/users/\(username)/followers"
         case MyFollowers:
-            return "/user/followers"
+            return "/users/followers"
         case UserFollowing(_,_,let username):
-            return "/user/\(username)/following"
+            return "/users/\(username)/following"
         case MyFollowing:
-            return "/user/following"
+            return "/users/following"
         case CheckUserFollowing(let username):
             return "/user/following/\(username)"
         case CheckFollowing(let username ,let target_user):

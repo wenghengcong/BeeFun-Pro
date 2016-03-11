@@ -94,21 +94,16 @@ class CPTrendingViewController: CPBaseViewController {
     
     func updateNetrokData() {
         
-        if UserInfoHelper.sharedInstance.isLoginIn {
-            self.tableView.hidden = false
-            
-            if(segControl.selectedSegmentIndex == 0) {
-                tvc_getReposRequest()
-            }else if(segControl.selectedSegmentIndex == 1){
-                tvc_getUserRequest()
-            }else{
-                tvc_getShowcasesRequest()
-            }
-            
-        }else {
-            //加载未登录的页面
-            self.tableView.hidden = true
+        
+        if(segControl.selectedSegmentIndex == 0) {
+            tvc_getReposRequest()
+        }else if(segControl.selectedSegmentIndex == 1){
+            tvc_getUserRequest()
+        }else{
+            tvc_getShowcasesRequest()
         }
+        
+
     }
     
     func tvc_setupSegmentView() {

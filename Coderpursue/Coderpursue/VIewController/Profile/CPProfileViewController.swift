@@ -390,7 +390,6 @@ extension CPProfileViewController : UITableViewDelegate {
             let dic:[String:String] = ["uname":uname!,"type":viewType]
             self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
         }
-
         
     }
     

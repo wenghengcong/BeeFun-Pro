@@ -46,6 +46,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         rvc_userIsLogin()
         rvc_setupTableView()
         rvc_loadAllRequset()
+        self.navigationController!.navigationBar.topItem?.title = ""
     }
     
     override func viewWillAppear(animated: Bool) {

@@ -30,6 +30,8 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
         tsc_setupTableView()
         tsc_updateContentView()
         tsc_getShowcaseRequest()
+        self.navigationController!.navigationBar.topItem?.title = ""
+
     }
     
     override func viewWillAppear(animated: Bool) {

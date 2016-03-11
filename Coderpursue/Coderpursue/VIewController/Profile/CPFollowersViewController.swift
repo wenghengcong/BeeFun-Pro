@@ -40,6 +40,8 @@ class CPFollowersViewController: CPBaseViewController {
         fvc_addNaviBarButtonItem()
         fvc_setupTableView()
         fvc_selectDataSource()
+        self.navigationController!.navigationBar.topItem?.title = ""
+
     }
     
     override func viewWillAppear(animated: Bool) {

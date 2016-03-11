@@ -43,6 +43,8 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         dvc_setupTableView()
         dvc_updateViewContent()
         dvc_getUserinfoRequest()
+        self.navigationController!.navigationBar.topItem?.title = ""
+
     }
     
     override func viewWillAppear(animated: Bool) {

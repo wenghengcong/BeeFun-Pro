@@ -31,7 +31,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         rvc_customView()
         rvc_setupTableView()
         rvc_updateViewContent()
-//        rvc_getReopsRequest()
+        rvc_getReopsRequest()
     }
     func rvc_customView(){
         self.title = repos!.name!

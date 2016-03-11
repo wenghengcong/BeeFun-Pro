@@ -81,7 +81,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="git_starred" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-XA-xSv">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="octicon_star_15" translatesAutoresizingMaskIntoConstraints="NO" id="9Xk-XA-xSv">
                                                     <rect key="frame" x="90" y="60" width="15" height="15"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="22068" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kxy-h2-vWA">
@@ -90,7 +90,7 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="git_fork" translatesAutoresizingMaskIntoConstraints="NO" id="BBG-p3-wyK">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="octicon_fork_15" translatesAutoresizingMaskIntoConstraints="NO" id="BBG-p3-wyK">
                                                     <rect key="frame" x="182" y="60" width="15" height="15"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6955" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzS-eR-tmm">
@@ -138,6 +138,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="nFN-5X-KVv" id="fDZ-yY-NJX"/>
+                        <segue destination="DFV-4I-ATK" kind="show" identifier="ShowRepoDetailSegue" id="9bj-WN-PEl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYB-28-99h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -399,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApR-YE-Z9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.5" y="-948.5"/>
+            <point key="canvasLocation" x="1060.5" y="-194.5"/>
         </scene>
         <!--Trending Showcase View Controller-->
         <scene sceneID="H5G-K4-gEm">
@@ -587,7 +588,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dv0-UW-Em6">
-                                                    <rect key="frame" x="15" y="9" width="25" height="25"/>
+                                                    <rect key="frame" x="15" y="12" width="20" height="20"/>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lno-63-KmH">
                                                     <rect key="frame" x="342" y="9" width="25" height="25"/>
@@ -829,8 +830,8 @@
     <resources>
         <image name="default" width="70" height="70"/>
         <image name="edit_profile" width="25" height="25"/>
-        <image name="git_fork" width="112" height="112"/>
-        <image name="git_starred" width="48" height="48"/>
+        <image name="octicon_fork_15" width="15" height="15"/>
+        <image name="octicon_star_15" width="15" height="15"/>
         <image name="profile_bg" width="160" height="80"/>
         <image name="signin_logo" width="200" height="166"/>
         <image name="tab_gist" width="25" height="25"/>
@@ -845,6 +846,6 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MU4-AJ-ink"/>
+        <segue reference="9bj-WN-PEl"/>
     </inferredMetricsTieBreakers>
 </document>

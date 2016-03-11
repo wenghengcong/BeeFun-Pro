@@ -101,7 +101,10 @@ class CPReposInfoView: UIView {
     
     func riv_fillData() {
         
-        watchBtn.setTitle("\(repo!.subscribers_count!)", forState: .Normal)
+        if let watchCount = repo!.subscribers_count {
+            watchBtn.setTitle("\(watchCount)", forState: .Normal)
+        }
+        
         starBtn.setTitle("\(repo!.stargazers_count!)", forState: .Normal)
         forkBtn.setTitle("\(repo!.forks_count!)", forState: .Normal)
         

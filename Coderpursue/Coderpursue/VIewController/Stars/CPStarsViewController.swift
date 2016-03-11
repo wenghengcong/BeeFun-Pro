@@ -385,11 +385,25 @@ extension CPStarsViewController : UITableViewDelegate {
             }
             
         }
-        return 0
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let repos = self.reposData[indexPath.row]
+        self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: repos)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == SegueTrendingShowRepositoryDetail){
+            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
+            reposVC.hidesBottomBarWhenPushed = true
+            
+            let repos = sender as? ObjRepos
+            if(repos != nil){
+                reposVC.repos = repos
+            }
+            
+        }
+    }
 }

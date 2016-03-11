@@ -158,7 +158,7 @@ class ObjUser: NSObject,NSCoding,Mappable {
 //        super.mapping(map)
 
         total_private_repos <- map[UserKey.totalPrivateReposKey]
-        public_repos <- map[UserKey.publicGistsKey]
+        public_repos <- map[UserKey.publicReposKey]
         owned_private_repos <- map[UserKey.ownedPrivateReposKey]
         repos_url <- map[UserKey.reposUrlKey]
         

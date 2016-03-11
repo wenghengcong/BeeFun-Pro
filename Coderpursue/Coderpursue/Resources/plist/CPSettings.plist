@@ -9,7 +9,7 @@
 			<key>itemName</key>
 			<string>Watched</string>
 			<key>itemIcon</key>
-			<string>set_watched</string>
+			<string>octicon_watch_red_20</string>
 			<key>itemDisclosure</key>
 			<true/>
 		</dict>
@@ -19,7 +19,7 @@
 			<key>itemName</key>
 			<string>Forked</string>
 			<key>itemIcon</key>
-			<string>set_forked</string>
+			<string>octicon_fork_red_20</string>
 			<key>itemDisclosure</key>
 			<true/>
 		</dict>

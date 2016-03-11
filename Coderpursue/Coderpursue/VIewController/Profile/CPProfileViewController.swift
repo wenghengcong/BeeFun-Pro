@@ -7,8 +7,11 @@
 //
 
 import UIKit
-import Kingfisher
+import Moya
 import Foundation
+import MJRefresh
+import ObjectMapper
+import SwiftDate
 
 class CPProfileViewController: CPBaseViewController {
     
@@ -61,6 +64,7 @@ class CPProfileViewController: CPBaseViewController {
     
     // MARK: load data 
     func pvc_loadUserinfoData() {
+        pvc_getUserinfoRequest()
         user = UserInfoHelper.sharedInstance.user
         isLoingin = UserInfoHelper.sharedInstance.isLoginIn
         
@@ -123,10 +127,36 @@ class CPProfileViewController: CPBaseViewController {
         
         //add border to sperator three columns
         self.reposBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
+        self.reposBgV.userInteractionEnabled = true
         self.followerBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
+        self.followerBgV.userInteractionEnabled = true
         self.followingBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
+        self.followingBgV.userInteractionEnabled = true
+        
+        let reposGes = UITapGestureRecognizer(target: self, action: "pvc_reposTapAction:")
+        self.reposBgV.addGestureRecognizer(reposGes)
+        
+        let followGes = UITapGestureRecognizer(target: self, action: "pvc_followTapAction:")
+        self.followerBgV.addGestureRecognizer(followGes)
+        
+        let followingGes = UITapGestureRecognizer(target: self, action: "pvc_followingTapAction:")
+        self.followingBgV.addGestureRecognizer(followingGes)
         
         pvc_updateViewWithUserData()
+    }
+    
+    func pvc_reposTapAction(sender: UITapGestureRecognizer) {
+        print("pvc_reposTapAction")
+    }
+    
+    func pvc_followTapAction(sender: UITapGestureRecognizer) {
+        print("pvc_followTapAction")
+
+    }
+    
+    func pvc_followingTapAction(sender: UITapGestureRecognizer) {
+        print("pvc_followintTapAction")
+
     }
     
     func pvc_updateViewWithUserData() {
@@ -142,6 +172,8 @@ class CPProfileViewController: CPBaseViewController {
             self.pvc_numOfReposLabel.text = String(format: "%ld", arguments: [(user?.public_repos)!])
             self.pvc_numOfFollowingLabel.text = String(format: "%ld", arguments: [(user?.following)!])
             self.pvc_numOfFollwerLabel.text = String(format: "%ld", arguments: [(user?.followers)!])
+            
+            self.tableView.reloadData()
         }else {
             
         }
@@ -189,6 +221,53 @@ class CPProfileViewController: CPBaseViewController {
         self.navigationController?.pushViewController(loginVC, animated: true)
         
     }
+    
+    
+    func pvc_getUserinfoRequest(){
+        
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        var username = ""
+        if(UserInfoHelper.sharedInstance.isLoginIn){
+            username = UserInfoHelper.sharedInstance.user!.login!
+        }
+        
+        Provider.sharedProvider.request(.UserInfo(username:username) ) { (result) -> () in
+            
+            var success = true
+            var message = "Unable to fetch from GitHub"
+            
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            
+            switch result {
+            case let .Success(response):
+                
+                do {
+                    if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
+                        ObjUser.saveUserInfo(result)
+                        self.user = result
+                        self.pvc_updateViewWithUserData()
+                    } else {
+                        success = false
+                    }
+                } catch {
+                    success = false
+                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                }
+            case let .Failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+                success = false
+                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                
+            }
+        }
+        
+        
+    }
+    
     
 }
 

@@ -1,17 +1,15 @@
 //
-//  CPStarredReposCell.swift
+//  CPTrendingRepoCell.swift
 //  Coderpursue
 //
-//  Created by wenghengcong on 16/1/30.
-//  Copyright © 2016年 JungleSong. All rights reserved.
+//  Created by WengHengcong on 3/8/16.
+//  Copyright © 2016 JungleSong. All rights reserved.
 //
 
 import UIKit
 import SwiftDate
 
-class CPStarredReposCell: CPBaseViewCell {
-    
-    @IBOutlet weak var logoImgV: UIImageView!
+class CPMyReposCell: CPBaseViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -33,12 +31,7 @@ class CPStarredReposCell: CPBaseViewCell {
     var objRepos:ObjRepos? {
         
         didSet {
-            
-            if let avatarURl = objRepos!.owner!.avatar_url {
-                
-                logoImgV.kf_setImageWithURL( NSURL(string:avatarURl)!, placeholderImage: nil)
-            }
-            
+
             nameLabel.text = objRepos!.name!
             descLabel.text = objRepos!.cdescription
             let updateAt:NSDate = objRepos!.pushed_at!.toDate(DateFormat.ISO8601)!
@@ -46,12 +39,9 @@ class CPStarredReposCell: CPBaseViewCell {
             timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
             starNumLabel.text = "\(objRepos!.stargazers_count!)"
             forkNumLabel.text = "\(objRepos!.forks_count!)"
-            
             if let lan = objRepos!.language {
                 langLabel.text = "\(lan)"
             }
-            
-
         }
         
     }
@@ -79,10 +69,7 @@ class CPStarredReposCell: CPBaseViewCell {
     }
     
     func src_customView() {
-        
-        logoImgV.layer.cornerRadius = logoImgV.width/2
-        logoImgV.layer.masksToBounds = true
-        
+    
         nameLabel.textColor = UIColor.labelTitleTextColor()
         nameLabel.font = UIFont.largeSizeSystemFont()
         
@@ -102,5 +89,5 @@ class CPStarredReposCell: CPBaseViewCell {
         langLabel.font = UIFont.smallSizeSystemFont()
         
     }
-    
+
 }

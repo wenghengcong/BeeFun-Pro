@@ -147,7 +147,7 @@ public enum GitHubAPI {
      *  @param type:String      all, owner, member. Default: owner
      *  @param sort:String       created, updated, pushed, full_name. Default: full_name
      */
-    case UserRepos(type:String, sort:String ,direction:String, username:String)
+    case UserRepos( username:String ,page:Int,perpage:Int,type:String, sort:String ,direction:String)
     case OrgRepos(type:String, organization:String)
     case PubRepos(page:Int,perpage:Int)
     case UserSomeRepo(owner:String, repo:String)
@@ -265,7 +265,7 @@ extension GitHubAPI: TargetType {
             
         case MyRepos:
             return "/user/repos"
-        case UserRepos(let username):
+        case UserRepos(let username,_,_,_,_,_):
             return "/users/\(username)/repos"
             
         case OrgRepos(_ ,let organization):
@@ -449,8 +449,10 @@ extension GitHubAPI: TargetType {
                 "sort":sort,
                 "direction":direction
             ]
-        case UserRepos(let type, let sort ,let direction, _):
+        case UserRepos(_,let page, let perpage,let type, let sort ,let direction):
             return [
+                "page":page,
+                "per_page":perpage,
                 "type":type,
                 "sort":sort,
                 "direction":direction

@@ -131,9 +131,7 @@ extension CPTrendingRepositoryViewController : UITableViewDataSource {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
-
-        var cellId = "CPEventStarredCellIdentifier"
+        let cellId = "CPEventStarredCellIdentifier"
         var cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventStarredCell
         if cell == nil {
             cell = (CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell)

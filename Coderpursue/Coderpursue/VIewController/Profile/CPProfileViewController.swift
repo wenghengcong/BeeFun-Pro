@@ -64,6 +64,7 @@ class CPProfileViewController: CPBaseViewController {
     
     // MARK: load data 
     func pvc_loadUserinfoData() {
+        
         pvc_getUserinfoRequest()
         user = UserInfoHelper.sharedInstance.user
         isLoingin = UserInfoHelper.sharedInstance.isLoginIn
@@ -147,16 +148,31 @@ class CPProfileViewController: CPBaseViewController {
     
     func pvc_reposTapAction(sender: UITapGestureRecognizer) {
         print("pvc_reposTapAction")
+        
+        if ( isLoingin && (user != nil) ){
+            let uname = user!.login
+            let dic:[String:String] = ["uname":uname!,"type":"repositories"]
+            self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
+        }
+        
     }
     
     func pvc_followTapAction(sender: UITapGestureRecognizer) {
         print("pvc_followTapAction")
-
+        if ( isLoingin && (user != nil) ){
+            let uname = user!.login
+            let dic:[String:String] = ["uname":uname!,"type":"follower"]
+            self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
+        }
     }
     
     func pvc_followingTapAction(sender: UITapGestureRecognizer) {
         print("pvc_followintTapAction")
-
+        if ( isLoingin && (user != nil) ){
+            let uname = user!.login
+            let dic:[String:String] = ["uname":uname!,"type":"following"]
+            self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
+        }
     }
     
     func pvc_updateViewWithUserData() {
@@ -268,7 +284,35 @@ class CPProfileViewController: CPBaseViewController {
         
     }
     
-    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == SegueProfileShowRepositoryList){
+          
+            let reposVC = segue.destinationViewController as! CPReposViewController
+            reposVC.hidesBottomBarWhenPushed = true
+            
+            let dic = sender as? [String:String]
+            if (dic != nil) {
+                reposVC.dic = dic!
+                reposVC.username = dic!["uname"]
+                reposVC.viewType = dic!["type"]
+            }
+            
+        }else if(segue.identifier == SegueProfileShowFollowerList){
+            
+            let followVC = segue.destinationViewController as! CPFollowersViewController
+            followVC.hidesBottomBarWhenPushed = true
+            
+            let dic = sender as? [String:String]
+            if (dic != nil) {
+                followVC.dic = dic!
+                followVC.username = dic!["uname"]
+                followVC.viewType = dic!["type"]
+            }
+            
+        }
+    }
+
 }
 
 

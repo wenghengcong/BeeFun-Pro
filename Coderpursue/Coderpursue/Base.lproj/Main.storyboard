@@ -271,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgF-fa-Kvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656.5" y="-188.5"/>
+            <point key="canvasLocation" x="1496.5" y="35.5"/>
         </scene>
         <!--Repos-->
         <scene sceneID="ydQ-zN-pRx">
@@ -400,7 +400,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApR-YE-Z9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1060.5" y="-194.5"/>
+            <point key="canvasLocation" x="1504.5" y="763.5"/>
         </scene>
         <!--Trending Showcase View Controller-->
         <scene sceneID="H5G-K4-gEm">
@@ -636,11 +636,79 @@
                         <outlet property="pvc_reposLabel" destination="Whm-2U-6Jd" id="r1y-KS-i7s"/>
                         <outlet property="reposBgV" destination="8Nj-7A-1MK" id="a0i-RB-f7C"/>
                         <outlet property="tableView" destination="iSK-7T-M0V" id="rex-hG-Am5"/>
+                        <segue destination="7o3-oB-z3K" kind="show" identifier="ShowFollowerListSegue" id="4pF-1J-jZn"/>
+                        <segue destination="Irt-Xi-kye" kind="show" identifier="ShowRepositoryListSegue" id="Ocj-6m-P78"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PP4-uj-58n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="398.5" y="1642.5"/>
+        </scene>
+        <!--Followers View Controller-->
+        <scene sceneID="7HP-G2-Iu1">
+            <objects>
+                <viewController id="7o3-oB-z3K" customClass="CPFollowersViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SU4-QY-8Co"/>
+                        <viewControllerLayoutGuide type="bottom" id="7bT-fV-5YM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Z2v-vD-vUb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cme-H5-VpA">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="7o3-oB-z3K" id="sNR-VQ-Oku"/>
+                                    <outlet property="delegate" destination="7o3-oB-z3K" id="Ys3-1Q-tqH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="cme-H5-VpA" id="Dhk-Yb-bQX"/>
+                        <segue destination="Ax2-Kg-xXj" kind="show" identifier="ShowDeveDetailSegue" id="Uwe-C7-efJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DE6-IZ-YzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900.5" y="1109.5"/>
+        </scene>
+        <!--Repos View Controller-->
+        <scene sceneID="i1C-7N-qpX">
+            <objects>
+                <viewController id="Irt-Xi-kye" customClass="CPReposViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UOC-QW-35e"/>
+                        <viewControllerLayoutGuide type="bottom" id="uEB-VQ-jmi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kbd-ES-Ksd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="X5B-BZ-xTC">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Irt-Xi-kye" id="qiG-Jh-OZl"/>
+                                    <outlet property="delegate" destination="Irt-Xi-kye" id="W5I-R9-2eZ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableView" destination="X5B-BZ-xTC" id="qGx-t3-JhG"/>
+                        <segue destination="DFV-4I-ATK" kind="show" identifier="ShowRepoDetailSegue" id="6UL-L4-rCi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iuB-Q9-mZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="893.5" y="1924.5"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="m04-Ln-PBl">
@@ -739,7 +807,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pS5-JS-6lp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="789.5" y="1642.5"/>
+            <point key="canvasLocation" x="403.5" y="2402.5"/>
         </scene>
         <!--Message-->
         <scene sceneID="igp-jT-fcW">
@@ -763,6 +831,7 @@
             <objects>
                 <navigationController id="5dk-Fn-pc1" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Gist" image="tab_gist" selectedImage="tab_gist_sel" id="8Kp-o3-Rn0"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="15V-ac-LRt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -773,7 +842,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tf-DB-av5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443" y="860"/>
+            <point key="canvasLocation" x="443.5" y="859.5"/>
         </scene>
         <!--Message-->
         <scene sceneID="sqn-RG-YNS">
@@ -816,15 +885,16 @@
                         <viewControllerLayoutGuide type="bottom" id="YLf-eo-TBd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="oEl-Ku-xcr">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Gist" id="o9u-Pv-1BB"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeU-Ju-T91" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443.5" y="850.5"/>
+            <point key="canvasLocation" x="443.5" y="832.5"/>
         </scene>
     </scenes>
     <resources>
@@ -846,6 +916,7 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9bj-WN-PEl"/>
+        <segue reference="Uwe-C7-efJ"/>
+        <segue reference="6UL-L4-rCi"/>
     </inferredMetricsTieBreakers>
 </document>

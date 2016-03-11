@@ -49,8 +49,13 @@ struct Provider{
         
         var endpoint: Endpoint<GitHubAPI> = Endpoint<GitHubAPI>(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
         // Sign all non-XApp token requests
-        
+
         switch target {
+            //PUT	Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
+        case .WatchingRepo:
+            endpoint.endpointByAddingHTTPHeaderFields(["Authorization": AppToken.sharedInstance.access_token ?? ""])
+            return endpoint.endpointByAddingHTTPHeaderFields(["Content-Length":"0"])
+            
         default:
             print("current token:\( AppToken.sharedInstance.access_token)")
             return endpoint.endpointByAddingHTTPHeaderFields(["Authorization": AppToken.sharedInstance.access_token ?? ""])
@@ -176,7 +181,7 @@ public enum GitHubAPI {
     case UserWatchedRepos(page:Int,perpage:Int,username:String)
     case MyWatchedRepos(page:Int,perpage:Int)
     case CheckWatched(owner:String, repo:String)
-    case WatchingRepo(owner:String, repo:String)
+    case WatchingRepo(owner:String, repo:String,subscribed:String,ignored:String)
     case UnWatchingRepo(owner:String, repo:String)
     
     //Event
@@ -323,10 +328,10 @@ extension GitHubAPI: TargetType {
             return "/user/subscriptions"
         case CheckWatched(let owner,let repo):
             return "/repos/\(owner)/\(repo)/subscription"
-        case WatchingRepo(let owner,let repo):
-            return "/repos/\(owner)/\(repo)/subscription"
+        case WatchingRepo(let owner,let repo,_,_):
+            return "/repos/\(owner)/\(repo)/subscriptions"
         case UnWatchingRepo(let owner,let repo):
-            return "/repos/\(owner)/\(repo)/subscription"
+            return "/repos/\(owner)/\(repo)/subscriptions"
 
             //Event
         case PublicEvents:
@@ -594,6 +599,12 @@ extension GitHubAPI: TargetType {
             return [
                 "page":page,
                 "per_page":perpage,
+            ]
+            
+        case WatchingRepo(_,_,let subscribed,let ignored):
+            return [
+                "subscribed":subscribed,
+                "ignored":ignored
             ]
             
             //Event

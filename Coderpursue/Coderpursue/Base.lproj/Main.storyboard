@@ -267,11 +267,14 @@
                     <connections>
                         <outlet property="developerInfoV" destination="ETX-Jl-B9B" id="xM5-pC-WvD"/>
                         <outlet property="tableView" destination="nsa-EQ-9V5" id="POr-KF-U0z"/>
+                        <segue destination="Irt-Xi-kye" kind="show" identifier="UserToRepository" id="Uie-OZ-gKU"/>
+                        <segue destination="7o3-oB-z3K" kind="show" identifier="UserToFollower" id="6vW-Nx-tiC"/>
+                        <segue destination="7o3-oB-z3K" kind="show" identifier="UserToFollowing" id="2ub-ii-V44"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tgF-fa-Kvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1496.5" y="35.5"/>
+            <point key="canvasLocation" x="2400.5" y="1311.5"/>
         </scene>
         <!--Repos-->
         <scene sceneID="ydQ-zN-pRx">
@@ -304,7 +307,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="created:2011-05-31" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Bv-bJ-81E">
-                                        <rect key="frame" x="100" y="98" width="255" height="21"/>
+                                        <rect key="frame" x="100" y="101" width="255" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
@@ -396,11 +399,12 @@
                         <outlet property="reposInfoV" destination="VK6-mr-2nh" id="tUX-Cf-WpH"/>
                         <outlet property="reposPoseterV" destination="iYu-5z-SHE" id="6o4-eS-3PS"/>
                         <outlet property="tableView" destination="DOn-bB-VjD" id="MnF-L9-6LH"/>
+                        <segue destination="Ax2-Kg-xXj" kind="show" identifier="RepositoryToOwner" id="VaJ-wG-uf1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ApR-YE-Z9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1504.5" y="763.5"/>
+            <point key="canvasLocation" x="2400.5" y="265.5"/>
         </scene>
         <!--Trending Showcase View Controller-->
         <scene sceneID="H5G-K4-gEm">
@@ -675,7 +679,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DE6-IZ-YzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="900.5" y="1109.5"/>
+            <point key="canvasLocation" x="1142.5" y="1349.5"/>
         </scene>
         <!--Repos View Controller-->
         <scene sceneID="i1C-7N-qpX">
@@ -708,7 +712,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuB-Q9-mZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="893.5" y="1924.5"/>
+            <point key="canvasLocation" x="1142.5" y="2152.5"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="m04-Ln-PBl">
@@ -916,7 +920,9 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uwe-C7-efJ"/>
         <segue reference="6UL-L4-rCi"/>
+        <segue reference="Uie-OZ-gKU"/>
+        <segue reference="VaJ-wG-uf1"/>
+        <segue reference="2ub-ii-V44"/>
     </inferredMetricsTieBreakers>
 </document>

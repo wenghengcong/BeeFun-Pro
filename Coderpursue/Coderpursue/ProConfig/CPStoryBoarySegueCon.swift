@@ -17,3 +17,13 @@ public let SegueProfileShowRepositoryList = "ShowRepositoryListSegue"
 
 public let SegueProfileShowRepositoryDetail = "ShowRepoDetailSegue"
 public let SegueProfileShowDeveloperDetail = "ShowDeveDetailSegue"
+
+
+//repository
+public let SegueRepositoryToOwner = "RepositoryToOwner"
+
+
+//user
+public let SegueUserToRepository = "UserToRepository"
+public let SegueUserToFollower = "UserToFollower"
+public let SegueUserToFollowing = "UserToFollowing"

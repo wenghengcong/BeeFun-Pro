@@ -41,6 +41,7 @@
 		5E546D971C8F618000E94997 /* ObjShowcase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546D951C8F618000E94997 /* ObjShowcase.swift */; };
 		5E546D9A1C8F61A000E94997 /* ObjSearchUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546D991C8F61A000E94997 /* ObjSearchUserResponse.swift */; };
 		5E546DA51C8FAC2200E94997 /* ParaSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546DA41C8FAC2200E94997 /* ParaSort.swift */; };
+		5E738C981C92C26F0075C82C /* CPHttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E738C971C92C26F0075C82C /* CPHttpStatusCode.swift */; };
 		5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */; };
 		5EACCFC91C8D52C60059A303 /* CPMesIssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */; };
 		5EACCFCC1C8DEB490059A303 /* ParaSearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */; };
@@ -171,6 +172,7 @@
 		5E546D951C8F618000E94997 /* ObjShowcase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjShowcase.swift; sourceTree = "<group>"; };
 		5E546D991C8F61A000E94997 /* ObjSearchUserResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjSearchUserResponse.swift; sourceTree = "<group>"; };
 		5E546DA41C8FAC2200E94997 /* ParaSort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSort.swift; sourceTree = "<group>"; };
+		5E738C971C92C26F0075C82C /* CPHttpStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPHttpStatusCode.swift; sourceTree = "<group>"; };
 		5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesIssueCell.swift; sourceTree = "<group>"; };
 		5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesIssueCell.xib; sourceTree = "<group>"; };
 		5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchUser.swift; sourceTree = "<group>"; };
@@ -499,6 +501,7 @@
 		FE91BA731C333804002AECB6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				5E738C971C92C26F0075C82C /* CPHttpStatusCode.swift */,
 				FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */,
 				FE3ED3C11C53850D0048BA1D /* Response+ObjectMapper.swift */,
 			);
@@ -938,6 +941,7 @@
 				5E546D931C8EDE8B00E94997 /* ObjErropReponse.swift in Sources */,
 				FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */,
 				5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */,
+				5E738C981C92C26F0075C82C /* CPHttpStatusCode.swift in Sources */,
 				FE02E1E31C4A3EA00087AED6 /* UserInfoHelper.swift in Sources */,
 				5E4ABFDD1C9113140041FA89 /* CPShowcaseInfoView.swift in Sources */,
 				FE37DEF91C4B2E7700B8449D /* UIView+Draw.swift in Sources */,

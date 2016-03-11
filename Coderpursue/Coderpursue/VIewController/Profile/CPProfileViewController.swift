@@ -151,7 +151,7 @@ class CPProfileViewController: CPBaseViewController {
         
         if ( isLoingin && (user != nil) ){
             let uname = user!.login
-            let dic:[String:String] = ["uname":uname!,"type":"repositories"]
+            let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
             self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
         }
         

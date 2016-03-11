@@ -122,12 +122,14 @@ class CPReposViewController: CPBaseViewController {
     
     func rvc_selectDataSource() {
         
-        if(self.viewType == "repositories") {
+        if(self.viewType == "myrepositories") {
             rvc_getMyReposRequest()
         }else if(self.viewType == "watched"){
             rvc_getWatchedReposRequest()
         }else if(self.viewType == "forked"){
             rvc_getForkedReposRequst()
+        }else{
+            rvc_getMyReposRequest()
         }
         
     }
@@ -252,7 +254,7 @@ extension CPReposViewController : UITableViewDataSource {
         
         let row = indexPath.row
         var cellId = ""
-        if(self.viewType == "repositories") {
+        if(self.viewType == "myrepositories") {
             cellId = "CPMyReposCellIdentifier"
             var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMyReposCell
             if cell == nil {

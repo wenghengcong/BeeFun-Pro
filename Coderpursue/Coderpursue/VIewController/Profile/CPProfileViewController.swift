@@ -154,6 +154,10 @@ class CPProfileViewController: CPBaseViewController {
         print("pvc_reposTapAction")
         
         if ( isLoingin && (user != nil) ){
+            let count = user!.public_repos!
+            if(count == 0){
+                return
+            }
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
             self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
@@ -164,6 +168,12 @@ class CPProfileViewController: CPBaseViewController {
     func pvc_followTapAction(sender: UITapGestureRecognizer) {
         print("pvc_followTapAction")
         if ( isLoingin && (user != nil) ){
+            
+            let count = user!.followers!
+            if(count == 0){
+                return
+            }
+            
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
             self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
@@ -173,6 +183,10 @@ class CPProfileViewController: CPBaseViewController {
     func pvc_followingTapAction(sender: UITapGestureRecognizer) {
         print("pvc_followintTapAction")
         if ( isLoingin && (user != nil) ){
+            let count = user!.following!
+            if(count == 0){
+                return
+            }
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
             self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
@@ -184,7 +198,8 @@ class CPProfileViewController: CPBaseViewController {
         self.pvc_nameLabel.hidden = !isLoingin
         self.pvc_emailLabel.hidden = !isLoingin
         
-        self.pvc_editProfileBtn.hidden = !isLoingin
+//        self.pvc_editProfileBtn.hidden = !isLoingin
+        self.pvc_editProfileBtn.hidden = true
         self.pvc_loginBtn.hidden = isLoingin
         
         if isLoingin {

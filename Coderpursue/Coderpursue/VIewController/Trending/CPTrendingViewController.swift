@@ -12,19 +12,23 @@ import Foundation
 import MJRefresh
 import ObjectMapper
 
-class CPTrendingViewController: CPBaseViewController {
+class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
 
     @IBOutlet weak var tableView: UITableView!
     
-    let segRepos = "Repositoies"
-    let segDeves = "Developers"
-    let segShows = "Showcases"
+    //view
     var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositoies","Developers","Showcases"])
-    
+    var filterView:CPFilterTableView?
+    let filterVHeight:CGFloat = 270    //filterview height
+    let filterBtn = UIButton()
+
+    //data
     var reposData:[ObjRepos]! = []
     var devesData:[ObjUser]! = []
     var showcasesData:[ObjShowcase]! = []
     
+    var cityArr:[String]?
+    var languageArr:[String]?
     
     // MARK: request parameters
     
@@ -36,36 +40,6 @@ class CPTrendingViewController: CPBaseViewController {
     // 底部刷新
     let footer = MJRefreshAutoNormalFooter()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        tvc_checkUserSignIn()
-        tvc_addNaviBarButtonItem()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.title = "Exploer"
-    }
-    
-    func tvc_addNaviBarButtonItem() {
-        
-        let btnName = UIButton()
-        btnName.setImage(UIImage(named: "bubble_consulting_chat-512"), forState: .Normal)
-        btnName.frame = CGRectMake(0, 0, 30, 30)
-        btnName.addTarget(self, action: Selector("tvc_rightButtonTouch"), forControlEvents: .TouchUpInside)
-        
-        //.... Set Right/Left Bar Button item
-        let rightBarButton = UIBarButtonItem()
-        rightBarButton.customView = btnName
-        self.navigationItem.rightBarButtonItem = rightBarButton
-        
-    }
-    
-    func tvc_rightButtonTouch() {
-        
-    }
     
     func resetSearchUserParameters(){
         
@@ -85,30 +59,63 @@ class CPTrendingViewController: CPBaseViewController {
         
     }
     
+    
+    // MARK: view cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
+        tvc_getDataFromPlist()
+        tvc_setupSegmentView()
+        tvc_setupTableView()
+        tvc_setupFilterView()
+        tvc_addNaviBarButtonItem()
+        updateNetrokData()
+
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Exploer"
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func tvc_checkUserSignIn() {
+    
+    // MARK: view
+    
+    func tvc_addNaviBarButtonItem() {
         
-        tvc_setupSegmentView()
-        tvc_setupTableView()
-        updateNetrokData()
+        filterBtn.setImage(UIImage(named: "nav_funnel"), forState: .Normal)
+        filterBtn.setImage(UIImage(named: "nav_funnel_sel"), forState: .Selected)
+
+        filterBtn.frame = CGRectMake(0, 5, 25, 25)
+        filterBtn.addTarget(self, action: Selector("tvc_rightButtonTouch:"), forControlEvents: .TouchUpInside)
+        filterBtn.hidden = true
+
+        //.... Set Right/Left Bar Button item
+        let rightBarButton = UIBarButtonItem()
+        rightBarButton.customView = filterBtn
+        self.navigationItem.rightBarButtonItem = rightBarButton
         
     }
     
-    func updateNetrokData() {
+    func tvc_setupFilterView(){
         
-        
-        if(segControl.selectedSegmentIndex == 0) {
-            tvc_getReposRequest()
-        }else if(segControl.selectedSegmentIndex == 1){
-            tvc_getUserRequest()
-        }else{
-            tvc_getShowcasesRequest()
-        }
-        
-
+        let firW:CGFloat = 100.0
+        let secW:CGFloat = self.view.width-firW
+        filterView = CPFilterTableView(frame: CGRectMake(0, 64-filterVHeight-10, self.view.width, filterVHeight))
+        filterView!.backgroundColor = UIColor.viewBackgroundColor()
+        filterView!.filteDelegate = self
+        filterView!.coloumn = .Two
+        filterView!.rowWidths = [firW,secW]
+        filterView!.rowHeights = [40.0,40.0]
+        filterView!.tabData = [languageArr!,cityArr!]
+        filterView!.filterViewInit()
+        self.view.addSubview(filterView!)
     }
     
     func tvc_setupSegmentView() {
@@ -129,10 +136,13 @@ class CPTrendingViewController: CPBaseViewController {
             (index:Int)-> Void in
             
             if( (self.segControl.selectedSegmentIndex == 0)&&self.reposData.isEmpty ){
+                self.filterBtn.hidden = true
                 self.tvc_getReposRequest()
             }else if( (self.segControl.selectedSegmentIndex == 1)&&self.devesData.isEmpty ){
+                self.filterBtn.hidden = false
                 self.tvc_getUserRequest()
             }else if( (self.segControl.selectedSegmentIndex == 2)&&self.showcasesData.isEmpty ){
+                self.filterBtn.hidden = true
                 self.tvc_getShowcasesRequest()
             }else{
                 self.tableView.reloadData()
@@ -173,6 +183,65 @@ class CPTrendingViewController: CPBaseViewController {
         footer.refreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
+
+    
+    // MARK: action
+    
+    func tvc_rightButtonTouch(sender:UIButton) {
+        
+        let btn = sender
+        btn.selected = !btn.selected
+        if(btn.selected){
+            tvc_filterViewApper()
+        }else{
+            tvc_filterViewDisapper()
+        }
+    }
+
+    func didSelectColoumn(index: Int, row:Int ,type:String,value:String) {
+        
+        if(index == 1){
+            if(value != "All"){
+                if(type == "Language"){
+                    paraUser.languagePara = value
+                }else if(type == "City"){
+                    paraUser.locationPara = value
+                }
+            }else{
+                paraUser.languagePara = nil
+                paraUser.locationPara = nil
+
+            }
+            tvc_filterViewDisapper()
+            tvc_getUserRequest()
+        }
+
+    }
+    
+    func tvc_filterViewApper(){
+        filterView!.resetProperty()
+        filterView!.frame = CGRectMake(0, 64, self.view.width, filterVHeight)
+    }
+    
+    func tvc_filterViewDisapper(){
+        filterView!.frame = CGRectMake(0, 64-filterVHeight-10, self.view.width, filterVHeight)
+
+    }
+    
+    
+    func updateNetrokData() {
+        
+        
+        if(segControl.selectedSegmentIndex == 0) {
+            tvc_getReposRequest()
+        }else if(segControl.selectedSegmentIndex == 1){
+            tvc_getUserRequest()
+        }else{
+            tvc_getShowcasesRequest()
+        }
+        
+
+    }
     
     // 顶部刷新
     func headerRefresh(){
@@ -200,6 +269,18 @@ class CPTrendingViewController: CPBaseViewController {
         updateNetrokData()
     }
     
+    // MARK: fetch data form plist file
+    func tvc_getDataFromPlist() {
+        
+        if let path = NSBundle.mainBundle().pathForResource("CPCity", ofType: "plist") {
+            cityArr = NSArray(contentsOfFile: path)! as? [String]
+        }
+        
+        if let path = NSBundle.mainBundle().pathForResource("CPLanguage", ofType: "plist") {
+            languageArr = NSArray(contentsOfFile: path)! as? [String]
+        }
+    }
+
     // MARK: fetch data form request
     
     func tvc_getReposRequest() {

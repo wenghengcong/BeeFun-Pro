@@ -14,6 +14,8 @@ public let SegueTrendingShowShowcaseDetail = "ShowShowcaseDetailSegue"
 //profile
 public let SegueProfileShowFollowerList = "ShowFollowerListSegue"
 public let SegueProfileShowRepositoryList = "ShowRepositoryListSegue"
+public let SegueProfileAboutView = "AboutViewSegue"
+public let SegueProfileSettingView = "SettingsViewSegue"
 
 public let SegueProfileShowRepositoryDetail = "ShowRepoDetailSegue"
 public let SegueProfileShowDeveloperDetail = "ShowDeveDetailSegue"
@@ -27,3 +29,7 @@ public let SegueRepositoryToOwner = "RepositoryToOwner"
 public let SegueUserToRepository = "UserToRepository"
 public let SegueUserToFollower = "UserToFollower"
 public let SegueUserToFollowing = "UserToFollowing"
+
+
+//message
+public let SegueUserMessageShowNotificationDetail = "ShowNotificationDetailSegue"

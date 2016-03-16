@@ -23,7 +23,6 @@ class CPSettingsCell: CPBaseViewCell {
             setTitleLabel.text = objSettings?.itemName
             if ( (objSettings?.itemDisclosure)! ) {
                 discolsureImgV.hidden = false
-                discolsureImgV.image = UIImage.init(named: "arrow_right")
             }else {
                 discolsureImgV.hidden = true
             }
@@ -34,6 +33,7 @@ class CPSettingsCell: CPBaseViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        cpc_customView()
     }
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -51,5 +51,9 @@ class CPSettingsCell: CPBaseViewCell {
         // Configure the view for the selected state
     }
     
+    func cpc_customView(){
+        discolsureImgV.image = UIImage.init(named: "arrow_right")
+
+    }
 
 }

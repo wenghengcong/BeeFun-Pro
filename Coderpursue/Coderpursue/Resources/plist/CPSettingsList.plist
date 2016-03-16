@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<dict>
+			<key>itemKey</key>
+			<string>version</string>
+			<key>itemName</key>
+			<string>Version</string>
+			<key>itemIcon</key>
+			<string>octicon_watch_red_20</string>
+			<key>itemDisclosure</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>itemKey</key>
+			<string>loginout</string>
+			<key>itemName</key>
+			<string>Log out</string>
+			<key>itemIcon</key>
+			<string>octicon_watch_red_20</string>
+			<key>itemDisclosure</key>
+			<true/>
+		</dict>
+	</array>
+</array>
+</plist>

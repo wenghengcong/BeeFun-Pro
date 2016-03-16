@@ -6,9 +6,5 @@
 //  Copyright © 2016年 JungleSong. All rights reserved.
 //
 
-import Foundation
-
-struct CPNotiName {
-    static let GitLoginSuccessfulNotification  = "GitLoginSuccessfulNotification"
+public let NotificationGitLoginSuccessful  = "GitLoginSuccessfulNotification"
     
-}

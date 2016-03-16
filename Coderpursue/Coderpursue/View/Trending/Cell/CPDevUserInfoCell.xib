@@ -33,7 +33,7 @@
                 <outlet property="infoLabel" destination="ksR-cu-FCD" id="EM8-pV-RCe"/>
                 <outlet property="tagImagV" destination="Cxh-2y-jpr" id="rwB-h3-I4c"/>
             </connections>
-            <point key="canvasLocation" x="229.5" y="243"/>
+            <point key="canvasLocation" x="362.5" y="244"/>
         </tableViewCell>
     </objects>
     <resources>

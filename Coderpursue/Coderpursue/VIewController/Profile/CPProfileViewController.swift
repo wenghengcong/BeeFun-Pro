@@ -12,8 +12,9 @@ import Foundation
 import MJRefresh
 import ObjectMapper
 import SwiftDate
+import MessageUI
 
-class CPProfileViewController: CPBaseViewController {
+class CPProfileViewController: CPBaseViewController,NSURLConnectionDelegate {
     
     @IBOutlet weak var profileBgV: UIView!
     @IBOutlet weak var tableView: UITableView!
@@ -40,9 +41,11 @@ class CPProfileViewController: CPBaseViewController {
     
     var isLoingin:Bool = false
     var user:ObjUser?
-    let cellId = "CPSettingsCell"
     var settingsArr:[[ObjSettings]] = []
-    
+    let cellId = "CPSettingsCellIdentifier"
+
+    var data: NSMutableData = NSMutableData()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,8 +57,59 @@ class CPProfileViewController: CPBaseViewController {
         pvc_customView()
         pvc_setupTableView()
        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pvc_loadUserinfoData", name: CPNotiName.GitLoginSuccessfulNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pvc_loadUserinfoData", name: NotificationGitLoginSuccessful, object: nil)
+//        loginbasein()
     }
+    
+    func loginbasein(){
+        
+        let username = "wenghengcong"
+        let password = ""
+        let loginString = NSString(format: "%@:%@", username, password)
+        let loginData: NSData = loginString.dataUsingEncoding(NSASCIIStringEncoding)!
+        let base64LoginString = loginData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        let authorizationHeaderStr = "Basic \(base64LoginString)"
+        
+        // create the request
+        let url = NSURL(string: "https://api.github.com/user")
+        let request = NSMutableURLRequest(URL: url!)
+        request.HTTPMethod = "GET"
+        request.setValue(authorizationHeaderStr, forHTTPHeaderField: "Authorization")
+        
+        // fire off the request
+        // make sure your class conforms to NSURLConnectionDelegate
+        let urlConnection = NSURLConnection(request: request, delegate: self)
+        urlConnection?.start()
+    }
+    
+    //NSURLConnection delegate method
+    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
+        print("Failed with error:\(error.localizedDescription)")
+    }
+    
+    //NSURLConnection delegate method
+    func connection(didReceiveResponse: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
+        //New request so we need to clear the data object
+        self.data = NSMutableData()
+        let status = (response as! NSHTTPURLResponse).statusCode
+        print("status code is \(status)")
+    }
+    
+    //NSURLConnection delegate method
+    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
+        //Append incoming data
+        self.data.appendData(data)
+        let str = String(data: self.data, encoding:NSUTF8StringEncoding)
+        print(str)
+    }
+    
+    //NSURLConnection delegate method
+    func connectionDidFinishLoading(connection: NSURLConnection!) {
+        NSLog("connectionDidFinishLoading");
+        let str = String(data: self.data, encoding:NSUTF8StringEncoding)
+        print(str)
+    }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -80,28 +134,9 @@ class CPProfileViewController: CPBaseViewController {
     }
     
     func pvc_loadSettingPlistData() {
-        if let path = NSBundle.mainBundle().pathForResource("CPSettings", ofType: "plist") {
-            let dictArr = NSArray(contentsOfFile: path)!
-            // use swift dictionary as normal
-            print(dictArr)
-            for item in dictArr {
-                
-                var section:[ObjSettings] = []
-                let sectionArr = item as! [AnyObject]
-                
-                for rowdict in sectionArr {
-                    let settings = ObjSettings()
-                    settings.setValuesForKeysWithDictionary(rowdict as! Dictionary)
-                    section.append(settings)
-                    
-                }
-                
-                settingsArr.append(section)
-            }
-            
-            print(settingsArr)
-            self.tableView.reloadData()
-        }
+        
+        settingsArr = CPGlobalHelper.sharedInstance.readPlist("CPProfileList")
+        self.tableView.reloadData()
 
     }
     
@@ -222,7 +257,7 @@ class CPProfileViewController: CPBaseViewController {
         self.tableView.separatorStyle = .None
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
 //        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellId)    //register class by code
-//        self.tableView.registerNib(UINib(nibName: "CPSettingsCell", bundle: nil), forCellReuseIdentifier: cellId) //regiseter by xib
+        self.tableView.registerNib(UINib(nibName: "CPSettingsCell", bundle: nil), forCellReuseIdentifier: cellId) //regiseter by xib
 //        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Top)
 //        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Bottom)
     }
@@ -250,7 +285,7 @@ class CPProfileViewController: CPBaseViewController {
         NetworkHelper.clearCookies()
         
         let loginVC = CPGitLoginViewController()
-        let url = String(format: "https://github.com/login/oauth/authorize/?client_id=%@&state=%@&redirect_uri=%@&scope=%@",GitHubKey.githubClientID(),"junglesong",GitHubKey.githubRedirectUrl(),"user,user:email,user:follow,public_repo,repo,repo_deployment,repo:status,delete_repo,notifications,gist,read:repo_hook,write:repo_hook,admin:repo_hook,admin:org_hook,read:org,write:org,admin:org,read:public_key,write:public_key,admin:public_key" )
+        let url = String(format: "https://github.com/login/oauth/authorize/?client_id=%@&state=%@&redirect_uri=%@&scope=%@",GithubAppClientId,"junglesong",GithubAppRedirectUrl,"user,user:email,user:follow,public_repo,repo,repo_deployment,repo:status,delete_repo,notifications,gist,read:repo_hook,write:repo_hook,admin:repo_hook,admin:org_hook,read:org,write:org,admin:org,read:public_key,write:public_key,admin:public_key" )
         loginVC.url = url
         loginVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(loginVC, animated: true)
@@ -329,7 +364,18 @@ class CPProfileViewController: CPBaseViewController {
                 followVC.viewType = dic!["type"]
             }
             
+        }else if(segue.identifier == SegueProfileAboutView){
+            
+            let aboutVC = segue.destinationViewController as! CPProAboutViewController
+            aboutVC.hidesBottomBarWhenPushed = true
+            
+        }else if(segue.identifier == SegueProfileSettingView){
+            let settingsVC = segue.destinationViewController as! CPProSettingsViewController
+            settingsVC.hidesBottomBarWhenPushed = true
         }
+        
+        
+        
     }
 
 }
@@ -348,9 +394,11 @@ extension CPProfileViewController : UITableViewDataSource {
 	
 	    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
             
+
             var cell = tableView .dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as? CPSettingsCell
+            
             if cell == nil {
-                cell = CPSettingsCell(style: UITableViewCellStyle.Default, reuseIdentifier:cellId)
+                cell = (CPSettingsCell.cellFromNibNamed("CPSettingsCell") as! CPSettingsCell)
             }
             let section = indexPath.section
             let row = indexPath.row
@@ -408,7 +456,74 @@ extension CPProfileViewController : UITableViewDelegate {
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":viewType]
             self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
+            
+        }else if(viewType == "feedback"){
+            
+            let mailComposeViewController = configuredMailComposeViewController()
+            if MFMailComposeViewController.canSendMail() {
+                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+            } else {
+                self.showSendMailErrorAlert()
+            }
+            
+        }else if(viewType == "rate"){
+            
+            CPGlobalHelper.sharedInstance.rateUs()
+            
+        }else if(viewType == "settings"){
+            
+            self.performSegueWithIdentifier(SegueProfileSettingView, sender: nil)
+            
+        }else if(viewType == "about"){
+
+            self.performSegueWithIdentifier(SegueProfileAboutView, sender: nil)
+            
         }
+        
+    }
+    
+}
+
+extension CPProfileViewController : MFMailComposeViewControllerDelegate {
+
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["wenghengcong@gmail.com"])
+        mailComposerVC.setCcRecipients(["735929774@qq.com"])
+        mailComposerVC.setSubject("Suggestions or report bugs")
+        mailComposerVC.setMessageBody("", isHTML: false)
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        
+        let sendMailErrorAlert = UIAlertView(title: "Could not send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        
+        /*
+        switch(result){
+        case MFMailComposeResultCancelled:
+            return
+        case MFMailComposeResultSent:
+            return
+        case MFMailComposeResultFailed:
+            return
+        case MFMailComposeResultSaved:
+            return
+        default:
+            return
+        }
+        */
         
     }
     

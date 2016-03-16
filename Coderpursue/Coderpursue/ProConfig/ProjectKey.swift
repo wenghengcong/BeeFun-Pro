@@ -6,24 +6,14 @@
 //  Copyright © 2016年 JungleSong. All rights reserved.
 //
 
-import UIKit
 
-struct GitHubKey {
-    
-    static let gitClientId = "294e97e63b0e68f456ad";
-    static let gitClientSecret = "d208e4cc6b9afcdea382e6afae58c8b27bf18377";
-    static let gitRedirectUrl = "https://github.com/wenghengcong/Coderpursue"
+//appid
+public let AppleAppID = "1023050194"
 
-    
-    static func githubClientID() -> String{
-        return gitClientId
-    }
-    
-    static func githubClientSecret() -> String {
-        return gitClientSecret
-    }
-    
-    static func githubRedirectUrl() -> String {
-        return gitRedirectUrl
-    }
-}
+
+//github
+public let GithubAppClientId = "294e97e63b0e68f456ad";
+public let GithubAppClientSecret = "d208e4cc6b9afcdea382e6afae58c8b27bf18377";
+public let GithubAppRedirectUrl = "https://github.com/wenghengcong/Coderpursue"
+
+

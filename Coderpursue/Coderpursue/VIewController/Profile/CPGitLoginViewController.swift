@@ -69,10 +69,10 @@ class CPGitLoginViewController: CPWebViewController {
     func glvc_SignIn(code :String) {
         
         let para = [
-            "client_id":GitHubKey.githubClientID(),
-            "client_secret":GitHubKey.githubClientSecret(),
+            "client_id":GithubAppClientId,
+            "client_secret":GithubAppClientSecret,
             "code":code,
-            "redirect_uri":GitHubKey.githubRedirectUrl(),
+            "redirect_uri":GithubAppRedirectUrl,
             "state":"junglesong"
             ]
         
@@ -122,7 +122,7 @@ class CPGitLoginViewController: CPWebViewController {
                         ObjUser.saveUserInfo(gitUser)
                         //post successful noti
                         self.navBack()
-                        NSNotificationCenter.defaultCenter().postNotificationName(CPNotiName.GitLoginSuccessfulNotification, object:nil)
+                        NSNotificationCenter.defaultCenter().postNotificationName(NotificationGitLoginSuccessful, object:nil)
                         
                     } else {
                         success = false

@@ -19,7 +19,7 @@ public enum SubjectType:String {
     
     case Issue = "Issue"
     case PullRequest = "PullRequest"
-    
+    case Release = "Release"
 }
 
 class ObjSubject: NSObject,Mappable {

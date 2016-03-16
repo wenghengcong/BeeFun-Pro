@@ -28,7 +28,11 @@ class CPMesNotificationCell: CPBaseViewCell {
     
     
     override func customCellView() {
-        
+  
+        //test 
+        //if you want to change position or size by set frame property,you first disable autolayout.
+//        typeImageV.frame = CGRectMake(50, 10, 44, 44);
+
     }
     
     func notiCell_fillData() {
@@ -40,7 +44,10 @@ class CPMesNotificationCell: CPBaseViewCell {
             typeImageV.image = UIImage(named:"octicon_issue_25")
         case .PullRequest:
             typeImageV.image = UIImage(named:"octicon_pull_request_25")
+        case .Release:
+            typeImageV.image = UIImage(named:"coticon_tag_25")
         }
+        
         
         notificationLabel.text = noti!.subject!.title
         reposBtn.setTitle(noti!.repository!.name, forState: .Normal)

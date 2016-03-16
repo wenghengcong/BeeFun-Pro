@@ -55,4 +55,39 @@ class CPGlobalHelper {
         return boundingBox.width
     }
     
+    //rate us
+    func rateUs() {
+        let appstroreUrl = ("http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(AppleAppID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")
+        UIApplication.sharedApplication().openURL(  NSURL(string: appstroreUrl)! );
+    }
+    
+    func readPlist(file:String)->[[ObjSettings]] {
+        
+        var settingsArr:[[ObjSettings]] = []
+
+        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "plist") {
+            let dictArr = NSArray(contentsOfFile: path)!
+            // use swift dictionary as normal
+//            print(dictArr)
+            for item in dictArr {
+                
+                var section:[ObjSettings] = []
+                let sectionArr = item as! [AnyObject]
+                
+                for rowdict in sectionArr {
+                    let settings = ObjSettings()
+                    settings.setValuesForKeysWithDictionary(rowdict as! Dictionary)
+                    section.append(settings)
+                    
+                }
+                
+                settingsArr.append(section)
+            }
+            
+        }
+
+        return settingsArr
+    }
+    
+    
 }

@@ -27,9 +27,8 @@ class CPGlobalHelper {
         hud.hide(true, afterDelay: 1.5)
     }
     
-    /**
-     计算动态文本
-     */
+    /** calculator text size */
+    
     func calculatorTextSize(text:String ,size:CGSize ,font:UIFont) -> CGRect {
         
         let boundingBox:CGRect = text.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
@@ -55,11 +54,7 @@ class CPGlobalHelper {
         return boundingBox.width
     }
     
-    //rate us
-    func rateUs() {
-        let appstroreUrl = ("http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(AppleAppID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")
-        UIApplication.sharedApplication().openURL(  NSURL(string: appstroreUrl)! );
-    }
+
     
     
     //read plis file and convert data to array
@@ -91,5 +86,7 @@ class CPGlobalHelper {
         return settingsArr
     }
     
+    /** app version */
     
+
 }

@@ -468,7 +468,7 @@ extension CPProfileViewController : UITableViewDelegate {
             
         }else if(viewType == "rate"){
             
-            CPGlobalHelper.sharedInstance.rateUs()
+            AppVersionHelper.sharedInstance.rateUs()
             
         }else if(viewType == "settings"){
             

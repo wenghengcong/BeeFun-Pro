@@ -81,6 +81,10 @@ extension CPProSettingsViewController : UITableViewDataSource {
         let section = indexPath.section
         let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
+        if(settings.itemKey == "version"){
+            settings.itemValue = AppVersionHelper.sharedInstance.bundleReleaseVersion()
+        }
+        
         cell!.objSettings = settings
         
         //handle line in cell
@@ -93,6 +97,8 @@ extension CPProSettingsViewController : UITableViewDataSource {
         }else {
             cell!.fullline = false
         }
+        
+
         
         return cell!;
         

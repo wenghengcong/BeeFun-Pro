@@ -60,6 +60,7 @@
 		5ECB407A1C9950C300B0C6FF /* CPSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECB40791C9950C300B0C6FF /* CPSettingsCell.xib */; };
 		5ECB407C1C9950DB00B0C6FF /* CPSettingsLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB407B1C9950DB00B0C6FF /* CPSettingsLabelCell.swift */; };
 		5ECB407E1C998CDC00B0C6FF /* CPAboutList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ECB407D1C998CDC00B0C6FF /* CPAboutList.plist */; };
+		5ECB40801C99990600B0C6FF /* AppVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB407F1C99990600B0C6FF /* AppVersionHelper.swift */; };
 		5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */; };
 		5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */; };
 		5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF571C7C065900760F0F /* ObjLabel.swift */; };
@@ -201,6 +202,7 @@
 		5ECB40791C9950C300B0C6FF /* CPSettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSettingsCell.xib; sourceTree = "<group>"; };
 		5ECB407B1C9950DB00B0C6FF /* CPSettingsLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsLabelCell.swift; sourceTree = "<group>"; };
 		5ECB407D1C998CDC00B0C6FF /* CPAboutList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CPAboutList.plist; sourceTree = "<group>"; };
+		5ECB407F1C99990600B0C6FF /* AppVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionHelper.swift; sourceTree = "<group>"; };
 		5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjMilestone.swift; sourceTree = "<group>"; };
 		5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjPullRequest.swift; sourceTree = "<group>"; };
 		5EE3FF571C7C065900760F0F /* ObjLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjLabel.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 				FE02E1E21C4A3EA00087AED6 /* UserInfoHelper.swift */,
 				FE914DC51C4BEEC6001C3D90 /* PlistHelper.swift */,
 				FE5259061C5DF8F200B23BFD /* CPGlobalHelper.swift */,
+				5ECB407F1C99990600B0C6FF /* AppVersionHelper.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1052,6 +1055,7 @@
 				FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */,
 				FEC0DC3A1C28B39F0008C7C1 /* AppDelegate.swift in Sources */,
 				5EE91F7F1C7C481A003F4CBF /* ObjNotification.swift in Sources */,
+				5ECB40801C99990600B0C6FF /* AppVersionHelper.swift in Sources */,
 				FE49DF981C4B5D6A00676131 /* UIDevice+Model.swift in Sources */,
 				5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */,
 				FE5259071C5DF8F200B23BFD /* CPGlobalHelper.swift in Sources */,

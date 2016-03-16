@@ -20,6 +20,10 @@ public let SegueProfileSettingView = "SettingsViewSegue"
 public let SegueProfileShowRepositoryDetail = "ShowRepoDetailSegue"
 public let SegueProfileShowDeveloperDetail = "ShowDeveDetailSegue"
 
+//profile about view
+public let SegueProfileAboutCoderpursue = "ProfileAboutCoderpursueSegue"
+public let SegueProfileAboutMe  = "ProfileAboutMeSegue"
+
 
 //repository
 public let SegueRepositoryToOwner = "RepositoryToOwner"

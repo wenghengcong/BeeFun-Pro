@@ -5,15 +5,23 @@
 	<array>
 		<dict>
 			<key>itemKey</key>
-			<string>version</string>
+			<string>coderpurse</string>
 			<key>itemName</key>
-			<string>Version</string>
-			<key>itemValue</key>
-			<string>1.0</string>
+			<string>Coderpurse</string>
 			<key>itemIcon</key>
 			<string>octicon_watch_red_20</string>
 			<key>itemDisclosure</key>
-			<false/>
+			<true/>
+		</dict>
+		<dict>
+			<key>itemKey</key>
+			<string>me</string>
+			<key>itemName</key>
+			<string>Me</string>
+			<key>itemIcon</key>
+			<string>octicon_watch_red_20</string>
+			<key>itemDisclosure</key>
+			<true/>
 		</dict>
 	</array>
 </array>

@@ -16,16 +16,25 @@ class CPSettingsCell: CPBaseViewCell {
     
     @IBOutlet weak var discolsureImgV: UIImageView!
     
+    @IBOutlet weak var setValueLabel: UILabel!
+    
     var objSettings:ObjSettings? {
         
         didSet {
-            iconImgV.image = UIImage.init(named: (objSettings?.itemIcon)!)
+            iconImgV.image = UIImage.init(named: (objSettings!.itemIcon)!)
             setTitleLabel.text = objSettings?.itemName
             if ( (objSettings?.itemDisclosure)! ) {
                 discolsureImgV.hidden = false
             }else {
                 discolsureImgV.hidden = true
             }
+            
+            if let rightValue = objSettings!.itemValue{
+                setValueLabel.text = rightValue
+            }else{
+                setValueLabel.text = ""
+            }
+
         }
         
     }
@@ -52,6 +61,7 @@ class CPSettingsCell: CPBaseViewCell {
     }
     
     func cpc_customView(){
+        
         discolsureImgV.image = UIImage.init(named: "arrow_right")
 
     }

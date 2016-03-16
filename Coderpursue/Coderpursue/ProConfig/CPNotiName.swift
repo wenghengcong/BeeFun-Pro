@@ -8,3 +8,4 @@
 
 public let NotificationGitLoginSuccessful  = "GitLoginSuccessfulNotification"
     
+public let NotificationGitLogOutSuccessful  = "GitLogOutSuccessfulNotification"

@@ -18,7 +18,7 @@
                         <rect key="frame" x="15" y="12" width="20" height="20"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNq-6S-8mL">
-                        <rect key="frame" x="53" y="0.0" width="200" height="43"/>
+                        <rect key="frame" x="53" y="0.0" width="177" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -26,13 +26,21 @@
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EdR-Wo-4Sx">
                         <rect key="frame" x="342" y="9" width="25" height="25"/>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kbI-M3-NKO" userLabel="ValueLabel">
+                        <rect key="frame" x="229" y="0.0" width="138" height="43"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
                 <outlet property="discolsureImgV" destination="EdR-Wo-4Sx" id="USZ-jB-NB6"/>
                 <outlet property="iconImgV" destination="Gof-ao-qYW" id="WYU-9e-JJT"/>
                 <outlet property="setTitleLabel" destination="QNq-6S-8mL" id="swZ-s7-7tG"/>
+                <outlet property="setValueLabel" destination="kbI-M3-NKO" id="CAv-0H-JEe"/>
             </connections>
+            <point key="canvasLocation" x="158.5" y="229"/>
         </tableViewCell>
     </objects>
 </document>

@@ -15,8 +15,9 @@ class CPProAboutViewController: CPBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.title = "About"
+        pavc_readPlist()
+        pavc_setupTableView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,35 +34,70 @@ class CPProAboutViewController: CPBaseViewController {
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
+    func pavc_readPlist(){
+        settingsArr = CPGlobalHelper.sharedInstance.readPlist("CPAboutList")
+    }
 }
 
 
 extension CPProAboutViewController : UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return settingsArr.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.settingsArr.count
+        let sectionArr = settingsArr[section]
+        return sectionArr.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
-        
-        var cellId = ""
-        
-        cellId = "CPTrendingShowcaseCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingShowcaseCell
+        let cellId = "CPSettingsLabelCellIdentifier"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPSettingsLabelCell
         if cell == nil {
-            cell = (CPTrendingShowcaseCell.cellFromNibNamed("CPTrendingShowcaseCell") as! CPTrendingShowcaseCell)
+            cell = (CPSettingsLabelCell.cellFromNibNamed("CPSettingsLabelCell") as! CPSettingsLabelCell)
             
         }
-        let showcase = self.settingsArr[row]
+        let section = indexPath.section
+        let row = indexPath.row
+        let settings:ObjSettings = settingsArr[section][row]
+        cell!.objSettings = settings
+        
+        //handle line in cell
+        if row == 0 {
+            cell!.topline = true
+        }
+        let sectionArr = settingsArr[section]
+        if (row == sectionArr.count-1) {
+            cell!.fullline = true
+        }else {
+            cell!.fullline = false
+        }
+        
         return cell!;
         
+    }
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view:UIView = UIView.init(frame: CGRectMake(0, 0, ScreenSize.ScreenWidth, 15))
+        view.backgroundColor = UIColor.viewBackgroundColor()
+        return view
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
     
 }
@@ -70,14 +106,61 @@ extension CPProAboutViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return 135
+        return 44
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let section = indexPath.section
+        let row = indexPath.row
+        let settings:ObjSettings = settingsArr[section][row]
         
+        let viewType = settings.itemKey!
+        
+        if(viewType == "openlib"){
+            
+//            self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: nil)
 
+        }else if(viewType == "website"){
+//            self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: nil)
+
+        }else if(viewType == "coderpurse"){
+            
+            self.performSegueWithIdentifier(SegueProfileAboutCoderpursue, sender: nil)
+
+        }else if(viewType == "me"){
+            self.performSegueWithIdentifier(SegueProfileAboutMe, sender: nil)
+
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        
+        let me = ObjUser()
+        me.name = "wenghengcong"
+        me.login = "wenghengcong"
+        
+        let coderpursuePrj = ObjRepos()
+        coderpursuePrj.owner = me
+        coderpursuePrj.name = "Coderpursue"
+        
+        if (segue.identifier == SegueProfileAboutCoderpursue){
+            
+            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
+            reposVC.hidesBottomBarWhenPushed = true
+            
+            reposVC.repos = coderpursuePrj
+            
+        }else if(segue.identifier == SegueProfileAboutMe){
+            
+            let devVC = segue.destinationViewController as! CPTrendingDeveloperViewController
+            devVC.hidesBottomBarWhenPushed = true
+            devVC.developer = me
+            
+        }
+        
     }
     
 }

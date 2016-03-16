@@ -153,6 +153,9 @@ class ObjUser: NSObject,NSCoding,Mappable {
         
     }
 
+    override init() {
+        
+    }
     
     func mapping(map: Map) {
 //        super.mapping(map)
@@ -317,6 +320,19 @@ class ObjUser: NSObject,NSCoding,Mappable {
     class func loadUserInfo() -> ObjUser? {
         return NSKeyedUnarchiver.unarchiveObjectWithFile(ObjUser.archiveURL.path!) as? ObjUser
 
+    }
+    
+    class func deleteUserInfo() {
+        
+        let fileM = NSFileManager.defaultManager()
+        if( fileM.fileExistsAtPath(archiveURL.path!) ){
+            do {
+                try fileM.removeItemAtURL(archiveURL)
+            }catch{
+                
+            }
+        }
+        
     }
     
 }

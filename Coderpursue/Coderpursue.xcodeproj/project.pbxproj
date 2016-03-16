@@ -59,6 +59,7 @@
 		5ECB40781C99506800B0C6FF /* CPSettingsLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECB40771C99506800B0C6FF /* CPSettingsLabelCell.xib */; };
 		5ECB407A1C9950C300B0C6FF /* CPSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECB40791C9950C300B0C6FF /* CPSettingsCell.xib */; };
 		5ECB407C1C9950DB00B0C6FF /* CPSettingsLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB407B1C9950DB00B0C6FF /* CPSettingsLabelCell.swift */; };
+		5ECB407E1C998CDC00B0C6FF /* CPAboutList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ECB407D1C998CDC00B0C6FF /* CPAboutList.plist */; };
 		5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */; };
 		5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */; };
 		5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF571C7C065900760F0F /* ObjLabel.swift */; };
@@ -199,6 +200,7 @@
 		5ECB40771C99506800B0C6FF /* CPSettingsLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSettingsLabelCell.xib; sourceTree = "<group>"; };
 		5ECB40791C9950C300B0C6FF /* CPSettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSettingsCell.xib; sourceTree = "<group>"; };
 		5ECB407B1C9950DB00B0C6FF /* CPSettingsLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsLabelCell.swift; sourceTree = "<group>"; };
+		5ECB407D1C998CDC00B0C6FF /* CPAboutList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CPAboutList.plist; sourceTree = "<group>"; };
 		5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjMilestone.swift; sourceTree = "<group>"; };
 		5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjPullRequest.swift; sourceTree = "<group>"; };
 		5EE3FF571C7C065900760F0F /* ObjLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjLabel.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				5ECB40731C994D6000B0C6FF /* CPSettingsList.plist */,
 				5E738C991C93A3A60075C82C /* CPCity.plist */,
 				5E738C9B1C93A3B50075C82C /* CPLanguage.plist */,
+				5ECB407D1C998CDC00B0C6FF /* CPAboutList.plist */,
 			);
 			path = plist;
 			sourceTree = "<group>";
@@ -870,6 +873,7 @@
 				FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */,
 				5E738C9A1C93A3A60075C82C /* CPCity.plist in Resources */,
 				5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */,
+				5ECB407E1C998CDC00B0C6FF /* CPAboutList.plist in Resources */,
 				5EF6E3CE1C8AC4C9004F6473 /* CPEventStarredCell.xib in Resources */,
 				FE914DBE1C4BE37B001C3D90 /* CPProfileList.plist in Resources */,
 				5E4ABFBE1C9032D40041FA89 /* CPTrendingDeveloperCell.xib in Resources */,

@@ -61,6 +61,8 @@ class CPGlobalHelper {
         UIApplication.sharedApplication().openURL(  NSURL(string: appstroreUrl)! );
     }
     
+    
+    //read plis file and convert data to array
     func readPlist(file:String)->[[ObjSettings]] {
         
         var settingsArr:[[ObjSettings]] = []

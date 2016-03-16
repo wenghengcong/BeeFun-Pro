@@ -52,7 +52,6 @@ class CPProfileViewController: CPBaseViewController,NSURLConnectionDelegate {
         // Do any additional setup after loading the view.
         
         pvc_addButtonTarget()
-        pvc_loadUserinfoData()
         pvc_loadSettingPlistData()
         pvc_customView()
         pvc_setupTableView()
@@ -117,7 +116,8 @@ class CPProfileViewController: CPBaseViewController,NSURLConnectionDelegate {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Profile"
+        self.title = "Profile"  
+        pvc_loadUserinfoData()
 
     }
     // MARK: load data

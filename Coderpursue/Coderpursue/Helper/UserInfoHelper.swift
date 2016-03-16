@@ -53,6 +53,9 @@ class UserInfoHelper: NSObject {
         }
     }
     
-    
+    func deleteUser() {
+        
+        ObjUser.deleteUserInfo()
+    }
     
 }

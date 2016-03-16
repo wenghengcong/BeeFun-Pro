@@ -123,6 +123,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
+        
         Provider.sharedProvider.request(.UserSomeRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var success = true

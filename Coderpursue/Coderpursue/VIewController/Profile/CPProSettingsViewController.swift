@@ -11,17 +11,49 @@ import UIKit
 class CPProSettingsViewController: CPBaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var logOutBtn: UIButton!
+    
     var settingsArr:[[ObjSettings]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Settings"
         // Do any additional setup after loading the view.
+        psvc_setupTableView()
+        psvc_customView()
+        psvc_readPlist()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func psvc_customView() {
+        logOutBtn.addTarget(self, action: "psvc_logoutAction", forControlEvents: UIControlEvents.TouchUpInside)
+    }
+    
+    func psvc_setupTableView() {
+        
+        self.tableView.dataSource=self
+        self.tableView.delegate = self
+        self.tableView.separatorStyle = .None
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.automaticallyAdjustsScrollViewInsets = false
+    }
+    
+    
+    func psvc_readPlist(){
+        settingsArr = CPGlobalHelper.sharedInstance.readPlist("CPSettingsList")
+    }
+    
+    func psvc_logoutAction() {
+        
+        UserInfoHelper.sharedInstance.deleteUser()
+        
+        NSNotificationCenter.defaultCenter().postNotificationName(NotificationGitLogOutSuccessful, object:nil)
+
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
 }
@@ -30,29 +62,61 @@ class CPProSettingsViewController: CPBaseViewController {
 extension CPProSettingsViewController : UITableViewDataSource {
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return settingsArr.count
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return self.settingsArr.count
+        let sectionArr = settingsArr[section]
+        return sectionArr.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
-        
-        var cellId = ""
-        
-        cellId = "CPTrendingShowcaseCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingShowcaseCell
+        let cellId = "CPSettingsLabelCellIdentifier"
+        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPSettingsLabelCell
         if cell == nil {
-            cell = (CPTrendingShowcaseCell.cellFromNibNamed("CPTrendingShowcaseCell") as! CPTrendingShowcaseCell)
+            cell = (CPSettingsLabelCell.cellFromNibNamed("CPSettingsLabelCell") as! CPSettingsLabelCell)
             
         }
-        let showcase = self.settingsArr[row]
+        let section = indexPath.section
+        let row = indexPath.row
+        let settings:ObjSettings = settingsArr[section][row]
+        cell!.objSettings = settings
+        
+        //handle line in cell
+        if row == 0 {
+            cell!.topline = true
+        }
+        let sectionArr = settingsArr[section]
+        if (row == sectionArr.count-1) {
+            cell!.fullline = true
+        }else {
+            cell!.fullline = false
+        }
+        
         return cell!;
         
+    }
+    
+    
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        let view:UIView = UIView.init(frame: CGRectMake(0, 0, ScreenSize.ScreenWidth, 15))
+        view.backgroundColor = UIColor.viewBackgroundColor()
+        return view
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return nil
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0
     }
     
 }
@@ -61,7 +125,7 @@ extension CPProSettingsViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        return 135
+        return 44
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

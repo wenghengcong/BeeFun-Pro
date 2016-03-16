@@ -274,6 +274,9 @@ class ObjRepos: NSObject,Mappable {
         
     }
     
+    override init() {
+        
+    }
     
     func mapping(map: Map) {
         //        super.mapping(map)

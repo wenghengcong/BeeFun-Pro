@@ -296,11 +296,19 @@
                                     <outlet property="delegate" destination="PAH-Xm-8JL" id="QEF-U2-n5I"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TPN-1C-0rZ">
+                                <rect key="frame" x="10" y="213" width="355" height="40"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Log Out">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="logOutBtn" destination="TPN-1C-0rZ" id="CdA-1y-JC9"/>
                         <outlet property="tableView" destination="rdP-sg-Z04" id="1q0-dC-Lap"/>
                     </connections>
                 </viewController>
@@ -321,24 +329,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tV8-En-sb8">
-                                <rect key="frame" x="0.0" y="64" width="375" height="126"/>
+                                <rect key="frame" x="0.0" y="343" width="375" height="188"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Bka-Au-Ffg" id="oav-u1-XRJ"/>
                                     <outlet property="delegate" destination="Bka-Au-Ffg" id="N5y-7o-cAc"/>
                                 </connections>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rF4-bL-7BL">
+                                <rect key="frame" x="134" y="78" width="90" height="90"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Coder Pursue is a clien of Github(www.github.com)." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lwb-pO-CWh">
+                                <rect key="frame" x="0.0" y="176" width="375" height="133"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="tableView" destination="tV8-En-sb8" id="i20-rG-Zod"/>
+                        <segue destination="DFV-4I-ATK" kind="show" identifier="ProfileAboutCoderpursueSegue" id="uhR-d2-GJG"/>
+                        <segue destination="Ax2-Kg-xXj" kind="show" identifier="ProfileAboutMeSegue" id="vR9-E5-mPh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FD5-wE-9H6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453.5" y="3260.5"/>
+            <point key="canvasLocation" x="1585.5" y="3254.5"/>
         </scene>
         <!--Repos-->
         <scene sceneID="ydQ-zN-pRx">
@@ -979,7 +998,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Ocj-6m-P78"/>
         <segue reference="4pF-1J-jZn"/>
-        <segue reference="6UL-L4-rCi"/>
-        <segue reference="Ah2-FE-EYQ"/>
+        <segue reference="uhR-d2-GJG"/>
+        <segue reference="vR9-E5-mPh"/>
     </inferredMetricsTieBreakers>
 </document>

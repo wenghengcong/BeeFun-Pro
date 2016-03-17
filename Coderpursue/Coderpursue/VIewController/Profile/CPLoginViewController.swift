@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import Alamofire
+import ObjectMapper
+import SwiftyJSON
+import Moya
+import Foundation
 
 class CPLoginViewController: CPBaseViewController {
     
@@ -57,8 +62,62 @@ class CPLoginViewController: CPBaseViewController {
     }
     
     func lvc_singInAction(sender:UIButton!) {
+        lvc_checkInputText()
+        
+        let username = usernameTF.text!
+        let password = passwordTF.text!
+        let loginString = NSString(format: "%@:%@", username, password)
+        let loginData: NSData = loginString.dataUsingEncoding(NSASCIIStringEncoding)!
+        let base64LoginString = loginData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        let authorizationHeaderStr = "Basic \(base64LoginString)"
+        
+        let headers = [
+            "Authorization": authorizationHeaderStr,
+        ]
+        
+        Alamofire.request(.GET, "https://api.github.com/user", headers: headers)
+            .response { request, response, data, error  in
+                
+                debugPrint(response)
+                if(error == nil){
+                    self.lvc_saveAuthorization(authorizationHeaderStr)
+                    self.lvc_saveUserInfoData(data!)
+                }
+                
+        }
+    }
+    
+    func lvc_checkInputText(){
+        
+        if( (usernameTF.text!.isEmpty) || (passwordTF.text!.isEmpty) ){
+            CPGlobalHelper.sharedInstance.showMessage("Input username or password", view: self.view)
+            return
+        }
         
     }
     
+    
+    func lvc_saveAuthorization(auth:String){
+        
+        var token = AppToken.sharedInstance
+        token.access_token = auth
+        
+    }
+    
+    func lvc_saveUserInfoData(data:NSData){
+        
+        let str = String(data: data, encoding: NSUTF8StringEncoding)
+        
+        if let gitUser:ObjUser = Mapper<ObjUser>().map(str) {
+            
+            ObjUser.saveUserInfo(gitUser)
+            //post successful noti
+            self.navBack()
+            NSNotificationCenter.defaultCenter().postNotificationName(NotificationGitLoginSuccessful, object:nil)
+            
+        }else {
+            
+        }
+    }
 
 }

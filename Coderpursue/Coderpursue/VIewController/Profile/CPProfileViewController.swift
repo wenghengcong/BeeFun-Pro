@@ -14,31 +14,11 @@ import ObjectMapper
 import SwiftDate
 import MessageUI
 
-class CPProfileViewController: CPBaseViewController,NSURLConnectionDelegate {
+class CPProfileViewController: CPBaseViewController {
     
-    @IBOutlet weak var profileBgV: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
-    @IBOutlet weak var pvc_backImgV: UIImageView!
-    @IBOutlet weak var pvc_avatarImgV: UIImageView!
-    @IBOutlet weak var pvc_nameLabel: UILabel!
-    @IBOutlet weak var pvc_emailLabel: UIButton!
-    @IBOutlet weak var pvc_loginBtn: UIButton!
-    @IBOutlet weak var pvc_editProfileBtn: UIButton!
-    
-    @IBOutlet weak var reposBgV: UIView!
-    @IBOutlet weak var followerBgV: UIView!
-    @IBOutlet weak var followingBgV: UIView!
-    
-    @IBOutlet weak var pvc_numOfReposLabel: UILabel!
-    @IBOutlet weak var pvc_numOfFollwerLabel: UILabel!
-    @IBOutlet weak var pvc_numOfFollowingLabel: UILabel!
-    
-    @IBOutlet weak var pvc_reposLabel: UILabel!
-    @IBOutlet weak var pvc_followersLabel: UILabel!
-    @IBOutlet weak var pvc_followingLabel: UILabel!
-    
-    
+    @IBOutlet weak var profileHeaderV: CPProfileHeaderView!
+
     var isLoingin:Bool = false
     var user:ObjUser?
     var settingsArr:[[ObjSettings]] = []
@@ -50,65 +30,14 @@ class CPProfileViewController: CPBaseViewController,NSURLConnectionDelegate {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-        pvc_addButtonTarget()
         pvc_loadSettingPlistData()
         pvc_customView()
         pvc_setupTableView()
        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pvc_loadUserinfoData", name: NotificationGitLoginSuccessful, object: nil)
-//        loginbasein()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pvc_updateUserinfoData", name: NotificationGitLoginSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pvc_updateUserinfoData", name: NotificationGitLogOutSuccessful, object: nil)
+
     }
-    
-    func loginbasein(){
-        
-        let username = "wenghengcong"
-        let password = ""
-        let loginString = NSString(format: "%@:%@", username, password)
-        let loginData: NSData = loginString.dataUsingEncoding(NSASCIIStringEncoding)!
-        let base64LoginString = loginData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
-        let authorizationHeaderStr = "Basic \(base64LoginString)"
-        
-        // create the request
-        let url = NSURL(string: "https://api.github.com/user")
-        let request = NSMutableURLRequest(URL: url!)
-        request.HTTPMethod = "GET"
-        request.setValue(authorizationHeaderStr, forHTTPHeaderField: "Authorization")
-        
-        // fire off the request
-        // make sure your class conforms to NSURLConnectionDelegate
-        let urlConnection = NSURLConnection(request: request, delegate: self)
-        urlConnection?.start()
-    }
-    
-    //NSURLConnection delegate method
-    func connection(connection: NSURLConnection, didFailWithError error: NSError) {
-        print("Failed with error:\(error.localizedDescription)")
-    }
-    
-    //NSURLConnection delegate method
-    func connection(didReceiveResponse: NSURLConnection!, didReceiveResponse response: NSURLResponse!) {
-        //New request so we need to clear the data object
-        self.data = NSMutableData()
-        let status = (response as! NSHTTPURLResponse).statusCode
-        print("status code is \(status)")
-    }
-    
-    //NSURLConnection delegate method
-    func connection(connection: NSURLConnection!, didReceiveData data: NSData!) {
-        //Append incoming data
-        self.data.appendData(data)
-        let str = String(data: self.data, encoding:NSUTF8StringEncoding)
-        print(str)
-    }
-    
-    //NSURLConnection delegate method
-    func connectionDidFinishLoading(connection: NSURLConnection!) {
-        NSLog("connectionDidFinishLoading");
-        let str = String(data: self.data, encoding:NSUTF8StringEncoding)
-        print(str)
-    }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -117,20 +46,19 @@ class CPProfileViewController: CPBaseViewController,NSURLConnectionDelegate {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Profile"  
-        pvc_loadUserinfoData()
+        pvc_updateUserinfoData()
 
     }
     // MARK: load data
-    func pvc_loadUserinfoData() {
+    func pvc_updateUserinfoData() {
         
-        pvc_getUserinfoRequest()
         user = UserInfoHelper.sharedInstance.user
         isLoingin = UserInfoHelper.sharedInstance.isLoginIn
-        
-        if user != nil {
-            print("user\(user!.name)")
-            pvc_updateViewWithUserData()
+        if isLoingin{
+            pvc_getUserinfoRequest()
         }
+        pvc_updateViewWithUserData()
+        
     }
     
     func pvc_loadSettingPlistData() {
@@ -145,109 +73,18 @@ class CPProfileViewController: CPBaseViewController,NSURLConnectionDelegate {
     func pvc_customView() {
         
         self.view.backgroundColor = UIColor.whiteColor()
-        
-        self.pvc_avatarImgV.layer.cornerRadius = self.pvc_avatarImgV.width/2
-        self.pvc_avatarImgV.layer.masksToBounds = true
-        
-        self.pvc_nameLabel.textColor = UIColor.whiteColor()
-        self.pvc_emailLabel.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.pvc_emailLabel.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
-        
-        self.pvc_loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        self.pvc_loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
-        
-        self.pvc_numOfReposLabel.textColor = UIColor.labelTitleTextColor()
-        self.pvc_reposLabel.textColor = UIColor.labelSubtitleTextColor()
-        
-        self.pvc_numOfFollwerLabel.textColor = UIColor.labelTitleTextColor()
-        self.pvc_followersLabel.textColor = UIColor.labelSubtitleTextColor()
-        
-        self.pvc_numOfFollowingLabel.textColor = UIColor.labelTitleTextColor()
-        self.pvc_followingLabel.textColor = UIColor.labelSubtitleTextColor()
-        
-        //add border to sperator three columns
-        self.reposBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
-        self.reposBgV.userInteractionEnabled = true
-        self.followerBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
-        self.followerBgV.userInteractionEnabled = true
-        self.followingBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
-        self.followingBgV.userInteractionEnabled = true
-        
-        let reposGes = UITapGestureRecognizer(target: self, action: "pvc_reposTapAction:")
-        self.reposBgV.addGestureRecognizer(reposGes)
-        
-        let followGes = UITapGestureRecognizer(target: self, action: "pvc_followTapAction:")
-        self.followerBgV.addGestureRecognizer(followGes)
-        
-        let followingGes = UITapGestureRecognizer(target: self, action: "pvc_followingTapAction:")
-        self.followingBgV.addGestureRecognizer(followingGes)
-        
-        pvc_updateViewWithUserData()
+        profileHeaderV.profileActionDelegate = self
     }
     
-    func pvc_reposTapAction(sender: UITapGestureRecognizer) {
-        print("pvc_reposTapAction")
-        
-        if ( isLoingin && (user != nil) ){
-            let count = user!.public_repos!
-            if(count == 0){
-                return
-            }
-            let uname = user!.login
-            let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
-            self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
-        }
-        
-    }
-    
-    func pvc_followTapAction(sender: UITapGestureRecognizer) {
-        print("pvc_followTapAction")
-        if ( isLoingin && (user != nil) ){
-            
-            let count = user!.followers!
-            if(count == 0){
-                return
-            }
-            
-            let uname = user!.login
-            let dic:[String:String] = ["uname":uname!,"type":"follower"]
-            self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
-        }
-    }
-    
-    func pvc_followingTapAction(sender: UITapGestureRecognizer) {
-        print("pvc_followintTapAction")
-        if ( isLoingin && (user != nil) ){
-            let count = user!.following!
-            if(count == 0){
-                return
-            }
-            let uname = user!.login
-            let dic:[String:String] = ["uname":uname!,"type":"following"]
-            self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
-        }
-    }
     
     func pvc_updateViewWithUserData() {
         
-        self.pvc_nameLabel.hidden = !isLoingin
-        self.pvc_emailLabel.hidden = !isLoingin
-        
-//        self.pvc_editProfileBtn.hidden = !isLoingin
-        self.pvc_editProfileBtn.hidden = true
-        self.pvc_loginBtn.hidden = isLoingin
-        
         if isLoingin {
-            self.pvc_avatarImgV.kf_setImageWithURL( NSURL(string: user!.avatar_url!)!, placeholderImage: nil)
-            self.pvc_numOfReposLabel.text = String(format: "%ld", arguments: [(user?.public_repos)!])
-            self.pvc_numOfFollowingLabel.text = String(format: "%ld", arguments: [(user?.following)!])
-            self.pvc_numOfFollwerLabel.text = String(format: "%ld", arguments: [(user?.followers)!])
-            
-            self.tableView.reloadData()
+            profileHeaderV.user = self.user
         }else {
-            
+            profileHeaderV.user = nil
         }
-        
+        self.tableView.reloadData()
     }
     
     func pvc_setupTableView() {
@@ -260,22 +97,6 @@ class CPProfileViewController: CPBaseViewController,NSURLConnectionDelegate {
         self.tableView.registerNib(UINib(nibName: "CPSettingsCell", bundle: nil), forCellReuseIdentifier: cellId) //regiseter by xib
 //        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Top)
 //        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Bottom)
-    }
-    
-    
-    func pvc_addButtonTarget() {
-        pvc_editProfileBtn.addTarget(self, action: "pvc_editProfileAction:", forControlEvents: .TouchUpInside)
-        pvc_loginBtn.addTarget(self, action: "pvc_loginAction:", forControlEvents: .TouchUpInside)
-
-    }
-    
-    // MARK:  action
-    func pvc_editProfileAction(sender:UIButton!) {
-    }
-    
-    func pvc_loginAction(sender:UIButton) {
-        
-        pvc_showLoginInWebView()
     }
     
     
@@ -379,7 +200,39 @@ class CPProfileViewController: CPBaseViewController,NSURLConnectionDelegate {
     }
 
 }
+extension CPProfileViewController : ProfileHeaderActionProtocol {
 
+    func userLoginAction() {
+//        pvc_showLoginInWebView()
+        self.performSegueWithIdentifier(SegueProfileLoginIn, sender: nil)
+    }
+    
+    func viewMyReposAction() {
+        if ( isLoingin && (user != nil) ){
+            let uname = user!.login
+            let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
+            self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
+        }
+
+    }
+    
+    func viewMyFollowerAction() {
+        if ( isLoingin && (user != nil) ){
+            let uname = user!.login
+            let dic:[String:String] = ["uname":uname!,"type":"follower"]
+            self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
+        }
+    }
+    
+    func viewMyFollowingAction() {
+        if ( isLoingin && (user != nil) ){
+            let uname = user!.login
+            let dic:[String:String] = ["uname":uname!,"type":"following"]
+            self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
+        }
+    }
+    
+}
 
 extension CPProfileViewController : UITableViewDataSource {
 	

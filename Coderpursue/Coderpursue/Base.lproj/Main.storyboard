@@ -567,7 +567,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y22-sW-0Lp" userLabel="ProfileBgView">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y22-sW-0Lp" userLabel="ProfileBgView" customClass="CPProfileHeaderView" customModule="Coderpursue" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="204"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-OY-NPm">
@@ -591,7 +591,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ach-7c-5uc">
                                         <rect key="frame" x="254" y="115" width="25" height="25"/>
-                                        <state key="normal" image="edit_profile"/>
+                                        <state key="normal" image="4A9EAF2A-B057-4104-ACEE-C5CF796E20F5"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCd-cT-27L">
                                         <rect key="frame" x="0.0" y="91" width="375" height="50"/>
@@ -662,6 +662,23 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="followerBgV" destination="1CP-fe-SZO" id="oEh-wb-eGr"/>
+                                    <outlet property="followingBgV" destination="sYg-DQ-wWT" id="R3c-dn-Q78"/>
+                                    <outlet property="phv_avatarImgV" destination="Uo8-kR-vcp" id="tGy-ZG-3jc"/>
+                                    <outlet property="phv_backImgV" destination="Zhs-OY-NPm" id="oQm-lB-ELU"/>
+                                    <outlet property="phv_editProfileBtn" destination="ach-7c-5uc" id="crf-XJ-mMw"/>
+                                    <outlet property="phv_emailLabel" destination="P1u-R3-eba" id="CBV-8u-Olk"/>
+                                    <outlet property="phv_followersLabel" destination="LEZ-fc-j8q" id="cHn-C4-L4F"/>
+                                    <outlet property="phv_followingLabel" destination="v9f-7C-dt8" id="7Nu-fw-y8N"/>
+                                    <outlet property="phv_loginBtn" destination="GCd-cT-27L" id="ISc-qf-sSm"/>
+                                    <outlet property="phv_nameLabel" destination="nRU-oY-Bfy" id="C5u-uV-6kq"/>
+                                    <outlet property="phv_numOfFollowingLabel" destination="csg-AS-XnP" id="jVD-6C-0Pn"/>
+                                    <outlet property="phv_numOfFollwerLabel" destination="l3K-vn-kdf" id="Y9L-RY-Au6"/>
+                                    <outlet property="phv_numOfReposLabel" destination="xlk-Sf-jIz" id="HIW-G2-XXk"/>
+                                    <outlet property="phv_reposLabel" destination="Whm-2U-6Jd" id="sJe-Uq-v1B"/>
+                                    <outlet property="reposBgV" destination="8Nj-7A-1MK" id="Et7-eA-NUW"/>
+                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iSK-7T-M0V">
                                 <rect key="frame" x="0.0" y="268" width="375" height="350"/>
@@ -677,27 +694,13 @@
                     <navigationItem key="navigationItem" title="Profile" id="kWI-VN-UCm"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="followerBgV" destination="1CP-fe-SZO" id="NO2-Ql-yWr"/>
-                        <outlet property="followingBgV" destination="sYg-DQ-wWT" id="smT-IE-cur"/>
-                        <outlet property="profileBgV" destination="Y22-sW-0Lp" id="5GM-9Z-q8g"/>
-                        <outlet property="pvc_avatarImgV" destination="Uo8-kR-vcp" id="y8y-Bo-Jvh"/>
-                        <outlet property="pvc_backImgV" destination="Zhs-OY-NPm" id="SaE-vz-rNs"/>
-                        <outlet property="pvc_editProfileBtn" destination="ach-7c-5uc" id="pBY-eY-r2E"/>
-                        <outlet property="pvc_emailLabel" destination="P1u-R3-eba" id="rFX-cI-2tk"/>
-                        <outlet property="pvc_followersLabel" destination="LEZ-fc-j8q" id="5NA-QF-AKZ"/>
-                        <outlet property="pvc_followingLabel" destination="v9f-7C-dt8" id="ZdL-Td-5Kc"/>
-                        <outlet property="pvc_loginBtn" destination="GCd-cT-27L" id="ydd-JJ-ziJ"/>
-                        <outlet property="pvc_nameLabel" destination="nRU-oY-Bfy" id="wfg-Dl-Xu8"/>
-                        <outlet property="pvc_numOfFollowingLabel" destination="csg-AS-XnP" id="IpM-mG-SDu"/>
-                        <outlet property="pvc_numOfFollwerLabel" destination="l3K-vn-kdf" id="VJ7-Hg-2u4"/>
-                        <outlet property="pvc_numOfReposLabel" destination="xlk-Sf-jIz" id="7bx-lH-3aL"/>
-                        <outlet property="pvc_reposLabel" destination="Whm-2U-6Jd" id="r1y-KS-i7s"/>
-                        <outlet property="reposBgV" destination="8Nj-7A-1MK" id="a0i-RB-f7C"/>
+                        <outlet property="profileHeaderV" destination="Y22-sW-0Lp" id="TEp-qu-c28"/>
                         <outlet property="tableView" destination="iSK-7T-M0V" id="rex-hG-Am5"/>
                         <segue destination="7o3-oB-z3K" kind="show" identifier="ShowFollowerListSegue" id="4pF-1J-jZn"/>
                         <segue destination="Irt-Xi-kye" kind="show" identifier="ShowRepositoryListSegue" id="Ocj-6m-P78"/>
                         <segue destination="Bka-Au-Ffg" kind="show" identifier="AboutViewSegue" id="KTL-5q-vMG"/>
                         <segue destination="PAH-Xm-8JL" kind="show" identifier="SettingsViewSegue" id="j1C-rH-o5A"/>
+                        <segue destination="H2q-Fg-o9a" kind="show" identifier="ProfileLoginInSegue" id="28f-mX-mrl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PP4-uj-58n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -801,13 +804,13 @@
                                             <constraint firstAttribute="height" constant="1" id="2aM-WY-mrl"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aRc-t0-jgC">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="aRc-t0-jgC">
                                         <rect key="frame" x="10" y="45" width="365" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="JMp-Qe-yG2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -978,8 +981,100 @@
         </scene>
     </scenes>
     <resources>
+        <image name="4A9EAF2A-B057-4104-ACEE-C5CF796E20F5" width="25" height="25">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
+GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
+c1dOU0NvbG9ygAKADRIgwAAAgAOAC1h7MjUsIDI1fdIVChYYWk5TLm9iamVjdHOhF4AEgArSFQoaHaIb
+HIAFgAaACRAA0iAKISJfEBROU1RJRkZSZXByZXNlbnRhdGlvboAHgAhPERJiTU0AKgAACcwAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAICAgIZ2dnZ66urq6ysrKysbGx
+sbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbGxsbKysrKurq6uZ2dn
+ZwgICAgAAAAAAAAAAAAAAAAAAAAAb29vb///////////////////////////////////////////////
+//////////////////////////////////////////////////////9vb29vAAAAAAAAAAAAAAAAAAAA
+AKqqqqr/////k5OTk2JiYmJkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRkZGRk
+ZGRkZGRkZGRkYmJiYpOTk5P/////qqqqqgAAAAAAAAAAAAAAAAAAAACoqKio/////0hISEgAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABISEhI////
+/6ioqKgAAAAAAAAAAAAAAAAAAAAAqKioqP////9OTk5OAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAARkZGRmRkZGQAAAAAAAAAAAAAAAAAAAAATk5OTv////+oqKioAAAAAAAAAAAAAAAAAAAA
+AKioqKj/////Tk5OTgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJSUlJZ2dnZ3/////W1tb
+WwAAAAAAAAAAAAAAAE5OTk7/////qKioqAAAAAAAAAAAAAAAAAAAAACoqKio/////05OTk4AAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAQUFBQeTk5OSfn5+fnJycnEREREQAAAAAAAAAAAAAAABOTk5O////
+/6ioqKgAAAAAAAAAAAAAAAAAAAAAqKioqP////9OTk5OAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPDw8
+POnp6en/////6enp6SUlJSUAAAAAAAAAAAAAAAAAAAAATk5OTv////+oqKioAAAAAAAAAAAAAAAAAAAA
+AKioqKj/////Tk5OTgAAAAAAAAAAAAAAAAAAAAAAAAAAQEBAQOnp6en/////5+fn5zw8PDwAAAAAAAAA
+AAAAAAAAAAAAAAAAAE5OTk7/////qKioqAAAAAAAAAAAAAAAAAAAAACoqKio/////05OTk4AAAAAAAAA
+AAAAAAAAAAAAQEBAQOnp6en/////5+fn5zw8PDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABOTk5O////
+/6ioqKgAAAAAAAAAAAAAAAAAAAAAqKioqP////9OTk5OAAAAAAAAAAAAAAAAPDw8POnp6en/////6enp
+6Tw8PDwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAATk5OTv////+oqKioAAAAAAAAAAAAAAAAAAAA
+AKioqKj/////Tk5OTgAAAAAAAAAAAAAAAI6Ojo7/////6enp6UFBQUEAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAE5OTk7/////qKioqAAAAAAAAAAAAAAAAAAAAACoqKio/////05OTk4AAAAAAAAA
+AAAAAABHR0dHh4eHhzs7OzsAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABOTk5O////
+/6ioqKgAAAAAAAAAAAAAAAAAAAAAqKioqP////9ISEhIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAASEhISP////+oqKioAAAAAAAAAAAAAAAAAAAA
+AKqqqqr/////k5OTk2JiYmJkZGRkZGRkZGNjY2NjY2NjY2NjY2RkZGRkZGRkZGRkZGRkZGRkZGRkZGRk
+ZGRkZGRkZGRkYmJiYpOTk5P/////qqqqqgAAAAAAAAAAAAAAAAAAAABvb29v////////////////////
+////////////////////////////////////////////////////////////////////////////////
+/29vb28AAAAAAAAAAAAAAAAAAAAACAgICGdnZ2eqqqqqs7Ozs7KysrKysrKysrKysrKysrKysrKysrKy
+srKysrKysrKysrKysrKysrKysrKysrKysrKysrKzs7OzqqqqqmdnZ2cICAgIAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA4BAAADAAAAAQAZAAABAQADAAAAAQAZAAAB
+AgADAAAABAAACnoBAwADAAAAAQABAAABBgADAAAAAQACAAABEQAEAAAAAQAAAAgBEgADAAAAAQABAAAB
+FQADAAAAAQAEAAABFgADAAAAAQAZAAABFwAEAAAAAQAACcQBHAADAAAAAQABAAABUgADAAAAAQABAAAB
+UwADAAAABAAACoKHcwAHAAAH2AAACooAAAAAAAgACAAIAAgAAQABAAEAAQAAB9hhcHBsAiAAAG1udHJS
+R0IgWFlaIAfZAAIAGQALABoAC2Fjc3BBUFBMAAAAAGFwcGwAAAAAAAAAAAAAAAAAAAAAAAD21gABAAAA
+ANMtYXBwbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC2Rlc2MA
+AAEIAAAAb2RzY20AAAF4AAAFnGNwcnQAAAcUAAAAOHd0cHQAAAdMAAAAFHJYWVoAAAdgAAAAFGdYWVoA
+AAd0AAAAFGJYWVoAAAeIAAAAFHJUUkMAAAecAAAADmNoYWQAAAesAAAALGJUUkMAAAecAAAADmdUUkMA
+AAecAAAADmRlc2MAAAAAAAAAFEdlbmVyaWMgUkdCIFByb2ZpbGUAAAAAAAAAAAAAABRHZW5lcmljIFJH
+QiBQcm9maWxlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABt
+bHVjAAAAAAAAAB8AAAAMc2tTSwAAACgAAAGEZGFESwAAAC4AAAGsY2FFUwAAACQAAAHadmlWTgAAACQA
+AAH+cHRCUgAAACYAAAIidWtVQQAAACoAAAJIZnJGVQAAACgAAAJyaHVIVQAAACgAAAKaemhUVwAAABYA
+AALCbmJOTwAAACYAAALYY3NDWgAAACIAAAL+aGVJTAAAAB4AAAMgaXRJVAAAACgAAAM+cm9STwAAACQA
+AANmZGVERQAAACwAAAOKa29LUgAAABYAAAO2c3ZTRQAAACYAAALYemhDTgAAABYAAAPMamFKUAAAABoA
+AAPiZWxHUgAAACIAAAP8cHRQTwAAACYAAAQebmxOTAAAACgAAAREZXNFUwAAACYAAAQedGhUSAAAACQA
+AARsdHJUUgAAACIAAASQZmlGSQAAACgAAASyaHJIUgAAACgAAATacGxQTAAAACwAAAUCcnVSVQAAACIA
+AAUuYXJFRwAAACYAAAVQZW5VUwAAACYAAAV2AFYBYQBlAG8AYgBlAGMAbgD9ACAAUgBHAEIAIABwAHIA
+bwBmAGkAbABHAGUAbgBlAHIAZQBsACAAUgBHAEIALQBiAGUAcwBrAHIAaQB2AGUAbABzAGUAUABlAHIA
+ZgBpAGwAIABSAEcAQgAgAGcAZQBuAOgAcgBpAGMAQx6lAHUAIABoAOwAbgBoACAAUgBHAEIAIABDAGgA
+dQBuAGcAUABlAHIAZgBpAGwAIABSAEcAQgAgAEcAZQBuAOkAcgBpAGMAbwQXBDAEMwQwBDsETAQ9BDgE
+OQAgBD8EQAQ+BEQEMAQ5BDsAIABSAEcAQgBQAHIAbwBmAGkAbAAgAGcA6QBuAOkAcgBpAHEAdQBlACAA
+UgBWAEIAwQBsAHQAYQBsAOEAbgBvAHMAIABSAEcAQgAgAHAAcgBvAGYAaQBskBp1KAAgAFIARwBCACCC
+cl9pY8+P8ABHAGUAbgBlAHIAaQBzAGsAIABSAEcAQgAtAHAAcgBvAGYAaQBsAE8AYgBlAGMAbgD9ACAA
+UgBHAEIAIABwAHIAbwBmAGkAbAXkBegF1QXkBdkF3AAgAFIARwBCACAF2wXcBdwF2QBQAHIAbwBmAGkA
+bABvACAAUgBHAEIAIABnAGUAbgBlAHIAaQBjAG8AUAByAG8AZgBpAGwAIABSAEcAQgAgAGcAZQBuAGUA
+cgBpAGMAQQBsAGwAZwBlAG0AZQBpAG4AZQBzACAAUgBHAEIALQBQAHIAbwBmAGkAbMd8vBgAIABSAEcA
+QgAg1QS4XNMMx3xmbpAaACAAUgBHAEIAIGPPj/Blh072TgCCLAAgAFIARwBCACAw1zDtMNUwoTCkMOsD
+kwO1A70DuQO6A8wAIAPAA8EDvwPGA68DuwAgAFIARwBCAFAAZQByAGYAaQBsACAAUgBHAEIAIABnAGUA
+bgDpAHIAaQBjAG8AQQBsAGcAZQBtAGUAZQBuACAAUgBHAEIALQBwAHIAbwBmAGkAZQBsDkIOGw4jDkQO
+Hw4lDkwAIABSAEcAQgAgDhcOMQ5IDicORA4bAEcAZQBuAGUAbAAgAFIARwBCACAAUAByAG8AZgBpAGwA
+aQBZAGwAZQBpAG4AZQBuACAAUgBHAEIALQBwAHIAbwBmAGkAaQBsAGkARwBlAG4AZQByAGkBDQBrAGkA
+IABSAEcAQgAgAHAAcgBvAGYAaQBsAFUAbgBpAHcAZQByAHMAYQBsAG4AeQAgAHAAcgBvAGYAaQBsACAA
+UgBHAEIEHgQxBEkEOAQ5ACAEPwRABD4ERAQ4BDsETAAgAFIARwBCBkUGRAZBACAGKgY5BjEGSgZBACAA
+UgBHAEIAIAYnBkQGOQYnBkUARwBlAG4AZQByAGkAYwAgAFIARwBCACAAUAByAG8AZgBpAGwAZXRleHQA
+AAAAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC4AWFlaIAAAAAAA
+APNSAAEAAAABFs9YWVogAAAAAAAAdE0AAD3uAAAD0FhZWiAAAAAAAABadQAArHMAABc0WFlaIAAAAAAA
+ACgaAAAVnwAAuDZjdXJ2AAAAAAAAAAEBzQAAc2YzMgAAAAAAAQxCAAAF3v//8yYAAAeSAAD9kf//+6L/
+//2jAAAD3AAAwGzSJSYnKFokY2xhc3NuYW1lWCRjbGFzc2VzXxAQTlNCaXRtYXBJbWFnZVJlcKMnKSpa
+TlNJbWFnZVJlcFhOU09iamVjdNIlJiwtV05TQXJyYXmiLCrSJSYvMF5OU011dGFibGVBcnJheaMvLCrT
+MjMKNDU2V05TV2hpdGVcTlNDb2xvclNwYWNlRDAgMAAQA4AM0iUmODlXTlNDb2xvcqI4KtIlJjs8V05T
+SW1hZ2WiOypfEA9OU0tleWVkQXJjaGl2ZXLRP0BUcm9vdIABAAgAEQAaACMALQAyADcARgBMAFcAXgBl
+AHIAeQCBAIMAhQCKAIwAjgCXAJwApwCpAKsArQCyALUAtwC5ALsAvQDCANkA2wDdE0MTSBNTE1wTbxNz
+E34ThxOME5QTlxOcE6sTrxO2E74TyxPQE9IT1BPZE+ET5BPpE/ET9BQGFAkUDgAAAAAAAAIBAAAAAAAA
+AEEAAAAAAAAAAAAAAAAAABQQA
+</mutableData>
+        </image>
         <image name="default" width="70" height="70"/>
-        <image name="edit_profile" width="25" height="25"/>
         <image name="octicon_fork_15" width="15" height="15"/>
         <image name="octicon_star_15" width="15" height="15"/>
         <image name="profile_bg" width="160" height="80"/>

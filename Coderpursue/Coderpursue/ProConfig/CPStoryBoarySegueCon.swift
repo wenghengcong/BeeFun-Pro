@@ -24,6 +24,9 @@ public let SegueProfileShowDeveloperDetail = "ShowDeveDetailSegue"
 public let SegueProfileAboutCoderpursue = "ProfileAboutCoderpursueSegue"
 public let SegueProfileAboutMe  = "ProfileAboutMeSegue"
 
+//login
+public let SegueProfileLoginIn  = "ProfileLoginInSegue"
+
 
 //repository
 public let SegueRepositoryToOwner = "RepositoryToOwner"

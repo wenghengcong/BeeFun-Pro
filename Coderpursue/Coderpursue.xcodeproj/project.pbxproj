@@ -61,6 +61,7 @@
 		5ECB407C1C9950DB00B0C6FF /* CPSettingsLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB407B1C9950DB00B0C6FF /* CPSettingsLabelCell.swift */; };
 		5ECB407E1C998CDC00B0C6FF /* CPAboutList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5ECB407D1C998CDC00B0C6FF /* CPAboutList.plist */; };
 		5ECB40801C99990600B0C6FF /* AppVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB407F1C99990600B0C6FF /* AppVersionHelper.swift */; };
+		5ECB40821C9A376B00B0C6FF /* CPProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB40811C9A376B00B0C6FF /* CPProfileHeaderView.swift */; };
 		5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */; };
 		5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */; };
 		5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF571C7C065900760F0F /* ObjLabel.swift */; };
@@ -203,6 +204,7 @@
 		5ECB407B1C9950DB00B0C6FF /* CPSettingsLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsLabelCell.swift; sourceTree = "<group>"; };
 		5ECB407D1C998CDC00B0C6FF /* CPAboutList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CPAboutList.plist; sourceTree = "<group>"; };
 		5ECB407F1C99990600B0C6FF /* AppVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionHelper.swift; sourceTree = "<group>"; };
+		5ECB40811C9A376B00B0C6FF /* CPProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProfileHeaderView.swift; sourceTree = "<group>"; };
 		5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjMilestone.swift; sourceTree = "<group>"; };
 		5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjPullRequest.swift; sourceTree = "<group>"; };
 		5EE3FF571C7C065900760F0F /* ObjLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjLabel.swift; sourceTree = "<group>"; };
@@ -670,6 +672,7 @@
 				5ECB40771C99506800B0C6FF /* CPSettingsLabelCell.xib */,
 				5E4B99031C928D32000A6B94 /* CPProfileReposCell.swift */,
 				5E4B99051C928D3E000A6B94 /* CPProfileReposCell.xib */,
+				5ECB40811C9A376B00B0C6FF /* CPProfileHeaderView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -993,6 +996,7 @@
 				5EACCFCF1C8E5F450059A303 /* ParaComparison.swift in Sources */,
 				FE6980E61C5602C40026089B /* ObjUserSum.swift in Sources */,
 				FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */,
+				5ECB40821C9A376B00B0C6FF /* CPProfileHeaderView.swift in Sources */,
 				FE6980E51C5602C40026089B /* ObjUser.swift in Sources */,
 				5EE3FF5A1C7C076E00760F0F /* ObjIssue.swift in Sources */,
 				5E738C9E1C93A53D0075C82C /* CPFilterTableView.swift in Sources */,

@@ -174,7 +174,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2w5-hE-F4q">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2w5-hE-F4q">
                                 <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -184,6 +184,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2w5-hE-F4q" secondAttribute="trailing" id="XJA-jP-rMD"/>
+                            <constraint firstItem="2w5-hE-F4q" firstAttribute="leading" secondItem="Der-Hc-LPH" secondAttribute="leading" id="exf-31-TtR"/>
+                            <constraint firstItem="pdP-H3-tAU" firstAttribute="top" secondItem="2w5-hE-F4q" secondAttribute="bottom" id="kI3-ay-pnj"/>
+                            <constraint firstItem="2w5-hE-F4q" firstAttribute="top" secondItem="cbp-sy-yoy" secondAttribute="bottom" constant="44" id="n9J-ok-kj0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Explore" id="qoa-mp-B6Q"/>
                     <connections>
@@ -591,7 +597,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ach-7c-5uc">
                                         <rect key="frame" x="254" y="115" width="25" height="25"/>
-                                        <state key="normal" image="4A9EAF2A-B057-4104-ACEE-C5CF796E20F5"/>
+                                        <state key="normal" image="D07DE11B-1AAD-450A-BD84-D12857C4878D"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCd-cT-27L">
                                         <rect key="frame" x="0.0" y="91" width="375" height="50"/>
@@ -957,7 +963,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7KL-yY-duL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1035.5" y="-658.5"/>
+            <point key="canvasLocation" x="1047.5" y="-658.5"/>
         </scene>
         <!--Gist-->
         <scene sceneID="3pB-hR-HF4">
@@ -981,7 +987,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="4A9EAF2A-B057-4104-ACEE-C5CF796E20F5" width="25" height="25">
+        <image name="D07DE11B-1AAD-450A-BD84-D12857C4878D" width="25" height="25">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPT5YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQrLjE3OlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -1091,9 +1097,9 @@ AEEAAAAAAAAAAAAAAAAAABQQA
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ocj-6m-P78"/>
-        <segue reference="4pF-1J-jZn"/>
-        <segue reference="uhR-d2-GJG"/>
-        <segue reference="vR9-E5-mPh"/>
+        <segue reference="wKV-hJ-UO0"/>
+        <segue reference="Ah2-FE-EYQ"/>
+        <segue reference="Uie-OZ-gKU"/>
+        <segue reference="6vW-Nx-tiC"/>
     </inferredMetricsTieBreakers>
 </document>

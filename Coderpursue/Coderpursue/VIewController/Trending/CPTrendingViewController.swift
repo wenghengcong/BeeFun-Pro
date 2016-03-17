@@ -135,13 +135,14 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
             
-            if( (self.segControl.selectedSegmentIndex == 0)&&self.reposData.isEmpty ){
+            if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
                 self.filterBtn.hidden = true
                 self.tvc_getReposRequest()
-            }else if( (self.segControl.selectedSegmentIndex == 1)&&self.devesData.isEmpty ){
+            }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
                 self.filterBtn.hidden = false
+                
                 self.tvc_getUserRequest()
-            }else if( (self.segControl.selectedSegmentIndex == 2)&&self.showcasesData.isEmpty ){
+            }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
                 self.filterBtn.hidden = true
                 self.tvc_getShowcasesRequest()
             }else{
@@ -338,6 +339,12 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         resetSearchUserParameters()
         print("search user query:\(paraUser.q)")
         
+        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            self.tableView.reloadData()
+            return
+        }
+        
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         Provider.sharedProvider.request(.SearchUsers(para:self.paraUser) ) { (result) -> () in
@@ -359,8 +366,12 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
                 do {
                     if let userResult:ObjSearchUserResponse = Mapper<ObjSearchUserResponse>().map(try response.mapJSON() ) {
                         if(self.paraUser.page == 1) {
-                            self.devesData.removeAll()
-                            self.devesData = userResult.items
+                            
+                            if(self.devesData != nil){
+                                self.devesData.removeAll()
+                                self.devesData = userResult.items
+                            }
+
                         }else{
                             self.devesData = self.devesData+userResult.items!
                         }
@@ -444,12 +455,24 @@ extension CPTrendingViewController : UITableViewDataSource {
         
         if (segControl.selectedSegmentIndex == 0) {
             
-            return  self.reposData.count
+            if (self.reposData != nil){
+                return  self.reposData.count
+            }
+            return 0
+
         }else if(segControl.selectedSegmentIndex == 1)
         {
-            return self.devesData.count
+            if (self.devesData != nil){
+                return self.devesData.count
+            }
+            return 0
         }
-        return self.showcasesData.count
+        
+        if (self.showcasesData != nil){
+            return self.showcasesData.count
+        }
+        
+        return 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -494,6 +517,7 @@ extension CPTrendingViewController : UITableViewDataSource {
             if row == 0 {
                 cell!.topline = true
             }
+            
             if (row == devesData.count-1) {
                 cell!.fullline = true
             }else {

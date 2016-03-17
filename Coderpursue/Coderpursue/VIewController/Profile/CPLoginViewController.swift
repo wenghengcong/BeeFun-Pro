@@ -112,7 +112,7 @@ class CPLoginViewController: CPBaseViewController {
             
             ObjUser.saveUserInfo(gitUser)
             //post successful noti
-            self.navBack()
+            self.navigationController?.popViewControllerAnimated(true)
             NSNotificationCenter.defaultCenter().postNotificationName(NotificationGitLoginSuccessful, object:nil)
             
         }else {

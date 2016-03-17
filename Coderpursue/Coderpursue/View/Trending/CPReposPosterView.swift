@@ -125,11 +125,23 @@ class CPReposPosterView: UIView {
     
     func rpc_fillData() {
         
-        imgV.kf_setImageWithURL(NSURL(string: repo!.owner!.avatar_url!)!, placeholderImage: nil)
-        nameLabel.text = repo!.name!
-        descLabel.text = repo!.cdescription
-        let createAt:NSDate = repo!.created_at!.toDate(DateFormat.ISO8601)!
-        timeLabel.text = "created at: "+createAt.toString()!
+        if let avatarUrl =  repo!.owner!.avatar_url {
+            imgV.kf_setImageWithURL(NSURL(string: avatarUrl)!, placeholderImage: nil)
+        }
+        
+        if let username = repo!.name {
+            nameLabel.text = username
+        }
+        
+        if let cdescription = repo!.cdescription {
+            descLabel.text = cdescription
+        }
+        
+        if let created_at = repo!.created_at {
+            let createAt:NSDate = created_at.toDate(DateFormat.ISO8601)!
+            timeLabel.text = "created at: "+createAt.toString()!
+        }
+        
         
     }
     

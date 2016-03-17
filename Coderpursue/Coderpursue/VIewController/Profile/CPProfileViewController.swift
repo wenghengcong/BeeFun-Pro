@@ -274,14 +274,14 @@ extension CPProfileViewController : UITableViewDataSource {
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let view:UIView = UIView.init(frame: CGRectMake(0, 0, ScreenSize.ScreenWidth, 15))
+        let view:UIView = UIView.init(frame: CGRectMake(0, 0, ScreenSize.ScreenWidth, 10))
         view.backgroundColor = UIColor.viewBackgroundColor()
         return view
         
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 15
+        return 10
     }
     
     func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {

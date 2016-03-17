@@ -122,19 +122,31 @@ class CPProfileHeaderView: UIView {
         phv_emailLabel.hidden = !isLoingin
         
         //        self.pvc_editProfileBtn.hidden = !isLoingin
-        phv_editProfileBtn.hidden = true
+//        phv_editProfileBtn.hidden = true
         phv_loginBtn.hidden = isLoingin
         
         if(isLoingin){
+            
             if let avatarUrl = user?.avatar_url {
                 phv_avatarImgV.kf_setImageWithURL(NSURL(string: avatarUrl)!, placeholderImage: nil)
             }
             phv_nameLabel.text = user?.name
+            if let email = user!.email {
+                phv_emailLabel.setTitle(email, forState: .Normal)
+            }
             
-            phv_numOfReposLabel.text = String(format: "%ld", arguments: [(user?.public_repos)!])
-            phv_numOfFollowingLabel.text = String(format: "%ld", arguments: [(user?.following)!])
-            phv_numOfFollwerLabel.text = String(format: "%ld", arguments: [(user?.followers)!])
+            if let followerCount = user?.followers {
+                phv_numOfFollwerLabel.text = String("\(followerCount)")
+            }
+            if let reposCount = user?.public_repos {
+                phv_numOfReposLabel.text = String("\(reposCount)")
+            }
+            if let followingCount = user?.following {
+                phv_numOfFollowingLabel.text = String("\(followingCount)")
+            }
+            
         }else{
+            
             phv_numOfReposLabel.text = "0"
             phv_numOfFollowingLabel.text = "0"
             phv_numOfFollwerLabel.text = "0"

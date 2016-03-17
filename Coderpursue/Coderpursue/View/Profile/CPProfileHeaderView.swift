@@ -83,7 +83,9 @@ class CPProfileHeaderView: UIView {
         phv_loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         phv_loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
         phv_loginBtn.addTarget(self, action: "phv_loginAction", forControlEvents: .TouchUpInside)
-        
+        phv_loginBtn.backgroundColor = UIColor.clearColor()
+        phv_loginBtn.titleLabel?.font = UIFont.systemFontOfSize(25.0)
+        phv_loginBtn.setTitle("Sign   In", forState: .Normal)
 //        phv_editProfileBtn.addTarget(self, action: "phv_editProfileAction:", forControlEvents: .TouchUpInside)
         
         phv_numOfReposLabel.textColor = UIColor.labelTitleTextColor()
@@ -152,10 +154,6 @@ class CPProfileHeaderView: UIView {
             phv_numOfFollwerLabel.text = "0"
         }
         
-
-        
-
-        
     }
     
     func phv_loginAction() {
@@ -167,7 +165,7 @@ class CPProfileHeaderView: UIView {
     }
     
     func phv_followAction(sender: UITapGestureRecognizer) {
-        if let followerCount = user!.followers {
+        if let followerCount = user?.followers {
             if(followerCount == 0){
                 return
             }
@@ -179,7 +177,7 @@ class CPProfileHeaderView: UIView {
     }
     
     func phv_reposAction(sender: UITapGestureRecognizer) {
-        if let reposCount = user!.public_repos {
+        if let reposCount = user?.public_repos {
             if(reposCount == 0){
                 return
             }
@@ -192,7 +190,7 @@ class CPProfileHeaderView: UIView {
     
     
     func phv_followingAction(sender: UITapGestureRecognizer) {
-        if let followingCount = user!.following {
+        if let followingCount = user?.following {
             if(followingCount == 0){
                 return
             }

@@ -101,33 +101,46 @@ class CPReposInfoView: UIView {
     
     func riv_fillData() {
         
-        if let watchCount = repo!.subscribers_count {
+        if let watchCount = repo?.subscribers_count {
             watchBtn.setTitle("\(watchCount)", forState: .Normal)
         }
         
-        starBtn.setTitle("\(repo!.stargazers_count!)", forState: .Normal)
-        forkBtn.setTitle("\(repo!.forks_count!)", forState: .Normal)
+        if let stargazersCount = repo?.stargazers_count {
+            starBtn.setTitle("\(stargazersCount)", forState: .Normal)
+        }
         
-        if let lan = repo!.language {
+        if let forksCount = repo?.forks_count {
+            forkBtn.setTitle("\(forksCount)", forState: .Normal)
+        }
+        
+        
+        if let lan = repo?.language {
             lanBtn.setTitle("\(lan)", forState: .Normal)
         }
         
         
-        if(repo!.cprivate!){
-            privateBtn.setTitle("Private", forState: .Normal)
-        }else{
-            privateBtn.setTitle("Public", forState: .Normal)
+        if let cprivate = repo?.cprivate {
+            if(cprivate){
+                privateBtn.setTitle("Private", forState: .Normal)
+            }else{
+                privateBtn.setTitle("Public", forState: .Normal)
+            }
         }
         
-        let issueCount = repo!.open_issues_count!
-        if(issueCount <= 1){
-            issueBtn.setTitle("\(issueCount) issue", forState: .Normal)
-        }else{
-            issueBtn.setTitle("\(issueCount) issues", forState: .Normal)
+        if let issueCount = repo?.open_issues_count {
+            if(issueCount <= 1){
+                issueBtn.setTitle("\(issueCount) issue", forState: .Normal)
+            }else{
+                issueBtn.setTitle("\(issueCount) issues", forState: .Normal)
+            }
         }
-        
-        let fileMB = String(format: "%.2f", ((Double)(repo!.size!)/1024.0) )
-        filesizeBtn.setTitle("\(fileMB) MB", forState: .Normal)
+        if let fileMB = repo?.size {
+            
+            let fileMB = String(format: "%.2f", ((Double)(fileMB)/1024.0) )
+            filesizeBtn.setTitle("\(fileMB) MB", forState: .Normal)
+            
+        }
+
         
     }
 

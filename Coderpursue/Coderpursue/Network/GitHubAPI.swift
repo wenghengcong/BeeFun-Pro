@@ -57,7 +57,7 @@ struct Provider{
             return endpoint.endpointByAddingHTTPHeaderFields(["Content-Length":"0"])
             
         default:
-            print("current token:\( AppToken.sharedInstance.access_token)")
+            print("current token:\( AppToken.sharedInstance.access_token!)")
             return endpoint.endpointByAddingHTTPHeaderFields(["Authorization": AppToken.sharedInstance.access_token ?? ""])
         }
     }
@@ -329,9 +329,9 @@ extension GitHubAPI: TargetType {
         case CheckWatched(let owner,let repo):
             return "/repos/\(owner)/\(repo)/subscription"
         case WatchingRepo(let owner,let repo,_,_):
-            return "/repos/\(owner)/\(repo)/subscriptions"
+            return "/repos/\(owner)/\(repo)/subscription"
         case UnWatchingRepo(let owner,let repo):
-            return "/repos/\(owner)/\(repo)/subscriptions"
+            return "/repos/\(owner)/\(repo)/subscription"
 
             //Event
         case PublicEvents:

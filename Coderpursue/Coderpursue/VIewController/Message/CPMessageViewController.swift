@@ -39,18 +39,14 @@ class CPMessageViewController: CPBaseViewController {
     var issueSortPar:String = "created"
     var issueDirectionPar:String = "desc"
 
-    
-    // 顶部刷新
     let header = MJRefreshNormalHeader()
-    // 底部刷新
     let footer = MJRefreshAutoNormalFooter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-        mvc_checkUserSignIn()
-
+        mvc_setupSegmentView()
+        mvc_setupTableView()
+        mvc_updateNetrokData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,29 +57,26 @@ class CPMessageViewController: CPBaseViewController {
         super.viewWillAppear(animated)
         self.title = "Message"
     }
-    func mvc_checkUserSignIn() {
-        
-        mvc_setupSegmentView()
-        mvc_setupTableView()
-        updateNetrokData()
-        
+    
+    func mvc_isLogin()->Bool{
+        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            return false
+        }
+        return true
     }
     
-    func updateNetrokData() {
+    func mvc_updateNetrokData() {
         
-        if UserInfoHelper.sharedInstance.isLoginIn {
-            self.tableView.hidden = false
-            
-            if(segControl.selectedSegmentIndex == 0) {
+        if mvc_isLogin(){
+            if(segControl.selectedSegmentIndex == 0 ) {
                 mvc_getNotificationsRequest(self.notisPageVal)
             }else if(segControl.selectedSegmentIndex == 1){
                 mvc_getIssuesRequest(self.issuesPageVal)
-
+                
             }
-            
-        }else {
+        }else{
             //加载未登录的页面
-            self.tableView.hidden = true
         }
     }
 
@@ -103,6 +96,10 @@ class CPMessageViewController: CPBaseViewController {
         
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
+            
+            if(!self.mvc_isLogin()){
+                return
+            }
             
             if( (self.segControl.selectedSegmentIndex == 0)&&self.notificationsData.isEmpty ){
                 self.mvc_getNotificationsRequest(self.notisPageVal)
@@ -129,6 +126,7 @@ class CPMessageViewController: CPBaseViewController {
         self.tableView.delegate = self
         self.tableView.separatorStyle = .None
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.allowsSelection = false
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
@@ -156,7 +154,7 @@ class CPMessageViewController: CPBaseViewController {
         }else if(segControl.selectedSegmentIndex == 1){
             self.issuesPageVal = 1
         }
-        updateNetrokData()
+        mvc_updateNetrokData()
     }
     
     // 底部刷新
@@ -167,7 +165,7 @@ class CPMessageViewController: CPBaseViewController {
         }else if(segControl.selectedSegmentIndex == 1){
             self.issuesPageVal++
         }
-        updateNetrokData()
+        mvc_updateNetrokData()
     }
 
     // MARK: fetch data form request

@@ -68,6 +68,14 @@ class CPProfileViewController: CPBaseViewController {
 
     }
     
+    func pvc_isLogin()->Bool{
+        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            return false
+        }
+        return true
+    }
+    
     // MARK: view
     
     func pvc_customView() {
@@ -212,6 +220,9 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
             self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
+        }else{
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+
         }
 
     }
@@ -221,6 +232,9 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
             self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
+        }else{
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+
         }
     }
     
@@ -229,6 +243,8 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
             self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
+        }else{
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
         }
     }
     
@@ -305,11 +321,16 @@ extension CPProfileViewController : UITableViewDelegate {
 
         let viewType = settings.itemKey!
 
-        if ( isLoingin && (user != nil) && ( (viewType == "watched")||(viewType == "forked") )){
-            let uname = user!.login
-            let dic:[String:String] = ["uname":uname!,"type":viewType]
-            self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
+        if ( (viewType == "watched")||(viewType == "forked") ){
             
+            if (isLoingin && (user != nil) ){
+                let uname = user!.login
+                let dic:[String:String] = ["uname":uname!,"type":viewType]
+                self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
+            }else{
+                CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            }
+        
         }else if(viewType == "feedback"){
             
             let mailComposeViewController = configuredMailComposeViewController()

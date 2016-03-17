@@ -31,13 +31,10 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     var languageArr:[String]?
     
     // MARK: request parameters
-    
     //search user para
     var paraUser:ParaSearchUser = ParaSearchUser.init()
     
-    // 顶部刷新
     let header = MJRefreshNormalHeader()
-    // 底部刷新
     let footer = MJRefreshAutoNormalFooter()
     
     
@@ -55,7 +52,6 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         */
         
         paraUser.q = paraUser.combineQuery()
-        
         
     }
     
@@ -198,7 +194,8 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
             tvc_filterViewDisapper()
         }
     }
-
+    
+    //filter delegate
     func didSelectColoumn(index: Int, row:Int ,type:String,value:String) {
         
         if(index == 1){
@@ -229,7 +226,6 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
 
     }
     
-    
     func updateNetrokData() {
         
         
@@ -244,9 +240,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
 
     }
     
-    // 顶部刷新
     func headerRefresh(){
-        print("下拉刷新")
         if(segControl.selectedSegmentIndex == 0) {
 
         }else if(segControl.selectedSegmentIndex == 1){
@@ -257,9 +251,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         updateNetrokData()
     }
     
-    // 底部刷新
     func footerRefresh(){
-        print("上拉刷新")
         if(segControl.selectedSegmentIndex == 0) {
 
         }else if(segControl.selectedSegmentIndex == 1){
@@ -268,6 +260,14 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
             
         }
         updateNetrokData()
+    }
+    
+    func tvc_isLogin()->Bool{
+        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            return false
+        }
+        return true
     }
     
     // MARK: fetch data form plist file
@@ -336,14 +336,13 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     
     func tvc_getUserRequest() {
         
-        resetSearchUserParameters()
-        print("search user query:\(paraUser.q)")
-        
-        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+        if(!tvc_isLogin()){
             self.tableView.reloadData()
             return
         }
+        
+        resetSearchUserParameters()
+        print("search user query:\(paraUser.q)")
         
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
@@ -563,7 +562,10 @@ extension CPTrendingViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
+        if(!tvc_isLogin()){
+            return
+        }
+        
         if segControl.selectedSegmentIndex == 0 {
             
             let repos = self.reposData[indexPath.row]

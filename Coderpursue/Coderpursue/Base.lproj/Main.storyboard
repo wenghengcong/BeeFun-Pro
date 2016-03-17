@@ -56,7 +56,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nFN-5X-KVv">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nFN-5X-KVv">
                                 <rect key="frame" x="0.0" y="108" width="375" height="510"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -190,6 +190,12 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nFN-5X-KVv" secondAttribute="trailing" id="gQf-Me-pmH"/>
+                            <constraint firstItem="G1D-iP-BEs" firstAttribute="top" secondItem="nFN-5X-KVv" secondAttribute="bottom" id="mCv-nU-xvL"/>
+                            <constraint firstItem="nFN-5X-KVv" firstAttribute="top" secondItem="Cmq-uo-Yi4" secondAttribute="bottom" constant="44" id="sqk-7A-OBd"/>
+                            <constraint firstItem="nFN-5X-KVv" firstAttribute="leading" secondItem="fvT-kE-BOr" secondAttribute="leading" id="wkb-cL-mKB"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Stars" id="jcF-kd-uq7"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -1404,7 +1410,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="Ocj-6m-P78"/>
         <segue reference="4pF-1J-jZn"/>
-        <segue reference="6UL-L4-rCi"/>
         <segue reference="Uwe-C7-efJ"/>
+        <segue reference="9bj-WN-PEl"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -112,6 +112,12 @@ extension CPProAboutViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            return
+        }
+        
         let section = indexPath.section
         let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]

@@ -14,19 +14,39 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cxh-2y-jpr">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cxh-2y-jpr">
                         <rect key="frame" x="15" y="12" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="dwe-mI-wEY"/>
+                            <constraint firstAttribute="width" constant="20" id="sud-FR-DnL"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksR-cu-FCD">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ksR-cu-FCD">
                         <rect key="frame" x="57" y="0.0" width="260" height="43"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="43" id="Of6-zd-iWe"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="ygG-EF-RKW">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="ygG-EF-RKW">
                         <rect key="frame" x="342" y="9" width="25" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="25" id="Iqj-rp-8Os"/>
+                            <constraint firstAttribute="height" constant="25" id="usn-77-OIC"/>
+                        </constraints>
                     </imageView>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="ksR-cu-FCD" firstAttribute="leading" secondItem="Cxh-2y-jpr" secondAttribute="trailing" constant="22" id="GBx-co-Ejl"/>
+                    <constraint firstItem="ygG-EF-RKW" firstAttribute="leading" secondItem="ksR-cu-FCD" secondAttribute="trailing" constant="25" id="Xac-58-gIh"/>
+                    <constraint firstItem="Cxh-2y-jpr" firstAttribute="top" secondItem="gNi-XS-bbe" secondAttribute="top" constant="12" id="aIf-vS-PqT"/>
+                    <constraint firstAttribute="trailing" secondItem="ygG-EF-RKW" secondAttribute="trailing" constant="8" id="abY-hH-w3I"/>
+                    <constraint firstItem="ygG-EF-RKW" firstAttribute="top" secondItem="gNi-XS-bbe" secondAttribute="top" constant="9" id="c0m-Ln-ty4"/>
+                    <constraint firstItem="ksR-cu-FCD" firstAttribute="top" secondItem="gNi-XS-bbe" secondAttribute="top" id="nnV-yB-FUX"/>
+                    <constraint firstItem="Cxh-2y-jpr" firstAttribute="leading" secondItem="gNi-XS-bbe" secondAttribute="leading" constant="15" id="ot1-Qm-o4g"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="disImgV" destination="ygG-EF-RKW" id="WL6-YI-eE6"/>

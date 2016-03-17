@@ -24,38 +24,33 @@ class CPStarsViewController: CPBaseViewController{
     var reposPageVal = 1
     var eventPageVal = 1
     
-    // 顶部刷新
     let header = MJRefreshNormalHeader()
-    // 底部刷新
     let footer = MJRefreshAutoNormalFooter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
-        svc_checkUserSignIn()
+        svc_setupSegmentView()
+        svc_setupTableView()
+        svc_updateNetrokData()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Stars"
     }
-    func svc_checkUserSignIn() {
-        
-        svc_setupSegmentView()
-        svc_setupTableView()
-        updateNetrokData()
-        
+    
+    func svc_isLogin()->Bool{
+        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            return false
+        }
+        return true
     }
     
-    func updateNetrokData() {
+    func svc_updateNetrokData() {
         
-        if UserInfoHelper.sharedInstance.isLoginIn {
-            self.tableView.hidden = false
+        if svc_isLogin(){
             
             if segControl.selectedSegmentIndex == 0 {
                 svc_getUserReposRequest(self.reposPageVal)
@@ -63,9 +58,8 @@ class CPStarsViewController: CPBaseViewController{
                 svc_getUserEventsRequest(self.eventPageVal)
             }
             
-        }else {
+        }else{
             //加载未登录的页面
-            self.tableView.hidden = true
         }
     }
     
@@ -85,6 +79,10 @@ class CPStarsViewController: CPBaseViewController{
         
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
+            
+            if(!self.svc_isLogin()){
+                return
+            }
             
             if( (self.segControl.selectedSegmentIndex == 0)&&self.reposData.isEmpty ){
                 self.svc_getUserReposRequest(self.reposPageVal)
@@ -138,7 +136,7 @@ class CPStarsViewController: CPBaseViewController{
         }else{
             self.eventPageVal = 1
         }
-        updateNetrokData()
+        svc_updateNetrokData()
     }
     
     // 底部刷新
@@ -149,7 +147,7 @@ class CPStarsViewController: CPBaseViewController{
         }else{
             self.eventPageVal++
         }
-        updateNetrokData()
+        svc_updateNetrokData()
     }
     
     

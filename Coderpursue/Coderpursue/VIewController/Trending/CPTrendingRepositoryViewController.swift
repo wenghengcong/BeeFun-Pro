@@ -240,9 +240,9 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     }
 
     func rvc_watchRequest() {
+        
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
-        
         Provider.sharedProvider.request(.WatchingRepo(owner:owner,repo:repoName,subscribed:"true",ignored:"false") ) { (result) -> () in
             
             var success = true
@@ -257,6 +257,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 if(statusCode == CPHttpStatusCode.OK.rawValue){
                     self.hasWatchedRepos = true
                     CPGlobalHelper.sharedInstance.showError("Watch this repository successsful!", view: self.view)
+                    self.rvc_updateViewContent()
                 }else{
                     
                 }
@@ -292,7 +293,8 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 if(statusCode == CPHttpStatusCode.NoContent.rawValue){
                     self.hasWatchedRepos = false
                     CPGlobalHelper.sharedInstance.showError("Unwatch this repository successsful!", view: self.view)
-                    
+                    self.rvc_updateViewContent()
+
                 }else{
                     
                 }
@@ -328,6 +330,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 if(statusCode == CPHttpStatusCode.NoContent.rawValue){
                     self.hasStaredRepos = true
                     CPGlobalHelper.sharedInstance.showError("Star this repository successsful!", view: self.view)
+                    self.rvc_updateViewContent()
                 }else{
                     
                 }
@@ -363,6 +366,8 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 if(statusCode == CPHttpStatusCode.NoContent.rawValue){
                     self.hasStaredRepos = false
                     CPGlobalHelper.sharedInstance.showError("Unstar this repository successsful!", view: self.view)
+                    self.rvc_updateViewContent()
+
                 }else{
                     
                 }
@@ -505,11 +510,6 @@ extension CPTrendingRepositoryViewController:ReposActionProtocol {
     
     
     func showAlertView() {
-        
-        if (!UserInfoHelper.sharedInstance.isLoginIn){
-            CPGlobalHelper.sharedInstance.showError("Please first login in", view: self.view)
-            return
-        }
         
         var title = ""
         var message = ""

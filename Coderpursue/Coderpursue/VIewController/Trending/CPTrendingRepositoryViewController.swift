@@ -179,7 +179,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             case let .Success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                if(statusCode == CPHttpStatusCode.OK.rawValue){
                     self.hasWatchedRepos = true
                 }else{
                     self.hasWatchedRepos = false
@@ -254,9 +254,9 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             case let .Success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.OK.rawValue){
+                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
                     self.hasWatchedRepos = true
-                    CPGlobalHelper.sharedInstance.showError("Watch this repository successsful!", view: self.view)
+                    CPGlobalHelper.sharedInstance.showError("Watch Successsful", view: self.view)
                     self.rvc_updateViewContent()
                 }else{
                     
@@ -292,7 +292,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.NoContent.rawValue){
                     self.hasWatchedRepos = false
-                    CPGlobalHelper.sharedInstance.showError("Unwatch this repository successsful!", view: self.view)
+                    CPGlobalHelper.sharedInstance.showError("Unwatch Successsful", view: self.view)
                     self.rvc_updateViewContent()
 
                 }else{
@@ -329,7 +329,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.NoContent.rawValue){
                     self.hasStaredRepos = true
-                    CPGlobalHelper.sharedInstance.showError("Star this repository successsful!", view: self.view)
+                    CPGlobalHelper.sharedInstance.showError("Star Successsful", view: self.view)
                     self.rvc_updateViewContent()
                 }else{
                     

@@ -26,12 +26,14 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     @IBOutlet weak var developerInfoV: CPDeveloperInfoView!
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var followBtn: UIButton!
     
     var developer:ObjUser?
     var devInfoArr = [[String:String]]()
     
     var actionType:CPUserActionType = .Follow
-
+    var followed:Bool = false
+    
     // 顶部刷新
     let header = MJRefreshNormalHeader()
     
@@ -55,6 +57,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         }else{
             self.title = developer!.login!
         }
+        dvc_checkUserFollowed()
     }
 
     override func didReceiveMemoryWarning() {
@@ -75,6 +78,11 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         self.navigationItem.leftBarButtonItem?.title = "Back"
 
         developerInfoV.userActionDelegate = self
+        
+        followBtn.layer.cornerRadius = 5
+        followBtn.layer.masksToBounds = true
+        followBtn.addTarget(self, action: "dvc_followAction", forControlEvents: UIControlEvents.TouchUpInside)
+        
     }
     
     func dvc_setupTableView() {
@@ -83,6 +91,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         self.tableView.delegate = self
         self.tableView.separatorStyle = .None
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.allowsSelection = false
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
@@ -93,6 +102,88 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         // 现在的版本要用mj_header
 //        self.tableView.mj_header = header
         
+    }
+    
+    func dvc_updateViewContent() {
+        
+        if(followed){
+            followBtn.setTitle("Unfollow", forState: .Normal)
+        }else{
+            followBtn.setTitle("Follow", forState: .Normal)
+        }
+        
+        if(developer==nil){
+            return
+        }
+        
+        devInfoArr.removeAll()
+        
+        if let joinTime:String = developer!.created_at {
+            let ind = joinTime.startIndex.advancedBy(10)
+            let subStr = joinTime.substringToIndex(ind)
+            let join = "Joined on "+subStr
+            let joinDic:[String:String] = ["img":"octicon_time_25","desc":join,"discolsure":"false"]
+            devInfoArr.append(joinDic)
+        }
+        
+        if let location:String = developer!.location {
+            let locDic:[String:String] = ["img":"octicon_loc_25","desc":location,"discolsure":"false"]
+            devInfoArr.append(locDic)
+        }
+        
+        if let company = developer!.company {
+            let companyDic:Dictionary = ["img":"octicon_org_25","desc":company,"discolsure":"false"]
+            devInfoArr.append(companyDic)
+        }
+        
+        developerInfoV.developer = developer
+        self.tableView.reloadData()
+    }
+    
+    func dvc_followAction() {
+        
+        if(followBtn.currentTitle == "Follow"){
+            self.dvc_followUserRequest()
+        }else if(followBtn.currentTitle == "Unfollow"){
+            self.dvc_unfolloweUserRequest()
+        }
+        
+    }
+    
+    
+    func dvc_checkUserFollowed() {
+    
+        let username = developer!.login!
+        
+        Provider.sharedProvider.request(.Follow(username:username) ) { (result) -> () in
+            
+            var success = true
+            var message = "Unable to fetch from GitHub"
+            
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            print(result)
+            switch result {
+            case let .Success(response):
+                
+                let statusCode = response.statusCode
+                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                    self.followed = true
+                }else{
+                    self.followed = false
+                }
+                self.dvc_updateViewContent()
+                
+            case let .Failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+                success = false
+                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                
+            }
+        }
+
     }
     
     func dvc_getUserinfoRequest(){
@@ -137,36 +228,86 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
     }
     
-    func dvc_updateViewContent() {
+    func dvc_followUserRequest(){
         
-        if(developer==nil){
-            return
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        let username = developer!.login!
+        
+        Provider.sharedProvider.request(.Follow(username:username) ) { (result) -> () in
+            
+            var success = true
+            var message = "Unable to fetch from GitHub"
+            
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            
+            switch result {
+            case let .Success(response):
+                
+                let statusCode = response.statusCode
+                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                    self.followed = true
+                    CPGlobalHelper.sharedInstance.showError("Follow Successful", view: self.view)
+
+                }
+                self.dvc_updateViewContent()
+                
+            case let .Failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+                success = false
+                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                
+            }
         }
         
-        devInfoArr.removeAll()
         
-        if let joinTime:String = developer!.created_at {
-            let ind = joinTime.startIndex.advancedBy(10)
-            let subStr = joinTime.substringToIndex(ind)
-            let join = "Joined on "+subStr
-            let joinDic:[String:String] = ["img":"octicon_time_25","desc":join,"discolsure":"false"]
-            devInfoArr.append(joinDic)
-        }
-        
-        if let location:String = developer!.location {
-            let locDic:[String:String] = ["img":"octicon_loc_25","desc":location,"discolsure":"false"]
-            devInfoArr.append(locDic)
-        }
-        
-        if let company = developer!.company {
-            let companyDic:Dictionary = ["img":"octicon_org_25","desc":company,"discolsure":"false"]
-            devInfoArr.append(companyDic)
-        }
-        
-        developerInfoV.developer = developer
-        self.tableView.reloadData()
     }
 
+    
+    func dvc_unfolloweUserRequest(){
+        
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        
+        let username = developer!.login!
+        
+        Provider.sharedProvider.request(.Unfollow(username:username) ) { (result) -> () in
+            
+            var success = true
+            var message = "Unable to fetch from GitHub"
+            
+            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            
+            switch result {
+            case let .Success(response):
+                
+                let statusCode = response.statusCode
+                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                    self.followed = false
+                    CPGlobalHelper.sharedInstance.showError("Unollow Successful", view: self.view)
+
+                }
+                
+                self.dvc_updateViewContent()
+                
+            case let .Failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+                success = false
+                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                
+            }
+        }
+        
+        
+    }
+
+    
+    
 }
 
 extension CPTrendingDeveloperViewController : UITableViewDataSource {

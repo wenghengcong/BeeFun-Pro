@@ -37,10 +37,6 @@ class GitHupPorvider<Target where Target: TargetType>: MoyaProvider<Target> {
         plugins: [PluginType] = []) {
             super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins)
     }
-    
-    
-    
-    
 }
 
 struct Provider{
@@ -51,13 +47,11 @@ struct Provider{
         // Sign all non-XApp token requests
 
         switch target {
-            //PUT	Used for replacing resources or collections. For PUT requests with no body attribute, be sure to set the Content-Length header to zero.
-        case .WatchingRepo:
-            endpoint.endpointByAddingHTTPHeaderFields(["Authorization": AppToken.sharedInstance.access_token ?? ""])
-            return endpoint.endpointByAddingHTTPHeaderFields(["Content-Length":"0"])
             
         default:
             print("current token:\( AppToken.sharedInstance.access_token!)")
+            endpoint.endpointByAddingHTTPHeaderFields(["User-Agent":"Coderpursue"])
+
             return endpoint.endpointByAddingHTTPHeaderFields(["Authorization": AppToken.sharedInstance.access_token ?? ""])
         }
     }
@@ -329,7 +323,7 @@ extension GitHubAPI: TargetType {
         case CheckWatched(let owner,let repo):
             return "/repos/\(owner)/\(repo)/subscription"
         case WatchingRepo(let owner,let repo,_,_):
-            return "/repos/\(owner)/\(repo)/subscription"
+            return "/user/subscriptions/\(owner)/\(repo)"
         case UnWatchingRepo(let owner,let repo):
             return "/repos/\(owner)/\(repo)/subscription"
 
@@ -601,11 +595,11 @@ extension GitHubAPI: TargetType {
                 "per_page":perpage,
             ]
             
-        case WatchingRepo(_,_,let subscribed,let ignored):
-            return [
-                "subscribed":subscribed,
-                "ignored":ignored
-            ]
+//        case WatchingRepo(_,_,let subscribed,let ignored):
+//            return [
+//                "subscribed":subscribed,
+//                "ignored":ignored
+//            ]
             
             //Event
         case PublicEvents(let page,let perpage):

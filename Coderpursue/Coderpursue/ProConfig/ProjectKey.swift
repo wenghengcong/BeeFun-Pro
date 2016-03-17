@@ -8,8 +8,7 @@
 
 
 //appid
-public let AppleAppID = "1023050194"
-
+public let AppleAppID = "1094338006"
 
 //github
 public let GithubAppClientId = "294e97e63b0e68f456ad";

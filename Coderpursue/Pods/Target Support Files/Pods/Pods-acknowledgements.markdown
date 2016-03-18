@@ -24,6 +24,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Bugly
+
+Copyright 2016 tencent.com. All rights reserved.
+
+
 ## IQKeyboardManagerSwift
 
 IQKeyboardManager license

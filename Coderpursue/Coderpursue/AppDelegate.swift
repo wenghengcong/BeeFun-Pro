@@ -19,6 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         IQKeyboardManager.sharedManager().enable = true
         
+        //bug 
+        CrashReporter.sharedInstance().installWithAppId("900022223")
+
         return true
     }
 

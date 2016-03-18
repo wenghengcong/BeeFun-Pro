@@ -4,3 +4,4 @@
 
 #import "MBProgressHUD.h"
 #import "HMSegmentedControl.h"
+#import <Bugly/CrashReporter.h>

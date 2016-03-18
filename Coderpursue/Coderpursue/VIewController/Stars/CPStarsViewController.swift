@@ -210,7 +210,7 @@ class CPStarsViewController: CPBaseViewController{
         
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        Provider.sharedProvider.request(.UserEvents(username:ObjUser.loadUserInfo()!.name! ,page:pageVal,perpage:15) ) { (result) -> () in
+        Provider.sharedProvider.request(.UserEvents(username:ObjUser.loadUserInfo()!.login! ,page:pageVal,perpage:15) ) { (result) -> () in
             
             var success = true
             var message = "No data to show"

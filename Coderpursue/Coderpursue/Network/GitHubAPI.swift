@@ -49,7 +49,7 @@ struct Provider{
         switch target {
             
         default:
-            print("current token:\( AppToken.sharedInstance.access_token!)")
+//            print("current token:\( AppToken.sharedInstance.access_token)")
             endpoint.endpointByAddingHTTPHeaderFields(["User-Agent":"Coderpursue"])
 
             return endpoint.endpointByAddingHTTPHeaderFields(["Authorization": AppToken.sharedInstance.access_token ?? ""])

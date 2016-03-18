@@ -17,3 +17,4 @@ pod 'ReachabilitySwift'
 pod 'MBProgressHUD'
 pod 'MJRefresh'
 pod "SwiftDate", "~> 2.0"
+pod 'UMengAnalytics-NO-IDFA'

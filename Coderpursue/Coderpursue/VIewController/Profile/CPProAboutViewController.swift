@@ -11,6 +11,9 @@ import UIKit
 class CPProAboutViewController: CPBaseViewController {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var introTextV: UITextView!
+    
+    
     var settingsArr:[[ObjSettings]] = []
 
     override func viewDidLoad() {
@@ -18,6 +21,7 @@ class CPProAboutViewController: CPBaseViewController {
         self.title = "About"
         pavc_readPlist()
         pavc_setupTableView()
+        pavc_customView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +38,10 @@ class CPProAboutViewController: CPBaseViewController {
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
+    func pavc_customView(){
+        introTextV.text = "  Coderpursue is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or develope work. Also welcome more suggestions and reports of bugs come from you!\n  Thank you!"
+    }
+    
     func pavc_readPlist(){
         settingsArr = CPGlobalHelper.sharedInstance.readPlist("CPAboutList")
     }

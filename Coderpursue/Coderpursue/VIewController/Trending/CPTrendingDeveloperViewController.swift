@@ -79,6 +79,11 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
         developerInfoV.userActionDelegate = self
         
+        if(developer!.login == UserInfoHelper.sharedInstance.user?.name){
+            followBtn.hidden = true
+        }else{
+            followBtn.hidden = false
+        }
         followBtn.layer.cornerRadius = 5
         followBtn.layer.masksToBounds = true
         followBtn.addTarget(self, action: "dvc_followAction", forControlEvents: UIControlEvents.TouchUpInside)

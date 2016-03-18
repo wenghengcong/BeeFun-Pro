@@ -498,7 +498,7 @@
                                     <constraint firstAttribute="height" constant="90" id="ze9-Hz-mnU"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="  Coder Pursue is a clien of Github." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lwb-pO-CWh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="  Coderpursue is a client of Github." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lwb-pO-CWh">
                                 <rect key="frame" x="0.0" y="180" width="375" height="133"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -531,6 +531,7 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="introTextV" destination="lwb-pO-CWh" id="VKH-RD-2uX"/>
                         <outlet property="tableView" destination="tV8-En-sb8" id="i20-rG-Zod"/>
                         <segue destination="DFV-4I-ATK" kind="show" identifier="ProfileAboutCoderpursueSegue" id="uhR-d2-GJG"/>
                         <segue destination="Ax2-Kg-xXj" kind="show" identifier="ProfileAboutMeSegue" id="vR9-E5-mPh"/>
@@ -1428,9 +1429,9 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9bj-WN-PEl"/>
-        <segue reference="VaJ-wG-uf1"/>
-        <segue reference="Uie-OZ-gKU"/>
+        <segue reference="uhR-d2-GJG"/>
+        <segue reference="vR9-E5-mPh"/>
         <segue reference="6vW-Nx-tiC"/>
+        <segue reference="Uie-OZ-gKU"/>
     </inferredMetricsTieBreakers>
 </document>

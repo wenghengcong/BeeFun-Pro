@@ -17,7 +17,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     @IBOutlet weak var tableView: UITableView!
     
     //view
-    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositoies","Developers","Showcases"])
+    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories","Developers","Showcases"])
     var filterView:CPFilterTableView?
     let filterVHeight:CGFloat = 270    //filterview height
     let filterBtn = UIButton()

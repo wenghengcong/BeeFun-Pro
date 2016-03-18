@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.sharedManager().enable = true
         
         //bug 
+//        CrashReporter.sharedInstance().enableLog(true)
         CrashReporter.sharedInstance().installWithAppId("900022223")
 
         return true

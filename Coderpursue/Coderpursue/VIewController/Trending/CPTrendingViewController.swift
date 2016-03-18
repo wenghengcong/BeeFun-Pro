@@ -292,7 +292,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         Provider.sharedProvider.request(.TrendingRepos(since:"daily",language:"all") ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
@@ -349,7 +349,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         Provider.sharedProvider.request(.SearchUsers(para:self.paraUser) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             if(self.paraUser.page == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -405,7 +405,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         Provider.sharedProvider.request(.TrendingShowcases() ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()

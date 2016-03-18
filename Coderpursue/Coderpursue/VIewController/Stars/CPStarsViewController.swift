@@ -84,9 +84,9 @@ class CPStarsViewController: CPBaseViewController{
                 return
             }
             
-            if( (self.segControl.selectedSegmentIndex == 0)&&self.reposData.isEmpty ){
+            if( (self.segControl.selectedSegmentIndex == 0) && self.reposData != nil){
                 self.svc_getUserReposRequest(self.reposPageVal)
-            }else if( (self.segControl.selectedSegmentIndex == 1)&&self.eventsData.isEmpty ){
+            }else if( (self.segControl.selectedSegmentIndex == 1)&&self.eventsData != nil ){
                 self.svc_getUserEventsRequest(self.eventPageVal)
             }else{
                 self.tableView.reloadData()
@@ -162,7 +162,7 @@ class CPStarsViewController: CPBaseViewController{
         Provider.sharedProvider.request(.MyStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
 
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -210,10 +210,10 @@ class CPStarsViewController: CPBaseViewController{
         
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        Provider.sharedProvider.request(.UserEvents(username:ObjUser.loadUserInfo()!.name! ,page:pageVal,perpage:10) ) { (result) -> () in
+        Provider.sharedProvider.request(.UserEvents(username:ObjUser.loadUserInfo()!.name! ,page:pageVal,perpage:15) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -235,7 +235,6 @@ class CPStarsViewController: CPBaseViewController{
                             self.eventsData = self.eventsData+events!
                         }
                         
-                        self.tableView.reloadData()
                         
                     } else {
                         success = false
@@ -244,6 +243,8 @@ class CPStarsViewController: CPBaseViewController{
                     success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
+                self.tableView.reloadData()
+
             case let .Failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break

@@ -79,7 +79,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
         Provider.sharedProvider.request(.TrendingShowcase(showcase:showcase.slug!) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
             

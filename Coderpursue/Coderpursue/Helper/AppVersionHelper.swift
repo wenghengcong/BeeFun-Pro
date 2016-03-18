@@ -26,7 +26,8 @@ class AppVersionHelper: NSObject {
     
     //rate us
     func rateUs() {
-        let appstroreUrl = ("http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=\(AppleAppID)&pageNumber=0&sortOrdering=2&type=Purple+Software&mt=8")
+        let appstroreUrl = ("itms-apps://itunes.apple.com/app/id\(AppleAppID)")
+//        let appstroreUrl = ("itms-apps://itunes.apple.com/app/id1023050194")
         UIApplication.sharedApplication().openURL(  NSURL(string: appstroreUrl)! );
     }
     

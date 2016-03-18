@@ -113,7 +113,7 @@ class CPGitLoginViewController: CPWebViewController {
             print(result)
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
 
             switch result {
             case let .Success(response):

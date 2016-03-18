@@ -134,7 +134,7 @@ class CPProfileViewController: CPBaseViewController {
         Provider.sharedProvider.request(.UserInfo(username:username) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             

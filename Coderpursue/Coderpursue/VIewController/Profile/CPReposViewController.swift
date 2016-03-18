@@ -149,7 +149,7 @@ class CPReposViewController: CPBaseViewController {
             print(result)
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
@@ -196,7 +196,7 @@ class CPReposViewController: CPBaseViewController {
             print(result)
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()

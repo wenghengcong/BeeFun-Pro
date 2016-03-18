@@ -127,7 +127,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         Provider.sharedProvider.request(.UserSomeRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             
@@ -172,7 +172,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         Provider.sharedProvider.request(.CheckWatched(owner:owner,repo:repoName) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             switch result {
@@ -211,7 +211,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         Provider.sharedProvider.request(.CheckStarred(owner:owner,repo:repoName) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             print(result)
@@ -246,7 +246,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         Provider.sharedProvider.request(.WatchingRepo(owner:owner,repo:repoName,subscribed:"true",ignored:"false") ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             print(result)
@@ -282,7 +282,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         Provider.sharedProvider.request(.UnWatchingRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             print(result)
@@ -319,7 +319,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         Provider.sharedProvider.request(.StarRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             print(result)
@@ -355,7 +355,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         Provider.sharedProvider.request(.UnstarRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             print(result)
@@ -392,7 +392,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         Provider.sharedProvider.request(.CreateFork(owner:owner,repo:repoName) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             print(result)

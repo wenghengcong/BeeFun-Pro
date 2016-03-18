@@ -177,7 +177,7 @@ class CPMessageViewController: CPBaseViewController {
         Provider.sharedProvider.request( .MyNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -198,10 +198,8 @@ class CPMessageViewController: CPBaseViewController {
                             self.notificationsData = notis!
                         }else{
                             self.notificationsData = self.notificationsData+notis!
-                        }
-                        
+                        }                        
                         self.tableView.reloadData()
-                        
                     } else {
                         success = false
                     }
@@ -230,7 +228,7 @@ class CPMessageViewController: CPBaseViewController {
         Provider.sharedProvider.request(.AllIssues( page:pageVal,perpage:10,filter:issueFilterPar,state:issueStatePar,labels:issueLabelsPar,sort:issueSortPar,direction:issueDirectionPar) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()

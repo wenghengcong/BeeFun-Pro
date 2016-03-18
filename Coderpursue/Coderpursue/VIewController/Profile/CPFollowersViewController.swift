@@ -135,7 +135,7 @@ class CPFollowersViewController: CPBaseViewController {
         Provider.sharedProvider.request(.UserFollowers(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             if(self.userPageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -186,7 +186,7 @@ class CPFollowersViewController: CPBaseViewController {
         Provider.sharedProvider.request(.UserFollowing(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             if(self.userPageVal == 1) {
                 self.tableView.mj_header.endRefreshing()

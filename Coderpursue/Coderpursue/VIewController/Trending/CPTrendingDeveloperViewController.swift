@@ -163,7 +163,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         Provider.sharedProvider.request(.Follow(username:username) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             print(result)
@@ -200,7 +200,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         Provider.sharedProvider.request(.UserInfo(username:username) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             
@@ -242,7 +242,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         Provider.sharedProvider.request(.Follow(username:username) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             
@@ -281,7 +281,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         Provider.sharedProvider.request(.Unfollow(username:username) ) { (result) -> () in
             
             var success = true
-            var message = "Unable to fetch from GitHub"
+            var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             

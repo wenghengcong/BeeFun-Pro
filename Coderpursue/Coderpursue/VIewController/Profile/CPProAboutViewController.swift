@@ -139,7 +139,7 @@ extension CPProAboutViewController : UITableViewDelegate {
         }else if(viewType == "website"){
 //            self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: nil)
 
-        }else if(viewType == "coderpurse"){
+        }else if(viewType == "coderpursue"){
             
             self.performSegueWithIdentifier(SegueProfileAboutCoderpursue, sender: nil)
 

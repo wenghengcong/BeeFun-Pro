@@ -5,9 +5,9 @@
 	<array>
 		<dict>
 			<key>itemKey</key>
-			<string>coderpurse</string>
+			<string>coderpursue</string>
 			<key>itemName</key>
-			<string>Coderpurse</string>
+			<string>Coderpursue</string>
 			<key>itemIcon</key>
 			<string>octicon_watch_red_20</string>
 			<key>itemDisclosure</key>

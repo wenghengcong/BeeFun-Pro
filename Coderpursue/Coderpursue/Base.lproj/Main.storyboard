@@ -1429,9 +1429,9 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uhR-d2-GJG"/>
-        <segue reference="vR9-E5-mPh"/>
-        <segue reference="6vW-Nx-tiC"/>
+        <segue reference="wKV-hJ-UO0"/>
+        <segue reference="Ah2-FE-EYQ"/>
         <segue reference="Uie-OZ-gKU"/>
+        <segue reference="6vW-Nx-tiC"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -73,7 +73,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Exploer"
+        self.title = "Explore"
     }
     
     override func didReceiveMemoryWarning() {

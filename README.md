@@ -3,14 +3,14 @@
 Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png"  height="200" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" align="left"  height="200" width="200" ></a>
 <br />
 
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 
 [Github地址](https://github.com/wenghengcong/Coderpursue)  
 
-# 功能
+### 功能
 
 - v1.0.0
   1. Explore Github: 查看当天Trending的repositories和showcases；
@@ -23,7 +23,7 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
   8. 查看自己的followers/following;
 
   
-# 计划中
+### 计划中
 
 目前，功能相对简单，代码质量也是堪忧，所以，要做的提高应用质量。
 下一步的开发计划是：
@@ -35,7 +35,7 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
   4. 增加查看Issue详情页面
   5. 增加查看Event详情页面
 
-# 应用预览
+### 应用预览
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1417.PNG" align="left" height="356" width="200" ></a>
 
@@ -55,13 +55,13 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 
 <br />
   
-# 关于我
+### 关于我
 	邮箱：wenghengcong@163.com
 	微博：http://weibo.com/1820994470
 	博客：wenghengcong.com
 	
 
-# 其他Github客户端
+### 其他Github客户端
 
   - [Explorer for Github](https://itunes.apple.com/cn/app/explorer-for-github/id1032918575?l=en&mt=8)
   - [Github stars!](https://itunes.apple.com/cn/app/github-stars!-push-notifications/id856357021?l=en&mt=8)

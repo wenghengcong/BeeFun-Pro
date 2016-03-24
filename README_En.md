@@ -1,40 +1,42 @@
-# Coderpursue (已上架)
+# Coderpursue 
 
-Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
+Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift.Also,It's an open project.
 
+You can get the app by QR code or on App Store.
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png"  height="200" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" height="200" width="200" ></a>
 
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 
-[Github地址](https://github.com/wenghengcong/Coderpursue)  
+[ReadMe 中文](https://github.com/wenghengcong/Coderpursue/blob/developer/README.md)  
   
-### 功能
+
+### Feature
 
 - v1.0.0
-  1. Explore Github: 查看当天Trending的repositories和showcases；
-  2. 浏览搜索开发者；
+  1. Explore Github: Explore Trending Repositories or showcases；
+  2. Search User by language or location；
   3. star/watch/fork repository；
   4. follow/unfollow user;
-  5. 查看notification和issue;
-  6. 查看自己的star/watch的repositories；
-  7. 查看自己的event;
-  8. 查看自己的followers/following;
+  5. view your notification and issue;
+  6. view your starre/watched repositories；
+  7. viwe your event;
+  8. view your followers/following user;
 
   
-### 计划中
+### TODO
 
-目前，功能相对简单，代码质量也是堪忧，所以，要做的提高应用质量。
-下一步的开发计划是：
+Now,I should improve the quality of the application first.
+Also,I will add these features to next version.
 
 - v1.0.1
-  1. 增加搜索Repository功能
-  2. 增加Trending时间段选择
-  3. 增加查看notification 详情页面
-  4. 增加查看Issue详情页面
-  5. 增加查看Event详情页面
-
-### 应用预览
+  1. search Repository;
+  2. trending Repositories filter by tiem period;
+  3. add notification detail page;
+  4. add Issue detail page;
+  5. add event deatail page;
+   
+### App Preview
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1417.PNG" align="left" height="356" width="200" ></a>
 
@@ -54,13 +56,13 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 
 <br />
   
-### 关于我
+### About Me
 	邮箱：wenghengcong@163.com
 	微博：http://weibo.com/1820994470
 	博客：wenghengcong.com
 	
 
-### 其他Github客户端
+### Other Github client
 
   - [Explorer for Github](https://itunes.apple.com/cn/app/explorer-for-github/id1032918575?l=en&mt=8)
   - [Github stars!](https://itunes.apple.com/cn/app/github-stars!-push-notifications/id856357021?l=en&mt=8)

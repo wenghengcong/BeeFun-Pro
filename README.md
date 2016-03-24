@@ -3,13 +3,13 @@
 Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" align="left" height="200" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" height="200" width="200" ></a>
 
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 
 [ReadMe English](https://github.com/wenghengcong/Coderpursue/blob/developer/README_En.md)  
   
-<p>                             </p>
+
 ### 功能
 
 - v1.0.0
@@ -29,11 +29,11 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 下一步的开发计划是：
 
 - v1.0.1
-  1. 增加搜索Repository功能
-  2. 增加Trending时间段选择
-  3. 增加查看notification 详情页面
-  4. 增加查看Issue详情页面
-  5. 增加查看Event详情页面
+  1. 增加搜索Repository功能；
+  2. 增加Trending时间段选择；
+  3. 增加查看notification 详情页面；
+  4. 增加查看Issue详情页面；
+  5. 增加查看Event详情页面；
 
 ### 应用预览
 

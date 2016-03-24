@@ -64,9 +64,9 @@ Also,I will add these features to next version.
 ***
 
 ### About Me
-	邮箱：wenghengcong@163.com
-	微博：http://weibo.com/1820994470
-	博客：wenghengcong.com
+	Email：wenghengcong@163.com
+	Weibo：http://weibo.com/1820994470
+	Blog：wenghengcong.com
 	
 ***
 

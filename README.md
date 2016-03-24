@@ -1,6 +1,6 @@
 # Coderpursue (已上架)
 
-Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
+Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目前已开源。
 
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" height="200" width="200" ></a>
@@ -9,6 +9,7 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 
 [ReadMe English](https://github.com/wenghengcong/Coderpursue/blob/developer/README_En.md)  
   
+***
 
 ### 功能
 
@@ -22,6 +23,7 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
   7. 查看自己的event;
   8. 查看自己的followers/following;
 
+***
   
 ### 计划中
 
@@ -34,6 +36,8 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
   3. 增加查看notification 详情页面；
   4. 增加查看Issue详情页面；
   5. 增加查看Event详情页面；
+
+***
 
 ### 应用预览
 
@@ -55,11 +59,15 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 
 <br />
   
+***
+
 ### 关于我
 	邮箱：wenghengcong@163.com
 	微博：http://weibo.com/1820994470
 	博客：wenghengcong.com
+
 	
+***
 
 ### 其他Github客户端
 

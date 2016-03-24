@@ -10,7 +10,8 @@ You can get the app by QR code or on App Store.
 
 [ReadMe 中文](https://github.com/wenghengcong/Coderpursue/blob/developer/README.md)  
   
-
+***
+  
 ### Feature
 
 - v1.0.0
@@ -23,7 +24,9 @@ You can get the app by QR code or on App Store.
   7. viwe your event;
   8. view your followers/following user;
 
-  
+
+***
+
 ### TODO
 
 Now,I should improve the quality of the application first.
@@ -36,6 +39,8 @@ Also,I will add these features to next version.
   4. add Issue detail page;
   5. add event deatail page;
    
+***
+
 ### App Preview
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1417.PNG" align="left" height="356" width="200" ></a>
@@ -56,11 +61,14 @@ Also,I will add these features to next version.
 
 <br />
   
+***
+
 ### About Me
 	邮箱：wenghengcong@163.com
 	微博：http://weibo.com/1820994470
 	博客：wenghengcong.com
 	
+***
 
 ### Other Github client
 

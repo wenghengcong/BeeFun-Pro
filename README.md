@@ -4,7 +4,7 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" align="left" height="200" width="200" ></a>
-<br>
+<br />
 
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 
@@ -36,8 +36,8 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
   5. 增加查看Event详情页面
 
 # 应用预览
-<br>
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1416.PNG" align="left" height="356" width="200" ></a>
+<br />
+
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1417.PNG" align="left" height="356" width="200" ></a>
 
@@ -57,7 +57,7 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1425.PNG" align="left" height="356" width="200" ></a>
 
-<br>
+<br />
 # 关于我
 	邮箱：wenghengcong@163.com
 	微博：http://weibo.com/1820994470

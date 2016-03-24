@@ -3,7 +3,7 @@
 Coderpursue，Github第三方客户端，使用最新的Swift语言编写。
 
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" align="left"  height="200" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png"  height="200" width="200" ></a>
 
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 

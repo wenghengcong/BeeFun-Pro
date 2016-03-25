@@ -37,24 +37,46 @@ class CPMesNotificationCell: CPBaseViewCell {
     
     func notiCell_fillData() {
         
-        let notiType:SubjectType = SubjectType( rawValue: (noti!.subject!.type!) )!
         
-        switch(notiType) {
-        case .Issue:
-            typeImageV.image = UIImage(named:"octicon_issue_25")
-        case .PullRequest:
-            typeImageV.image = UIImage(named:"octicon_pull_request_25")
-        case .Release:
-            typeImageV.image = UIImage(named:"coticon_tag_25")
+        if let type = noti?.subject?.type {
+            
+            let notiType:SubjectType? = SubjectType( rawValue:type )
+            
+            if notiType != nil {
+                typeImageV.hidden = false
+                
+                switch(notiType!) {
+                case .Issue:
+                    typeImageV.image = UIImage(named:"octicon_issue_25")
+                case .PullRequest:
+                    typeImageV.image = UIImage(named:"octicon_pull_request_25")
+                case .Release:
+                    typeImageV.image = UIImage(named:"coticon_tag_25")
+                case .Commit:
+                    typeImageV.image = UIImage(named:"octicon_commit_25")
+                }
+            }else{
+                typeImageV.hidden = true
+            }
+            
+
+        }
+
+        if let title = noti?.subject?.title{
+            notificationLabel.text = title
         }
         
+        if let name = noti?.repository?.name{
+            reposBtn.setTitle(name, forState: .Normal)
+        }
         
-        notificationLabel.text = noti!.subject!.title
-        reposBtn.setTitle(noti!.repository!.name, forState: .Normal)
+        if let time = noti?.updated_at {
+            //time
+            let updateAt:NSDate = time.toDate(DateFormat.ISO8601)!
+            timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
+        }
         
-        //time
-        let updateAt:NSDate = noti!.updated_at!.toDate(DateFormat.ISO8601)!
-        timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
+
     }
     
 

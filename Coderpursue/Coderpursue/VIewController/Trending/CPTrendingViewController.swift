@@ -93,10 +93,8 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     
     func tvc_logoutSuccessful() {
         
-        if( (self.segControl.selectedSegmentIndex == 1) && (devesData != nil) ){
-            devesData.removeAll()
-            tableView.reloadData()
-        }
+        devesData.removeAll()
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -112,13 +110,13 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         filterBtn.setImage(UIImage(named: "nav_funnel_sel"), forState: .Selected)
 
         filterBtn.frame = CGRectMake(0, 5, 25, 25)
-        filterBtn.addTarget(self, action: Selector("tvc_rightButtonTouch:"), forControlEvents: .TouchUpInside)
+        filterBtn.addTarget(self, action: #selector(CPTrendingViewController.tvc_rightButtonTouch(_:)), forControlEvents: .TouchUpInside)
         filterBtn.hidden = true
 
         //.... Set Right/Left Bar Button item
-        let rightBarButton = UIBarButtonItem()
-        rightBarButton.customView = filterBtn
-        self.navigationItem.rightBarButtonItem = rightBarButton
+        let leftBarButton = UIBarButtonItem()
+        leftBarButton.customView = filterBtn
+        self.navigationItem.leftBarButtonItem = leftBarButton
         
     }
     

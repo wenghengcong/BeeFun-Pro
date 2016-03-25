@@ -34,8 +34,8 @@ class CPProfileViewController: CPBaseViewController {
         pvc_customView()
         pvc_setupTableView()
        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pvc_updateUserinfoData", name: NotificationGitLoginSuccessful, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pvc_updateUserinfoData", name: NotificationGitLogOutSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLoginSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLogOutSuccessful, object: nil)
 
     }
     
@@ -49,6 +49,11 @@ class CPProfileViewController: CPBaseViewController {
         pvc_updateUserinfoData()
 
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     // MARK: load data
     func pvc_updateUserinfoData() {
         
@@ -357,8 +362,8 @@ extension CPProfileViewController : MFMailComposeViewControllerDelegate {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["wenghengcong@gmail.com"])
-//        mailComposerVC.setCcRecipients(["735929774@qq.com"])
+        mailComposerVC.setToRecipients(["wenghengcong@icloud.com"])
+        mailComposerVC.setCcRecipients([""])
         mailComposerVC.setSubject("Suggestions or report bugs")
         mailComposerVC.setMessageBody("", isHTML: false)
         

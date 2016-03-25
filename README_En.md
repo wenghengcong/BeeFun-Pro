@@ -49,7 +49,7 @@ All developer work on branch developer,if you want to check the progress,move [h
 
 Also,I will add these features to next version.
 
-- v1.0.1
+- v1.1.0
   1. search Repository;
   2. trending Repositories filter by tiem period;
   3. add notification detail page;

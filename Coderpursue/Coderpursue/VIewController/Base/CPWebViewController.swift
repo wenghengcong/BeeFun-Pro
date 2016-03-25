@@ -130,10 +130,10 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
     }
 
     // MARK: - uiwebviewdelegate 
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-//        self.webView.scalesPageToFit = true
-        return true
-    }
+//    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+////        self.webView.scalesPageToFit = true
+//        return true
+//    }
     
     func webViewDidStartLoad(webView: UIWebView) {
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)

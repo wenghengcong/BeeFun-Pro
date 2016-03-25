@@ -358,7 +358,7 @@ extension CPProfileViewController : MFMailComposeViewControllerDelegate {
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
         mailComposerVC.setToRecipients(["wenghengcong@gmail.com"])
-        mailComposerVC.setCcRecipients(["735929774@qq.com"])
+//        mailComposerVC.setCcRecipients(["735929774@qq.com"])
         mailComposerVC.setSubject("Suggestions or report bugs")
         mailComposerVC.setMessageBody("", isHTML: false)
         

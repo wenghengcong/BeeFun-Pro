@@ -39,18 +39,6 @@
 	<array>
 		<dict>
 			<key>itemKey</key>
-			<string>funnylab</string>
-			<key>itemName</key>
-			<string>Funny Lab</string>
-			<key>itemIcon</key>
-			<string>set_funnylab</string>
-			<key>itemDisclosure</key>
-			<true/>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>itemKey</key>
 			<string>rate</string>
 			<key>itemName</key>
 			<string>Rate</string>

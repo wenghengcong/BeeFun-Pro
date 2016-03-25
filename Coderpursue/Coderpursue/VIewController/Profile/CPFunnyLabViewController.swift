@@ -42,21 +42,34 @@ class CPFunnyLabViewController: CPBaseViewController {
 
     @IBAction func lag_getAward(sender: AnyObject) {
         
-        var awardUrl = ""
+        let userDefault = NSUserDefaults.standardUserDefaults()
         
+        var awardUrl = ""
+//      auth url: github-awards.com/auth/github
         if let username = lab_awardNameTf.text {
-            awardUrl = "http://github-awards.com/users/search?login=\(username)"
+            
+            let firstNeedAuth = userDefault.objectForKey("\(username)needauth")
+            
+            if ( firstNeedAuth == nil ){
+                awardUrl = "http://github-awards.com/auth/github"
+            }else{
+                awardUrl = "http://github-awards.com/users/search?login=\(username)"
+            }
+            
+            let awardVC = CPFunnyAwardViewController()
+            awardVC.username = username
+            awardVC.url = awardUrl
+            
+            self.navigationController?.pushViewController(awardVC, animated: true)
+            
         }else{
             CPGlobalHelper.sharedInstance.showMessage("Input your github username", view: self.view)
             return
         }
         
-        let awardVC = CPWebViewController()
-        
-        awardVC.url = awardUrl
-        
-        self.navigationController?.pushViewController(awardVC, animated: true)
+
         
     }
+    
     
 }

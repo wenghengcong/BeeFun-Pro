@@ -47,8 +47,14 @@ class CPMessageViewController: CPBaseViewController {
         mvc_setupSegmentView()
         mvc_setupTableView()
         mvc_updateNetrokData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
     }
 
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -56,6 +62,18 @@ class CPMessageViewController: CPBaseViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Message"
+    }
+    
+    func mvc_loginSuccessful() {
+        
+        mvc_updateNetrokData()
+    }
+    
+    func mvc_logoutSuccessful() {
+        
+        issuesData.removeAll()
+        notificationsData.removeAll()
+        tableView.reloadData()
     }
     
     func mvc_isLogin()->Bool{

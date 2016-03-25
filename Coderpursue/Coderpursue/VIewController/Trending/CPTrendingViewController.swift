@@ -69,12 +69,34 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         tvc_setupFilterView()
         tvc_addNaviBarButtonItem()
         updateNetrokData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
 
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Explore"
+    }
+    
+    
+    func tvc_loginSuccessful() {
+        
+        if(self.segControl.selectedSegmentIndex == 1){
+            tvc_getUserRequest()
+        }
+    }
+    
+    func tvc_logoutSuccessful() {
+        
+        if( (self.segControl.selectedSegmentIndex == 1) && (devesData != nil) ){
+            devesData.removeAll()
+            tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {

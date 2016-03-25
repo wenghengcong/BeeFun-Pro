@@ -32,6 +32,8 @@ class CPStarsViewController: CPBaseViewController{
         svc_setupSegmentView()
         svc_setupTableView()
         svc_updateNetrokData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(svc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(svc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
     }
     
 
@@ -39,6 +41,22 @@ class CPStarsViewController: CPBaseViewController{
         super.viewWillAppear(animated)
         self.title = "Stars"
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func svc_loginSuccessful() {
+        svc_updateNetrokData()
+    }
+    
+    func svc_logoutSuccessful() {
+        
+        reposData.removeAll()
+        eventsData.removeAll()
+        tableView.reloadData()
+    }
+    
     
     func svc_isLogin()->Bool{
         if( !(UserInfoHelper.sharedInstance.isLoginIn) ){

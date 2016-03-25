@@ -54,6 +54,7 @@
 		5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */; };
 		5EC6C9831CA528D10067E2E4 /* CPCountry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EC6C9821CA528D10067E2E4 /* CPCountry.plist */; };
 		5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */; };
+		5EC6C98B1CA54D810067E2E4 /* CPFunnyAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6C98A1CA54D810067E2E4 /* CPFunnyAwardViewController.swift */; };
 		5ECB406D1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB406C1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift */; };
 		5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */; };
 		5ECB40721C994C5D00B0C6FF /* CPProSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */; };
@@ -198,6 +199,7 @@
 		5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMyReposCell.xib; sourceTree = "<group>"; };
 		5EC6C9821CA528D10067E2E4 /* CPCountry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CPCountry.plist; sourceTree = "<group>"; };
 		5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFunnyLabViewController.swift; sourceTree = "<group>"; };
+		5EC6C98A1CA54D810067E2E4 /* CPFunnyAwardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFunnyAwardViewController.swift; sourceTree = "<group>"; };
 		5ECB406C1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesNotiDetailViewController.swift; sourceTree = "<group>"; };
 		5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProAboutViewController.swift; sourceTree = "<group>"; };
 		5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProSettingsViewController.swift; sourceTree = "<group>"; };
@@ -381,6 +383,14 @@
 				5E546DA41C8FAC2200E94997 /* ParaSort.swift */,
 			);
 			path = Parameters;
+			sourceTree = "<group>";
+		};
+		5EC6C9891CA54D5F0067E2E4 /* Funny */ = {
+			isa = PBXGroup;
+			children = (
+				5EC6C98A1CA54D810067E2E4 /* CPFunnyAwardViewController.swift */,
+			);
+			path = Funny;
 			sourceTree = "<group>";
 		};
 		5EE3FF521C7BFF6700760F0F /* Issue */ = {
@@ -615,6 +625,7 @@
 				5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */,
 				5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */,
 				5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */,
+				5EC6C9891CA54D5F0067E2E4 /* Funny */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1028,6 +1039,7 @@
 				FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */,
 				5E03D58D1C8C488D00E8C1FD /* CPEventPushCell.swift in Sources */,
 				FE91BA8B1C333948002AECB6 /* CPGistViewController.swift in Sources */,
+				5EC6C98B1CA54D810067E2E4 /* CPFunnyAwardViewController.swift in Sources */,
 				5EACCFCC1C8DEB490059A303 /* ParaSearchUser.swift in Sources */,
 				5E4ABFBF1C9032D40041FA89 /* CPTrendingRepoCell.swift in Sources */,
 				FE0FE0D71C3DC7BB0005DDE5 /* ObjBase.swift in Sources */,

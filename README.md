@@ -9,8 +9,7 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 
 [ReadMe English](https://github.com/wenghengcong/Coderpursue/blob/developer/README_En.md)  
 
-目前正在找工作！坐标上海，求一个iOS开发职位~~
-邮箱:wenghengcong@163.com
+####目前正在**找工作**！坐标上海，求坑~~邮箱:wenghengcong@163.com
   
 ***
 

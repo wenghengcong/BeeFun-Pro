@@ -27,7 +27,7 @@ You can get the app by QR code or on App Store.
 
 ***
 
-### 致谢
+### Thanks
 
  [open source lib](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/opensource.md)
  
@@ -44,6 +44,9 @@ You can get the app by QR code or on App Store.
 ### TODO
 
 Now,I should improve the quality of the application first.
+
+All developer work on branch developer,if you want to check the progress,move [here](https://github.com/wenghengcong/Coderpursue/tree/developer)
+
 Also,I will add these features to next version.
 
 - v1.0.1

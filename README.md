@@ -42,6 +42,9 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 ### 计划中
 
 目前，功能相对简单，代码质量也是堪忧，所以，要做的提高应用质量。
+
+所有开发都在developer分支上进行，如果要查看开发进度，请移步[这里](https://github.com/wenghengcong/Coderpursue/tree/developer)
+
 下一步的开发计划是：
 
 - v1.1.0

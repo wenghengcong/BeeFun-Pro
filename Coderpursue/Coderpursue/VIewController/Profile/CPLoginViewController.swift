@@ -75,9 +75,13 @@ class CPLoginViewController: CPBaseViewController {
             "Authorization": authorizationHeaderStr,
         ]
         
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
         Alamofire.request(.GET, "https://api.github.com/user", headers: headers)
             .response { request, response, data, error  in
                 
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+
                 debugPrint(response)
                 if(error == nil){
                     self.lvc_saveAuthorization(authorizationHeaderStr)

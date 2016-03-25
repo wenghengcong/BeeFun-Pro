@@ -56,8 +56,9 @@ class CPProfileViewController: CPBaseViewController {
         isLoingin = UserInfoHelper.sharedInstance.isLoginIn
         if isLoingin{
             pvc_getUserinfoRequest()
+        }else{
+            pvc_updateViewWithUserData()
         }
-        pvc_updateViewWithUserData()
         
     }
     
@@ -124,8 +125,6 @@ class CPProfileViewController: CPBaseViewController {
     
     func pvc_getUserinfoRequest(){
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
-        
         var username = ""
         if(UserInfoHelper.sharedInstance.isLoginIn){
             username = UserInfoHelper.sharedInstance.user!.login!
@@ -135,8 +134,6 @@ class CPProfileViewController: CPBaseViewController {
             
             var success = true
             var message = "No data to show"
-            
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             
             switch result {
             case let .Success(response):

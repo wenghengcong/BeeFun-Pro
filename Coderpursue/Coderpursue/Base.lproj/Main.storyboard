@@ -914,7 +914,7 @@
                                             <constraint firstAttribute="height" constant="50" id="4Uv-bh-X8j"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="登       录">
+                                        <state key="normal" title="Sign   In">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -923,7 +923,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Yju-uf-fjQ"/>
                                         </constraints>
-                                        <state key="normal" title="735929774@qq.com">
+                                        <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -1430,8 +1430,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wKV-hJ-UO0"/>
+        <segue reference="Ocj-6m-P78"/>
+        <segue reference="4pF-1J-jZn"/>
         <segue reference="Ah2-FE-EYQ"/>
-        <segue reference="Uie-OZ-gKU"/>
-        <segue reference="6vW-Nx-tiC"/>
     </inferredMetricsTieBreakers>
 </document>

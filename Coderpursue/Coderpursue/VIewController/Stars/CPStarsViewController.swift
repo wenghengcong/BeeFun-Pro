@@ -43,6 +43,9 @@ class CPStarsViewController: CPBaseViewController{
     func svc_isLogin()->Bool{
         if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
             CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            reposData.removeAll()
+            eventsData.removeAll()
+            tableView.reloadData()
             return false
         }
         return true
@@ -52,6 +55,8 @@ class CPStarsViewController: CPBaseViewController{
         
         if svc_isLogin(){
             
+            tableView.mj_footer.hidden = false
+
             if segControl.selectedSegmentIndex == 0 {
                 svc_getUserReposRequest(self.reposPageVal)
             }else{
@@ -60,6 +65,10 @@ class CPStarsViewController: CPBaseViewController{
             
         }else{
             //加载未登录的页面
+            tableView.mj_header.endRefreshing()
+            tableView.mj_footer.endRefreshing()
+            tableView.mj_footer.hidden = true
+
         }
     }
     

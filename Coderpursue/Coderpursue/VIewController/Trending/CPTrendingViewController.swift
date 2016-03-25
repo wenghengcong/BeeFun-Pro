@@ -337,10 +337,17 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     func tvc_getUserRequest() {
         
         if(!tvc_isLogin()){
+            
+            tableView.mj_header.endRefreshing()
+            tableView.mj_footer.endRefreshing()
+            tableView.mj_footer.hidden = true
+        
             self.tableView.reloadData()
             return
         }
         
+        tableView.mj_footer.hidden = false
+
         resetSearchUserParameters()
         print("search user query:\(paraUser.q)")
         

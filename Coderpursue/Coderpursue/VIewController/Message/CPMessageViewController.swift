@@ -61,6 +61,9 @@ class CPMessageViewController: CPBaseViewController {
     func mvc_isLogin()->Bool{
         if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
             CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            notificationsData.removeAll()
+            issuesData.removeAll()
+            tableView.reloadData()
             return false
         }
         return true
@@ -69,14 +72,19 @@ class CPMessageViewController: CPBaseViewController {
     func mvc_updateNetrokData() {
         
         if mvc_isLogin(){
+            
+            tableView.mj_footer.hidden = false
             if(segControl.selectedSegmentIndex == 0 ) {
                 mvc_getNotificationsRequest(self.notisPageVal)
             }else if(segControl.selectedSegmentIndex == 1){
                 mvc_getIssuesRequest(self.issuesPageVal)
-                
             }
         }else{
             //加载未登录的页面
+            tableView.mj_header.endRefreshing()
+            tableView.mj_footer.endRefreshing()
+            tableView.mj_footer.hidden = true
+            
         }
     }
 

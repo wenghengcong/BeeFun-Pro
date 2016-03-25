@@ -120,6 +120,7 @@ class CPProfileHeaderView: UIView {
     func phv_fillData() {
         
         let isLoingin:Bool = UserInfoHelper.sharedInstance.isLoginIn
+        phv_avatarImgV.hidden = !isLoingin
         phv_nameLabel.hidden = !isLoingin
         phv_emailLabel.hidden = !isLoingin
         
@@ -133,8 +134,10 @@ class CPProfileHeaderView: UIView {
                 phv_avatarImgV.kf_setImageWithURL(NSURL(string: avatarUrl)!, placeholderImage: nil)
             }
             phv_nameLabel.text = user?.name
-            if let email = user!.email {
+            if let email = user?.email {
                 phv_emailLabel.setTitle(email, forState: .Normal)
+            }else{
+                phv_emailLabel.setTitle("", forState: .Normal)
             }
             
             if let followerCount = user?.followers {
@@ -149,6 +152,7 @@ class CPProfileHeaderView: UIView {
             
         }else{
             
+            phv_emailLabel.setTitle("", forState: .Normal)
             phv_numOfReposLabel.text = "0"
             phv_numOfFollowingLabel.text = "0"
             phv_numOfFollwerLabel.text = "0"

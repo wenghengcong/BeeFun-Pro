@@ -46,7 +46,7 @@ class CPFilterTableView: UIView {
         }
     }
     
-    var firstArr:[String] = ["Language","City"]
+    var firstArr:[String] = ["Language","Country"]
 
     var tabData:[[String]] = [[]]{
         
@@ -60,8 +60,8 @@ class CPFilterTableView: UIView {
     var selValueIndex = 0
 
     var firTableView:UITableView?
-    var secTableView:UITableView?
-
+    var secTableView:UITableView?    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        ftv_customView()

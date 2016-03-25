@@ -34,8 +34,8 @@ class CPProfileViewController: CPBaseViewController {
         pvc_customView()
         pvc_setupTableView()
        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pvc_updateUserinfoData", name: NotificationGitLoginSuccessful, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "pvc_updateUserinfoData", name: NotificationGitLogOutSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLoginSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLogOutSuccessful, object: nil)
 
     }
     
@@ -49,16 +49,21 @@ class CPProfileViewController: CPBaseViewController {
         pvc_updateUserinfoData()
 
     }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     // MARK: load data
     func pvc_updateUserinfoData() {
         
         user = UserInfoHelper.sharedInstance.user
         isLoingin = UserInfoHelper.sharedInstance.isLoginIn
+        profileHeaderV.user = user
         if isLoingin{
             pvc_getUserinfoRequest()
         }
-        pvc_updateViewWithUserData()
-        
+
     }
     
     func pvc_loadSettingPlistData() {
@@ -110,21 +115,7 @@ class CPProfileViewController: CPBaseViewController {
     
     // MARK: segue
     
-    func pvc_showLoginInWebView() {
-        NetworkHelper.clearCookies()
-        
-        let loginVC = CPGitLoginViewController()
-        let url = String(format: "https://github.com/login/oauth/authorize/?client_id=%@&state=%@&redirect_uri=%@&scope=%@",GithubAppClientId,"junglesong",GithubAppRedirectUrl,"user,user:email,user:follow,public_repo,repo,repo_deployment,repo:status,delete_repo,notifications,gist,read:repo_hook,write:repo_hook,admin:repo_hook,admin:org_hook,read:org,write:org,admin:org,read:public_key,write:public_key,admin:public_key" )
-        loginVC.url = url
-        loginVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(loginVC, animated: true)
-        
-    }
-    
-    
     func pvc_getUserinfoRequest(){
-        
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
         var username = ""
         if(UserInfoHelper.sharedInstance.isLoginIn){
@@ -135,8 +126,6 @@ class CPProfileViewController: CPBaseViewController {
             
             var success = true
             var message = "No data to show"
-            
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             
             switch result {
             case let .Success(response):
@@ -200,6 +189,10 @@ class CPProfileViewController: CPBaseViewController {
             
         }else if(segue.identifier == SegueProfileSettingView){
             let settingsVC = segue.destinationViewController as! CPProSettingsViewController
+            settingsVC.hidesBottomBarWhenPushed = true
+            
+        }else if(segue.identifier == SegueProfileFunnyLabView){
+            let settingsVC = segue.destinationViewController as! CPFunnyLabViewController
             settingsVC.hidesBottomBarWhenPushed = true
         }
         
@@ -352,6 +345,10 @@ extension CPProfileViewController : UITableViewDelegate {
 
             self.performSegueWithIdentifier(SegueProfileAboutView, sender: nil)
             
+        }else if(viewType == "funnylab"){
+            
+            self.performSegueWithIdentifier(SegueProfileFunnyLabView, sender: nil)
+            
         }
         
     }
@@ -365,8 +362,8 @@ extension CPProfileViewController : MFMailComposeViewControllerDelegate {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["wenghengcong@gmail.com"])
-        mailComposerVC.setCcRecipients(["735929774@qq.com"])
+        mailComposerVC.setToRecipients(["wenghengcong@icloud.com"])
+        mailComposerVC.setCcRecipients([""])
         mailComposerVC.setSubject("Suggestions or report bugs")
         mailComposerVC.setMessageBody("", isHTML: false)
         

@@ -28,6 +28,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     var showcasesData:[ObjShowcase]! = []
     
     var cityArr:[String]?
+    var countryArr:[String]?
     var languageArr:[String]?
     
     // MARK: request parameters
@@ -68,12 +69,32 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         tvc_setupFilterView()
         tvc_addNaviBarButtonItem()
         updateNetrokData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
 
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Explore"
+    }
+    
+    
+    func tvc_loginSuccessful() {
+        
+        if(self.segControl.selectedSegmentIndex == 1){
+            tvc_getUserRequest()
+        }
+    }
+    
+    func tvc_logoutSuccessful() {
+        
+        devesData.removeAll()
+        tableView.reloadData()
     }
     
     override func didReceiveMemoryWarning() {
@@ -89,13 +110,13 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         filterBtn.setImage(UIImage(named: "nav_funnel_sel"), forState: .Selected)
 
         filterBtn.frame = CGRectMake(0, 5, 25, 25)
-        filterBtn.addTarget(self, action: Selector("tvc_rightButtonTouch:"), forControlEvents: .TouchUpInside)
+        filterBtn.addTarget(self, action: #selector(CPTrendingViewController.tvc_rightButtonTouch(_:)), forControlEvents: .TouchUpInside)
         filterBtn.hidden = true
 
         //.... Set Right/Left Bar Button item
-        let rightBarButton = UIBarButtonItem()
-        rightBarButton.customView = filterBtn
-        self.navigationItem.rightBarButtonItem = rightBarButton
+        let leftBarButton = UIBarButtonItem()
+        leftBarButton.customView = filterBtn
+        self.navigationItem.leftBarButtonItem = leftBarButton
         
     }
     
@@ -109,7 +130,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         filterView!.coloumn = .Two
         filterView!.rowWidths = [firW,secW]
         filterView!.rowHeights = [40.0,40.0]
-        filterView!.tabData = [languageArr!,cityArr!]
+        filterView!.tabData = [languageArr!,countryArr!]
         filterView!.filterViewInit()
         self.view.addSubview(filterView!)
     }
@@ -202,14 +223,19 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
             if(value != "All"){
                 if(type == "Language"){
                     paraUser.languagePara = value
+                    paraUser.locationPara = nil
                 }else if(type == "City"){
                     paraUser.locationPara = value
+                    paraUser.languagePara = nil
+                }else if(type == "Country"){
+                    paraUser.locationPara = value
+                    paraUser.languagePara = nil
                 }
             }else{
                 paraUser.languagePara = nil
                 paraUser.locationPara = nil
-
             }
+            
             tvc_filterViewDisapper()
             tvc_getUserRequest()
         }
@@ -222,6 +248,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     }
     
     func tvc_filterViewDisapper(){
+        filterBtn.selected = false
         filterView!.frame = CGRectMake(0, 64-filterVHeight-10, self.view.width, filterVHeight)
 
     }
@@ -280,6 +307,10 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         if let path = NSBundle.mainBundle().pathForResource("CPLanguage", ofType: "plist") {
             languageArr = NSArray(contentsOfFile: path)! as? [String]
         }
+        
+        if let path = NSBundle.mainBundle().pathForResource("CPCountry", ofType: "plist") {
+            countryArr = NSArray(contentsOfFile: path)! as? [String]
+        }
     }
 
     // MARK: fetch data form request
@@ -337,10 +368,17 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     func tvc_getUserRequest() {
         
         if(!tvc_isLogin()){
+            
+            tableView.mj_header.endRefreshing()
+            tableView.mj_footer.endRefreshing()
+            tableView.mj_footer.hidden = true
+        
             self.tableView.reloadData()
             return
         }
         
+        tableView.mj_footer.hidden = false
+
         resetSearchUserParameters()
         print("search user query:\(paraUser.q)")
         

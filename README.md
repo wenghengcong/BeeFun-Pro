@@ -8,12 +8,15 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 
 [ReadMe English](https://github.com/wenghengcong/Coderpursue/blob/developer/README_En.md)  
+
+目前正在找工作！坐标上海，求一个iOS开发职位~~
+邮箱:wenghengcong@163.com
   
 ***
 
 ### 功能
 
-- v1.0.0
+- v1.0.1
   1. Explore Github: 查看当天Trending的repositories和showcases；
   2. 浏览搜索开发者；
   3. star/watch/fork repository；
@@ -25,12 +28,29 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 
 ***
   
+### 致谢
+
+ [开源](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/opensource.md)
+ 
+ [bugs](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/bugs.md)
+ 
+ [建议](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/suggestion.md)
+ 
+ [参考及引用](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/reference.md)
+ 
+ [其他](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/other.md) 
+ 
+ ***
+  
 ### 计划中
 
 目前，功能相对简单，代码质量也是堪忧，所以，要做的提高应用质量。
+
+所有开发都在developer分支上进行，如果要查看开发进度，请移步[这里](https://github.com/wenghengcong/Coderpursue/tree/developer)
+
 下一步的开发计划是：
 
-- v1.0.1
+- v1.1.0
   1. 增加搜索Repository功能；
   2. 增加Trending时间段选择；
   3. 增加查看notification 详情页面；
@@ -60,6 +80,7 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 <br />
   
 ***
+
 
 ### 关于我
 	邮箱：wenghengcong@163.com

@@ -130,23 +130,27 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
     }
 
     // MARK: - uiwebviewdelegate 
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-//        self.webView.scalesPageToFit = true
-        return true
-    }
+//    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+////        self.webView.scalesPageToFit = true
+//        return true
+//    }
     
     func webViewDidStartLoad(webView: UIWebView) {
-        
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
+        
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
         self.webView!.scrollView.contentInset = UIEdgeInsetsMake(self.topOffset, 0, 0, 0)
         self.webView!.scrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.frame.size.width, 0.1), animated: true)
         
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        
+        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+
     }
     
     

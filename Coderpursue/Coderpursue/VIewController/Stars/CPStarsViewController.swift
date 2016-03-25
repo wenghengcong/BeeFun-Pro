@@ -32,6 +32,8 @@ class CPStarsViewController: CPBaseViewController{
         svc_setupSegmentView()
         svc_setupTableView()
         svc_updateNetrokData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(svc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(svc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
     }
     
 
@@ -40,9 +42,28 @@ class CPStarsViewController: CPBaseViewController{
         self.title = "Stars"
     }
     
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
+    func svc_loginSuccessful() {
+        svc_updateNetrokData()
+    }
+    
+    func svc_logoutSuccessful() {
+        
+        reposData.removeAll()
+        eventsData.removeAll()
+        tableView.reloadData()
+    }
+    
+    
     func svc_isLogin()->Bool{
         if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
             CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            reposData.removeAll()
+            eventsData.removeAll()
+            tableView.reloadData()
             return false
         }
         return true
@@ -52,6 +73,8 @@ class CPStarsViewController: CPBaseViewController{
         
         if svc_isLogin(){
             
+            tableView.mj_footer.hidden = false
+
             if segControl.selectedSegmentIndex == 0 {
                 svc_getUserReposRequest(self.reposPageVal)
             }else{
@@ -60,6 +83,10 @@ class CPStarsViewController: CPBaseViewController{
             
         }else{
             //加载未登录的页面
+            tableView.mj_header.endRefreshing()
+            tableView.mj_footer.endRefreshing()
+            tableView.mj_footer.hidden = true
+
         }
     }
     

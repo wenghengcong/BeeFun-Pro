@@ -14,7 +14,7 @@ You can get the app by QR code or on App Store.
   
 ### Feature
 
-- v1.0.0
+- v1.0.1
   1. Explore Github: Explore Trending Repositories or showcases；
   2. Search User by language or location；
   3. star/watch/fork repository；
@@ -27,12 +27,29 @@ You can get the app by QR code or on App Store.
 
 ***
 
+### Thanks
+
+ [open source lib](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/opensource.md)
+ 
+ [bugs](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/bugs.md)
+ 
+ [suggestions](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/suggestion.md)
+ 
+ [reference](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/reference.md)
+ 
+ [other](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/other.md) 
+ 
+ ***
+ 
 ### TODO
 
 Now,I should improve the quality of the application first.
+
+All developer work on branch developer,if you want to check the progress,move [here](https://github.com/wenghengcong/Coderpursue/tree/developer)
+
 Also,I will add these features to next version.
 
-- v1.0.1
+- v1.1.0
   1. search Repository;
   2. trending Repositories filter by tiem period;
   3. add notification detail page;
@@ -64,9 +81,9 @@ Also,I will add these features to next version.
 ***
 
 ### About Me
-	邮箱：wenghengcong@163.com
-	微博：http://weibo.com/1820994470
-	博客：wenghengcong.com
+	Email：wenghengcong@163.com
+	Weibo：http://weibo.com/1820994470
+	Blog：wenghengcong.com
 	
 ***
 

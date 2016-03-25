@@ -47,8 +47,14 @@ class CPMessageViewController: CPBaseViewController {
         mvc_setupSegmentView()
         mvc_setupTableView()
         mvc_updateNetrokData()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
     }
 
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -58,9 +64,24 @@ class CPMessageViewController: CPBaseViewController {
         self.title = "Message"
     }
     
+    func mvc_loginSuccessful() {
+        
+        mvc_updateNetrokData()
+    }
+    
+    func mvc_logoutSuccessful() {
+        
+        issuesData.removeAll()
+        notificationsData.removeAll()
+        tableView.reloadData()
+    }
+    
     func mvc_isLogin()->Bool{
         if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
             CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            notificationsData.removeAll()
+            issuesData.removeAll()
+            tableView.reloadData()
             return false
         }
         return true
@@ -69,14 +90,19 @@ class CPMessageViewController: CPBaseViewController {
     func mvc_updateNetrokData() {
         
         if mvc_isLogin(){
+            
+            tableView.mj_footer.hidden = false
             if(segControl.selectedSegmentIndex == 0 ) {
                 mvc_getNotificationsRequest(self.notisPageVal)
             }else if(segControl.selectedSegmentIndex == 1){
                 mvc_getIssuesRequest(self.issuesPageVal)
-                
             }
         }else{
             //加载未登录的页面
+            tableView.mj_header.endRefreshing()
+            tableView.mj_footer.endRefreshing()
+            tableView.mj_footer.hidden = true
+            
         }
     }
 

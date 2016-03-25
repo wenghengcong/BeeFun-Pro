@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ivC-bI-4sF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ivC-bI-4sF">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -477,7 +477,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rsH-qm-jw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1013.5" y="3260.5"/>
+            <point key="canvasLocation" x="461.5" y="3678.5"/>
         </scene>
         <!--Pro About View Controller-->
         <scene sceneID="Zc9-E2-T0Z">
@@ -898,7 +898,7 @@
                                             <constraint firstAttribute="width" constant="70" id="Yr7-20-fEc"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="wenghengocng" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRU-oY-Bfy">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nRU-oY-Bfy">
                                         <rect key="frame" x="0.0" y="91" width="375" height="22"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22" id="dYa-ZE-0d7"/>
@@ -914,7 +914,7 @@
                                             <constraint firstAttribute="height" constant="50" id="4Uv-bh-X8j"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="登       录">
+                                        <state key="normal" title="Sign   In">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -923,7 +923,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Yju-uf-fjQ"/>
                                         </constraints>
-                                        <state key="normal" title="735929774@qq.com">
+                                        <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
@@ -1113,6 +1113,7 @@
                         <segue destination="Bka-Au-Ffg" kind="show" identifier="AboutViewSegue" id="KTL-5q-vMG"/>
                         <segue destination="PAH-Xm-8JL" kind="show" identifier="SettingsViewSegue" id="j1C-rH-o5A"/>
                         <segue destination="H2q-Fg-o9a" kind="show" identifier="ProfileLoginInSegue" id="28f-mX-mrl"/>
+                        <segue destination="z0k-zo-1DG" kind="show" identifier="SettingsFunnyLabSegue" id="ypP-4d-bLC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PP4-uj-58n" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1294,7 +1295,58 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pS5-JS-6lp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="398.5" y="3110.5"/>
+            <point key="canvasLocation" x="452.5" y="3156.5"/>
+        </scene>
+        <!--Funny Lab View Controller-->
+        <scene sceneID="JFR-6s-nY5">
+            <objects>
+                <viewController id="z0k-zo-1DG" customClass="CPFunnyLabViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NjS-bG-rYa"/>
+                        <viewControllerLayoutGuide type="bottom" id="lxl-rk-UQK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JyM-m8-R5Z">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Uv9-gd-ynJ">
+                                <rect key="frame" x="0.0" y="114" width="375" height="55"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lab_award_50" translatesAutoresizingMaskIntoConstraints="NO" id="Ttu-rP-BMi">
+                                        <rect key="frame" x="14" y="15" width="25" height="25"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bwa-jJ-b7d">
+                                        <rect key="frame" x="45" y="14" width="274" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko3-Oc-FaT">
+                                        <rect key="frame" x="326" y="14" width="41" height="30"/>
+                                        <state key="normal" title="Go"/>
+                                        <connections>
+                                            <action selector="lag_getAward:" destination="z0k-zo-1DG" eventType="touchUpInside" id="1py-iG-cw5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="funny from github-awards.com" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mX-Er-tdD">
+                                <rect key="frame" x="0.0" y="85" width="375" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="lab_awardNameTf" destination="bwa-jJ-b7d" id="J2e-zN-FD0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5zF-Sz-jgt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034.5" y="2696.5"/>
         </scene>
         <!--Message-->
         <scene sceneID="igp-jT-fcW">
@@ -1414,6 +1466,7 @@
         <image name="app_logo_90" width="90" height="90"/>
         <image name="default" width="70" height="70"/>
         <image name="github_signin_logo" width="200" height="166"/>
+        <image name="lab_award_50" width="48" height="48"/>
         <image name="octicon_fork_15" width="15" height="15"/>
         <image name="octicon_star_15" width="15" height="15"/>
         <image name="profile_bg" width="160" height="80"/>
@@ -1430,8 +1483,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="wKV-hJ-UO0"/>
+        <segue reference="Ocj-6m-P78"/>
+        <segue reference="4pF-1J-jZn"/>
         <segue reference="Ah2-FE-EYQ"/>
-        <segue reference="Uie-OZ-gKU"/>
-        <segue reference="6vW-Nx-tiC"/>
     </inferredMetricsTieBreakers>
 </document>

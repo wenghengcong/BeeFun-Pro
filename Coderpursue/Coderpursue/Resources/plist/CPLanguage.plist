@@ -2,20 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-    <string>All</string>
-
-	<string>Swift</string>
-	<string>Objective-C</string>
-	<string>PHP</string>
+	<string>All</string>
+	<string>Java</string>
 	<string>C</string>
 	<string>C++</string>
+	<string>C#</string>
+	<string>PHP</string>
 	<string>Python</string>
-	<string>Java</string>
 	<string>Javascript</string>
-	<string>CSS</string>
-	<string>Go</string>
-	<string>Rust</string>
+	<string>Swift</string>
+	<string>Perl</string>
 	<string>Ruby</string>
+	<string>Objective-C</string>
+	<string>CSS</string>
 	<string>HTML</string>
+	<string>R</string>
+	<string>Go</string>
+	<string>MATLAB</string>
+	<string>SQL</string>
+	<string>PLSQL</string>
+	<string>Pascal</string>
+	<string>Assembly</string>
+	<string>Visual Basic</string>
+	<string>Rust</string>
+	<string>D</string>
+	<string>Bash</string>
 </array>
 </plist>

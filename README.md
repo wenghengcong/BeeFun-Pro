@@ -27,16 +27,17 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
   
 ### 致谢
 
- [开源]()
+ [开源](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/opensource.md)
  
- [bugs]()
+ [bugs](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/bugs.md)
  
- [建议]()
+ [建议](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/suggestion.md)
  
- [参考及引用]()
+ [参考及引用](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/reference.md)
  
- [其他]() 
+ [其他](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/other.md) 
  
+ ***
   
 ### 计划中
 

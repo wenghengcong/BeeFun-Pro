@@ -14,7 +14,7 @@ You can get the app by QR code or on App Store.
   
 ### Feature
 
-- v1.0.0
+- v1.0.1
   1. Explore Github: Explore Trending Repositories or showcases；
   2. Search User by language or location；
   3. star/watch/fork repository；
@@ -27,6 +27,20 @@ You can get the app by QR code or on App Store.
 
 ***
 
+### 致谢
+
+ [open source lib](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/opensource.md)
+ 
+ [bugs](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/bugs.md)
+ 
+ [suggestions](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/suggestion.md)
+ 
+ [reference](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/reference.md)
+ 
+ [other](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/other.md) 
+ 
+ ***
+ 
 ### TODO
 
 Now,I should improve the quality of the application first.

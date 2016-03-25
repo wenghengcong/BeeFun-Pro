@@ -17,11 +17,16 @@ class CPProSettingsViewController: CPBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Settings"
         // Do any additional setup after loading the view.
         psvc_setupTableView()
         psvc_customView()
         psvc_readPlist()
+        self.navigationController!.navigationBar.topItem?.title = ""
+
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = "Settings"
     }
 
     override func didReceiveMemoryWarning() {

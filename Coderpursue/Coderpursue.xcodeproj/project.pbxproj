@@ -52,6 +52,8 @@
 		5EACCFD11C8E62C70059A303 /* ParaTrending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFD01C8E62C70059A303 /* ParaTrending.swift */; };
 		5EBF89AD1C926AB4009B3F5B /* CPMyReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */; };
 		5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */; };
+		5EC6C9831CA528D10067E2E4 /* CPCountry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EC6C9821CA528D10067E2E4 /* CPCountry.plist */; };
+		5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */; };
 		5ECB406D1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB406C1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift */; };
 		5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */; };
 		5ECB40721C994C5D00B0C6FF /* CPProSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */; };
@@ -104,7 +106,6 @@
 		FE49DF981C4B5D6A00676131 /* UIDevice+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF971C4B5D6A00676131 /* UIDevice+Model.swift */; };
 		FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */; };
 		FE5259071C5DF8F200B23BFD /* CPGlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE5259061C5DF8F200B23BFD /* CPGlobalHelper.swift */; };
-		FE6055C71C4088730073BC0A /* CPGitLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C61C4088730073BC0A /* CPGitLoginViewController.swift */; };
 		FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */; };
 		FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6333E91C532E76006D7A2B /* CPStarsViewController.swift */; };
 		FE6980E21C5602C40026089B /* ObjEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6980DD1C5602C40026089B /* ObjEmail.swift */; };
@@ -195,6 +196,8 @@
 		5EACCFD01C8E62C70059A303 /* ParaTrending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaTrending.swift; sourceTree = "<group>"; };
 		5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMyReposCell.swift; sourceTree = "<group>"; };
 		5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMyReposCell.xib; sourceTree = "<group>"; };
+		5EC6C9821CA528D10067E2E4 /* CPCountry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CPCountry.plist; sourceTree = "<group>"; };
+		5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFunnyLabViewController.swift; sourceTree = "<group>"; };
 		5ECB406C1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesNotiDetailViewController.swift; sourceTree = "<group>"; };
 		5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProAboutViewController.swift; sourceTree = "<group>"; };
 		5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProSettingsViewController.swift; sourceTree = "<group>"; };
@@ -252,7 +255,6 @@
 		FE49DF971C4B5D6A00676131 /* UIDevice+Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Model.swift"; sourceTree = "<group>"; };
 		FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsCell.swift; sourceTree = "<group>"; };
 		FE5259061C5DF8F200B23BFD /* CPGlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGlobalHelper.swift; sourceTree = "<group>"; };
-		FE6055C61C4088730073BC0A /* CPGitLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGitLoginViewController.swift; sourceTree = "<group>"; };
 		FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		FE6333E91C532E76006D7A2B /* CPStarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStarsViewController.swift; sourceTree = "<group>"; };
 		FE6980DD1C5602C40026089B /* ObjEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjEmail.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 			children = (
 				FE914DBD1C4BE37B001C3D90 /* CPProfileList.plist */,
 				5ECB40731C994D6000B0C6FF /* CPSettingsList.plist */,
+				5EC6C9821CA528D10067E2E4 /* CPCountry.plist */,
 				5E738C991C93A3A60075C82C /* CPCity.plist */,
 				5E738C9B1C93A3B50075C82C /* CPLanguage.plist */,
 				5ECB407D1C998CDC00B0C6FF /* CPAboutList.plist */,
@@ -607,11 +610,11 @@
 			children = (
 				FE91BA8E1C33396E002AECB6 /* CPProfileViewController.swift */,
 				FE91BA961C334C9F002AECB6 /* CPLoginViewController.swift */,
-				FE6055C61C4088730073BC0A /* CPGitLoginViewController.swift */,
 				FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */,
 				FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */,
 				5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */,
 				5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */,
+				5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -879,6 +882,7 @@
 				FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */,
 				5E738C9A1C93A3A60075C82C /* CPCity.plist in Resources */,
 				5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */,
+				5EC6C9831CA528D10067E2E4 /* CPCountry.plist in Resources */,
 				5ECB407E1C998CDC00B0C6FF /* CPAboutList.plist in Resources */,
 				5EF6E3CE1C8AC4C9004F6473 /* CPEventStarredCell.xib in Resources */,
 				FE914DBE1C4BE37B001C3D90 /* CPProfileList.plist in Resources */,
@@ -972,6 +976,7 @@
 				FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */,
 				5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */,
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
+				5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */,
 				FE37DEF51C4A614000B8449D /* UIView+Position.swift in Sources */,
 				5EE91F7D1C7C4792003F4CBF /* ObjSubject.swift in Sources */,
 				FE3ED3C61C5C49700048BA1D /* HMSegmentedControl.m in Sources */,
@@ -1055,7 +1060,6 @@
 				5E546D971C8F618000E94997 /* ObjShowcase.swift in Sources */,
 				5E546D8E1C8EDE3100E94997 /* ObjResponseHeader.swift in Sources */,
 				5E546D8D1C8EDE3100E94997 /* AppToken.swift in Sources */,
-				FE6055C71C4088730073BC0A /* CPGitLoginViewController.swift in Sources */,
 				FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */,
 				FEC0DC3A1C28B39F0008C7C1 /* AppDelegate.swift in Sources */,
 				5EE91F7F1C7C481A003F4CBF /* ObjNotification.swift in Sources */,
@@ -1217,7 +1221,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd88c43c-71b4-4c9b-a7bf-708b5b2b340d";
+				PROVISIONING_PROFILE = "19f1f2b4-3c9c-445e-b05f-7c840dc7649d";
 				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1242,7 +1246,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd88c43c-71b4-4c9b-a7bf-708b5b2b340d";
+				PROVISIONING_PROFILE = "19f1f2b4-3c9c-445e-b05f-7c840dc7649d";
 				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

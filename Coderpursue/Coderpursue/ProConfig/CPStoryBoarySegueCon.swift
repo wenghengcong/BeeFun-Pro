@@ -16,6 +16,8 @@ public let SegueProfileShowFollowerList = "ShowFollowerListSegue"
 public let SegueProfileShowRepositoryList = "ShowRepositoryListSegue"
 public let SegueProfileAboutView = "AboutViewSegue"
 public let SegueProfileSettingView = "SettingsViewSegue"
+public let SegueProfileFunnyLabView = "SettingsFunnyLabSegue"
+
 
 public let SegueProfileShowRepositoryDetail = "ShowRepoDetailSegue"
 public let SegueProfileShowDeveloperDetail = "ShowDeveDetailSegue"

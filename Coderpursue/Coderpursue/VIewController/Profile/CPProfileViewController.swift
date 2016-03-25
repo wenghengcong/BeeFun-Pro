@@ -54,12 +54,11 @@ class CPProfileViewController: CPBaseViewController {
         
         user = UserInfoHelper.sharedInstance.user
         isLoingin = UserInfoHelper.sharedInstance.isLoginIn
+        profileHeaderV.user = user
         if isLoingin{
             pvc_getUserinfoRequest()
-        }else{
-            pvc_updateViewWithUserData()
         }
-        
+
     }
     
     func pvc_loadSettingPlistData() {
@@ -110,18 +109,6 @@ class CPProfileViewController: CPBaseViewController {
     
     
     // MARK: segue
-    
-    func pvc_showLoginInWebView() {
-        NetworkHelper.clearCookies()
-        
-        let loginVC = CPGitLoginViewController()
-        let url = String(format: "https://github.com/login/oauth/authorize/?client_id=%@&state=%@&redirect_uri=%@&scope=%@",GithubAppClientId,"junglesong",GithubAppRedirectUrl,"user,user:email,user:follow,public_repo,repo,repo_deployment,repo:status,delete_repo,notifications,gist,read:repo_hook,write:repo_hook,admin:repo_hook,admin:org_hook,read:org,write:org,admin:org,read:public_key,write:public_key,admin:public_key" )
-        loginVC.url = url
-        loginVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(loginVC, animated: true)
-        
-    }
-    
     
     func pvc_getUserinfoRequest(){
         
@@ -197,6 +184,10 @@ class CPProfileViewController: CPBaseViewController {
             
         }else if(segue.identifier == SegueProfileSettingView){
             let settingsVC = segue.destinationViewController as! CPProSettingsViewController
+            settingsVC.hidesBottomBarWhenPushed = true
+            
+        }else if(segue.identifier == SegueProfileFunnyLabView){
+            let settingsVC = segue.destinationViewController as! CPFunnyLabViewController
             settingsVC.hidesBottomBarWhenPushed = true
         }
         
@@ -348,6 +339,10 @@ extension CPProfileViewController : UITableViewDelegate {
         }else if(viewType == "about"){
 
             self.performSegueWithIdentifier(SegueProfileAboutView, sender: nil)
+            
+        }else if(viewType == "funnylab"){
+            
+            self.performSegueWithIdentifier(SegueProfileFunnyLabView, sender: nil)
             
         }
         

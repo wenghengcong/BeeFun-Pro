@@ -2,6 +2,9 @@
 
 Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift.Also,It's an open project.
 
+`app verson now is 1.0.1` 
+`Swift 2.2 support`
+
 You can get the app by QR code or on App Store.
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" height="200" width="200" ></a>
@@ -44,8 +47,6 @@ You can get the app by QR code or on App Store.
 ### TODO
 
 Now,I should improve the quality of the application first.
-
-All developer work on branch developer,if you want to check the progress,move [here](https://github.com/wenghengcong/Coderpursue/tree/developer)
 
 Also,I will add these features to next version.
 

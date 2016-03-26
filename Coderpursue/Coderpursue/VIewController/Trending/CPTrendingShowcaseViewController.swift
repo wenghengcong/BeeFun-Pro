@@ -56,7 +56,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", forState: .Idle)
         header.setTitle("Release to refresh", forState: .Pulling)
         header.setTitle("Loading ...", forState: .Refreshing)
-        header.setRefreshingTarget(self, refreshingAction: Selector("headerRefresh"))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingShowcaseViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
 
@@ -78,7 +78,6 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.TrendingShowcase(showcase:showcase.slug!) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
@@ -100,11 +99,10 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
                         self.tsc_updateContentView()
 
                     } else {
-                        success = false
+                        
                     }
 
                 } catch {
-                    success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -112,7 +110,6 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }

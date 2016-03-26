@@ -142,7 +142,7 @@ class CPStarsViewController: CPBaseViewController{
         header.setTitle("Pull down to refresh", forState: .Idle)
         header.setTitle("Release to refresh", forState: .Pulling)
         header.setTitle("Loading ...", forState: .Refreshing)
-        header.setRefreshingTarget(self, refreshingAction: Selector("headerRefresh"))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPStarsViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
@@ -150,7 +150,7 @@ class CPStarsViewController: CPBaseViewController{
         footer.setTitle("Click or drag up to refresh", forState: .Idle)
         footer.setTitle("Loading more ...", forState: .Pulling)
         footer.setTitle("No more data", forState: .NoMoreData)
-        footer.setRefreshingTarget(self, refreshingAction: Selector("footerRefresh"))
+        footer.setRefreshingTarget(self, refreshingAction: #selector(CPStarsViewController.footerRefresh))
         footer.refreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
@@ -170,9 +170,9 @@ class CPStarsViewController: CPBaseViewController{
     func footerRefresh(){
         print("上拉刷新")
         if segControl.selectedSegmentIndex == 0 {
-            self.reposPageVal++
+            self.reposPageVal += 1
         }else{
-            self.eventPageVal++
+            self.eventPageVal += 1
         }
         svc_updateNetrokData()
     }

@@ -19,10 +19,10 @@ extension UIColor {
      
      - returns: UIColor
      */
-    class func hexStr(var hexStr : NSString,alpha : CGFloat) -> UIColor {
+    class func hexStr(hexStr : NSString,alpha : CGFloat) -> UIColor {
         
-        hexStr = hexStr.stringByReplacingOccurrencesOfString("#", withString: "");
-        let scanner = NSScanner(string: hexStr as String);
+        let realHexStr = hexStr.stringByReplacingOccurrencesOfString("#", withString: "");
+        let scanner = NSScanner(string: realHexStr as String);
         var color : UInt32 = 0
         if scanner.scanHexInt(&color) {
             let r = CGFloat( (color & 0xFF0000) >> 16 ) / 255.0

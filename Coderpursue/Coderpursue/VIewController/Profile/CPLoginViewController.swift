@@ -56,7 +56,7 @@ class CPLoginViewController: CPBaseViewController {
         signInButton.layer.masksToBounds = true
         signInButton.backgroundColor = UIColor.buttonRedBackgroundColor()
         signInButton.setTitleColor(UIColor.buttonWihteTitleTextColor(), forState: UIControlState.Normal)
-        signInButton.addTarget(self, action: "lvc_singInAction:", forControlEvents: UIControlEvents.TouchUpInside)
+        signInButton.addTarget(self, action: #selector(CPLoginViewController.lvc_singInAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         
     }

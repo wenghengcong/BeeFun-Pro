@@ -33,7 +33,7 @@ extension UIView {
     
     var defaultBorderColor:UIColor {
         get {
-            if self.respondsToSelector("tintColor") {
+            if self.respondsToSelector(Selector("tintColor")) {
                 return self.tintColor
             }else {
                 return UIColor.blueColor()
@@ -75,13 +75,13 @@ extension UIView {
         addSingleBorder(color, linewidth: retinaPixelSize, at: at)
     }
     
-    func addSingleBorder(color:UIColor ,var linewidth:CGFloat ,at:ViewBorder) {
+    func addSingleBorder(color:UIColor ,linewidth:CGFloat ,at:ViewBorder) {
         let retinaPixelSize = 1.0 / (UIScreen.mainScreen().scale)
-        linewidth = max(retinaPixelSize, linewidth)
+        let maxLinewidth = max(retinaPixelSize, linewidth)
     
         let border = CALayer()
         border.borderColor = color.CGColor
-        border.borderWidth = linewidth
+        border.borderWidth = maxLinewidth
         border.name = at.rawValue
         
         switch (at) {

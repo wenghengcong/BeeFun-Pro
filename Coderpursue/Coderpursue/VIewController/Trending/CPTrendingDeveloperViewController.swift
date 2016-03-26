@@ -86,7 +86,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         }
         followBtn.layer.cornerRadius = 5
         followBtn.layer.masksToBounds = true
-        followBtn.addTarget(self, action: "dvc_followAction", forControlEvents: UIControlEvents.TouchUpInside)
+        followBtn.addTarget(self, action: #selector(CPTrendingDeveloperViewController.dvc_followAction), forControlEvents: UIControlEvents.TouchUpInside)
         
     }
     
@@ -103,7 +103,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", forState: .Idle)
         header.setTitle("Release to refresh", forState: .Pulling)
         header.setTitle("Loading ...", forState: .Refreshing)
-        header.setRefreshingTarget(self, refreshingAction: Selector("headerRefresh"))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingDeveloperViewController.headerRefresh))
         // 现在的版本要用mj_header
 //        self.tableView.mj_header = header
         

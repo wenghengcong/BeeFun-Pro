@@ -90,8 +90,8 @@ class CPFilterTableView: UIView {
 
         let tableviews = [firTableView!,secTableView!]
         
-        for(var index = 0 ;index < coloumn.rawValue;index++){
-            
+        for index in 0...coloumn.rawValue-1 {
+
             let tableView = tableviews[index]
             let width = rowWidths[index]
             if(index == 0){

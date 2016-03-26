@@ -110,15 +110,15 @@ class CPReposPosterView: UIView {
         }
         watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), forState: .Normal)
         watchBtn.setTitle("Watch", forState: .Normal)
-        watchBtn.addTarget(self, action: "rpc_watchAction", forControlEvents: .TouchUpInside)
+        watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_watchAction), forControlEvents: .TouchUpInside)
 
         starBtn.setImage(UIImage(named: "octicon_star_red_20"), forState: .Normal)
         starBtn.setTitle("Star", forState: .Normal)
-        starBtn.addTarget(self, action: "rpc_starAction", forControlEvents: .TouchUpInside)
+        starBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_starAction), forControlEvents: .TouchUpInside)
 
         forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), forState: .Normal)
         forkBtn.setTitle("Fork", forState: .Normal)
-        forkBtn.addTarget(self, action: "rpc_forkAction", forControlEvents: .TouchUpInside)
+        forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_forkAction), forControlEvents: .TouchUpInside)
 
     }
     

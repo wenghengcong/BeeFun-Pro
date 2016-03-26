@@ -56,14 +56,14 @@ class CPEventPushCell: CPEventBaseCell {
         commitLabels.removeAll()
         commitBtns.removeAll()
         
-        for (var index = 0 ;index < commits.count; index++) {
+        for i  in 0...commits.count-1 {
             
-            let commit:ObjCommit = commits[index]
+            let commit:ObjCommit = commits[i]
             
             let shaBtn:UIButton = UIButton.init()
             let index = commit.sha!.startIndex.advancedBy(6)
             let shaStr = commit.sha!.substringToIndex(index)+"-"
-            shaBtn.tag = commitTag++
+            shaBtn.tag = commitTag+i
             shaBtn.setTitle(shaStr, forState: .Normal)
             shaBtn.setTitleColor(UIColor.cpBlackColor(), forState: .Normal)
             shaBtn.setTitleColor(UIColor.cpBlackColor(), forState: .Highlighted)
@@ -74,7 +74,7 @@ class CPEventPushCell: CPEventBaseCell {
             commitBtns.append(shaBtn)
             
             let commitLabel:UILabel = UILabel.init()
-            commitLabel.tag = commitTag++
+            commitLabel.tag = commitTag+i
             commitLabel.text = commit.message
             commitLabel.font = UIFont.systemFontOfSize(15)
             commitLabel.textColor = UIColor.cpBlackColor()
@@ -94,12 +94,12 @@ class CPEventPushCell: CPEventBaseCell {
         let btnW = 70
         let lalW = self.width-110-10
         
-        for (var index = 0 ;index < commitBtns.count; index++) {
+        for i in 0...commitBtns.count-1 {
             
-            let commitBtn:UIButton = commitBtns[index]
-            let commitLabel:UILabel = commitLabels[index]
+            let commitBtn:UIButton = commitBtns[i]
+            let commitLabel:UILabel = commitLabels[i]
             
-            if (index == 0) {
+            if (i == 0) {
 
                 commitBtn.snp_makeConstraints(closure: { (make) -> Void in
                     
@@ -121,7 +121,7 @@ class CPEventPushCell: CPEventBaseCell {
                 
             }else{
                 
-                let lastBtn:UIButton = commitBtns[index-1]
+                let lastBtn:UIButton = commitBtns[i-1]
                 
                 commitLabel.sizeToFit()
                 commitBtn.snp_makeConstraints(closure: { (make) -> Void in

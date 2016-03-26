@@ -95,7 +95,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", forState: .Idle)
         header.setTitle("Release to refresh", forState: .Pulling)
         header.setTitle("Loading ...", forState: .Refreshing)
-        header.setRefreshingTarget(self, refreshingAction: Selector("headerRefresh"))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingRepositoryViewController.headerRefresh))
         // 现在的版本要用mj_header
 //        self.tableView.mj_header = header
     }
@@ -126,7 +126,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.UserSomeRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -140,10 +139,10 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                         self.rvc_updateViewContent()
 
                     } else {
-                        success = false
+
                     }
                 } catch {
-                    success = false
+
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -151,7 +150,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
+
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -171,7 +170,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.CheckWatched(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -191,7 +189,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -210,7 +207,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.CheckStarred(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -231,7 +227,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -245,7 +240,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         let repoName = repos!.name!
         Provider.sharedProvider.request(.WatchingRepo(owner:owner,repo:repoName,subscribed:"true",ignored:"false") ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -267,7 +261,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -281,7 +274,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.UnWatchingRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -304,7 +296,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -318,7 +309,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.StarRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -340,7 +330,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -354,7 +343,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.UnstarRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -377,7 +365,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -391,7 +378,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.CreateFork(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -410,7 +396,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }

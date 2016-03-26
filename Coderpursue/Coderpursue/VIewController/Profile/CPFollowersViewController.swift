@@ -87,7 +87,7 @@ class CPFollowersViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", forState: .Idle)
         header.setTitle("Release to refresh", forState: .Pulling)
         header.setTitle("Loading ...", forState: .Refreshing)
-        header.setRefreshingTarget(self, refreshingAction: Selector("headerRefresh"))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPFollowersViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
@@ -95,7 +95,7 @@ class CPFollowersViewController: CPBaseViewController {
         footer.setTitle("Click or drag up to refresh", forState: .Idle)
         footer.setTitle("Loading more ...", forState: .Pulling)
         footer.setTitle("No more data", forState: .NoMoreData)
-        footer.setRefreshingTarget(self, refreshingAction: Selector("footerRefresh"))
+        footer.setRefreshingTarget(self, refreshingAction: #selector(CPFollowersViewController.footerRefresh))
         footer.refreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
@@ -108,7 +108,7 @@ class CPFollowersViewController: CPBaseViewController {
     
     // 底部刷新
     func footerRefresh(){
-        userPageVal++
+        userPageVal += 1
         fvc_selectDataSource()
     }
 
@@ -134,7 +134,6 @@ class CPFollowersViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.UserFollowers(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             if(self.userPageVal == 1) {
@@ -160,10 +159,10 @@ class CPFollowersViewController: CPBaseViewController {
                         self.fvc_updateViewContent()
                         
                     } else {
-                        success = false
+
                     }
                 } catch {
-                    success = false
+
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -171,7 +170,7 @@ class CPFollowersViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
+
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -185,7 +184,6 @@ class CPFollowersViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.UserFollowing(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             if(self.userPageVal == 1) {
@@ -211,10 +209,10 @@ class CPFollowersViewController: CPBaseViewController {
                         self.fvc_updateViewContent()
                         
                     } else {
-                        success = false
+
                     }
                 } catch {
-                    success = false
+
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -222,7 +220,7 @@ class CPFollowersViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
+
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }

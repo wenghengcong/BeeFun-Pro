@@ -159,7 +159,7 @@ class CPMessageViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", forState: .Idle)
         header.setTitle("Release to refresh", forState: .Pulling)
         header.setTitle("Loading ...", forState: .Refreshing)
-        header.setRefreshingTarget(self, refreshingAction: Selector("headerRefresh"))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPMessageViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
@@ -167,7 +167,7 @@ class CPMessageViewController: CPBaseViewController {
         footer.setTitle("Click or drag up to refresh", forState: .Idle)
         footer.setTitle("Loading more ...", forState: .Pulling)
         footer.setTitle("No more data", forState: .NoMoreData)
-        footer.setRefreshingTarget(self, refreshingAction: Selector("footerRefresh"))
+        footer.setRefreshingTarget(self, refreshingAction: #selector(CPMessageViewController.footerRefresh))
         footer.refreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
@@ -187,9 +187,9 @@ class CPMessageViewController: CPBaseViewController {
     func footerRefresh(){
         print("上拉刷新")
         if(segControl.selectedSegmentIndex == 0) {
-            self.notisPageVal++
+            self.notisPageVal += 1
         }else if(segControl.selectedSegmentIndex == 1){
-            self.issuesPageVal++
+            self.issuesPageVal += 1
         }
         mvc_updateNetrokData()
     }

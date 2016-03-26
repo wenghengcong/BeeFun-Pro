@@ -124,7 +124,6 @@ class CPProfileViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.UserInfo(username:username) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             switch result {
@@ -136,10 +135,9 @@ class CPProfileViewController: CPBaseViewController {
                         self.user = result
                         self.pvc_updateViewWithUserData()
                     } else {
-                        success = false
+                        
                     }
                 } catch {
-                    success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -147,7 +145,6 @@ class CPProfileViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }

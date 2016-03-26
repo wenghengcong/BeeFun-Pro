@@ -82,13 +82,13 @@ class CPDeveloperInfoView: UIView {
         }
         
         followerBtn.setTitle("0 \nFollower", forState: .Normal)
-        followerBtn.addTarget(self, action: "div_followAction", forControlEvents: .TouchUpInside)
+        followerBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followAction), forControlEvents: .TouchUpInside)
 
         reposBtn.setTitle("0 \nRepositories", forState: .Normal)
-        reposBtn.addTarget(self, action: "div_reposAction", forControlEvents: .TouchUpInside)
+        reposBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_reposAction), forControlEvents: .TouchUpInside)
 
         followingBtn.setTitle("0 \nFollowing", forState: .Normal)
-        followingBtn.addTarget(self, action: "div_followingAction", forControlEvents: .TouchUpInside)
+        followingBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followingAction), forControlEvents: .TouchUpInside)
 
     }
     

@@ -91,7 +91,7 @@ class CPReposViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", forState: .Idle)
         header.setTitle("Release to refresh", forState: .Pulling)
         header.setTitle("Loading ...", forState: .Refreshing)
-        header.setRefreshingTarget(self, refreshingAction: Selector("headerRefresh"))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPReposViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
@@ -99,7 +99,7 @@ class CPReposViewController: CPBaseViewController {
         footer.setTitle("Click or drag up to refresh", forState: .Idle)
         footer.setTitle("Loading more ...", forState: .Pulling)
         footer.setTitle("No more data", forState: .NoMoreData)
-        footer.setRefreshingTarget(self, refreshingAction: Selector("footerRefresh"))
+        footer.setRefreshingTarget(self, refreshingAction: #selector(CPReposViewController.footerRefresh))
         footer.refreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
@@ -114,7 +114,7 @@ class CPReposViewController: CPBaseViewController {
     // 底部刷新
     func footerRefresh(){
         print("上拉刷新")
-        reposPageVal++
+        reposPageVal += 1
         rvc_selectDataSource()
     }
     
@@ -169,6 +169,7 @@ class CPReposViewController: CPBaseViewController {
                         
                     } else {
                         success = false
+                        CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                     }
                 } catch {
                     success = false

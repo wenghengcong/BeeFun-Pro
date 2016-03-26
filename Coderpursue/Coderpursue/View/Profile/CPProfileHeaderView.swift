@@ -82,7 +82,7 @@ class CPProfileHeaderView: UIView {
         
         phv_loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         phv_loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
-        phv_loginBtn.addTarget(self, action: "phv_loginAction", forControlEvents: .TouchUpInside)
+        phv_loginBtn.addTarget(self, action: #selector(CPProfileHeaderView.phv_loginAction), forControlEvents: .TouchUpInside)
         phv_loginBtn.backgroundColor = UIColor.clearColor()
         phv_loginBtn.titleLabel?.font = UIFont.systemFontOfSize(25.0)
         phv_loginBtn.setTitle("Sign   In", forState: .Normal)
@@ -105,13 +105,13 @@ class CPProfileHeaderView: UIView {
         followingBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
         followingBgV.userInteractionEnabled = true
         
-        let reposGes = UITapGestureRecognizer(target: self, action: "phv_reposAction:")
+        let reposGes = UITapGestureRecognizer(target: self, action: #selector(CPProfileHeaderView.phv_reposAction(_:)))
         self.reposBgV.addGestureRecognizer(reposGes)
         
-        let followGes = UITapGestureRecognizer(target: self, action: "phv_followAction:")
+        let followGes = UITapGestureRecognizer(target: self, action: #selector(CPProfileHeaderView.phv_followAction(_:)))
         self.followerBgV.addGestureRecognizer(followGes)
         
-        let followingGes = UITapGestureRecognizer(target: self, action: "phv_followingAction:")
+        let followingGes = UITapGestureRecognizer(target: self, action: #selector(CPProfileHeaderView.phv_followingAction(_:)))
         self.followingBgV.addGestureRecognizer(followingGes)
         
     }

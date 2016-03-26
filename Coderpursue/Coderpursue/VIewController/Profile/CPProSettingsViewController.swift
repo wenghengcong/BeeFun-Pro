@@ -35,7 +35,7 @@ class CPProSettingsViewController: CPBaseViewController {
     }
     
     func psvc_customView() {
-        logOutBtn.addTarget(self, action: "psvc_logoutAction", forControlEvents: UIControlEvents.TouchUpInside)
+        logOutBtn.addTarget(self, action: #selector(CPProSettingsViewController.psvc_logoutAction), forControlEvents: UIControlEvents.TouchUpInside)
     }
     
     func psvc_setupTableView() {

@@ -162,7 +162,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.Follow(username:username) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -183,7 +182,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -199,7 +197,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
         Provider.sharedProvider.request(.UserInfo(username:username) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -213,10 +210,10 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                         self.dvc_updateViewContent()
                         
                     } else {
-                        success = false
+
                     }
                 } catch {
-                    success = false
+
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -224,7 +221,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -241,7 +237,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.Follow(username:username) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -262,7 +257,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -280,7 +274,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.Unfollow(username:username) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
@@ -302,7 +295,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }

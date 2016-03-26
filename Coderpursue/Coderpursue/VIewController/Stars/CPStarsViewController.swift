@@ -188,7 +188,6 @@ class CPStarsViewController: CPBaseViewController{
         
         Provider.sharedProvider.request(.MyStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
 
-            var success = true
             var message = "No data to show"
             
             if(pageVal == 1) {
@@ -214,10 +213,8 @@ class CPStarsViewController: CPBaseViewController{
                         self.tableView.reloadData()
                         
                     } else {
-                        success = false
                     }
                 } catch {
-                    success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -225,7 +222,6 @@ class CPStarsViewController: CPBaseViewController{
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -239,7 +235,6 @@ class CPStarsViewController: CPBaseViewController{
         
         Provider.sharedProvider.request(.UserEvents(username:ObjUser.loadUserInfo()!.login! ,page:pageVal,perpage:15) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             if(pageVal == 1) {
@@ -264,10 +259,8 @@ class CPStarsViewController: CPBaseViewController{
                         
                         
                     } else {
-                        success = false
                     }
                 } catch {
-                    success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
                 self.tableView.reloadData()
@@ -277,7 +270,6 @@ class CPStarsViewController: CPBaseViewController{
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }

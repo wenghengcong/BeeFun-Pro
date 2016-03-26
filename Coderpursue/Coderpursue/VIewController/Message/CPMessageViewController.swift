@@ -202,7 +202,6 @@ class CPMessageViewController: CPBaseViewController {
         
         Provider.sharedProvider.request( .MyNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             if(pageVal == 1) {
@@ -227,10 +226,9 @@ class CPMessageViewController: CPBaseViewController {
                         }                        
                         self.tableView.reloadData()
                     } else {
-                        success = false
                     }
                 } catch {
-                    success = false
+
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -238,7 +236,6 @@ class CPMessageViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -253,7 +250,6 @@ class CPMessageViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.AllIssues( page:pageVal,perpage:10,filter:issueFilterPar,state:issueStatePar,labels:issueLabelsPar,sort:issueSortPar,direction:issueDirectionPar) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             if(pageVal == 1) {
@@ -279,10 +275,8 @@ class CPMessageViewController: CPBaseViewController {
                         self.tableView.reloadData()
                         
                     } else {
-                        success = false
                     }
                 } catch {
-                    success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -290,7 +284,6 @@ class CPMessageViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -298,7 +291,6 @@ class CPMessageViewController: CPBaseViewController {
         
     }
 
-    
 }
 
 extension CPMessageViewController : UITableViewDataSource {

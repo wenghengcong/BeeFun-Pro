@@ -322,7 +322,6 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         
         Provider.sharedProvider.request(.TrendingRepos(since:"daily",language:"all") ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
@@ -346,10 +345,9 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
                         self.tableView.reloadData()
                         
                     } else {
-                        success = false
+
                     }
                 } catch {
-                    success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -357,7 +355,6 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -386,7 +383,6 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         
         Provider.sharedProvider.request(.SearchUsers(para:self.paraUser) ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             if(self.paraUser.page == 1) {
@@ -416,10 +412,8 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
                         self.tableView.reloadData()
                         
                     } else {
-                        success = false
                     }
                 } catch {
-                    success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -427,7 +421,6 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }
@@ -442,7 +435,6 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         
         Provider.sharedProvider.request(.TrendingShowcases() ) { (result) -> () in
             
-            var success = true
             var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
@@ -461,10 +453,8 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
                         self.tableView.reloadData()
                         
                     } else {
-                        success = false
                     }
                 } catch {
-                    success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
             case let .Failure(error):
@@ -472,7 +462,6 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
                     break
                 }
                 message = error.description
-                success = false
                 CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 
             }

@@ -148,7 +148,6 @@ class CPReposViewController: CPBaseViewController {
         Provider.sharedProvider.request( .UserRepos( username:self.username!,page:self.reposPageVal,perpage:self.reposPerpage,type:self.typeVal, sort:self.sortVal ,direction:self.directionVal ) ) { (result) -> () in
             print(result)
             
-            var success = true
             var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
@@ -168,11 +167,11 @@ class CPReposViewController: CPBaseViewController {
                         self.rvc_updateViewContent()
                         
                     } else {
-                        success = false
+
                         CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                     }
                 } catch {
-                    success = false
+
                 }
                 //                self.tableView.reloadData()
             case let .Failure(error):
@@ -180,7 +179,7 @@ class CPReposViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
+
             }
             
         }
@@ -196,7 +195,6 @@ class CPReposViewController: CPBaseViewController {
         Provider.sharedProvider.request( .UserWatchedRepos( page:self.reposPageVal,perpage:self.reposPerpage,username:self.username! ) ) { (result) -> () in
             print(result)
             
-            var success = true
             var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
@@ -216,10 +214,10 @@ class CPReposViewController: CPBaseViewController {
                         self.rvc_updateViewContent()
                         
                     } else {
-                        success = false
+
                     }
                 } catch {
-                    success = false
+                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
                 //                self.tableView.reloadData()
             case let .Failure(error):
@@ -227,7 +225,8 @@ class CPReposViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                success = false
+                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+
             }
             
         }

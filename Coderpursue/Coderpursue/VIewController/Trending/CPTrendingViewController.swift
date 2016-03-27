@@ -12,7 +12,7 @@ import Foundation
 import MJRefresh
 import ObjectMapper
 
-class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
+class CPTrendingViewController: CPBaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
@@ -21,8 +21,10 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     var filterView:CPFilterTableView?
     let filterVHeight:CGFloat = 270    //filterview height
     let filterBtn = UIButton()
+    let header = MJRefreshNormalHeader()
+    let footer = MJRefreshAutoNormalFooter()
 
-    //data
+    // MARK: data
     var reposData:[ObjRepos]! = []
     var devesData:[ObjUser]! = []
     var showcasesData:[ObjShowcase]! = []
@@ -30,17 +32,15 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     var cityArr:[String]?
     var countryArr:[String]?
     var languageArr:[String]?
+    var sinceArr:[String] = [TrendingSince.Daily.rawValue,TrendingSince.Weekly.rawValue,TrendingSince.Monthly.rawValue]
     
     // MARK: request parameters
-    //search user para
+    var lastSegmentIndex = 0
     var paraUser:ParaSearchUser = ParaSearchUser.init()
-    
-    let header = MJRefreshNormalHeader()
-    let footer = MJRefreshAutoNormalFooter()
-    
+    var paraSince:String = "daily"
+    var paraLanguage:String = "all"
     
     func resetSearchUserParameters(){
-        
         //test
         /*
         var para:ParaComparison = ParaComparison.init(left: 5, op:ComparisonOperator.Less)
@@ -110,8 +110,8 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         filterBtn.setImage(UIImage(named: "nav_funnel_sel"), forState: .Selected)
 
         filterBtn.frame = CGRectMake(0, 5, 25, 25)
-        filterBtn.addTarget(self, action: #selector(CPTrendingViewController.tvc_rightButtonTouch(_:)), forControlEvents: .TouchUpInside)
-        filterBtn.hidden = true
+        filterBtn.addTarget(self, action: #selector(CPTrendingViewController.tvc_filterButtonTouch(_:)), forControlEvents: .TouchUpInside)
+        filterBtn.hidden = false
 
         //.... Set Right/Left Bar Button item
         let leftBarButton = UIBarButtonItem()
@@ -126,11 +126,12 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         let secW:CGFloat = self.view.width-firW
         filterView = CPFilterTableView(frame: CGRectMake(0, 64-filterVHeight-10, self.view.width, filterVHeight))
         filterView!.backgroundColor = UIColor.viewBackgroundColor()
-        filterView!.filteDelegate = self
+        filterView!.filterDelegate = self
         filterView!.coloumn = .Two
         filterView!.rowWidths = [firW,secW]
         filterView!.rowHeights = [40.0,40.0]
-        filterView!.tabData = [languageArr!,countryArr!]
+        filterView!.filterTypes = ["Since"]
+        filterView!.filterData = [sinceArr]
         filterView!.filterViewInit()
         self.view.addSubview(filterView!)
     }
@@ -153,11 +154,10 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
             (index:Int)-> Void in
             
             if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
-                self.filterBtn.hidden = true
+                self.filterBtn.hidden = false
                 self.tvc_getReposRequest()
             }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
                 self.filterBtn.hidden = false
-                
                 self.tvc_getUserRequest()
             }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
                 self.filterBtn.hidden = true
@@ -205,7 +205,7 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     
     // MARK: action
     
-    func tvc_rightButtonTouch(sender:UIButton) {
+    func tvc_filterButtonTouch(sender:UIButton) {
         
         let btn = sender
         btn.selected = !btn.selected
@@ -215,36 +215,25 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
             tvc_filterViewDisapper()
         }
     }
-    
-    //filter delegate
-    func didSelectColoumn(index: Int, row:Int ,type:String,value:String) {
-        
-        if(index == 1){
-            if(value != "All"){
-                if(type == "Language"){
-                    paraUser.languagePara = value
-                    paraUser.locationPara = nil
-                }else if(type == "City"){
-                    paraUser.locationPara = value
-                    paraUser.languagePara = nil
-                }else if(type == "Country"){
-                    paraUser.locationPara = value
-                    paraUser.languagePara = nil
-                }
-            }else{
-                paraUser.languagePara = nil
-                paraUser.locationPara = nil
-            }
-            
-            tvc_filterViewDisapper()
-            tvc_getUserRequest()
-        }
 
-    }
     
     func tvc_filterViewApper(){
-        filterView!.resetProperty()
+        
+        if ((segControl.selectedSegmentIndex == 0) && (lastSegmentIndex != segControl.selectedSegmentIndex) ) {
+            filterView!.filterTypes = ["Since"]
+            filterView!.filterData = [sinceArr]
+        }else if((segControl.selectedSegmentIndex == 1) && (lastSegmentIndex != segControl.selectedSegmentIndex)){
+            filterView!.filterTypes = ["Language","Country"]
+            filterView!.filterData = [languageArr!,countryArr!]
+        }
+        
+        if(lastSegmentIndex != segControl.selectedSegmentIndex){
+            filterView!.resetProperty()
+            filterView!.resetAllColoumnsData()
+        }
+
         filterView!.frame = CGRectMake(0, 64, self.view.width, filterVHeight)
+        lastSegmentIndex = segControl.selectedSegmentIndex
     }
     
     func tvc_filterViewDisapper(){
@@ -254,7 +243,6 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     }
     
     func updateNetrokData() {
-        
         
         if(segControl.selectedSegmentIndex == 0) {
             tvc_getReposRequest()
@@ -317,10 +305,9 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
     
     func tvc_getReposRequest() {
         
-        
         MBProgressHUD.showHUDAddedTo(self.view, animated: true)
         
-        Provider.sharedProvider.request(.TrendingRepos(since:"daily",language:"all") ) { (result) -> () in
+        Provider.sharedProvider.request(.TrendingRepos(since:paraSince,language:"all") ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -469,6 +456,47 @@ class CPTrendingViewController: CPBaseViewController,CPFilterTableViewProtocol {
         
     }
 
+}
+
+extension CPTrendingViewController : CPFilterTableViewProtocol {
+    //filter delegate
+    func didSelectValueColoumn(row:Int ,type:String ,value:String) {
+        
+        if segControl.selectedSegmentIndex == 0 {
+            if type == "Since" {
+                paraSince = value
+            }else if(type == "Language"){
+                if value == "All" {
+                    paraLanguage = "all"
+                }else{
+                    paraLanguage = value
+                }
+            }
+            tvc_filterViewDisapper()
+            tvc_getReposRequest()
+            
+        }else if(segControl.selectedSegmentIndex == 1){
+            if(value != "All"){
+                if(type == "Language"){
+                    paraUser.languagePara = value
+                }else if(type == "City"){
+                    paraUser.locationPara = value
+                }else if(type == "Country"){
+                    paraUser.locationPara = value
+                }
+            }else{
+                paraUser.languagePara = nil
+                paraUser.locationPara = nil
+            }
+            tvc_filterViewDisapper()
+            tvc_getUserRequest()
+        }
+        
+    }
+    
+    func didSelectTypeColoumn(row: Int, type: String, value: String) {
+        
+    }
 }
 
 extension CPTrendingViewController : UITableViewDataSource {

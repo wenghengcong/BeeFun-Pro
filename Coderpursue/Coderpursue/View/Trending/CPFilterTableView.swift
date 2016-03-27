@@ -9,9 +9,10 @@
 import UIKit
 
 protocol CPFilterTableViewProtocol {
-    
-    func didSelectColoumn(index:Int ,row:Int ,type:String ,value:String)
-    
+
+    func didSelectTypeColoumn(row:Int ,type:String ,value:String)
+    func didSelectValueColoumn(row:Int ,type:String ,value:String)
+
 }
 
 public enum CPFilterTableViewColumns:Int {
@@ -25,7 +26,7 @@ class CPFilterTableView: UIView {
 
     let cellID = "FilterCell"
 
-    var filteDelegate:CPFilterTableViewProtocol?
+    var filterDelegate:CPFilterTableViewProtocol?
     
     var coloumn:CPFilterTableViewColumns = .Two {
         
@@ -46,18 +47,21 @@ class CPFilterTableView: UIView {
         }
     }
     
-    var firstArr:[String] = ["Language","Country"]
+    var filterTypes:[String] = []
 
-    var tabData:[[String]] = [[]]{
+    var filterData:[[String]] = [[]]{
         
         didSet {
-
+            resetAllColoumnsData()
         }
         
     }
     
     var selTypeIndex = 0
-    var selValueIndex = 0
+    var lastTypeIndex = 0
+    
+    var selFirValueIndex = 0
+    var selSecValueIndex = 0
 
     var firTableView:UITableView?
     var secTableView:UITableView?    
@@ -117,15 +121,20 @@ class CPFilterTableView: UIView {
     }
     
     func filterViewInit(){
-        
         ftv_customView()
-        resetAllColoumnsData()
+        
     }
     
     func resetAllColoumnsData(){
         
-        firTableView!.reloadData()
-        secTableView!.reloadData()
+        if (firTableView != nil) {
+            firTableView!.reloadData()
+        }
+        
+        if (secTableView != nil) {
+            secTableView!.reloadData()
+        }
+        
     }
     
     func resetOtherColoumnsData(selindex:Int){
@@ -135,8 +144,9 @@ class CPFilterTableView: UIView {
     
     func resetProperty() {
         selTypeIndex = 0
-        selValueIndex = 0
-        resetAllColoumnsData()
+        lastTypeIndex = 0
+        selFirValueIndex = 0
+        selSecValueIndex = 0
     }
     
 }
@@ -149,23 +159,30 @@ extension CPFilterTableView:UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if(tableView == firTableView){
-            return firstArr.count
-        }else{
-            return tabData[selTypeIndex].count
+        if (filterTypes.count <= 0) {
+            return 0
         }
         
-        return 0
+        if (filterData.count <= 0) {
+            return 0
+        }
+        
+        if(tableView == firTableView){
+            return filterTypes.count
+        }else{
+            return filterData[selTypeIndex].count
+        }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+
         
         var cellText = ""
 
         if(tableView == firTableView){
-            cellText = firstArr[indexPath.row]
+            cellText = filterTypes[indexPath.row]
         }else{
-            cellText = tabData[selTypeIndex][indexPath.row]
+            cellText = filterData[selTypeIndex][indexPath.row]
         }
         
         let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath)
@@ -189,9 +206,11 @@ extension CPFilterTableView:UITableViewDataSource {
             cell.textLabel!.font = UIFont.systemFontOfSize(12.0)
             cell.selectionStyle = .None
             
+            let selValueIndex = (selTypeIndex == 0) ? selFirValueIndex : selSecValueIndex
             if(indexPath.row == selValueIndex){
                 cell.textLabel?.textColor = UIColor.cpRedColor()
             }
+            
         }
         cell.textLabel!.text = cellText
         return cell
@@ -215,26 +234,31 @@ extension CPFilterTableView:UITableViewDelegate {
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-
         if (tableView == firTableView){
             selTypeIndex = indexPath.row
         }else{
-            selValueIndex = indexPath.row
+            if (selTypeIndex == 0) {
+                selFirValueIndex = indexPath.row
+            }else{
+                selSecValueIndex = indexPath.row
+            }
         }
 
-        cell?.backgroundColor = UIColor.whiteColor()
-        cell?.removeBorder(.Right)
-        cell?.textLabel?.textColor = UIColor.cpRedColor()
-        resetAllColoumnsData()
-        
         let indexOfTableviews = (tableView == firTableView) ? 0:1
         
-        let type = firstArr[selTypeIndex]
-        let value = tabData[selTypeIndex][selValueIndex]
+        let type = filterTypes[selTypeIndex]
+        let selValueIndex = (selTypeIndex == 0) ? selFirValueIndex : selSecValueIndex
+        let value = filterData[selTypeIndex][selValueIndex]
         
-        if(filteDelegate != nil){
-            self.filteDelegate?.didSelectColoumn(indexOfTableviews, row: indexPath.row ,type: type,value: value)
+        resetAllColoumnsData()
+        
+        if(filterDelegate != nil){
+            if (indexOfTableviews == 0 ) {
+                filterDelegate?.didSelectTypeColoumn(indexPath.row, type: type, value: value)
+            }else if(indexOfTableviews == 1){
+                filterDelegate?.didSelectValueColoumn(indexPath.row, type: type, value: value)
+            }
+            
         }
         
     }

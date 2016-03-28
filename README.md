@@ -1,9 +1,9 @@
 # Coderpursue (已上架)
 
-Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目前已开源。
-`app 版本更新到1.0.1`
-`Swift 2.2` 
+[![](https://img.shields.io/badge/version-1.0.1-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
+[![](https://img.shields.io/badge/swift-2.2-green.svg)](https://developer.apple.com/swift/)
 
+Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目前已开源。
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" height="200" width="200" ></a>
 

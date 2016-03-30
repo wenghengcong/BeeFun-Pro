@@ -10,10 +10,6 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 
 [ReadMe English](https://github.com/wenghengcong/Coderpursue/blob/developer/README_En.md)  
-
-####目前正在**找工作**！坐标上海，求中级iOS坑~~
-
-邮箱:wenghengcong@163.com
   
 ***
 

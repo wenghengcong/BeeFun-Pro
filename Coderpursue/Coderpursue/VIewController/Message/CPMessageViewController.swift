@@ -49,6 +49,7 @@ class CPMessageViewController: CPBaseViewController {
         mvc_updateNetrokData()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
+        self.title = "Message"
     }
 
     deinit {
@@ -61,7 +62,6 @@ class CPMessageViewController: CPBaseViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Message"
     }
     
     func mvc_loginSuccessful() {

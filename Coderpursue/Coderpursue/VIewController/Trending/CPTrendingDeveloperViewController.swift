@@ -45,18 +45,16 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         dvc_setupTableView()
         dvc_updateViewContent()
         dvc_getUserinfoRequest()
-        self.navigationController!.navigationBar.topItem?.title = ""
-
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
         if let username = developer!.name {
             self.title = username
         }else{
             self.title = developer!.login!
         }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
         dvc_checkUserFollowed()
     }
 

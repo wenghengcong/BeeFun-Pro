@@ -21,12 +21,11 @@ class CPProAboutViewController: CPBaseViewController {
         pavc_readPlist()
         pavc_setupTableView()
         pavc_customView()
-        self.navigationController!.navigationBar.topItem?.title = ""
+        self.title = "About"
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "About"
     }
     
     override func didReceiveMemoryWarning() {

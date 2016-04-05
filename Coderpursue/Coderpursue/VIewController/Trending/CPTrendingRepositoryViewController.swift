@@ -46,14 +46,18 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         rvc_userIsLogin()
         rvc_setupTableView()
         rvc_loadAllRequset()
-        self.navigationController!.navigationBar.topItem?.title = ""
+        self.title = repos!.name!
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = repos!.name!
 
     }
+    
+    override func leftItemAction(sender: UIButton?) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+
     
     func rvc_customView(){
         

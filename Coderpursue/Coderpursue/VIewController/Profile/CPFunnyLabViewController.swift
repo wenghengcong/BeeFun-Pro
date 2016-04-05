@@ -16,12 +16,11 @@ class CPFunnyLabViewController: CPBaseViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationController!.navigationBar.topItem?.title = ""
+        self.title = "Funny Lab"
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Funny Lab"
     }
     
     override func didReceiveMemoryWarning() {

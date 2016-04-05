@@ -16,12 +16,11 @@ class CPFunnyAwardViewController: CPWebViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationController!.navigationBar.topItem?.title = ""
+        self.title = "Award"
     }
 
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Award"
     }
     
     override func didReceiveMemoryWarning() {

@@ -36,6 +36,7 @@ class CPProfileViewController: CPBaseViewController {
        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLoginSuccessful, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLogOutSuccessful, object: nil)
+        self.title = "Profile"
 
     }
     
@@ -45,7 +46,6 @@ class CPProfileViewController: CPBaseViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Profile"  
         pvc_updateUserinfoData()
 
     }

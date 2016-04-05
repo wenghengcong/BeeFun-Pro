@@ -30,13 +30,12 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
         tsc_setupTableView()
         tsc_updateContentView()
         tsc_getShowcaseRequest()
-        self.navigationController!.navigationBar.topItem?.title = ""
+        self.title = showcase.slug
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = showcase.slug
     }
     
     override func didReceiveMemoryWarning() {

@@ -20,7 +20,6 @@ class CPTrendingViewController: CPBaseViewController {
     var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories","Developers","Showcases"])
     var filterView:CPFilterTableView?
     let filterVHeight:CGFloat = 270    //filterview height
-    let filterBtn = UIButton()
     let header = MJRefreshNormalHeader()
     let footer = MJRefreshAutoNormalFooter()
 
@@ -71,6 +70,7 @@ class CPTrendingViewController: CPBaseViewController {
         updateNetrokData()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
+        self.title = "Explore"
 
     }
     
@@ -80,7 +80,6 @@ class CPTrendingViewController: CPBaseViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Explore"
     }
     
     
@@ -106,17 +105,8 @@ class CPTrendingViewController: CPBaseViewController {
     
     func tvc_addNaviBarButtonItem() {
         
-        filterBtn.setImage(UIImage(named: "nav_funnel"), forState: .Normal)
-        filterBtn.setImage(UIImage(named: "nav_funnel_sel"), forState: .Selected)
-
-        filterBtn.frame = CGRectMake(0, 5, 25, 25)
-        filterBtn.addTarget(self, action: #selector(CPTrendingViewController.tvc_filterButtonTouch(_:)), forControlEvents: .TouchUpInside)
-        filterBtn.hidden = false
-
-        //.... Set Right/Left Bar Button item
-        let leftBarButton = UIBarButtonItem()
-        leftBarButton.customView = filterBtn
-        self.navigationItem.leftBarButtonItem = leftBarButton
+        self.leftItemImage = UIImage(named: "nav_funnel")
+        self.leftItemSelImage = UIImage(named: "nav_funnel_sel")
         
     }
     
@@ -154,13 +144,13 @@ class CPTrendingViewController: CPBaseViewController {
             (index:Int)-> Void in
             
             if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
-                self.filterBtn.hidden = false
+                self.leftItem?.hidden = false
                 self.tvc_getReposRequest()
             }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
-                self.filterBtn.hidden = false
+                self.leftItem?.hidden = false
                 self.tvc_getUserRequest()
             }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
-                self.filterBtn.hidden = true
+                self.leftItem?.hidden = true
                 self.tvc_getShowcasesRequest()
             }else{
                 self.tableView.reloadData()
@@ -205,9 +195,8 @@ class CPTrendingViewController: CPBaseViewController {
     
     // MARK: action
     
-    func tvc_filterButtonTouch(sender:UIButton) {
-        
-        let btn = sender
+    override func leftItemAction(sender: UIButton?) {
+        let btn = sender!
         btn.selected = !btn.selected
         if(btn.selected){
             tvc_filterViewApper()
@@ -215,7 +204,6 @@ class CPTrendingViewController: CPBaseViewController {
             tvc_filterViewDisapper()
         }
     }
-
     
     func tvc_filterViewApper(){
         
@@ -237,7 +225,7 @@ class CPTrendingViewController: CPBaseViewController {
     }
     
     func tvc_filterViewDisapper(){
-        filterBtn.selected = false
+        leftItem?.selected = false
         filterView!.frame = CGRectMake(0, 64-filterVHeight-10, self.view.width, filterVHeight)
 
     }

@@ -171,7 +171,7 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
         if (webView!.canGoBack) {
             webView!.goBack()
         }else {
-            navBack()
+            leftItemAction(nil)
         }
     }
     

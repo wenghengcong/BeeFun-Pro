@@ -58,11 +58,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         dvc_checkUserFollowed()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     // 顶部刷新
     func headerRefresh(){
         print("下拉刷新")
@@ -141,6 +136,10 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         developerInfoV.developer = developer
         self.tableView.reloadData()
+    }
+    
+    override func leftItemAction(sender: UIButton?) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     func dvc_followAction() {

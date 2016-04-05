@@ -133,13 +133,6 @@ class CPBaseViewController: UIViewController,UIGestureRecognizerDelegate {
         self.navigationItem.rightBarButtonItems = [rightSpace,rightBarButton]
         
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
     
 }
 

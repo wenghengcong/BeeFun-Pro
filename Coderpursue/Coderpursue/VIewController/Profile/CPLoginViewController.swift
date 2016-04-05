@@ -31,9 +31,8 @@ class CPLoginViewController: CPBaseViewController {
         lvc_customView()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func leftItemAction(sender: UIButton?) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     // MAEK: - view

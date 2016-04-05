@@ -49,6 +49,10 @@ class CPReposViewController: CPBaseViewController {
         
     }
     
+    override func leftItemAction(sender: UIButton?) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     func rvc_addNaviBarButtonItem() {
         
         /*
@@ -70,13 +74,6 @@ class CPReposViewController: CPBaseViewController {
     func rvc_rightButtonTouch() {
         
     }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     
     func rvc_setupTableView() {
         

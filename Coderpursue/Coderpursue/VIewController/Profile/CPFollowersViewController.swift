@@ -52,6 +52,10 @@ class CPFollowersViewController: CPBaseViewController {
 
     }
     
+    override func leftItemAction(sender: UIButton?) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     func fvc_addNaviBarButtonItem() {
         
         /*

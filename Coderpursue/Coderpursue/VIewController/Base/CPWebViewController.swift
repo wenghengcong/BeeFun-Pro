@@ -41,13 +41,6 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
         // Do any additional setup after loading the view.
         wvc_customInit()
     }
-    
-    override func didReceiveMemoryWarning() {
-        
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
     // MARK: - view
     func wvc_customInit() {

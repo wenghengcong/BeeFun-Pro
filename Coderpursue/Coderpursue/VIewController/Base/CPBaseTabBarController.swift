@@ -22,11 +22,6 @@ class CPBaseTabBarController: UITabBarController {
         self.tabBar.tintColor = UIColor.tabBarTitleTextColor()//文字颜色
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
 
 }

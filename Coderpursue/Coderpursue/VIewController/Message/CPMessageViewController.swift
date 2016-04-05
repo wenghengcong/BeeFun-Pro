@@ -49,6 +49,7 @@ class CPMessageViewController: CPBaseViewController {
         mvc_updateNetrokData()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
+        self.leftItem?.hidden = true
         self.title = "Message"
     }
 

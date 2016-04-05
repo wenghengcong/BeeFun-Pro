@@ -36,6 +36,7 @@ class CPProfileViewController: CPBaseViewController {
        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLoginSuccessful, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLogOutSuccessful, object: nil)
+        self.leftItem?.hidden = true
         self.title = "Profile"
 
     }

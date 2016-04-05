@@ -34,6 +34,7 @@ class CPStarsViewController: CPBaseViewController{
         svc_updateNetrokData()
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(svc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(svc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
+        self.leftItem?.hidden = true
         self.title = "Stars"
     }
     

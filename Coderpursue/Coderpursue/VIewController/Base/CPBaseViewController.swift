@@ -11,6 +11,7 @@ import UIKit
 class CPBaseViewController: UIViewController,UIGestureRecognizerDelegate {
 
     var topOffset: CGFloat = 64.0
+    
     var leftItem:UIButton? {
         didSet{
             

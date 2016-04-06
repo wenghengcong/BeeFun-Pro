@@ -103,6 +103,9 @@ class CPTrendingViewController: CPBaseViewController {
         self.leftItemImage = UIImage(named: "nav_funnel")
         self.leftItemSelImage = UIImage(named: "nav_funnel_sel")
         
+        self.rightItemImage = UIImage(named: "nav_search_35")
+        self.rightItemSelImage = UIImage(named: "nav_search_35")
+        self.rightItem?.hidden = false
     }
     
     func tvc_setupFilterView(){
@@ -198,6 +201,13 @@ class CPTrendingViewController: CPBaseViewController {
         }else{
             tvc_filterViewDisapper()
         }
+    }
+    
+    override func rightItemAction(sender: UIButton?) {
+        
+        let searchVC = CPSearchViewController()
+        
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
     func tvc_filterViewApper(){

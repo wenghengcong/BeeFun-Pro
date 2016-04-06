@@ -13,6 +13,7 @@
 		5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */; };
 		5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */; };
 		5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */; };
+		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
 		5E4ABFBD1C9032D40041FA89 /* CPTrendingDeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB71C9032D40041FA89 /* CPTrendingDeveloperCell.swift */; };
@@ -158,6 +159,7 @@
 		5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventPushCell.xib; sourceTree = "<group>"; };
 		5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesNotificationCell.swift; sourceTree = "<group>"; };
 		5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesNotificationCell.xib; sourceTree = "<group>"; };
+		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB71C9032D40041FA89 /* CPTrendingDeveloperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingDeveloperCell.swift; sourceTree = "<group>"; };
@@ -642,6 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				FE91BA921C33399C002AECB6 /* CPTrendingViewController.swift */,
+				5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */,
 				5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */,
 				5E4ABFD81C91046F0041FA89 /* CPTrendingDeveloperViewController.swift */,
 				5E4ABFDA1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift */,
@@ -988,6 +991,7 @@
 				5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */,
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
 				5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */,
+				5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */,
 				FE37DEF51C4A614000B8449D /* UIView+Position.swift in Sources */,
 				5EE91F7D1C7C4792003F4CBF /* ObjSubject.swift in Sources */,
 				FE3ED3C61C5C49700048BA1D /* HMSegmentedControl.m in Sources */,

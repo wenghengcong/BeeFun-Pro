@@ -38,7 +38,6 @@ class CPStarsViewController: CPBaseViewController{
         self.title = "Stars"
     }
     
-
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
     }

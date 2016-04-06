@@ -108,7 +108,7 @@ class CPBaseViewController: UIViewController,UIGestureRecognizerDelegate {
         let rightBarButton = UIBarButtonItem(customView: rightItem!)
         
         let rightSpace = UIBarButtonItem.init(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
-        rightSpace.width = -29;    //越小越靠右
+        rightSpace.width = -8;    //越小越靠右
         
         self.navigationItem.rightBarButtonItems = [rightSpace,rightBarButton]
         
@@ -129,7 +129,7 @@ class CPBaseViewController: UIViewController,UIGestureRecognizerDelegate {
         let rightBarButton = UIBarButtonItem(customView: right)
 
         let rightSpace = UIBarButtonItem.init(barButtonSystemItem: .FixedSpace, target: nil, action: nil)
-        rightSpace.width = -29;    //越小越靠右
+        rightSpace.width = -8;    //越小越靠右
         
         self.navigationItem.rightBarButtonItems = [rightSpace,rightBarButton]
         

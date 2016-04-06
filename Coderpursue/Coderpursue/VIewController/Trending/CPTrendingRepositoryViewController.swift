@@ -38,6 +38,8 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     // 顶部刷新
     let header = MJRefreshNormalHeader()
     
+    // MARK: - view cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,15 +56,45 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
 
     }
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
-    }
-
+    // MARK: - view
     
     func rvc_customView(){
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.whiteColor()
+        
+    }
+    
+    func rvc_setupTableView() {
+        
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.separatorStyle = .None
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.automaticallyAdjustsScrollViewInsets = false
+        header.setTitle("Pull down to refresh", forState: .Idle)
+        header.setTitle("Release to refresh", forState: .Pulling)
+        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingRepositoryViewController.headerRefresh))
+        // 现在的版本要用mj_header
+//        self.tableView.mj_header = header
+    }
+    
+    // MARK: - action
+    
+    func headerRefresh(){
+        print("下拉刷新")
+        
+    }
+    
+    func rvc_updateViewContent() {
+        
+        let objRepo = repos!
+        reposPoseterV.repo = objRepo
+        reposPoseterV.watched = hasWatchedRepos
+        reposPoseterV.stared = hasStaredRepos
+        
+        reposInfoV.repo = objRepo
         
     }
     
@@ -83,39 +115,13 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         rvc_checkWatchedRequset()
         rvc_checkStarredRqeuset()
     }
-
-    func rvc_setupTableView() {
-        
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
-        self.automaticallyAdjustsScrollViewInsets = false
-        // 下拉刷新
-        header.setTitle("Pull down to refresh", forState: .Idle)
-        header.setTitle("Release to refresh", forState: .Pulling)
-        header.setTitle("Loading ...", forState: .Refreshing)
-        header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingRepositoryViewController.headerRefresh))
-        // 现在的版本要用mj_header
-//        self.tableView.mj_header = header
+    
+    
+    override func leftItemAction(sender: UIButton?) {
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
-    // 顶部刷新
-    func headerRefresh(){
-        print("下拉刷新")
-        
-    }
-    
-    func rvc_updateViewContent() {
-        
-        let objRepo = repos!
-        reposPoseterV.repo = objRepo
-        reposPoseterV.watched = hasWatchedRepos
-        reposPoseterV.stared = hasStaredRepos
-        
-        reposInfoV.repo = objRepo
-        
-    }
+    // MARK: - request
     
     func rvc_getReopsRequest(){
         

@@ -37,6 +37,8 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     // 顶部刷新
     let header = MJRefreshNormalHeader()
     
+    // MARK: - view cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -57,12 +59,8 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
         dvc_checkUserFollowed()
     }
-
-    // 顶部刷新
-    func headerRefresh(){
-        print("下拉刷新")
-        
-    }
+    
+    // MARK: - view
     
     func dvc_customView(){
 
@@ -92,7 +90,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         self.tableView.allowsSelection = false
         self.automaticallyAdjustsScrollViewInsets = false
         
-        // 下拉刷新
         header.setTitle("Pull down to refresh", forState: .Idle)
         header.setTitle("Release to refresh", forState: .Pulling)
         header.setTitle("Loading ...", forState: .Refreshing)
@@ -100,6 +97,12 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         // 现在的版本要用mj_header
 //        self.tableView.mj_header = header
         
+    }
+
+    // MARK: - action
+
+    func headerRefresh(){
+        print("下拉刷新")
     }
     
     func dvc_updateViewContent() {
@@ -152,7 +155,8 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
     }
     
-    
+    // MARK: - request
+
     func dvc_checkUserFollowed() {
     
         let username = developer!.login!

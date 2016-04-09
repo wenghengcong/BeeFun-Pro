@@ -48,6 +48,7 @@
 		5E738C9E1C93A53D0075C82C /* CPFilterTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E738C9D1C93A53D0075C82C /* CPFilterTableView.swift */; };
 		5E7F24761CB897D7001BD4C8 /* CPSearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24751CB897D7001BD4C8 /* CPSearchFilterView.swift */; };
 		5E7F24781CB8F622001BD4C8 /* ParaSearchRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24771CB8F622001BD4C8 /* ParaSearchRepos.swift */; };
+		5E7F247A1CB92BD0001BD4C8 /* ObjSearchReposResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24791CB92BD0001BD4C8 /* ObjSearchReposResponse.swift */; };
 		5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */; };
 		5EACCFC91C8D52C60059A303 /* CPMesIssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */; };
 		5EACCFCC1C8DEB490059A303 /* ParaSearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */; };
@@ -196,6 +197,7 @@
 		5E738C9D1C93A53D0075C82C /* CPFilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFilterTableView.swift; sourceTree = "<group>"; };
 		5E7F24751CB897D7001BD4C8 /* CPSearchFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchFilterView.swift; sourceTree = "<group>"; };
 		5E7F24771CB8F622001BD4C8 /* ParaSearchRepos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchRepos.swift; sourceTree = "<group>"; };
+		5E7F24791CB92BD0001BD4C8 /* ObjSearchReposResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjSearchReposResponse.swift; sourceTree = "<group>"; };
 		5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesIssueCell.swift; sourceTree = "<group>"; };
 		5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesIssueCell.xib; sourceTree = "<group>"; };
 		5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchUser.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 			children = (
 				5E546D951C8F618000E94997 /* ObjShowcase.swift */,
 				5E546D991C8F61A000E94997 /* ObjSearchUserResponse.swift */,
+				5E7F24791CB92BD0001BD4C8 /* ObjSearchReposResponse.swift */,
 			);
 			path = Trending;
 			sourceTree = "<group>";
@@ -1052,6 +1055,7 @@
 				5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */,
 				FE0FE0D91C3F14F10005DDE5 /* ProjectKey.swift in Sources */,
 				FE17EA401C5723270061F624 /* ObjReposSum.swift in Sources */,
+				5E7F247A1CB92BD0001BD4C8 /* ObjSearchReposResponse.swift in Sources */,
 				FE19F93D1C39331B009986FE /* UIColor+Project.swift in Sources */,
 				5E546D9A1C8F61A000E94997 /* ObjSearchUserResponse.swift in Sources */,
 				FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */,

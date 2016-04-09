@@ -673,9 +673,9 @@ extension GitHubAPI: TargetType {
             ]
         case .SearchRepos(let para):
             return [
-                "q":para.q!,
-                "sort":para.sort!,
-                "order":para.order!,
+                "q":para.q,
+                "sort":para.sort,
+                "order":para.order,
                 "page":para.page,
                 "per_page":para.perPage,
             ]

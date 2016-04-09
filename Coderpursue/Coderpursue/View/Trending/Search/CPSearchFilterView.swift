@@ -11,6 +11,7 @@ import UIKit
 protocol CPSearchFilterViewProtcocol {
     
     func didBeginSearch(para:[String:Int])
+    func showContentView(show:Bool)
 
 }
 
@@ -89,7 +90,8 @@ class CPSearchFilterView: UIView {
         
         contengH = self.height-paraBtnH
         contentView.frame = CGRectMake(0, paraBtnH, width, contengH)
-
+        contentView.backgroundColor = UIColor.whiteColor()
+        
         let actionBtnH:CGFloat = 40
         
         tableView.frame = CGRectMake(0, 0, width,contentView.height-actionBtnH)
@@ -108,14 +110,14 @@ class CPSearchFilterView: UIView {
         resetBtn.setTitle("Reset", forState: .Normal)
         resetBtn.setTitleColor(UIColor.cpBlackColor(), forState: .Normal)
         resetBtn.backgroundColor = UIColor.whiteColor()
-        resetBtn.addTarget(self, action: Selector(resetParaAction()), forControlEvents: .TouchUpInside)
+        resetBtn.addTarget(self, action: #selector(CPSearchFilterView.resetParaAction), forControlEvents: .TouchUpInside)
         footView.addSubview(resetBtn)
         
         let sureBtn = UIButton.init(frame: CGRectMake(width/2,0, width/2, actionBtnH))
         sureBtn.setTitle("Sure", forState: .Normal)
         sureBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         sureBtn.backgroundColor = UIColor.cpRedColor()
-        sureBtn.addTarget(self, action:Selector(sureAction()), forControlEvents: .TouchUpInside)
+        sureBtn.addTarget(self, action: #selector(CPSearchFilterView.sureAction), forControlEvents: .TouchUpInside)
         
         footView.addSubview(sureBtn)
         contentView.addSubview(footView)
@@ -130,20 +132,14 @@ class CPSearchFilterView: UIView {
         
         if hidden {
             
-            UIView.animateWithDuration(0.75, animations: {
-                self.frame = CGRectMake(0,64,self.width,self.paraBtnH)
-                self.contentView.hidden = hidden
-            })
+            self.frame = CGRectMake(0,64,self.width,self.paraBtnH)
+            self.contentView.hidden = hidden
             
         }else{
             
-            UIView.animateWithDuration(0.75, animations: {
-                    self.frame = CGRectMake(0,64,self.width,self.paraBtnH+self.contengH)
-                    self.contentView.frame = CGRectMake(0, self.paraBtnH, self.width, self.contengH)
-                    self.contentView.hidden = hidden
-                }, completion: { (true) in
-
-            })
+            self.frame = CGRectMake(0,64,self.width,self.paraBtnH+self.contengH)
+            self.contentView.frame = CGRectMake(0, self.paraBtnH, self.width, self.contengH)
+            self.contentView.hidden = hidden
             
         }
         
@@ -171,6 +167,9 @@ class CPSearchFilterView: UIView {
                 }
             }
             
+            if searchParaDelegate != nil {
+                searchParaDelegate?.showContentView(btn.selected)
+            }
             
         }
         
@@ -182,12 +181,18 @@ class CPSearchFilterView: UIView {
             selValueDic[selPara] = 0
         }
         tableView.reloadData()
+        sureAction()
     }
     
     func sureAction() {
         
         if searchParaDelegate != nil {
+            hiddenContentView(true)
+            for paraBtn in paraBtns {
+                paraBtn.selected = false
+            }
             searchParaDelegate?.didBeginSearch(selValueDic)
+            searchParaDelegate?.showContentView(false)
         }
         
     }

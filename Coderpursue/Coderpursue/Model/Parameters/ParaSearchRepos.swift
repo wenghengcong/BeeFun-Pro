@@ -39,9 +39,9 @@ public enum ReposInField:String {
 
 public class ParaSearchRepos: NSObject {
     
-    var q:String?
-    var sort:String?
-    var order:String?
+    var q:String
+    var sort:String
+    var order:String
     
     //ccombine all parameters to q
     //now support only one to one,but github api support one to many
@@ -69,10 +69,9 @@ public class ParaSearchRepos: NSObject {
         
     }
     
-    override init() {
-        super.init()
+    convenience override init() {
+        self.init(query:"" ,sort:"" ,order:"desc")
     }
-    
     
     func combineQuery()->String {
         

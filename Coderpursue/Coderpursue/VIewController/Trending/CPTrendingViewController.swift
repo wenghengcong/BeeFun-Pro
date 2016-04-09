@@ -213,14 +213,17 @@ class CPTrendingViewController: CPBaseViewController {
     override func rightItemAction(sender: UIButton?) {
         
         var pageType:TrendingViewPageType = .Repos
+        var placeholder = "Search repositories"
         
         if segControl.selectedSegmentIndex == 1 {
             pageType = .User
+            placeholder = "Search users"
         }
         
         let searchVC = CPSearchViewController()
         searchVC.hidesBottomBarWhenPushed = true
         searchVC.pageType = pageType
+        searchVC.searchPlacehoder = placeholder
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
     

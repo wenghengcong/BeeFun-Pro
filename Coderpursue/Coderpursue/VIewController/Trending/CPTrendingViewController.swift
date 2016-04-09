@@ -12,6 +12,13 @@ import Foundation
 import MJRefresh
 import ObjectMapper
 
+public enum TrendingViewPageType:String {
+    
+    case User = "user"
+    case Repos = "repos"
+    
+}
+
 class CPTrendingViewController: CPBaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
@@ -205,8 +212,15 @@ class CPTrendingViewController: CPBaseViewController {
     
     override func rightItemAction(sender: UIButton?) {
         
+        var pageType:TrendingViewPageType = .Repos
+        
+        if segControl.selectedSegmentIndex == 1 {
+            pageType = .User
+        }
+        
         let searchVC = CPSearchViewController()
         searchVC.hidesBottomBarWhenPushed = true
+        searchVC.pageType = pageType
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
     

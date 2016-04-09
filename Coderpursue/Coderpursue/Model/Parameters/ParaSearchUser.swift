@@ -28,7 +28,7 @@ public enum UserType:String {
     
 }
 
-public enum InField:String {
+public enum UserInField:String {
     
     case Default = ""
     case Email = "email"
@@ -49,7 +49,7 @@ public class ParaSearchUser : NSObject{
     //such as,type:org type:user,but now support only type:user or type:org
     var keyword:String?
     var typePara:UserType?
-    var inPara:InField?
+    var inPara:UserInField?
     var reposPara:String?
     var locationPara:String?
     var languagePara:String?

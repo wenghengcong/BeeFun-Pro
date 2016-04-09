@@ -197,6 +197,7 @@ public enum GitHubAPI {
     
     //search
     case SearchUsers(para:ParaSearchUser)
+    case SearchRepos(para:ParaSearchRepos)
     
     //forks
     case UserReposForks(page:Int,perpage:Int,sort:String,owner:String,repo:String)
@@ -365,7 +366,10 @@ extension GitHubAPI: TargetType {
         //search
         case SearchUsers:
             return "/search/users"
+        case SearchRepos:
+            return "/search/repositories"
 
+            
         //forks
         case UserReposForks(_,_,_,let owner,let repo):
             return "/repos/\(owner)/\(repo)/forks"
@@ -664,6 +668,14 @@ extension GitHubAPI: TargetType {
                 "q":para.q,
                 "sort":para.sort,
                 "order":para.order,
+                "page":para.page,
+                "per_page":para.perPage,
+            ]
+        case .SearchRepos(let para):
+            return [
+                "q":para.q!,
+                "sort":para.sort!,
+                "order":para.order!,
                 "page":para.page,
                 "per_page":para.perPage,
             ]

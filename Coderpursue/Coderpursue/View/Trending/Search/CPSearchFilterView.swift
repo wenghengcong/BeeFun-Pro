@@ -8,21 +8,17 @@
 
 import UIKit
 
+protocol CPSearchFilterViewProtcocol {
+    
+    func didBeginSearch(para:[String:Int])
+
+}
+
 class CPSearchFilterView: UIView {
 
-    let cellID = "SearchFilterCell"
-
-    var filterPara:[String] = [] {
-        didSet {
-            
-        }
-    }
+    var searchParaDelegate:CPSearchFilterViewProtcocol?
     
-    var filterData:[[String]] = [[]] {
-        didSet {
-            
-        }
-    }
+    let cellID = "SearchFilterCell"
     
     var tableView:UITableView = UITableView()
     var contentView = UIView()
@@ -31,9 +27,23 @@ class CPSearchFilterView: UIView {
     var contengH:CGFloat = 0.0
     
     var selParaIndex = 0    //current select para index
-    var selValueIndex = 0    //current select para index
-
+    var selValueDic:[String:Int] = [:]
+    
     var paraBtns:[UIButton] = []
+    
+    var filterPara:[String] = [] {
+        didSet {
+            for item in filterPara {
+                selValueDic[item] = 0
+            }
+        }
+    }
+    
+    var filterData:[[String]] = [[]] {
+        didSet {
+            
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -94,16 +104,19 @@ class CPSearchFilterView: UIView {
         
         let footView = UIView.init(frame: CGRectMake(0, tableView.bottom, width, actionBtnH))
         
-        let clearBtn = UIButton.init(frame: CGRectMake(0, 0, width/2, actionBtnH))
-        clearBtn.setTitle("Reset", forState: .Normal)
-        clearBtn.setTitleColor(UIColor.cpBlackColor(), forState: .Normal)
-        clearBtn.backgroundColor = UIColor.whiteColor()
-        footView.addSubview(clearBtn)
+        let resetBtn = UIButton.init(frame: CGRectMake(0, 0, width/2, actionBtnH))
+        resetBtn.setTitle("Reset", forState: .Normal)
+        resetBtn.setTitleColor(UIColor.cpBlackColor(), forState: .Normal)
+        resetBtn.backgroundColor = UIColor.whiteColor()
+        resetBtn.addTarget(self, action: Selector(resetParaAction()), forControlEvents: .TouchUpInside)
+        footView.addSubview(resetBtn)
         
         let sureBtn = UIButton.init(frame: CGRectMake(width/2,0, width/2, actionBtnH))
         sureBtn.setTitle("Sure", forState: .Normal)
         sureBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
         sureBtn.backgroundColor = UIColor.cpRedColor()
+        sureBtn.addTarget(self, action:Selector(sureAction()), forControlEvents: .TouchUpInside)
+        
         footView.addSubview(sureBtn)
         contentView.addSubview(footView)
         
@@ -163,7 +176,23 @@ class CPSearchFilterView: UIView {
         
     }
     
-
+    func resetParaAction() {
+        
+        for (selPara, _) in selValueDic {
+            selValueDic[selPara] = 0
+        }
+        tableView.reloadData()
+    }
+    
+    func sureAction() {
+        
+        if searchParaDelegate != nil {
+            searchParaDelegate?.didBeginSearch(selValueDic)
+        }
+        
+    }
+    
+    
 }
 
 extension CPSearchFilterView:UITableViewDataSource {
@@ -187,7 +216,10 @@ extension CPSearchFilterView:UITableViewDataSource {
         cell.backgroundColor = UIColor.viewBackgroundColor()
         cell.textLabel!.font = UIFont.systemFontOfSize(14.0)
         cell.textLabel?.textAlignment = .Center
+        cell.selectionStyle = .None
         
+        let currentPara = filterPara[selParaIndex]
+        let selValueIndex = selValueDic[currentPara]
         if(indexPath.row == selValueIndex){
             cell.backgroundColor = UIColor.whiteColor()
             cell.textLabel?.textColor = UIColor.cpRedColor()
@@ -216,6 +248,11 @@ extension CPSearchFilterView:UITableViewDelegate {
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let currentPara = filterPara[selParaIndex]
+        selValueDic[currentPara] = indexPath.row
+        print(selValueDic)
+        tableView.reloadData()
         
     }
 }

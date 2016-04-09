@@ -206,7 +206,7 @@ class CPTrendingViewController: CPBaseViewController {
     override func rightItemAction(sender: UIButton?) {
         
         let searchVC = CPSearchViewController()
-        
+        searchVC.hidesBottomBarWhenPushed = true
         self.navigationController?.pushViewController(searchVC, animated: true)
     }
     

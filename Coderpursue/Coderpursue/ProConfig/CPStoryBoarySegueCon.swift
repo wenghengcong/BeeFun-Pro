@@ -11,6 +11,12 @@ public let SegueTrendingShowRepositoryDetail = "ShowRepoDetailSegue"
 public let SegueTrendingShowDeveloperDetail = "ShowDeveDetailSegue"
 public let SegueTrendingShowShowcaseDetail = "ShowShowcaseDetailSegue"
 
+//explore search
+public let SegueTrendingSearchView = "TrendingSearchViewSegue"
+public let SegueTrendingSearchReposDetailView = "TrendingSearchReposDetaiViewSegue"
+public let SegueTrendingSearchUserDetailView = "TrendingSearchViewUserDetailSegue"
+
+
 //profile
 public let SegueProfileShowFollowerList = "ShowFollowerListSegue"
 public let SegueProfileShowRepositoryList = "ShowRepositoryListSegue"

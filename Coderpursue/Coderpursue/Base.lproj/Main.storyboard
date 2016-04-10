@@ -208,6 +208,29 @@
             </objects>
             <point key="canvasLocation" x="427.5" y="66.5"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="0rW-gQ-k2H">
+            <objects>
+                <viewController id="nff-sI-GcA" customClass="CPSearchViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="OkY-i7-W9k"/>
+                        <viewControllerLayoutGuide type="bottom" id="jl8-90-1Uo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="0wT-Bv-DJa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <segue destination="DFV-4I-ATK" kind="show" identifier="TrendingSearchReposDetaiViewSegue" id="oX4-rD-6rY"/>
+                        <segue destination="Ax2-Kg-xXj" kind="show" identifier="TrendingSearchViewUserDetailSegue" id="EfK-vJ-Xr3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FaO-LS-AFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1421.5" y="668.5"/>
+        </scene>
         <!--Explore-->
         <scene sceneID="TB7-hQ-fi8">
             <objects>
@@ -260,11 +283,12 @@
                         <segue destination="DFV-4I-ATK" kind="show" identifier="ShowRepoDetailSegue" id="wKV-hJ-UO0"/>
                         <segue destination="Ax2-Kg-xXj" kind="show" identifier="ShowDeveDetailSegue" id="Ah2-FE-EYQ"/>
                         <segue destination="9Nl-ng-E8B" kind="show" identifier="ShowShowcaseDetailSegue" id="zwh-97-WFq"/>
+                        <segue destination="nff-sI-GcA" kind="show" identifier="TrendingSearchViewSegue" id="Kwu-WV-Di8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIR-VO-qip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443.5" y="-1436.5"/>
+            <point key="canvasLocation" x="427.5" y="-1452.5"/>
         </scene>
         <!--Trending Developer View Controller-->
         <scene sceneID="R5e-Cn-GTK">
@@ -1381,7 +1405,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8tf-DB-av5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="443.5" y="859.5"/>
+            <point key="canvasLocation" x="478.5" y="846.5"/>
         </scene>
         <!--Message-->
         <scene sceneID="sqn-RG-YNS">
@@ -1482,9 +1506,9 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wKV-hJ-UO0"/>
         <segue reference="Ocj-6m-P78"/>
+        <segue reference="EfK-vJ-Xr3"/>
+        <segue reference="oX4-rD-6rY"/>
         <segue reference="4pF-1J-jZn"/>
-        <segue reference="Ah2-FE-EYQ"/>
     </inferredMetricsTieBreakers>
 </document>

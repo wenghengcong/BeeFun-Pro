@@ -68,16 +68,16 @@ class CPTrendingDeveloperCell: CPBaseViewCell {
     
     override func layoutSubviews() {
         
-        if(userNo < 3){
-            
-            noLabel.textColor = UIColor.cpRedColor()
-            nameLabel.textColor = UIColor.cpRedColor()
-            
-        }else{
-            
+//        if(userNo < 3){
+//            
+//            noLabel.textColor = UIColor.cpRedColor()
+//            nameLabel.textColor = UIColor.cpRedColor()
+//            
+//        }else{
+        
             noLabel.textColor = UIColor.cpBlackColor()
             nameLabel.textColor = UIColor.cpBlackColor()
-        }
+//        }
         
 //        noLabel.sizeToFit()
         

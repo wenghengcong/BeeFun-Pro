@@ -574,19 +574,38 @@ extension CPSearchViewController: UITableViewDelegate {
         
         if pageType == .Repos {
             let repos = self.reposData[indexPath.row]
-            let reposVC = CPTrendingRepositoryViewController()
-            reposVC.hidesBottomBarWhenPushed = true
-            reposVC.repos = repos
-            self.navigationController?.pushViewController(reposVC, animated: true)
+            self.performSegueWithIdentifier(SegueTrendingSearchReposDetailView, sender: repos)
             return
         }
             
         let dev = self.usersData[indexPath.row]
-        let devVC = CPTrendingDeveloperViewController()
-        devVC.hidesBottomBarWhenPushed = true
-        devVC.developer = dev
-        self.navigationController?.pushViewController(devVC, animated: true)
+        self.performSegueWithIdentifier(SegueTrendingSearchUserDetailView, sender: dev)
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == SegueTrendingSearchReposDetailView){
+
+            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
+            reposVC.hidesBottomBarWhenPushed = true
+            
+            let repos = sender as? ObjRepos
+            if(repos != nil){
+                reposVC.repos = repos
+            }
+            
+        }else if(segue.identifier == SegueTrendingSearchUserDetailView){
+            
+            let devVC = segue.destinationViewController as! CPTrendingDeveloperViewController
+            devVC.hidesBottomBarWhenPushed = true
+            
+            let dev = sender as? ObjUser
+            if(dev != nil){
+                devVC.developer = dev
+            }
+            
+        }
     }
 
     

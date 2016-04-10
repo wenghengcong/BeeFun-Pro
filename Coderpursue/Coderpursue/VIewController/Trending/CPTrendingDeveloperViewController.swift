@@ -423,7 +423,7 @@ extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
     func segueGotoViewController() {
         
         if (!UserInfoHelper.sharedInstance.isLoginIn){
-            CPGlobalHelper.sharedInstance.showError("Please first login in", view: self.view)
+            CPGlobalHelper.sharedInstance.showError("Please login first", view: self.view)
             return
         }
         

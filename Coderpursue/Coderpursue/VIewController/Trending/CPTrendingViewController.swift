@@ -211,20 +211,12 @@ class CPTrendingViewController: CPBaseViewController {
     }
     
     override func rightItemAction(sender: UIButton?) {
-        
-        var pageType:TrendingViewPageType = .Repos
-        var placeholder = "Search repositories"
-        
-        if segControl.selectedSegmentIndex == 1 {
-            pageType = .User
-            placeholder = "Search users"
+    
+        if !tvc_isLogin() {
+            return
         }
-        
-        let searchVC = CPSearchViewController()
-        searchVC.hidesBottomBarWhenPushed = true
-        searchVC.pageType = pageType
-        searchVC.searchPlacehoder = placeholder
-        self.navigationController?.pushViewController(searchVC, animated: true)
+        self.performSegueWithIdentifier(SegueTrendingSearchView, sender: nil)
+
     }
     
     func tvc_filterViewApper(){
@@ -289,7 +281,7 @@ class CPTrendingViewController: CPBaseViewController {
     
     func tvc_isLogin()->Bool{
         if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
             return false
         }
         return true
@@ -334,12 +326,12 @@ class CPTrendingViewController: CPBaseViewController {
                         if(self.paraUser.page == 1){
                             self.reposData.removeAll()
                             self.reposData = repos!
+                            self.tableView.reloadData()
+                            self.tableView.setContentOffset(CGPointZero, animated:true)
                         }else{
                             self.reposData = self.reposData+repos!
+                            self.tableView.reloadData()
                         }
-                        
-
-                        self.tableView.reloadData()
                         
                     } else {
 
@@ -400,13 +392,15 @@ class CPTrendingViewController: CPBaseViewController {
                             if(self.devesData != nil){
                                 self.devesData.removeAll()
                                 self.devesData = userResult.items
+                                self.tableView.reloadData()
+                                self.tableView.setContentOffset(CGPointZero, animated:true)
                             }
 
                         }else{
                             self.devesData = self.devesData+userResult.items!
+                            self.tableView.reloadData()
                         }
                         
-                        self.tableView.reloadData()
                         
                     } else {
                     }
@@ -482,6 +476,7 @@ extension CPTrendingViewController : CPFilterTableViewProtocol {
                     paraLanguage = value
                 }
             }
+            paraUser.page = 1
             tvc_filterViewDisapper()
             tvc_getReposRequest()
             
@@ -498,6 +493,7 @@ extension CPTrendingViewController : CPFilterTableViewProtocol {
                 paraUser.languagePara = nil
                 paraUser.locationPara = nil
             }
+            paraUser.page = 1
             tvc_filterViewDisapper()
             tvc_getUserRequest()
         }
@@ -675,6 +671,21 @@ extension CPTrendingViewController : UITableViewDelegate {
                 showcaseVC.showcase = showcase
             }
             
+        }else if(segue.identifier == SegueTrendingSearchView){
+            
+            var pageType:TrendingViewPageType = .Repos
+            var placeholder = "Search repositories"
+            
+            if segControl.selectedSegmentIndex == 1 {
+                pageType = .User
+                placeholder = "Search users"
+            }
+            
+            let searchVC = segue.destinationViewController as! CPSearchViewController
+            
+            searchVC.hidesBottomBarWhenPushed = true
+            searchVC.pageType = pageType
+            searchVC.searchPlacehoder = placeholder
         }
         
     }

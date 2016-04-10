@@ -72,7 +72,7 @@ class CPProfileViewController: CPBaseViewController {
     
     func pvc_isLogin()->Bool{
         if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
             return false
         }
         return true
@@ -208,7 +208,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
             self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
         }else{
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
 
         }
 
@@ -220,7 +220,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
             self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
         }else{
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
 
         }
     }
@@ -231,7 +231,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             let dic:[String:String] = ["uname":uname!,"type":"following"]
             self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
         }else{
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
         }
     }
     
@@ -315,7 +315,7 @@ extension CPProfileViewController : UITableViewDelegate {
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
                 self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
             }else{
-                CPGlobalHelper.sharedInstance.showMessage("You Should Login in first!", view: self.view)
+                CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
             }
         
         }else if(viewType == "feedback"){

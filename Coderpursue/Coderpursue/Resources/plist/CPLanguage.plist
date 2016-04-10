@@ -27,5 +27,21 @@
 	<string>Rust</string>
 	<string>D</string>
 	<string>Bash</string>
+	<string>ASP</string>
+	<string>COBOL</string>
+	<string>ABAP</string>
+	<string>SAS</string>
+	<string>Scratch</string>
+	<string>Dart</string>
+	<string>Fortran</string>
+	<string>Lisp</string>
+	<string>Ada</string>
+	<string>Lua</string>
+	<string>Scala</string>
+	<string>Logo</string>
+	<string>F#</string>
+	<string>Haskell</string>
+	<string>Clojure</string>
+	<string>CoffeeScript</string>
 </array>
 </plist>

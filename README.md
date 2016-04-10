@@ -1,6 +1,6 @@
 # Coderpursue (已上架)
 
-[![](https://img.shields.io/badge/version-1.0.1-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
+[![](https://img.shields.io/badge/version-1.0.2-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-2.2-green.svg)](https://developer.apple.com/swift/)
 
 Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目前已开源。
@@ -15,9 +15,9 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 
 ### 功能
 
-- v1.0.1
-  1. Explore Github: 查看当天Trending的repositories和showcases；
-  2. 浏览搜索开发者；
+- v1.0.2
+  1. Explore Github
+  2. 搜索repository、user；
   3. star/watch/fork repository；
   4. follow/unfollow user;
   5. 查看notification和issue;
@@ -48,8 +48,8 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 下一步的开发计划是：
 
 - v1.1.0
-  1. 增加搜索Repository功能；
-  2. 增加Trending时间段选择；
+  1. ~~增加搜索Repository功能；~~
+  2. ~~增加Trending时间段选择；~~
   3. 增加查看notification 详情页面；
   4. 增加查看Issue详情页面；
   5. 增加查看Event详情页面；

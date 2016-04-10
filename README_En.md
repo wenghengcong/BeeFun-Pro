@@ -1,6 +1,6 @@
 # Coderpursue 
 
-[![](https://img.shields.io/badge/version-1.0.1-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
+[![](https://img.shields.io/badge/version-1.0.2-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-2.2-green.svg)](https://developer.apple.com/swift/)
 
 Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift.Also,It's an open project.
@@ -17,9 +17,9 @@ You can get the app by QR code or on App Store.
   
 ### Feature
 
-- v1.0.1
+- v1.0.2
   1. Explore Github: Explore Trending Repositories or showcases；
-  2. Search User by language or location；
+  2. Search User and Repositories；
   3. star/watch/fork repository；
   4. follow/unfollow user;
   5. view your notification and issue;
@@ -51,8 +51,8 @@ Now,I should improve the quality of the application first.
 Also,I will add these features to next version.
 
 - v1.1.0
-  1. search Repository;
-  2. trending Repositories filter by tiem period;
+  1. ~~search Repository;~~
+  2. ~~trending Repositories filter by tiem period;~~
   3. add notification detail page;
   4. add Issue detail page;
   5. add event deatail page;

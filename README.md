@@ -21,9 +21,9 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
   3. star/watch/fork repository；
   4. follow/unfollow user;
   5. 查看notification和issue;
-  6. 查看自己的star/watch的repositories；
-  7. 查看自己的event;
-  8. 查看自己的followers/following;
+  6. 查看用户的 starred/watched repositories；
+  7. 查看用户的 event;
+  8. 查看用户的 followers/following user;
 
 ***
   

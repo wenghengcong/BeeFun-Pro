@@ -161,7 +161,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
         let username = developer!.login!
         
-        Provider.sharedProvider.request(.Follow(username:username) ) { (result) -> () in
+        Provider.sharedProvider.request(.CheckUserFollowing(username:username) ) { (result) -> () in
             
             var message = "No data to show"
             

@@ -236,6 +236,7 @@
             <objects>
                 <navigationController id="lAP-Eg-5KM" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="tab_trending" selectedImage="tab_trending_sel" id="6tt-Ce-XeT"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pV5-to-I10">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

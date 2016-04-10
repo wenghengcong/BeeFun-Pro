@@ -19,4 +19,8 @@ class CPBaseNavigationController: UINavigationController {
     func customView() {
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
 }

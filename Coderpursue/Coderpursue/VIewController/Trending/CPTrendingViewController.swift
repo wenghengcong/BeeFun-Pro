@@ -148,6 +148,8 @@ class CPTrendingViewController: CPBaseViewController {
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
             
+            self.filterView?.resetProperty()
+
             if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
                 self.leftItem?.hidden = false
                 self.tvc_getReposRequest()

@@ -70,6 +70,8 @@ class CPSearchFilterView: UIView {
             paraBtn.addOnePixelAroundBorder(UIColor.lightGrayColor())
             paraBtn.titleLabel?.textAlignment = .Center
             paraBtn.setImage(UIImage(named: "arrow_down"), forState: .Normal)
+            paraBtn.setImage(UIImage(named: "arrow_down"), forState: .Highlighted)
+
             paraBtn.setImage(UIImage(named: "arrow_up"), forState: .Selected)
             paraBtn.setTitleColor(UIColor.cpBlackColor(), forState: .Normal)
             paraBtn.setTitleColor(UIColor.cpRedColor(), forState: .Selected)

@@ -21,11 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //bug 
 //        CrashReporter.sharedInstance().enableLog(true)
-        CrashReporter.sharedInstance().installWithAppId(TencentBuglyAppID)
-
-        //change status bar color
-        UIApplication.sharedApplication().statusBarHidden = false
-        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        Bugly.startWithAppId(TencentBuglyAppID)
         
         return true
     }

@@ -10,11 +10,11 @@ import UIKit
 
 class ShareContent: NSObject {
     
-    var shareUrl
-    var shareImageUrl
-    var shareImage
-    var shareContent
-    var shareTitle
+    var shareUrl:String?
+    var shareImageUrl:String?
+    var shareImage:UIImage?
+    var shareContent:String?
+    var shareTitle:String?
     
     
 }
@@ -24,7 +24,7 @@ class ShareHelper: NSObject {
     static let sharedInstance = ShareHelper()
     
     func configShareSDKPlatforms() {
-//        ShareSDK.registerApp()
+        UMSocialData.setAppKey(UMengSocailAppSecret)
     }
     
 }

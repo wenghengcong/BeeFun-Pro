@@ -19,5 +19,3 @@ pod 'MJRefresh'
 pod "SwiftDate", "~> 2.0"
 #pod 'UMengAnalytics-NO-IDFA'
 pod 'Bugly'
-pod 'Fabric'
-pod 'TwitterKit'

@@ -1,7 +1,6 @@
 PODS:
   - Alamofire (3.3.1)
   - Bugly (2.1)
-  - Fabric (1.6.7)
   - IQKeyboardManagerSwift (4.0.1)
   - Kingfisher (2.2.2)
   - MBProgressHUD (0.9.2)
@@ -17,15 +16,10 @@ PODS:
   - SnapKit (0.20.0)
   - SwiftDate (2.0.2)
   - SwiftyJSON (2.3.2)
-  - TwitterCore (2.0.2):
-    - Fabric
-  - TwitterKit (2.0.2):
-    - TwitterCore (= 2.0.2)
 
 DEPENDENCIES:
   - Alamofire
   - Bugly
-  - Fabric
   - IQKeyboardManagerSwift
   - Kingfisher
   - MBProgressHUD
@@ -36,12 +30,10 @@ DEPENDENCIES:
   - SnapKit
   - SwiftDate (~> 2.0)
   - SwiftyJSON
-  - TwitterKit
 
 SPEC CHECKSUMS:
   Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
   Bugly: bea72755cea96604658cc480b4efe85576c8aa2c
-  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   IQKeyboardManagerSwift: e92246955e21dad73ad9dc89b80adb134d8bb395
   Kingfisher: 7e8de5b0cf7b5dc8ec559d193029a0859df93ef1
   MBProgressHUD: 1569cf7ace17a8bac47aabfbb8580a49690386d1
@@ -53,7 +45,5 @@ SPEC CHECKSUMS:
   SnapKit: 5fce3c1bbbf1fbd31de9aa92f33eb9fa03f15650
   SwiftDate: b4f4d0962afe48365ad2800c9850a6626deb9359
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
-  TwitterCore: 0f44d8980a6879d5205dcb4e010d15e643e56fa0
-  TwitterKit: c4e40f289a3d7cc9fab9f241edd7502385468b65
 
 COCOAPODS: 0.39.0

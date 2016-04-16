@@ -90,6 +90,13 @@
 		5E7692021CC2327B00E0C2D3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7692011CC2327B00E0C2D3 /* CoreGraphics.framework */; };
 		5E7692041CC2328B00E0C2D3 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7692031CC2328B00E0C2D3 /* CoreTelephony.framework */; };
 		5E7692061CC2329100E0C2D3 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7692051CC2329100E0C2D3 /* libiconv.tbd */; };
+		5E7692081CC2436D00E0C2D3 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7692071CC2436D00E0C2D3 /* AdSupport.framework */; };
+		5E76920A1CC2448D00E0C2D3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7692091CC2448D00E0C2D3 /* CoreData.framework */; };
+		5E76920C1CC2449700E0C2D3 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E76920B1CC2449700E0C2D3 /* Accounts.framework */; };
+		5E76920E1CC244A500E0C2D3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E76920D1CC244A500E0C2D3 /* OpenGLES.framework */; };
+		5E7692101CC244B500E0C2D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E76920F1CC244B500E0C2D3 /* QuartzCore.framework */; };
+		5E7692121CC2453300E0C2D3 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E7692111CC2453300E0C2D3 /* Social.framework */; };
+		5E7692141CC256D700E0C2D3 /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E7692131CC256D700E0C2D3 /* TwitterKitResources.bundle */; };
 		5E7F24761CB897D7001BD4C8 /* CPSearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24751CB897D7001BD4C8 /* CPSearchFilterView.swift */; };
 		5E7F24781CB8F622001BD4C8 /* ParaSearchRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24771CB8F622001BD4C8 /* ParaSearchRepos.swift */; };
 		5E7F247A1CB92BD0001BD4C8 /* ObjSearchReposResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24791CB92BD0001BD4C8 /* ObjSearchReposResponse.swift */; };
@@ -315,6 +322,13 @@
 		5E7692011CC2327B00E0C2D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5E7692031CC2328B00E0C2D3 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		5E7692051CC2329100E0C2D3 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
+		5E7692071CC2436D00E0C2D3 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		5E7692091CC2448D00E0C2D3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5E76920B1CC2449700E0C2D3 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		5E76920D1CC244A500E0C2D3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		5E76920F1CC244B500E0C2D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		5E7692111CC2453300E0C2D3 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		5E7692131CC256D700E0C2D3 /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TwitterKitResources.bundle; sourceTree = "<group>"; };
 		5E7F24751CB897D7001BD4C8 /* CPSearchFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchFilterView.swift; sourceTree = "<group>"; };
 		5E7F24771CB8F622001BD4C8 /* ParaSearchRepos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchRepos.swift; sourceTree = "<group>"; };
 		5E7F24791CB92BD0001BD4C8 /* ObjSearchReposResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjSearchReposResponse.swift; sourceTree = "<group>"; };
@@ -423,16 +437,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E7692061CC2329100E0C2D3 /* libiconv.tbd in Frameworks */,
-				5E7692041CC2328B00E0C2D3 /* CoreTelephony.framework in Frameworks */,
-				5E0943951CC1F0100047118D /* libz.tbd in Frameworks */,
+				5E7692121CC2453300E0C2D3 /* Social.framework in Frameworks */,
 				5E7692021CC2327B00E0C2D3 /* CoreGraphics.framework in Frameworks */,
+				5E7692041CC2328B00E0C2D3 /* CoreTelephony.framework in Frameworks */,
+				5E7692101CC244B500E0C2D3 /* QuartzCore.framework in Frameworks */,
+				5E76920E1CC244A500E0C2D3 /* OpenGLES.framework in Frameworks */,
+				5E76920C1CC2449700E0C2D3 /* Accounts.framework in Frameworks */,
+				5E76920A1CC2448D00E0C2D3 /* CoreData.framework in Frameworks */,
+				5E09439D1CC1F0320047118D /* libsqlite3.tbd in Frameworks */,
+				5E7692081CC2436D00E0C2D3 /* AdSupport.framework in Frameworks */,
+				5E09439B1CC1F02B0047118D /* ImageIO.framework in Frameworks */,
+				5E7692061CC2329100E0C2D3 /* libiconv.tbd in Frameworks */,
+				5E0943951CC1F0100047118D /* libz.tbd in Frameworks */,
 				5E7692001CC2326F00E0C2D3 /* SystemConfiguration.framework in Frameworks */,
 				5E7691FE1CC2323C00E0C2D3 /* Security.framework in Frameworks */,
 				5E09439F1CC1F03C0047118D /* MessageUI.framework in Frameworks */,
-				5E09439D1CC1F0320047118D /* libsqlite3.tbd in Frameworks */,
 				5E7691EB1CC22E9100E0C2D3 /* FBSDKShareKit.framework in Frameworks */,
-				5E09439B1CC1F02B0047118D /* ImageIO.framework in Frameworks */,
 				5E0943991CC1F0220047118D /* JavaScriptCore.framework in Frameworks */,
 				5E7691F11CC22E9100E0C2D3 /* TencentOpenAPI.framework in Frameworks */,
 				5E7691F41CC22E9100E0C2D3 /* libSocialTwitter.a in Frameworks */,
@@ -479,6 +499,12 @@
 		4D8F6ECC1AEDFB027177FDBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E7692111CC2453300E0C2D3 /* Social.framework */,
+				5E76920F1CC244B500E0C2D3 /* QuartzCore.framework */,
+				5E76920D1CC244A500E0C2D3 /* OpenGLES.framework */,
+				5E76920B1CC2449700E0C2D3 /* Accounts.framework */,
+				5E7692091CC2448D00E0C2D3 /* CoreData.framework */,
+				5E7692071CC2436D00E0C2D3 /* AdSupport.framework */,
 				5E7692051CC2329100E0C2D3 /* libiconv.tbd */,
 				5E7692031CC2328B00E0C2D3 /* CoreTelephony.framework */,
 				5E7692011CC2327B00E0C2D3 /* CoreGraphics.framework */,
@@ -659,6 +685,7 @@
 		5E7691C91CC22E9100E0C2D3 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
+				5E7692131CC256D700E0C2D3 /* TwitterKitResources.bundle */,
 				5E7691CA1CC22E9100E0C2D3 /* Fabric.framework */,
 				5E7691CB1CC22E9100E0C2D3 /* libSocialTwitter.a */,
 				5E7691CC1CC22E9100E0C2D3 /* TwitterCore.framework */,
@@ -1134,7 +1161,6 @@
 				FEC0DC341C28B39F0008C7C1 /* Resources */,
 				C86E62EFC0C3E0FF7875B4D5 /* Embed Pods Frameworks */,
 				FD109826F941413AB9D3E5B9 /* Copy Pods Resources */,
-				5E0943A01CC21D980047118D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1233,6 +1259,7 @@
 			files = (
 				5E7691F21CC22E9100E0C2D3 /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */,
+				5E7692141CC256D700E0C2D3 /* TwitterKitResources.bundle in Resources */,
 				FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */,
 				5E738C9A1C93A3A60075C82C /* CPCity.plist in Resources */,
 				5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */,
@@ -1287,19 +1314,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		5E0943A01CC21D980047118D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" e7fc6fe67f5ece8c9c70144eafeb17ac57c79885 40844138f95957ce46455d2e692c39326bf61876b2d4d901a99359202e0bed16";
-		};
 		99A5881BD65F650E03F54F36 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1610,10 +1624,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/Optional",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/QQSDK",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/Required",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Facebook",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Twitter",
@@ -1623,8 +1633,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_5.0.1",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Facebook",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
@@ -1636,7 +1644,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd88c43c-71b4-4c9b-a7bf-708b5b2b340d";
+				PROVISIONING_PROFILE = "19f1f2b4-3c9c-445e-b05f-7c840dc7649d";
 				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1655,10 +1663,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/Optional",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/QQSDK",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/Required",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Facebook",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Twitter",
@@ -1668,8 +1672,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_5.0.1",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Facebook",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
@@ -1681,7 +1683,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd88c43c-71b4-4c9b-a7bf-708b5b2b340d";
+				PROVISIONING_PROFILE = "19f1f2b4-3c9c-445e-b05f-7c840dc7649d";
 				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

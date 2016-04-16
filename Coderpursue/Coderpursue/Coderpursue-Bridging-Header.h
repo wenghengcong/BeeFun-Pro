@@ -6,4 +6,12 @@
 #import "HMSegmentedControl.h"
 #import <Bugly/Bugly.h>
 
+//友盟分享
 #import "UMSocial.h"
+#import "UMSocialFacebookHandler.h"
+#import "UMSocialSinaSSOHandler.h"
+#import "UMSocialQQHandler.h"
+#import "UMSocialTwitterHandler.h"
+#import "UMSocialWechatHandler.h"
+#import "UMSocialScreenShoter.h"
+#import "UMSocialShakeService.h"

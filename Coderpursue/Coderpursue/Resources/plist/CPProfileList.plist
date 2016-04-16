@@ -39,6 +39,16 @@
 	<array>
 		<dict>
 			<key>itemKey</key>
+			<string>share</string>
+			<key>itemName</key>
+			<string>Share</string>
+			<key>itemIcon</key>
+			<string>set_share</string>
+			<key>itemDisclosure</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>itemKey</key>
 			<string>rate</string>
 			<key>itemName</key>
 			<string>Rate</string>

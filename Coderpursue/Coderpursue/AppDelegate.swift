@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        CrashReporter.sharedInstance().enableLog(true)
         Bugly.startWithAppId(TencentBuglyAppID)
         
+        ShareHelper.sharedInstance.configUMSocailPlatforms()
+        
         return true
     }
 

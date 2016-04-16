@@ -331,6 +331,10 @@ extension CPProfileViewController : UITableViewDelegate {
             
             AppVersionHelper.sharedInstance.rateUs()
             
+        }else if(viewType == "share"){
+            
+            ShareHelper.sharedInstance.shareApp(self)
+            
         }else if(viewType == "settings"){
             
             self.performSegueWithIdentifier(SegueProfileSettingView, sender: nil)

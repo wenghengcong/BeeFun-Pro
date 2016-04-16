@@ -24,9 +24,16 @@ public let ShareSDKAppKey = "11b9cf1d0cec0"
 public let ShareSDKAppSecret = "480ba09dc992ae0234a0fef9183ff836"
 //umeng
 public let UMengSocailAppSecret = "56eb5109e0f55a2e0f002f84"
+public let SocailRedirectURL = "https://github.com/wenghengcong/Coderpursue"
+
+//weixin
+public let WeiXinSDKAppID = "1224249220"
+public let WeiXinSDKAppSecret = "1224249220"
 
 //weibo
 public let WeiboSDKAppKey = "1224249220"
+public let WeiboSDKAppSecret = "45b9b45c5e29ecc1127858fb076d05ae"
+
 //tencent
 public let TencentSDKAppID = "1105263895"
 public let TencentSDKAppKey = "iym79yrZuElPOCDh"

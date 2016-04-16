@@ -60,6 +60,10 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     func rvc_customView(){
         
+        self.rightItemImage = UIImage(named: "nav_share_35")
+        self.rightItemSelImage = UIImage(named: "nav_share_35")
+        self.rightItem?.hidden = false
+        
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.whiteColor()
         

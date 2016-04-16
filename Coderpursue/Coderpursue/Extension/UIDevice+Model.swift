@@ -37,9 +37,13 @@ struct DeviceType {
 struct iOSVersion {
     
     static let IOS7Beolow   = UIDevice.SYSTEM_VERSION_LESS_THAN("7.0")
-    static let IOS7         = UIDevice.SYSTEM_VERSION_LESS_THAN("8.0") && UIDevice.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("7.0")
-    static let IOS8         = UIDevice.SYSTEM_VERSION_LESS_THAN("9.0") && UIDevice.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("8.0")
-    static let IOS9         = UIDevice.SYSTEM_VERSION_LESS_THAN("10.0") && UIDevice.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("9.0")
+    static let IOS7_8         = UIDevice.SYSTEM_VERSION_LESS_THAN("8.0") && UIDevice.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("7.0")
+    static let IOS8_9         = UIDevice.SYSTEM_VERSION_LESS_THAN("9.0") && UIDevice.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("8.0")
+    static let IOS9_10         = UIDevice.SYSTEM_VERSION_LESS_THAN("10.0") && UIDevice.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("9.0")
+    
+    static let IOS7Above         = UIDevice.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("7.0")
+    static let IOS8Above         = UIDevice.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("8.0")
+    static let IOS9Above         = UIDevice.SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO("9.0")
 
 }
 

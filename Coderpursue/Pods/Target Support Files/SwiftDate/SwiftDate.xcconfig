@@ -1,5 +1,5 @@
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/SwiftDate" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bugly"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/SwiftDate" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Bugly" "${PODS_ROOT}/Headers/Public/Fabric" "${PODS_ROOT}/Headers/Public/TwitterCore" "${PODS_ROOT}/Headers/Public/TwitterKit"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
 PODS_ROOT = ${SRCROOT}
 SKIP_INSTALL = YES

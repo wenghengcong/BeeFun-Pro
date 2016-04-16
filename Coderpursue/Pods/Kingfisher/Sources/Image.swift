@@ -256,14 +256,14 @@ extension Image {
             case .JPEG: image = Image(data: data)
             case .PNG: image = Image(data: data)
             case .GIF: image = Image.kf_animatedImageWithGIFData(gifData: data, scale: scale, duration: 0.0)
-            case .Unknown: image = nil
+            case .Unknown: image = Image(data: data)
             }
         #else
             switch data.kf_imageFormat {
             case .JPEG: image = Image(data: data, scale: scale)
             case .PNG: image = Image(data: data, scale: scale)
             case .GIF: image = Image.kf_animatedImageWithGIFData(gifData: data, scale: scale, duration: 0.0)
-            case .Unknown: image = nil
+            case .Unknown: image = Image(data: data, scale: scale)
             }
         #endif
         
@@ -286,8 +286,8 @@ extension Image {
         let imageRef = self.CGImage
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.PremultipliedLast.rawValue).rawValue
-        let contextHolder = UnsafeMutablePointer<Void>()
-        let context = CGBitmapContextCreate(contextHolder, CGImageGetWidth(imageRef), CGImageGetHeight(imageRef), 8, 0, colorSpace, bitmapInfo)
+        
+        let context = CGBitmapContextCreate(nil, CGImageGetWidth(imageRef), CGImageGetHeight(imageRef), 8, 0, colorSpace, bitmapInfo)
         if let context = context {
             let rect = CGRect(x: 0, y: 0, width: CGImageGetWidth(imageRef), height: CGImageGetHeight(imageRef))
             CGContextDrawImage(context, rect, imageRef)

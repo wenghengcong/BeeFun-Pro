@@ -29,17 +29,17 @@ public class IQTextView : UITextView {
 
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPlaceholder", name: UITextViewTextDidChangeNotification, object: self)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.refreshPlaceholder), name: UITextViewTextDidChangeNotification, object: self)
     }
 
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPlaceholder", name: UITextViewTextDidChangeNotification, object: self)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.refreshPlaceholder), name: UITextViewTextDidChangeNotification, object: self)
     }
     
     override public func awakeFromNib() {
          super.awakeFromNib()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "refreshPlaceholder", name: UITextViewTextDidChangeNotification, object: self)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(self.refreshPlaceholder), name: UITextViewTextDidChangeNotification, object: self)
     }
     
     deinit {
@@ -59,7 +59,7 @@ public class IQTextView : UITextView {
             
             if placeholderLabel == nil {
                 
-                placeholderLabel = UILabel(frame: CGRectInset(self.bounds, 5, 0))
+                placeholderLabel = UILabel()
                 
                 if let unwrappedPlaceholderLabel = placeholderLabel {
                     
@@ -79,6 +79,15 @@ public class IQTextView : UITextView {
         }
     }
     
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if let unwrappedPlaceholderLabel = placeholderLabel {
+            unwrappedPlaceholderLabel.sizeToFit()
+            unwrappedPlaceholderLabel.frame = CGRectMake(8, 8, CGRectGetWidth(self.frame)-16, CGRectGetHeight(unwrappedPlaceholderLabel.frame))
+        }
+    }
+
     public func refreshPlaceholder() {
         
         if text.characters.count != 0 {

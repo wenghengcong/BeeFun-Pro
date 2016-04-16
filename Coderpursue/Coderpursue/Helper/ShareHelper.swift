@@ -8,6 +8,13 @@
 
 import UIKit
 
+public enum ShareSource:String {
+    case Defalult = "defalut"
+    case App = "app"
+    case Repository = "repository"
+    case User = "user"
+}
+
 class ShareContent: NSObject {
     
     var shareUrl:String?
@@ -23,6 +30,9 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
     
     static let sharedInstance = ShareHelper()
     
+    var sourceType:ShareSource = .Defalult
+    var shareContent:ShareContent = ShareContent()
+    
     func configUMSocailPlatforms() {
         
         UMSocialData.setAppKey(UMengSocailAppSecret)
@@ -36,18 +46,24 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
             UMSocialTwitterHandler.setTwitterAppKey(TwitterSDKConsumerKey, withSecret: TwitterSDKConsumerSecret)
         }
         
-        
     }
     
-    func shareContent(viewController:UIViewController, content:ShareContent) {
+    func shareContent(viewController:UIViewController, content:ShareContent ,soucre:ShareSource) {
         
-        let platforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook,UMShareToTwitter]
+        sourceType = soucre
+        shareContent = content
         
-        UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengSocailAppSecret, shareText: content.shareContent, shareImage: content.shareImage, shareToSnsNames: platforms, delegate: self)
+        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook,UMShareToTwitter]
+        
+        UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
+
+        UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengSocailAppSecret, shareText: content.shareContent, shareImage: content.shareImage, shareToSnsNames: allPlatforms, delegate: self)
         
     }
     
     func shareApp(viewController:UIViewController) {
+        
+        sourceType = .App
         
         let shareModel:ShareContent = ShareContent()
         shareModel.shareUrl = SocailRedirectURL
@@ -55,9 +71,11 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
         shareModel.shareTitle = "Coderpursue代码的快乐"
         shareModel.shareImage = UIImage(named: "app_logo_90")
         
-        let platforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook,UMShareToTwitter]
+        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook,UMShareToTwitter]
         
-        UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengSocailAppSecret, shareText: shareModel.shareContent, shareImage: shareModel.shareImage, shareToSnsNames: platforms, delegate: self)
+        UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
+        
+        UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengSocailAppSecret, shareText: shareModel.shareContent, shareImage: shareModel.shareImage, shareToSnsNames: allPlatforms, delegate: self)
         
     }
     
@@ -98,6 +116,84 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
      */
     func didSelectSocialPlatform(platformName: String!, withSocialData socialData: UMSocialData!) {
         
+        let urlSources:UMSocialUrlResource = UMSocialUrlResource()
+
+        switch sourceType {
+            case .Defalult:
+                urlSources.resourceType = UMSocialUrlResourceTypeDefault
+            case .App:
+                urlSources.resourceType = UMSocialUrlResourceTypeWeb
+                urlSources.url = SocailRedirectURL
+            case .Repository:
+                urlSources.resourceType = UMSocialUrlResourceTypeWeb
+                urlSources.url = SocailRedirectURL
+            case .User:
+                urlSources.resourceType = UMSocialUrlResourceTypeWeb
+                urlSources.url = SocailRedirectURL
+            
+        }
+        
+        let extConfig:UMSocialExtConfig = UMSocialExtConfig()
+
+        if (platformName == UMShareToFacebook) {
+            socialData.title = "Happy Coding,Happy Here~"
+            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
+            socialData.urlResource = urlSources
+            let facebookData:UMSocialFacebookData = UMSocialFacebookData()
+            extConfig.facebookData = facebookData
+            socialData.extConfig = extConfig
+            
+        }else if(platformName == UMShareToTwitter){
+            socialData.title = "Happy Coding,Happy Here~"
+            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
+            socialData.urlResource = urlSources
+            let twitterData:UMSocialTwitterData = UMSocialTwitterData()
+            extConfig.twitterData = twitterData
+            socialData.extConfig = extConfig
+        }else if(platformName == UMShareToQzone){
+            socialData.title = "Happy Coding,Happy Here~"
+            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
+            socialData.urlResource = urlSources
+            let qzoneData:UMSocialQzoneData = UMSocialQzoneData()
+            extConfig.qzoneData = qzoneData
+            socialData.extConfig = extConfig
+        }else if(platformName == UMShareToQQ){
+            socialData.title = "Happy Coding,Happy Here~"
+            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
+            socialData.urlResource = urlSources
+            let qqData:UMSocialQQData = UMSocialQQData()
+            extConfig.qqData = qqData
+            socialData.extConfig = extConfig
+        }else if(platformName == UMShareToWechatSession){
+            socialData.title = "Happy Coding,Happy Here~"
+            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
+            socialData.urlResource = urlSources
+            let chatSessionData:UMSocialWechatSessionData = UMSocialWechatSessionData()
+            extConfig.wechatSessionData = chatSessionData
+            socialData.extConfig = extConfig
+        }else if(platformName == UMShareToWechatTimeline){
+            socialData.title = "Happy Coding,Happy Here~"
+            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
+            socialData.urlResource = urlSources
+            let timeLineData:UMSocialWechatTimelineData = UMSocialWechatTimelineData()
+            extConfig.wechatTimelineData = timeLineData
+            socialData.extConfig = extConfig
+        }else if(platformName == UMShareToWechatFavorite){
+            socialData.title = "Happy Coding,Happy Here~"
+            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
+            socialData.urlResource = urlSources
+            let favouriteData:UMSocialWechatFavorite = UMSocialWechatFavorite()
+            extConfig.wechatFavoriteData = favouriteData
+            socialData.extConfig = extConfig
+        }else if(platformName == UMShareToSina){
+            socialData.title = "Happy Coding,Happy Here~"
+            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
+            socialData.urlResource = urlSources
+            let sinaData:UMSocialSinaData = UMSocialSinaData()
+            extConfig.sinaData = sinaData
+            socialData.extConfig = extConfig
+        }
+    
     }
     
 }

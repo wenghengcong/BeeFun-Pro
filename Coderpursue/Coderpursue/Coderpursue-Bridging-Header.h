@@ -15,3 +15,5 @@
 #import "UMSocialWechatHandler.h"
 #import "UMSocialScreenShoter.h"
 #import "UMSocialShakeService.h"
+
+#import "WXApi.h"

@@ -66,8 +66,8 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
     
     func configUMSocailPlatforms() {
         
-        UMSocialData.setAppKey(UMengSocailAppSecret)
-        UMSocialData.openLog(true)
+        UMSocialData.setAppKey(UMengAppSecret)
+//        UMSocialData.openLog(true)
         
         UMSocialWechatHandler.setWXAppId(WeiXinSDKAppID, appSecret: WeiXinSDKAppSecret, url: SocailRedirectURL)
         UMSocialQQHandler.setQQWithAppId(TencentSDKAppID, appKey: TencentSDKAppKey, url: SocailRedirectURL)
@@ -113,7 +113,7 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
             let allPlatforms:[String] = [UMShareToSina,UMShareToFacebook]
 
             UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
-            UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengSocailAppSecret, shareText: shareContent!.shareContent, shareImage: shareContent!.shareImage, shareToSnsNames: allPlatforms, delegate: self)
+            UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengAppSecret, shareText: shareContent!.shareContent, shareImage: shareContent!.shareImage, shareToSnsNames: allPlatforms, delegate: self)
         }else{
             //假如传入的内容为空，那么就分享app
             shareApp()
@@ -140,7 +140,7 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
         
         UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
         
-        UMSocialSnsService.presentSnsIconSheetView(shareInViewController, appKey: UMengSocailAppSecret, shareText: shareModel.shareContent, shareImage: shareModel.shareImage, shareToSnsNames: allPlatforms, delegate: self)
+        UMSocialSnsService.presentSnsIconSheetView(shareInViewController, appKey: UMengAppSecret, shareText: shareModel.shareContent, shareImage: shareModel.shareImage, shareToSnsNames: allPlatforms, delegate: self)
         
     }
     

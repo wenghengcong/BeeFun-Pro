@@ -19,4 +19,8 @@
 #import "WXApi.h"
 #import "WeiboSDK.h"
 
+#import "MobClick.h"
+#import "MobClickSocialAnalytics.h"
+
+
 

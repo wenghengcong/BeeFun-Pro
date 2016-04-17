@@ -23,7 +23,7 @@ public let TencentBuglyAppID = "900022223"
 public let ShareSDKAppKey = "11b9cf1d0cec0"
 public let ShareSDKAppSecret = "480ba09dc992ae0234a0fef9183ff836"
 //umeng
-public let UMengSocailAppSecret = "56eb5109e0f55a2e0f002f84"
+public let UMengAppSecret = "56eb5109e0f55a2e0f002f84"
 public let SocailRedirectURL = "https://github.com/wenghengcong/Coderpursue"
 
 //weixin

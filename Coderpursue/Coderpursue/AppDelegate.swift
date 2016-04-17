@@ -26,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         //Umeng Social
         ShareHelper.sharedInstance.configUMSocailPlatforms()
         
+        //Umeng 
+        MobClick.startWithAppkey(UMengAppSecret, reportPolicy: BATCH, channelId: nil)
+        
         return true
     }
 

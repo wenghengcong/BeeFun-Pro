@@ -109,7 +109,9 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
         
         if ( (content.shareTitle != nil) || (content.shareContent != nil) ) {
             shareContent = content
-            let allPlatforms:[String] = [UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
+//            let allPlatforms:[String] = [UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
+            let allPlatforms:[String] = [UMShareToSina,UMShareToFacebook]
+
             UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
             UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengSocailAppSecret, shareText: shareContent!.shareContent, shareImage: shareContent!.shareImage, shareToSnsNames: allPlatforms, delegate: self)
         }else{
@@ -133,7 +135,8 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
         
         shareContent = shareModel
         
-        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
+//        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
+        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToFacebook]
         
         UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
         

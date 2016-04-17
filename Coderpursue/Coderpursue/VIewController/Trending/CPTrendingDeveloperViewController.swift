@@ -12,6 +12,7 @@ import Foundation
 import MJRefresh
 import ObjectMapper
 import SwiftDate
+import Kingfisher
 
 
 public enum CPUserActionType:String {
@@ -30,7 +31,8 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     var developer:ObjUser?
     var devInfoArr = [[String:String]]()
-    
+    var userShareImage:UIImage?
+
     var actionType:CPUserActionType = .Follow
     var followed:Bool = false
     
@@ -64,9 +66,12 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_customView(){
 
+        self.rightItemImage = UIImage(named: "nav_share_35")
+        self.rightItemSelImage = UIImage(named: "nav_share_35")
+        self.rightItem?.hidden = false
+        
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.viewBackgroundColor()
-        self.navigationItem.leftBarButtonItem?.title = "Back"
 
         developerInfoV.userActionDelegate = self
         
@@ -107,6 +112,8 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_updateViewContent() {
         
+        prefectchShareImage()
+        
         if(followed){
             followBtn.setTitle("Unfollow", forState: .Normal)
         }else{
@@ -141,10 +148,49 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         self.tableView.reloadData()
     }
     
+    func prefectchShareImage(){
+        
+        if let urlStr = developer?.avatar_url {
+            let url:NSURL = NSURL.init(string: urlStr)!
+            let downloader = KingfisherManager.sharedManager.downloader
+            downloader.downloadImageWithURL(url, progressBlock: { (receivedSize, totalSize) in
+                
+                }, completionHandler: { (image, error, imageURL, originalData) in
+                    self.userShareImage = image
+            })
+        }
+        
+    }
+    
     override func leftItemAction(sender: UIButton?) {
         self.navigationController?.popViewControllerAnimated(true)
     }
     
+    override func rightItemAction(sender: UIButton?) {
+        
+        let shareContent:ShareContent = ShareContent()
+        if let name = developer?.name{
+            shareContent.shareTitle = name
+        }else{
+            shareContent.shareTitle = developer?.login
+        }
+        
+        if let bio = developer?.bio {
+            shareContent.shareContent = "Developer \((developer?.name)!) " + ":\(bio)."
+        }else{
+            shareContent.shareContent = "Developer \((developer?.login)!)"
+        }
+        
+        shareContent.shareUrl = developer?.html_url
+        
+        if userShareImage != nil {
+            shareContent.shareImage = userShareImage
+        }
+        
+        ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+        
+    }
+
     func dvc_followAction() {
         
         if(followBtn.currentTitle == "Follow"){

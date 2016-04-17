@@ -11,6 +11,7 @@ import Moya
 import Foundation
 import MJRefresh
 import ObjectMapper
+import Kingfisher
 
 public enum CPReposActionType:String {
     case Watch = "watch"
@@ -28,7 +29,8 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     var repos:ObjRepos?
     var reposInfoArr = [[String:String]]()
-
+    var reposShareImage:UIImage?
+    
     var user:ObjUser?
     var hasWatchedRepos:Bool = false
     var hasStaredRepos:Bool = false
@@ -49,6 +51,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         rvc_setupTableView()
         rvc_loadAllRequset()
         self.title = repos!.name!
+        
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -100,7 +103,23 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         reposInfoV.repo = objRepo
         
+        prefectchShareImage()
     }
+    
+    func prefectchShareImage(){
+        
+        if let urlStr = repos?.owner?.avatar_url {
+            let url:NSURL = NSURL.init(string: urlStr)!
+            let downloader = KingfisherManager.sharedManager.downloader
+            downloader.downloadImageWithURL(url, progressBlock: { (receivedSize, totalSize) in
+                
+                }, completionHandler: { (image, error, imageURL, originalData) in
+                    self.reposShareImage = image
+            })
+        }
+
+    }
+    
     
     func rvc_userIsLogin() {
         
@@ -123,6 +142,25 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     override func leftItemAction(sender: UIButton?) {
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    override func rightItemAction(sender: UIButton?) {
+        
+        let shareContent:ShareContent = ShareContent()
+        shareContent.shareTitle = repos?.name
+        if let repoDescription = repos?.cdescription {
+            shareContent.shareContent = "Code Repository \((repos?.name)!) : \(repoDescription)"
+        }else{
+            shareContent.shareContent = "Code Repository \((repos?.name)!)"
+        }
+        shareContent.shareUrl = repos?.html_url
+        
+        if reposShareImage != nil {
+            shareContent.shareImage = reposShareImage
+        }
+        
+        ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+        
     }
     
     // MARK: - request

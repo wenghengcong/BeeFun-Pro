@@ -52,6 +52,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        return UMSocialSnsService.handleOpenURL(url)
+    }
+    
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
         return UMSocialSnsService.handleOpenURL(url, wxApiDelegate: nil)

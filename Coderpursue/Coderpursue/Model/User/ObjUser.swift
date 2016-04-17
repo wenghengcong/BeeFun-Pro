@@ -141,7 +141,7 @@ class ObjUser: NSObject,NSCoding,Mappable {
         static let receivedRventsUrlKey = "received_events_url"
         static let subscriptionsUrlKey = "subscriptions_url"
         static let eventsUrlKey = "events_url"
-        static let htmlUrlKey = "html_url:"
+        static let htmlUrlKey = "html_url"
         static let planKey = "plan"
 
     }

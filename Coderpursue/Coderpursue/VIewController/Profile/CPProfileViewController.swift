@@ -333,7 +333,7 @@ extension CPProfileViewController : UITableViewDelegate {
             
         }else if(viewType == "share"){
             
-            ShareHelper.sharedInstance.shareApp(self)
+            ShareHelper.sharedInstance.shareContentInView(self, content: ShareContent(), soucre: .App)
             
         }else if(viewType == "settings"){
             

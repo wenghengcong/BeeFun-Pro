@@ -23,7 +23,9 @@ class ShareContent: NSObject {
     var shareContent:String?
     var shareTitle:String?
     
-    
+    override init() {
+        super.init()
+    }
 }
 
 class ShareHelper: NSObject,UMSocialUIDelegate {
@@ -31,51 +33,111 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
     static let sharedInstance = ShareHelper()
     
     var sourceType:ShareSource = .Defalult
-    var shareContent:ShareContent = ShareContent()
+    var shareContent:ShareContent? = ShareContent.init()
+    var shareInViewController:UIViewController?
+    
+    var installedPlatforms:[String] {
+        get {
+            return checkPlatforms()
+        }
+    }
+    
+    func checkPlatforms()->[String]{
+        
+        var ps:[String] = []
+        
+        if WXApi.isWXAppInstalled() {
+            ps.append(UMShareToWechatSession)
+            ps.append(UMShareToWechatFavorite)
+            ps.append(UMShareToWechatTimeline)
+        }
+        
+        if QQApiInterface.isQQInstalled() {
+            ps.append(UMShareToQQ)
+            ps.append(UMShareToQzone)
+        }
+        
+        if WeiboSDK.isWeiboAppInstalled() {
+            ps.append(UMShareToSina)
+        }
+        
+        return ps
+    }
     
     func configUMSocailPlatforms() {
         
         UMSocialData.setAppKey(UMengSocailAppSecret)
+        UMSocialData.openLog(true)
         
         UMSocialWechatHandler.setWXAppId(WeiXinSDKAppID, appSecret: WeiXinSDKAppSecret, url: SocailRedirectURL)
         UMSocialQQHandler.setQQWithAppId(TencentSDKAppID, appKey: TencentSDKAppKey, url: SocailRedirectURL)
         UMSocialSinaSSOHandler.openNewSinaSSOWithAppKey(WeiboSDKAppKey, secret: WeiboSDKAppSecret, redirectURL: SocailRedirectURL)
         UMSocialFacebookHandler.setFacebookAppID(FackbookSDKAppID, shareFacebookWithURL: SocailRedirectURL)
+        
         // TwitterSDK仅在iOS7.0以上有效，在iOS 6.x上自动调用系统内置Twitter授权
-        if iOSVersion.IOS7Above {
-            UMSocialTwitterHandler.setTwitterAppKey(TwitterSDKConsumerKey, withSecret: TwitterSDKConsumerSecret)
+        UMSocialTwitterHandler.setTwitterAppKey(TwitterSDKConsumerKey, withSecret: TwitterSDKConsumerSecret)
+        UMSocialTwitterHandler.openTwitter()
+
+        
+    }
+    
+    /**
+     分享公共方法
+     
+     - parameter viewController: 当前要分享的页面
+     - parameter content:        分享内容（当分享为app是，可传nil）
+     - parameter soucre:         分享来源
+     */
+    func shareContentInView(viewController:UIViewController, content:ShareContent ,soucre:ShareSource) {
+        
+        shareContent = nil
+        sourceType = soucre
+        
+        shareInViewController = viewController
+        
+        switch sourceType {
+        case .Defalult:
+            break
+        case .App:
+           shareApp()
+           return
+        case .Repository:
+            break
+        case .User:
+            break
+        }
+        
+        if ( (content.shareTitle != nil) || (content.shareContent != nil) ) {
+            shareContent = content
+            let allPlatforms:[String] = [UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
+            UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
+            UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengSocailAppSecret, shareText: shareContent!.shareContent, shareImage: shareContent!.shareImage, shareToSnsNames: allPlatforms, delegate: self)
+        }else{
+            //假如传入的内容为空，那么就分享app
+            shareApp()
+            return
         }
         
     }
-    
-    func shareContent(viewController:UIViewController, content:ShareContent ,soucre:ShareSource) {
-        
-        sourceType = soucre
-        shareContent = content
-        
-        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook,UMShareToTwitter]
-        
-        UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
 
-        UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengSocailAppSecret, shareText: content.shareContent, shareImage: content.shareImage, shareToSnsNames: allPlatforms, delegate: self)
-        
-    }
     
-    func shareApp(viewController:UIViewController) {
+    func shareApp() {
         
         sourceType = .App
         
-        let shareModel:ShareContent = ShareContent()
+        let shareModel:ShareContent = ShareContent.init()
         shareModel.shareUrl = SocailRedirectURL
         shareModel.shareContent = "Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目前已开源。"
-        shareModel.shareTitle = "Coderpursue代码的快乐"
+        shareModel.shareTitle = "Coderpursue，代码的快乐"
         shareModel.shareImage = UIImage(named: "app_logo_90")
         
-        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook,UMShareToTwitter]
+        shareContent = shareModel
+        
+        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
         
         UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
         
-        UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengSocailAppSecret, shareText: shareModel.shareContent, shareImage: shareModel.shareImage, shareToSnsNames: allPlatforms, delegate: self)
+        UMSocialSnsService.presentSnsIconSheetView(shareInViewController, appKey: UMengSocailAppSecret, shareText: shareModel.shareContent, shareImage: shareModel.shareImage, shareToSnsNames: allPlatforms, delegate: self)
         
     }
     
@@ -114,86 +176,103 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
      
      @prarm socialData   分享内容
      */
+    
     func didSelectSocialPlatform(platformName: String!, withSocialData socialData: UMSocialData!) {
         
-        let urlSources:UMSocialUrlResource = UMSocialUrlResource()
-
         switch sourceType {
             case .Defalult:
-                urlSources.resourceType = UMSocialUrlResourceTypeDefault
+                break
             case .App:
-                urlSources.resourceType = UMSocialUrlResourceTypeWeb
-                urlSources.url = SocailRedirectURL
+                
+                if (platformName == UMShareToQQ || platformName == UMShareToQzone) {
+                    return
+                }else if (platformName == UMShareToFacebook ) {
+                    shareContent!.shareTitle = "Happy Coding,Happy Here~"
+                    shareContent!.shareContent = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue"
+                    socialData.title = shareContent!.shareTitle
+                    socialData.shareText = shareContent!.shareContent
+                    let urlS:UMSocialUrlResource = UMSocialUrlResource()
+                    urlS.url = SocailRedirectURL
+                    urlS.resourceType = UMSocialUrlResourceTypeWeb
+                    socialData.urlResource = urlS
+                    
+                    return
+                }else if(platformName == UMShareToTwitter){
+                    shareContent!.shareTitle = "Happy Coding,Happy Here~"
+                    shareContent!.shareContent = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue"
+                    socialData.title = shareContent!.shareTitle
+                    socialData.shareText = shareContent!.shareContent
+                }else{
+                    
+            }
+
             case .Repository:
-                urlSources.resourceType = UMSocialUrlResourceTypeWeb
-                urlSources.url = SocailRedirectURL
+                break
             case .User:
-                urlSources.resourceType = UMSocialUrlResourceTypeWeb
-                urlSources.url = SocailRedirectURL
-            
+                break
         }
         
-        let extConfig:UMSocialExtConfig = UMSocialExtConfig()
-
+        let extConfig:UMSocialExtConfig = UMSocialExtConfig.init()
+        // you have set shareImage, which will be invalid, for you set the urlResource!
+        socialData.title = shareContent!.shareTitle
+        socialData.shareText = shareContent!.shareContent
+        
+        if let image =  shareContent!.shareImage {
+            socialData.shareImage = image
+        }
+        socialData.extConfig = extConfig
+        
+        //为各个平台单独配置分享资源
         if (platformName == UMShareToFacebook) {
-            socialData.title = "Happy Coding,Happy Here~"
-            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
-            socialData.urlResource = urlSources
+
             let facebookData:UMSocialFacebookData = UMSocialFacebookData()
+            facebookData.url = shareContent!.shareUrl
+            facebookData.linkDescription = shareContent!.shareContent
+            facebookData.title = shareContent!.shareTitle
             extConfig.facebookData = facebookData
-            socialData.extConfig = extConfig
             
         }else if(platformName == UMShareToTwitter){
-            socialData.title = "Happy Coding,Happy Here~"
-            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
-            socialData.urlResource = urlSources
+
             let twitterData:UMSocialTwitterData = UMSocialTwitterData()
             extConfig.twitterData = twitterData
-            socialData.extConfig = extConfig
         }else if(platformName == UMShareToQzone){
-            socialData.title = "Happy Coding,Happy Here~"
-            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
-            socialData.urlResource = urlSources
+
             let qzoneData:UMSocialQzoneData = UMSocialQzoneData()
             extConfig.qzoneData = qzoneData
+            qzoneData.url = shareContent!.shareUrl
+            qzoneData.title = shareContent!.shareTitle
+            qzoneData.shareText = shareContent!.shareContent
             socialData.extConfig = extConfig
+            
         }else if(platformName == UMShareToQQ){
-            socialData.title = "Happy Coding,Happy Here~"
-            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
-            socialData.urlResource = urlSources
+
             let qqData:UMSocialQQData = UMSocialQQData()
+            qqData.url = shareContent!.shareUrl
+            qqData.title = shareContent!.shareTitle
+            qqData.shareText = shareContent!.shareContent
             extConfig.qqData = qqData
-            socialData.extConfig = extConfig
+            
         }else if(platformName == UMShareToWechatSession){
-            socialData.title = "Happy Coding,Happy Here~"
-            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
-            socialData.urlResource = urlSources
+
             let chatSessionData:UMSocialWechatSessionData = UMSocialWechatSessionData()
             extConfig.wechatSessionData = chatSessionData
-            socialData.extConfig = extConfig
         }else if(platformName == UMShareToWechatTimeline){
-            socialData.title = "Happy Coding,Happy Here~"
-            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
-            socialData.urlResource = urlSources
+
             let timeLineData:UMSocialWechatTimelineData = UMSocialWechatTimelineData()
             extConfig.wechatTimelineData = timeLineData
-            socialData.extConfig = extConfig
         }else if(platformName == UMShareToWechatFavorite){
-            socialData.title = "Happy Coding,Happy Here~"
-            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
-            socialData.urlResource = urlSources
+
             let favouriteData:UMSocialWechatFavorite = UMSocialWechatFavorite()
             extConfig.wechatFavoriteData = favouriteData
-            socialData.extConfig = extConfig
+            
         }else if(platformName == UMShareToSina){
-            socialData.title = "Happy Coding,Happy Here~"
-            socialData.shareText = "Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift. https://github.com/wenghengcong/Coderpursue";
-            socialData.urlResource = urlSources
+
             let sinaData:UMSocialSinaData = UMSocialSinaData()
+            sinaData.urlResource.url = shareContent!.shareUrl
+            sinaData.urlResource.resourceType = UMSocialUrlResourceTypeWeb
             extConfig.sinaData = sinaData
-            socialData.extConfig = extConfig
         }
-    
+        
     }
     
 }

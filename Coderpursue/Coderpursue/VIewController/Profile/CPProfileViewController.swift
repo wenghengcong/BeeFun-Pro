@@ -200,51 +200,6 @@ class CPProfileViewController: CPBaseViewController {
 }
 extension CPProfileViewController : ProfileHeaderActionProtocol {
 
-    private func pvc_saveAuthorization(auth:String){
-
-        var token = AppToken.sharedInstance
-        token.access_token = auth
-
-    }
-
-    private func pvc_requestToken(fromCode code: String) {
-        let getTokenPath = "https://github.com/login/oauth/access_token"
-        let tokenParams = ["client_id": GithubAppClientId, "client_secret": GithubAppClientSecret, "code": code]
-        Alamofire.request(.POST, getTokenPath, parameters: tokenParams)
-            .responseString { response in
-                if response.result.isSuccess {
-                    var token: String?
-                    if let value = response.result.value {
-                        let resultParams = value.characters.split("&").map(String.init)
-                        params_loop: for param in resultParams {
-                            let resultsSplit = param.characters.split("=").map(String.init)
-                            if resultsSplit.count == 2 {
-                                let key = resultsSplit[0].lowercaseString
-                                let value = resultsSplit[1]
-                                switch key {
-                                case "access_token":
-                                    token = value
-                                    break params_loop
-                                default:
-                                    break
-                                }
-                            }
-                        }
-                    }
-                    if let token = token {
-                        let authString = "token \(token)"
-                        self.pvc_saveAuthorization(authString)
-                        self.pvc_getMyinfoRequest()
-                    }
-                } else {
-                    // TODO: Handle the error
-                    if let error = response.result.error {
-                        NSLog(error.localizedDescription)
-                    }
-                }
-        }
-    }
-
     func pvc_getMyinfoRequest(){
 
         Provider.sharedProvider.request(.MyInfo ) { (result) -> () in
@@ -283,15 +238,17 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     }
 
     func pvc_showLoginInWebView() {
-        (UIApplication.sharedApplication().delegate as! AppDelegate).authCodeDelegate = { code in
-            self.pvc_requestToken(fromCode: code)
-        }
-        let authPath = "https://github.com/login/oauth/authorize?client_id=\(GithubAppClientId)&scope=repo&state=TEST_STATE"
-        if let authURL = NSURL(string: authPath) {
-            UIApplication.sharedApplication().openURL(authURL)
-        }
+        
+        NetworkHelper.clearCookies()
+        
+        let loginVC = CPGitLoginViewController()
+        let url = String(format: "https://github.com/login/oauth/authorize/?client_id=%@&state=%@&redirect_uri=%@&scope=%@",GithubAppClientId,"junglesong",GithubAppRedirectUrl,"user,user:email,user:follow,public_repo,repo,repo_deployment,repo:status,delete_repo,notifications,gist,read:repo_hook,write:repo_hook,admin:repo_hook,admin:org_hook,read:org,write:org,admin:org,read:public_key,write:public_key,admin:public_key" )
+        loginVC.url = url
+        loginVC.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(loginVC, animated: true)
+        
     }
-
+    
     func userLoginAction() {
         pvc_showLoginInWebView()
 //        self.performSegueWithIdentifier(SegueProfileLoginIn, sender: nil)

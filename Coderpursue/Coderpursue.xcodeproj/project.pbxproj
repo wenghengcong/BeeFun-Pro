@@ -41,6 +41,7 @@
 		5E4ABFE31C9181700041FA89 /* CPDevUserInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E4ABFE21C9181700041FA89 /* CPDevUserInfoCell.xib */; };
 		5E4B99041C928D32000A6B94 /* CPProfileReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4B99031C928D32000A6B94 /* CPProfileReposCell.swift */; };
 		5E4B99061C928D3E000A6B94 /* CPProfileReposCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E4B99051C928D3E000A6B94 /* CPProfileReposCell.xib */; };
+		5E4D9F741CC5189700DA8ECC /* CPGitLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4D9F731CC5189700DA8ECC /* CPGitLoginViewController.swift */; };
 		5E546D891C8EDE1800E94997 /* ObjSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546D881C8EDE1800E94997 /* ObjSettings.swift */; };
 		5E546D8D1C8EDE3100E94997 /* AppToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546D8A1C8EDE3100E94997 /* AppToken.swift */; };
 		5E546D8E1C8EDE3100E94997 /* ObjResponseHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546D8B1C8EDE3100E94997 /* ObjResponseHeader.swift */; };
@@ -242,6 +243,7 @@
 		5E4ABFE21C9181700041FA89 /* CPDevUserInfoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPDevUserInfoCell.xib; sourceTree = "<group>"; };
 		5E4B99031C928D32000A6B94 /* CPProfileReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProfileReposCell.swift; sourceTree = "<group>"; };
 		5E4B99051C928D3E000A6B94 /* CPProfileReposCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPProfileReposCell.xib; sourceTree = "<group>"; };
+		5E4D9F731CC5189700DA8ECC /* CPGitLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGitLoginViewController.swift; sourceTree = "<group>"; };
 		5E546D881C8EDE1800E94997 /* ObjSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjSettings.swift; sourceTree = "<group>"; };
 		5E546D8A1C8EDE3100E94997 /* AppToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppToken.swift; sourceTree = "<group>"; };
 		5E546D8B1C8EDE3100E94997 /* ObjResponseHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjResponseHeader.swift; sourceTree = "<group>"; };
@@ -1001,6 +1003,7 @@
 			children = (
 				FE91BA8E1C33396E002AECB6 /* CPProfileViewController.swift */,
 				FE91BA961C334C9F002AECB6 /* CPLoginViewController.swift */,
+				5E4D9F731CC5189700DA8ECC /* CPGitLoginViewController.swift */,
 				FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */,
 				FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */,
 				5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */,
@@ -1461,6 +1464,7 @@
 				FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */,
 				FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */,
 				FE91BA951C333AE2002AECB6 /* CPBaseTabBarController.swift in Sources */,
+				5E4D9F741CC5189700DA8ECC /* CPGitLoginViewController.swift in Sources */,
 				5EF6E3CC1C8AC4B0004F6473 /* CPEventStarredCell.swift in Sources */,
 				5E03D58B1C8BCC1D00E8C1FD /* CPEventBaseCell.swift in Sources */,
 				FE6980E41C5602C40026089B /* ObjPlan.swift in Sources */,
@@ -1661,7 +1665,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd88c43c-71b4-4c9b-a7bf-708b5b2b340d";
+				PROVISIONING_PROFILE = "19f1f2b4-3c9c-445e-b05f-7c840dc7649d";
 				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1701,7 +1705,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "fd88c43c-71b4-4c9b-a7bf-708b5b2b340d";
+				PROVISIONING_PROFILE = "19f1f2b4-3c9c-445e-b05f-7c840dc7649d";
 				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};

@@ -54,10 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-    
-    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
-        return UMSocialSnsService.handleOpenURL(url)
-    }
+
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         
@@ -74,6 +71,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
             if let code = components.queryItems?.filter({$0.name.lowercaseString == "code"}).first?.value {
                 authCodeDelegate?(code)
             }
+        }else{
+            return UMSocialSnsService.handleOpenURL(url)
         }
         return true
     }

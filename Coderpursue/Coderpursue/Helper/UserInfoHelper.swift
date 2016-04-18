@@ -23,7 +23,7 @@ class UserInfoHelper: NSObject {
         }
     }
     
-    var isLoginIn:Bool {
+    var isLogin:Bool {
         get {
             if user != nil {
                 if ( ((user!.name) != nil) && !((user!.name!).isEmpty) && (AppToken().access_token != nil)){
@@ -36,7 +36,7 @@ class UserInfoHelper: NSObject {
     
     var isUser:Bool {
         get {
-            if (isLoginIn && ( (user!.type!) == "User" )) {
+            if (isLogin && ( (user!.type!) == "User" )) {
                 return true
             }
             return false

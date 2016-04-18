@@ -119,7 +119,7 @@ class CPProfileHeaderView: UIView {
     
     func phv_fillData() {
         
-        let isLoingin:Bool = UserInfoHelper.sharedInstance.isLoginIn
+        let isLoingin:Bool = UserInfoHelper.sharedInstance.isLogin
         phv_avatarImgV.hidden = !isLoingin
         phv_nameLabel.hidden = !isLoingin
         phv_emailLabel.hidden = !isLoingin

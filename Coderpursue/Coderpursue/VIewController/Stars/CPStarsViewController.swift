@@ -59,7 +59,7 @@ class CPStarsViewController: CPBaseViewController{
     
     
     func svc_isLogin()->Bool{
-        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+        if( !(UserInfoHelper.sharedInstance.isLogin) ){
             CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
             reposData.removeAll()
             eventsData.removeAll()

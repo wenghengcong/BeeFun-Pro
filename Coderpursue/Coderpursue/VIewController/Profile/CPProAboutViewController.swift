@@ -124,7 +124,7 @@ extension CPProAboutViewController : UITableViewDelegate {
         
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+        if( !(UserInfoHelper.sharedInstance.isLogin) ){
             CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
             return
         }

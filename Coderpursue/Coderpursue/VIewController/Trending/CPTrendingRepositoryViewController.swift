@@ -209,7 +209,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     func rvc_checkWatchedRequset() {
         
-        if (!UserInfoHelper.sharedInstance.isLoginIn){
+        if (!UserInfoHelper.sharedInstance.isLogin){
             return
         }
         
@@ -246,7 +246,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     func rvc_checkStarredRqeuset() {
         
-        if (!UserInfoHelper.sharedInstance.isLoginIn){
+        if (!UserInfoHelper.sharedInstance.isLogin){
             return
         }
         

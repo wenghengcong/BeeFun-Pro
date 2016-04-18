@@ -52,7 +52,7 @@ class CPProSettingsViewController: CPBaseViewController {
     
     func psvc_logoutAction() {
         
-        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+        if( !(UserInfoHelper.sharedInstance.isLogin) ){
             CPGlobalHelper.sharedInstance.showMessage("You didn't login !", view: self.view)
             return
         }

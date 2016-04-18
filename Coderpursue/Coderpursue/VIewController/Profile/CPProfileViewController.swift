@@ -20,7 +20,7 @@ class CPProfileViewController: CPBaseViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var profileHeaderV: CPProfileHeaderView!
 
-    var isLoingin:Bool = false
+    var isLogin:Bool = false
     var user:ObjUser?
     var settingsArr:[[ObjSettings]] = []
     let cellId = "CPSettingsCellIdentifier"
@@ -56,9 +56,9 @@ class CPProfileViewController: CPBaseViewController {
     func pvc_updateUserinfoData() {
         
         user = UserInfoHelper.sharedInstance.user
-        isLoingin = UserInfoHelper.sharedInstance.isLoginIn
+        isLogin = UserInfoHelper.sharedInstance.isLogin
         profileHeaderV.user = user
-        if isLoingin{
+        if isLogin{
 //            pvc_getUserinfoRequest()
             pvc_getMyinfoRequest()
         }
@@ -73,7 +73,7 @@ class CPProfileViewController: CPBaseViewController {
     }
     
     func pvc_isLogin()->Bool{
-        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+        if( !(UserInfoHelper.sharedInstance.isLogin) ){
             CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
             return false
         }
@@ -91,7 +91,7 @@ class CPProfileViewController: CPBaseViewController {
     
     func pvc_updateViewWithUserData() {
         
-        if isLoingin {
+        if isLogin {
             profileHeaderV.user = self.user
         }else {
             profileHeaderV.user = nil
@@ -117,7 +117,7 @@ class CPProfileViewController: CPBaseViewController {
     func pvc_getUserinfoRequest(){
         
         var username = ""
-        if(UserInfoHelper.sharedInstance.isLoginIn){
+        if(UserInfoHelper.sharedInstance.isLogin){
             username = UserInfoHelper.sharedInstance.user!.login!
         }
         
@@ -214,7 +214,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                     if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
                         ObjUser.saveUserInfo(result)
                         self.user = result
-                        self.isLoingin = UserInfoHelper.sharedInstance.isLoginIn
+                        self.isLogin = UserInfoHelper.sharedInstance.isLogin
                         self.profileHeaderV.user = self.user
                         self.pvc_updateViewWithUserData()
                     } else {
@@ -255,7 +255,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     }
 
     func viewMyReposAction() {
-        if ( isLoingin && (user != nil) ){
+        if ( isLogin && (user != nil) ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
             self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
@@ -267,7 +267,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     }
     
     func viewMyFollowerAction() {
-        if ( isLoingin && (user != nil) ){
+        if ( isLogin && (user != nil) ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
             self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
@@ -278,7 +278,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     }
     
     func viewMyFollowingAction() {
-        if ( isLoingin && (user != nil) ){
+        if ( isLogin && (user != nil) ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
             self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
@@ -362,7 +362,7 @@ extension CPProfileViewController : UITableViewDelegate {
 
         if ( (viewType == "watched")||(viewType == "forked") ){
             
-            if (isLoingin && (user != nil) ){
+            if (isLogin && (user != nil) ){
                 let uname = user!.login
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
                 self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)

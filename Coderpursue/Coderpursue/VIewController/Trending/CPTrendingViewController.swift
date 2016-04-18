@@ -282,7 +282,7 @@ class CPTrendingViewController: CPBaseViewController {
     }
     
     func tvc_isLogin()->Bool{
-        if( !(UserInfoHelper.sharedInstance.isLoginIn) ){
+        if( !(UserInfoHelper.sharedInstance.isLogin) ){
             CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
             return false
         }

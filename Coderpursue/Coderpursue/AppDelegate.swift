@@ -64,6 +64,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         return UMSocialSnsService.handleOpenURL(url, wxApiDelegate: nil)
     }
 
+    var authCodeDelegate: ((String)->Void)?
+
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        guard let components = NSURLComponents(URL: url, resolvingAgainstBaseURL: false) else {
+            return true
+        }
+        if components.scheme == "coderpursue" {
+            if let code = components.queryItems?.filter({$0.name.lowercaseString == "code"}).first?.value {
+                authCodeDelegate?(code)
+            }
+        }
+        return true
+    }
 
 }
 

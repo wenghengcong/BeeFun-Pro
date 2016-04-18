@@ -13,6 +13,7 @@ import MJRefresh
 import ObjectMapper
 import SwiftDate
 import MessageUI
+import Alamofire
 
 class CPProfileViewController: CPBaseViewController {
     
@@ -61,7 +62,8 @@ class CPProfileViewController: CPBaseViewController {
         isLoingin = UserInfoHelper.sharedInstance.isLoginIn
         profileHeaderV.user = user
         if isLoingin{
-            pvc_getUserinfoRequest()
+//            pvc_getUserinfoRequest()
+            pvc_getMyinfoRequest()
         }
 
     }
@@ -114,48 +116,7 @@ class CPProfileViewController: CPBaseViewController {
     
     
     // MARK: segue
-    
-    func pvc_getUserinfoRequest(){
-        
-        var username = ""
-        if(UserInfoHelper.sharedInstance.isLoginIn){
-            username = UserInfoHelper.sharedInstance.user!.login!
-        }
-        
-        Provider.sharedProvider.request(.UserInfo(username:username) ) { (result) -> () in
-            
-            var success = true
-            var message = "No data to show"
-            
-            switch result {
-            case let .Success(response):
-                
-                do {
-                    if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
-                        ObjUser.saveUserInfo(result)
-                        self.user = result
-                        self.pvc_updateViewWithUserData()
-                    } else {
-                        success = false
-                    }
-                } catch {
-                    success = false
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
-                }
-            case let .Failure(error):
-                guard let error = error as? CustomStringConvertible else {
-                    break
-                }
-                message = error.description
-                success = false
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
-                
-            }
-        }
-        
-        
-    }
-    
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if (segue.identifier == SegueProfileShowRepositoryList){
@@ -200,14 +161,110 @@ class CPProfileViewController: CPBaseViewController {
         
     }
 
+    // TODO: Update these to the real params
+    private let clientId = "b72b641ae8c68f395568"
+    private let clientSecret = "5aa09581e30551567bec5c4ed5cba2ec6c11d1b7"
+
 }
 extension CPProfileViewController : ProfileHeaderActionProtocol {
 
-    func userLoginAction() {
-//        pvc_showLoginInWebView()
-        self.performSegueWithIdentifier(SegueProfileLoginIn, sender: nil)
+    private func pvc_saveAuthorization(auth:String){
+
+        var token = AppToken.sharedInstance
+        token.access_token = auth
+
     }
-    
+
+    private func pvc_requestToken(fromCode code: String) {
+        let getTokenPath = "https://github.com/login/oauth/access_token"
+        let tokenParams = ["client_id": clientId, "client_secret": clientSecret, "code": code]
+        Alamofire.request(.POST, getTokenPath, parameters: tokenParams)
+            .responseString { response in
+                if response.result.isSuccess {
+                    var token: String?
+                    if let value = response.result.value {
+                        let resultParams = value.characters.split("&").map(String.init)
+                        params_loop: for param in resultParams {
+                            let resultsSplit = param.characters.split("=").map(String.init)
+                            if resultsSplit.count == 2 {
+                                let key = resultsSplit[0].lowercaseString
+                                let value = resultsSplit[1]
+                                switch key {
+                                case "access_token":
+                                    token = value
+                                    break params_loop
+                                default:
+                                    break
+                                }
+                            }
+                        }
+                    }
+                    if let token = token {
+                        let authString = "token \(token)"
+                        self.pvc_saveAuthorization(authString)
+                        self.pvc_getMyinfoRequest()
+                    }
+                } else {
+                    // TODO: Handle the error
+                    if let error = response.result.error {
+                        NSLog(error.localizedDescription)
+                    }
+                }
+        }
+    }
+
+    func pvc_getMyinfoRequest(){
+
+        Provider.sharedProvider.request(.MyInfo ) { (result) -> () in
+
+            var success = true
+            var message = "No data to show"
+
+            switch result {
+            case let .Success(response):
+
+                do {
+                    if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
+                        ObjUser.saveUserInfo(result)
+                        self.user = result
+                        self.isLoingin = UserInfoHelper.sharedInstance.isLoginIn
+                        self.profileHeaderV.user = self.user
+                        self.pvc_updateViewWithUserData()
+                    } else {
+                        success = false
+                    }
+                } catch {
+                    success = false
+                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                }
+            case let .Failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+                success = false
+                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+
+            }
+        }
+
+    }
+
+    func pvc_showLoginInWebView() {
+        (UIApplication.sharedApplication().delegate as! AppDelegate).authCodeDelegate = { code in
+            self.pvc_requestToken(fromCode: code)
+        }
+        let authPath = "https://github.com/login/oauth/authorize?client_id=\(clientId)&scope=repo&state=TEST_STATE"
+        if let authURL = NSURL(string: authPath) {
+            UIApplication.sharedApplication().openURL(authURL)
+        }
+    }
+
+    func userLoginAction() {
+        pvc_showLoginInWebView()
+//        self.performSegueWithIdentifier(SegueProfileLoginIn, sender: nil)
+    }
+
     func viewMyReposAction() {
         if ( isLoingin && (user != nil) ){
             let uname = user!.login

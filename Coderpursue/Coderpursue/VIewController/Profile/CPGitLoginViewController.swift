@@ -68,9 +68,11 @@ class CPGitLoginViewController: CPWebViewController {
             "state":"junglesong"
             ]
         
+        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+
         Alamofire.request(.POST, "https://github.com/login/oauth/access_token", parameters: para)
             .responseJSON { response in
-                
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
                 let str = String(data: response.data!, encoding: NSUTF8StringEncoding)
                 //access_token=7c897cd55113db38df41521eb897f47e395df845&scope=public_repo%2Cuser&token_type=bearer
                 print("access: \(str)")

@@ -27,8 +27,8 @@ public let UMengAppSecret = "56eb5109e0f55a2e0f002f84"
 public let SocailRedirectURL = "https://github.com/wenghengcong/Coderpursue"
 
 //weixin
-public let WeiXinSDKAppID = "1224249220"
-public let WeiXinSDKAppSecret = "1224249220"
+public let WeiXinSDKAppID = "wx9231f7e12ddac379"
+public let WeiXinSDKAppSecret = "972001c30c2a2c62d70dbfc8fc671d0b"
 
 //weibo
 public let WeiboSDKAppKey = "1224249220"

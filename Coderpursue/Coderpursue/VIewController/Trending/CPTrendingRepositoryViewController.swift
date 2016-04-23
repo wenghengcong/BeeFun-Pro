@@ -103,10 +103,12 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         reposInfoV.repo = objRepo
         
-        prefectchShareImage()
+       prefectchShareImage(){
+            
+        }
     }
     
-    func prefectchShareImage(){
+    func prefectchShareImage( completionHandler: ()-> Void ){
         
         if let urlStr = repos?.owner?.avatar_url {
             let url:NSURL = NSURL.init(string: urlStr)!
@@ -115,6 +117,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 
                 }, completionHandler: { (image, error, imageURL, originalData) in
                     self.reposShareImage = image
+                    completionHandler()
             })
         }
 
@@ -155,11 +158,17 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         }
         shareContent.shareUrl = repos?.html_url
         
-        if reposShareImage != nil {
-            shareContent.shareImage = reposShareImage
+        if reposShareImage == nil {
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            prefectchShareImage({
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                shareContent.shareImage = self.reposShareImage
+                ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+            })
+        }else{
+            shareContent.shareImage = self.reposShareImage
+            ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
         }
-        
-        ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
         
     }
     

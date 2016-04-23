@@ -112,7 +112,9 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_updateViewContent() {
         
-        prefectchShareImage()
+        prefectchShareImage(){
+            
+        }
         
         if(followed){
             followBtn.setTitle("Unfollow", forState: .Normal)
@@ -148,7 +150,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         self.tableView.reloadData()
     }
     
-    func prefectchShareImage(){
+    func prefectchShareImage( completionHandler: ()-> Void){
         
         if let urlStr = developer?.avatar_url {
             let url:NSURL = NSURL.init(string: urlStr)!
@@ -157,6 +159,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                 
                 }, completionHandler: { (image, error, imageURL, originalData) in
                     self.userShareImage = image
+                    completionHandler()
             })
         }
         
@@ -183,11 +186,17 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         shareContent.shareUrl = developer?.html_url
         
-        if userShareImage != nil {
-            shareContent.shareImage = userShareImage
+        if userShareImage == nil {
+            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            prefectchShareImage({
+                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                shareContent.shareImage = self.userShareImage
+                ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+            })
+        }else{
+            shareContent.shareImage = self.userShareImage
+            ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
         }
-        
-        ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
         
     }
 

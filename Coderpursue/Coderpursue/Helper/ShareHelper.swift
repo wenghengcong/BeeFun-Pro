@@ -109,8 +109,7 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
         
         if ( (content.shareTitle != nil) || (content.shareContent != nil) ) {
             shareContent = content
-//            let allPlatforms:[String] = [UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
-            let allPlatforms:[String] = [UMShareToSina,UMShareToFacebook]
+            let allPlatforms:[String] = [UMShareToSina,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
 
             UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
             UMSocialSnsService.presentSnsIconSheetView(viewController, appKey: UMengAppSecret, shareText: shareContent!.shareContent, shareImage: shareContent!.shareImage, shareToSnsNames: allPlatforms, delegate: self)
@@ -135,8 +134,7 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
         
         shareContent = shareModel
         
-//        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
-        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToFacebook]
+        let allPlatforms:[String] = [UMShareToSina,UMShareToQQ,UMShareToQzone,UMShareToWechatSession,UMShareToWechatTimeline,UMShareToWechatFavorite,UMShareToFacebook]
         
         UMSocialConfig.hiddenNotInstallPlatforms(allPlatforms)
         
@@ -258,14 +256,23 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
         }else if(platformName == UMShareToWechatSession){
 
             let chatSessionData:UMSocialWechatSessionData = UMSocialWechatSessionData()
+            chatSessionData.title = shareContent?.shareTitle
+            chatSessionData.wxMessageType = UMSocialWXMessageTypeWeb
+            chatSessionData.url = shareContent?.shareUrl
             extConfig.wechatSessionData = chatSessionData
         }else if(platformName == UMShareToWechatTimeline){
 
             let timeLineData:UMSocialWechatTimelineData = UMSocialWechatTimelineData()
+            timeLineData.title = shareContent?.shareTitle
+            timeLineData.wxMessageType = UMSocialWXMessageTypeWeb
+            timeLineData.url = shareContent?.shareUrl
             extConfig.wechatTimelineData = timeLineData
         }else if(platformName == UMShareToWechatFavorite){
 
             let favouriteData:UMSocialWechatFavorite = UMSocialWechatFavorite()
+            favouriteData.title = shareContent?.shareTitle
+            favouriteData.wxMessageType = UMSocialWXMessageTypeWeb
+            favouriteData.url = shareContent?.shareUrl
             extConfig.wechatFavoriteData = favouriteData
             
         }else if(platformName == UMShareToSina){

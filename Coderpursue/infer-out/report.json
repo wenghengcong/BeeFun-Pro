@@ -1,0 +1,1794 @@
+[
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 899444905, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "267"
+      }
+    ], 
+    "line": 267, 
+    "procedure_id": "MBProgressHUD_hide:{instance}.9f087e822370af64645764e8180cf507", 
+    "procedure": "MBProgressHUD_hide:", 
+    "qualifier": "Direct access to ivar showStarted of an atomic property at line 267, column 32. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 899444905, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "268"
+      }
+    ], 
+    "line": 268, 
+    "procedure_id": "MBProgressHUD_hide:{instance}.9f087e822370af64645764e8180cf507", 
+    "procedure": "MBProgressHUD_hide:", 
+    "qualifier": "Direct access to ivar showStarted of an atomic property at line 268, column 64. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 956117499, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "291"
+      }
+    ], 
+    "line": 291, 
+    "procedure_id": "MBProgressHUD_handleGraceTimer:{instance}.1b8680a1326602baf44976543198fed9", 
+    "procedure": "MBProgressHUD_handleGraceTimer:", 
+    "qualifier": "Direct access to ivar taskInProgress of an atomic property at line 291, column 6. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 70924649, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "313"
+      }
+    ], 
+    "line": 313, 
+    "procedure_id": "MBProgressHUD_showUsingAnimation:{instance}.9401eaed7b787b815229a4f8ec3357be", 
+    "procedure": "MBProgressHUD_showUsingAnimation:", 
+    "qualifier": "Direct access to ivar animationType of an atomic property at line 313, column 18. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 70924649, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "315"
+      }
+    ], 
+    "line": 315, 
+    "procedure_id": "MBProgressHUD_showUsingAnimation:{instance}.9401eaed7b787b815229a4f8ec3357be", 
+    "procedure": "MBProgressHUD_showUsingAnimation:", 
+    "qualifier": "Direct access to ivar animationType of an atomic property at line 315, column 25. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 70924649, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "324"
+      }
+    ], 
+    "line": 324, 
+    "procedure_id": "MBProgressHUD_showUsingAnimation:{instance}.9401eaed7b787b815229a4f8ec3357be", 
+    "procedure": "MBProgressHUD_showUsingAnimation:", 
+    "qualifier": "Direct access to ivar animationType of an atomic property at line 324, column 56. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 70924649, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "324"
+      }
+    ], 
+    "line": 324, 
+    "procedure_id": "MBProgressHUD_showUsingAnimation:{instance}.9401eaed7b787b815229a4f8ec3357be", 
+    "procedure": "MBProgressHUD_showUsingAnimation:", 
+    "qualifier": "Direct access to ivar animationType of an atomic property at line 324, column 7. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 337261897, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "336"
+      }
+    ], 
+    "line": 336, 
+    "procedure_id": "MBProgressHUD_hideUsingAnimation:{instance}.7d9068a738fef2e9a6e234f592d77b03", 
+    "procedure": "MBProgressHUD_hideUsingAnimation:", 
+    "qualifier": "Direct access to ivar showStarted of an atomic property at line 336, column 18. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 337261897, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "343"
+      }
+    ], 
+    "line": 343, 
+    "procedure_id": "MBProgressHUD_hideUsingAnimation:{instance}.7d9068a738fef2e9a6e234f592d77b03", 
+    "procedure": "MBProgressHUD_hideUsingAnimation:", 
+    "qualifier": "Direct access to ivar animationType of an atomic property at line 343, column 7. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 337261897, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "345"
+      }
+    ], 
+    "line": 345, 
+    "procedure_id": "MBProgressHUD_hideUsingAnimation:{instance}.7d9068a738fef2e9a6e234f592d77b03", 
+    "procedure": "MBProgressHUD_hideUsingAnimation:", 
+    "qualifier": "Direct access to ivar animationType of an atomic property at line 345, column 14. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 333218123, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "367"
+      }
+    ], 
+    "line": 367, 
+    "procedure_id": "MBProgressHUD_done{instance}.72390a40ef044120f3206ce23838c81a", 
+    "procedure": "MBProgressHUD_done", 
+    "qualifier": "Direct access to ivar removeFromSuperViewOnHide of an atomic property at line 367, column 6. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 333218123, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "376"
+      }
+    ], 
+    "line": 376, 
+    "procedure_id": "MBProgressHUD_done{instance}.72390a40ef044120f3206ce23838c81a", 
+    "procedure": "MBProgressHUD_done", 
+    "qualifier": "Direct access to ivar delegate of an atomic property at line 376, column 7. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 333218123, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "377"
+      }
+    ], 
+    "line": 377, 
+    "procedure_id": "MBProgressHUD_done{instance}.72390a40ef044120f3206ce23838c81a", 
+    "procedure": "MBProgressHUD_done", 
+    "qualifier": "Direct access to ivar delegate of an atomic property at line 377, column 4. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 730255395, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "439"
+      }
+    ], 
+    "line": 439, 
+    "procedure_id": "MBProgressHUD_cleanUp{instance}.f88f2551df8f2874a1f623e3c7d179a3", 
+    "procedure": "MBProgressHUD_cleanUp", 
+    "qualifier": "Direct access to ivar taskInProgress of an atomic property at line 439, column 2. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "478"
+      }
+    ], 
+    "line": 478, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 478, column 30. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "479"
+      }
+    ], 
+    "line": 479, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 479, column 27. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "481"
+      }
+    ], 
+    "line": 481, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar mode of an atomic property at line 481, column 6. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "484"
+      }
+    ], 
+    "line": 484, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 484, column 5. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "487"
+      }
+    ], 
+    "line": 487, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 487, column 32. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "488"
+      }
+    ], 
+    "line": 488, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 488, column 21. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "491"
+      }
+    ], 
+    "line": 491, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 491, column 31. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "494"
+      }
+    ], 
+    "line": 494, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar mode of an atomic property at line 494, column 11. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "496"
+      }
+    ], 
+    "line": 496, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 496, column 4. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "498"
+      }
+    ], 
+    "line": 498, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 498, column 20. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "500"
+      }
+    ], 
+    "line": 500, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar mode of an atomic property at line 500, column 51. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "500"
+      }
+    ], 
+    "line": 500, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar mode of an atomic property at line 500, column 11. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "503"
+      }
+    ], 
+    "line": 503, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 503, column 5. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "505"
+      }
+    ], 
+    "line": 505, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 505, column 21. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "507"
+      }
+    ], 
+    "line": 507, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar mode of an atomic property at line 507, column 7. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "508"
+      }
+    ], 
+    "line": 508, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 508, column 28. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "510"
+      }
+    ], 
+    "line": 510, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 510, column 27. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "511"
+      }
+    ], 
+    "line": 511, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 511, column 27. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "513"
+      }
+    ], 
+    "line": 513, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar mode of an atomic property at line 513, column 11. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "513"
+      }
+    ], 
+    "line": 513, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar customView of an atomic property at line 513, column 50. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "513"
+      }
+    ], 
+    "line": 513, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 513, column 64. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "515"
+      }
+    ], 
+    "line": 515, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 515, column 4. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "516"
+      }
+    ], 
+    "line": 516, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar customView of an atomic property at line 516, column 20. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "517"
+      }
+    ], 
+    "line": 517, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 517, column 20. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "518"
+      }
+    ], 
+    "line": 518, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar mode of an atomic property at line 518, column 13. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 424832482, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "519"
+      }
+    ], 
+    "line": 519, 
+    "procedure_id": "MBProgressHUD_updateIndicators{instance}.a3986e584873e64cd5fec235462f12b3", 
+    "procedure": "MBProgressHUD_updateIndicators", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 519, column 4. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "537"
+      }
+    ], 
+    "line": 537, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar margin of an atomic property at line 537, column 45. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "540"
+      }
+    ], 
+    "line": 540, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 540, column 22. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "553"
+      }
+    ], 
+    "line": 553, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar margin of an atomic property at line 553, column 83. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "562"
+      }
+    ], 
+    "line": 562, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar margin of an atomic property at line 562, column 25. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "563"
+      }
+    ], 
+    "line": 563, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar margin of an atomic property at line 563, column 26. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "566"
+      }
+    ], 
+    "line": 566, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar yOffset of an atomic property at line 566, column 81. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "566"
+      }
+    ], 
+    "line": 566, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar margin of an atomic property at line 566, column 72. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "567"
+      }
+    ], 
+    "line": 567, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar xOffset of an atomic property at line 567, column 17. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "570"
+      }
+    ], 
+    "line": 570, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 570, column 2. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "593"
+      }
+    ], 
+    "line": 593, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar square of an atomic property at line 593, column 6. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "595"
+      }
+    ], 
+    "line": 595, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar margin of an atomic property at line 595, column 38. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "598"
+      }
+    ], 
+    "line": 598, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar margin of an atomic property at line 598, column 39. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "602"
+      }
+    ], 
+    "line": 602, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar minSize of an atomic property at line 602, column 24. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "603"
+      }
+    ], 
+    "line": 603, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar minSize of an atomic property at line 603, column 21. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "605"
+      }
+    ], 
+    "line": 605, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar minSize of an atomic property at line 605, column 25. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "606"
+      }
+    ], 
+    "line": 606, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar minSize of an atomic property at line 606, column 22. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 683457559, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "609"
+      }
+    ], 
+    "line": 609, 
+    "procedure_id": "MBProgressHUD_layoutSubviews{instance}.b1b30a767241a72169fad46125b80ce0", 
+    "procedure": "MBProgressHUD_layoutSubviews", 
+    "qualifier": "Direct access to ivar size of an atomic property at line 609, column 2. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 281153261, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "649"
+      }
+    ], 
+    "line": 649, 
+    "procedure_id": "MBProgressHUD_drawRect:{instance}.d021496ab2c89b5e6977af3d98e6a604", 
+    "procedure": "MBProgressHUD_drawRect:", 
+    "qualifier": "Direct access to ivar size of an atomic property at line 649, column 30. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 281153261, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "650"
+      }
+    ], 
+    "line": 650, 
+    "procedure_id": "MBProgressHUD_drawRect:{instance}.d021496ab2c89b5e6977af3d98e6a604", 
+    "procedure": "MBProgressHUD_drawRect:", 
+    "qualifier": "Direct access to ivar size of an atomic property at line 650, column 72. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 281153261, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "650"
+      }
+    ], 
+    "line": 650, 
+    "procedure_id": "MBProgressHUD_drawRect:{instance}.d021496ab2c89b5e6977af3d98e6a604", 
+    "procedure": "MBProgressHUD_drawRect:", 
+    "qualifier": "Direct access to ivar size of an atomic property at line 650, column 9. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 281153261, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "650"
+      }
+    ], 
+    "line": 650, 
+    "procedure_id": "MBProgressHUD_drawRect:{instance}.d021496ab2c89b5e6977af3d98e6a604", 
+    "procedure": "MBProgressHUD_drawRect:", 
+    "qualifier": "Direct access to ivar size of an atomic property at line 650, column 84. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 522726456, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "708"
+      }
+    ], 
+    "line": 708, 
+    "procedure_id": "MBProgressHUD_updateUIForKeypath:{instance}.7f3963efa7a8ac2719bfd99007bd6b6e", 
+    "procedure": "MBProgressHUD_updateUIForKeypath:", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 708, column 8. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 522726456, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "709"
+      }
+    ], 
+    "line": 709, 
+    "procedure_id": "MBProgressHUD_updateUIForKeypath:{instance}.7f3963efa7a8ac2719bfd99007bd6b6e", 
+    "procedure": "MBProgressHUD_updateUIForKeypath:", 
+    "qualifier": "Direct access to ivar indicator of an atomic property at line 709, column 9. Accessing an ivar of an atomic property makes the property nonatomic"
+  }, 
+  {
+    "key": 173877444, 
+    "kind": "WARNING", 
+    "hash": 522726456, 
+    "severity": "MEDIUM", 
+    "bug_trace": [
+      {
+        "node_tags": [], 
+        "line_number": -1, 
+        "filename": "", 
+        "description": "", 
+        "level": 0
+      }
+    ], 
+    "bug_class": "", 
+    "bug_type": "DIRECT_ATOMIC_PROPERTY_ACCESS", 
+    "file": "Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m", 
+    "qualifier_tags": [
+      {
+        "tag": "line", 
+        "value": "709"
+      }
+    ], 
+    "line": 709, 
+    "procedure_id": "MBProgressHUD_updateUIForKeypath:{instance}.7f3963efa7a8ac2719bfd99007bd6b6e", 
+    "procedure": "MBProgressHUD_updateUIForKeypath:", 
+    "qualifier": "Direct access to ivar progress of an atomic property at line 709, column 30. Accessing an ivar of an atomic property makes the property nonatomic"
+  }
+]

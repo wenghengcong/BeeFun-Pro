@@ -1,0 +1,22 @@
+[INFO] Running command /usr/local/bin/infer -- xcodebuild -workspace Coderpursue.xcworkspace -scheme Coderpursue -configuration Debug -sdk iphoneos
+[INFO] Path to infer script /usr/local/bin/infer (/usr/local/Cellar/infer/0.7.0/libexec/infer/lib/python/infer)
+[INFO] Infer version v0.7.0
+Copyright 2009 - present Facebook. All Rights Reserved.
+
+
+[INFO] Platform: Darwin-15.4.0-x86_64-i386-64bit
+[INFO] PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+[INFO] SHELL=/bin/zsh
+[INFO] PWD=/Users/wenghengcong/Github/Coderpursue/Coderpursue
+[INFO] Xcode version:
+Xcode 7.3
+Build version 7D175
+
+[INFO] clang version:
+Apple LLVM version 7.3.0 (clang-703.0.29)
+Target: x86_64-apple-darwin15.4.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+[INFO] Capture phase was successful
+[INFO] Starting analysis

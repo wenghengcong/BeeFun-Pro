@@ -1,0 +1,518 @@
+
+Found 64 issues
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:267: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar showStarted of an atomic property at line 267, column 32. Accessing an ivar of an atomic property makes the property nonatomic
+  265.   	// If the minShow time is set, calculate how long the hud was shown,
+  266.   	// and pospone the hiding operation if necessary
+  267. > 	if (self.minShowTime > 0.0 && showStarted) {
+  268.   		NSTimeInterval interv = [[NSDate date] timeIntervalSinceDate:showStarted];
+  269.   		if (interv < self.minShowTime) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:268: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar showStarted of an atomic property at line 268, column 64. Accessing an ivar of an atomic property makes the property nonatomic
+  266.   	// and pospone the hiding operation if necessary
+  267.   	if (self.minShowTime > 0.0 && showStarted) {
+  268. > 		NSTimeInterval interv = [[NSDate date] timeIntervalSinceDate:showStarted];
+  269.   		if (interv < self.minShowTime) {
+  270.   			self.minShowTimer = [NSTimer scheduledTimerWithTimeInterval:(self.minShowTime - interv) target:self 
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:291: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar taskInProgress of an atomic property at line 291, column 6. Accessing an ivar of an atomic property makes the property nonatomic
+  289.   - (void)handleGraceTimer:(NSTimer *)theTimer {
+  290.   	// Show the HUD only if the task is still running
+  291. > 	if (taskInProgress) {
+  292.   		[self showUsingAnimation:useAnimation];
+  293.   	}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:313: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar animationType of an atomic property at line 313, column 18. Accessing an ivar of an atomic property makes the property nonatomic
+  311.       [self setNeedsDisplay];
+  312.   
+  313. > 	if (animated && animationType == MBProgressHUDAnimationZoomIn) {
+  314.   		self.transform = CGAffineTransformConcat(rotationTransform, CGAffineTransformMakeScale(0.5f, 0.5f));
+  315.   	} else if (animated && animationType == MBProgressHUDAnimationZoomOut) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:315: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar animationType of an atomic property at line 315, column 25. Accessing an ivar of an atomic property makes the property nonatomic
+  313.   	if (animated && animationType == MBProgressHUDAnimationZoomIn) {
+  314.   		self.transform = CGAffineTransformConcat(rotationTransform, CGAffineTransformMakeScale(0.5f, 0.5f));
+  315. > 	} else if (animated && animationType == MBProgressHUDAnimationZoomOut) {
+  316.   		self.transform = CGAffineTransformConcat(rotationTransform, CGAffineTransformMakeScale(1.5f, 1.5f));
+  317.   	}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:324: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar animationType of an atomic property at line 324, column 56. Accessing an ivar of an atomic property makes the property nonatomic
+  322.   		[UIView setAnimationDuration:0.30];
+  323.   		self.alpha = 1.0f;
+  324. > 		if (animationType == MBProgressHUDAnimationZoomIn || animationType == MBProgressHUDAnimationZoomOut) {
+  325.   			self.transform = rotationTransform;
+  326.   		}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:324: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar animationType of an atomic property at line 324, column 7. Accessing an ivar of an atomic property makes the property nonatomic
+  322.   		[UIView setAnimationDuration:0.30];
+  323.   		self.alpha = 1.0f;
+  324. > 		if (animationType == MBProgressHUDAnimationZoomIn || animationType == MBProgressHUDAnimationZoomOut) {
+  325.   			self.transform = rotationTransform;
+  326.   		}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:336: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar showStarted of an atomic property at line 336, column 18. Accessing an ivar of an atomic property makes the property nonatomic
+  334.   - (void)hideUsingAnimation:(BOOL)animated {
+  335.   	// Fade out
+  336. > 	if (animated && showStarted) {
+  337.   		[UIView beginAnimations:nil context:NULL];
+  338.   		[UIView setAnimationDuration:0.30];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:343: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar animationType of an atomic property at line 343, column 7. Accessing an ivar of an atomic property makes the property nonatomic
+  341.   		// 0.02 prevents the hud from passing through touches during the animation the hud will get completely hidden
+  342.   		// in the done method
+  343. > 		if (animationType == MBProgressHUDAnimationZoomIn) {
+  344.   			self.transform = CGAffineTransformConcat(rotationTransform, CGAffineTransformMakeScale(1.5f, 1.5f));
+  345.   		} else if (animationType == MBProgressHUDAnimationZoomOut) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:345: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar animationType of an atomic property at line 345, column 14. Accessing an ivar of an atomic property makes the property nonatomic
+  343.   		if (animationType == MBProgressHUDAnimationZoomIn) {
+  344.   			self.transform = CGAffineTransformConcat(rotationTransform, CGAffineTransformMakeScale(1.5f, 1.5f));
+  345. > 		} else if (animationType == MBProgressHUDAnimationZoomOut) {
+  346.   			self.transform = CGAffineTransformConcat(rotationTransform, CGAffineTransformMakeScale(0.5f, 0.5f));
+  347.   		}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:367: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar removeFromSuperViewOnHide of an atomic property at line 367, column 6. Accessing an ivar of an atomic property makes the property nonatomic
+  365.   	isFinished = YES;
+  366.   	self.alpha = 0.0f;
+  367. > 	if (removeFromSuperViewOnHide) {
+  368.   		[self removeFromSuperview];
+  369.   	}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:376: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar delegate of an atomic property at line 376, column 7. Accessing an ivar of an atomic property makes the property nonatomic
+  374.   	}
+  375.   #endif
+  376. > 	if ([delegate respondsToSelector:@selector(hudWasHidden:)]) {
+  377.   		[delegate performSelector:@selector(hudWasHidden:) withObject:self];
+  378.   	}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:377: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar delegate of an atomic property at line 377, column 4. Accessing an ivar of an atomic property makes the property nonatomic
+  375.   #endif
+  376.   	if ([delegate respondsToSelector:@selector(hudWasHidden:)]) {
+  377. > 		[delegate performSelector:@selector(hudWasHidden:) withObject:self];
+  378.   	}
+  379.   }
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:439: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar taskInProgress of an atomic property at line 439, column 2. Accessing an ivar of an atomic property makes the property nonatomic
+  437.   
+  438.   - (void)cleanUp {
+  439. > 	taskInProgress = NO;
+  440.   #if !__has_feature(objc_arc)
+  441.   	[targetForExecution release];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:478: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 478, column 30. Accessing an ivar of an atomic property makes the property nonatomic
+  476.   - (void)updateIndicators {
+  477.   	
+  478. > 	BOOL isActivityIndicator = [indicator isKindOfClass:[UIActivityIndicatorView class]];
+  479.   	BOOL isRoundIndicator = [indicator isKindOfClass:[MBRoundProgressView class]];
+  480.   	
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:479: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 479, column 27. Accessing an ivar of an atomic property makes the property nonatomic
+  477.   	
+  478.   	BOOL isActivityIndicator = [indicator isKindOfClass:[UIActivityIndicatorView class]];
+  479. > 	BOOL isRoundIndicator = [indicator isKindOfClass:[MBRoundProgressView class]];
+  480.   	
+  481.   	if (mode == MBProgressHUDModeIndeterminate) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:481: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar mode of an atomic property at line 481, column 6. Accessing an ivar of an atomic property makes the property nonatomic
+  479.   	BOOL isRoundIndicator = [indicator isKindOfClass:[MBRoundProgressView class]];
+  480.   	
+  481. > 	if (mode == MBProgressHUDModeIndeterminate) {
+  482.   		if (!isActivityIndicator) {
+  483.   			// Update to indeterminate indicator
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:484: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 484, column 5. Accessing an ivar of an atomic property makes the property nonatomic
+  482.   		if (!isActivityIndicator) {
+  483.   			// Update to indeterminate indicator
+  484. > 			[indicator removeFromSuperview];
+  485.   			self.indicator = MB_AUTORELEASE([[UIActivityIndicatorView alloc]
+  486.   											 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge]);
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:487: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 487, column 32. Accessing an ivar of an atomic property makes the property nonatomic
+  485.   			self.indicator = MB_AUTORELEASE([[UIActivityIndicatorView alloc]
+  486.   											 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge]);
+  487. > 			[(UIActivityIndicatorView *)indicator startAnimating];
+  488.   			[self addSubview:indicator];
+  489.   		}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:488: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 488, column 21. Accessing an ivar of an atomic property makes the property nonatomic
+  486.   											 initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge]);
+  487.   			[(UIActivityIndicatorView *)indicator startAnimating];
+  488. > 			[self addSubview:indicator];
+  489.   		}
+  490.   #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 50000
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:491: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 491, column 31. Accessing an ivar of an atomic property makes the property nonatomic
+  489.   		}
+  490.   #if __IPHONE_OS_VERSION_MIN_REQUIRED >= 50000
+  491. > 		[(UIActivityIndicatorView *)indicator setColor:self.activityIndicatorColor];
+  492.   #endif
+  493.   	}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:494: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar mode of an atomic property at line 494, column 11. Accessing an ivar of an atomic property makes the property nonatomic
+  492.   #endif
+  493.   	}
+  494. > 	else if (mode == MBProgressHUDModeDeterminateHorizontalBar) {
+  495.   		// Update to bar determinate indicator
+  496.   		[indicator removeFromSuperview];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:496: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 496, column 4. Accessing an ivar of an atomic property makes the property nonatomic
+  494.   	else if (mode == MBProgressHUDModeDeterminateHorizontalBar) {
+  495.   		// Update to bar determinate indicator
+  496. > 		[indicator removeFromSuperview];
+  497.   		self.indicator = MB_AUTORELEASE([[MBBarProgressView alloc] init]);
+  498.   		[self addSubview:indicator];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:498: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 498, column 20. Accessing an ivar of an atomic property makes the property nonatomic
+  496.   		[indicator removeFromSuperview];
+  497.   		self.indicator = MB_AUTORELEASE([[MBBarProgressView alloc] init]);
+  498. > 		[self addSubview:indicator];
+  499.   	}
+  500.   	else if (mode == MBProgressHUDModeDeterminate || mode == MBProgressHUDModeAnnularDeterminate) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:500: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar mode of an atomic property at line 500, column 51. Accessing an ivar of an atomic property makes the property nonatomic
+  498.   		[self addSubview:indicator];
+  499.   	}
+  500. > 	else if (mode == MBProgressHUDModeDeterminate || mode == MBProgressHUDModeAnnularDeterminate) {
+  501.   		if (!isRoundIndicator) {
+  502.   			// Update to determinante indicator
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:500: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar mode of an atomic property at line 500, column 11. Accessing an ivar of an atomic property makes the property nonatomic
+  498.   		[self addSubview:indicator];
+  499.   	}
+  500. > 	else if (mode == MBProgressHUDModeDeterminate || mode == MBProgressHUDModeAnnularDeterminate) {
+  501.   		if (!isRoundIndicator) {
+  502.   			// Update to determinante indicator
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:503: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 503, column 5. Accessing an ivar of an atomic property makes the property nonatomic
+  501.   		if (!isRoundIndicator) {
+  502.   			// Update to determinante indicator
+  503. > 			[indicator removeFromSuperview];
+  504.   			self.indicator = MB_AUTORELEASE([[MBRoundProgressView alloc] init]);
+  505.   			[self addSubview:indicator];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:505: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 505, column 21. Accessing an ivar of an atomic property makes the property nonatomic
+  503.   			[indicator removeFromSuperview];
+  504.   			self.indicator = MB_AUTORELEASE([[MBRoundProgressView alloc] init]);
+  505. > 			[self addSubview:indicator];
+  506.   		}
+  507.   		if (mode == MBProgressHUDModeAnnularDeterminate) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:507: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar mode of an atomic property at line 507, column 7. Accessing an ivar of an atomic property makes the property nonatomic
+  505.   			[self addSubview:indicator];
+  506.   		}
+  507. > 		if (mode == MBProgressHUDModeAnnularDeterminate) {
+  508.   			[(MBRoundProgressView *)indicator setAnnular:YES];
+  509.   		}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:508: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 508, column 28. Accessing an ivar of an atomic property makes the property nonatomic
+  506.   		}
+  507.   		if (mode == MBProgressHUDModeAnnularDeterminate) {
+  508. > 			[(MBRoundProgressView *)indicator setAnnular:YES];
+  509.   		}
+  510.   		[(MBRoundProgressView *)indicator setProgressTintColor:self.activityIndicatorColor];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:510: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 510, column 27. Accessing an ivar of an atomic property makes the property nonatomic
+  508.   			[(MBRoundProgressView *)indicator setAnnular:YES];
+  509.   		}
+  510. > 		[(MBRoundProgressView *)indicator setProgressTintColor:self.activityIndicatorColor];
+  511.   		[(MBRoundProgressView *)indicator setBackgroundTintColor:[self.activityIndicatorColor colorWithAlphaComponent:0.1f]];
+  512.   	}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:511: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 511, column 27. Accessing an ivar of an atomic property makes the property nonatomic
+  509.   		}
+  510.   		[(MBRoundProgressView *)indicator setProgressTintColor:self.activityIndicatorColor];
+  511. > 		[(MBRoundProgressView *)indicator setBackgroundTintColor:[self.activityIndicatorColor colorWithAlphaComponent:0.1f]];
+  512.   	}
+  513.   	else if (mode == MBProgressHUDModeCustomView && customView != indicator) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:513: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar mode of an atomic property at line 513, column 11. Accessing an ivar of an atomic property makes the property nonatomic
+  511.   		[(MBRoundProgressView *)indicator setBackgroundTintColor:[self.activityIndicatorColor colorWithAlphaComponent:0.1f]];
+  512.   	}
+  513. > 	else if (mode == MBProgressHUDModeCustomView && customView != indicator) {
+  514.   		// Update custom view indicator
+  515.   		[indicator removeFromSuperview];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:513: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar customView of an atomic property at line 513, column 50. Accessing an ivar of an atomic property makes the property nonatomic
+  511.   		[(MBRoundProgressView *)indicator setBackgroundTintColor:[self.activityIndicatorColor colorWithAlphaComponent:0.1f]];
+  512.   	}
+  513. > 	else if (mode == MBProgressHUDModeCustomView && customView != indicator) {
+  514.   		// Update custom view indicator
+  515.   		[indicator removeFromSuperview];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:513: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 513, column 64. Accessing an ivar of an atomic property makes the property nonatomic
+  511.   		[(MBRoundProgressView *)indicator setBackgroundTintColor:[self.activityIndicatorColor colorWithAlphaComponent:0.1f]];
+  512.   	}
+  513. > 	else if (mode == MBProgressHUDModeCustomView && customView != indicator) {
+  514.   		// Update custom view indicator
+  515.   		[indicator removeFromSuperview];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:515: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 515, column 4. Accessing an ivar of an atomic property makes the property nonatomic
+  513.   	else if (mode == MBProgressHUDModeCustomView && customView != indicator) {
+  514.   		// Update custom view indicator
+  515. > 		[indicator removeFromSuperview];
+  516.   		self.indicator = customView;
+  517.   		[self addSubview:indicator];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:516: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar customView of an atomic property at line 516, column 20. Accessing an ivar of an atomic property makes the property nonatomic
+  514.   		// Update custom view indicator
+  515.   		[indicator removeFromSuperview];
+  516. > 		self.indicator = customView;
+  517.   		[self addSubview:indicator];
+  518.   	} else if (mode == MBProgressHUDModeText) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:517: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 517, column 20. Accessing an ivar of an atomic property makes the property nonatomic
+  515.   		[indicator removeFromSuperview];
+  516.   		self.indicator = customView;
+  517. > 		[self addSubview:indicator];
+  518.   	} else if (mode == MBProgressHUDModeText) {
+  519.   		[indicator removeFromSuperview];
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:518: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar mode of an atomic property at line 518, column 13. Accessing an ivar of an atomic property makes the property nonatomic
+  516.   		self.indicator = customView;
+  517.   		[self addSubview:indicator];
+  518. > 	} else if (mode == MBProgressHUDModeText) {
+  519.   		[indicator removeFromSuperview];
+  520.   		self.indicator = nil;
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:519: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 519, column 4. Accessing an ivar of an atomic property makes the property nonatomic
+  517.   		[self addSubview:indicator];
+  518.   	} else if (mode == MBProgressHUDModeText) {
+  519. > 		[indicator removeFromSuperview];
+  520.   		self.indicator = nil;
+  521.   	}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:537: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar margin of an atomic property at line 537, column 45. Accessing an ivar of an atomic property makes the property nonatomic
+  535.   	
+  536.   	// Determine the total width and height needed
+  537. > 	CGFloat maxWidth = bounds.size.width - 4 * margin;
+  538.   	CGSize totalSize = CGSizeZero;
+  539.   	
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:540: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 540, column 22. Accessing an ivar of an atomic property makes the property nonatomic
+  538.   	CGSize totalSize = CGSizeZero;
+  539.   	
+  540. > 	CGRect indicatorF = indicator.bounds;
+  541.   	indicatorF.size.width = MIN(indicatorF.size.width, maxWidth);
+  542.   	totalSize.width = MAX(totalSize.width, indicatorF.size.width);
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:553: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar margin of an atomic property at line 553, column 83. Accessing an ivar of an atomic property makes the property nonatomic
+  551.   	}
+  552.   
+  553. > 	CGFloat remainingHeight = bounds.size.height - totalSize.height - kPadding - 4 * margin; 
+  554.   	CGSize maxSize = CGSizeMake(maxWidth, remainingHeight);
+  555.   	CGSize detailsLabelSize = MB_MULTILINE_TEXTSIZE(detailsLabel.text, detailsLabel.font, maxSize, detailsLabel.lineBreakMode);
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:562: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar margin of an atomic property at line 562, column 25. Accessing an ivar of an atomic property makes the property nonatomic
+  560.   	}
+  561.   	
+  562. > 	totalSize.width += 2 * margin;
+  563.   	totalSize.height += 2 * margin;
+  564.   	
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:563: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar margin of an atomic property at line 563, column 26. Accessing an ivar of an atomic property makes the property nonatomic
+  561.   	
+  562.   	totalSize.width += 2 * margin;
+  563. > 	totalSize.height += 2 * margin;
+  564.   	
+  565.   	// Position elements
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:566: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar yOffset of an atomic property at line 566, column 81. Accessing an ivar of an atomic property makes the property nonatomic
+  564.   	
+  565.   	// Position elements
+  566. > 	CGFloat yPos = round(((bounds.size.height - totalSize.height) / 2)) + margin + yOffset;
+  567.   	CGFloat xPos = xOffset;
+  568.   	indicatorF.origin.y = yPos;
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:566: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar margin of an atomic property at line 566, column 72. Accessing an ivar of an atomic property makes the property nonatomic
+  564.   	
+  565.   	// Position elements
+  566. > 	CGFloat yPos = round(((bounds.size.height - totalSize.height) / 2)) + margin + yOffset;
+  567.   	CGFloat xPos = xOffset;
+  568.   	indicatorF.origin.y = yPos;
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:567: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar xOffset of an atomic property at line 567, column 17. Accessing an ivar of an atomic property makes the property nonatomic
+  565.   	// Position elements
+  566.   	CGFloat yPos = round(((bounds.size.height - totalSize.height) / 2)) + margin + yOffset;
+  567. > 	CGFloat xPos = xOffset;
+  568.   	indicatorF.origin.y = yPos;
+  569.   	indicatorF.origin.x = round((bounds.size.width - indicatorF.size.width) / 2) + xPos;
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:570: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 570, column 2. Accessing an ivar of an atomic property makes the property nonatomic
+  568.   	indicatorF.origin.y = yPos;
+  569.   	indicatorF.origin.x = round((bounds.size.width - indicatorF.size.width) / 2) + xPos;
+  570. > 	indicator.frame = indicatorF;
+  571.   	yPos += indicatorF.size.height;
+  572.   	
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:593: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar square of an atomic property at line 593, column 6. Accessing an ivar of an atomic property makes the property nonatomic
+  591.   	
+  592.   	// Enforce minsize and quare rules
+  593. > 	if (square) {
+  594.   		CGFloat max = MAX(totalSize.width, totalSize.height);
+  595.   		if (max <= bounds.size.width - 2 * margin) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:595: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar margin of an atomic property at line 595, column 38. Accessing an ivar of an atomic property makes the property nonatomic
+  593.   	if (square) {
+  594.   		CGFloat max = MAX(totalSize.width, totalSize.height);
+  595. > 		if (max <= bounds.size.width - 2 * margin) {
+  596.   			totalSize.width = max;
+  597.   		}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:598: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar margin of an atomic property at line 598, column 39. Accessing an ivar of an atomic property makes the property nonatomic
+  596.   			totalSize.width = max;
+  597.   		}
+  598. > 		if (max <= bounds.size.height - 2 * margin) {
+  599.   			totalSize.height = max;
+  600.   		}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:602: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar minSize of an atomic property at line 602, column 24. Accessing an ivar of an atomic property makes the property nonatomic
+  600.   		}
+  601.   	}
+  602. > 	if (totalSize.width < minSize.width) {
+  603.   		totalSize.width = minSize.width;
+  604.   	} 
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:603: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar minSize of an atomic property at line 603, column 21. Accessing an ivar of an atomic property makes the property nonatomic
+  601.   	}
+  602.   	if (totalSize.width < minSize.width) {
+  603. > 		totalSize.width = minSize.width;
+  604.   	} 
+  605.   	if (totalSize.height < minSize.height) {
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:605: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar minSize of an atomic property at line 605, column 25. Accessing an ivar of an atomic property makes the property nonatomic
+  603.   		totalSize.width = minSize.width;
+  604.   	} 
+  605. > 	if (totalSize.height < minSize.height) {
+  606.   		totalSize.height = minSize.height;
+  607.   	}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:606: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar minSize of an atomic property at line 606, column 22. Accessing an ivar of an atomic property makes the property nonatomic
+  604.   	} 
+  605.   	if (totalSize.height < minSize.height) {
+  606. > 		totalSize.height = minSize.height;
+  607.   	}
+  608.   	
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:609: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar size of an atomic property at line 609, column 2. Accessing an ivar of an atomic property makes the property nonatomic
+  607.   	}
+  608.   	
+  609. > 	size = totalSize;
+  610.   }
+  611.   
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:649: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar size of an atomic property at line 649, column 30. Accessing an ivar of an atomic property makes the property nonatomic
+  647.   	CGRect allRect = self.bounds;
+  648.   	// Draw rounded HUD backgroud rect
+  649. > 	CGRect boxRect = CGRectMake(round((allRect.size.width - size.width) / 2) + self.xOffset,
+  650.   								round((allRect.size.height - size.height) / 2) + self.yOffset, size.width, size.height);
+  651.   	float radius = self.cornerRadius;
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:650: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar size of an atomic property at line 650, column 72. Accessing an ivar of an atomic property makes the property nonatomic
+  648.   	// Draw rounded HUD backgroud rect
+  649.   	CGRect boxRect = CGRectMake(round((allRect.size.width - size.width) / 2) + self.xOffset,
+  650. > 								round((allRect.size.height - size.height) / 2) + self.yOffset, size.width, size.height);
+  651.   	float radius = self.cornerRadius;
+  652.   	CGContextBeginPath(context);
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:650: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar size of an atomic property at line 650, column 9. Accessing an ivar of an atomic property makes the property nonatomic
+  648.   	// Draw rounded HUD backgroud rect
+  649.   	CGRect boxRect = CGRectMake(round((allRect.size.width - size.width) / 2) + self.xOffset,
+  650. > 								round((allRect.size.height - size.height) / 2) + self.yOffset, size.width, size.height);
+  651.   	float radius = self.cornerRadius;
+  652.   	CGContextBeginPath(context);
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:650: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar size of an atomic property at line 650, column 84. Accessing an ivar of an atomic property makes the property nonatomic
+  648.   	// Draw rounded HUD backgroud rect
+  649.   	CGRect boxRect = CGRectMake(round((allRect.size.width - size.width) / 2) + self.xOffset,
+  650. > 								round((allRect.size.height - size.height) / 2) + self.yOffset, size.width, size.height);
+  651.   	float radius = self.cornerRadius;
+  652.   	CGContextBeginPath(context);
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:708: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 708, column 8. Accessing an ivar of an atomic property makes the property nonatomic
+  706.   		detailsLabel.textColor = self.detailsLabelColor;
+  707.   	} else if ([keyPath isEqualToString:@"progress"]) {
+  708. > 		if ([indicator respondsToSelector:@selector(setProgress:)]) {
+  709.   			[(id)indicator setValue:@(progress) forKey:@"progress"];
+  710.   		}
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:709: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar indicator of an atomic property at line 709, column 9. Accessing an ivar of an atomic property makes the property nonatomic
+  707.   	} else if ([keyPath isEqualToString:@"progress"]) {
+  708.   		if ([indicator respondsToSelector:@selector(setProgress:)]) {
+  709. > 			[(id)indicator setValue:@(progress) forKey:@"progress"];
+  710.   		}
+  711.   		return;
+
+Coderpursue/ThidParty/MBProgressHUD/MBProgressHUD.m:709: warning: DIRECT_ATOMIC_PROPERTY_ACCESS
+  Direct access to ivar progress of an atomic property at line 709, column 30. Accessing an ivar of an atomic property makes the property nonatomic
+  707.   	} else if ([keyPath isEqualToString:@"progress"]) {
+  708.   		if ([indicator respondsToSelector:@selector(setProgress:)]) {
+  709. > 			[(id)indicator setValue:@(progress) forKey:@"progress"];
+  710.   		}
+  711.   		return;
+
+Summary of the reports:
+
+  DIRECT_ATOMIC_PROPERTY_ACCESS: 64

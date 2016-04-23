@@ -1,0 +1,18 @@
+{
+  "int": {
+    "files": 19, 
+    "procedures": 286, 
+    "lines": 1920, 
+    "DIRECT_ATOMIC_PROPERTY_ACCESS": 64
+  }, 
+  "float": {
+    "reporting_time": 0.10471487045288086, 
+    "analysis_time": 2.4565818309783936, 
+    "capture_time": 0.0, 
+    "makefile_generation_time": 0.042181968688964844
+  }, 
+  "normal": {
+    "infer_version": "unknown", 
+    "analyzer": "infer"
+  }
+}

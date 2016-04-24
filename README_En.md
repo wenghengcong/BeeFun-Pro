@@ -1,6 +1,6 @@
 # Coderpursue 
 
-[![](https://img.shields.io/badge/version-1.0.2-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
+[![](https://img.shields.io/badge/version-1.0.4-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-2.2-green.svg)](https://developer.apple.com/swift/)
 
 Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift.Also,It's an open project.
@@ -17,7 +17,7 @@ You can get the app by QR code or on App Store.
   
 ### Feature
 
-- v1.0.2
+- v1.0.4
   1. Explore Github: Explore Trending Repositories or showcases；
   2. Search User and Repositories；
   3. star/watch/fork repository；

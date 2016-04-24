@@ -1,6 +1,6 @@
 # Coderpursue (已上架)
 
-[![](https://img.shields.io/badge/version-1.0.2-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
+[![](https://img.shields.io/badge/version-1.0.4-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-2.2-green.svg)](https://developer.apple.com/swift/)
 
 Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目前已开源。
@@ -15,7 +15,7 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 
 ### 功能
 
-- v1.0.2
+- v1.0.4
   1. Explore Github
   2. 搜索repository、user；
   3. star/watch/fork repository；

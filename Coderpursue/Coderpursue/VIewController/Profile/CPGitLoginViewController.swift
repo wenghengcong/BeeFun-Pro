@@ -117,7 +117,7 @@ class CPGitLoginViewController: CPWebViewController {
                         ObjUser.saveUserInfo(gitUser)
                         //post successful noti
                         self.navigationController?.popViewController(animated: true)
-                        NotificationCenter.defaultCenter.postNotificationName(NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object:nil)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object:nil)
                         
                     } else {
                     }

@@ -32,7 +32,7 @@ class ObjPlan: NSObject,NSCoding, Mappable {
 
     }
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
 //        super.init(map)
     }
     

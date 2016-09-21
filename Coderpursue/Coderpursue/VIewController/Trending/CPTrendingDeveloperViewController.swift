@@ -255,10 +255,10 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
@@ -272,7 +272,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -295,20 +295,20 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = true
                     CPGlobalHelper.sharedInstance.showError("Follow Successful", view: self.view)
 
                 }
                 self.dvc_updateViewContent()
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -332,13 +332,13 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
             case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = false
                     CPGlobalHelper.sharedInstance.showError("Unollow Successful", view: self.view)
 

@@ -196,7 +196,7 @@ class CPStarsViewController: CPBaseViewController{
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
             case let .success(response):
@@ -243,7 +243,7 @@ class CPStarsViewController: CPBaseViewController{
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
             case let .success(response):

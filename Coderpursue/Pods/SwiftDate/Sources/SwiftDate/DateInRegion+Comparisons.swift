@@ -26,7 +26,7 @@ import Foundation
 
 // MARK: - Comparators
 
-public extension DateInRegion {
+extension DateInRegion {
 
     // swiftlint:disable line_length
 
@@ -35,27 +35,26 @@ public extension DateInRegion {
     ///
     /// - Parameters:
     ///     - date: date to compare.
-    ///     - toUnitGranularity: The smallest unit that must, along with all larger units, be equal
+    ///     - component: The smallest unit that must, along with all larger units, be equal
     ///         for the given dates to be considered the same.
     ///         For possible values, see “[Calendar Units](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/c/tdef/NSCalendarUnit)”
     ///
-    /// - Returns: NSOrderedSame if the dates are the same down to the given granularity, otherwise
-    ///     NSOrderedAscending or NSOrderedDescending.
+    /// - Returns: `.orderedSame` if the dates are the same down to the given granularity, otherwise
+    ///     `orderedAscending` or `orderedDescending`.
     ///
     /// - seealso: [compareDate:toDate:toUnitGranularity:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/occ/instm/NSCalendar/compareDate:toDate:toUnitGranularity:)
     ///
-    public func compareDate(date: DateInRegion, toUnitGranularity unit: NSCalendarUnit)
-        -> NSComparisonResult {
+    public func compare(date: DateInRegion, toGranularity component: Calendar.Component)
+        -> ComparisonResult {
 
-        return calendar.compareDate(self.absoluteTime, toDate: date.absoluteTime,
-            toUnitGranularity: unit)
+            return calendar.compare(self.absoluteTime, to: date.absoluteTime, toGranularity: component)
     }
 
     /// Compares equality of two given dates based on their components down to a given unit
     /// granularity.
     ///
     /// - Parameters:
-    ///     - unit: The smallest unit that must, along with all larger units, be equal for the given
+    ///     - component: The smallest unit that must, along with all larger units, be equal for the given
     ///         dates to be considered the same.
     ///     - date: date to compare.
     ///
@@ -63,15 +62,15 @@ public extension DateInRegion {
     ///
     /// - seealso: [compareDate:toDate:toUnitGranularity:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/occ/instm/NSCalendar/compareDate:toDate:toUnitGranularity:)
     ///
-    public func isIn(unit: NSCalendarUnit, ofDate date: DateInRegion) -> Bool {
-        return self.compareDate(date, toUnitGranularity: unit) == .OrderedSame
+    public func isIn(component: Calendar.Component, of date: DateInRegion) -> Bool {
+        return self.compare(date: date, toGranularity: component) == .orderedSame
     }
 
     /// Compares whether the receiver is before `date` based on their components down to a given
     /// unit granularity.
     ///
     /// - Parameters:
-    ///     - unit: The smallest unit that must, along with all larger units, be less for the given
+    ///     - component: The smallest unit that must, along with all larger units, be less for the given
     ///         dates.
     ///     - date: date to compare.
     ///
@@ -80,15 +79,15 @@ public extension DateInRegion {
     ///
     /// - seealso: [compareDate:toDate:toUnitGranularity:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/occ/instm/NSCalendar/compareDate:toDate:toUnitGranularity:)
     ///
-    public func isBefore(unit: NSCalendarUnit, ofDate date: DateInRegion) -> Bool {
-        return self.compareDate(date, toUnitGranularity: unit) == .OrderedAscending
+    public func isBefore(component: Calendar.Component, of date: DateInRegion) -> Bool {
+        return self.compare(date: date, toGranularity: component) == .orderedAscending
     }
 
     /// Compares whether the receiver is after `date` based on their components down to a given unit
     /// granularity.
     ///
     /// - Parameters:
-    ///     - unit: The smallest unit that must, along with all larger units, be greater
+    ///     - component: The smallest unit that must, along with all larger units, be greater
     ///     - date: date to compare.
     ///
     /// - Returns: `true` if the unit of the receiver is greater than the unit of `date`, otherwise
@@ -96,8 +95,8 @@ public extension DateInRegion {
     ///
     /// - seealso: [compareDate:toDate:toUnitGranularity:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/occ/instm/NSCalendar/compareDate:toDate:toUnitGranularity:)
     ///
-    public func isAfter(unit: NSCalendarUnit, ofDate date: DateInRegion) -> Bool {
-        return self.compareDate(date, toUnitGranularity: unit) == .OrderedDescending
+    public func isAfter(component: Calendar.Component, of date: DateInRegion) -> Bool {
+        return self.compare(date: date, toGranularity: component) == .orderedDescending
     }
 
     /// Returns whether the given date is in today.
@@ -148,6 +147,22 @@ public extension DateInRegion {
         return calendar.isDateInWeekend(absoluteTime)
     }
 
+    /// Returns whether the given date is in the past.
+    ///
+    /// - Returns: a boolean indicating whether the receiver is in the past
+    ///
+    public func isInPast() -> Bool {
+        return absoluteTime < Date()
+    }
+
+    /// Returns whether the given date is in the past.
+    ///
+    /// - Returns: a boolean indicating whether the receiver is in the past
+    ///
+    public func isInFuture() -> Bool {
+        return absoluteTime > Date()
+    }
+
     /// Returns whether the given date is on the same day as the receiver in the time zone and
     /// calendar of the receiver.
     ///
@@ -159,8 +174,8 @@ public extension DateInRegion {
     ///
     /// - seealso: [isDate:inSameDayAsDate:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSCalendar_Class/index.html#//apple_ref/occ/instm/NSCalendar/isDate:inSameDayAsDate:)
     ///
-    public func isInSameDayAsDate(date: DateInRegion) -> Bool {
-        return calendar.isDate(self.absoluteTime, inSameDayAsDate: date.absoluteTime)
+    public func isInSameDay(as date: DateInRegion) -> Bool {
+        return calendar.isDate(self.absoluteTime, inSameDayAs: date.absoluteTime)
     }
 
     /// Returns whether the given date is equal to the receiver.
@@ -172,7 +187,7 @@ public extension DateInRegion {
     ///
     /// - seealso: [isEqualToDate:](xcdoc://?url=developer.apple.com/library/prerelease/ios/documentation/Cocoa/Reference/Foundation/Classes/NSDate_Class/index.html#//apple_ref/occ/instm/NSDate/isEqualToDate:)
     ///
-    public func isEqualToDate(right: DateInRegion) -> Bool {
+    public func isEqualToDate(_ right: DateInRegion) -> Bool {
         // Compare the content, first the date
         if absoluteTime != right.absoluteTime {
             return false
@@ -208,7 +223,7 @@ extension DateInRegion: Comparable {}
 /// - Returns: a boolean indicating whether the receiver is earlier than the given date
 ///
 public func < (ldate: DateInRegion, rdate: DateInRegion) -> Bool {
-    return ldate.absoluteTime.compare(rdate.absoluteTime) == .OrderedAscending
+    return ldate.absoluteTime.compare(rdate.absoluteTime) == .orderedAscending
 }
 
 /// Returns whether the given date is earlier than the receiver.
@@ -220,5 +235,5 @@ public func < (ldate: DateInRegion, rdate: DateInRegion) -> Bool {
 /// - Returns: a boolean indicating whether the receiver is later than the given date
 ///
 public func > (ldate: DateInRegion, rdate: DateInRegion) -> Bool {
-    return ldate.absoluteTime.compare(rdate.absoluteTime) == .OrderedDescending
+    return ldate.absoluteTime.compare(rdate.absoluteTime) == .orderedDescending
 }

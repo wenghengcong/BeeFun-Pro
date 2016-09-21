@@ -11,7 +11,6 @@ import Foundation
 import Moya
 import Alamofire
 import ObjectMapper
-import SwiftyJSON
 
 typealias SuccessClosure = (_ result: AnyObject) -> Void
 //typealias SuccessClosure = (result: Mappable) -> Void

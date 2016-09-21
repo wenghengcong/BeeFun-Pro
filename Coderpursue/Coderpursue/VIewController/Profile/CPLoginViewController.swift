@@ -9,7 +9,6 @@
 import UIKit
 import Alamofire
 import ObjectMapper
-import SwiftyJSON
 import Moya
 import Foundation
 

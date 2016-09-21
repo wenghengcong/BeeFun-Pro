@@ -26,25 +26,31 @@ import Foundation
 
 // Backward compatibility resolves issue https://github.com/malcommac/SwiftDate/issues/121
 //
-@available(*, renamed="DateRegion")
+@available(*, renamed:  "DateRegion")
 public typealias DateRegion = Region
 
 /// Region encapsulates all objects you need when representing a date from an absolute time like
 /// NSDate.
 ///
-@available(*, introduced=2.0)
+@available(*, introduced:2.0)
 public struct Region: Equatable {
+
+	/// Define the default region to use when you avoid to pass a valid Region() as parameter inside the library itself.
+	/// Default region is composed by
+	public static var defaultRegion: Region = {
+		return Region()
+	}()
 
     /// Calendar to interpret date values. You can alter the calendar to adjust the representation
     /// of date to your needs.
     ///
-    public let calendar: NSCalendar!
+    public let calendar: Calendar
 
     /// Time zone to interpret date values
     /// Because the time zone is part of calendar, this is a shortcut to that variable.
     /// You can alter the time zone to adjust the representation of date to your needs.
     ///
-    public var timeZone: NSTimeZone {
+    public var timeZone: TimeZone {
         return self.calendar.timeZone
     }
 
@@ -52,7 +58,7 @@ public struct Region: Equatable {
     /// Because the locale is part of calendar, this is a shortcut to that variable.
     /// You can alter the locale to adjust the representation of date to your needs.
     ///
-    public var locale: NSLocale {
+    public var locale: Locale {
         return self.calendar.locale!
     }
 
@@ -63,26 +69,27 @@ public struct Region: Equatable {
     ///     - timeZone: the time zone to work with
     ///     - locale: the locale to work with
     ///
-    internal init(
-        calendar: NSCalendar,
-        timeZone: NSTimeZone? = nil,
-        locale: NSLocale? = nil) {
+    public init(
+        calendar: Calendar,
+        timeZone: TimeZone? = nil,
+        locale: Locale? = nil) {
 
-            self.calendar = calendar
-            self.calendar.locale = locale ?? calendar.locale ?? NSLocale.currentLocale()
-            self.calendar.timeZone = timeZone ?? calendar.timeZone ?? NSTimeZone.defaultTimeZone()
-    }
+        var calendar = calendar
+        calendar.locale = locale ?? calendar.locale ?? Locale.current
+        calendar.timeZone = timeZone ?? calendar.timeZone
+        self.calendar = calendar
+	}
 
     /// Initialise with a date components
     ///
     /// - Parameters:
     ///     - components: the date components to initialise with
     ///
-    internal init(_ components: NSDateComponents) {
+    internal init(_ components: DateComponents) {
 
-            let calendar = components.calendar ?? NSCalendar.currentCalendar()
-            let timeZone = components.timeZone
-            let locale = calendar.locale
+        let calendar = components.calendar ?? Calendar.current
+        let timeZone = components.timeZone
+        let locale = calendar.locale
 
         self.init(calendar: calendar, timeZone: timeZone, locale: locale)
     }
@@ -101,11 +108,11 @@ public struct Region: Equatable {
         timeZoneName: TimeZoneName? = nil,
         localeName: LocaleName? = nil) {
 
-            let calendar = calendarName?.calendar ?? NSCalendar.currentCalendar()
-            let timeZone = timeZoneName?.timeZone ?? NSTimeZone.defaultTimeZone()
-            let locale = localeName?.locale ?? NSLocale.currentLocale()
+        let calendar = calendarName?.calendar ?? Calendar.current
+        let timeZone = timeZoneName?.timeZone ?? NSTimeZone.default
+        let locale = localeName?.locale ?? NSLocale.current
 
-            self.init(calendar: calendar, timeZone: timeZone, locale: locale)
+        self.init(calendar: calendar, timeZone: timeZone, locale: locale)
     }
 
     /// Today's date
@@ -114,7 +121,7 @@ public struct Region: Equatable {
     ///     zone.
     ///
     public func today() -> DateInRegion {
-        return DateInRegion(region: self).startOf(.Day)
+        return DateInRegion(region: self).startOf(component: .day)
     }
 
     /// Yesterday's date
@@ -136,15 +143,15 @@ public struct Region: Equatable {
 }
 
 public func == (left: Region, right: Region) -> Bool {
-    if left.calendar.calendarIdentifier != right.calendar.calendarIdentifier {
+    if left.calendar.identifier != right.calendar.identifier {
         return false
     }
 
-    if left.timeZone.secondsFromGMT != right.timeZone.secondsFromGMT {
+    if left.timeZone.identifier != right.timeZone.identifier {
         return false
     }
 
-    if left.locale.localeIdentifier != right.locale.localeIdentifier {
+    if left.locale.identifier != right.locale.identifier {
         return false
     }
 
@@ -154,13 +161,5 @@ public func == (left: Region, right: Region) -> Bool {
 extension Region: Hashable {
     public var hashValue: Int {
         return calendar.hashValue ^ timeZone.hashValue ^ locale.hashValue
-    }
-}
-
-extension Region: CustomStringConvertible {
-    public var description: String {
-        let timeZoneAbbreviation = timeZone.abbreviation ?? ""
-        return "\(calendar.calendarIdentifier); \(timeZone.name):\(timeZoneAbbreviation); " +
-        "\(locale.localeIdentifier)"
     }
 }

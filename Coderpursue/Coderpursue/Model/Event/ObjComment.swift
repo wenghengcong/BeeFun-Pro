@@ -42,7 +42,7 @@ class ObjComment: NSObject,Mappable {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         url <- map["url"]
         html_url <- map["html_url"]

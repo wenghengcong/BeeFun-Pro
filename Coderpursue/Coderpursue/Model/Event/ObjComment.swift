@@ -38,7 +38,7 @@ class ObjComment: NSObject,Mappable {
     var commit_id:String?
 
 
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     

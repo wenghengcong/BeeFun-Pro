@@ -22,7 +22,7 @@ typealias FailClosure = (_ errorMsg: String?) -> Void
 func endpointResolver() -> MoyaProvider<GitHubAPI>.RequestClosure {
     return { (endpoint, closure) in
         let request: NSMutableURLRequest = endpoint.urlRequest.mutableCopy() as! NSMutableURLRequest
-        request.HTTPShouldHandleCookies = false
+        request.httpShouldHandleCookies = false
         closure(request)
     }
 }
@@ -42,7 +42,7 @@ struct Provider{
     
     fileprivate static var endpointsClosure = { (target: GitHubAPI) -> Endpoint<GitHubAPI> in
         
-        var endpoint: Endpoint<GitHubAPI> = Endpoint<GitHubAPI>(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+        var endpoint: Endpoint<GitHubAPI> = Endpoint<GitHubAPI>(URL: url(target), sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
         // Sign all non-XApp token requests
 
         switch target {
@@ -55,7 +55,7 @@ struct Provider{
         }
     }
     static func stubBehaviour(_: GitHubAPI) -> Moya.StubBehavior {
-        return .Never
+        return .never
     }
     
     static func DefaultProvider() -> GitHupPorvider<GitHubAPI> {
@@ -504,7 +504,7 @@ extension GitHubAPI: TargetType {
                 "state":state as AnyObject,
                 "labels":labels as AnyObject,
                 "sort":sort as AnyObject,
-                "direction":direction,
+                "direction":direction as AnyObject,
             ]
         case .myIssues(let page,let perpage,let filter,let state,let labels,let sort,let direction):
             return [
@@ -514,7 +514,7 @@ extension GitHubAPI: TargetType {
                 "state":state as AnyObject,
                 "labels":labels as AnyObject,
                 "sort":sort as AnyObject,
-                "direction":direction,
+                "direction":direction as AnyObject,
             ]
 
         case .orgIssues(let page,let perpage, _, let filter,let state,let labels,let sort,let direction):
@@ -525,7 +525,7 @@ extension GitHubAPI: TargetType {
                 "state":state as AnyObject,
                 "labels":labels as AnyObject,
                 "sort":sort as AnyObject,
-                "direction":direction,
+                "direction":direction as AnyObject,
             ]
         case .repoIssues(let page,let perpage,_,_,let milestone,let state,let assignee,let creator,let mentioned,let labels,let sort,let direction):
             return [
@@ -535,8 +535,8 @@ extension GitHubAPI: TargetType {
                 "state":state as AnyObject,
                 "assignee":assignee as AnyObject,
                 "creator":creator as AnyObject,
-                "mentioned":mentioned,
-                "labels":labels,
+                "mentioned":mentioned as AnyObject,
+                "labels":labels as AnyObject,
                 "sort":sort,
                 "direction":direction,
             ]

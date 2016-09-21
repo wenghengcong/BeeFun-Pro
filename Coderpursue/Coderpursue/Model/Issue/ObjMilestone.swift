@@ -50,11 +50,11 @@ class ObjMilestone: NSObject,Mappable {
     var closed_at:String?
     var due_on:String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         url <- map["url"]
         html_url <- map["html_url"]

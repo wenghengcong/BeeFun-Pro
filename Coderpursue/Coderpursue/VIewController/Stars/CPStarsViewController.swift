@@ -186,7 +186,7 @@ class CPStarsViewController: CPBaseViewController{
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request(.MyStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
+        Provider.sharedProvider.request(.myStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
 
             var message = "No data to show"
             
@@ -199,7 +199,7 @@ class CPStarsViewController: CPBaseViewController{
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
@@ -217,7 +217,7 @@ class CPStarsViewController: CPBaseViewController{
                 } catch {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -233,7 +233,7 @@ class CPStarsViewController: CPBaseViewController{
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request(.UserEvents(username:ObjUser.loadUserInfo()!.login! ,page:pageVal,perpage:15) ) { (result) -> () in
+        Provider.sharedProvider.request(.userEvents(username:ObjUser.loadUserInfo()!.login! ,page:pageVal,perpage:15) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -246,7 +246,7 @@ class CPStarsViewController: CPBaseViewController{
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let events:[ObjEvent]? = try response.mapArray(ObjEvent){
@@ -265,7 +265,7 @@ class CPStarsViewController: CPBaseViewController{
                 }
                 self.tableView.reloadData()
 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

@@ -15,11 +15,11 @@ class ObjSearchReposResponse: NSObject,Mappable{
     var incompleteResults:Bool?
     var items:[ObjRepos]?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         totalCount <- map["total_count"]
         incompleteResults <- map["incomplete_results"]

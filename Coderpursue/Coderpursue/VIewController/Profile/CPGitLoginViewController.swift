@@ -103,28 +103,28 @@ class CPGitLoginViewController: CPWebViewController {
         MBProgressHUD.showAdded(to: self.view, animated: true)
 
         let provider = Provider.sharedProvider
-        provider.request(.MyInfo) { (result) -> () in
+        provider.request(.myInfo) { (result) -> () in
             print(result)
             
             var message = "No data to show"
 
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 do {
                     if let gitUser:ObjUser = Mapper<ObjUser>().map(try response.mapJSON()) {
                         ObjUser.saveUserInfo(gitUser)
                         //post successful noti
-                        self.navigationController?.popViewControllerAnimated(true)
-                        NSNotificationCenter.defaultCenter().postNotificationName(NotificationGitLoginSuccessful, object:nil)
+                        self.navigationController?.popViewController(animated: true)
+                        NotificationCenter.defaultCenter.postNotificationName(NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object:nil)
                         
                     } else {
                     }
                 } catch {
                 }
                 //                self.tableView.reloadData()
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

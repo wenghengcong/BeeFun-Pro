@@ -63,7 +63,7 @@ class CPMesIssueCell: CPBaseViewCell {
         }
         
         //time
-        let updateAt:Date = issue!.created_at!.toDate(DateFormat.ISO8601)!
+        let updateAt:Date = issue!.created_at!.toDate(format: DateFormat.iso8601)!
         timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
         
     }

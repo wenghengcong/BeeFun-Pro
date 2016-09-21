@@ -30,11 +30,11 @@ class ObjErropReponse: NSObject,Mappable {
     var errors:[ObjError]?
     var documentationUrl:String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         message <- map["message"]
         errors <- map["errors"]

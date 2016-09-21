@@ -72,7 +72,7 @@ class CPMesNotificationCell: CPBaseViewCell {
         
         if let time = noti?.updated_at {
             //time
-            let updateAt:Date = time.toDate(DateFormat.ISO8601)!
+            let updateAt:Date = time.toDate(format: DateFormat.iso8601)!
             timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
         }
         

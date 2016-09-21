@@ -203,7 +203,7 @@ class CPSearchViewController: CPBaseViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
 
-        Provider.sharedProvider.request(.SearchUsers(para:self.paraUser) ) { (result) -> () in
+        Provider.sharedProvider.request(.searchUsers(para:self.paraUser) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -213,10 +213,10 @@ class CPSearchViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     
@@ -250,7 +250,7 @@ class CPSearchViewController: CPBaseViewController {
                 } catch {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -267,7 +267,7 @@ class CPSearchViewController: CPBaseViewController {
 
         MBProgressHUD.showAdded(to: self.view, animated: true)
 
-        Provider.sharedProvider.request(.SearchRepos(para:self.paraRepos) ) { (result) -> () in
+        Provider.sharedProvider.request(.searchRepos(para:self.paraRepos) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -277,10 +277,10 @@ class CPSearchViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 
                 do {
@@ -313,7 +313,7 @@ class CPSearchViewController: CPBaseViewController {
                 } catch {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

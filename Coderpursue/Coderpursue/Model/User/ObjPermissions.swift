@@ -15,11 +15,11 @@ class ObjPermissions: NSObject,Mappable {
     var pull:Int?
     var push:Int?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         admin <- map["admin"]
         pull <- map["pull"]

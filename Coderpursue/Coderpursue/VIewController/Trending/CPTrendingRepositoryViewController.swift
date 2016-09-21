@@ -181,14 +181,14 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
         
-        Provider.sharedProvider.request(.UserSomeRepo(owner:owner,repo:repoName) ) { (result) -> () in
+        Provider.sharedProvider.request(.userSomeRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let result:ObjRepos = Mapper<ObjRepos>().map(try response.mapJSON() ) {
@@ -202,7 +202,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
 
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -225,23 +225,23 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
         
-        Provider.sharedProvider.request(.CheckWatched(owner:owner,repo:repoName) ) { (result) -> () in
+        Provider.sharedProvider.request(.checkWatched(owner:owner,repo:repoName) ) { (result) -> () in
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.OK.rawValue){
+                if(statusCode == CPHttpStatusCode.ok.rawValue){
                     self.hasWatchedRepos = true
                 }else{
                     self.hasWatchedRepos = false
                 }
                 self.rvc_updateViewContent()
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -262,24 +262,24 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
         
-        Provider.sharedProvider.request(.CheckStarred(owner:owner,repo:repoName) ) { (result) -> () in
+        Provider.sharedProvider.request(.checkStarred(owner:owner,repo:repoName) ) { (result) -> () in
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = true
                 }else{
                     self.hasStaredRepos = false
                 }
                 self.rvc_updateViewContent()
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -295,17 +295,17 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
-        Provider.sharedProvider.request(.WatchingRepo(owner:owner,repo:repoName,subscribed:"true",ignored:"false") ) { (result) -> () in
+        Provider.sharedProvider.request(.watchingRepo(owner:owner,repo:repoName,subscribed:"true",ignored:"false") ) { (result) -> () in
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = true
                     CPGlobalHelper.sharedInstance.showError("Watch Successsful", view: self.view)
                     self.rvc_updateViewContent()
@@ -313,7 +313,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     
                 }
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -329,17 +329,17 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
         
-        Provider.sharedProvider.request(.UnWatchingRepo(owner:owner,repo:repoName) ) { (result) -> () in
+        Provider.sharedProvider.request(.unWatchingRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = false
                     CPGlobalHelper.sharedInstance.showError("Unwatch Successsful", view: self.view)
                     self.rvc_updateViewContent()
@@ -348,7 +348,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     
                 }
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -364,17 +364,17 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
         
-        Provider.sharedProvider.request(.StarRepo(owner:owner,repo:repoName) ) { (result) -> () in
+        Provider.sharedProvider.request(.starRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = true
                     CPGlobalHelper.sharedInstance.showError("Star Successsful", view: self.view)
                     self.rvc_updateViewContent()
@@ -382,7 +382,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     
                 }
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -398,17 +398,17 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
         
-        Provider.sharedProvider.request(.UnstarRepo(owner:owner,repo:repoName) ) { (result) -> () in
+        Provider.sharedProvider.request(.unstarRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = false
                     CPGlobalHelper.sharedInstance.showError("Unstar this repository successsful!", view: self.view)
                     self.rvc_updateViewContent()
@@ -417,7 +417,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     
                 }
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -433,22 +433,22 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
         
-        Provider.sharedProvider.request(.CreateFork(owner:owner,repo:repoName) ) { (result) -> () in
+        Provider.sharedProvider.request(.createFork(owner:owner,repo:repoName) ) { (result) -> () in
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.Accepted.rawValue){
+                if(statusCode == CPHttpStatusCode.accepted.rawValue){
                     CPGlobalHelper.sharedInstance.showError("Fork this repository successsful!", view: self.view)
                 }else{
                 }
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

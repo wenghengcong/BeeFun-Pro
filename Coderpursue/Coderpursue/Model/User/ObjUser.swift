@@ -148,7 +148,7 @@ class ObjUser: NSObject,NSCoding,Mappable {
 
     
     // MARK: init and mapping
-    required init?(_ map: Map) {
+    required init?(map: Map) {
 //        super.init(map)
         
     }
@@ -157,7 +157,7 @@ class ObjUser: NSObject,NSCoding,Mappable {
         
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
 //        super.mapping(map)
 
         total_private_repos <- map[UserKey.totalPrivateReposKey]

@@ -36,7 +36,7 @@ class ObjPlan: NSObject,NSCoding, Mappable {
 //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
 //        super.mapping(map)
         private_repos <- map[PlanKey.privateReposKey]
         collaborators <- map[PlanKey.collaboratorsKey]

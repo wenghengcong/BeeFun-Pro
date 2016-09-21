@@ -34,7 +34,7 @@ class CPMyReposCell: CPBaseViewCell {
 
             nameLabel.text = objRepos!.name!
             descLabel.text = objRepos!.cdescription
-            let updateAt:Date = objRepos!.pushed_at!.toDate(DateFormat.ISO8601)!
+            let updateAt:Date = objRepos!.pushed_at!.toDate(format: DateFormat.iso8601)!
             
             timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
             starNumLabel.text = "\(objRepos!.stargazers_count!)"

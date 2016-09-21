@@ -216,24 +216,24 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
         let username = developer!.login!
         
-        Provider.sharedProvider.request(.CheckUserFollowing(username:username) ) { (result) -> () in
+        Provider.sharedProvider.request(.checkUserFollowing(username:username) ) { (result) -> () in
             
             var message = "No data to show"
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.NoContent.rawValue){
+                if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = true
                 }else{
                     self.followed = false
                 }
                 self.dvc_updateViewContent()
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -251,7 +251,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         let username = developer!.login!
 
-        Provider.sharedProvider.request(.UserInfo(username:username) ) { (result) -> () in
+        Provider.sharedProvider.request(.userInfo(username:username) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -291,7 +291,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         let username = developer!.login!
         
-        Provider.sharedProvider.request(.Follow(username:username) ) { (result) -> () in
+        Provider.sharedProvider.request(.follow(username:username) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -328,14 +328,14 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         let username = developer!.login!
         
-        Provider.sharedProvider.request(.Unfollow(username:username) ) { (result) -> () in
+        Provider.sharedProvider.request(.unfollow(username:username) ) { (result) -> () in
             
             var message = "No data to show"
             
             MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.NoContent.rawValue){
@@ -346,7 +346,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                 
                 self.dvc_updateViewContent()
                 
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

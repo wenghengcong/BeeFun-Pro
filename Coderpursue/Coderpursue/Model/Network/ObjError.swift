@@ -25,11 +25,11 @@ class ObjError: NSObject,Mappable {
     var field:String?
     var code:String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         resource <- map["resource"]
         field <- map["field"]

@@ -134,7 +134,7 @@ class CPFollowersViewController: CPBaseViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request(.UserFollowers(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
+        Provider.sharedProvider.request(.userFollowers(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -144,10 +144,10 @@ class CPFollowersViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let userResult:[ObjUser]? = try response.mapArray(ObjUser) {
@@ -167,7 +167,7 @@ class CPFollowersViewController: CPBaseViewController {
 
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -184,7 +184,7 @@ class CPFollowersViewController: CPBaseViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request(.UserFollowing(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
+        Provider.sharedProvider.request(.userFollowing(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -194,10 +194,10 @@ class CPFollowersViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let userResult:[ObjUser]? = try response.mapArray(ObjUser) {
@@ -217,7 +217,7 @@ class CPFollowersViewController: CPBaseViewController {
 
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

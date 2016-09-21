@@ -63,11 +63,11 @@ class ObjIssue: NSObject,Mappable {
     var pull_request:ObjPullRequest?
     var body:String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         
         url <- map["url"]

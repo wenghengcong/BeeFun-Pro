@@ -197,7 +197,7 @@ class CPMessageViewController: CPBaseViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request( .MyNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
+        Provider.sharedProvider.request( .myNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -207,10 +207,10 @@ class CPMessageViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
 
@@ -228,7 +228,7 @@ class CPMessageViewController: CPBaseViewController {
 
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -245,7 +245,7 @@ class CPMessageViewController: CPBaseViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request(.AllIssues( page:pageVal,perpage:10,filter:issueFilterPar,state:issueStatePar,labels:issueLabelsPar,sort:issueSortPar,direction:issueDirectionPar) ) { (result) -> () in
+        Provider.sharedProvider.request(.allIssues( page:pageVal,perpage:10,filter:issueFilterPar,state:issueStatePar,labels:issueLabelsPar,sort:issueSortPar,direction:issueDirectionPar) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -255,10 +255,10 @@ class CPMessageViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let issues:[ObjIssue]? = try response.mapArray(ObjIssue){
@@ -276,7 +276,7 @@ class CPMessageViewController: CPBaseViewController {
                 } catch {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

@@ -269,7 +269,7 @@ class ObjRepos: NSObject,Mappable {
     }
     
     // MARK: init and mapping
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
         
     }
@@ -278,7 +278,7 @@ class ObjRepos: NSObject,Mappable {
         
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         
         archive_url <- map[ReposKey.archiveUrlKey]

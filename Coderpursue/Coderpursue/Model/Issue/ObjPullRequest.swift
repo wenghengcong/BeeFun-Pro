@@ -23,11 +23,11 @@ class ObjPullRequest: NSObject,Mappable {
     var diff_url:String?
     var patch_url:String?
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
 
         url <- map["url"]

@@ -141,7 +141,7 @@ class CPReposViewController: CPBaseViewController {
             return
         }
         
-        Provider.sharedProvider.request( .UserRepos( username:self.username!,page:self.reposPageVal,perpage:self.reposPerpage,type:self.typeVal, sort:self.sortVal ,direction:self.directionVal ) ) { (result) -> () in
+        Provider.sharedProvider.request( .userRepos( username:self.username!,page:self.reposPageVal,perpage:self.reposPerpage,type:self.typeVal, sort:self.sortVal ,direction:self.directionVal ) ) { (result) -> () in
             print(result)
             
             var message = "No data to show"
@@ -150,7 +150,7 @@ class CPReposViewController: CPBaseViewController {
             self.tableView.mj_footer.endRefreshing()
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
@@ -170,7 +170,7 @@ class CPReposViewController: CPBaseViewController {
 
                 }
                 //                self.tableView.reloadData()
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -188,7 +188,7 @@ class CPReposViewController: CPBaseViewController {
             return
         }
         
-        Provider.sharedProvider.request( .UserWatchedRepos( page:self.reposPageVal,perpage:self.reposPerpage,username:self.username! ) ) { (result) -> () in
+        Provider.sharedProvider.request( .userWatchedRepos( page:self.reposPageVal,perpage:self.reposPerpage,username:self.username! ) ) { (result) -> () in
             print(result)
             
             var message = "No data to show"
@@ -197,7 +197,7 @@ class CPReposViewController: CPBaseViewController {
             self.tableView.mj_footer.endRefreshing()
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
@@ -216,7 +216,7 @@ class CPReposViewController: CPBaseViewController {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
                 //                self.tableView.reloadData()
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

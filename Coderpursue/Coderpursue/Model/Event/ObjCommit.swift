@@ -27,11 +27,11 @@ class ObjCommit: NSObject,Mappable {
     var distinct:Bool?
     var url:String?
 
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         sha <- map["sha"]
         author <- map["author"]

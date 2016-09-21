@@ -121,12 +121,12 @@ class CPProfileViewController: CPBaseViewController {
             username = UserInfoHelper.sharedInstance.user!.login!
         }
         
-        Provider.sharedProvider.request(.UserInfo(username:username) ) { (result) -> () in
+        Provider.sharedProvider.request(.userInfo(username:username) ) { (result) -> () in
             
             var message = "No data to show"
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
@@ -139,7 +139,7 @@ class CPProfileViewController: CPBaseViewController {
                 } catch {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -202,13 +202,13 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
 
     func pvc_getMyinfoRequest(){
 
-        Provider.sharedProvider.request(.MyInfo ) { (result) -> () in
+        Provider.sharedProvider.request(.myInfo ) { (result) -> () in
 
             var success = true
             var message = "No data to show"
 
             switch result {
-            case let .Success(response):
+            case let .success(response):
 
                 do {
                     if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
@@ -224,7 +224,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                     success = false
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

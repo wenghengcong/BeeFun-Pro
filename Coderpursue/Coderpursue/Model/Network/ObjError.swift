@@ -29,7 +29,7 @@ class ObjError: NSObject,Mappable {
         //        super.init(map)
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         //        super.mapping(map)
         resource <- map["resource"]
         field <- map["field"]

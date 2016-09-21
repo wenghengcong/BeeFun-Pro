@@ -47,17 +47,17 @@ class CPMessageViewController: CPBaseViewController {
         mvc_setupSegmentView()
         mvc_setupTableView()
         mvc_updateNetrokData()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(mvc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
-        self.leftItem?.hidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(mvc_loginSuccessful), name: NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(mvc_logoutSuccessful), name: NSNotification.Name(rawValue: NotificationGitLogOutSuccessful), object: nil)
+        self.leftItem?.isHidden = true
         self.title = "Message"
     }
 
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
@@ -88,7 +88,7 @@ class CPMessageViewController: CPBaseViewController {
         
         if mvc_isLogin(){
             
-            tableView.mj_footer.hidden = false
+            tableView.mj_footer.isHidden = false
             if(segControl.selectedSegmentIndex == 0 ) {
                 mvc_getNotificationsRequest(self.notisPageVal)
             }else if(segControl.selectedSegmentIndex == 1){
@@ -98,7 +98,7 @@ class CPMessageViewController: CPBaseViewController {
             //加载未登录的页面
             tableView.mj_header.endRefreshing()
             tableView.mj_footer.endRefreshing()
-            tableView.mj_footer.hidden = true
+            tableView.mj_footer.isHidden = true
             
         }
     }
@@ -108,7 +108,7 @@ class CPMessageViewController: CPBaseViewController {
         self.view.addSubview(segControl)
         segControl.verticalDividerColor = UIColor.lineBackgroundColor()
         segControl.verticalDividerWidth = 1
-        segControl.verticalDividerEnabled = true
+        segControl.isVerticalDividerEnabled = true
         segControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe
         segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
         segControl.selectionIndicatorColor = UIColor.cpRedColor()
@@ -147,25 +147,25 @@ class CPMessageViewController: CPBaseViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
         self.tableView.allowsSelection = false
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
-        header.setTitle("Pull down to refresh", forState: .Idle)
-        header.setTitle("Release to refresh", forState: .Pulling)
-        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setTitle("Pull down to refresh", for: .idle)
+        header.setTitle("Release to refresh", for: .pulling)
+        header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPMessageViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
         // 上拉刷新
-        footer.setTitle("Click or drag up to refresh", forState: .Idle)
-        footer.setTitle("Loading more ...", forState: .Pulling)
-        footer.setTitle("No more data", forState: .NoMoreData)
+        footer.setTitle("Click or drag up to refresh", for: .idle)
+        footer.setTitle("Loading more ...", for: .pulling)
+        footer.setTitle("No more data", for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPMessageViewController.footerRefresh))
-        footer.refreshingTitleHidden = true
+        footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
     
@@ -193,9 +193,9 @@ class CPMessageViewController: CPBaseViewController {
 
     // MARK: fetch data form request
     
-    func mvc_getNotificationsRequest(pageVal:Int) {
+    func mvc_getNotificationsRequest(_ pageVal:Int) {
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         Provider.sharedProvider.request( .MyNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
             
@@ -241,9 +241,9 @@ class CPMessageViewController: CPBaseViewController {
     }
 
     
-    func mvc_getIssuesRequest(pageVal:Int) {
+    func mvc_getIssuesRequest(_ pageVal:Int) {
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         Provider.sharedProvider.request(.AllIssues( page:pageVal,perpage:10,filter:issueFilterPar,state:issueStatePar,labels:issueLabelsPar,sort:issueSortPar,direction:issueDirectionPar) ) { (result) -> () in
             
@@ -292,11 +292,11 @@ class CPMessageViewController: CPBaseViewController {
 
 extension CPMessageViewController : UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if (segControl.selectedSegmentIndex == 0) {
             return self.notificationsData.count
@@ -305,15 +305,15 @@ extension CPMessageViewController : UITableViewDataSource {
         return self.issuesData.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         
         var cellId = ""
         
         if segControl.selectedSegmentIndex == 0 {
             cellId = "CPMesNotificationCellIdentifier"
-            var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMesNotificationCell
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPMesNotificationCell
             if cell == nil {
                 cell = (CPMesNotificationCell.cellFromNibNamed("CPMesNotificationCell") as! CPMesNotificationCell)
                 
@@ -338,7 +338,7 @@ extension CPMessageViewController : UITableViewDataSource {
         }
         
         cellId = "CPMesIssueCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMesIssueCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPMesIssueCell
         if cell == nil {
             cell = (CPMesIssueCell.cellFromNibNamed("CPMesIssueCell") as! CPMesIssueCell)
             
@@ -362,7 +362,7 @@ extension CPMessageViewController : UITableViewDataSource {
 }
 extension CPMessageViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if segControl.selectedSegmentIndex == 0 {
             return 55
@@ -370,7 +370,7 @@ extension CPMessageViewController : UITableViewDelegate {
         return 75
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     

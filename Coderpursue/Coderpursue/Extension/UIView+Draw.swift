@@ -33,10 +33,10 @@ extension UIView {
     
     var defaultBorderColor:UIColor {
         get {
-            if self.respondsToSelector(Selector("tintColor")) {
+            if self.responds(to: #selector(getter: UIView.tintColor)) {
                 return self.tintColor
             }else {
-                return UIColor.blueColor()
+                return UIColor.blue
             }
         }
         set {
@@ -51,18 +51,18 @@ extension UIView {
         self.addOnePixelAroundBorder(self.defaultBorderColor, radius: 0)
     }
     
-    func addOnePixelAroundBorder(color:UIColor) {
+    func addOnePixelAroundBorder(_ color:UIColor) {
         self.addOnePixelAroundBorder(color, radius: 0)
     }
     
-    func addOnePixelAroundBorder(color:UIColor ,radius:CGFloat) {
-        let retinaPixelSize = 1.0 / (UIScreen.mainScreen().scale)
+    func addOnePixelAroundBorder(_ color:UIColor ,radius:CGFloat) {
+        let retinaPixelSize = 1.0 / (UIScreen.main.scale)
         self.addAroundBorder(color, radius: radius, width: retinaPixelSize)
     }
     
-    func addAroundBorder(color:UIColor ,radius:CGFloat ,width:CGFloat) {
+    func addAroundBorder(_ color:UIColor ,radius:CGFloat ,width:CGFloat) {
         self.layer.borderWidth = width
-        self.layer.borderColor = color.CGColor
+        self.layer.borderColor = color.cgColor
         self.layer.cornerRadius = radius
         self.layer.masksToBounds = true
     }
@@ -70,39 +70,39 @@ extension UIView {
     /**
     *  添加单边边框
     */
-    func addSingleBorder(color:UIColor ,at:ViewBorder) {
-        let retinaPixelSize = 1.0 / (UIScreen.mainScreen().scale)
+    func addSingleBorder(_ color:UIColor ,at:ViewBorder) {
+        let retinaPixelSize = 1.0 / (UIScreen.main.scale)
         addSingleBorder(color, linewidth: retinaPixelSize, at: at)
     }
     
-    func addSingleBorder(color:UIColor ,linewidth:CGFloat ,at:ViewBorder) {
-        let retinaPixelSize = 1.0 / (UIScreen.mainScreen().scale)
+    func addSingleBorder(_ color:UIColor ,linewidth:CGFloat ,at:ViewBorder) {
+        let retinaPixelSize = 1.0 / (UIScreen.main.scale)
         let maxLinewidth = max(retinaPixelSize, linewidth)
     
         let border = CALayer()
-        border.borderColor = color.CGColor
+        border.borderColor = color.cgColor
         border.borderWidth = maxLinewidth
         border.name = at.rawValue
         
         switch (at) {
         case .Top:
-            border.frame = CGRectMake(0, 0, self.width, linewidth)
+            border.frame = CGRect(x: 0, y: 0, width: self.width, height: linewidth)
             break
         case .Left:
-            border.frame = CGRectMake(0, 0, linewidth, self.height)
+            border.frame = CGRect(x: 0, y: 0, width: linewidth, height: self.height)
             break
         case .Right:
-            border.frame = CGRectMake(self.width-linewidth, 0, linewidth, self.height)
+            border.frame = CGRect(x: self.width-linewidth, y: 0, width: linewidth, height: self.height)
             break
         case .Bottom:
-            border.frame = CGRectMake(0, self.height-linewidth, self.width, linewidth)
+            border.frame = CGRect(x: 0, y: self.height-linewidth, width: self.width, height: linewidth)
             break
         }
         removeBorder(at)
         self.layer.addSublayer(border)
     }
     
-    func removeBorder(at:ViewBorder) {
+    func removeBorder(_ at:ViewBorder) {
         var layerForRemove: CALayer?
         for layer in self.layer.sublayers! {
             if layer.name == at.rawValue {

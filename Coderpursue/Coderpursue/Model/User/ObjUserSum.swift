@@ -77,7 +77,7 @@ class ObjUserSum: NSObject,Mappable {
     }
     
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         //        super.mapping(map)
 
         repos_url <- map[UserSumKey.reposUrlKey]

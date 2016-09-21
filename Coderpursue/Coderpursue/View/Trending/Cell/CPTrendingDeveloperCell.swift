@@ -29,7 +29,7 @@ class CPTrendingDeveloperCell: CPBaseViewCell {
         
         didSet{
             
-            avatarImgV.kf_setImageWithURL( NSURL(string: (user!.avatar_url!))!, placeholderImage: nil)
+            avatarImgV.kf_setImageWithURL( URL(string: (user!.avatar_url!))!, placeholderImage: nil)
             nameLabel.text = user!.login
         }
         
@@ -51,7 +51,7 @@ class CPTrendingDeveloperCell: CPBaseViewCell {
         super.init(coder: aDecoder)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

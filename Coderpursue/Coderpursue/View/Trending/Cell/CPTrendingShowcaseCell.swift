@@ -38,7 +38,7 @@ class CPTrendingShowcaseCell: CPBaseViewCell {
                 
                 let downloader = KingfisherManager.sharedManager.downloader
                 
-                downloader.downloadImageWithURL(NSURL(string: urlPath)!, options: [.Downloader(downloader)], progressBlock: { (receivedSize, totalSize) -> () in
+                downloader.downloadImageWithURL(URL(string: urlPath)!, options: [.Downloader(downloader)], progressBlock: { (receivedSize, totalSize) -> () in
                     
                     }) { (image, error, imageURL, originalData) -> () in
                         
@@ -66,9 +66,9 @@ class CPTrendingShowcaseCell: CPBaseViewCell {
  
     override func customCellView() {
     
-        self.bgImageV.backgroundColor = UIColor.clearColor()
+        self.bgImageV.backgroundColor = UIColor.clear
         
-        nameLabel.textColor = UIColor.whiteColor()
+        nameLabel.textColor = UIColor.white
         
         descBgView.backgroundColor = UIColor.hexStr("#f7f7f7", alpha: 1.0)
         descLabel.numberOfLines = 0

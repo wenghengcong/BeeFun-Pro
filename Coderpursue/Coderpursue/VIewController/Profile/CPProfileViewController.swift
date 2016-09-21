@@ -35,21 +35,21 @@ class CPProfileViewController: CPBaseViewController {
         pvc_customView()
         pvc_setupTableView()
        
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLoginSuccessful, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NotificationGitLogOutSuccessful, object: nil)
-        self.leftItem?.hidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: NotificationGitLogOutSuccessful), object: nil)
+        self.leftItem?.isHidden = true
         self.title = "Profile"
 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         pvc_updateUserinfoData()
 
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     // MARK: load data
@@ -84,7 +84,7 @@ class CPProfileViewController: CPBaseViewController {
     
     func pvc_customView() {
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         profileHeaderV.profileActionDelegate = self
     }
     
@@ -103,10 +103,10 @@ class CPProfileViewController: CPBaseViewController {
         
         self.tableView.dataSource=self
         self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
 //        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellId)    //register class by code
-        self.tableView.registerNib(UINib(nibName: "CPSettingsCell", bundle: nil), forCellReuseIdentifier: cellId) //regiseter by xib
+        self.tableView.register(UINib(nibName: "CPSettingsCell", bundle: nil), forCellReuseIdentifier: cellId) //regiseter by xib
 //        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Top)
 //        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Bottom)
     }
@@ -153,11 +153,11 @@ class CPProfileViewController: CPBaseViewController {
     }
     
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if (segue.identifier == SegueProfileShowRepositoryList){
           
-            let reposVC = segue.destinationViewController as! CPReposViewController
+            let reposVC = segue.destination as! CPReposViewController
             reposVC.hidesBottomBarWhenPushed = true
             
             let dic = sender as? [String:String]
@@ -169,7 +169,7 @@ class CPProfileViewController: CPBaseViewController {
             
         }else if(segue.identifier == SegueProfileShowFollowerList){
             
-            let followVC = segue.destinationViewController as! CPFollowersViewController
+            let followVC = segue.destination as! CPFollowersViewController
             followVC.hidesBottomBarWhenPushed = true
             
             let dic = sender as? [String:String]
@@ -181,15 +181,15 @@ class CPProfileViewController: CPBaseViewController {
             
         }else if(segue.identifier == SegueProfileAboutView){
             
-            let aboutVC = segue.destinationViewController as! CPProAboutViewController
+            let aboutVC = segue.destination as! CPProAboutViewController
             aboutVC.hidesBottomBarWhenPushed = true
             
         }else if(segue.identifier == SegueProfileSettingView){
-            let settingsVC = segue.destinationViewController as! CPProSettingsViewController
+            let settingsVC = segue.destination as! CPProSettingsViewController
             settingsVC.hidesBottomBarWhenPushed = true
             
         }else if(segue.identifier == SegueProfileFunnyLabView){
-            let settingsVC = segue.destinationViewController as! CPFunnyLabViewController
+            let settingsVC = segue.destination as! CPFunnyLabViewController
             settingsVC.hidesBottomBarWhenPushed = true
         }
         
@@ -258,7 +258,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( isLogin && (user != nil) ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
-            self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
+            self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
         }else{
             CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
 
@@ -270,7 +270,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( isLogin && (user != nil) ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
-            self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
+            self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
         }else{
             CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
 
@@ -281,7 +281,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( isLogin && (user != nil) ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
-            self.performSegueWithIdentifier(SegueProfileShowFollowerList, sender: dic)
+            self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
         }else{
             CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
         }
@@ -291,25 +291,25 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
 
 extension CPProfileViewController : UITableViewDataSource {
 	
-	    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+	    func numberOfSections(in tableView: UITableView) -> Int {
 	        return settingsArr.count
 	    }
 	
-	    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+	    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             let sectionArr = settingsArr[section]
 	        return sectionArr.count
 	    }
 	
-	    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+	    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             
 
-            var cell = tableView .dequeueReusableCellWithIdentifier(cellId, forIndexPath: indexPath) as? CPSettingsCell
+            var cell = tableView .dequeueReusableCell(withIdentifier: cellId, for: indexPath) as? CPSettingsCell
             
             if cell == nil {
                 cell = (CPSettingsCell.cellFromNibNamed("CPSettingsCell") as! CPSettingsCell)
             }
-            let section = indexPath.section
-            let row = indexPath.row
+            let section = (indexPath as NSIndexPath).section
+            let row = (indexPath as NSIndexPath).row
             let settings:ObjSettings = settingsArr[section][row]
             cell!.objSettings = settings
             
@@ -327,35 +327,35 @@ extension CPProfileViewController : UITableViewDataSource {
             return cell!;
 	    }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let view:UIView = UIView.init(frame: CGRectMake(0, 0, ScreenSize.ScreenWidth, 10))
+        let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.ScreenWidth, height: 10))
         view.backgroundColor = UIColor.viewBackgroundColor()
         return view
         
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
     
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
 	    
 }
 extension CPProfileViewController : UITableViewDelegate {
 	
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
-        let section = indexPath.section
-        let row = indexPath.row
+        let section = (indexPath as NSIndexPath).section
+        let row = (indexPath as NSIndexPath).row
         let settings:ObjSettings = settingsArr[section][row]
 
         let viewType = settings.itemKey!
@@ -365,7 +365,7 @@ extension CPProfileViewController : UITableViewDelegate {
             if (isLogin && (user != nil) ){
                 let uname = user!.login
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
-                self.performSegueWithIdentifier(SegueProfileShowRepositoryList, sender: dic)
+                self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
             }else{
                 CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
             }
@@ -374,7 +374,7 @@ extension CPProfileViewController : UITableViewDelegate {
             
             let mailComposeViewController = configuredMailComposeViewController()
             if MFMailComposeViewController.canSendMail() {
-                self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+                self.present(mailComposeViewController, animated: true, completion: nil)
             } else {
                 self.showSendMailErrorAlert()
             }
@@ -389,15 +389,15 @@ extension CPProfileViewController : UITableViewDelegate {
             
         }else if(viewType == "settings"){
             
-            self.performSegueWithIdentifier(SegueProfileSettingView, sender: nil)
+            self.performSegue(withIdentifier: SegueProfileSettingView, sender: nil)
             
         }else if(viewType == "about"){
 
-            self.performSegueWithIdentifier(SegueProfileAboutView, sender: nil)
+            self.performSegue(withIdentifier: SegueProfileAboutView, sender: nil)
             
         }else if(viewType == "funnylab"){
             
-            self.performSegueWithIdentifier(SegueProfileFunnyLabView, sender: nil)
+            self.performSegue(withIdentifier: SegueProfileFunnyLabView, sender: nil)
             
         }
         
@@ -427,9 +427,9 @@ extension CPProfileViewController : MFMailComposeViewControllerDelegate {
     }
     
     // MARK: MFMailComposeViewControllerDelegate
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         
-        controller.dismissViewControllerAnimated(true, completion: nil)
+        controller.dismiss(animated: true, completion: nil)
         
         /*
         switch(result){

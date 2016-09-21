@@ -19,19 +19,19 @@ extension UIColor {
      
      - returns: UIColor
      */
-    class func hexStr(hexStr : NSString,alpha : CGFloat) -> UIColor {
+    class func hexStr(_ hexStr : NSString,alpha : CGFloat) -> UIColor {
         
-        let realHexStr = hexStr.stringByReplacingOccurrencesOfString("#", withString: "");
-        let scanner = NSScanner(string: realHexStr as String);
+        let realHexStr = hexStr.replacingOccurrences(of: "#", with: "");
+        let scanner = Scanner(string: realHexStr as String);
         var color : UInt32 = 0
-        if scanner.scanHexInt(&color) {
+        if scanner.scanHexInt32(&color) {
             let r = CGFloat( (color & 0xFF0000) >> 16 ) / 255.0
             let g = CGFloat( (color & 0x00FF00) >> 8) / 255.0
             let b = CGFloat( (color & 0x0000FF) ) / 255.0
             return UIColor(red: r, green: g, blue: b, alpha: alpha)
         }else{
             print("invalid hex string",terminator:"")
-            return UIColor.whiteColor()
+            return UIColor.white
         }
     }
     //MARK: navigation bar
@@ -53,7 +53,7 @@ extension UIColor {
     
     class func tabBarBackgroundColor() -> UIColor {
         //light gray
-        return UIColor.whiteColor()
+        return UIColor.white
     }
     
     //MARK: label

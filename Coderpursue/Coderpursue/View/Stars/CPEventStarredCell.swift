@@ -22,9 +22,9 @@ class CPEventStarredCell: CPEventBaseCell {
     
     override func eventCell_fillData() {
         
-        reposBtn.setTitle(event?.repo?.name, forState:.Normal)
+        reposBtn.setTitle(event?.repo?.name, for:UIControlState())
         
-        let updateAt:NSDate = event!.created_at!.toDate(DateFormat.ISO8601)!
+        let updateAt:Date = event!.created_at!.toDate(DateFormat.ISO8601)!
         timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
 
     }

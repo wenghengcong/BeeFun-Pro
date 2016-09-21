@@ -34,7 +34,7 @@ class CPMyReposCell: CPBaseViewCell {
 
             nameLabel.text = objRepos!.name!
             descLabel.text = objRepos!.cdescription
-            let updateAt:NSDate = objRepos!.pushed_at!.toDate(DateFormat.ISO8601)!
+            let updateAt:Date = objRepos!.pushed_at!.toDate(DateFormat.ISO8601)!
             
             timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
             starNumLabel.text = "\(objRepos!.stargazers_count!)"
@@ -62,7 +62,7 @@ class CPMyReposCell: CPBaseViewCell {
         super.init(coder: aDecoder)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

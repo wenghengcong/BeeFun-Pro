@@ -56,7 +56,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         }
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
         dvc_checkUserFollowed()
@@ -68,7 +68,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
-        self.rightItem?.hidden = false
+        self.rightItem?.isHidden = false
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.viewBackgroundColor()
@@ -76,13 +76,13 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         developerInfoV.userActionDelegate = self
         
         if(developer!.login == UserInfoHelper.sharedInstance.user?.name){
-            followBtn.hidden = true
+            followBtn.isHidden = true
         }else{
-            followBtn.hidden = false
+            followBtn.isHidden = false
         }
         followBtn.layer.cornerRadius = 5
         followBtn.layer.masksToBounds = true
-        followBtn.addTarget(self, action: #selector(CPTrendingDeveloperViewController.dvc_followAction), forControlEvents: UIControlEvents.TouchUpInside)
+        followBtn.addTarget(self, action: #selector(CPTrendingDeveloperViewController.dvc_followAction), for: UIControlEvents.touchUpInside)
         
     }
     
@@ -90,14 +90,14 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
         self.tableView.allowsSelection = false
         self.automaticallyAdjustsScrollViewInsets = false
         
-        header.setTitle("Pull down to refresh", forState: .Idle)
-        header.setTitle("Release to refresh", forState: .Pulling)
-        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setTitle("Pull down to refresh", for: .idle)
+        header.setTitle("Release to refresh", for: .pulling)
+        header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingDeveloperViewController.headerRefresh))
         // 现在的版本要用mj_header
 //        self.tableView.mj_header = header
@@ -117,9 +117,9 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         }
         
         if(followed){
-            followBtn.setTitle("Unfollow", forState: .Normal)
+            followBtn.setTitle("Unfollow", for: UIControlState())
         }else{
-            followBtn.setTitle("Follow", forState: .Normal)
+            followBtn.setTitle("Follow", for: UIControlState())
         }
         
         if(developer==nil){
@@ -129,8 +129,8 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         devInfoArr.removeAll()
         
         if let joinTime:String = developer!.created_at {
-            let ind = joinTime.startIndex.advancedBy(10)
-            let subStr = joinTime.substringToIndex(ind)
+            let ind = joinTime.characters.index(joinTime.startIndex, offsetBy: 10)
+            let subStr = joinTime.substring(to: ind)
             let join = "Joined on "+subStr
             let joinDic:[String:String] = ["img":"octicon_time_25","desc":join,"discolsure":"false"]
             devInfoArr.append(joinDic)
@@ -150,10 +150,10 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         self.tableView.reloadData()
     }
     
-    func prefectchShareImage( completionHandler: ()-> Void){
+    func prefectchShareImage( _ completionHandler: @escaping ()-> Void){
         
         if let urlStr = developer?.avatar_url {
-            let url:NSURL = NSURL.init(string: urlStr)!
+            let url:URL = URL.init(string: urlStr)!
             let downloader = KingfisherManager.sharedManager.downloader
             downloader.downloadImageWithURL(url, progressBlock: { (receivedSize, totalSize) in
                 
@@ -165,11 +165,11 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
     }
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    override func rightItemAction(sender: UIButton?) {
+    override func rightItemAction(_ sender: UIButton?) {
         
         let shareContent:ShareContent = ShareContent()
         if let name = developer?.name{
@@ -187,9 +187,9 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         shareContent.shareUrl = developer?.html_url
         
         if userShareImage == nil {
-            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             prefectchShareImage({
-                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
                 shareContent.shareImage = self.userShareImage
                 ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
             })
@@ -247,7 +247,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_getUserinfoRequest(){
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         let username = developer!.login!
 
@@ -287,7 +287,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_followUserRequest(){
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         let username = developer!.login!
         
@@ -324,7 +324,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_unfolloweUserRequest(){
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         let username = developer!.login!
         
@@ -365,11 +365,11 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
 extension CPTrendingDeveloperViewController : UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0{
             return devInfoArr.count
@@ -377,15 +377,15 @@ extension CPTrendingDeveloperViewController : UITableViewDataSource {
         return 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         
         let cellId = "CPDevUserInfoCellIdentifier"
 
-        if (indexPath.section == 0){
+        if ((indexPath as NSIndexPath).section == 0){
             
-            var cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPDevUserInfoCell
+            var cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPDevUserInfoCell
             if cell == nil {
                 cell = (CPDevUserInfoCell.cellFromNibNamed("CPDevUserInfoCell") as! CPDevUserInfoCell)
             }
@@ -405,7 +405,7 @@ extension CPTrendingDeveloperViewController : UITableViewDataSource {
             return cell!;
         }
         
-        var cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPDevUserInfoCell
+        var cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPDevUserInfoCell
         if cell == nil {
             cell = (CPDevUserInfoCell.cellFromNibNamed("CPDevUserInfoCell") as! CPDevUserInfoCell)
         }
@@ -422,12 +422,12 @@ extension CPTrendingDeveloperViewController : UITableViewDataSource {
         
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if (section == 0){
             return nil
         }
-        let view = UIView.init(frame: CGRectMake(0, 0, self.view.width, 10))
+        let view = UIView.init(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 10))
         view.backgroundColor = UIColor.viewBackgroundColor()
  
         return view
@@ -437,19 +437,19 @@ extension CPTrendingDeveloperViewController : UITableViewDataSource {
 
 extension CPTrendingDeveloperViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 0){
             return 0
         }
         return 10
     }
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 44
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         //repos_url
     }
@@ -486,29 +486,29 @@ extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
         case .Follow:
             let uname = developer!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
-            self.performSegueWithIdentifier(SegueUserToFollower, sender: dic)
+            self.performSegue(withIdentifier: SegueUserToFollower, sender: dic)
             
         case .Repos:
             
             let uname = developer!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
-            self.performSegueWithIdentifier(SegueUserToRepository, sender: dic)
+            self.performSegue(withIdentifier: SegueUserToRepository, sender: dic)
 
         case .Following:
             let uname = developer!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
-            self.performSegueWithIdentifier(SegueUserToFollowing, sender: dic)
+            self.performSegue(withIdentifier: SegueUserToFollowing, sender: dic)
 
         }
         
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if (segue.identifier == SegueUserToRepository){
             
-            let reposVC = segue.destinationViewController as! CPReposViewController
+            let reposVC = segue.destination as! CPReposViewController
             reposVC.hidesBottomBarWhenPushed = true
             
             let dic = sender as? [String:String]
@@ -520,7 +520,7 @@ extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
             
         }else if(segue.identifier == SegueUserToFollowing){
             
-            let followVC = segue.destinationViewController as! CPFollowersViewController
+            let followVC = segue.destination as! CPFollowersViewController
             followVC.hidesBottomBarWhenPushed = true
             
             let dic = sender as? [String:String]
@@ -532,7 +532,7 @@ extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
             
         }else if(segue.identifier == SegueUserToFollower){
             
-            let followVC = segue.destinationViewController as! CPFollowersViewController
+            let followVC = segue.destination as! CPFollowersViewController
             followVC.hidesBottomBarWhenPushed = true
             
             let dic = sender as? [String:String]

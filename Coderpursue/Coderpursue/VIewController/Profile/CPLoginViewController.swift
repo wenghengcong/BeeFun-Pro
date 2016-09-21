@@ -31,8 +31,8 @@ class CPLoginViewController: CPBaseViewController {
         lvc_customView()
     }
 
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MAEK: - view
@@ -40,7 +40,7 @@ class CPLoginViewController: CPBaseViewController {
         
         seplineV.backgroundColor = UIColor.lineBackgroundColor()
         
-        inputTextBgV.layer.borderColor = UIColor.lineBackgroundColor().CGColor
+        inputTextBgV.layer.borderColor = UIColor.lineBackgroundColor().cgColor
         inputTextBgV.layer.borderWidth = 0.5
         
         usernameTF.attributedPlaceholder = NSAttributedString.init(string: "username or email", attributes: CPStyleGuide.textFieldPlaceholderAttributes())
@@ -54,27 +54,27 @@ class CPLoginViewController: CPBaseViewController {
         signInButton.layer.cornerRadius = 5
         signInButton.layer.masksToBounds = true
         signInButton.backgroundColor = UIColor.buttonRedBackgroundColor()
-        signInButton.setTitleColor(UIColor.buttonWihteTitleTextColor(), forState: UIControlState.Normal)
-        signInButton.addTarget(self, action: #selector(CPLoginViewController.lvc_singInAction(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        signInButton.setTitleColor(UIColor.buttonWihteTitleTextColor(), for: UIControlState())
+        signInButton.addTarget(self, action: #selector(CPLoginViewController.lvc_singInAction(_:)), for: UIControlEvents.touchUpInside)
         
         
     }
     
-    func lvc_singInAction(sender:UIButton!) {
+    func lvc_singInAction(_ sender:UIButton!) {
         lvc_checkInputText()
         
         let username = usernameTF.text!
         let password = passwordTF.text!
         let loginString = NSString(format: "%@:%@", username, password)
-        let loginData: NSData = loginString.dataUsingEncoding(NSASCIIStringEncoding)!
-        let base64LoginString = loginData.base64EncodedStringWithOptions(.Encoding64CharacterLineLength)
+        let loginData: Data = loginString.data(using: String.Encoding.ascii.rawValue)!
+        let base64LoginString = loginData.base64EncodedString(options: .lineLength64Characters)
         let authorizationHeaderStr = "Basic \(base64LoginString)"
         
         let headers = [
             "Authorization": authorizationHeaderStr,
         ]
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
         Alamofire.request(.GET, "https://api.github.com/user", headers: headers)
             .response { request, response, data, error  in
@@ -100,23 +100,23 @@ class CPLoginViewController: CPBaseViewController {
     }
     
     
-    func lvc_saveAuthorization(auth:String){
+    func lvc_saveAuthorization(_ auth:String){
         
         var token = AppToken.sharedInstance
         token.access_token = auth
         
     }
     
-    func lvc_saveUserInfoData(data:NSData){
+    func lvc_saveUserInfoData(_ data:Data){
         
-        let str = String(data: data, encoding: NSUTF8StringEncoding)
+        let str = String(data: data, encoding: String.Encoding.utf8)
         
         if let gitUser:ObjUser = Mapper<ObjUser>().map(str) {
             
             ObjUser.saveUserInfo(gitUser)
             //post successful noti
-            self.navigationController?.popViewControllerAnimated(true)
-            NSNotificationCenter.defaultCenter().postNotificationName(NotificationGitLoginSuccessful, object:nil)
+            self.navigationController?.popViewController(animated: true)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: NotificationGitLoginSuccessful), object:nil)
             
         }else {
             

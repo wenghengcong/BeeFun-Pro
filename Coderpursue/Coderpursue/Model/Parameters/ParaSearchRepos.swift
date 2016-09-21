@@ -37,7 +37,7 @@ public enum ReposInField:String {
     
 }
 
-public class ParaSearchRepos: NSObject {
+open class ParaSearchRepos: NSObject {
     
     var q:String
     var sort:String

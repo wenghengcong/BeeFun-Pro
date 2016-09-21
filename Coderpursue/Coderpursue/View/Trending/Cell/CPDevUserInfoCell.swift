@@ -33,7 +33,7 @@ class CPDevUserInfoCell: CPBaseViewCell {
         super.init(coder: aDecoder)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state
@@ -44,13 +44,13 @@ class CPDevUserInfoCell: CPBaseViewCell {
     }
     
     
-    func duic_fillData(dic:[String:String]) {
+    func duic_fillData(_ dic:[String:String]) {
         
         tagImagV.image = UIImage(named: dic["img"]!)
         infoLabel.text = dic["desc"]!
         let disBool = NSString(string: dic["discolsure"]!).boolValue
         
-        disImgV.hidden = !disBool
+        disImgV.isHidden = !disBool
     }
     
 }

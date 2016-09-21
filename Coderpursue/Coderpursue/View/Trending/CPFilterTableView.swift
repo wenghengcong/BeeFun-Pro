@@ -10,15 +10,15 @@ import UIKit
 
 protocol CPFilterTableViewProtocol {
 
-    func didSelectTypeColoumn(row:Int ,type:String ,value:String)
-    func didSelectValueColoumn(row:Int ,type:String ,value:String)
+    func didSelectTypeColoumn(_ row:Int ,type:String ,value:String)
+    func didSelectValueColoumn(_ row:Int ,type:String ,value:String)
 
 }
 
 public enum CPFilterTableViewColumns:Int {
     
-    case Two = 2
-    case Three = 3
+    case two = 2
+    case three = 3
     
 }
 
@@ -28,7 +28,7 @@ class CPFilterTableView: UIView {
 
     var filterDelegate:CPFilterTableViewProtocol?
     
-    var coloumn:CPFilterTableViewColumns = .Two {
+    var coloumn:CPFilterTableViewColumns = .two {
         
         didSet{
 //            fvc_FilterViewInit()
@@ -99,23 +99,23 @@ class CPFilterTableView: UIView {
             let tableView = tableviews[index]
             let width = rowWidths[index]
             if(index == 0){
-                tableView.frame = CGRectMake(0, 0, width, self.height)
+                tableView.frame = CGRect(x: 0, y: 0, width: width, height: self.height)
                 tableView.backgroundColor = UIColor.viewBackgroundColor()
             }else{
                 let lastTableview = tableviews[index-1]
-                tableView.frame = CGRectMake(lastTableview.right, 0, width, 260)
-                tableView.backgroundColor = UIColor.whiteColor()
+                tableView.frame = CGRect(x: lastTableview.right, y: 0, width: width, height: 260)
+                tableView.backgroundColor = UIColor.white
             }
             
             tableView.dataSource = self
             tableView.delegate = self
-            tableView.separatorStyle = .None
+            tableView.separatorStyle = .none
             tableView.rowHeight = rowHeights[index]
-            tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier:cellID)
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier:cellID)
             
         }
         
-        let bottomView = UIView(frame:CGRectMake(0, firTableView!.bottom, width, 10))
+        let bottomView = UIView(frame:CGRect(x: 0, y: firTableView!.bottom, width: width, height: 10))
         bottomView.backgroundColor = UIColor.cpRedColor()
         self.addSubview(bottomView)
     }
@@ -137,7 +137,7 @@ class CPFilterTableView: UIView {
         
     }
     
-    func resetOtherColoumnsData(selindex:Int){
+    func resetOtherColoumnsData(_ selindex:Int){
         
         secTableView!.reloadData()
     }
@@ -153,11 +153,11 @@ class CPFilterTableView: UIView {
 
 extension CPFilterTableView:UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (filterTypes.count <= 0) {
             return 0
@@ -174,40 +174,40 @@ extension CPFilterTableView:UITableViewDataSource {
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         
         var cellText = ""
 
         if(tableView == firTableView){
-            cellText = filterTypes[indexPath.row]
+            cellText = filterTypes[(indexPath as NSIndexPath).row]
         }else{
-            cellText = filterData[selTypeIndex][indexPath.row]
+            cellText = filterData[selTypeIndex][(indexPath as NSIndexPath).row]
         }
         
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellID, forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
         cell.textLabel?.textColor = UIColor.labelTitleTextColor()
 
         if(tableView == firTableView){
             
             cell.backgroundColor = UIColor.viewBackgroundColor()
-            cell.textLabel!.font = UIFont.systemFontOfSize(14.0)
+            cell.textLabel!.font = UIFont.systemFont(ofSize: 14.0)
             cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .Bottom)
             cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .Right)
             
-            if(indexPath.row == selTypeIndex){
-                cell.backgroundColor = UIColor.whiteColor()
+            if((indexPath as NSIndexPath).row == selTypeIndex){
+                cell.backgroundColor = UIColor.white
                 cell.removeBorder(.Right)
                 cell.textLabel?.textColor = UIColor.cpRedColor()
             }
             
         }else{
-            cell.textLabel!.font = UIFont.systemFontOfSize(12.0)
-            cell.selectionStyle = .None
+            cell.textLabel!.font = UIFont.systemFont(ofSize: 12.0)
+            cell.selectionStyle = .none
             
             let selValueIndex = (selTypeIndex == 0) ? selFirValueIndex : selSecValueIndex
-            if(indexPath.row == selValueIndex){
+            if((indexPath as NSIndexPath).row == selValueIndex){
                 cell.textLabel?.textColor = UIColor.cpRedColor()
             }
             
@@ -223,7 +223,7 @@ extension CPFilterTableView:UITableViewDataSource {
 
 extension CPFilterTableView:UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if (tableView == firTableView){
             return rowHeights[0]
@@ -232,15 +232,15 @@ extension CPFilterTableView:UITableViewDelegate {
         return rowHeights[1]
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (tableView == firTableView){
-            selTypeIndex = indexPath.row
+            selTypeIndex = (indexPath as NSIndexPath).row
         }else{
             if (selTypeIndex == 0) {
-                selFirValueIndex = indexPath.row
+                selFirValueIndex = (indexPath as NSIndexPath).row
             }else{
-                selSecValueIndex = indexPath.row
+                selSecValueIndex = (indexPath as NSIndexPath).row
             }
         }
 
@@ -254,9 +254,9 @@ extension CPFilterTableView:UITableViewDelegate {
         
         if(filterDelegate != nil){
             if (indexOfTableviews == 0 ) {
-                filterDelegate?.didSelectTypeColoumn(indexPath.row, type: type, value: value)
+                filterDelegate?.didSelectTypeColoumn((indexPath as NSIndexPath).row, type: type, value: value)
             }else if(indexOfTableviews == 1){
-                filterDelegate?.didSelectValueColoumn(indexPath.row, type: type, value: value)
+                filterDelegate?.didSelectValueColoumn((indexPath as NSIndexPath).row, type: type, value: value)
             }
             
         }

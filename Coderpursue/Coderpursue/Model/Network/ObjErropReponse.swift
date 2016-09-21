@@ -34,7 +34,7 @@ class ObjErropReponse: NSObject,Mappable {
         //        super.init(map)
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         //        super.mapping(map)
         message <- map["message"]
         errors <- map["errors"]

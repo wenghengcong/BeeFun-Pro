@@ -39,12 +39,12 @@ class CPEventPushCell: CPEventBaseCell {
     override func eventCell_fillData() {
         
         let ref = event!.payload!.ref!
-        let branchArr:Array = ref.componentsSeparatedByString("/")
+        let branchArr:Array = ref.components(separatedBy: "/")
         let branchName = branchArr.last
-        branchBtn.setTitle(branchName!, forState: .Normal)
+        branchBtn.setTitle(branchName!, for: UIControlState())
         
         let reposName = event!.repo!.name!
-        reposNameBtn.setTitle(reposName, forState: .Normal)
+        reposNameBtn.setTitle(reposName, for: UIControlState())
         
         commits = event!.payload!.commits!
         let subViews = self.contentView.subviews
@@ -61,14 +61,14 @@ class CPEventPushCell: CPEventBaseCell {
             let commit:ObjCommit = commits[i]
             
             let shaBtn:UIButton = UIButton.init()
-            let index = commit.sha!.startIndex.advancedBy(6)
-            let shaStr = commit.sha!.substringToIndex(index)+"-"
+            let index = commit.sha!.characters.index(commit.sha!.startIndex, offsetBy: 6)
+            let shaStr = commit.sha!.substring(to: index)+"-"
             shaBtn.tag = commitTag+i
-            shaBtn.setTitle(shaStr, forState: .Normal)
-            shaBtn.setTitleColor(UIColor.cpBlackColor(), forState: .Normal)
-            shaBtn.setTitleColor(UIColor.cpBlackColor(), forState: .Highlighted)
-            shaBtn.titleLabel!.font = UIFont.systemFontOfSize(15)
-            shaBtn.titleLabel!.textAlignment = .Left
+            shaBtn.setTitle(shaStr, for: UIControlState())
+            shaBtn.setTitleColor(UIColor.cpBlackColor(), for: UIControlState())
+            shaBtn.setTitleColor(UIColor.cpBlackColor(), for: .highlighted)
+            shaBtn.titleLabel!.font = UIFont.systemFont(ofSize: 15)
+            shaBtn.titleLabel!.textAlignment = .left
 //            shaBtn.backgroundColor = UIColor.orangeColor()
             self.contentView.addSubview(shaBtn)
             commitBtns.append(shaBtn)
@@ -76,7 +76,7 @@ class CPEventPushCell: CPEventBaseCell {
             let commitLabel:UILabel = UILabel.init()
             commitLabel.tag = commitTag+i
             commitLabel.text = commit.message
-            commitLabel.font = UIFont.systemFontOfSize(15)
+            commitLabel.font = UIFont.systemFont(ofSize: 15)
             commitLabel.textColor = UIColor.cpBlackColor()
             self.contentView.addSubview(commitLabel)
             commitLabels.append(commitLabel)
@@ -84,7 +84,7 @@ class CPEventPushCell: CPEventBaseCell {
         }
 
         //time
-        let updateAt:NSDate = event!.created_at!.toDate(DateFormat.ISO8601)!
+        let updateAt:Date = event!.created_at!.toDate(DateFormat.ISO8601)!
         timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
         
     }

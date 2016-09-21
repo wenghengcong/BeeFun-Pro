@@ -10,86 +10,86 @@ import UIKit
 
 public enum CPHttpStatusCode: Int {
     // Informational
-    case Continue = 100
-    case SwitchingProtocols = 101
-    case Processing = 102
+    case `continue` = 100
+    case switchingProtocols = 101
+    case processing = 102
     
     // Success
-    case OK = 200
-    case Created = 201
-    case Accepted = 202
-    case NonAuthoritativeInformation = 203
-    case NoContent = 204
-    case ResetContent = 205
-    case PartialContent = 206
-    case MultiStatus = 207
-    case AlreadyReported = 208
-    case IMUsed = 226
+    case ok = 200
+    case created = 201
+    case accepted = 202
+    case nonAuthoritativeInformation = 203
+    case noContent = 204
+    case resetContent = 205
+    case partialContent = 206
+    case multiStatus = 207
+    case alreadyReported = 208
+    case imUsed = 226
     
     // Redirections
-    case MultipleChoices = 300
-    case MovedPermanently = 301
-    case Found = 302
-    case SeeOther = 303
-    case NotModified = 304
-    case UseProxy = 305
-    case SwitchProxy = 306
-    case TemporaryRedirect = 307
-    case PermanentRedirect = 308
+    case multipleChoices = 300
+    case movedPermanently = 301
+    case found = 302
+    case seeOther = 303
+    case notModified = 304
+    case useProxy = 305
+    case switchProxy = 306
+    case temporaryRedirect = 307
+    case permanentRedirect = 308
     
     // Client Errors
-    case BadRequest = 400
-    case Unauthorized = 401
-    case PaymentRequired = 402
-    case Forbidden = 403
-    case NotFound = 404
-    case MethodNotAllowed = 405
-    case NotAcceptable = 406
-    case ProxyAuthenticationRequired = 407
-    case RequestTimeout = 408
-    case Conflict = 409
-    case Gone = 410
-    case LengthRequired = 411
-    case PreconditionFailed = 412
-    case RequestEntityTooLarge = 413
-    case RequestURITooLong = 414
-    case UnsupportedMediaType = 415
-    case RequestedRangeNotSatisfiable = 416
-    case ExpectationFailed = 417
-    case ImATeapot = 418
-    case AuthenticationTimeout = 419
-    case UnprocessableEntity = 422
-    case Locked = 423
-    case FailedDependency = 424
-    case UpgradeRequired = 426
-    case PreconditionRequired = 428
-    case TooManyRequests = 429
-    case RequestHeaderFieldsTooLarge = 431
-    case LoginTimeout = 440
-    case NoResponse = 444
-    case RetryWith = 449
-    case UnavailableForLegalReasons = 451
-    case RequestHeaderTooLarge = 494
-    case CertError = 495
-    case NoCert = 496
-    case HTTPToHTTPS = 497
-    case TokenExpired = 498
-    case ClientClosedRequest = 499
+    case badRequest = 400
+    case unauthorized = 401
+    case paymentRequired = 402
+    case forbidden = 403
+    case notFound = 404
+    case methodNotAllowed = 405
+    case notAcceptable = 406
+    case proxyAuthenticationRequired = 407
+    case requestTimeout = 408
+    case conflict = 409
+    case gone = 410
+    case lengthRequired = 411
+    case preconditionFailed = 412
+    case requestEntityTooLarge = 413
+    case requestURITooLong = 414
+    case unsupportedMediaType = 415
+    case requestedRangeNotSatisfiable = 416
+    case expectationFailed = 417
+    case imATeapot = 418
+    case authenticationTimeout = 419
+    case unprocessableEntity = 422
+    case locked = 423
+    case failedDependency = 424
+    case upgradeRequired = 426
+    case preconditionRequired = 428
+    case tooManyRequests = 429
+    case requestHeaderFieldsTooLarge = 431
+    case loginTimeout = 440
+    case noResponse = 444
+    case retryWith = 449
+    case unavailableForLegalReasons = 451
+    case requestHeaderTooLarge = 494
+    case certError = 495
+    case noCert = 496
+    case httpToHTTPS = 497
+    case tokenExpired = 498
+    case clientClosedRequest = 499
     
     // Server Errors
-    case InternalServerError = 500
-    case NotImplemented = 501
-    case BadGateway = 502
-    case ServiceUnavailable = 503
-    case GatewayTimeout = 504
-    case HTTPVersionNotSupported = 505
-    case VariantAlsoNegotiates = 506
-    case InsufficientStorage = 507
-    case LoopDetected = 508
-    case BandwidthLimitExceeded = 509
-    case NotExtended = 510
-    case NetworkAuthenticationRequired = 511
-    case NetworkTimeoutError = 599
+    case internalServerError = 500
+    case notImplemented = 501
+    case badGateway = 502
+    case serviceUnavailable = 503
+    case gatewayTimeout = 504
+    case httpVersionNotSupported = 505
+    case variantAlsoNegotiates = 506
+    case insufficientStorage = 507
+    case loopDetected = 508
+    case bandwidthLimitExceeded = 509
+    case notExtended = 510
+    case networkAuthenticationRequired = 511
+    case networkTimeoutError = 599
 }
 
 public extension CPHttpStatusCode {
@@ -115,7 +115,7 @@ public extension CPHttpStatusCode {
     }
     
     /// - returns: `true` if the status code is in the provided range, false otherwise.
-    private func inRange(range: Range<Int>) -> Bool {
+    fileprivate func inRange(_ range: Range<Int>) -> Bool {
         return range.contains(rawValue)
     }
 }

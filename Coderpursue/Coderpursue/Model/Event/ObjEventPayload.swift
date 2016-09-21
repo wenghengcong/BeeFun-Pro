@@ -83,7 +83,7 @@ class ObjEventPayload: NSObject,Mappable {
         //        super.init(map)
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         //        super.mapping(map)
         action <- map["action"]
         issue <- map["issue"]

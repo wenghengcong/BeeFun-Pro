@@ -13,9 +13,9 @@ import UIKit
  
 // MARK: screen info
 struct ScreenSize {
-    static let ScreenWidth          = UIScreen.mainScreen().bounds.size.width
-    static let ScreenHeith          = UIScreen.mainScreen().bounds.size.height
-    static let ScreenScale          = UIScreen.mainScreen().scale
+    static let ScreenWidth          = UIScreen.main.bounds.size.width
+    static let ScreenHeith          = UIScreen.main.bounds.size.height
+    static let ScreenScale          = UIScreen.main.scale
     static let ScreenMaxLength      = max(ScreenSize.ScreenWidth, ScreenSize.ScreenHeith)
     static let ScreenMinLength      = min(ScreenSize.ScreenWidth, ScreenSize.ScreenHeith)
 }
@@ -23,13 +23,13 @@ struct ScreenSize {
 // MARK: device type
 struct DeviceType {
     
-    static let isIPad                           = UIDevice.currentDevice().userInterfaceIdiom == .Pad
-    static let isIPhone4                        = UIScreen.mainScreen().bounds.size.height < 568
-    static let isIPhone5                        = UIScreen.mainScreen().bounds.size.height == 568
-    static let isIPhone6                        = UIScreen.mainScreen().bounds.size.height == 667
-    static let isIPhone6Plus                    = UIScreen.mainScreen().bounds.size.height == 736
-    static let isDevicePortrait                 = UIDevice.currentDevice().orientation.isPortrait
-    static let isDeviceLandscape                = UIDevice.currentDevice().orientation.isLandscape
+    static let isIPad                           = UIDevice.current.userInterfaceIdiom == .pad
+    static let isIPhone4                        = UIScreen.main.bounds.size.height < 568
+    static let isIPhone5                        = UIScreen.main.bounds.size.height == 568
+    static let isIPhone6                        = UIScreen.main.bounds.size.height == 667
+    static let isIPhone6Plus                    = UIScreen.main.bounds.size.height == 736
+    static let isDevicePortrait                 = UIDevice.current.orientation.isPortrait
+    static let isDeviceLandscape                = UIDevice.current.orientation.isLandscape
 
 }
 
@@ -52,29 +52,29 @@ extension UIDevice {
     
     //systeme version compare methods
     
-    class func SYSTEM_VERSION_EQUAL_TO(version: NSString) -> Bool {
-        return self.currentDevice().systemVersion.compare(version as String,
-            options: NSStringCompareOptions.NumericSearch) == NSComparisonResult.OrderedSame
+    class func SYSTEM_VERSION_EQUAL_TO(_ version: NSString) -> Bool {
+        return self.current.systemVersion.compare(version as String,
+            options: NSString.CompareOptions.numeric) == ComparisonResult.orderedSame
     }
     
-    class func SYSTEM_VERSION_GREATER_THAN(version: NSString) -> Bool {
-        return self.currentDevice().systemVersion.compare(version as String,
-            options: NSStringCompareOptions.NumericSearch) == NSComparisonResult.OrderedDescending
+    class func SYSTEM_VERSION_GREATER_THAN(_ version: NSString) -> Bool {
+        return self.current.systemVersion.compare(version as String,
+            options: NSString.CompareOptions.numeric) == ComparisonResult.orderedDescending
     }
     
-    class func SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(version: NSString) -> Bool {
-        return self.currentDevice().systemVersion.compare(version as String,
-            options: NSStringCompareOptions.NumericSearch) != NSComparisonResult.OrderedAscending
+    class func SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(_ version: NSString) -> Bool {
+        return self.current.systemVersion.compare(version as String,
+            options: NSString.CompareOptions.numeric) != ComparisonResult.orderedAscending
     }
     
-    class func SYSTEM_VERSION_LESS_THAN(version: NSString) -> Bool {
-        return UIDevice.currentDevice().systemVersion.compare(version as String,
-            options: NSStringCompareOptions.NumericSearch) == NSComparisonResult.OrderedAscending
+    class func SYSTEM_VERSION_LESS_THAN(_ version: NSString) -> Bool {
+        return UIDevice.current.systemVersion.compare(version as String,
+            options: NSString.CompareOptions.numeric) == ComparisonResult.orderedAscending
     }
     
-    class func SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(version: NSString) -> Bool {
-        return self.currentDevice().systemVersion.compare(version as String,
-            options: NSStringCompareOptions.NumericSearch) != NSComparisonResult.OrderedDescending
+    class func SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(_ version: NSString) -> Bool {
+        return self.current.systemVersion.compare(version as String,
+            options: NSString.CompareOptions.numeric) != ComparisonResult.orderedDescending
     }
     
 }

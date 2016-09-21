@@ -8,15 +8,15 @@
 
 import UIKit
 
-public class NetworkHelper: NSObject {
+open class NetworkHelper: NSObject {
 
-    public static func clearCookies() {
+    open static func clearCookies() {
         
-        let storage : NSHTTPCookieStorage = NSHTTPCookieStorage.sharedHTTPCookieStorage()
+        let storage : HTTPCookieStorage = HTTPCookieStorage.shared
         for cookie in storage.cookies! {
             storage.deleteCookie(cookie)
         }
-        NSUserDefaults.standardUserDefaults()
+        UserDefaults.standard
         
     }
     

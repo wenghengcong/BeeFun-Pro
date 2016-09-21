@@ -157,7 +157,7 @@ class ObjUser: NSObject,NSCoding,Mappable {
         
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
 //        super.mapping(map)
 
         total_private_repos <- map[UserKey.totalPrivateReposKey]
@@ -203,48 +203,48 @@ class ObjUser: NSObject,NSCoding,Mappable {
         
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
+    func encode(with aCoder: NSCoder) {
         
-        aCoder.encodeObject(total_private_repos, forKey:UserKey.totalPrivateReposKey)
-        aCoder.encodeObject(public_repos, forKey:UserKey.publicReposKey)
-        aCoder.encodeObject(owned_private_repos, forKey:UserKey.ownedPrivateReposKey)
-        aCoder.encodeObject(repos_url, forKey:UserKey.reposUrlKey)
+        aCoder.encode(total_private_repos, forKey:UserKey.totalPrivateReposKey)
+        aCoder.encode(public_repos, forKey:UserKey.publicReposKey)
+        aCoder.encode(owned_private_repos, forKey:UserKey.ownedPrivateReposKey)
+        aCoder.encode(repos_url, forKey:UserKey.reposUrlKey)
         
-        aCoder.encodeObject(followers, forKey:UserKey.followersKey)
-        aCoder.encodeObject(following, forKey:UserKey.followingKey)
-        aCoder.encodeObject(following_url, forKey:UserKey.followingUrlKey)
-        aCoder.encodeObject(followers_url, forKey:UserKey.followersUrlKey)
+        aCoder.encode(followers, forKey:UserKey.followersKey)
+        aCoder.encode(following, forKey:UserKey.followingKey)
+        aCoder.encode(following_url, forKey:UserKey.followingUrlKey)
+        aCoder.encode(followers_url, forKey:UserKey.followersUrlKey)
 
-        aCoder.encodeObject(name, forKey:UserKey.nameKey)
-        aCoder.encodeObject(bio, forKey:UserKey.bioKey)
-        aCoder.encodeObject(organizations_url, forKey:UserKey.organizationsUrlKey)
-        aCoder.encodeObject(location, forKey:UserKey.locationKey)
-        aCoder.encodeObject(blog, forKey:UserKey.blogKey)
-        aCoder.encodeObject(avatar_url, forKey:UserKey.avatarUrlKey)
-        aCoder.encodeObject(email, forKey:UserKey.emailKey)
-        aCoder.encodeObject(company, forKey:UserKey.companyKey)
-        aCoder.encodeObject(hireable, forKey:UserKey.hireableKey)
-        aCoder.encodeObject(login, forKey:UserKey.loginKey)
+        aCoder.encode(name, forKey:UserKey.nameKey)
+        aCoder.encode(bio, forKey:UserKey.bioKey)
+        aCoder.encode(organizations_url, forKey:UserKey.organizationsUrlKey)
+        aCoder.encode(location, forKey:UserKey.locationKey)
+        aCoder.encode(blog, forKey:UserKey.blogKey)
+        aCoder.encode(avatar_url, forKey:UserKey.avatarUrlKey)
+        aCoder.encode(email, forKey:UserKey.emailKey)
+        aCoder.encode(company, forKey:UserKey.companyKey)
+        aCoder.encode(hireable, forKey:UserKey.hireableKey)
+        aCoder.encode(login, forKey:UserKey.loginKey)
         
-        aCoder.encodeObject(private_gists, forKey:UserKey.privateGistsKey)
-        aCoder.encodeObject(public_gists, forKey:UserKey.publicGistsKey)
-        aCoder.encodeObject(gists_url, forKey:UserKey.gistsUrlKey)
+        aCoder.encode(private_gists, forKey:UserKey.privateGistsKey)
+        aCoder.encode(public_gists, forKey:UserKey.publicGistsKey)
+        aCoder.encode(gists_url, forKey:UserKey.gistsUrlKey)
         
-        aCoder.encodeObject(type, forKey:UserKey.typeKey)
-        aCoder.encodeObject(starred_url, forKey:UserKey.starredUrlKey)
-        aCoder.encodeObject(id, forKey:UserKey.idKey)
-        aCoder.encodeObject(collaborators, forKey: UserKey.collaboratorsKey)
-        aCoder.encodeObject(gravatar_id, forKey:UserKey.gravatarIdKey)
-        aCoder.encodeObject(disk_usage, forKey:UserKey.diskUsageKey)
-        aCoder.encodeObject(url, forKey:UserKey.urlKey)
-        aCoder.encodeObject(updated_at, forKey:UserKey.updatedAtKey)
-        aCoder.encodeObject(created_at, forKey:UserKey.createdAtKey)
-        aCoder.encodeObject(site_admin, forKey:UserKey.siteAdminKey)
-        aCoder.encodeObject(received_events_url, forKey:UserKey.receivedRventsUrlKey)
-        aCoder.encodeObject(subscriptions_url, forKey:UserKey.subscriptionsUrlKey)
-        aCoder.encodeObject(events_url, forKey:UserKey.eventsUrlKey)
-        aCoder.encodeObject(html_url, forKey:UserKey.htmlUrlKey)
-        aCoder.encodeObject(plan, forKey:UserKey.planKey)
+        aCoder.encode(type, forKey:UserKey.typeKey)
+        aCoder.encode(starred_url, forKey:UserKey.starredUrlKey)
+        aCoder.encode(id, forKey:UserKey.idKey)
+        aCoder.encode(collaborators, forKey: UserKey.collaboratorsKey)
+        aCoder.encode(gravatar_id, forKey:UserKey.gravatarIdKey)
+        aCoder.encode(disk_usage, forKey:UserKey.diskUsageKey)
+        aCoder.encode(url, forKey:UserKey.urlKey)
+        aCoder.encode(updated_at, forKey:UserKey.updatedAtKey)
+        aCoder.encode(created_at, forKey:UserKey.createdAtKey)
+        aCoder.encode(site_admin, forKey:UserKey.siteAdminKey)
+        aCoder.encode(received_events_url, forKey:UserKey.receivedRventsUrlKey)
+        aCoder.encode(subscriptions_url, forKey:UserKey.subscriptionsUrlKey)
+        aCoder.encode(events_url, forKey:UserKey.eventsUrlKey)
+        aCoder.encode(html_url, forKey:UserKey.htmlUrlKey)
+        aCoder.encode(plan, forKey:UserKey.planKey)
 
     }
     
@@ -254,62 +254,62 @@ class ObjUser: NSObject,NSCoding,Mappable {
     
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        total_private_repos = aDecoder.decodeObjectForKey(UserKey.totalPrivateReposKey) as? Int
-        public_repos = aDecoder.decodeObjectForKey(UserKey.publicReposKey) as? Int
-        owned_private_repos = aDecoder.decodeObjectForKey(UserKey.ownedPrivateReposKey) as? Int
-        repos_url = aDecoder.decodeObjectForKey(UserKey.reposUrlKey) as? String
+        total_private_repos = aDecoder.decodeObject(forKey: UserKey.totalPrivateReposKey) as? Int
+        public_repos = aDecoder.decodeObject(forKey: UserKey.publicReposKey) as? Int
+        owned_private_repos = aDecoder.decodeObject(forKey: UserKey.ownedPrivateReposKey) as? Int
+        repos_url = aDecoder.decodeObject(forKey: UserKey.reposUrlKey) as? String
         
-        followers = aDecoder.decodeObjectForKey(UserKey.followersKey) as? Int
-        following = aDecoder.decodeObjectForKey(UserKey.followingKey) as? Int
-        following_url = aDecoder.decodeObjectForKey(UserKey.followingUrlKey) as? String
-        followers_url = aDecoder.decodeObjectForKey(UserKey.followersUrlKey) as? String
+        followers = aDecoder.decodeObject(forKey: UserKey.followersKey) as? Int
+        following = aDecoder.decodeObject(forKey: UserKey.followingKey) as? Int
+        following_url = aDecoder.decodeObject(forKey: UserKey.followingUrlKey) as? String
+        followers_url = aDecoder.decodeObject(forKey: UserKey.followersUrlKey) as? String
         
-        name = aDecoder.decodeObjectForKey(UserKey.nameKey) as? String
-        bio = aDecoder.decodeObjectForKey(UserKey.bioKey) as? String
-        organizations_url = aDecoder.decodeObjectForKey(UserKey.organizationsUrlKey) as? String
-        location = aDecoder.decodeObjectForKey(UserKey.locationKey) as? String
-        blog = aDecoder.decodeObjectForKey(UserKey.blogKey) as? String
-        avatar_url = aDecoder.decodeObjectForKey(UserKey.avatarUrlKey) as? String
-        email = aDecoder.decodeObjectForKey(UserKey.emailKey) as? String
-        company = aDecoder.decodeObjectForKey(UserKey.companyKey) as? String
-        hireable = aDecoder.decodeObjectForKey(UserKey.hireableKey) as? Bool
-        login = aDecoder.decodeObjectForKey(UserKey.loginKey) as? String
+        name = aDecoder.decodeObject(forKey: UserKey.nameKey) as? String
+        bio = aDecoder.decodeObject(forKey: UserKey.bioKey) as? String
+        organizations_url = aDecoder.decodeObject(forKey: UserKey.organizationsUrlKey) as? String
+        location = aDecoder.decodeObject(forKey: UserKey.locationKey) as? String
+        blog = aDecoder.decodeObject(forKey: UserKey.blogKey) as? String
+        avatar_url = aDecoder.decodeObject(forKey: UserKey.avatarUrlKey) as? String
+        email = aDecoder.decodeObject(forKey: UserKey.emailKey) as? String
+        company = aDecoder.decodeObject(forKey: UserKey.companyKey) as? String
+        hireable = aDecoder.decodeObject(forKey: UserKey.hireableKey) as? Bool
+        login = aDecoder.decodeObject(forKey: UserKey.loginKey) as? String
         
-        private_gists = aDecoder.decodeObjectForKey(UserKey.privateGistsKey) as? Int
-        public_gists = aDecoder.decodeObjectForKey(UserKey.publicGistsKey) as? Int
-        gists_url = aDecoder.decodeObjectForKey(UserKey.gistsUrlKey) as? String
+        private_gists = aDecoder.decodeObject(forKey: UserKey.privateGistsKey) as? Int
+        public_gists = aDecoder.decodeObject(forKey: UserKey.publicGistsKey) as? Int
+        gists_url = aDecoder.decodeObject(forKey: UserKey.gistsUrlKey) as? String
         
-        type = aDecoder.decodeObjectForKey(UserKey.typeKey) as? String
-        starred_url = aDecoder.decodeObjectForKey(UserKey.starredUrlKey) as? String
-        id = aDecoder.decodeObjectForKey(UserKey.idKey) as? Int
-        collaborators = aDecoder.decodeObjectForKey(UserKey.collaboratorsKey) as? Int
-        gravatar_id = aDecoder.decodeObjectForKey(UserKey.gravatarIdKey) as? String
-        disk_usage = aDecoder.decodeObjectForKey(UserKey.diskUsageKey) as? Int
-        url = aDecoder.decodeObjectForKey(UserKey.urlKey) as? String
-        updated_at = aDecoder.decodeObjectForKey(UserKey.updatedAtKey) as? String
-        created_at = aDecoder.decodeObjectForKey(UserKey.createdAtKey) as? String
-        site_admin = aDecoder.decodeObjectForKey(UserKey.siteAdminKey) as? Bool
-        received_events_url = aDecoder.decodeObjectForKey(UserKey.receivedRventsUrlKey) as? String
-        subscriptions_url = aDecoder.decodeObjectForKey(UserKey.subscriptionsUrlKey) as? String
-        events_url = aDecoder.decodeObjectForKey(UserKey.eventsUrlKey) as? String
-        html_url = aDecoder.decodeObjectForKey(UserKey.htmlUrlKey) as? String
-        plan = aDecoder.decodeObjectForKey(UserKey.planKey) as? ObjPlan
+        type = aDecoder.decodeObject(forKey: UserKey.typeKey) as? String
+        starred_url = aDecoder.decodeObject(forKey: UserKey.starredUrlKey) as? String
+        id = aDecoder.decodeObject(forKey: UserKey.idKey) as? Int
+        collaborators = aDecoder.decodeObject(forKey: UserKey.collaboratorsKey) as? Int
+        gravatar_id = aDecoder.decodeObject(forKey: UserKey.gravatarIdKey) as? String
+        disk_usage = aDecoder.decodeObject(forKey: UserKey.diskUsageKey) as? Int
+        url = aDecoder.decodeObject(forKey: UserKey.urlKey) as? String
+        updated_at = aDecoder.decodeObject(forKey: UserKey.updatedAtKey) as? String
+        created_at = aDecoder.decodeObject(forKey: UserKey.createdAtKey) as? String
+        site_admin = aDecoder.decodeObject(forKey: UserKey.siteAdminKey) as? Bool
+        received_events_url = aDecoder.decodeObject(forKey: UserKey.receivedRventsUrlKey) as? String
+        subscriptions_url = aDecoder.decodeObject(forKey: UserKey.subscriptionsUrlKey) as? String
+        events_url = aDecoder.decodeObject(forKey: UserKey.eventsUrlKey) as? String
+        html_url = aDecoder.decodeObject(forKey: UserKey.htmlUrlKey) as? String
+        plan = aDecoder.decodeObject(forKey: UserKey.planKey) as? ObjPlan
         
     }
     
     
     //MARK: Archive path
-    static let documentDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory,inDomains: .UserDomainMask).first!
-    static let archiveURL = documentDirectory.URLByAppendingPathComponent("userinfo")
+    static let documentDirectory = FileManager().urls(for: .documentDirectory,in: .userDomainMask).first!
+    static let archiveURL = documentDirectory.appendingPathComponent("userinfo")
     
     
     // MARK: save and load user info with disk
-    class func saveUserInfo(user:ObjUser?) {
+    class func saveUserInfo(_ user:ObjUser?) {
         
         if user == nil {
             print("user is nil...")
         }else {
-            let isScuessfulSave = NSKeyedArchiver.archiveRootObject(user!, toFile: ObjUser.archiveURL.path!)
+            let isScuessfulSave = NSKeyedArchiver.archiveRootObject(user!, toFile: ObjUser.archiveURL.path)
             if !isScuessfulSave {
                 print("Failed to save user ...")
             }
@@ -318,16 +318,16 @@ class ObjUser: NSObject,NSCoding,Mappable {
     }
     
     class func loadUserInfo() -> ObjUser? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(ObjUser.archiveURL.path!) as? ObjUser
+        return NSKeyedUnarchiver.unarchiveObject(withFile: ObjUser.archiveURL.path) as? ObjUser
 
     }
     
     class func deleteUserInfo() {
         
-        let fileM = NSFileManager.defaultManager()
-        if( fileM.fileExistsAtPath(archiveURL.path!) ){
+        let fileM = FileManager.default
+        if( fileM.fileExists(atPath: archiveURL.path) ){
             do {
-                try fileM.removeItemAtURL(archiveURL)
+                try fileM.removeItem(at: archiveURL)
             }catch{
                 
             }

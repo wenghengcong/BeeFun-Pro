@@ -20,7 +20,7 @@ class CPGitLoginViewController: CPWebViewController {
         super.viewDidLoad()
 
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Sign In"
     }
@@ -29,28 +29,28 @@ class CPGitLoginViewController: CPWebViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func webViewDidStartLoad(webView: UIWebView) {
+    override func webViewDidStartLoad(_ webView: UIWebView) {
         
         super.webViewDidStartLoad(webView)
         
     }
     
-    override func webViewDidFinishLoad(webView: UIWebView) {
+    override func webViewDidFinishLoad(_ webView: UIWebView) {
         
         super.webViewDidFinishLoad(webView)        
         //get code = ""
-        let urlStr:String = (webView.request?.URL?.absoluteString)!
+        let urlStr:String = (webView.request?.url?.absoluteString)!
         
         let codePrefix: String = "code="
         
-        if urlStr.containsString(codePrefix) {
+        if urlStr.contains(codePrefix) {
             
-            let range:Range = urlStr.rangeOfString(codePrefix)!
-            let index: Int = urlStr.startIndex.distanceTo(range.startIndex)+5
+            let range:Range = urlStr.range(of: codePrefix)!
+            let index: Int = urlStr.characters.distance(from: urlStr.startIndex, to: range.lowerBound)+5
             
-            let codeRange = Range(start: urlStr.startIndex.advancedBy(index), end: urlStr.startIndex.advancedBy(index+20))
+            let codeRange = (urlStr.characters.index(urlStr.startIndex, offsetBy: index) ..< urlStr.characters.index(urlStr.startIndex, offsetBy: index+20))
             
-            let codeStr = urlStr.substringWithRange(codeRange)
+            let codeStr = urlStr.substring(with: codeRange)
             
             
             glvc_SignIn(codeStr)
@@ -58,7 +58,7 @@ class CPGitLoginViewController: CPWebViewController {
     }
     
     
-    func glvc_SignIn(code :String) {
+    func glvc_SignIn(_ code :String) {
         
         let para = [
             "client_id":GithubAppClientId,
@@ -68,7 +68,7 @@ class CPGitLoginViewController: CPWebViewController {
             "state":"junglesong"
             ]
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
         Alamofire.request(.POST, "https://github.com/login/oauth/access_token", parameters: para)
             .responseJSON { response in
@@ -99,9 +99,9 @@ class CPGitLoginViewController: CPWebViewController {
         
     }
     
-    func glv_getUserinfo(token:String){
+    func glv_getUserinfo(_ token:String){
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
         let provider = Provider.sharedProvider
         provider.request(.MyInfo) { (result) -> () in
@@ -136,8 +136,8 @@ class CPGitLoginViewController: CPWebViewController {
         
     }
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
 
     }
 

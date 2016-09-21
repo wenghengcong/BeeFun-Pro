@@ -36,12 +36,12 @@ class CPStarredReposCell: CPBaseViewCell {
             
             if let avatarURl = objRepos!.owner!.avatar_url {
                 
-                logoImgV.kf_setImageWithURL( NSURL(string:avatarURl)!, placeholderImage: nil)
+                logoImgV.kf_setImageWithURL( URL(string:avatarURl)!, placeholderImage: nil)
             }
             
             nameLabel.text = objRepos!.name!
             descLabel.text = objRepos!.cdescription
-            let updateAt:NSDate = objRepos!.pushed_at!.toDate(DateFormat.ISO8601)!
+            let updateAt:Date = objRepos!.pushed_at!.toDate(DateFormat.ISO8601)!
             
             timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
             starNumLabel.text = "\(objRepos!.stargazers_count!)"
@@ -72,7 +72,7 @@ class CPStarredReposCell: CPBaseViewCell {
         super.init(coder: aDecoder)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
         // Configure the view for the selected state

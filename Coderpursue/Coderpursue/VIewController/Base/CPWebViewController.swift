@@ -17,8 +17,8 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
     
     var url : String? {
         didSet {
-            let urlTmp = NSURL(string: url!)
-            let urlRequest = NSURLRequest(URL: urlTmp!)
+            let urlTmp = URL(string: url!)
+            let urlRequest = URLRequest(url: urlTmp!)
             if webView != nil {
                 self.webView!.loadRequest(urlRequest)
             }
@@ -56,8 +56,8 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
         
         if url != nil {
             
-            let urlTmp = NSURL(string: url!)
-            let urlRequest = NSURLRequest(URL: urlTmp!)
+            let urlTmp = URL(string: url!)
+            let urlRequest = URLRequest(url: urlTmp!)
             self.webView!.loadRequest(urlRequest)
         }
         if html != nil {
@@ -128,33 +128,33 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
 //        return true
 //    }
     
-    func webViewDidStartLoad(webView: UIWebView) {
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         
-        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
         self.webView!.scrollView.contentInset = UIEdgeInsetsMake(self.topOffset, 0, 0, 0)
-        self.webView!.scrollView.scrollRectToVisible(CGRectMake(0, 0, self.view.frame.size.width, 0.1), animated: true)
+        self.webView!.scrollView.scrollRectToVisible(CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 0.1), animated: true)
         
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
 
     }
     
     
     // MARK: - Navigation
     
-    func webView(webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+    func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
     }
     
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
     // MARK: back and forward

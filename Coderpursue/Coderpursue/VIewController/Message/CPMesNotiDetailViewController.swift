@@ -17,8 +17,8 @@ class CPMesNotiDetailViewController: CPBaseViewController {
     }
 
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
     }
 
 }

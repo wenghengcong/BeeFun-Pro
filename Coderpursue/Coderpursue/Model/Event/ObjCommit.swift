@@ -31,7 +31,7 @@ class ObjCommit: NSObject,Mappable {
         //        super.init(map)
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         //        super.mapping(map)
         sha <- map["sha"]
         author <- map["author"]

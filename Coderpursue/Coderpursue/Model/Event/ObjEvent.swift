@@ -79,7 +79,7 @@ class ObjEvent: NSObject,Mappable {
         //        super.init(map)
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         //        super.mapping(map)
         id <- map["id"]
         type <- map["type"]

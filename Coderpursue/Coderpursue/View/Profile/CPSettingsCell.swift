@@ -24,9 +24,9 @@ class CPSettingsCell: CPBaseViewCell {
             iconImgV.image = UIImage.init(named: (objSettings!.itemIcon)!)
             setTitleLabel.text = objSettings?.itemName
             if ( (objSettings?.itemDisclosure)! ) {
-                discolsureImgV.hidden = false
+                discolsureImgV.isHidden = false
             }else {
-                discolsureImgV.hidden = true
+                discolsureImgV.isHidden = true
             }
             
             if let rightValue = objSettings!.itemValue{
@@ -54,7 +54,7 @@ class CPSettingsCell: CPBaseViewCell {
         super.init(coder: aDecoder)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

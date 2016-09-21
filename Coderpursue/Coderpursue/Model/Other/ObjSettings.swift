@@ -16,11 +16,11 @@ class ObjSettings: NSObject {
     var itemIcon:String?
     var itemDisclosure:Bool?
 
-    override func setValue(value: AnyObject?, forUndefinedKey key: String) {
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {
         return
     }
     
-    override func setValuesForKeysWithDictionary(keyedValues: [String : AnyObject]) {
+    override func setValuesForKeys(_ keyedValues: [String : Any]) {
         
         itemKey = keyedValues["itemKey"] as? String
         itemName = keyedValues["itemName"] as? String

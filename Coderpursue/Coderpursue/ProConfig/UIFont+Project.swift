@@ -11,53 +11,53 @@ import UIKit
 extension UIFont {
     
     enum CPEFontSize : CGFloat{
-        case TinyFontSize = 10
-        case SmallFontSize = 12
-        case MiddleFontSize = 14
-        case LargeFontSize = 15
-        case HugeFontSize = 17
+        case tinyFontSize = 10
+        case smallFontSize = 12
+        case middleFontSize = 14
+        case largeFontSize = 15
+        case hugeFontSize = 17
     }
     //MARK: system font
     
     class func tinySizeSystemFont() -> UIFont {
-        return UIFont.systemFontOfSize(CPEFontSize.TinyFontSize.rawValue)
+        return UIFont.systemFont(ofSize: CPEFontSize.tinyFontSize.rawValue)
     }
     
     class func smallSizeSystemFont() -> UIFont {
-        return UIFont.systemFontOfSize(CPEFontSize.SmallFontSize.rawValue)
+        return UIFont.systemFont(ofSize: CPEFontSize.smallFontSize.rawValue)
     }
     
     class func middleSizeSystemFont() -> UIFont {
-        return UIFont.systemFontOfSize(CPEFontSize.MiddleFontSize.rawValue)
+        return UIFont.systemFont(ofSize: CPEFontSize.middleFontSize.rawValue)
     }
     
     class func largeSizeSystemFont() -> UIFont {
-        return UIFont.systemFontOfSize(CPEFontSize.LargeFontSize.rawValue)
+        return UIFont.systemFont(ofSize: CPEFontSize.largeFontSize.rawValue)
     }
     
     class func hugeSizeSystemFont() -> UIFont {
-        return UIFont.systemFontOfSize(CPEFontSize.HugeFontSize.rawValue)
+        return UIFont.systemFont(ofSize: CPEFontSize.hugeFontSize.rawValue)
     }
     
     //MARK: system bold font
     
     class func tinySizeBoldSystemFont() -> UIFont {
-        return UIFont.boldSystemFontOfSize(CPEFontSize.SmallFontSize.rawValue)
+        return UIFont.boldSystemFont(ofSize: CPEFontSize.smallFontSize.rawValue)
     }
     
     class func smallSizeBoldSystemFont() -> UIFont {
-        return UIFont.boldSystemFontOfSize(CPEFontSize.SmallFontSize.rawValue)
+        return UIFont.boldSystemFont(ofSize: CPEFontSize.smallFontSize.rawValue)
     }
     
     class func middleSizeBoldSystemFont() -> UIFont {
-        return UIFont.boldSystemFontOfSize(CPEFontSize.SmallFontSize.rawValue)
+        return UIFont.boldSystemFont(ofSize: CPEFontSize.smallFontSize.rawValue)
     }
     
     class func largeSizeBoldSystemFont() -> UIFont {
-        return UIFont.boldSystemFontOfSize(CPEFontSize.SmallFontSize.rawValue)
+        return UIFont.boldSystemFont(ofSize: CPEFontSize.smallFontSize.rawValue)
     }
     
     class func hugeSizeBoldSystemFont() -> UIFont {
-        return UIFont.boldSystemFontOfSize(CPEFontSize.SmallFontSize.rawValue)
+        return UIFont.boldSystemFont(ofSize: CPEFontSize.smallFontSize.rawValue)
     }
 }

@@ -31,7 +31,7 @@ class CPShowcaseInfoView: UIView {
     }
     
     init(obj:ObjShowcase){
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         self.showcase = obj
     }
     
@@ -47,7 +47,7 @@ class CPShowcaseInfoView: UIView {
         imgV.layer.cornerRadius = imgV.width/2
         imgV.layer.masksToBounds = true
         
-        descLabel.textColor = UIColor.darkGrayColor()
+        descLabel.textColor = UIColor.darkGray
         
     }
     
@@ -55,7 +55,7 @@ class CPShowcaseInfoView: UIView {
     func siv_fillData() {
         
         let url = showcase!.image_url!
-        imgV.kf_setImageWithURL(NSURL(string: url)!, placeholderImage: nil)
+        imgV.kf_setImageWithURL(URL(string: url)!, placeholderImage: nil)
         descLabel.text = showcase!.cdescription!
         
     }

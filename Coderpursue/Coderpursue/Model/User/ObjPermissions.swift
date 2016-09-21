@@ -19,7 +19,7 @@ class ObjPermissions: NSObject,Mappable {
         //        super.init(map)
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         //        super.mapping(map)
         admin <- map["admin"]
         pull <- map["pull"]

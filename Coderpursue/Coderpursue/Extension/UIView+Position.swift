@@ -57,7 +57,7 @@ extension UIView {
             return self.frame.origin.x
         }
         set {
-            self.frame.origin = CGPointMake(newValue, self.frame.origin.y)
+            self.frame.origin = CGPoint(x: newValue, y: self.frame.origin.y)
 
         }
     }
@@ -67,7 +67,7 @@ extension UIView {
             return self.frame.origin.y
         }
         set {
-            self.frame.origin = CGPointMake(self.frame.origin.x, newValue)
+            self.frame.origin = CGPoint(x: self.frame.origin.x, y: newValue)
 
         }
     }
@@ -77,7 +77,7 @@ extension UIView {
             return self.center.x
         }
         set {
-            self.center = CGPointMake(newValue, self.center.y)
+            self.center = CGPoint(x: newValue, y: self.center.y)
 
         }
     }
@@ -87,7 +87,7 @@ extension UIView {
             return self.center.y
         }
         set {
-            self.center = CGPointMake(self.center.x, newValue)
+            self.center = CGPoint(x: self.center.x, y: newValue)
 
         }
     }

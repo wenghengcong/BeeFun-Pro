@@ -71,7 +71,7 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
         
         UMSocialWechatHandler.setWXAppId(WeiXinSDKAppID, appSecret: WeiXinSDKAppSecret, url: SocailRedirectURL)
         UMSocialQQHandler.setQQWithAppId(TencentSDKAppID, appKey: TencentSDKAppKey, url: SocailRedirectURL)
-        UMSocialSinaSSOHandler.openNewSinaSSOWithAppKey(WeiboSDKAppKey, secret: WeiboSDKAppSecret, redirectURL: SocailRedirectURL)
+        UMSocialSinaSSOHandler.openNewSinaSSO(withAppKey: WeiboSDKAppKey, secret: WeiboSDKAppSecret, redirectURL: SocailRedirectURL)
         UMSocialFacebookHandler.setFacebookAppID(FackbookSDKAppID, shareFacebookWithURL: SocailRedirectURL)
         
         // TwitterSDK仅在iOS7.0以上有效，在iOS 6.x上自动调用系统内置Twitter授权
@@ -88,7 +88,7 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
      - parameter content:        分享内容（当分享为app是，可传nil）
      - parameter soucre:         分享来源
      */
-    func shareContentInView(viewController:UIViewController, content:ShareContent ,soucre:ShareSource) {
+    func shareContentInView(_ viewController:UIViewController, content:ShareContent ,soucre:ShareSource) {
         
         shareContent = nil
         sourceType = soucre
@@ -148,14 +148,14 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
      @param fromViewControllerType 关闭的页面类型
      
      */
-    func didCloseUIViewController(fromViewControllerType: UMSViewControllerType) {
+    func didCloseUIViewController(_ fromViewControllerType: UMSViewControllerType) {
         
     }
     /**
      各个页面执行授权完成、分享完成、或者评论完成时的回调函数
      @param response 返回`UMSocialResponseEntity`对象，`UMSocialResponseEntity`里面的viewControllerType属性可以获得页面类型
      */
-    func didFinishGetUMSocialDataInViewController(response: UMSocialResponseEntity!) {
+    func didFinishGetUMSocialData(inViewController response: UMSocialResponseEntity!) {
         
     }
     
@@ -178,7 +178,7 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
      @prarm socialData   分享内容
      */
     
-    func didSelectSocialPlatform(platformName: String!, withSocialData socialData: UMSocialData!) {
+    func didSelectSocialPlatform(_ platformName: String!, with socialData: UMSocialData!) {
         
         switch sourceType {
             case .Defalult:

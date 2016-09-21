@@ -36,7 +36,7 @@ class ObjPlan: NSObject,NSCoding, Mappable {
 //        super.init(map)
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
 //        super.mapping(map)
         private_repos <- map[PlanKey.privateReposKey]
         collaborators <- map[PlanKey.collaboratorsKey]
@@ -44,19 +44,19 @@ class ObjPlan: NSObject,NSCoding, Mappable {
         name <- map[PlanKey.nameKey]
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(private_repos, forKey:PlanKey.privateReposKey)
-        aCoder.encodeObject(collaborators, forKey:PlanKey.collaboratorsKey)
-        aCoder.encodeObject(space, forKey:PlanKey.spaceKey)
-        aCoder.encodeObject(name, forKey:PlanKey.nameKey)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(private_repos, forKey:PlanKey.privateReposKey)
+        aCoder.encode(collaborators, forKey:PlanKey.collaboratorsKey)
+        aCoder.encode(space, forKey:PlanKey.spaceKey)
+        aCoder.encode(name, forKey:PlanKey.nameKey)
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init()
-        private_repos = aDecoder.decodeObjectForKey(PlanKey.privateReposKey) as? Int
-        collaborators = aDecoder.decodeObjectForKey(PlanKey.collaboratorsKey) as? Int
-        space = aDecoder.decodeObjectForKey(PlanKey.spaceKey) as? Int
-        name = aDecoder.decodeObjectForKey(PlanKey.nameKey) as? String
+        private_repos = aDecoder.decodeObject(forKey: PlanKey.privateReposKey) as? Int
+        collaborators = aDecoder.decodeObject(forKey: PlanKey.collaboratorsKey) as? Int
+        space = aDecoder.decodeObject(forKey: PlanKey.spaceKey) as? Int
+        name = aDecoder.decodeObject(forKey: PlanKey.nameKey) as? String
     }
     
     

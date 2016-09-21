@@ -32,18 +32,18 @@ class CPStarsViewController: CPBaseViewController{
         svc_setupSegmentView()
         svc_setupTableView()
         svc_updateNetrokData()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(svc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(svc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
-        self.leftItem?.hidden = true
+        NotificationCenter.default.addObserver(self, selector: #selector(svc_loginSuccessful), name: NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(svc_logoutSuccessful), name: NSNotification.Name(rawValue: NotificationGitLogOutSuccessful), object: nil)
+        self.leftItem?.isHidden = true
         self.title = "Stars"
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     func svc_loginSuccessful() {
@@ -73,7 +73,7 @@ class CPStarsViewController: CPBaseViewController{
         
         if svc_isLogin(){
             
-            tableView.mj_footer.hidden = false
+            tableView.mj_footer.isHidden = false
 
             if segControl.selectedSegmentIndex == 0 {
                 svc_getUserReposRequest(self.reposPageVal)
@@ -85,7 +85,7 @@ class CPStarsViewController: CPBaseViewController{
             //加载未登录的页面
             tableView.mj_header.endRefreshing()
             tableView.mj_footer.endRefreshing()
-            tableView.mj_footer.hidden = true
+            tableView.mj_footer.isHidden = true
 
         }
     }
@@ -95,7 +95,7 @@ class CPStarsViewController: CPBaseViewController{
         self.view.addSubview(segControl)
         segControl.verticalDividerColor = UIColor.lineBackgroundColor()
         segControl.verticalDividerWidth = 1
-        segControl.verticalDividerEnabled = true
+        segControl.isVerticalDividerEnabled = true
         segControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe
         segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
         segControl.selectionIndicatorColor = UIColor.cpRedColor()
@@ -134,24 +134,24 @@ class CPStarsViewController: CPBaseViewController{
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
-        header.setTitle("Pull down to refresh", forState: .Idle)
-        header.setTitle("Release to refresh", forState: .Pulling)
-        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setTitle("Pull down to refresh", for: .idle)
+        header.setTitle("Release to refresh", for: .pulling)
+        header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPStarsViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
         // 上拉刷新
-        footer.setTitle("Click or drag up to refresh", forState: .Idle)
-        footer.setTitle("Loading more ...", forState: .Pulling)
-        footer.setTitle("No more data", forState: .NoMoreData)
+        footer.setTitle("Click or drag up to refresh", for: .idle)
+        footer.setTitle("Loading more ...", for: .pulling)
+        footer.setTitle("No more data", for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPStarsViewController.footerRefresh))
-        footer.refreshingTitleHidden = true
+        footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
     
@@ -180,11 +180,11 @@ class CPStarsViewController: CPBaseViewController{
     
     // MARK: fetch data form request
     
-    func svc_getUserReposRequest(pageVal:Int) {
+    func svc_getUserReposRequest(_ pageVal:Int) {
         
         print("page:\(pageVal)")
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         Provider.sharedProvider.request(.MyStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
 
@@ -229,9 +229,9 @@ class CPStarsViewController: CPBaseViewController{
         }
     }
     
-    func svc_getUserEventsRequest(pageVal:Int) {
+    func svc_getUserEventsRequest(_ pageVal:Int) {
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         Provider.sharedProvider.request(.UserEvents(username:ObjUser.loadUserInfo()!.login! ,page:pageVal,perpage:15) ) { (result) -> () in
             
@@ -281,29 +281,29 @@ class CPStarsViewController: CPBaseViewController{
 
 extension CPStarsViewController : UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if segControl.selectedSegmentIndex == 0 {
             return  self.reposData.count
         }
         return self.eventsData.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
 
         var cellId = ""
         
         if segControl.selectedSegmentIndex == 0 {
             
             cellId = "CPStarredReposCellIdentifier"
-            var cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPStarredReposCell
+            var cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPStarredReposCell
             if cell == nil {
-                cell = CPStarredReposCell(style: UITableViewCellStyle.Default, reuseIdentifier:cellId)
+                cell = CPStarredReposCell(style: UITableViewCellStyle.default, reuseIdentifier:cellId)
             }
             
             //handle line in cell
@@ -330,28 +330,28 @@ extension CPStarsViewController : UITableViewDataSource {
         switch(eventType) {
         case .WatchEvent:
             cellId = "CPEventStarredCellIdentifier"
-            cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventStarredCell
+            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventStarredCell
             if cell == nil {
                 cell = (CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell)
             }
             
         case .CreateEvent:
             cellId = "CPEventCreateCellIdentifier"
-            cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventCreateCell
+            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventCreateCell
             if cell == nil {
                 cell = (CPEventCreateCell.cellFromNibNamed("CPEventCreateCell") as! CPEventCreateCell)
             }
             
         case .PushEvent:
             cellId = "CPEventPushCellIdentifier"
-            cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventPushCell
+            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventPushCell
             if cell == nil {
                 cell = (CPEventPushCell.cellFromNibNamed("CPEventPushCell") as! CPEventPushCell)
             }
             
         default:
             cellId = "CPEventStarredCellIdentifier"
-            cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPEventStarredCell
+            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventStarredCell
             if cell == nil {
                 cell = (CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell)
             }
@@ -376,7 +376,7 @@ extension CPStarsViewController : UITableViewDataSource {
 }
 extension CPStarsViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if segControl.selectedSegmentIndex == 0 {
             
@@ -384,7 +384,7 @@ extension CPStarsViewController : UITableViewDelegate {
             
         }else{
             
-            let event:ObjEvent = self.eventsData[indexPath.row]
+            let event:ObjEvent = self.eventsData[(indexPath as NSIndexPath).row]
             let eventType:EventType = EventType(rawValue: (event.type!))!
             
             switch(eventType) {
@@ -408,16 +408,16 @@ extension CPStarsViewController : UITableViewDelegate {
         }
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let repos = self.reposData[indexPath.row]
-        self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: repos)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        let repos = self.reposData[(indexPath as NSIndexPath).row]
+        self.performSegue(withIdentifier: SegueTrendingShowRepositoryDetail, sender: repos)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if (segue.identifier == SegueTrendingShowRepositoryDetail){
-            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
+            let reposVC = segue.destination as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true
             
             let repos = sender as? ObjRepos

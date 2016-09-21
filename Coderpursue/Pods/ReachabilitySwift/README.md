@@ -2,9 +2,61 @@
 
 Reachability.swift is a replacement for Apple's Reachability sample, re-written in Swift with closures.
 
-It is compatible with **iOS** (8.0 - 9.2), **OSX** (10.9 - 10.11) and **tvOS** (9.0 - 9.1)
+It is compatible with **iOS** (8.0 - 10.0), **OSX** (10.9 - 10.12) and **tvOS** (9.0 - 10.0)
 
 Inspired by https://github.com/tonymillion/Reachability
+
+#IMPORTANT
+
+##Supporting Swift 2.3 and Swift 3
+
+The source has been updated to support both Swift 2.3 (tag v2.4) and Swift 3 (tag v3.0)  
+
+To install **Reachability.swift** for Swift 2.3 using CocoaPods, include the following in your Podfile
+```
+pod 'ReachabilitySwift', '~> 2.4'
+```
+
+To install **Reachability.swift** for Swift 3.x using CocoaPods, include the following in your Podfile
+```
+pod 'ReachabilitySwift', '~> 3'
+```
+##Swift 3 / Breaking changes#
+
+The following iOS 10 branch contains the following breaking changes:
+
+Previously:
+```swift
+class func reachabilityForInternetConnection() throws
+```
+Now: 
+```swift
+init?()
+```
+
+Previously: 
+```swift
+init(hostname: String) throws
+```
+Now:
+```swift
+init?(hostname: String)
+```
+
+Previously:
+```swift
+public enum NetworkStatus: CustomStringConvertible {
+    case NotReachable, ReachableViaWiFi, ReachableViaWWAN
+}
+```
+Now:
+```swift
+public enum NetworkStatus: CustomStringConvertible {
+    case notReachable, reachableViaWiFi, reachableViaWWAN
+}
+```
+
+
 
 ## Supporting **Reachability.swift**
 Keeping **Reachability.swift** up-to-date is a time consuming task. Making updates, reviewing pull requests, responding to issues and answering emails all take time. If you'd like to help keep me motivated, please download my free app, [Foto Flipper] from the App Store. (To really motivate me, pay $0.99 for the IAP!)
@@ -27,13 +79,16 @@ Just drop the **Reachability.swift** file into your project. That's it!
 
     ``` ruby
     use_frameworks!
-    pod 'ReachabilitySwift', git: 'https://github.com/ashleymills/Reachability.swift'
+    pod 'ReachabilitySwift'
     ```
 
  3. Run `pod install`.
 
 [CocoaPods]: https://cocoapods.org
 [CocoaPods Installation]: https://guides.cocoapods.org/using/getting-started.html#getting-started
+ 
+ 4. In your code import Reachability like so:
+   `import ReachabilitySwift`
 
 ### Carthage
 [Carthage][] is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
@@ -60,14 +115,8 @@ To install Reachability.swift with Carthage:
 ## Example - closures
 
 ```swift
-let reachability: Reachability
-do {
-    reachability = try Reachability.reachabilityForInternetConnection()
-} catch {
-    print("Unable to create Reachability")
-    return
-}
-
+//declare this property where it won't go out of scope relative to your listener
+let reachability = Reachability()!
 
 reachability.whenReachable = { reachability in
     // this is called on a background thread, but UI updates must
@@ -106,20 +155,17 @@ reachability.stopNotifier()
 This sample will use `NSNotification`s to notify when the interface has changed. They will be delivered on the **MAIN THREAD**, so you *can* do UI updates from within the function.
 
 ```swift
-let reachability: Reachability
-do {
-    reachability = try Reachability.reachabilityForInternetConnection()
-} catch {
-    print("Unable to create Reachability")
-    return
-}
+//declare this property where it won't go out of scope relative to your listener
+let reachability = Reachability()!
 
-NSNotificationCenter.defaultCenter().addObserver(self,
-                                                 selector: "reachabilityChanged:",
-                                                 name: ReachabilityChangedNotification,
-                                                 object: reachability)
+//declare this inside of viewWillAppear
 
-reachability.startNotifier()
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: "reachabilityChanged:",name: ReachabilityChangedNotification,object: reachability)
+    do{
+      try reachability.startNotifier()
+    }catch{
+      print("could not start reachability notifier")
+    }
 ```
 
 and
@@ -127,17 +173,17 @@ and
 ```swift
 func reachabilityChanged(note: NSNotification) {
 
-    let reachability = note.object as! Reachability
+  let reachability = note.object as! Reachability
 
-    if reachability.isReachable() {
-        if reachability.isReachableViaWiFi() {
-            print("Reachable via WiFi")
-        } else {
-            print("Reachable via Cellular")
-        }
+  if reachability.isReachable() {
+    if reachability.isReachableViaWiFi() {
+      print("Reachable via WiFi")
     } else {
-        print("Not reachable")
+      print("Reachable via Cellular")
     }
+  } else {
+    print("Network not reachable")
+  }
 }
 ```
 
@@ -149,6 +195,10 @@ NSNotificationCenter.defaultCenter().removeObserver(self,
                                                     name: ReachabilityChangedNotification,
                                                     object: reachability)
 ```
+
+## Got a problem?
+
+Please read https://github.com/ashleymills/Reachability.swift/wiki/Raising-an-issue before raising an issue.
 
 ## Want to help?
 

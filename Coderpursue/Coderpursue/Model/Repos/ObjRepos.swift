@@ -278,7 +278,7 @@ class ObjRepos: NSObject,Mappable {
         
     }
     
-    func mapping(map: Map) {
+    func mapping(_ map: Map) {
         //        super.mapping(map)
         
         archive_url <- map[ReposKey.archiveUrlKey]

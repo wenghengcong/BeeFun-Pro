@@ -18,7 +18,7 @@ class CPSearchViewController: CPBaseViewController {
     var searchPlacehoder = "Search"
     
     var searchFilterH:CGFloat = 290
-    lazy var searchBar = UISearchBar(frame: CGRectMake(0, 0, ScreenSize.ScreenWidth-70, 20))
+    lazy var searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: ScreenSize.ScreenWidth-70, height: 20))
     var tableView = UITableView()
     var maskView = UIView()
     let header = MJRefreshNormalHeader()
@@ -58,12 +58,12 @@ class CPSearchViewController: CPBaseViewController {
         let rightNavBarButton = UIBarButtonItem(customView:searchBar)
         self.navigationItem.rightBarButtonItem = rightNavBarButton
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
     }
     
     func svc_initSearchFilterView() {
         
-        if let path = NSBundle.mainBundle().pathForResource("CPLanguage", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "CPLanguage", ofType: "plist") {
             languageArr = NSArray(contentsOfFile: path)! as? [String]
         }
         
@@ -73,7 +73,7 @@ class CPSearchViewController: CPBaseViewController {
             sortArr = ["Best match","Most followers","Fewest followers","Most recently joined","Leaest recently joined","Most repositories ","Fewest repositories"]
         }
         searchFilterView = CPSearchFilterView()
-        searchFilterView?.frame = CGRectMake(0, topOffset, self.view.width, searchFilterH)
+        searchFilterView?.frame = CGRect(x: 0, y: topOffset, width: self.view.width, height: searchFilterH)
         searchFilterView?.searchParaDelegate = self
         searchFilterView?.filterPara = ["Language","Sort"]
         searchFilterView?.filterData = [languageArr!,sortArr!]
@@ -82,43 +82,43 @@ class CPSearchViewController: CPBaseViewController {
         
     }
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     
     func svc_setupTableView() {
         
-        tableView.frame = CGRectMake(0, (searchFilterView?.bottom)! ,self.view.width, self.view.height-searchFilterView!.bottom)
+        tableView.frame = CGRect(x: 0, y: (searchFilterView?.bottom)! ,width: self.view.width, height: self.view.height-searchFilterView!.bottom)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorStyle = .None
+        tableView.separatorStyle = .none
         tableView.backgroundColor = UIColor.viewBackgroundColor()
         automaticallyAdjustsScrollViewInsets = false
         self.view.insertSubview(tableView, belowSubview: self.searchFilterView!)
         
         // 下拉刷新
-        header.setTitle("Pull down to refresh", forState: .Idle)
-        header.setTitle("Release to refresh", forState: .Pulling)
-        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setTitle("Pull down to refresh", for: .idle)
+        header.setTitle("Release to refresh", for: .pulling)
+        header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPSearchViewController.svc_headerRefresh) )
-        header.hidden = true
+        header.isHidden = true
         self.tableView.mj_header = header
         
         // 上拉刷新
-        footer.setTitle("Click or drag up to refresh", forState: .Idle)
-        footer.setTitle("Loading more ...", forState: .Pulling)
-        footer.setTitle("No more data", forState: .NoMoreData)
+        footer.setTitle("Click or drag up to refresh", for: .idle)
+        footer.setTitle("Loading more ...", for: .pulling)
+        footer.setTitle("No more data", for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPSearchViewController.svc_footerRefresh) )
-        footer.refreshingTitleHidden = true
-        footer.hidden = true
+        footer.isRefreshingTitleHidden = true
+        footer.isHidden = true
         self.tableView.mj_footer = footer
     }
 
     func svc_setupMaskView(){
-        maskView.frame = CGRectMake(0, searchFilterH+topOffset, self.view.width, self.view.height-searchFilterH-topOffset)
+        maskView.frame = CGRect(x: 0, y: searchFilterH+topOffset, width: self.view.width, height: self.view.height-searchFilterH-topOffset)
         maskView.backgroundColor = UIColor.hexStr("#666666", alpha: 0.3)
-        maskView.hidden = true
+        maskView.isHidden = true
 
         self.view.insertSubview(maskView, aboveSubview: tableView)
     }
@@ -201,7 +201,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func searchUser() {
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
         Provider.sharedProvider.request(.SearchUsers(para:self.paraUser) ) { (result) -> () in
             
@@ -265,7 +265,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func searchRepos() {
 
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
 
         Provider.sharedProvider.request(.SearchRepos(para:self.paraRepos) ) { (result) -> () in
             
@@ -332,33 +332,33 @@ class CPSearchViewController: CPBaseViewController {
         if pageType == .Repos {
 
             if ((reposData == nil) || (reposData.count == 0))  {
-                header.hidden = true
-                footer.hidden = true
+                header.isHidden = true
+                footer.isHidden = true
                 return
             }
             
             if(reposData.count >= totalItemCount){
-                header.hidden = false
-                header.hidden = true
+                header.isHidden = false
+                header.isHidden = true
             }else{
-                header.hidden = false
-                footer.hidden = false
+                header.isHidden = false
+                footer.isHidden = false
             }
             
         }else{
             
             if ((usersData == nil) || (usersData.count == 0))  {
-                header.hidden = true
-                footer.hidden = true
+                header.isHidden = true
+                footer.isHidden = true
                 return
             }
             
             if(usersData.count >= totalItemCount){
-                header.hidden = false
-                header.hidden = true
+                header.isHidden = false
+                header.isHidden = true
             }else{
-                header.hidden = false
-                footer.hidden = false
+                header.isHidden = false
+                footer.isHidden = false
             }
         }
         
@@ -372,7 +372,7 @@ class CPSearchViewController: CPBaseViewController {
 
 extension CPSearchViewController: UISearchBarDelegate {
 
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         svc_searchNow()
         self.searchBar.endEditing(true)
@@ -384,7 +384,7 @@ extension CPSearchViewController: UISearchBarDelegate {
 
 extension CPSearchViewController:CPSearchFilterViewProtcocol {
     
-    func didBeginSearch(para: [String : Int]) {
+    func didBeginSearch(_ para: [String : Int]) {
         
         let languageIndex:Int = para["Language"]!
         let sortIndex:Int = para["Sort"]!
@@ -471,8 +471,8 @@ extension CPSearchViewController:CPSearchFilterViewProtcocol {
     }
     
     
-    func showContentView(show: Bool) {
-        maskView.hidden = !show
+    func showContentView(_ show: Bool) {
+        maskView.isHidden = !show
         searchBar.endEditing(true)
     }
     
@@ -480,11 +480,11 @@ extension CPSearchViewController:CPSearchFilterViewProtcocol {
 
 extension CPSearchViewController: UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if pageType == .Repos {
             if (reposData != nil){
@@ -500,15 +500,15 @@ extension CPSearchViewController: UITableViewDataSource {
 
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         var cellId = ""
         
         if pageType == .Repos {
             
             cellId = "CPTrendingRepoCellIdentifier"
-            var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingRepoCell
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingRepoCell
             if cell == nil {
                 cell = (CPTrendingRepoCell.cellFromNibNamed("CPTrendingRepoCell") as! CPTrendingRepoCell)
             }
@@ -531,7 +531,7 @@ extension CPSearchViewController: UITableViewDataSource {
         }
         
         cellId = "CPTrendingDeveloperCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingDeveloperCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingDeveloperCell
         if cell == nil {
             cell = (CPTrendingDeveloperCell.cellFromNibNamed("CPTrendingDeveloperCell") as! CPTrendingDeveloperCell)
             
@@ -560,7 +560,7 @@ extension CPSearchViewController: UITableViewDataSource {
 
 extension CPSearchViewController: UITableViewDelegate {
 
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if pageType == .Repos {
             return 85
@@ -568,26 +568,26 @@ extension CPSearchViewController: UITableViewDelegate {
         return 71
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if pageType == .Repos {
-            let repos = self.reposData[indexPath.row]
-            self.performSegueWithIdentifier(SegueTrendingSearchReposDetailView, sender: repos)
+            let repos = self.reposData[(indexPath as NSIndexPath).row]
+            self.performSegue(withIdentifier: SegueTrendingSearchReposDetailView, sender: repos)
             return
         }
             
-        let dev = self.usersData[indexPath.row]
-        self.performSegueWithIdentifier(SegueTrendingSearchUserDetailView, sender: dev)
+        let dev = self.usersData[(indexPath as NSIndexPath).row]
+        self.performSegue(withIdentifier: SegueTrendingSearchUserDetailView, sender: dev)
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == SegueTrendingSearchReposDetailView){
 
-            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
+            let reposVC = segue.destination as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true
             
             let repos = sender as? ObjRepos
@@ -597,7 +597,7 @@ extension CPSearchViewController: UITableViewDelegate {
             
         }else if(segue.identifier == SegueTrendingSearchUserDetailView){
             
-            let devVC = segue.destinationViewController as! CPTrendingDeveloperViewController
+            let devVC = segue.destination as! CPTrendingDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             
             let dev = sender as? ObjUser

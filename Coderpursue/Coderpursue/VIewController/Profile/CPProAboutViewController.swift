@@ -24,19 +24,19 @@ class CPProAboutViewController: CPBaseViewController {
         self.title = "About"
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func pavc_setupTableView() {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
         self.automaticallyAdjustsScrollViewInsets = false
     }
@@ -53,26 +53,26 @@ class CPProAboutViewController: CPBaseViewController {
 
 extension CPProAboutViewController : UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return settingsArr.count
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         let sectionArr = settingsArr[section]
         return sectionArr.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellId = "CPSettingsLabelCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPSettingsLabelCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPSettingsLabelCell
         if cell == nil {
             cell = (CPSettingsLabelCell.cellFromNibNamed("CPSettingsLabelCell") as! CPSettingsLabelCell)
             
         }
-        let section = indexPath.section
-        let row = indexPath.row
+        let section = (indexPath as NSIndexPath).section
+        let row = (indexPath as NSIndexPath).row
         let settings:ObjSettings = settingsArr[section][row]
         cell!.objSettings = settings
         
@@ -91,23 +91,23 @@ extension CPProAboutViewController : UITableViewDataSource {
         
     }
     
-    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let view:UIView = UIView.init(frame: CGRectMake(0, 0, ScreenSize.ScreenWidth, 15))
+        let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.ScreenWidth, height: 15))
         view.backgroundColor = UIColor.viewBackgroundColor()
         return view
         
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 15
     }
     
-    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         return nil
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0
     }
     
@@ -115,22 +115,22 @@ extension CPProAboutViewController : UITableViewDataSource {
 
 extension CPProAboutViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 44
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if( !(UserInfoHelper.sharedInstance.isLogin) ){
             CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
             return
         }
         
-        let section = indexPath.section
-        let row = indexPath.row
+        let section = (indexPath as NSIndexPath).section
+        let row = (indexPath as NSIndexPath).row
         let settings:ObjSettings = settingsArr[section][row]
         
         let viewType = settings.itemKey!
@@ -144,15 +144,15 @@ extension CPProAboutViewController : UITableViewDelegate {
 
         }else if(viewType == "coderpursue"){
             
-            self.performSegueWithIdentifier(SegueProfileAboutCoderpursue, sender: nil)
+            self.performSegue(withIdentifier: SegueProfileAboutCoderpursue, sender: nil)
 
         }else if(viewType == "me"){
-            self.performSegueWithIdentifier(SegueProfileAboutMe, sender: nil)
+            self.performSegue(withIdentifier: SegueProfileAboutMe, sender: nil)
 
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         
         let me = ObjUser()
@@ -165,14 +165,14 @@ extension CPProAboutViewController : UITableViewDelegate {
         
         if (segue.identifier == SegueProfileAboutCoderpursue){
             
-            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
+            let reposVC = segue.destination as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true
             
             reposVC.repos = coderpursuePrj
             
         }else if(segue.identifier == SegueProfileAboutMe){
             
-            let devVC = segue.destinationViewController as! CPTrendingDeveloperViewController
+            let devVC = segue.destination as! CPTrendingDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             devVC.developer = me
             

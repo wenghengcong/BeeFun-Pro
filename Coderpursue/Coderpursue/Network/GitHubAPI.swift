@@ -13,9 +13,9 @@ import Alamofire
 import ObjectMapper
 import SwiftyJSON
 
-typealias SuccessClosure = (result: AnyObject) -> Void
+typealias SuccessClosure = (_ result: AnyObject) -> Void
 //typealias SuccessClosure = (result: Mappable) -> Void
-typealias FailClosure = (errorMsg: String?) -> Void
+typealias FailClosure = (_ errorMsg: String?) -> Void
 
 // MARK: - Provider setup
 
@@ -28,7 +28,7 @@ func endpointResolver() -> MoyaProvider<GitHubAPI>.RequestClosure {
     }
 }
 
-class GitHupPorvider<Target where Target: TargetType>: MoyaProvider<Target> {
+class GitHupPorvider<Target>: MoyaProvider<Target> where Target: TargetType {
     
     override init(endpointClosure: EndpointClosure = MoyaProvider.DefaultEndpointMapping,
         requestClosure: RequestClosure = MoyaProvider.DefaultRequestMapping,
@@ -41,7 +41,7 @@ class GitHupPorvider<Target where Target: TargetType>: MoyaProvider<Target> {
 
 struct Provider{
     
-    private static var endpointsClosure = { (target: GitHubAPI) -> Endpoint<GitHubAPI> in
+    fileprivate static var endpointsClosure = { (target: GitHubAPI) -> Endpoint<GitHubAPI> in
         
         var endpoint: Endpoint<GitHubAPI> = Endpoint<GitHubAPI>(URL: url(target), sampleResponseClosure: {.NetworkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
         // Sign all non-XApp token requests
@@ -63,7 +63,7 @@ struct Provider{
         return GitHupPorvider(endpointClosure: endpointsClosure, requestClosure: endpointResolver(), stubClosure:MoyaProvider.NeverStub , manager: Alamofire.Manager.sharedInstance, plugins:[])
     }
     
-    private struct SharedProvider {
+    fileprivate struct SharedProvider {
         static var instance = Provider.DefaultProvider()
     }
     
@@ -115,265 +115,265 @@ struct APIKeyName {
 
 public enum GitHubAPI {
     //user
-    case MyInfo
-    case UserInfo(username:String)
-    case UpdateUserInfo(name:String, email:String, blog:String, company:String, location:String,hireable:String,bio:String)
-    case AllUsers(page:Int,perpage:Int)
+    case myInfo
+    case userInfo(username:String)
+    case updateUserInfo(name:String, email:String, blog:String, company:String, location:String,hireable:String,bio:String)
+    case allUsers(page:Int,perpage:Int)
     
     //user email
-    case UserEmails
-    case AddEmail
-    case DelEmail
+    case userEmails
+    case addEmail
+    case delEmail
     
     //user followers
-    case UserFollowers(page:Int,perpage:Int,username:String)
-    case MyFollowers
-    case UserFollowing(page:Int,perpage:Int,username:String)
-    case MyFollowing
-    case CheckUserFollowing(username:String)
-    case CheckFollowing(username:String ,target_user:String)
-    case Follow(username:String)
-    case Unfollow(username:String)
+    case userFollowers(page:Int,perpage:Int,username:String)
+    case myFollowers
+    case userFollowing(page:Int,perpage:Int,username:String)
+    case myFollowing
+    case checkUserFollowing(username:String)
+    case checkFollowing(username:String ,target_user:String)
+    case follow(username:String)
+    case unfollow(username:String)
     
     //repository
-    case MyRepos(type:String, sort:String ,direction:String)
-    case UserRepos( username:String ,page:Int,perpage:Int,type:String, sort:String ,direction:String)
-    case OrgRepos(type:String, organization:String)
-    case PubRepos(page:Int,perpage:Int)
-    case UserSomeRepo(owner:String, repo:String)
+    case myRepos(type:String, sort:String ,direction:String)
+    case userRepos( username:String ,page:Int,perpage:Int,type:String, sort:String ,direction:String)
+    case orgRepos(type:String, organization:String)
+    case pubRepos(page:Int,perpage:Int)
+    case userSomeRepo(owner:String, repo:String)
     
     
     //starring
-    case ReposStargazers(owner:String ,repo:String)
-    case UserStarredRepos(username:String ,sort:String ,direction:String)
-    case MyStarredRepos(page:Int,perpage:Int,sort:String ,direction:String)
-    case CheckStarred(owner:String ,repo:String)
-    case StarRepo(owner:String ,repo:String)
-    case UnstarRepo(owner:String ,repo:String)
+    case reposStargazers(owner:String ,repo:String)
+    case userStarredRepos(username:String ,sort:String ,direction:String)
+    case myStarredRepos(page:Int,perpage:Int,sort:String ,direction:String)
+    case checkStarred(owner:String ,repo:String)
+    case starRepo(owner:String ,repo:String)
+    case unstarRepo(owner:String ,repo:String)
     
     
     //issue
-    case AllIssues(page:Int,perpage:Int,filter:String,state:String,labels:String,sort:String,direction:String)
-    case MyIssues(page:Int,perpage:Int,filter:String,state:String,labels:String,sort:String,direction:String)
-    case OrgIssues(page:Int,perpage:Int,organization:String,filter:String,state:String,labels:String,sort:String,direction:String)
-    case RepoIssues(page:Int,perpage:Int,owner:String,repo:String,milestone:Int,state:String,assignee:String,creator:String,mentioned:String,labels:String,sort:String,direction:String)
-    case RepoSigleIssue(owner:String,repo:String,number:Int)
-    case CreateIssue(owner:String ,repo:String ,title:String,body:String,assignee:String,milestone:Int,labels:String)
-    case EditIssue(owner:String ,repo:String ,number:Int, title:String,body:String,assignee:String,milestone:Int,labels:String)
-    case LockIssue(owner:String ,repo:String ,number:Int)
-    case UnlockIssue(owner:String ,repo:String ,number:Int)
+    case allIssues(page:Int,perpage:Int,filter:String,state:String,labels:String,sort:String,direction:String)
+    case myIssues(page:Int,perpage:Int,filter:String,state:String,labels:String,sort:String,direction:String)
+    case orgIssues(page:Int,perpage:Int,organization:String,filter:String,state:String,labels:String,sort:String,direction:String)
+    case repoIssues(page:Int,perpage:Int,owner:String,repo:String,milestone:Int,state:String,assignee:String,creator:String,mentioned:String,labels:String,sort:String,direction:String)
+    case repoSigleIssue(owner:String,repo:String,number:Int)
+    case createIssue(owner:String ,repo:String ,title:String,body:String,assignee:String,milestone:Int,labels:String)
+    case editIssue(owner:String ,repo:String ,number:Int, title:String,body:String,assignee:String,milestone:Int,labels:String)
+    case lockIssue(owner:String ,repo:String ,number:Int)
+    case unlockIssue(owner:String ,repo:String ,number:Int)
 
     //notification
 //    case MyNotifications(page:Int,perpage:Int,all:Bool ,participating:Bool,since:String,before:String)
-    case MyNotifications(page:Int,perpage:Int,all:String ,participating:String)
-    case RepoNotifications(owner:String ,repo:String,all:String ,participating:String)
-    case MarkNotificationsAsRead(last_read_at:String)
-    case MarkRepoNotificationsAsRead(owner:String ,repo:String,last_read_at:String)
+    case myNotifications(page:Int,perpage:Int,all:String ,participating:String)
+    case repoNotifications(owner:String ,repo:String,all:String ,participating:String)
+    case markNotificationsAsRead(last_read_at:String)
+    case markRepoNotificationsAsRead(owner:String ,repo:String,last_read_at:String)
     
     //watching
-    case RepoWatchers(page:Int,perpage:Int,owner:String, repo:String)
-    case UserWatchedRepos(page:Int,perpage:Int,username:String)
-    case MyWatchedRepos(page:Int,perpage:Int)
-    case CheckWatched(owner:String, repo:String)
-    case WatchingRepo(owner:String, repo:String,subscribed:String,ignored:String)
-    case UnWatchingRepo(owner:String, repo:String)
+    case repoWatchers(page:Int,perpage:Int,owner:String, repo:String)
+    case userWatchedRepos(page:Int,perpage:Int,username:String)
+    case myWatchedRepos(page:Int,perpage:Int)
+    case checkWatched(owner:String, repo:String)
+    case watchingRepo(owner:String, repo:String,subscribed:String,ignored:String)
+    case unWatchingRepo(owner:String, repo:String)
     
     //Event
-    case PublicEvents(page:Int,perpage:Int)
-    case RepoEvents(owner:String, repo:String,page:Int,perpage:Int)
-    case RepoIssueEvents(owner:String, repo:String,page:Int,perpage:Int)
-    case RepoPublicNetworkEvents(owner:String, repo:String,page:Int,perpage:Int)
-    case OrgPublicEvent(organization:String,page:Int,perpage:Int)
-    case UserReceivedEvents(username:String ,page:Int,perpage:Int)
-    case UserReceivedPublicEvents(username:String ,page:Int,perpage:Int)
-    case UserEvents(username:String ,page:Int,perpage:Int)
-    case UserPublicEvents(username:String ,page:Int,perpage:Int)
-    case OrgEvents(username:String,organization:String,page:Int,perpage:Int)
+    case publicEvents(page:Int,perpage:Int)
+    case repoEvents(owner:String, repo:String,page:Int,perpage:Int)
+    case repoIssueEvents(owner:String, repo:String,page:Int,perpage:Int)
+    case repoPublicNetworkEvents(owner:String, repo:String,page:Int,perpage:Int)
+    case orgPublicEvent(organization:String,page:Int,perpage:Int)
+    case userReceivedEvents(username:String ,page:Int,perpage:Int)
+    case userReceivedPublicEvents(username:String ,page:Int,perpage:Int)
+    case userEvents(username:String ,page:Int,perpage:Int)
+    case userPublicEvents(username:String ,page:Int,perpage:Int)
+    case orgEvents(username:String,organization:String,page:Int,perpage:Int)
     
     //trending
-    case TrendingRepos(since:String,language:String)
-    case TrendingShowcases()
-    case TrendingShowcase(showcase:String)
+    case trendingRepos(since:String,language:String)
+    case trendingShowcases()
+    case trendingShowcase(showcase:String)
     
     //search
-    case SearchUsers(para:ParaSearchUser)
-    case SearchRepos(para:ParaSearchRepos)
+    case searchUsers(para:ParaSearchUser)
+    case searchRepos(para:ParaSearchRepos)
     
     //forks
-    case UserReposForks(page:Int,perpage:Int,sort:String,owner:String,repo:String)
-    case CreateFork(owner:String,repo:String)
+    case userReposForks(page:Int,perpage:Int,sort:String,owner:String,repo:String)
+    case createFork(owner:String,repo:String)
 }
 
 extension GitHubAPI: TargetType {
 
-    public var baseURL: NSURL {
+    public var baseURL: URL {
         switch self {
-        case .TrendingRepos:
-            return NSURL(string: "http://trending.codehub-app.com/v2")!
-        case .TrendingShowcases:
-            return NSURL(string: "http://trending.codehub-app.com/v2")!
-        case .TrendingShowcase:
-            return NSURL(string: "http://trending.codehub-app.com/v2")!
+        case .trendingRepos:
+            return URL(string: "http://trending.codehub-app.com/v2")!
+        case .trendingShowcases:
+            return URL(string: "http://trending.codehub-app.com/v2")!
+        case .trendingShowcase:
+            return URL(string: "http://trending.codehub-app.com/v2")!
         default:
-            return NSURL(string: "https://api.github.com")!
+            return URL(string: "https://api.github.com")!
         }
     }
     
     public var path: String {
         switch self {
           //user
-        case .MyInfo:
+        case .myInfo:
             return "/user"
-        case .UserInfo(let username):
+        case .userInfo(let username):
             return "/users/\(username)"
-        case .UpdateUserInfo:
+        case .updateUserInfo:
             return "/user"
-        case AllUsers(_,_):
+        case .allUsers(_,_):
             return "/users"
         //user email
-        case .UserEmails:
+        case .userEmails:
             return "/user/emails"
-        case .AddEmail:
+        case .addEmail:
             return "/user/emails"
-        case .DelEmail:
+        case .delEmail:
             return "/user/emails"
             
         //user followers
-        case UserFollowers(_,_,let username):
+        case .userFollowers(_,_,let username):
             return "/users/\(username)/followers"
-        case MyFollowers:
+        case .myFollowers:
             return "/users/followers"
-        case UserFollowing(_,_,let username):
+        case .userFollowing(_,_,let username):
             return "/users/\(username)/following"
-        case MyFollowing:
+        case .myFollowing:
             return "/users/following"
-        case CheckUserFollowing(let username):
+        case .checkUserFollowing(let username):
             return "/user/following/\(username)"
-        case CheckFollowing(let username ,let target_user):
+        case .checkFollowing(let username ,let target_user):
             return "/users/\(username)/following/\(target_user)"
-        case Follow(let username):
+        case .follow(let username):
             return "/user/following/\(username)"
-        case Unfollow(let username):
+        case .unfollow(let username):
             return "/user/following/\(username)"
             
-        case MyRepos:
+        case .myRepos:
             return "/user/repos"
-        case UserRepos(let username,_,_,_,_,_):
+        case .userRepos(let username,_,_,_,_,_):
             return "/users/\(username)/repos"
             
-        case OrgRepos(_ ,let organization):
+        case .orgRepos(_ ,let organization):
             return "/orgs/\(organization)/repos"
-        case PubRepos:
+        case .pubRepos:
             return "/repositories"
-        case UserSomeRepo(let owner,let repo):
+        case .userSomeRepo(let owner,let repo):
             return "/repos/\(owner)/\(repo)"
 
             
         //starring
-        case ReposStargazers(let owner ,let repo):
+        case .reposStargazers(let owner ,let repo):
             return "/repos/\(owner)/\(repo)/stargazers"
-        case MyStarredRepos:
+        case .myStarredRepos:
             return "/user/starred"
-        case UserStarredRepos(let username ,_ ,_):
+        case .userStarredRepos(let username ,_ ,_):
             return "/users/\(username)/starred"
-        case CheckStarred(let owner ,let repo):
+        case .checkStarred(let owner ,let repo):
             return "/user/starred/\(owner)/\(repo)"
-        case StarRepo(let owner ,let repo):
+        case .starRepo(let owner ,let repo):
             return "/user/starred/\(owner)/\(repo)"
-        case UnstarRepo(let owner ,let repo):
+        case .unstarRepo(let owner ,let repo):
             return "/user/starred/\(owner)/\(repo)"
            
             
         //issue
-        case AllIssues:
+        case .allIssues:
             return "/issues"
-        case MyIssues:
+        case .myIssues:
             return "/user/issues"
-        case OrgIssues(_,_,let organization,_,_,_,_,_):
+        case .orgIssues(_,_,let organization,_,_,_,_,_):
             return "/orgs/\(organization)/issues"
-        case RepoIssues(_,_,let owner,let repo,_,_,_,_,_,_,_,_):
+        case .repoIssues(_,_,let owner,let repo,_,_,_,_,_,_,_,_):
             return "/repos/\(owner)/\(repo)/issues"
-        case RepoSigleIssue(let owner,let repo,let number):
+        case .repoSigleIssue(let owner,let repo,let number):
             return "/repos/\(owner)/\(repo)/issues/\(number)"
-        case CreateIssue(let owner ,let repo ,_,_,_,_,_):
+        case .createIssue(let owner ,let repo ,_,_,_,_,_):
             return "/repos/\(owner)/\(repo)/issues"
-        case EditIssue(let owner ,let repo ,let number,_,_,_,_,_):
+        case .editIssue(let owner ,let repo ,let number,_,_,_,_,_):
             return "/repos/\(owner)/\(repo)/issues/\(number)"
-        case LockIssue(let owner ,let repo ,let number):
+        case .lockIssue(let owner ,let repo ,let number):
             return "/repos/\(owner)/\(repo)/issues/\(number)/lock"
-        case .UnlockIssue(let owner ,let repo ,let number):
+        case .unlockIssue(let owner ,let repo ,let number):
             return "/repos/\(owner)/\(repo)/issues/\(number)/lock"
             
         //notification
-        case MyNotifications:
+        case .myNotifications:
             return "/notifications"
-        case RepoNotifications(let owner,let repo,_,_):
+        case .repoNotifications(let owner,let repo,_,_):
             return "/repos/\(owner)/\(repo)/notifications"
-        case MarkNotificationsAsRead:
+        case .markNotificationsAsRead:
             return "/notifications"
-        case MarkRepoNotificationsAsRead(let owner ,let repo,_):
+        case .markRepoNotificationsAsRead(let owner ,let repo,_):
             return "/repos/\(owner)/\(repo)/notifications"
             
         //watching
-        case RepoWatchers(_,_,let owner,let repo):
+        case .repoWatchers(_,_,let owner,let repo):
             return "/repos/\(owner)/\(repo)/subscribers"
-        case UserWatchedRepos(_,_,let username):
+        case .userWatchedRepos(_,_,let username):
             return "/users/\(username)/subscriptions"
-        case MyWatchedRepos:
+        case .myWatchedRepos:
             return "/user/subscriptions"
-        case CheckWatched(let owner,let repo):
+        case .checkWatched(let owner,let repo):
             return "/repos/\(owner)/\(repo)/subscription"
-        case WatchingRepo(let owner,let repo,_,_):
+        case .watchingRepo(let owner,let repo,_,_):
             return "/user/subscriptions/\(owner)/\(repo)"
-        case UnWatchingRepo(let owner,let repo):
+        case .unWatchingRepo(let owner,let repo):
             return "/repos/\(owner)/\(repo)/subscription"
 
             //Event
-        case PublicEvents:
+        case .publicEvents:
             return "/events"
-        case RepoEvents(let owner, let repo,_,_):
+        case .repoEvents(let owner, let repo,_,_):
             return "/repos/\(owner)/\(repo)/events"
 
-        case RepoIssueEvents(let owner, let repo,_,_):
+        case .repoIssueEvents(let owner, let repo,_,_):
             return "/repos/\(owner)/\(repo)/issues/events"
 
-        case RepoPublicNetworkEvents(let owner,let repo,_,_):
+        case .repoPublicNetworkEvents(let owner,let repo,_,_):
             return "/networks/\(owner)/\(repo)/events"
 
-        case OrgPublicEvent(let organization,_,_):
+        case .orgPublicEvent(let organization,_,_):
             return "/orgs/\(organization)/events"
 
-        case UserReceivedEvents(let username ,_,_):
+        case .userReceivedEvents(let username ,_,_):
             return "/users/\(username)/received_events"
 
-        case UserReceivedPublicEvents(let username ,_,_):
+        case .userReceivedPublicEvents(let username ,_,_):
             return "/users/\(username)/received_events/public"
-        case UserEvents(let username ,_,_):
+        case .userEvents(let username ,_,_):
             return "/users/\(username)/events"
-        case UserPublicEvents(let username ,_,_):
+        case .userPublicEvents(let username ,_,_):
             return "/users/\(username)/events/public"
-        case OrgEvents(let username,let organization,_,_):
+        case .orgEvents(let username,let organization,_,_):
             return "/users/\(username)/events/orgs/\(organization)"
 
         //trending
-        case TrendingRepos:
+        case .trendingRepos:
             return "/trending"
-        case TrendingShowcases:
+        case .trendingShowcases:
             return "/showcases"
-        case TrendingShowcase(let showcase):
+        case .trendingShowcase(let showcase):
             return "/showcases/\(showcase)"
 
         //search
-        case SearchUsers:
+        case .searchUsers:
             return "/search/users"
-        case SearchRepos:
+        case .searchRepos:
             return "/search/repositories"
 
             
         //forks
-        case UserReposForks(_,_,_,let owner,let repo):
+        case .userReposForks(_,_,_,let owner,let repo):
             return "/repos/\(owner)/\(repo)/forks"
-        case CreateFork(let owner,let repo):
+        case .createFork(let owner,let repo):
             return "/repos/\(owner)/\(repo)/forks"
 
             
@@ -384,44 +384,44 @@ extension GitHubAPI: TargetType {
     public var method: Moya.Method {
         
         switch self {
-        case .UpdateUserInfo:
+        case .updateUserInfo:
             return .PATCH
             //user email
-        case .AddEmail:
+        case .addEmail:
             return .POST
-        case .DelEmail:
+        case .delEmail:
             return .DELETE
         //user followers
-        case Follow(_):
+        case .follow(_):
             return .PUT
-        case Unfollow(_):
+        case .unfollow(_):
             return .DELETE
             
         //starring
-        case StarRepo(_,_):
+        case .starRepo(_,_):
             return .PUT
-        case UnstarRepo(_,_):
+        case .unstarRepo(_,_):
             return .DELETE
-        case CreateIssue(_,_,_,_,_,_,_):
+        case .createIssue(_,_,_,_,_,_,_):
             return .POST
-        case .EditIssue(_,_,_,_,_,_,_,_):
+        case .editIssue(_,_,_,_,_,_,_,_):
             return .PATCH
-        case .LockIssue(_,_,_):
+        case .lockIssue(_,_,_):
             return .PUT
-        case .UnlockIssue(_,_,_):
+        case .unlockIssue(_,_,_):
             return .DELETE
-        case .MarkRepoNotificationsAsRead:
+        case .markRepoNotificationsAsRead:
             return .PUT
-        case .MarkNotificationsAsRead:
+        case .markNotificationsAsRead:
             return .PUT
             
         //watching
-        case WatchingRepo:
+        case .watchingRepo:
             return .PUT
-        case UnWatchingRepo:
+        case .unWatchingRepo:
             return .DELETE
    
-        case .CreateFork:
+        case .createFork:
             return .POST
         default:
             return .GET
@@ -434,169 +434,169 @@ extension GitHubAPI: TargetType {
         switch self {
             
         //follower
-        case .UserFollowers(let page,let perpage, _):
+        case .userFollowers(let page,let perpage, _):
             return [
-                "page":page,
-                "per_page":perpage
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject
             ]
-        case .UserFollowing(let page,let perpage, _):
+        case .userFollowing(let page,let perpage, _):
             return [
-                "page":page,
-                "per_page":perpage
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject
             ]
             
-        case .UpdateUserInfo(let name,let email,let blog,let company,let location,let hireable,let bio):
+        case .updateUserInfo(let name,let email,let blog,let company,let location,let hireable,let bio):
             return [
-                    "name": name,
-                    "email": email,
-                    "blog": blog,
-                    "company": company,
-                    "location": location,
-                    "hireable":hireable,
-                    "bio":bio
+                    "name": name as AnyObject,
+                    "email": email as AnyObject,
+                    "blog": blog as AnyObject,
+                    "company": company as AnyObject,
+                    "location": location as AnyObject,
+                    "hireable":hireable as AnyObject,
+                    "bio":bio as AnyObject
                 ]
-        case .AllUsers(let page, let perpage):
+        case .allUsers(let page, let perpage):
             return [
-                "page":page,
-                "per_page":perpage
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject
             ]
-        case MyRepos(let type, let sort ,let direction):
+        case .myRepos(let type, let sort ,let direction):
             return [
-                "type":type,
-                "sort":sort,
-                "direction":direction
+                "type":type as AnyObject,
+                "sort":sort as AnyObject,
+                "direction":direction as AnyObject
             ]
-        case UserRepos(_,let page, let perpage,let type, let sort ,let direction):
+        case .userRepos(_,let page, let perpage,let type, let sort ,let direction):
             return [
-                "page":page,
-                "per_page":perpage,
-                "type":type,
-                "sort":sort,
-                "direction":direction
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
+                "type":type as AnyObject,
+                "sort":sort as AnyObject,
+                "direction":direction as AnyObject
             ]
-        case OrgRepos(let type, _):
+        case .orgRepos(let type, _):
             return [
-                "type":type,
+                "type":type as AnyObject,
             ]
-        case PubRepos(let page, let perpage):
+        case .pubRepos(let page, let perpage):
             return [
-                "page":page,
-                "per_page":perpage
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject
             ]
             
         //starring
-        case UserStarredRepos(_ ,let sort ,let direction):
+        case .userStarredRepos(_ ,let sort ,let direction):
             return [
-                "sort":sort,
-                "direction":direction
+                "sort":sort as AnyObject,
+                "direction":direction as AnyObject
             ]
-        case MyStarredRepos( let page,let perpage ,let sort ,let direction):
+        case .myStarredRepos( let page,let perpage ,let sort ,let direction):
             return [
-                "sort":sort,
+                "sort":sort as AnyObject,
+                "direction":direction as AnyObject,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject
+            ]
+        case .allIssues(let page,let perpage,let filter,let state,let labels,let sort,let direction):
+            return [
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
+                "filter":filter as AnyObject,
+                "state":state as AnyObject,
+                "labels":labels as AnyObject,
+                "sort":sort as AnyObject,
                 "direction":direction,
-                "page":page,
-                "per_page":perpage
             ]
-        case AllIssues(let page,let perpage,let filter,let state,let labels,let sort,let direction):
+        case .myIssues(let page,let perpage,let filter,let state,let labels,let sort,let direction):
             return [
-                "page":page,
-                "per_page":perpage,
-                "filter":filter,
-                "state":state,
-                "labels":labels,
-                "sort":sort,
-                "direction":direction,
-            ]
-        case MyIssues(let page,let perpage,let filter,let state,let labels,let sort,let direction):
-            return [
-                "page":page,
-                "per_page":perpage,
-                "filter":filter,
-                "state":state,
-                "labels":labels,
-                "sort":sort,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
+                "filter":filter as AnyObject,
+                "state":state as AnyObject,
+                "labels":labels as AnyObject,
+                "sort":sort as AnyObject,
                 "direction":direction,
             ]
 
-        case OrgIssues(let page,let perpage, _, let filter,let state,let labels,let sort,let direction):
+        case .orgIssues(let page,let perpage, _, let filter,let state,let labels,let sort,let direction):
             return [
-                "page":page,
-                "per_page":perpage,
-                "filter":filter,
-                "state":state,
-                "labels":labels,
-                "sort":sort,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
+                "filter":filter as AnyObject,
+                "state":state as AnyObject,
+                "labels":labels as AnyObject,
+                "sort":sort as AnyObject,
                 "direction":direction,
             ]
-        case RepoIssues(let page,let perpage,_,_,let milestone,let state,let assignee,let creator,let mentioned,let labels,let sort,let direction):
+        case .repoIssues(let page,let perpage,_,_,let milestone,let state,let assignee,let creator,let mentioned,let labels,let sort,let direction):
             return [
-                "page":page,
-                "per_page":perpage,
-                "milestone":milestone,
-                "state":state,
-                "assignee":assignee,
-                "creator":creator,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
+                "milestone":milestone as AnyObject,
+                "state":state as AnyObject,
+                "assignee":assignee as AnyObject,
+                "creator":creator as AnyObject,
                 "mentioned":mentioned,
                 "labels":labels,
                 "sort":sort,
                 "direction":direction,
             ]
 
-        case CreateIssue(_,_ ,let title,let body,let assignee,let milestone,let labels):
+        case .createIssue(_,_ ,let title,let body,let assignee,let milestone,let labels):
             return [
-                "title":title,
-                "body":body,
-                "assignee":assignee,
-                "milestone":milestone,
-                "labels":labels
+                "title":title as AnyObject,
+                "body":body as AnyObject,
+                "assignee":assignee as AnyObject,
+                "milestone":milestone as AnyObject,
+                "labels":labels as AnyObject
             ]
-        case EditIssue(_ ,_ ,_, let title,let body,let assignee,let milestone,let labels):
+        case .editIssue(_ ,_ ,_, let title,let body,let assignee,let milestone,let labels):
             return [
                 
-                "title":title,
-                "body":body,
-                "assignee":assignee,
-                "milestone":milestone,
-                "labels":labels
+                "title":title as AnyObject,
+                "body":body as AnyObject,
+                "assignee":assignee as AnyObject,
+                "milestone":milestone as AnyObject,
+                "labels":labels as AnyObject
             ]
             
         //notification
-        case MyNotifications(let page,let perpage,let all ,let participating):
+        case .myNotifications(let page,let perpage,let all ,let participating):
             return [
-                "all":all,
-                "participating":participating,
-                "page":page,
-                "per_page":perpage
+                "all":all as AnyObject,
+                "participating":participating as AnyObject,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject
             ]
-        case RepoNotifications(_,_,let all ,let participating):
+        case .repoNotifications(_,_,let all ,let participating):
             return [
-                "all":all,
-                "participating":participating,
+                "all":all as AnyObject,
+                "participating":participating as AnyObject,
             ]
-        case MarkNotificationsAsRead(let last_read_at):
+        case .markNotificationsAsRead(let last_read_at):
             return [
-                "last_read_at":last_read_at
+                "last_read_at":last_read_at as AnyObject
             ]
-        case MarkRepoNotificationsAsRead(_,_,let last_read_at):
+        case .markRepoNotificationsAsRead(_,_,let last_read_at):
             return [
-                "last_read_at":last_read_at
+                "last_read_at":last_read_at as AnyObject
             ]
             
         //watching
-        case RepoWatchers(let page,let perpage,_,_):
+        case .repoWatchers(let page,let perpage,_,_):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case UserWatchedRepos(let page,let perpage,_):
+        case .userWatchedRepos(let page,let perpage,_):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case MyWatchedRepos(let page,let perpage):
+        case .myWatchedRepos(let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
             
 //        case WatchingRepo(_,_,let subscribed,let ignored):
@@ -606,86 +606,86 @@ extension GitHubAPI: TargetType {
 //            ]
             
             //Event
-        case PublicEvents(let page,let perpage):
+        case .publicEvents(let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case RepoEvents(_,_,let page,let perpage):
+        case .repoEvents(_,_,let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case RepoIssueEvents(_,_,let page,let perpage):
+        case .repoIssueEvents(_,_,let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case RepoPublicNetworkEvents(_,_,let page,let perpage):
+        case .repoPublicNetworkEvents(_,_,let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case OrgPublicEvent(_,let page,let perpage):
+        case .orgPublicEvent(_,let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case UserReceivedEvents(_,let page,let perpage):
+        case .userReceivedEvents(_,let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case UserReceivedPublicEvents(_,let page,let perpage):
+        case .userReceivedPublicEvents(_,let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case UserEvents(_,let page,let perpage):
+        case .userEvents(_,let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case UserPublicEvents(_,let page,let perpage):
+        case .userPublicEvents(_,let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
-        case OrgEvents(_,_,let page,let perpage):
+        case .orgEvents(_,_,let page,let perpage):
             return [
-                "page":page,
-                "per_page":perpage,
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
             ]
         //trending
-        case TrendingRepos(let since,let language):
+        case .trendingRepos(let since,let language):
             return [
-                "since":since,
-                "language":language,
+                "since":since as AnyObject,
+                "language":language as AnyObject,
             ]
             
-        case SearchUsers(let para):
+        case .searchUsers(let para):
             return [
-                "q":para.q,
-                "sort":para.sort,
-                "order":para.order,
-                "page":para.page,
-                "per_page":para.perPage,
+                "q":para.q as AnyObject,
+                "sort":para.sort as AnyObject,
+                "order":para.order as AnyObject,
+                "page":para.page as AnyObject,
+                "per_page":para.perPage as AnyObject,
             ]
-        case .SearchRepos(let para):
+        case .searchRepos(let para):
             return [
-                "q":para.q,
-                "sort":para.sort,
-                "order":para.order,
-                "page":para.page,
-                "per_page":para.perPage,
+                "q":para.q as AnyObject,
+                "sort":para.sort as AnyObject,
+                "order":para.order as AnyObject,
+                "page":para.page as AnyObject,
+                "per_page":para.perPage as AnyObject,
             ]
             
             //forks
-        case UserReposForks(let page,let perpage,let sort,_,_):
+        case .userReposForks(let page,let perpage,let sort,_,_):
             return [
-                "page":page,
-                "per_page":perpage,
-                "sort":sort
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
+                "sort":sort as AnyObject
             ]
             
         default:
@@ -696,15 +696,15 @@ extension GitHubAPI: TargetType {
     }
     
     //Any target you want to hit must provide some non-nil NSData that represents a sample response. This can be used later for tests or for providing offline support for developers. This should depend on self.
-    public var sampleData: NSData {
+    public var sampleData: Data {
         switch self {
-        case .MyInfo:
-            return "get user info.".dataUsingEncoding(NSUTF8StringEncoding)!
-        case .MyRepos:
-            return "get user repos.".dataUsingEncoding(NSUTF8StringEncoding)!
+        case .myInfo:
+            return "get user info.".data(using: String.Encoding.utf8)!
+        case .myRepos:
+            return "get user repos.".data(using: String.Encoding.utf8)!
             
         default :
-            return "default".dataUsingEncoding(NSUTF8StringEncoding)!
+            return "default".data(using: String.Encoding.utf8)!
         }
     
     }
@@ -714,11 +714,11 @@ extension GitHubAPI: TargetType {
 // MARK: - Provider support
 private extension String {
     var URLEscapedString: String {
-        return self.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLHostAllowedCharacterSet())!
+        return self.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlHostAllowed)!
     }
 }
 
-public func url(route: TargetType) -> String {
+public func url(_ route: TargetType) -> String {
     print("api:\(route.baseURL.URLByAppendingPathComponent(route.path).absoluteString)")
     return route.baseURL.URLByAppendingPathComponent(route.path).absoluteString
 }

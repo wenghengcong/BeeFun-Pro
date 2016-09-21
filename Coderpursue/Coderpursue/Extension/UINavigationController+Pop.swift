@@ -7,6 +7,17 @@
 //
 
 import UIKit
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 protocol NavigationControllerBackButtonDelegate {
     func navigationShouldPopOnBackButton() -> Bool
@@ -14,7 +25,7 @@ protocol NavigationControllerBackButtonDelegate {
 
 extension UINavigationController {
     
-    func navigationBar(navigationBar: UINavigationBar, shouldPopItem item: UINavigationItem) -> Bool {
+    func navigationBar(_ navigationBar: UINavigationBar, shouldPopItem item: UINavigationItem) -> Bool {
         
         // Prevents from a synchronization issue of popping too many navigation items
         // and not enough view controllers or viceversa from unusual tapping
@@ -29,15 +40,15 @@ extension UINavigationController {
         }
         
         if (shouldPop) {
-            dispatch_async(dispatch_get_main_queue()) {
-                self.popViewControllerAnimated(true)
+            DispatchQueue.main.async {
+                self.popViewController(animated: true)
             }
         }
         else {
             // Prevent the back button from staying in an disabled state
             for view in navigationBar.subviews {
                 if view.alpha < 1.0 {
-                    [UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    [UIView.animate(withDuration: 0.25, animations: { () -> Void in
                         view.alpha = 1.0
                     })]
                 }

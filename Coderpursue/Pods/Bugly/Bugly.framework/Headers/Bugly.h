@@ -2,7 +2,7 @@
 //  Bugly.h
 //  Bugly
 //
-//  Version: 2.1(5)
+//  Version: 2.4(0)
 //
 //  Copyright (c) 2016年 Bugly. All rights reserved.
 //
@@ -30,6 +30,17 @@ BLY_START_NONNULL
  *  @param config 传入配置的 BuglyConfig
  */
 + (void)startWithAppId:(NSString * BLY_NULLABLE)appId
+                config:(BuglyConfig * BLY_NULLABLE)config;
+
+/**
+ *  使用指定配置初始化Bugly
+ *
+ *  @param appId 注册Bugly分配的应用唯一标识
+ *  @param developmentDevice 是否开发设备
+ *  @param config 传入配置的 BuglyConfig
+ */
++ (void)startWithAppId:(NSString * BLY_NULLABLE)appId
+     developmentDevice:(BOOL)development
                 config:(BuglyConfig * BLY_NULLABLE)config;
 
 /**
@@ -84,7 +95,7 @@ BLY_START_NONNULL
 + (NSString *)deviceId;
 
 /**
- *  上报自定义异常
+ *  上报自定义Objective-C异常
  *
  *  @param exception 异常信息
  */
@@ -96,6 +107,18 @@ BLY_START_NONNULL
  *  @param error 错误信息
  */
 + (void)reportError:(NSError *)error;
+
+/**
+ *    @brief 上报自定义错误
+ *
+ *    @param category    类型(Cocoa=3,CSharp=4,JS=5,Lua=6)
+ *    @param aName       名称
+ *    @param aReason     错误原因
+ *    @param aStackArray 堆栈
+ *    @param info        附加数据
+ *    @param terminate   上报后是否退出应用进程
+ */
++ (void)reportExceptionWithCategory:(NSUInteger)category name:(NSString *)aName reason:(NSString *)aReason callStack:(NSArray *)aStackArray extraInfo:(NSDictionary *)info terminateApp:(BOOL)terminate;
 
 /**
  *  SDK 版本信息

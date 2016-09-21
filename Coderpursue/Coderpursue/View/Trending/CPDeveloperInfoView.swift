@@ -46,7 +46,7 @@ class CPDeveloperInfoView: UIView {
     }
     
     init(obj:ObjUser){
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         self.developer = obj
     }
     
@@ -58,7 +58,7 @@ class CPDeveloperInfoView: UIView {
     
     func div_customView() {
         
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
         self.avatarImgV.layer.cornerRadius = avatarImgV.width/2
         self.avatarImgV.layer.masksToBounds = true
@@ -72,23 +72,23 @@ class CPDeveloperInfoView: UIView {
         let btnArr1:[UIButton] = [followerBtn,reposBtn,followingBtn]
         
         for btn in btnArr1 {
-            btn.backgroundColor = UIColor.whiteColor()
+            btn.backgroundColor = UIColor.white
             btn.imageEdgeInsets = imgEdgeInsets1
-            btn.layer.borderColor = UIColor.lineBackgroundColor().CGColor
+            btn.layer.borderColor = UIColor.lineBackgroundColor().cgColor
             btn.layer.borderWidth = borderWidth
-            btn.setTitleColor(UIColor.cpRedColor(), forState: .Normal)
+            btn.setTitleColor(UIColor.cpRedColor(), for: UIControlState())
             btn.titleLabel?.numberOfLines = 0
-            btn.titleLabel?.textAlignment = .Center
+            btn.titleLabel?.textAlignment = .center
         }
         
-        followerBtn.setTitle("0 \nFollower", forState: .Normal)
-        followerBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followAction), forControlEvents: .TouchUpInside)
+        followerBtn.setTitle("0 \nFollower", for: UIControlState())
+        followerBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followAction), for: .touchUpInside)
 
-        reposBtn.setTitle("0 \nRepositories", forState: .Normal)
-        reposBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_reposAction), forControlEvents: .TouchUpInside)
+        reposBtn.setTitle("0 \nRepositories", for: UIControlState())
+        reposBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_reposAction), for: .touchUpInside)
 
-        followingBtn.setTitle("0 \nFollowing", forState: .Normal)
-        followingBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followingAction), forControlEvents: .TouchUpInside)
+        followingBtn.setTitle("0 \nFollowing", for: UIControlState())
+        followingBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followingAction), for: .touchUpInside)
 
     }
     
@@ -96,29 +96,29 @@ class CPDeveloperInfoView: UIView {
     func div_fillData() {
         
         if let avatarUrl = developer!.avatar_url {
-            avatarImgV.kf_setImageWithURL(NSURL(string: avatarUrl)!, placeholderImage: nil)
+            avatarImgV.kf_setImageWithURL(URL(string: avatarUrl)!, placeholderImage: nil)
    
         }
         
         nameLabel.text = developer!.name
         
         if let email = developer!.email {
-            emailLabel.hidden = false
+            emailLabel.isHidden = false
             emailLabel.text = email
         }else{
-            emailLabel.hidden = true
+            emailLabel.isHidden = true
         }
         
         if let followerCount = developer!.followers {
-            followerBtn.setTitle("\(followerCount) \nFollower", forState: .Normal)
+            followerBtn.setTitle("\(followerCount) \nFollower", for: UIControlState())
         }
         
         if let reposCount = developer!.public_repos {
-            reposBtn.setTitle("\(reposCount) \nRepositories", forState: .Normal)
+            reposBtn.setTitle("\(reposCount) \nRepositories", for: UIControlState())
         }
         
         if let followingCount = developer!.following {
-            followingBtn.setTitle("\(followingCount) \nFollowing", forState: .Normal)
+            followingBtn.setTitle("\(followingCount) \nFollowing", for: UIControlState())
         }
 
         

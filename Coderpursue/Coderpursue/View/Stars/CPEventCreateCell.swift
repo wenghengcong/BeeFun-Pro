@@ -42,28 +42,28 @@ class CPEventCreateCell: CPEventBaseCell {
         createLabel.text = createStr
         
         let reposName = event!.repo!.name!
-        reposNameBtn.setTitle(reposName, forState: .Normal)
+        reposNameBtn.setTitle(reposName, for: UIControlState())
         
         switch(event!.payload!.ref_type!) {
             
         case CreateEventType.CreateRepositoryEvent.rawValue:
-            typeValBtn.hidden = true
-            inLabel.hidden = true
+            typeValBtn.isHidden = true
+            inLabel.isHidden = true
             
             
         case CreateEventType.CreateBranchEvent.rawValue:
-            typeValBtn.hidden = false
+            typeValBtn.isHidden = false
             let branchName = event!.payload!.ref!
-            typeValBtn.setTitle(branchName, forState: .Normal)
+            typeValBtn.setTitle(branchName, for: UIControlState())
             
-            inLabel.hidden = false
+            inLabel.isHidden = false
             
         case CreateEventType.CreateTagEvent.rawValue:
-            typeValBtn.hidden = false
+            typeValBtn.isHidden = false
             let tagName = event!.payload!.ref!
-            typeValBtn.setTitle(tagName, forState: .Normal)
+            typeValBtn.setTitle(tagName, for: UIControlState())
 
-            inLabel.hidden = false
+            inLabel.isHidden = false
 
             
         default: break
@@ -71,7 +71,7 @@ class CPEventCreateCell: CPEventBaseCell {
             
         }
         //time
-        let updateAt:NSDate = event!.created_at!.toDate(DateFormat.ISO8601)!
+        let updateAt:Date = event!.created_at!.toDate(DateFormat.ISO8601)!
         timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
 
         setNeedsLayout()
@@ -107,7 +107,7 @@ class CPEventCreateCell: CPEventBaseCell {
             make.height.equalTo(lalHeight)
         }
         
-        if(inLabel.hidden == true){
+        if(inLabel.isHidden == true){
             
             let reposWidth = self.width-createLabel.left-rightPad;
             

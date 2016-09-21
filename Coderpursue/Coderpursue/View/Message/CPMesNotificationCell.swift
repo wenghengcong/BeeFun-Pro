@@ -43,7 +43,7 @@ class CPMesNotificationCell: CPBaseViewCell {
             let notiType:SubjectType? = SubjectType( rawValue:type )
             
             if notiType != nil {
-                typeImageV.hidden = false
+                typeImageV.isHidden = false
                 
                 switch(notiType!) {
                 case .Issue:
@@ -56,7 +56,7 @@ class CPMesNotificationCell: CPBaseViewCell {
                     typeImageV.image = UIImage(named:"octicon_commit_25")
                 }
             }else{
-                typeImageV.hidden = true
+                typeImageV.isHidden = true
             }
             
 
@@ -67,12 +67,12 @@ class CPMesNotificationCell: CPBaseViewCell {
         }
         
         if let name = noti?.repository?.name{
-            reposBtn.setTitle(name, forState: .Normal)
+            reposBtn.setTitle(name, for: UIControlState())
         }
         
         if let time = noti?.updated_at {
             //time
-            let updateAt:NSDate = time.toDate(DateFormat.ISO8601)!
+            let updateAt:Date = time.toDate(DateFormat.ISO8601)!
             timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
         }
         

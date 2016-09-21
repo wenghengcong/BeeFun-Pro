@@ -38,7 +38,7 @@ public enum UserInField:String {
 }
 
 
-public class ParaSearchUser : NSObject{
+open class ParaSearchUser : NSObject{
 
     var q:String
     var sort:String

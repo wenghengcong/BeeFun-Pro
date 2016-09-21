@@ -16,7 +16,7 @@ class CPBaseViewCell: UITableViewCell {
     */
     var fullline:Bool? {
         didSet {
-            let retinaPixelSize = 1.0 / (UIScreen.mainScreen().scale)
+            let retinaPixelSize = 1.0 / (UIScreen.main.scale)
             let botView:UIView = UIView()
             botView.backgroundColor = UIColor.lineBackgroundColor()
             self.addSubview(botView)
@@ -44,7 +44,7 @@ class CPBaseViewCell: UITableViewCell {
     var topline:Bool? {
         didSet {
             
-            let retinaPixelSize = 1.0 / (UIScreen.mainScreen().scale)
+            let retinaPixelSize = 1.0 / (UIScreen.main.scale)
             if (topline != nil) {
                 let topView:UIView = UIView()
                 topView.backgroundColor = UIColor.lineBackgroundColor()
@@ -59,9 +59,9 @@ class CPBaseViewCell: UITableViewCell {
         }
     }
     
-    static func cellFromNibNamed(nibName:String) -> AnyObject{
+    static func cellFromNibNamed(_ nibName:String) -> AnyObject{
         
-        var nibContents:Array = NSBundle.mainBundle().loadNibNamed(nibName, owner: self, options: nil)
+        var nibContents:Array = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
         let xibBasedCell = nibContents[0]
         return xibBasedCell
     }
@@ -80,7 +80,7 @@ class CPBaseViewCell: UITableViewCell {
         super.init(coder: aDecoder)
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state

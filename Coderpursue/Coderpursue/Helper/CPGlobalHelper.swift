@@ -13,43 +13,43 @@ class CPGlobalHelper {
     
     static let sharedInstance = CPGlobalHelper()
 
-    func showMessage(message:String ,view:UIView) {
-        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
-        hud.labelText = message
-        hud.mode = .Text
-        hud.hide(true, afterDelay: 1.5)
+    func showMessage(_ message:String ,view:UIView) {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud?.labelText = message
+        hud?.mode = .text
+        hud?.hide(true, afterDelay: 1.5)
     }
     
-    func showError(error:String ,view:UIView) {
-        let hud = MBProgressHUD.showHUDAddedTo(view, animated: true)
-        hud.labelText = error
-        hud.mode = .Text
-        hud.hide(true, afterDelay: 1.5)
+    func showError(_ error:String ,view:UIView) {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud?.labelText = error
+        hud?.mode = .text
+        hud?.hide(true, afterDelay: 1.5)
     }
     
     /** calculator text size */
     
-    func calculatorTextSize(text:String ,size:CGSize ,font:UIFont) -> CGRect {
+    func calculatorTextSize(_ text:String ,size:CGSize ,font:UIFont) -> CGRect {
         
-        let boundingBox:CGRect = text.boundingRectWithSize(size, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox:CGRect = text.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         return boundingBox
         
     }
     
-    func heightWithConstrainedWidth(text:String ,width: CGFloat, font: UIFont) -> CGFloat {
+    func heightWithConstrainedWidth(_ text:String ,width: CGFloat, font: UIFont) -> CGFloat {
         
-        let constraintRect = CGSize(width: width, height: CGFloat.max)
+        let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         
-        let boundingBox = text.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         
         return boundingBox.height
     }
     
-    func widthWithConstrainedHeight(text:String ,height: CGFloat, font: UIFont) -> CGFloat {
+    func widthWithConstrainedHeight(_ text:String ,height: CGFloat, font: UIFont) -> CGFloat {
         
-        let constraintRect = CGSize(width: CGFloat.max, height: height)
+        let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: height)
         
-        let boundingBox = text.boundingRectWithSize(constraintRect, options: NSStringDrawingOptions.UsesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
+        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         
         return boundingBox.width
     }
@@ -58,11 +58,11 @@ class CPGlobalHelper {
     
     
     //read plis file and convert data to array
-    func readPlist(file:String)->[[ObjSettings]] {
+    func readPlist(_ file:String)->[[ObjSettings]] {
         
         var settingsArr:[[ObjSettings]] = []
 
-        if let path = NSBundle.mainBundle().pathForResource(file, ofType: "plist") {
+        if let path = Bundle.main.path(forResource: file, ofType: "plist") {
             let dictArr = NSArray(contentsOfFile: path)!
             // use swift dictionary as normal
 //            print(dictArr)
@@ -73,7 +73,7 @@ class CPGlobalHelper {
                 
                 for rowdict in sectionArr {
                     let settings = ObjSettings()
-                    settings.setValuesForKeysWithDictionary(rowdict as! Dictionary)
+                    settings.setValuesForKeys(rowdict as! Dictionary)
                     section.append(settings)
                     
                 }

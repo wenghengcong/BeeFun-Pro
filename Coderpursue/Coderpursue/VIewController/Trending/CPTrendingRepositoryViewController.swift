@@ -54,7 +54,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
     }
@@ -65,10 +65,10 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
-        self.rightItem?.hidden = false
+        self.rightItem?.isHidden = false
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.white
         
     }
     
@@ -76,12 +76,12 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
         self.automaticallyAdjustsScrollViewInsets = false
-        header.setTitle("Pull down to refresh", forState: .Idle)
-        header.setTitle("Release to refresh", forState: .Pulling)
-        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setTitle("Pull down to refresh", for: .idle)
+        header.setTitle("Release to refresh", for: .pulling)
+        header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingRepositoryViewController.headerRefresh))
         // 现在的版本要用mj_header
 //        self.tableView.mj_header = header
@@ -108,10 +108,10 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         }
     }
     
-    func prefectchShareImage( completionHandler: ()-> Void ){
+    func prefectchShareImage( _ completionHandler: @escaping ()-> Void ){
         
         if let urlStr = repos?.owner?.avatar_url {
-            let url:NSURL = NSURL.init(string: urlStr)!
+            let url:URL = URL.init(string: urlStr)!
             let downloader = KingfisherManager.sharedManager.downloader
             downloader.downloadImageWithURL(url, progressBlock: { (receivedSize, totalSize) in
                 
@@ -143,11 +143,11 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     }
     
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
     }
     
-    override func rightItemAction(sender: UIButton?) {
+    override func rightItemAction(_ sender: UIButton?) {
         
         let shareContent:ShareContent = ShareContent()
         shareContent.shareTitle = repos?.name
@@ -159,9 +159,9 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         shareContent.shareUrl = repos?.html_url
         
         if reposShareImage == nil {
-            MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+            MBProgressHUD.showAdded(to: self.view, animated: true)
             prefectchShareImage({
-                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
                 shareContent.shareImage = self.reposShareImage
                 ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
             })
@@ -176,7 +176,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     func rvc_getReopsRequest(){
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
@@ -465,20 +465,20 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
 
 extension CPTrendingRepositoryViewController : UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         let cellId = "CPDevUserInfoCellIdentifier"
 
-        var cell = tableView .dequeueReusableCellWithIdentifier(cellId) as? CPDevUserInfoCell
+        var cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPDevUserInfoCell
         if cell == nil {
             cell = (CPDevUserInfoCell.cellFromNibNamed("CPDevUserInfoCell") as! CPDevUserInfoCell)
         }
@@ -503,23 +503,23 @@ extension CPTrendingRepositoryViewController : UITableViewDataSource {
 }
 extension CPTrendingRepositoryViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 44
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: true)
         let user = self.repos!.owner!
-        self.performSegueWithIdentifier(SegueRepositoryToOwner, sender: user)
+        self.performSegue(withIdentifier: SegueRepositoryToOwner, sender: user)
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if(segue.identifier == SegueRepositoryToOwner) {
-            let devVC = segue.destinationViewController as! CPTrendingDeveloperViewController
+            let devVC = segue.destination as! CPTrendingDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             
             let user = sender as? ObjUser
@@ -582,14 +582,14 @@ extension CPTrendingRepositoryViewController:ReposActionProtocol {
             message = "A fork is a copy of a repository."
         }
         
-        let alertController = UIAlertController(title: title, message:message, preferredStyle: .Alert)
+        let alertController = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             // ...
         }
         alertController.addAction(cancelAction)
         
-        let OKAction = UIAlertAction(title: "Sure", style: .Default) { (action) in
+        let OKAction = UIAlertAction(title: "Sure", style: .default) { (action) in
             
             switch(self.actionType){
             case .Watch:
@@ -615,7 +615,7 @@ extension CPTrendingRepositoryViewController:ReposActionProtocol {
         }
         alertController.addAction(OKAction)
         
-        self.presentViewController(alertController, animated: true) {
+        self.present(alertController, animated: true) {
             // ...
         }
         

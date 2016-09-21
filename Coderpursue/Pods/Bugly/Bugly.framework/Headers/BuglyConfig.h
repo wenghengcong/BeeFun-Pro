@@ -103,18 +103,22 @@ BLY_START_NONNULL
 @property (nonatomic, assign) id<BuglyDelegate> delegate;
 
 /**
- * 控制自定义日志上报，默认值为BuglyLogLevelSilent，即开启日志记录功能。
+ * 控制自定义日志上报，默认值为BuglyLogLevelSilent，即关闭日志记录功能。
  * 如果设置为BuglyLogLevelWarn，则在崩溃时会上报Warn、Error接口打印的日志
  */
 @property (nonatomic, assign) BuglyLogLevel reportLogLevel;
 
 /**
- *  默认设置
- *
- *  @return 返回默认设置
+ *  崩溃数据过滤器，如果崩溃堆栈的模块名包含过滤器中设置的关键字，则崩溃数据不会进行上报
+ *  例如，过滤崩溃堆栈中包含搜狗输入法的数据，可以添加过滤器关键字SogouInputIPhone.dylib等
  */
-+ (instancetype)defaultConfig;
+@property (nonatomic, copy) NSArray * excludeModuleFilter;
 
-BLY_END_NONNULL
+/**
+ * 控制台日志上报开关，默认关闭
+ */
+@property (nonatomic, assign) BOOL  consolelogEnable;
+
 
 @end
+BLY_END_NONNULL

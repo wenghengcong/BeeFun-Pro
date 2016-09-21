@@ -41,11 +41,11 @@ class CPReposPosterView: UIView {
     var watched:Bool?{
         didSet{
             if(watched!){
-                watchBtn.setTitle("Unwatch", forState: .Normal)
+                watchBtn.setTitle("Unwatch", for: UIControlState())
                 watchBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10)
 
             }else{
-                watchBtn.setTitle("Watch", forState: .Normal)
+                watchBtn.setTitle("Watch", for: UIControlState())
                 watchBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 10)
 
             }
@@ -55,9 +55,9 @@ class CPReposPosterView: UIView {
     var stared:Bool?{
         didSet{
             if(stared!){
-                starBtn.setTitle("Unstar", forState: .Normal)
+                starBtn.setTitle("Unstar", for: UIControlState())
             }else{
-                starBtn.setTitle("Star", forState: .Normal)
+                starBtn.setTitle("Star", for: UIControlState())
             }
         }
 
@@ -74,7 +74,7 @@ class CPReposPosterView: UIView {
     }
     
     init(obj:ObjRepos){
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         self.repo = obj
     }
 
@@ -87,9 +87,9 @@ class CPReposPosterView: UIView {
     func rpv_customView() {
         
         self.backgroundColor = UIColor.hexStr("#e8e8e8", alpha: 1.0)
-        nameLabel.textColor = UIColor.blackColor()
-        descLabel.textColor = UIColor.darkGrayColor()
-        timeLabel.textColor = UIColor.darkGrayColor()
+        nameLabel.textColor = UIColor.black
+        descLabel.textColor = UIColor.darkGray
+        timeLabel.textColor = UIColor.darkGray
         
         let imgEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 10)
         let cornerRadius:CGFloat = 5.0
@@ -99,26 +99,26 @@ class CPReposPosterView: UIView {
         
         for btn in btnArr {
             
-            btn.imageView?.contentMode = .ScaleAspectFit
-            btn.imageEdgeInsets = imgEdgeInsets
-            btn.layer.cornerRadius = cornerRadius
-            btn.layer.masksToBounds = true
-            btn.layer.borderColor = UIColor.cpRedColor().CGColor
-            btn.layer.borderWidth = borderWidth
-            btn.setTitleColor(UIColor.cpRedColor(), forState: .Normal)
+            btn?.imageView?.contentMode = .scaleAspectFit
+            btn?.imageEdgeInsets = imgEdgeInsets
+            btn?.layer.cornerRadius = cornerRadius
+            btn?.layer.masksToBounds = true
+            btn?.layer.borderColor = UIColor.cpRedColor().cgColor
+            btn?.layer.borderWidth = borderWidth
+            btn?.setTitleColor(UIColor.cpRedColor(), for: UIControlState())
             
         }
-        watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), forState: .Normal)
-        watchBtn.setTitle("Watch", forState: .Normal)
-        watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_watchAction), forControlEvents: .TouchUpInside)
+        watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), for: UIControlState())
+        watchBtn.setTitle("Watch", for: UIControlState())
+        watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_watchAction), for: .touchUpInside)
 
-        starBtn.setImage(UIImage(named: "octicon_star_red_20"), forState: .Normal)
-        starBtn.setTitle("Star", forState: .Normal)
-        starBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_starAction), forControlEvents: .TouchUpInside)
+        starBtn.setImage(UIImage(named: "octicon_star_red_20"), for: UIControlState())
+        starBtn.setTitle("Star", for: UIControlState())
+        starBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_starAction), for: .touchUpInside)
 
-        forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), forState: .Normal)
-        forkBtn.setTitle("Fork", forState: .Normal)
-        forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_forkAction), forControlEvents: .TouchUpInside)
+        forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), for: UIControlState())
+        forkBtn.setTitle("Fork", for: UIControlState())
+        forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_forkAction), for: .touchUpInside)
 
     }
     
@@ -126,7 +126,7 @@ class CPReposPosterView: UIView {
     func rpc_fillData() {
         
         if let avatarUrl =  repo?.owner?.avatar_url {
-            imgV.kf_setImageWithURL(NSURL(string: avatarUrl)!, placeholderImage: nil)
+            imgV.kf_setImageWithURL(URL(string: avatarUrl)!, placeholderImage: nil)
         }
         
         if let username = repo!.name {
@@ -138,7 +138,7 @@ class CPReposPosterView: UIView {
         }
         
         if let created_at = repo!.created_at {
-            let createAt:NSDate = created_at.toDate(DateFormat.ISO8601)!
+            let createAt:Date = created_at.toDate(DateFormat.ISO8601)!
             timeLabel.text = "created at: "+createAt.toString()!
         }
         

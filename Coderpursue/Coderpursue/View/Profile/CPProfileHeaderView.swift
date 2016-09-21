@@ -59,7 +59,7 @@ class CPProfileHeaderView: UIView {
     }
     
     init(obj:ObjUser){
-        super.init(frame:CGRectZero)
+        super.init(frame:CGRect.zero)
         self.user = obj
     }
     
@@ -71,21 +71,21 @@ class CPProfileHeaderView: UIView {
     
     func phv_customView() {
         
-        self.backgroundColor = UIColor.whiteColor()
+        self.backgroundColor = UIColor.white
         
         phv_avatarImgV.layer.cornerRadius = phv_avatarImgV.width/2
         phv_avatarImgV.layer.masksToBounds = true
         
-        phv_nameLabel.textColor = UIColor.whiteColor()
-        phv_emailLabel.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        phv_emailLabel.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
+        phv_nameLabel.textColor = UIColor.white
+        phv_emailLabel.setTitleColor(UIColor.white, for: UIControlState())
+        phv_emailLabel.setTitleColor(UIColor.white, for: .highlighted)
         
-        phv_loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        phv_loginBtn.setTitleColor(UIColor.whiteColor(), forState: .Highlighted)
-        phv_loginBtn.addTarget(self, action: #selector(CPProfileHeaderView.phv_loginAction), forControlEvents: .TouchUpInside)
-        phv_loginBtn.backgroundColor = UIColor.clearColor()
-        phv_loginBtn.titleLabel?.font = UIFont.systemFontOfSize(25.0)
-        phv_loginBtn.setTitle("Sign   In", forState: .Normal)
+        phv_loginBtn.setTitleColor(UIColor.white, for: UIControlState())
+        phv_loginBtn.setTitleColor(UIColor.white, for: .highlighted)
+        phv_loginBtn.addTarget(self, action: #selector(CPProfileHeaderView.phv_loginAction), for: .touchUpInside)
+        phv_loginBtn.backgroundColor = UIColor.clear
+        phv_loginBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
+        phv_loginBtn.setTitle("Sign   In", for: UIControlState())
 //        phv_editProfileBtn.addTarget(self, action: "phv_editProfileAction:", forControlEvents: .TouchUpInside)
         
         phv_numOfReposLabel.textColor = UIColor.labelTitleTextColor()
@@ -99,11 +99,11 @@ class CPProfileHeaderView: UIView {
         
         //add border to sperator three columns
         reposBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
-        reposBgV.userInteractionEnabled = true
+        reposBgV.isUserInteractionEnabled = true
         followerBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
-        followerBgV.userInteractionEnabled = true
+        followerBgV.isUserInteractionEnabled = true
         followingBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
-        followingBgV.userInteractionEnabled = true
+        followingBgV.isUserInteractionEnabled = true
         
         let reposGes = UITapGestureRecognizer(target: self, action: #selector(CPProfileHeaderView.phv_reposAction(_:)))
         self.reposBgV.addGestureRecognizer(reposGes)
@@ -120,24 +120,24 @@ class CPProfileHeaderView: UIView {
     func phv_fillData() {
         
         let isLoingin:Bool = UserInfoHelper.sharedInstance.isLogin
-        phv_avatarImgV.hidden = !isLoingin
-        phv_nameLabel.hidden = !isLoingin
-        phv_emailLabel.hidden = !isLoingin
+        phv_avatarImgV.isHidden = !isLoingin
+        phv_nameLabel.isHidden = !isLoingin
+        phv_emailLabel.isHidden = !isLoingin
         
         //        self.pvc_editProfileBtn.hidden = !isLoingin
 //        phv_editProfileBtn.hidden = true
-        phv_loginBtn.hidden = isLoingin
+        phv_loginBtn.isHidden = isLoingin
         
         if(isLoingin){
             
             if let avatarUrl = user?.avatar_url {
-                phv_avatarImgV.kf_setImageWithURL(NSURL(string: avatarUrl)!, placeholderImage: nil)
+                phv_avatarImgV.kf_setImageWithURL(URL(string: avatarUrl)!, placeholderImage: nil)
             }
             phv_nameLabel.text = user?.name
             if let email = user?.email {
-                phv_emailLabel.setTitle(email, forState: .Normal)
+                phv_emailLabel.setTitle(email, for: UIControlState())
             }else{
-                phv_emailLabel.setTitle("", forState: .Normal)
+                phv_emailLabel.setTitle("", for: UIControlState())
             }
             
             if let followerCount = user?.followers {
@@ -152,7 +152,7 @@ class CPProfileHeaderView: UIView {
             
         }else{
             
-            phv_emailLabel.setTitle("", forState: .Normal)
+            phv_emailLabel.setTitle("", for: UIControlState())
             phv_numOfReposLabel.text = "0"
             phv_numOfFollowingLabel.text = "0"
             phv_numOfFollwerLabel.text = "0"
@@ -168,7 +168,7 @@ class CPProfileHeaderView: UIView {
         
     }
     
-    func phv_followAction(sender: UITapGestureRecognizer) {
+    func phv_followAction(_ sender: UITapGestureRecognizer) {
         if let followerCount = user?.followers {
             if(followerCount == 0){
                 return
@@ -180,7 +180,7 @@ class CPProfileHeaderView: UIView {
         
     }
     
-    func phv_reposAction(sender: UITapGestureRecognizer) {
+    func phv_reposAction(_ sender: UITapGestureRecognizer) {
         if let reposCount = user?.public_repos {
             if(reposCount == 0){
                 return
@@ -193,7 +193,7 @@ class CPProfileHeaderView: UIView {
     }
     
     
-    func phv_followingAction(sender: UITapGestureRecognizer) {
+    func phv_followingAction(_ sender: UITapGestureRecognizer) {
         if let followingCount = user?.following {
             if(followingCount == 0){
                 return

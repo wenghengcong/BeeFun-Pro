@@ -45,7 +45,7 @@ class CPMesIssueCell: CPBaseViewCell {
     func notiCell_fillData() {
         
         let issueTitle = issue!.title
-        issueTitleBtn.setTitle(issueTitle, forState: .Normal)
+        issueTitleBtn.setTitle(issueTitle, for: UIControlState())
         
         let issueNum = "#\(issue!.number!)"
         numberLabel.text = issueNum
@@ -63,7 +63,7 @@ class CPMesIssueCell: CPBaseViewCell {
         }
         
         //time
-        let updateAt:NSDate = issue!.created_at!.toDate(DateFormat.ISO8601)!
+        let updateAt:Date = issue!.created_at!.toDate(DateFormat.ISO8601)!
         timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
         
     }

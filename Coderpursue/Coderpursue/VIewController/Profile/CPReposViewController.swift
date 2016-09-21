@@ -44,13 +44,13 @@ class CPReposViewController: CPBaseViewController {
         self.title = "Repositories"
 
     }
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func rvc_addNaviBarButtonItem() {
@@ -79,24 +79,24 @@ class CPReposViewController: CPBaseViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
-        header.setTitle("Pull down to refresh", forState: .Idle)
-        header.setTitle("Release to refresh", forState: .Pulling)
-        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setTitle("Pull down to refresh", for: .idle)
+        header.setTitle("Release to refresh", for: .pulling)
+        header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPReposViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
         // 上拉刷新
-        footer.setTitle("Click or drag up to refresh", forState: .Idle)
-        footer.setTitle("Loading more ...", forState: .Pulling)
-        footer.setTitle("No more data", forState: .NoMoreData)
+        footer.setTitle("Click or drag up to refresh", for: .idle)
+        footer.setTitle("Loading more ...", for: .pulling)
+        footer.setTitle("No more data", for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPReposViewController.footerRefresh))
-        footer.refreshingTitleHidden = true
+        footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
     
@@ -240,22 +240,22 @@ class CPReposViewController: CPBaseViewController {
 
 extension CPReposViewController : UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return  self.reposData.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         var cellId = ""
         if(self.viewType == "myrepositories") {
             cellId = "CPMyReposCellIdentifier"
-            var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPMyReposCell
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPMyReposCell
             if cell == nil {
                 cell = (CPMyReposCell.cellFromNibNamed("CPMyReposCell") as! CPMyReposCell)
             }
@@ -277,7 +277,7 @@ extension CPReposViewController : UITableViewDataSource {
         }
         
         cellId = "CPProfileReposCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPProfileReposCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPProfileReposCell
         if cell == nil {
             cell = (CPProfileReposCell.cellFromNibNamed("CPProfileReposCell") as! CPProfileReposCell)
         }
@@ -303,22 +303,22 @@ extension CPReposViewController : UITableViewDataSource {
 }
 extension CPReposViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         return 85
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let repos = self.reposData[indexPath.row]
-        self.performSegueWithIdentifier(SegueProfileShowRepositoryDetail, sender: repos)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let repos = self.reposData[(indexPath as NSIndexPath).row]
+        self.performSegue(withIdentifier: SegueProfileShowRepositoryDetail, sender: repos)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if (segue.identifier == SegueProfileShowRepositoryDetail){
-            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
+            let reposVC = segue.destination as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true
             
             let repos = sender as? ObjRepos

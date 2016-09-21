@@ -19,12 +19,12 @@ class CPFunnyLabViewController: CPBaseViewController {
         self.title = "Funny Lab"
     }
 
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
     }
 
     /*
@@ -37,15 +37,15 @@ class CPFunnyLabViewController: CPBaseViewController {
     }
     */
 
-    @IBAction func lag_getAward(sender: AnyObject) {
+    @IBAction func lag_getAward(_ sender: AnyObject) {
         
-        let userDefault = NSUserDefaults.standardUserDefaults()
+        let userDefault = UserDefaults.standard
         
         var awardUrl = ""
 //      auth url: github-awards.com/auth/github
         if let username = lab_awardNameTf.text {
             
-            let firstNeedAuth = userDefault.objectForKey("\(username)needauth")
+            let firstNeedAuth = userDefault.object(forKey: "\(username)needauth")
             
             if ( firstNeedAuth == nil ){
                 awardUrl = "http://github-awards.com/auth/github"

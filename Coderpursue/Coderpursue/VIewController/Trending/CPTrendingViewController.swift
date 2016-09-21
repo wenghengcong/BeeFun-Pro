@@ -75,17 +75,17 @@ class CPTrendingViewController: CPBaseViewController {
         tvc_setupFilterView()
         tvc_addNaviBarButtonItem()
         updateNetrokData()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NotificationGitLoginSuccessful, object: nil)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NotificationGitLogOutSuccessful, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NSNotification.Name(rawValue: NotificationGitLogOutSuccessful), object: nil)
         self.title = "Explore"
 
     }
     
     deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
@@ -112,17 +112,17 @@ class CPTrendingViewController: CPBaseViewController {
         
         self.rightItemImage = UIImage(named: "nav_search_35")
         self.rightItemSelImage = UIImage(named: "nav_search_35")
-        self.rightItem?.hidden = false
+        self.rightItem?.isHidden = false
     }
     
     func tvc_setupFilterView(){
         
         let firW:CGFloat = 100.0
         let secW:CGFloat = self.view.width-firW
-        filterView = CPFilterTableView(frame: CGRectMake(0, 64-filterVHeight-10, self.view.width, filterVHeight))
+        filterView = CPFilterTableView(frame: CGRect(x: 0, y: 64-filterVHeight-10, width: self.view.width, height: filterVHeight))
         filterView!.backgroundColor = UIColor.viewBackgroundColor()
         filterView!.filterDelegate = self
-        filterView!.coloumn = .Two
+        filterView!.coloumn = .two
         filterView!.rowWidths = [firW,secW]
         filterView!.rowHeights = [40.0,40.0]
         filterView!.filterTypes = ["Since"]
@@ -136,7 +136,7 @@ class CPTrendingViewController: CPBaseViewController {
         self.view.addSubview(segControl)
         segControl.verticalDividerColor = UIColor.lineBackgroundColor()
         segControl.verticalDividerWidth = 1
-        segControl.verticalDividerEnabled = true
+        segControl.isVerticalDividerEnabled = true
         segControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe
         segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
         segControl.selectionIndicatorColor = UIColor.cpRedColor()
@@ -151,13 +151,13 @@ class CPTrendingViewController: CPBaseViewController {
             self.filterView?.resetProperty()
 
             if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
-                self.leftItem?.hidden = false
+                self.leftItem?.isHidden = false
                 self.tvc_getReposRequest()
             }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
-                self.leftItem?.hidden = false
+                self.leftItem?.isHidden = false
                 self.tvc_getUserRequest()
             }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
-                self.leftItem?.hidden = true
+                self.leftItem?.isHidden = true
                 self.tvc_getShowcasesRequest()
             }else{
                 self.tableView.reloadData()
@@ -178,46 +178,46 @@ class CPTrendingViewController: CPBaseViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
-        header.setTitle("Pull down to refresh", forState: .Idle)
-        header.setTitle("Release to refresh", forState: .Pulling)
-        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setTitle("Pull down to refresh", for: .idle)
+        header.setTitle("Release to refresh", for: .pulling)
+        header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
         // 上拉刷新
-        footer.setTitle("Click or drag up to refresh", forState: .Idle)
-        footer.setTitle("Loading more ...", forState: .Pulling)
-        footer.setTitle("No more data", forState: .NoMoreData)
+        footer.setTitle("Click or drag up to refresh", for: .idle)
+        footer.setTitle("Loading more ...", for: .pulling)
+        footer.setTitle("No more data", for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingViewController.footerRefresh))
-        footer.refreshingTitleHidden = true
+        footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
 
     
     // MARK: action
     
-    override func leftItemAction(sender: UIButton?) {
+    override func leftItemAction(_ sender: UIButton?) {
         let btn = sender!
-        btn.selected = !btn.selected
-        if(btn.selected){
+        btn.isSelected = !btn.isSelected
+        if(btn.isSelected){
             tvc_filterViewApper()
         }else{
             tvc_filterViewDisapper()
         }
     }
     
-    override func rightItemAction(sender: UIButton?) {
+    override func rightItemAction(_ sender: UIButton?) {
     
         if !tvc_isLogin() {
             return
         }
-        self.performSegueWithIdentifier(SegueTrendingSearchView, sender: nil)
+        self.performSegue(withIdentifier: SegueTrendingSearchView, sender: nil)
 
     }
     
@@ -236,13 +236,13 @@ class CPTrendingViewController: CPBaseViewController {
             filterView!.resetAllColoumnsData()
         }
 
-        filterView!.frame = CGRectMake(0, 64, self.view.width, filterVHeight)
+        filterView!.frame = CGRect(x: 0, y: 64, width: self.view.width, height: filterVHeight)
         lastSegmentIndex = segControl.selectedSegmentIndex
     }
     
     func tvc_filterViewDisapper(){
-        leftItem?.selected = false
-        filterView!.frame = CGRectMake(0, 64-filterVHeight-10, self.view.width, filterVHeight)
+        leftItem?.isSelected = false
+        filterView!.frame = CGRect(x: 0, y: 64-filterVHeight-10, width: self.view.width, height: filterVHeight)
 
     }
     
@@ -292,15 +292,15 @@ class CPTrendingViewController: CPBaseViewController {
     // MARK: fetch data form plist file
     func tvc_getDataFromPlist() {
         
-        if let path = NSBundle.mainBundle().pathForResource("CPCity", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "CPCity", ofType: "plist") {
             cityArr = NSArray(contentsOfFile: path)! as? [String]
         }
         
-        if let path = NSBundle.mainBundle().pathForResource("CPLanguage", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "CPLanguage", ofType: "plist") {
             languageArr = NSArray(contentsOfFile: path)! as? [String]
         }
         
-        if let path = NSBundle.mainBundle().pathForResource("CPCountry", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "CPCountry", ofType: "plist") {
             countryArr = NSArray(contentsOfFile: path)! as? [String]
         }
     }
@@ -309,7 +309,7 @@ class CPTrendingViewController: CPBaseViewController {
     
     func tvc_getReposRequest() {
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         Provider.sharedProvider.request(.TrendingRepos(since:paraSince,language:"all") ) { (result) -> () in
             
@@ -359,18 +359,18 @@ class CPTrendingViewController: CPBaseViewController {
             
             tableView.mj_header.endRefreshing()
             tableView.mj_footer.endRefreshing()
-            tableView.mj_footer.hidden = true
+            tableView.mj_footer.isHidden = true
         
             self.tableView.reloadData()
             return
         }
         
-        tableView.mj_footer.hidden = false
+        tableView.mj_footer.isHidden = false
 
         resetSearchUserParameters()
         print("search user query:\(paraUser.q)")
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         Provider.sharedProvider.request(.SearchUsers(para:self.paraUser) ) { (result) -> () in
             
@@ -424,7 +424,7 @@ class CPTrendingViewController: CPBaseViewController {
     
     func tvc_getShowcasesRequest() {
         
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         Provider.sharedProvider.request(.TrendingShowcases() ) { (result) -> () in
             
@@ -466,7 +466,7 @@ class CPTrendingViewController: CPBaseViewController {
 
 extension CPTrendingViewController : CPFilterTableViewProtocol {
     //filter delegate
-    func didSelectValueColoumn(row:Int ,type:String ,value:String) {
+    func didSelectValueColoumn(_ row:Int ,type:String ,value:String) {
         
         if segControl.selectedSegmentIndex == 0 {
             if type == "Since" {
@@ -502,18 +502,18 @@ extension CPTrendingViewController : CPFilterTableViewProtocol {
         
     }
     
-    func didSelectTypeColoumn(row: Int, type: String, value: String) {
+    func didSelectTypeColoumn(_ row: Int, type: String, value: String) {
         
     }
 }
 
 extension CPTrendingViewController : UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (segControl.selectedSegmentIndex == 0) {
             
@@ -537,16 +537,16 @@ extension CPTrendingViewController : UITableViewDataSource {
         return 0
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         
         var cellId = ""
         
         if segControl.selectedSegmentIndex == 0 {
             
             cellId = "CPTrendingRepoCellIdentifier"
-            var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingRepoCell
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingRepoCell
             if cell == nil {
                 cell = (CPTrendingRepoCell.cellFromNibNamed("CPTrendingRepoCell") as! CPTrendingRepoCell)
             }
@@ -569,7 +569,7 @@ extension CPTrendingViewController : UITableViewDataSource {
         }else if(segControl.selectedSegmentIndex == 1) {
             
             cellId = "CPTrendingDeveloperCellIdentifier"
-            var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingDeveloperCell
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingDeveloperCell
             if cell == nil {
                 cell = (CPTrendingDeveloperCell.cellFromNibNamed("CPTrendingDeveloperCell") as! CPTrendingDeveloperCell)
                 
@@ -594,7 +594,7 @@ extension CPTrendingViewController : UITableViewDataSource {
         }
         
         cellId = "CPTrendingShowcaseCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingShowcaseCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingShowcaseCell
         if cell == nil {
             cell = (CPTrendingShowcaseCell.cellFromNibNamed("CPTrendingShowcaseCell") as! CPTrendingShowcaseCell)
             
@@ -609,7 +609,7 @@ extension CPTrendingViewController : UITableViewDataSource {
 
 extension CPTrendingViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if segControl.selectedSegmentIndex == 0 {
             
@@ -622,31 +622,31 @@ extension CPTrendingViewController : UITableViewDelegate {
         return 135
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         if(!tvc_isLogin()){
             return
         }
         
         if segControl.selectedSegmentIndex == 0 {
             
-            let repos = self.reposData[indexPath.row]
-            self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: repos)
+            let repos = self.reposData[(indexPath as NSIndexPath).row]
+            self.performSegue(withIdentifier: SegueTrendingShowRepositoryDetail, sender: repos)
         }else if(segControl.selectedSegmentIndex == 1){
             
-            let dev = self.devesData[indexPath.row]
-            self.performSegueWithIdentifier(SegueTrendingShowDeveloperDetail, sender: dev)
+            let dev = self.devesData[(indexPath as NSIndexPath).row]
+            self.performSegue(withIdentifier: SegueTrendingShowDeveloperDetail, sender: dev)
         }else {
             
-            let showcase = self.showcasesData[indexPath.row]
-            self.performSegueWithIdentifier(SegueTrendingShowShowcaseDetail, sender: showcase)
+            let showcase = self.showcasesData[(indexPath as NSIndexPath).row]
+            self.performSegue(withIdentifier: SegueTrendingShowShowcaseDetail, sender: showcase)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == SegueTrendingShowRepositoryDetail){
-            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
+            let reposVC = segue.destination as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true
             
             let repos = sender as? ObjRepos
@@ -655,7 +655,7 @@ extension CPTrendingViewController : UITableViewDelegate {
             }
 
         }else if(segue.identifier == SegueTrendingShowDeveloperDetail){
-            let devVC = segue.destinationViewController as! CPTrendingDeveloperViewController
+            let devVC = segue.destination as! CPTrendingDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             
             let dev = sender as? ObjUser
@@ -665,7 +665,7 @@ extension CPTrendingViewController : UITableViewDelegate {
             
         }else if(segue.identifier == SegueTrendingShowShowcaseDetail){
             
-            let showcaseVC = segue.destinationViewController as! CPTrendingShowcaseViewController
+            let showcaseVC = segue.destination as! CPTrendingShowcaseViewController
             showcaseVC.hidesBottomBarWhenPushed = true
 
             let showcase = sender as? ObjShowcase
@@ -683,7 +683,7 @@ extension CPTrendingViewController : UITableViewDelegate {
                 placeholder = "Search users"
             }
             
-            let searchVC = segue.destinationViewController as! CPSearchViewController
+            let searchVC = segue.destination as! CPSearchViewController
             
             searchVC.hidesBottomBarWhenPushed = true
             searchVC.pageType = pageType

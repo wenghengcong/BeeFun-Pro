@@ -34,26 +34,26 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
 
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    override func leftItemAction(sender: UIButton?) {
-        self.navigationController?.popViewControllerAnimated(true)
+    override func leftItemAction(_ sender: UIButton?) {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func tsc_setupTableView() {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.separatorStyle = .None
+        self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor()
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
-        header.setTitle("Pull down to refresh", forState: .Idle)
-        header.setTitle("Release to refresh", forState: .Pulling)
-        header.setTitle("Loading ...", forState: .Refreshing)
+        header.setTitle("Pull down to refresh", for: .idle)
+        header.setTitle("Release to refresh", for: .pulling)
+        header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingShowcaseViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
@@ -72,7 +72,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
     
     func tsc_getShowcaseRequest(){
     
-        MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         
         Provider.sharedProvider.request(.TrendingShowcase(showcase:showcase.slug!) ) { (result) -> () in
             
@@ -120,11 +120,11 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
 
 extension CPTrendingShowcaseViewController : UITableViewDataSource {
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if(showcase.repositories == nil){
             return 0
@@ -135,12 +135,12 @@ extension CPTrendingShowcaseViewController : UITableViewDataSource {
 
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = indexPath.row
+        let row = (indexPath as NSIndexPath).row
         
         let cellId = "CPTrendingRepoCellIdentifier"
-        var cell = tableView.dequeueReusableCellWithIdentifier(cellId) as? CPTrendingRepoCell
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingRepoCell
         if cell == nil {
             cell = (CPTrendingRepoCell.cellFromNibNamed("CPTrendingRepoCell") as! CPTrendingRepoCell)
         }
@@ -166,24 +166,24 @@ extension CPTrendingShowcaseViewController : UITableViewDataSource {
 
 extension CPTrendingShowcaseViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
  
         return 85
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let repos = self.showcase.repositories![indexPath.row]
-        self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: repos)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let repos = self.showcase.repositories![(indexPath as NSIndexPath).row]
+        self.performSegue(withIdentifier: SegueTrendingShowRepositoryDetail, sender: repos)
 
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if (segue.identifier == SegueTrendingShowRepositoryDetail){
             
-            let reposVC = segue.destinationViewController as! CPTrendingRepositoryViewController
+            let reposVC = segue.destination as! CPTrendingRepositoryViewController
             reposVC.hidesBottomBarWhenPushed = true
             let repos = sender as? ObjRepos
             if(repos != nil){

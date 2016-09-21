@@ -17,46 +17,46 @@ struct AppToken {
         case TokenExpiry = "TokenExpiry"
     }
     
-    let defaults: NSUserDefaults
+    let defaults: UserDefaults
     
     static let sharedInstance = AppToken()
     
     
-    init(defaults:NSUserDefaults) {
+    init(defaults:UserDefaults) {
         self.defaults = defaults
     }
     
     init() {
-        self.defaults = NSUserDefaults.standardUserDefaults()
+        self.defaults = UserDefaults.standard
     }
     
     var access_token:String? {
         get {
-            let key = defaults.stringForKey(DefaultsKeys.TokenKey.rawValue)
+            let key = defaults.string(forKey: DefaultsKeys.TokenKey.rawValue)
             return key
         }
         set(newToken) {
-            defaults.setObject(newToken, forKey: DefaultsKeys.TokenKey.rawValue)
+            defaults.set(newToken, forKey: DefaultsKeys.TokenKey.rawValue)
         }
     }
     var token_type:String? {
         get {
             
-            let key = defaults.stringForKey(DefaultsKeys.TokenType.rawValue)
+            let key = defaults.string(forKey: DefaultsKeys.TokenType.rawValue)
             return key
         }
         set(newType) {
-            defaults.setObject(newType, forKey: DefaultsKeys.TokenType.rawValue)
+            defaults.set(newType, forKey: DefaultsKeys.TokenType.rawValue)
         }
     }
     
     var scope:String? {
         get {
-            let key = defaults.stringForKey(DefaultsKeys.TokenScope.rawValue)
+            let key = defaults.string(forKey: DefaultsKeys.TokenScope.rawValue)
             return key
         }
         set(newScope) {
-            defaults.setObject(newScope, forKey: DefaultsKeys.TokenScope.rawValue)
+            defaults.set(newScope, forKey: DefaultsKeys.TokenScope.rawValue)
         }
     }
 

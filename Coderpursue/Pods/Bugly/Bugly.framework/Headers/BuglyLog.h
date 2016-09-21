@@ -37,7 +37,7 @@ FOUNDATION_EXPORT void BLYLogv(BuglyLogLevel level, NSString *format, va_list ar
 /**
  *    @brief  初始化日志模块
  *
- *    @param level 设置默认日志级别，默认BLYLogLevelInfo
+ *    @param level 设置默认日志级别，默认BLYLogLevelSilent
  *
  *    @param printConsole 是否打印到控制台，默认NO
  */
@@ -46,7 +46,7 @@ FOUNDATION_EXPORT void BLYLogv(BuglyLogLevel level, NSString *format, va_list ar
 /**
  *    @brief 打印BLYLogLevelInfo日志
  *
- *    @param format 日志内容
+ *    @param fmt   日志内容 总日志大小限制为：字符串长度30k，条数200
  */
 + (void)log:(NSString *)format, ...;
 
@@ -54,7 +54,7 @@ FOUNDATION_EXPORT void BLYLogv(BuglyLogLevel level, NSString *format, va_list ar
  *    @brief  打印日志
  *
  *    @param level 日志级别
- *    @param fmt   日志内容
+ *    @param fmt   日志内容 总日志大小限制为：字符串长度30k，条数200
  */
 + (void)level:(BuglyLogLevel) level logs:(NSString *)message;
 
@@ -62,7 +62,7 @@ FOUNDATION_EXPORT void BLYLogv(BuglyLogLevel level, NSString *format, va_list ar
  *    @brief  打印日志
  *
  *    @param level 日志级别
- *    @param fmt   日志内容
+ *    @param fmt   日志内容 总日志大小限制为：字符串长度30k，条数200
  */
 + (void)level:(BuglyLogLevel) level log:(NSString *)format, ...;
 
@@ -71,7 +71,7 @@ FOUNDATION_EXPORT void BLYLogv(BuglyLogLevel level, NSString *format, va_list ar
  *
  *    @param level  日志级别
  *    @param tag    日志模块分类
- *    @param format 日志内容
+ *    @param fmt   日志内容 总日志大小限制为：字符串长度30k，条数200
  */
 + (void)level:(BuglyLogLevel) level tag:(NSString *) tag log:(NSString *)format, ...;
 

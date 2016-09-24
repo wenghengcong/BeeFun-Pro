@@ -126,7 +126,7 @@ class CPReposPosterView: UIView {
     func rpc_fillData() {
         
         if let avatarUrl =  repo?.owner?.avatar_url {
-            imgV.kf.setImage(with: URL(string: avatarUrl)!, placeholder: nil, options: .transition(.fade(1)), progressBlock: nil, completionHandler: nil))
+            imgV.kf.setImage(with: URL(string: avatarUrl)!)
         }
         
         if let username = repo!.name {

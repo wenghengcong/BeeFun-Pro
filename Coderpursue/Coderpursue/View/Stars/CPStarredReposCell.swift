@@ -36,7 +36,7 @@ class CPStarredReposCell: CPBaseViewCell {
             
             if let avatarURl = objRepos!.owner!.avatar_url {
                 
-                logoImgV.kf.setImage(with: URL(string:avatarURl)!, placeholder: nil, options: .transition(.fade(1)), progressBlock: nil, completionHandler: nil)
+                logoImgV.kf.setImage(with: URL(string:avatarURl)!)
             }
             
             nameLabel.text = objRepos!.name!

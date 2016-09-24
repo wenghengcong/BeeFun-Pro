@@ -96,7 +96,7 @@ class CPDeveloperInfoView: UIView {
     func div_fillData() {
         
         if let avatarUrl = developer!.avatar_url {
-            avatarImgV.kf.setImage(with: URL(string: avatarUrl)!, placeholder: nil, options: .transition(.fade(1)), progressBlock: nil, completionHandler: nil)   
+            avatarImgV.kf.setImage(with: URL(string: avatarUrl)!)
         }
         
         nameLabel.text = developer!.name

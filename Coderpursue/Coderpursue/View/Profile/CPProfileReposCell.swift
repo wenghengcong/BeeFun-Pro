@@ -33,7 +33,7 @@ class CPProfileReposCell: CPBaseViewCell {
     var objRepos:ObjRepos? {
         
         didSet {
-            logoImgV.kf.setImage(with: URL(string: objRepos!.owner!.avatar_url!)!, placeholder: nil, options: .transition(.fade(1)), progressBlock: nil, completionHandler: nil)
+            logoImgV.kf.setImage(with: URL(string: objRepos!.owner!.avatar_url!)!)
             nameLabel.text = objRepos!.name!
             descLabel.text = objRepos!.cdescription
             let updateAt:Date = objRepos!.pushed_at!.toDate(format: DateFormat.iso8601Format(.full))!

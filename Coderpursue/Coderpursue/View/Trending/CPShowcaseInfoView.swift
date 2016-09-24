@@ -55,7 +55,7 @@ class CPShowcaseInfoView: UIView {
     func siv_fillData() {
         
         let url = showcase!.image_url!
-        imgV.kf.setImage(with: URL(string: url)!, placeholder: nil, options: .transition(.fade(1)), progressBlock: ni,, completionHandler: nil)
+        imgV.kf.setImage(with: URL(string: url)!)
         descLabel.text = showcase!.cdescription!
         
     }

@@ -112,13 +112,15 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         if let urlStr = repos?.owner?.avatar_url {
             let url:URL = URL.init(string: urlStr)!
-            let downloader = KingfisherManager.sharedManager.downloader
-            downloader.downloadImageWithURL(url, progressBlock: { (receivedSize, totalSize) in
+            let downloader = KingfisherManager.shared.downloader
+            
+            downloader.downloadImage(with: url, options: nil, progressBlock: { (receivedSize, totalSize) in
                 
                 }, completionHandler: { (image, error, imageURL, originalData) in
                     self.reposShareImage = image
                     completionHandler()
             })
+            
         }
 
     }

@@ -27,42 +27,37 @@ class CPTrendingShowcaseCell: CPBaseViewCell {
             
             let urlPath:String = showcase!.image_url!
             
-            let cache = KingfisherManager.sharedManager.cache
+            let cache = KingfisherManager.shared.cache
             
             //first:cache disk
             //if no disk cache,download image
-            if let cacheImg = cache.retrieveImageInDiskCacheForKey(urlPath) {
+            if let cacheImg = cache.retrieveImageInDiskCache(forKey: urlPath){
                 let colorImg:UIColor = UIColor(patternImage:cacheImg)
                 self.bgImageV.backgroundColor = colorImg
             }else{
                 
-                let downloader = KingfisherManager.sharedManager.downloader
-                
-                downloader.downloadImageWithURL(URL(string: urlPath)!, options: [.Downloader(downloader)], progressBlock: { (receivedSize, totalSize) -> () in
+                let downloader = KingfisherManager.shared.downloader
+                downloader.downloadImage(with: URL(string: urlPath)!, options: [.downloader(downloader)], progressBlock: { (receivedSize, totalSize) in
                     
-                    }) { (image, error, imageURL, originalData) -> () in
+                    }, completionHandler: { (image, error, imageURL, originalData) -> () in
                         
                         if(image != nil){
-                            cache.storeImage(image!, forKey: urlPath)
-                            
+                            cache.store(image!, forKey: urlPath)
                             let colorImg:UIColor = UIColor(patternImage:image!)
                             self.bgImageV.backgroundColor = colorImg
                             
                         }
-                }
+                    }
+                )
                 
+                nameLabel.text = showcase!.name!
+                descLabel.text = showcase!.cdescription
+            
             }
-            
-
-            
-            nameLabel.text = showcase!.name!
-            descLabel.text = showcase!.cdescription
-            
-        }
         
+        }
+
     }
-
-
  
     override func customCellView() {
     

@@ -71,11 +71,11 @@ class ObjResponseHeader: NSObject,Mappable {
     var XXSSProtection:String?
 
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         AccessControlAllowCredentials <- map["Access-Control-Allow-Credentials"]
         AccessControlAllowOrigin <- map["Access-Control-Allow-Origin"]

@@ -131,7 +131,8 @@ class CPProfileHeaderView: UIView {
         if(isLoingin){
             
             if let avatarUrl = user?.avatar_url {
-                phv_avatarImgV.kf_setImageWithURL(URL(string: avatarUrl)!, placeholderImage: nil)
+                phv_avatarImgV.kf.setImage(with: URL(string: URL(string: avatarUrl)!, placeholder: nil,ptions: .transition(.fade(1)), progressBlock: nil, completionHandler: nil))
+                    
             }
             phv_nameLabel.text = user?.name
             if let email = user?.email {

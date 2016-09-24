@@ -71,8 +71,8 @@ class CPEventCreateCell: CPEventBaseCell {
             
         }
         //time
-        let updateAt:Date = event!.created_at!.toDate(DateFormat.ISO8601)!
-        timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
+        let updateAt:Date = event!.created_at!.toDate(format:DateFormat.iso8601Format(.full))!
+        timeLabel.text = updateAt.toString(style: .colloquial)
 
         setNeedsLayout()
     }
@@ -111,7 +111,7 @@ class CPEventCreateCell: CPEventBaseCell {
             
             let reposWidth = self.width-createLabel.left-rightPad;
             
-            reposNameBtn.snp_remakeConstraints(closure: { (make) -> Void in
+            reposNameBtn.snp_remakeConstraints({ (make) -> Void in
                 make.leading.equalTo(createLabel.snp_leading)
                 make.top.equalTo(createLabel.snp_bottom).offset(0)
                 make.width.equalTo(reposWidth)
@@ -120,7 +120,7 @@ class CPEventCreateCell: CPEventBaseCell {
             
         }else{
             
-            inLabel.snp_remakeConstraints(closure: { (make) -> Void in
+            inLabel.snp_remakeConstraints({ (make) -> Void in
                 
                 make.leading.equalTo(createLabel.snp_leading)
                 make.top.equalTo(createLabel.snp_bottom).offset(0)
@@ -131,7 +131,7 @@ class CPEventCreateCell: CPEventBaseCell {
             
             let reposWidth = self.width-inLabel.right-rightPad;
             
-            reposNameBtn.snp_remakeConstraints(closure: { (make) -> Void in
+            reposNameBtn.snp_remakeConstraints({ (make) -> Void in
                 make.leading.equalTo(inLabel.snp_trailing).offset(5)
                 make.top.equalTo(createLabel.snp_bottom).offset(0)
                 make.width.equalTo(reposWidth)

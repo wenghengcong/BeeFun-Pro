@@ -74,16 +74,16 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
     
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request(.TrendingShowcase(showcase:showcase.slug!) ) { (result) -> () in
+        Provider.sharedProvider.request(.trendingShowcase(showcase:showcase.slug!) ) { (result) -> () in
             
             var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let result:ObjShowcase = Mapper<ObjShowcase>().map(try response.mapJSON() ) {
@@ -103,7 +103,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
                 } catch {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

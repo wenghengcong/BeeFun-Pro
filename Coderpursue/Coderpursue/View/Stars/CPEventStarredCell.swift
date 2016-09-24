@@ -24,8 +24,8 @@ class CPEventStarredCell: CPEventBaseCell {
         
         reposBtn.setTitle(event?.repo?.name, for:UIControlState())
         
-        let updateAt:Date = event!.created_at!.toDate(DateFormat.ISO8601)!
-        timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
+        let updateAt:Date = event!.created_at!.toDate(format:DateFormat.iso8601Format(.full))!
+        timeLabel.text = updateAt.toString(style: .colloquial)
 
     }
     

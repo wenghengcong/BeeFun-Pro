@@ -22,14 +22,14 @@ class CPBaseViewCell: UITableViewCell {
             self.addSubview(botView)
             
             if (fullline!) {
-                botView.snp_remakeConstraints(closure: { (make) -> Void in
+                botView.snp_remakeConstraints({ (make) -> Void in
                     make.left.equalTo(0)
                     make.right.equalTo(0)
                     make.bottom.equalTo(0)
                     make.height.equalTo(retinaPixelSize)
                 })
             }else {
-                botView.snp_remakeConstraints(closure: { (make) -> Void in
+                botView.snp_remakeConstraints({ (make) -> Void in
                     make.left.equalTo(10)
                     make.right.equalTo(0)
                     make.bottom.equalTo(0)
@@ -49,7 +49,7 @@ class CPBaseViewCell: UITableViewCell {
                 let topView:UIView = UIView()
                 topView.backgroundColor = UIColor.lineBackgroundColor()
                 self.addSubview(topView)
-                topView.snp_remakeConstraints(closure: { (make) -> Void in
+                topView.snp_remakeConstraints({ (make) -> Void in
                     make.left.equalTo(0)
                     make.right.equalTo(0)
                     make.top.equalTo(0)

@@ -36,14 +36,14 @@ class CPStarredReposCell: CPBaseViewCell {
             
             if let avatarURl = objRepos!.owner!.avatar_url {
                 
-                logoImgV.kf_setImageWithURL( URL(string:avatarURl)!, placeholderImage: nil)
+                logoImgV.kf.setImage(with: URL(string:avatarURl)!, placeholder: nil, options: .transition(.fade(1)), progressBlock: nil, completionHandler: nil)
             }
             
             nameLabel.text = objRepos!.name!
             descLabel.text = objRepos!.cdescription
-            let updateAt:Date = objRepos!.pushed_at!.toDate(format: DateFormat.iso8601)!
+            let updateAt:Date = objRepos!.pushed_at!.toDate(format: DateFormat.iso8601Format(.full))!
             
-            timeLabel.text = updateAt.toRelativeString(abbreviated: false, maxUnits:1)!+" ago"
+            timeLabel.text = updateAt.toString(style: .colloquial)
             starNumLabel.text = "\(objRepos!.stargazers_count!)"
             forkNumLabel.text = "\(objRepos!.forks_count!)"
             

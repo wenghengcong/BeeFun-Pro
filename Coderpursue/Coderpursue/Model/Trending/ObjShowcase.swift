@@ -30,11 +30,11 @@ class ObjShowcase: NSObject,Mappable {
         super.init()
     }
     
-    required init?(_ map: Map) {
+    required init?(map: Map) {
         //        super.init(map)
     }
     
-    func mapping(_ map: Map) {
+    func mapping(map: Map) {
         //        super.mapping(map)
         name <- map["name"]
         slug <- map["slug"]

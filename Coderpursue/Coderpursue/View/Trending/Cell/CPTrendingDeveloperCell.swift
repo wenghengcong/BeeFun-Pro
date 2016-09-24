@@ -30,6 +30,7 @@ class CPTrendingDeveloperCell: CPBaseViewCell {
         didSet{
             
             avatarImgV.kf_setImageWithURL( URL(string: (user!.avatar_url!))!, placeholderImage: nil)
+            avatarImgV.kf.setImage(with: URL(string: (user!.avatar_url!))!, placeholder: nil, options: .transition(.fade(1)), progressBlock: nil, completionHandler: nil)
             nameLabel.text = user!.login
         }
         

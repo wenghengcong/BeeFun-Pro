@@ -311,17 +311,17 @@ class CPTrendingViewController: CPBaseViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request(.TrendingRepos(since:paraSince,language:"all") ) { (result) -> () in
+        Provider.sharedProvider.request(.trendingRepos(since:paraSince,language:"all") ) { (result) -> () in
             
             var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
@@ -329,7 +329,7 @@ class CPTrendingViewController: CPBaseViewController {
                             self.reposData.removeAll()
                             self.reposData = repos!
                             self.tableView.reloadData()
-                            self.tableView.setContentOffset(CGPointZero, animated:true)
+                            self.tableView.setContentOffset(CGPoint.zero, animated:true)
                         }else{
                             self.reposData = self.reposData+repos!
                             self.tableView.reloadData()
@@ -341,7 +341,7 @@ class CPTrendingViewController: CPBaseViewController {
                 } catch {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

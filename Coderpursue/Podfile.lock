@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.0.0)
+  - Alamofire (4.0.1)
   - Bugly (2.4.0)
   - IQKeyboardManagerSwift (4.0.6)
   - Kingfisher (3.1.0)
@@ -42,11 +42,11 @@ CHECKOUT OPTIONS:
     :git: https://github.com/Moya/Moya.git
     :tag: 8.0.0-beta.1
   SwiftDate:
-    :commit: 644a4615c77dc70d7861ddadb2c59f5c45f4c235
+    :commit: 040b2c844a34a677feed13238a1bbcf85eceac41
     :git: https://github.com/malcommac/SwiftDate.git
 
 SPEC CHECKSUMS:
-  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
   Bugly: 3b56d8365c5687f74fd6fbb50c5b7ede3cdac96c
   IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
   Kingfisher: 7779f22e977393e9533a89a9685beb8f679d3767

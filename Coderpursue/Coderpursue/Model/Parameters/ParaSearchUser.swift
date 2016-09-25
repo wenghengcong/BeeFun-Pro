@@ -10,7 +10,7 @@ import UIKit
 
 public enum SearchUserQueryPrefix:String {
     
-    case Type = "type"
+    case Typee = "type"
     case In = "in"
     case Repos = "repos"
     case Location = "location"

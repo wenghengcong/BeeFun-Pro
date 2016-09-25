@@ -113,7 +113,7 @@ class CPGitLoginViewController: CPWebViewController {
             switch result {
             case let .success(response):
                 do {
-                    if let gitUser:ObjUser = Mapper<ObjUser>().map(try response.mapJSON()) {
+                    if let gitUser:ObjUser = Mapper<ObjUser>().map(JSONObject: try response.mapJSON()) {
                         ObjUser.saveUserInfo(gitUser)
                         //post successful noti
                         self.navigationController?.popViewController(animated: true)

@@ -101,7 +101,7 @@ class CPEventPushCell: CPEventBaseCell {
             
             if (i == 0) {
 
-                commitBtn.snp_makeConstraints(closure: { (make) -> Void in
+                commitBtn.snp_makeConstraints({ (make) -> Void in
                     
                     make.leading.equalTo(atLabel.snp_leading)
                     make.top.equalTo(reposNameBtn.snp_bottom).offset(5)
@@ -110,7 +110,7 @@ class CPEventPushCell: CPEventBaseCell {
                     
                 })
                 
-                commitLabel.snp_makeConstraints(closure: { (make) -> Void in
+                commitLabel.snp_makeConstraints({ (make) -> Void in
                     
                     make.leading.equalTo(commitBtn.snp_trailing).offset(0)
                     make.top.equalTo(commitBtn.snp_top)
@@ -124,7 +124,7 @@ class CPEventPushCell: CPEventBaseCell {
                 let lastBtn:UIButton = commitBtns[i-1]
                 
                 commitLabel.sizeToFit()
-                commitBtn.snp_makeConstraints(closure: { (make) -> Void in
+                commitBtn.snp_makeConstraints({ (make) -> Void in
                     
                     make.leading.equalTo(lastBtn.snp_leading)
                     make.top.equalTo(lastBtn.snp_bottom).offset(0)
@@ -133,7 +133,7 @@ class CPEventPushCell: CPEventBaseCell {
                     
                 })
                 
-                commitLabel.snp_makeConstraints(closure: { (make) -> Void in
+                commitLabel.snp_makeConstraints({ (make) -> Void in
                     
                     make.leading.equalTo(commitBtn.snp_trailing).offset(0)
                     make.top.equalTo(commitBtn.snp_top)

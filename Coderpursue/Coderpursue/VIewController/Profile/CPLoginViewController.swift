@@ -110,7 +110,7 @@ class CPLoginViewController: CPBaseViewController {
         
         let str = String(data: data, encoding: String.Encoding.utf8)
         
-        if let gitUser:ObjUser = Mapper<ObjUser>().map(str) {
+        if let gitUser:ObjUser = Mapper<ObjUser>().map(JSONString:str!) {
             
             ObjUser.saveUserInfo(gitUser)
             //post successful noti

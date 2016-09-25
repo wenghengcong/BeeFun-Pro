@@ -372,7 +372,7 @@ class CPTrendingViewController: CPBaseViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request(.SearchUsers(para:self.paraUser) ) { (result) -> () in
+        Provider.sharedProvider.request(.searchUsers(para:self.paraUser) ) { (result) -> () in
             
             var message = "No data to show"
             
@@ -382,20 +382,20 @@ class CPTrendingViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
-                    if let userResult:ObjSearchUserResponse = Mapper<ObjSearchUserResponse>().map(try response.mapJSON() ) {
+                    if let userResult:ObjSearchUserResponse = Mapper<ObjSearchUserResponse>().map(JSONObject:try response.mapJSON() ) {
                         if(self.paraUser.page == 1) {
                             
                             if(self.devesData != nil){
                                 self.devesData.removeAll()
                                 self.devesData = userResult.items
                                 self.tableView.reloadData()
-                                self.tableView.setContentOffset(CGPointZero, animated:true)
+                                self.tableView.setContentOffset(CGPoint.zero, animated:true)
                             }
 
                         }else{
@@ -409,7 +409,7 @@ class CPTrendingViewController: CPBaseViewController {
                 } catch {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
@@ -426,17 +426,17 @@ class CPTrendingViewController: CPBaseViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
         
-        Provider.sharedProvider.request(.TrendingShowcases() ) { (result) -> () in
+        Provider.sharedProvider.request(.trendingShowcases() ) { (result) -> () in
             
             var message = "No data to show"
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
             
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
-            case let .Success(response):
+            case let .success(response):
                 
                 do {
                     if let shows:[ObjShowcase]? = try response.mapArray(ObjShowcase){
@@ -450,7 +450,7 @@ class CPTrendingViewController: CPBaseViewController {
                 } catch {
                     CPGlobalHelper.sharedInstance.showError(message, view: self.view)
                 }
-            case let .Failure(error):
+            case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }

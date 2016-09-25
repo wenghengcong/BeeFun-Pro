@@ -263,7 +263,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             case let .success(response):
                 
                 do {
-                    if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
+                    if let result:ObjUser = Mapper<ObjUser>().map(JSONObject: try response.mapJSON() ) {
                         self.developer = result
                         self.dvc_updateViewContent()
                         

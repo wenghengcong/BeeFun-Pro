@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Moya
 import Foundation
 import MJRefresh
 import ObjectMapper
@@ -129,7 +128,7 @@ class CPProfileViewController: CPBaseViewController {
             case let .success(response):
                 
                 do {
-                    if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
+                    if let result:ObjUser = Mapper<ObjUser>().map(JSONObject: try response.mapJSON() ) {
                         ObjUser.saveUserInfo(result)
                         self.user = result
                         self.pvc_updateViewWithUserData()
@@ -211,7 +210,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             case let .success(response):
 
                 do {
-                    if let result:ObjUser = Mapper<ObjUser>().map(try response.mapJSON() ) {
+                    if let result:ObjUser = Mapper<ObjUser>().map(JSONObject:try response.mapJSON() ) {
                         ObjUser.saveUserInfo(result)
                         self.user = result
                         self.isLogin = UserInfoHelper.sharedInstance.isLogin
@@ -428,24 +427,22 @@ extension CPProfileViewController : MFMailComposeViewControllerDelegate {
     
     // MARK: MFMailComposeViewControllerDelegate
     func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        
         controller.dismiss(animated: true, completion: nil)
-        
+
         /*
-        switch(result){
-        case MFMailComposeResultCancelled:
-            return
-        case MFMailComposeResultSent:
-            return
-        case MFMailComposeResultFailed:
-            return
-        case MFMailComposeResultSaved:
-            return
-        default:
-            return
-        }
-        */
-        
+         switch(result){
+         case MFMailComposeResultCancelled:
+         return
+         case MFMailComposeResultSent:
+         return
+         case MFMailComposeResultFailed:
+         return
+         case MFMailComposeResultSaved:
+         return
+         default:
+         return
+         }
+         */
     }
     
 }

@@ -193,7 +193,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             case let .success(response):
                 
                 do {
-                    if let result:ObjRepos = Mapper<ObjRepos>().map(try response.mapJSON() ) {
+                    if let result:ObjRepos = Mapper<ObjRepos>().map(JSONObject: try response.mapJSON() ) {
                         self.repos = result
                         self.rvc_updateViewContent()
 

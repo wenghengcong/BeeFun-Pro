@@ -61,9 +61,9 @@ class CPBaseViewCell: UITableViewCell {
     
     static func cellFromNibNamed(_ nibName:String) -> AnyObject{
         
-        var nibContents:Array = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)
+        var nibContents:Array = Bundle.main.loadNibNamed(nibName, owner: self, options: nil)!
         let xibBasedCell = nibContents[0]
-        return xibBasedCell
+        return xibBasedCell as AnyObject
     }
     
     override func awakeFromNib() {

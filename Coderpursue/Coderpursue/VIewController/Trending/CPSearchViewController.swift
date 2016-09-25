@@ -226,7 +226,7 @@ class CPSearchViewController: CPBaseViewController {
                         return
                     }
                     
-                    if let userResult:ObjSearchUserResponse = Mapper<ObjSearchUserResponse>().map(try response.mapJSON() ) {
+                    if let userResult:ObjSearchUserResponse = Mapper<ObjSearchUserResponse>().map(JSONObject: try response.mapJSON() ) {
                         
                         if let total = userResult.totalCount {
                             self.totalItemCount = total
@@ -290,7 +290,7 @@ class CPSearchViewController: CPBaseViewController {
                         return
                     }
                     
-                    if let reposResult:ObjSearchReposResponse = Mapper<ObjSearchReposResponse>().map(try response.mapJSON() ) {
+                    if let reposResult:ObjSearchReposResponse = Mapper<ObjSearchReposResponse>().map(JSONObject: try response.mapJSON() ) {
                         
                         if let total = reposResult.totalCount {
                             self.totalItemCount = total

@@ -86,7 +86,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
             case let .success(response):
                 
                 do {
-                    if let result:ObjShowcase = Mapper<ObjShowcase>().map(try response.mapJSON() ) {
+                    if let result:ObjShowcase = Mapper<ObjShowcase>().map(JSONObject:try response.mapJSON() ) {
                         
                         if(self.showcase!.repositories != nil){
                             self.showcase!.repositories!.removeAll()

@@ -115,6 +115,7 @@ public extension CPHttpStatusCode {
     }
     
     /// - returns: `true` if the status code is in the provided range, false otherwise.
+    //see http://stackoverflow.com/questions/25308978/what-are-intervals-in-swift-ranges
     fileprivate func inRange(_ range: ClosedRange<Int>) -> Bool {
         return range.contains(rawValue)
     }

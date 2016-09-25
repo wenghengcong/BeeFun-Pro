@@ -19,22 +19,24 @@ typealias FailClosure = (_ errorMsg: String?) -> Void
 // MARK: - Provider setup
 
 // (Endpoint<Target>, NSURLRequest -> Void) -> Void
-func endpointResolver() -> MoyaProvider<GitHubAPI>.RequestClosure {
-    return { (endpoint, closure) in
-        let request: NSMutableURLRequest = endpoint.urlRequest.mutableCopy() as! NSMutableURLRequest
-        request.httpShouldHandleCookies = false
-        closure(request)
-    }
-}
+//func endpointResolver() -> MoyaProvider<GitHubAPI>.RequestClosure {
+//    return { (endpoint, closure) in
+//        let request: NSMutableURLRequest = endpoint.urlRequest.mutableCopy() as! NSMutableURLRequest
+//        request.httpShouldHandleCookies = false
+//        closure(request,nil)
+//    }
+//}
 
 class GitHupPorvider<Target>: MoyaProvider<Target> where Target: TargetType {
     
-    override init(endpointClosure: EndpointClosure = MoyaProvider.DefaultEndpointMapping,
-        requestClosure: RequestClosure = MoyaProvider.DefaultRequestMapping,
-        stubClosure: StubClosure = MoyaProvider.NeverStub,
-        manager: Manager = Manager.sharedInstance,
-        plugins: [PluginType] = []) {
-            super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins)
+    override init(endpointClosure: @escaping EndpointClosure = MoyaProvider.DefaultEndpointMapping,
+         requestClosure: @escaping RequestClosure = MoyaProvider.DefaultRequestMapping,
+         stubClosure: @escaping StubClosure = MoyaProvider.NeverStub,
+         manager: Manager = MoyaProvider<Target>.DefaultAlamofireManager(),
+         plugins: [PluginType] = [],
+         trackInflights: Bool = false) {
+        
+        super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins, trackInflights: trackInflights)
     }
 }
 
@@ -59,7 +61,7 @@ struct Provider{
     }
     
     static func DefaultProvider() -> GitHupPorvider<GitHubAPI> {
-        return GitHupPorvider(endpointClosure: endpointsClosure, requestClosure: endpointResolver(), stubClosure:MoyaProvider.NeverStub , manager: Alamofire.Manager.sharedInstance, plugins:[])
+        return GitHupPorvider(endpointClosure: endpointsClosure, requestClosure: MoyaProvider.DefaultRequestMapping, stubClosure:MoyaProvider.NeverStub , manager: Alamofire.SessionManager.default, plugins:[])
     }
     
     fileprivate struct SharedProvider {
@@ -204,7 +206,7 @@ public enum GitHubAPI {
 }
 
 extension GitHubAPI: TargetType {
-
+    
     public var baseURL: URL {
         switch self {
         case .trendingRepos:
@@ -428,7 +430,7 @@ extension GitHubAPI: TargetType {
         }
     }
     
-    public var parameters: [String: AnyObject]? {
+    public var parameters: [String : Any]? {
         
         switch self {
             
@@ -537,8 +539,8 @@ extension GitHubAPI: TargetType {
                 "creator":creator as AnyObject,
                 "mentioned":mentioned as AnyObject,
                 "labels":labels as AnyObject,
-                "sort":sort,
-                "direction":direction,
+                "sort":sort as AnyObject,
+                "direction":direction as AnyObject,
             ]
 
         case .createIssue(_,_ ,let title,let body,let assignee,let milestone,let labels):
@@ -694,6 +696,10 @@ extension GitHubAPI: TargetType {
         
     }
     
+    public var task: Task {
+        return .request
+    }
+    
     //Any target you want to hit must provide some non-nil NSData that represents a sample response. This can be used later for tests or for providing offline support for developers. This should depend on self.
     public var sampleData: Data {
         switch self {
@@ -718,7 +724,6 @@ private extension String {
 }
 
 public func url(_ route: TargetType) -> String {
-    print("api:\(route.baseURL.URLByAppendingPathComponent(route.path).absoluteString)")
-    return route.baseURL.URLByAppendingPathComponent(route.path).absoluteString
+    print("api:\(route.baseURL.appendingPathComponent(route.path).absoluteString)")
+    return route.baseURL.appendingPathComponent(route.path).absoluteString
 }
-

@@ -1,7 +1,7 @@
 # Coderpursue 
 
 [![](https://img.shields.io/badge/version-1.0.4-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
-[![](https://img.shields.io/badge/swift-2.2-green.svg)](https://developer.apple.com/swift/)
+[![](https://img.shields.io/badge/swift-3.0-green.svg)](https://developer.apple.com/swift/)
 
 Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift.Also,It's an open project.
 

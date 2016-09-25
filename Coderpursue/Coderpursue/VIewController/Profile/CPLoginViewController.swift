@@ -69,24 +69,25 @@ class CPLoginViewController: CPBaseViewController {
         let base64LoginString = loginData.base64EncodedString(options: .lineLength64Characters)
         let authorizationHeaderStr = "Basic \(base64LoginString)"
         
-        let headers = [
-            "Authorization": authorizationHeaderStr,
-        ]
+        let urlString = "https://api.github.com/user"
+        let headers = ["Authorization": authorizationHeaderStr]
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
+        
+        Alamofire.request(urlString, parameters: ["":""], headers: headers).responseJSON { response in
 
-    
-        Alamofire.request("https://api.github.com/user").response{
-            
-            MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             debugPrint(response)
-            if(error == nil){
-                self.lvc_saveAuthorization(authorizationHeaderStr)
-                self.lvc_saveUserInfoData(data!)
+            switch response.result{
+                case let .success(response):
+                    self.lvc_saveAuthorization(authorizationHeaderStr)
+                    self.lvc_saveUserInfoData((response as AnyObject).data!)
+                case .failure(_): break
+                
             }
-
         }
+        
     }
     
     func lvc_checkInputText(){

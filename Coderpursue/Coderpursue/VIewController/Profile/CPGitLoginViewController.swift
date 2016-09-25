@@ -69,19 +69,20 @@ class CPGitLoginViewController: CPWebViewController {
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
 
-        Alamofire.request(.POST, "https://github.com/login/oauth/access_token", parameters: para)
+        //POST请求
+        Alamofire.request("https://github.com/login/oauth/access_token",method:.post,parameters: para)
             .responseJSON { response in
-                MBProgressHUD.hideAllHUDsForView(self.view, animated: true)
-                let str = String(data: response.data!, encoding: NSUTF8StringEncoding)
+                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                let str = String(data: response.data!, encoding: String.Encoding.utf8)
                 //access_token=7c897cd55113db38df41521eb897f47e395df845&scope=public_repo%2Cuser&token_type=bearer
                 print("access: \(str)")
                 if str != nil {
-                    let arr:[String] = (str!.componentsSeparatedByString("&"))
+                    let arr:[String] = (str!.components(separatedBy: ("&")))
                     
                     if arr.count > 0 {
-                        let accesstoken = arr[0].substringFromIndex(arr[0].startIndex.advancedBy(13))
-                        let scope = arr[1].substringFromIndex(arr[1].startIndex.advancedBy(7))
-                        let tokentype = arr[2].substringFromIndex(arr[2].startIndex.advancedBy(11))
+                        let accesstoken = arr[0].substring(from:arr[0].index(arr[0].startIndex ,offsetBy:13))
+                        let scope = arr[1].substring(from:arr[1].index(arr[1].startIndex ,offsetBy:7))
+                        let tokentype = arr[2].substring(from:arr[2].index(arr[2].startIndex ,offsetBy:11))
                         
                         var token = AppToken.sharedInstance
                         token.access_token = String(format: "token %@", accesstoken)

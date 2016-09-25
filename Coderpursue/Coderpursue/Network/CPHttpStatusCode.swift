@@ -95,15 +95,15 @@ public enum CPHttpStatusCode: Int {
 public extension CPHttpStatusCode {
     /// Informational - Request received, continuing process.
     public var isInformational: Bool {
-        return inRange(100...199)
+        return inRange( (100...199) )
     }
     /// Success - The action was successfully received, understood, and accepted.
     public var isSuccess: Bool {
-        return inRange(200...299)
+        return inRange( (200...299) )
     }
     /// Redirection - Further action must be taken in order to complete the request.
     public var isRedirection: Bool {
-        return inRange(300...399)
+        return inRange( (300...399) )
     }
     /// Client Error - The request contains bad syntax or cannot be fulfilled.
     public var isClientError: Bool {
@@ -115,7 +115,7 @@ public extension CPHttpStatusCode {
     }
     
     /// - returns: `true` if the status code is in the provided range, false otherwise.
-    fileprivate func inRange(_ range: Range<Int>) -> Bool {
+    fileprivate func inRange(_ range: ClosedRange<Int>) -> Bool {
         return range.contains(rawValue)
     }
 }

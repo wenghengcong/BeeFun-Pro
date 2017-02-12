@@ -19,7 +19,7 @@ extension UIColor {
      
      - returns: UIColor
      */
-    class func hexStr(_ hexStr : NSString,alpha : CGFloat) -> UIColor {
+    class func hexStr(_ hexStr : String,alpha : CGFloat) -> UIColor {
         
         let realHexStr = hexStr.replacingOccurrences(of: "#", with: "");
         let scanner = Scanner(string: realHexStr as String);

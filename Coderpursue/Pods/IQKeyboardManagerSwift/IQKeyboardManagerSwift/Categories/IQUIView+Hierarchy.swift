@@ -112,13 +112,13 @@ public extension UIView {
     /**
     Returns the superView of provided class type.
     */
-    public func superviewOfClassType(_ classType:AnyClass)->UIView? {
+    public func superviewOfClassType(_ classType:UIView.Type)->UIView? {
 
         struct InternalClass {
             
-            static var UITableViewCellScrollViewClass: AnyClass?   =   NSClassFromString("UITableViewCellScrollView") //UITableViewCell
-            static var UITableViewWrapperViewClass: AnyClass?      =   NSClassFromString("UITableViewWrapperView") //UITableViewCell
-            static var UIQueuingScrollViewClass: AnyClass?         =   NSClassFromString("_UIQueuingScrollView") //UIPageViewController
+            static var UITableViewCellScrollViewClass: UIScrollView.Type?   =   NSClassFromString("UITableViewCellScrollView") as? UIScrollView.Type //UITableViewCell
+            static var UITableViewWrapperViewClass: UIView.Type?      =   NSClassFromString("UITableViewWrapperView") as? UIView.Type //UITableViewCell
+            static var UIQueuingScrollViewClass: UIScrollView.Type?         =   NSClassFromString("_UIQueuingScrollView") as? UIScrollView.Type //UIPageViewController
         }
 
         var superView = superview
@@ -173,9 +173,11 @@ public extension UIView {
             
             if textField._IQcanBecomeFirstResponder() == true {
                 textfields.append(textField)
-                
-                //Sometimes there are hidden or disabled views and textField inside them still recorded, so we added some more validations here (Bug ID:
-            } else if textField.subviews.count != 0  && isUserInteractionEnabled == true && isHidden == false && alpha != 0.0 {
+            }
+
+            //Sometimes there are hidden or disabled views and textField inside them still recorded, so we added some more validations here (Bug ID: #458)
+            //Uncommented else (Bug ID: #625)
+            if textField.subviews.count != 0  && isUserInteractionEnabled == true && isHidden == false && alpha != 0.0 {
                 for deepView in textField.deepResponderViews() {
                     textfields.append(deepView)
                 }
@@ -232,7 +234,7 @@ public extension UIView {
         
         struct InternalClass {
             
-            static var UISearchBarTextFieldClass: AnyClass?        =   NSClassFromString("UISearchBarTextField") //UISearchBar
+            static var UISearchBarTextFieldClass: UITextField.Type?        =   NSClassFromString("UISearchBarTextField") as? UITextField.Type//UISearchBar
         }
 
         return  (InternalClass.UISearchBarTextFieldClass != nil && isKind(of: InternalClass.UISearchBarTextFieldClass!)) || self is UISearchBar
@@ -245,8 +247,8 @@ public extension UIView {
         
         struct InternalClass {
             
-            static var UIAlertSheetTextFieldClass: AnyClass?       =   NSClassFromString("UIAlertSheetTextField") //UIAlertView
-            static var UIAlertSheetTextFieldClass_iOS8: AnyClass?  =   NSClassFromString("_UIAlertControllerTextField") //UIAlertView
+            static var UIAlertSheetTextFieldClass: UITextField.Type?       =   NSClassFromString("UIAlertSheetTextField") as? UITextField.Type //UIAlertView
+            static var UIAlertSheetTextFieldClass_iOS8: UITextField.Type?  =   NSClassFromString("_UIAlertControllerTextField") as? UITextField.Type //UIAlertView
         }
         
         return (InternalClass.UIAlertSheetTextFieldClass != nil && isKind(of: InternalClass.UIAlertSheetTextFieldClass!)) ||

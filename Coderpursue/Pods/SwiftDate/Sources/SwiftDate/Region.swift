@@ -1,5 +1,5 @@
 //
-//	SwiftDate, an handy tool to manage date and timezones in swift
+//	SwiftDate, Full featured Swift date library for parsing, validating, manipulating, and formatting dates and timezones.
 //	Created by:				Daniele Margutti
 //	Main contributors:		Jeroen Houtzager
 //
@@ -24,142 +24,117 @@
 
 import Foundation
 
-// Backward compatibility resolves issue https://github.com/malcommac/SwiftDate/issues/121
-//
-@available(*, renamed:  "DateRegion")
-public typealias DateRegion = Region
+// MARK: - Region
 
-/// Region encapsulates all objects you need when representing a date from an absolute time like
-/// NSDate.
-///
-@available(*, introduced:2.0)
-public struct Region: Equatable {
-
-	/// Define the default region to use when you avoid to pass a valid Region() as parameter inside the library itself.
-	/// Default region is composed by
-	public static var defaultRegion: Region = {
-		return Region()
-	}()
-
-    /// Calendar to interpret date values. You can alter the calendar to adjust the representation
-    /// of date to your needs.
-    ///
-    public let calendar: Calendar
-
-    /// Time zone to interpret date values
-    /// Because the time zone is part of calendar, this is a shortcut to that variable.
-    /// You can alter the time zone to adjust the representation of date to your needs.
-    ///
-    public var timeZone: TimeZone {
-        return self.calendar.timeZone
-    }
-
-    /// Locale to interpret date values
-    /// Because the locale is part of calendar, this is a shortcut to that variable.
-    /// You can alter the locale to adjust the representation of date to your needs.
-    ///
-    public var locale: Locale {
-        return self.calendar.locale!
-    }
-
-    /// Initialise with a calendar and/or a time zone
-    ///
-    /// - Parameters:
-    ///     - calendar: the calendar to work with
-    ///     - timeZone: the time zone to work with
-    ///     - locale: the locale to work with
-    ///
-    public init(
-        calendar: Calendar,
-        timeZone: TimeZone? = nil,
-        locale: Locale? = nil) {
-
-        var calendar = calendar
-        calendar.locale = locale ?? calendar.locale ?? Locale.current
-        calendar.timeZone = timeZone ?? calendar.timeZone
-        self.calendar = calendar
+/// Region encapsulate information about the TimeZone, Calendar and Locale of an absolute time
+public struct Region: CustomStringConvertible {
+	public fileprivate(set) var timeZone: TimeZone
+	public fileprivate(set) var calendar: Calendar
+	public fileprivate(set) var locale: Locale
+	
+	public var description: String {
+		return "Region with timezone: \(self.timeZone), calendar: \(self.calendar), locale: \(self.locale)"
+	}
+	
+	/// Initialize a new Region by passing `TimeZone`, `Calendar` and `Locale` objects
+	///
+	/// - parameter tz:  timezone to use
+	/// - parameter cal: calendar to use
+	/// - parameter loc: locale to use
+	///
+	/// - returns: a new `Region`
+	public init(tz: TimeZone, cal: Calendar, loc: Locale) {
+		self.timeZone = tz
+		self.calendar = cal
+		self.calendar.timeZone = tz
+		self.locale = loc
+	}
+	
+	/// Initialize a new region by passing names for TimeZone, Calendar and Locale
+	///
+	/// - parameter tz:  timezone name to use (see `TimeZoneName`)
+	/// - parameter cal: calendar name to use (see `CalendarName`)
+	/// - parameter loc: locale name to use (see `LocaleName`)
+	///
+	/// - returns: a new `Region`
+	public init(tz: TimeZoneName, cal: CalendarName, loc: LocaleName) {
+		self.timeZone = tz.timeZone
+		self.calendar = cal.calendar
+		self.calendar.timeZone = tz.timeZone
+		self.locale = loc.locale
+	}
+	
+	/// Initialize a new region by passing a `DateComponents` instance
+	/// Region is created by reading object's `.timezone`, `.calendar` and `.calendar.locale`
+	///
+	/// - parameter components: components to use
+	///
+	/// - returns: a new `Region`
+	public init?(components: DateComponents) {
+		let tz = components.timeZone ?? TimeZoneName.current.timeZone
+		let cal = components.calendar ?? CalendarName.gregorian.calendar
+		let loc = cal.locale ?? LocaleName.current.locale
+		self.init(tz: tz, cal: cal, loc: loc)
+	}
+	
+	/// Generate a new region which uses `GMT` timezone and current's device `Calendar` and `Locale`
+	///
+	/// - returns: a new `Region`
+	public static func GMT() -> Region {
+		let tz = TimeZoneName.gmt.timeZone
+		let cal = CalendarName.current.calendar
+		let loc = LocaleName.current.locale
+		return Region(tz: tz, cal: cal, loc: loc)
+	}
+	
+	/// Generate a new regione which uses current device's local settings (`Calendar`,`TimeZone` and `Locale`)
+	///
+	/// - parameter auto: `true` to get automatically new settings when device's timezone/calendar/locale changes
+	///
+	/// - returns: a new `Region`
+	public static func Local(autoUpdate auto: Bool = true) -> Region {
+		let tz = (auto ? TimeZoneName.currentAutoUpdating : TimeZoneName.current).timeZone
+		let cal = (auto ? CalendarName.currentAutoUpdating : CalendarName.current).calendar
+		let loc = (auto ? Locale.autoupdatingCurrent : Locale.current)
+		return Region(tz: tz, cal: cal, loc: loc)
 	}
 
-    /// Initialise with a date components
-    ///
-    /// - Parameters:
-    ///     - components: the date components to initialise with
-    ///
-    internal init(_ components: DateComponents) {
-
-        let calendar = components.calendar ?? Calendar.current
-        let timeZone = components.timeZone
-        let locale = calendar.locale
-
-        self.init(calendar: calendar, timeZone: timeZone, locale: locale)
-    }
-
-    /// Initialise with a calendar and/or a time zone
-    ///
-    /// - Parameters:
-    ///     - calendarName: the calendar to work with to assign in `CalendarName` format, default =
-    ///         the current calendar
-    ///     - timeZoneName: the time zone to work with in `TimeZoneConvertible` format, default is
-    ///             the default time zone
-    ///     - localeName: the locale to work with, default is the current locale
-    ///
-    public init(
-        calendarName: CalendarName? = nil,
-        timeZoneName: TimeZoneName? = nil,
-        localeName: LocaleName? = nil) {
-
-        let calendar = calendarName?.calendar ?? Calendar.current
-        let timeZone = timeZoneName?.timeZone ?? NSTimeZone.default
-        let locale = localeName?.locale ?? NSLocale.current
-
-        self.init(calendar: calendar, timeZone: timeZone, locale: locale)
-    }
-
-    /// Today's date
-    ///
-    /// - Returns: the date of today at midnight (00:00) in the current calendar and default time
-    ///     zone.
-    ///
-    public func today() -> DateInRegion {
-        return DateInRegion(region: self).startOf(component: .day)
-    }
-
-    /// Yesterday's date
-    ///
-    /// - Returns: the date of yesterday at midnight (00:00)
-    ///
-    public func yesterday() -> DateInRegion {
-        return today() - 1.days
-    }
-
-    /// Tomorrow's date
-    ///
-    /// - Returns: the date of tomorrow at midnight (00:00)
-    ///
-    public func tomorrow() -> DateInRegion {
-        return today() + 1.days
-    }
-
 }
 
+
+// MARK: - Region Equatable Protocol
+
+extension Region: Equatable {}
+
+
+/// See if two regions are equal by comparing timezone, calendar and locale
+///
+/// - parameter left:  first region for comparision
+/// - parameter right: second region for comparision
+///
+/// - returns: `true` if both region represent the same geographic/cultural location
 public func == (left: Region, right: Region) -> Bool {
-    if left.calendar.identifier != right.calendar.identifier {
-        return false
-    }
-
-    if left.timeZone.identifier != right.timeZone.identifier {
-        return false
-    }
-
-    if left.locale.identifier != right.locale.identifier {
-        return false
-    }
-
-    return true
+	if left.calendar.identifier != right.calendar.identifier {
+		return false
+	}
+	
+	if left.timeZone.identifier != right.timeZone.identifier {
+		return false
+	}
+	
+	if left.locale.identifier != right.locale.identifier {
+		return false
+	}
+	
+	return true
 }
+
+
+// MARK: - Region Hashable Protocol 
 
 extension Region: Hashable {
-    public var hashValue: Int {
-        return calendar.hashValue ^ timeZone.hashValue ^ locale.hashValue
-    }
+	public var hashValue: Int {
+		return self.calendar.hashValue ^ self.timeZone.hashValue ^ self.locale.hashValue
+	}
 }
+

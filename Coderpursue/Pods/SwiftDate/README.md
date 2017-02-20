@@ -1,47 +1,178 @@
-![SwiftDate](https://raw.githubusercontent.com/malcommac/SwiftDate/master/swiftdate-logo.png)
+<p align="center" >
+  <img src="https://raw.githubusercontent.com/malcommac/SwiftDate/master/logo.png" width=210px height=211 alt="SwiftDate" title="SwiftDate">
+</p>
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![CI Status](https://travis-ci.org/malcommac/SwiftDate.svg)](https://travis-ci.org/malcommac/SwiftDate) [![Version](https://img.shields.io/cocoapods/v/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![License](https://img.shields.io/cocoapods/l/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate) [![Platform](https://img.shields.io/cocoapods/p/SwiftDate.svg?style=flat)](http://cocoadocs.org/docsets/SwiftDate)
 
-SwiftDate 3 is a lightweight and powerfull date management library made in Swift: the goal of this project is to allow developers to manage easily dates operation and timezones conversions. SwiftDate allows you to:
-- [x] Perform **calculations with dates**: `aDate + 2.weeks + 1.hours` or `(1.years - 2.hours + 16.minutes).fromNow()`
-- [x] **Compare dates** with math operators `<,>,==,<=,>=`. For example you can do `aDate1 >= aDate2` or `aDate1.inTimeRange("15:20","20:20")`
-- [x] **Easily get time components**. E.g. `aDateInRegion.day` or `hour, minutes etc.`
-- [x] Easy/optimized way **to get and transform a date from and to strings** (with **relative date supports*** like '2 hours, 5 minutes' etc.)
-- [x] **Easy conversions to and from timezone, locale and calendar**. Use helper class `DateInRegion` and perform conversions with components and operations!
-- [x] Many shortcuts to get intervals and common dates (`isYesterday,isTomorrow...`)
-- [x] Compatible with Swift 2.0+ and iOS/Mac/WatchOS/tvOS platforms
-- [x] _... many many other shiny things!_
+We really ♥ Swift and we think that dates and timezones management should be painless: this is the reason we made SwiftDate, probably the best way to manage date and time in Swift.
 
-## Introduction
-`NSDate` is the central class of the date/time handling in Foundation framework. It encapsulates a moment in time that is  internally stored as the number of seconds since Jan 1, 2001 at 00:00 UTC. It is [universal](http://en.wikipedia.org/wiki/Coordinated_Universal_Time) as such that it is the same moment everywhere around the world and beyond (we do not have [star date](https://en.wikipedia.org/wiki/Stardate) yet ;-) ). We call it 'absolute time'.
+Choose SwiftDate for your next project, or migrate over your existing projects—you'll be happy you did!
 
-See absolute time as the moment that someone in the USA has a telephone conversation with someone in Dubai. Both have that conversation at the same moment (absolute time) but the local time will be different due to time zones, different calendars, different alphabets and/or different date notation methods. You need helper classes like `NSCalendar` to represent an `NSDate` object and perform calculations on it.
+<p align="center" >★★ <b>Star our github repository to help us!</b> ★★</p>
+<p align="center" >Created by <a href="http://www.danielemargutti.com">Daniele Margutti</a> (<a href="http://www.twitter.com/danielemargutti">@danielemargutti</a>)</p>
 
-This important concept is the root of several problems for programmers when dealing with time conversions across time zones, calendars and locales in Cocoa. Here SwiftDate comes to the rescue.
+## Main features
+Here's a highlight of the main features you can find in SwiftDate:
 
-## SwiftDate
+* **Simple math operations with dates!** Example: `aDate + 2.weeks + 1.hour or (1.year - 2.hours + 16.minutes).fromNow()`
+* **Easy conversions to and from timezone, locale and calendar**. Use the helper class `DateInRegion` and perform conversions with components and operations!
+* **Compare dates with math operators** `<,>,==,<=,>=`. For example, you can do `aDate1 >= aDate2 or aDate1.isIn(anotherDate,.day)`
+* **Easily work with time components**. E.g. `aDateInRegion.day` or `hour`, `minutes` etc. expressed in your favourite timezone!
+* **Easy and optimized way to get and transform a date from and to strings**: supports both colloquial (human readable) and fixed formats (**ISO8601, AltRSS, RSS, Extended, .NET and custom string as per Unicode standard**)
+* **Express time interval in other time units**; for example `120.seconds.in(.minutes) // 2 minutes`
+* **Many shortcuts to get intervals, work with time units, intervals and common date operations** (`isYesterday,isTomorrow,isBefore()`...)
+* ... [many many other shiny things!](http://malcommac.github.io/SwiftDate)
 
-SwiftDate introduces the concepts of `Region` and `DateInRegion`. The former contains everything to represent a moment in time in the calendar, time zone and locale of the region specified. The latter is a combination of an absolute time (`NSDate`) with a `Region` object. See it as an object that encapsulates a moment in time in a certain region.
+## You also may like
 
-In SwiftDate you can work with date components both for `DateInRegion` and `NSDate`.
-When you work with `NSDate` you are working with an absolute time and components are evaluated against your local region. When you work with the `DateInRegion` class then all methods and properties are represented with a region that you can specify.
+Do you like `SwiftDate`? I'm also working on several other opensource libraries.
 
+Take a look here:
+
+* **[Hydra](https://github.com/malcommac/Hydra)** - Promises & Await/Async in Swift - Write better async code in Swift
+* **[SwiftLocation](https://github.com/malcommac/SwiftLocation)** - CoreLocation and Beacon Monitoring on steroid!
+* **[SwiftRichString](https://github.com/malcommac/SwiftRichString)** - Elegant and painless attributed string in Swift
+* **[SwiftScanner](https://github.com/malcommac/SwiftScanner)** - String scanner in pure Swift with full unicode support
+* **[SwiftSimplify](https://github.com/malcommac/SwiftSimplify)** - Tiny high-performance Swift Polyline Simplification Library
+
+## How to get started
+
+* **Check our website [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate) to learn more about all available functions with a comprehensive list of examples**
+* Install SwiftDate via CocoaPods, Carthage or Swift Package Manager
+* Have fun!
 
 ## Documentation
-- [Installation with CocoaPods or Carthage](./Documentation/0.Installation.md)
-- [Create NSDate/DateInRegion and Region](./Documentation/1.CreateDates.md)
-- [Access to date properties](./Documentation/2.InspectDates.md)
-- [Operations with dates](./Documentation/3.OperationsWithDates.md)
-- [Compare dates](./Documentation/4.CompareDates.md)
-- [Conversion between timezones/locale and calendars](./Documentation/5.Conversions.md)
-- [From date to string and natural/relative date formatting](./Documentation/6.DatesToString.md)
-- [Upgrade from older versions](./Documentation/8.UpgradeGuide.md)
-- [Design Guide](./Documentation/7.Design.md)
-- [Change history](./CHANGELOG.md)
+* **On [http://malcommac.github.io/SwiftDate/index.html](http://malcommac.github.io/SwiftDate/index.html) to learn more about all available functions with a comprehensive list of examples**
+* The **latest [full class documentation is available here](http://cocoadocs.org/docsets/SwiftDate/4.0.8/)**
+
+Code is documented for Xcode, so you can use the built-in documentation panel to learn more about the library.
+
+You can also generate the latest documentation using [Jazzy](https://github.com/realm/jazzy); install Jazzy via ```gem install jazzy``` then, from terminal, move to the ```/SwiftDate``` folder and type ```jazzy -c jazzy.yaml```. Documentation will be generated in ```docs``` folder.
+
+## Communication
+- If you **need help**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/swiftdate). (Tag 'swiftdate')
+- If you'd like to **ask a general question**, use [Stack Overflow](http://stackoverflow.com/questions/tagged/swiftdate).
+- If you **found a bug**, _and can provide steps to reliably reproduce it_, [open an issue](https://github.com/malcommac/SwiftDate/issues/new).
+- If you **have a feature request**, [open an issue](https://github.com/malcommac/SwiftDate/issues/new).
+- If you **want to contribute**, [submit a pull request](https://github.com/malcommac/SwiftDate/compare).
+
+## Current Release
+
+Latest release is: 4.0.13 [Download here](https://github.com/malcommac/SwiftDate/releases/tag/4.0.13).
+
+A complete list of changes for each release is available in the [CHANGELOG](CHANGELOG.md) file.
+
+## Help Us!
+Currently we need translations for [SwiftDate.bundle](https://github.com/malcommac/SwiftDate/tree/master/Sources/SwiftDate/SwiftDate.bundle).
+Help us with a pull request!
+
+Currently SwiftDate supports:
+* English (since 4.0.0)
+* Italian (since 4.0.0)
+* German (made by to [hackolein](https://github.com/hackolein), since 4.0.3)
+* Dutch (made by [hout](https://github.com/Hout), since 4.0.0)
+* French (made by [pierrolivier](https://github.com/pierrolivier), since 4.0.5)
+* Indonesian (made by [suprie](https://github.com/suprie), since 4.0.5)
+* Simplified Chinese (made by [codingrhythm](https://github.com/codingrhythm), since 4.0.5)
+* Traditional Chinese (made by [rynecheow](https://github.com/rynecheow), since 4.0.7)
+* Spanish (made by [adrimarti](https://github.com/adrimarti) and [Sepho](https://github.com/Sepho), since 4.0.8)
+* Czech (made by [rbukovansky](https://github.com/rbukovansky), since 4.0.8)
+* Danish (made by [emilpedersen](https://github.com/emilpedersen), since 4.0.8)
+* Slovak (made by [beretis](https://github.com/beretis), since 4.0.8)
+* Korean (made by [KisukPark](https://github.com/KisukPark), since 4.0.8)
+* Turkish (made by [fatihyildizhan](https://github.com/fatihyildizhan), since 4.0.8)
+* Vietnamese (made by [solbadguyky](https://github.com/solbadguyky), since 4.0.9)
+* Japanese (made by [bati668](https://github.com/bati668), since 4.0.9)
+* Brazilian Portuguese (made by [ipedro](https://github.com/ipedro), since 4.0.11)
+* Hebrew (made by [@ilandbt](https://github.com/ilandbt), since 4.0.12)
+* Swedish (made by [@traneHead](https://github.com/traneHead), since 4.0.12)
+* Arabic (made by [@abdualrhmanIO](https://github.com/abdualrhmanIO), since 4.0.13)
+
+Make a pull request and add your language!
+
+## Installation
+
+SwiftDate supports multiple methods for installing the library in a project.
+
+## Installation with CocoaPods
+
+[CocoaPods](http://cocoapods.org) is a dependency manager for Objective-C, which automates and simplifies the process of using 3rd-party libraries like SwiftDate in your projects. You can install it with the following command:
+
+```bash
+$ gem install cocoapods
+```
+
+> CocoaPods 1.0.1+ is required to build SwiftDate 4+ (along with Swift 3 and Xcode 8).
+
+#### Podfile
+
+To integrate SwiftDate into your Xcode project using CocoaPods, specify it in your `Podfile`:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+
+target 'TargetName' do
+  use_frameworks!
+  pod 'SwiftDate', '~> 4.0'
+end
+```
+
+Then, run the following command:
+
+```bash
+$ pod install
+```
+
+### Installation with Carthage
+
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate SwiftDate into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "malcommac/SwiftDate" ~> 4.0
+```
+
+Run `carthage` to build the framework and drag the built `SwiftDate.framework` into your Xcode project.
+
+## Requirements
+
+Current version is compatible with:
+
+* Swift 3.0+
+* iOS 8 or later
+* macOS 10.10 or later
+* watchOS 2.0 or later
+* tvOS 9.0 or later
+* ...and virtually any platform which is compatible with Swift 3 and implements the Swift Foundation Library
+
+Are you searching for an old (unsupported) SwiftDate version?
+Check out:
+* [Swift 2.3 Branch](https://github.com/malcommac/SwiftDate/tree/feature/swift_23)
+* Swift 2.2: Use version 3.0.8 in CocoaPods
 
 
-## Author
-This library was created by [Daniele Margutti](https://github.com/malcommac) with contribution of [Jeroen Houtzager](https://github.com/Hout). Any help is welcome; feel free to post your issue or pull request, in the spirit of open source software.
+## Credits & License
+SwiftDate is owned and maintained by [Daniele Margutti](http://www.danielemargutti.com/) along with main contributions of [Jeroen Houtzager](https://github.com/Hout).
 
-## Older Versions
-SwiftDate 1.2 branch last revision is available [here](https://github.com/malcommac/SwiftDate/releases/tag/1.2). This version is not supported anymore.
+As open source creation any help is welcome!
+
+The code of this library is licensed under MIT License; you can use it in commercial products without any limitation.
+
+The only requirement is to add a line in your Credits/About section with the text below:
+
+```
+Date and Time Management is provided by SwiftDate - http://www.swift-date.com
+Created by Daniele Margutti and licensed under MIT License.
+```
+
+## Your App and SwiftDate
+We are interested in making a list of all projects which use this library. Feel free to open an Issue on GitHub with the name and links of your project; we'll add it to this site.

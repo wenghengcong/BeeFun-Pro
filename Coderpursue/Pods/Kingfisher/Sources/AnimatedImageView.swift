@@ -9,7 +9,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2014-2016 Reda Lemeden.
+//  Copyright (c) 2017 Reda Lemeden.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy of
 //  this software and associated documentation files (the "Software"), to deal in
@@ -162,7 +162,7 @@ open class AnimatedImageView: UIImageView {
         if let imageSource = image?.kf.imageSource?.imageRef {
             animator = Animator(imageSource: imageSource, contentMode: contentMode, size: bounds.size, framePreloadCount: framePreloadCount)
             animator?.needsPrescaling = needsPrescaling
-            animator?.prepareFrames()
+            animator?.prepareFramesAsynchronously()
         }
         didMove()
     }
@@ -217,6 +217,10 @@ class Animator {
     
     var contentMode = UIViewContentMode.scaleToFill
     
+    private lazy var preloadQueue: DispatchQueue = {
+        return DispatchQueue(label: "com.onevcat.Kingfisher.Animator.preloadQueue")
+    }()
+    
     /**
      Init an animator with image source reference.
      
@@ -235,12 +239,18 @@ class Animator {
     }
     
     func frame(at index: Int) -> Image? {
-        return animatedFrames[index].image
+        return animatedFrames[safe: index]?.image
     }
     
-    func prepareFrames() {
+    func prepareFramesAsynchronously() {
+        preloadQueue.async { [weak self] in
+            self?.prepareFrames()
+        }
+    }
+    
+    private func prepareFrames() {
         frameCount = CGImageSourceGetCount(imageSource)
-
+        
         if let properties = CGImageSourceCopyProperties(imageSource, nil),
             let gifInfo = (properties as NSDictionary)[kCGImagePropertyGIFDictionary as String] as? NSDictionary,
             let loopCount = gifInfo[kCGImagePropertyGIFLoopCount as String] as? Int
@@ -251,15 +261,18 @@ class Animator {
         let frameToProcess = min(frameCount, maxFrameCount)
         animatedFrames.reserveCapacity(frameToProcess)
         animatedFrames = (0..<frameToProcess).reduce([]) { $0 + pure(prepareFrame(at: $1))}
+        currentPreloadIndex = (frameToProcess + 1) % frameCount
     }
     
-    func prepareFrame(at index: Int) -> AnimatedFrame {
+    private func prepareFrame(at index: Int) -> AnimatedFrame {
+        
         guard let imageRef = CGImageSourceCreateImageAtIndex(imageSource, index, nil) else {
             return AnimatedFrame.null
         }
         
-        let frameDuration = imageSource.kf.GIFProperties(at: index).flatMap {
-            gifInfo -> Double? in
+        let defaultGIFFrameDuration = 0.100
+        let frameDuration = imageSource.kf.gifProperties(at: index).map {
+            gifInfo -> Double in
             
             let unclampedDelayTime = gifInfo[kCGImagePropertyGIFUnclampedDelayTime as String] as Double?
             let delayTime = gifInfo[kCGImagePropertyGIFDelayTime as String] as Double?
@@ -274,8 +287,8 @@ class Animator {
              
              See also: http://nullsleep.tumblr.com/post/16524517190/animated-gif-minimum-frame-delay-browser.
              */
-            return duration > 0.011 ? duration : 0.100
-        }
+            return duration > 0.011 ? duration : defaultGIFFrameDuration
+        } ?? defaultGIFFrameDuration
         
         let image = Image(cgImage: imageRef)
         let scaledImage: Image?
@@ -286,7 +299,7 @@ class Animator {
             scaledImage = image
         }
         
-        return AnimatedFrame(image: scaledImage, duration: frameDuration ?? 0.0)
+        return AnimatedFrame(image: scaledImage, duration: frameDuration)
     }
     
     /**
@@ -299,22 +312,33 @@ class Animator {
         }
         
         timeSinceLastFrameChange -= frameDuration
+        
         let lastFrameIndex = currentFrameIndex
         currentFrameIndex += 1
         currentFrameIndex = currentFrameIndex % animatedFrames.count
         
         if animatedFrames.count < frameCount {
-            animatedFrames[lastFrameIndex] = prepareFrame(at: currentPreloadIndex)
-            currentPreloadIndex += 1
-            currentPreloadIndex = currentPreloadIndex % frameCount
+            preloadFrameAsynchronously(at: lastFrameIndex)
         }
         return true
+    }
+    
+    private func preloadFrameAsynchronously(at index: Int) {
+        preloadQueue.async { [weak self] in
+            self?.preloadFrame(at: index)
+        }
+    }
+    
+    private func preloadFrame(at index: Int) {
+        animatedFrames[index] = prepareFrame(at: currentPreloadIndex)
+        currentPreloadIndex += 1
+        currentPreloadIndex = currentPreloadIndex % frameCount
     }
 }
 
 extension CGImageSource: KingfisherCompatible { }
 extension Kingfisher where Base: CGImageSource {
-    func GIFProperties(at index: Int) -> [String: Double]? {
+    func gifProperties(at index: Int) -> [String: Double]? {
         let properties = CGImageSourceCopyPropertiesAtIndex(base, index, nil) as Dictionary?
         return properties?[kCGImagePropertyGIFDictionary] as? [String: Double]
     }

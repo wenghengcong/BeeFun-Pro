@@ -4,7 +4,7 @@
 //
 //  Created by Wei Wang on 2016/08/31.
 //
-//  Copyright (c) 2016 Wei Wang <onevcat@gmail.com>
+//  Copyright (c) 2017 Wei Wang <onevcat@gmail.com>
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -45,8 +45,8 @@ extension CIImageProcessor {
         switch item {
         case .image(let image):
             return image.kf.apply(filter)
-        case .data(let data):
-            return Kingfisher<Image>.image(data: data, scale: options.scaleFactor, preloadAllGIFData: options.preloadAllGIFData)
+        case .data(_):
+            return (DefaultImageProcessor.default >> self).process(item: item, options: options)
         }
     }
 }
@@ -121,7 +121,7 @@ extension Kingfisher where Base: Image {
         #if os(macOS)
             return fixedForRetinaPixel(cgImage: result, to: size)
         #else
-            return Image(cgImage: result)
+            return Image(cgImage: result, scale: base.scale, orientation: base.imageOrientation)
         #endif
     }
 

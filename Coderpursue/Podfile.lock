@@ -1,20 +1,20 @@
 PODS:
-  - Alamofire (4.0.1)
-  - Bugly (2.4.0)
-  - IQKeyboardManagerSwift (4.0.6)
-  - Kingfisher (3.1.0)
+  - Alamofire (4.3.0)
+  - Bugly (2.4.6)
+  - IQKeyboardManagerSwift (4.0.8)
+  - Kingfisher (3.4.0)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
-  - Moya (8.0.0-beta.1):
-    - Moya/Core (= 8.0.0-beta.1)
-  - Moya/Core (8.0.0-beta.1):
-    - Alamofire (~> 4.0.0)
-    - Result
-  - ObjectMapper (2.0.0)
+  - Moya (8.0.2):
+    - Moya/Core (= 8.0.2)
+  - Moya/Core (8.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - ObjectMapper (2.2.3)
   - ReachabilitySwift (3)
-  - Result (3.0.0)
-  - SnapKit (3.0.1)
-  - SwiftDate (3.0.9)
+  - Result (3.1.0)
+  - SnapKit (3.2.0)
+  - SwiftDate (4.0.13)
 
 DEPENDENCIES:
   - Alamofire
@@ -23,42 +23,26 @@ DEPENDENCIES:
   - Kingfisher
   - MBProgressHUD
   - MJRefresh
-  - Moya (from `https://github.com/Moya/Moya.git`, tag `8.0.0-beta.1`)
-  - ObjectMapper (~> 2.0.0)
+  - Moya
+  - ObjectMapper (~> 2.2)
   - ReachabilitySwift (~> 3)
   - SnapKit
-  - SwiftDate (from `https://github.com/malcommac/SwiftDate.git`, branch `feature/swift-3.0`)
-
-EXTERNAL SOURCES:
-  Moya:
-    :git: https://github.com/Moya/Moya.git
-    :tag: 8.0.0-beta.1
-  SwiftDate:
-    :branch: feature/swift-3.0
-    :git: https://github.com/malcommac/SwiftDate.git
-
-CHECKOUT OPTIONS:
-  Moya:
-    :git: https://github.com/Moya/Moya.git
-    :tag: 8.0.0-beta.1
-  SwiftDate:
-    :commit: 040b2c844a34a677feed13238a1bbcf85eceac41
-    :git: https://github.com/malcommac/SwiftDate.git
+  - SwiftDate (~> 4.0)
 
 SPEC CHECKSUMS:
-  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
-  Bugly: 3b56d8365c5687f74fd6fbb50c5b7ede3cdac96c
-  IQKeyboardManagerSwift: b3015e819559ca76381f87a0833f44d178564603
-  Kingfisher: 7779f22e977393e9533a89a9685beb8f679d3767
+  Alamofire: 856a113053a7bc9cbe5d6367a555d773fc5cfef7
+  Bugly: 7756e72c59387b0d490f46e83ab458ae94ee7fba
+  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
+  Kingfisher: 5690cfb3d1bddf3a98d679a3a34d0b7294974ed2
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  Moya: 63c4a59d2643c824df8c5a3b3a5f38dc2b48b055
-  ObjectMapper: aed2570edabbd3c9b26c939e1cabdb6558f933e0
+  Moya: 47f61da5b634aa71f676431b64ee0f81e976296d
+  ObjectMapper: d3b3de11267f5d971f390eb8d63dd509116a4329
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
-  Result: 1b3e431f37cbcd3ad89c6aa9ab0ae55515fae3b6
-  SnapKit: f818b8326d45b4e1c777d0ab27b5c0a3624bfdeb
-  SwiftDate: fa487d9b7d8c3070ea2553486902494f4915465d
+  Result: 4e3ed5995ed94d0cd6a09be9a431fce3f3624bbf
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
+  SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
 
-PODFILE CHECKSUM: d34e63fe227a7c5661ebeefae86f3b827740d0a0
+PODFILE CHECKSUM: d2643d13eaaefb5d384bcc03106db204b148e37e
 
-COCOAPODS: 1.1.0.beta.2
+COCOAPODS: 1.2.0.beta.1

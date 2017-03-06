@@ -282,8 +282,8 @@ class CPTrendingViewController: CPBaseViewController {
     }
     
     func tvc_isLogin()->Bool{
-        if( !(UserInfoHelper.sharedInstance.isLogin) ){
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
+        if( !(UserInfoHelper.shared.isLogin) ){
+            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
             return false
         }
         return true
@@ -339,14 +339,14 @@ class CPTrendingViewController: CPBaseViewController {
 
                     }
                 } catch {
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
             
@@ -407,14 +407,14 @@ class CPTrendingViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }
@@ -448,14 +448,14 @@ class CPTrendingViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }

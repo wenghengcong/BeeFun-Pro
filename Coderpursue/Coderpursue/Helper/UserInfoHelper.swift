@@ -10,7 +10,7 @@ import UIKit
 
 class UserInfoHelper: NSObject {
     
-    static let sharedInstance = UserInfoHelper()
+    static let shared = UserInfoHelper()
 
     var user:ObjUser? {
         get {
@@ -48,7 +48,7 @@ class UserInfoHelper: NSObject {
             return AppToken().access_token!
         }
         set(newtoken) {
-            var token = AppToken.sharedInstance
+            var token = AppToken.shared
             token.access_token = newtoken
         }
     }

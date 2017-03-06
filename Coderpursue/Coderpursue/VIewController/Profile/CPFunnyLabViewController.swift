@@ -60,7 +60,7 @@ class CPFunnyLabViewController: CPBaseViewController {
             self.navigationController?.pushViewController(awardVC, animated: true)
             
         }else{
-            CPGlobalHelper.sharedInstance.showMessage("Input your github username", view: self.view)
+            CPGlobalHelper.shared.showMessage("Input your github username", view: self.view)
             return
         }
         

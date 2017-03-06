@@ -75,7 +75,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
         developerInfoV.userActionDelegate = self
         
-        if(developer!.login == UserInfoHelper.sharedInstance.user?.name){
+        if(developer!.login == UserInfoHelper.shared.user?.name){
             followBtn.isHidden = true
         }else{
             followBtn.isHidden = false
@@ -193,11 +193,11 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             prefectchShareImage({
                 MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
                 shareContent.shareImage = self.userShareImage
-                ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+                ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
             })
         }else{
             shareContent.shareImage = self.userShareImage
-            ShareHelper.sharedInstance.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+            ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
         }
         
     }
@@ -240,7 +240,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }
@@ -272,14 +272,14 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     }
                 } catch {
 
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }
@@ -305,7 +305,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = true
-                    CPGlobalHelper.sharedInstance.showError("Follow Successful", view: self.view)
+                    CPGlobalHelper.shared.showError("Follow Successful", view: self.view)
 
                 }
                 self.dvc_updateViewContent()
@@ -315,7 +315,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }
@@ -342,7 +342,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = false
-                    CPGlobalHelper.sharedInstance.showError("Unollow Successful", view: self.view)
+                    CPGlobalHelper.shared.showError("Unollow Successful", view: self.view)
 
                 }
                 
@@ -353,7 +353,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }
@@ -479,8 +479,8 @@ extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
     
     func segueGotoViewController() {
         
-        if (!UserInfoHelper.sharedInstance.isLogin){
-            CPGlobalHelper.sharedInstance.showError("Please login first", view: self.view)
+        if (!UserInfoHelper.shared.isLogin){
+            CPGlobalHelper.shared.showError("Please login first", view: self.view)
             return
         }
         

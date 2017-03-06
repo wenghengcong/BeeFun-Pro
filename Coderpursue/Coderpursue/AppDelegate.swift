@@ -21,11 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         IQKeyboardManager.sharedManager().enable = true
         
         //bug 
-//        CrashReporter.sharedInstance().enableLog(true)
+//        CrashReporter.shared().enableLog(true)
         Bugly.start(withAppId: TencentBuglyAppID)
         
         //Umeng Social
-        ShareHelper.sharedInstance.configUMSocailPlatforms()
+        ShareHelper.shared.configUMSocailPlatforms()
         
         //Umeng 
         MobClick.start(withAppkey: UMengAppSecret, reportPolicy: BATCH, channelId: nil)

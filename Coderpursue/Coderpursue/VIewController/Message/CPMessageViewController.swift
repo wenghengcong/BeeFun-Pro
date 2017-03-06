@@ -74,8 +74,8 @@ class CPMessageViewController: CPBaseViewController {
     }
     
     func mvc_isLogin()->Bool{
-        if( !(UserInfoHelper.sharedInstance.isLogin) ){
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
+        if( !(UserInfoHelper.shared.isLogin) ){
+            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
             notificationsData.removeAll()
             issuesData.removeAll()
             tableView.reloadData()
@@ -226,14 +226,14 @@ class CPMessageViewController: CPBaseViewController {
                     }
                 } catch {
 
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }
@@ -274,14 +274,14 @@ class CPMessageViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }

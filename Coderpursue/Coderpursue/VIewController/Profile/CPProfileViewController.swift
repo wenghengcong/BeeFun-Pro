@@ -55,8 +55,8 @@ class CPProfileViewController: CPBaseViewController {
     //登录成功后刷新数据
     func pvc_updateUserinfoData() {
         
-        user = UserInfoHelper.sharedInstance.user
-        isLogin = UserInfoHelper.sharedInstance.isLogin
+        user = UserInfoHelper.shared.user
+        isLogin = UserInfoHelper.shared.isLogin
         profileHeaderV.user = user
         if isLogin{
 //            pvc_getUserinfoRequest()
@@ -67,14 +67,14 @@ class CPProfileViewController: CPBaseViewController {
     
     func pvc_loadSettingPlistData() {
         
-        settingsArr = CPGlobalHelper.sharedInstance.readPlist("CPProfileList")
+        settingsArr = CPGlobalHelper.shared.readPlist("CPProfileList")
         self.tableView.reloadData()
 
     }
     
     func pvc_isLogin()->Bool{
-        if( !(UserInfoHelper.sharedInstance.isLogin) ){
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
+        if( !(UserInfoHelper.shared.isLogin) ){
+            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
             return false
         }
         return true
@@ -117,8 +117,8 @@ class CPProfileViewController: CPBaseViewController {
     func pvc_getUserinfoRequest(){
         
         var username = ""
-        if(UserInfoHelper.sharedInstance.isLogin){
-            username = UserInfoHelper.sharedInstance.user!.login!
+        if(UserInfoHelper.shared.isLogin){
+            username = UserInfoHelper.shared.user!.login!
         }
         
         Provider.sharedProvider.request(.userInfo(username:username) ) { (result) -> () in
@@ -137,14 +137,14 @@ class CPProfileViewController: CPBaseViewController {
                         
                     }
                 } catch {
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }
@@ -214,7 +214,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                     if let result:ObjUser = Mapper<ObjUser>().map(JSONObject:try response.mapJSON() ) {
                         ObjUser.saveUserInfo(result)
                         self.user = result
-                        self.isLogin = UserInfoHelper.sharedInstance.isLogin
+                        self.isLogin = UserInfoHelper.shared.isLogin
                         self.profileHeaderV.user = self.user
                         self.pvc_updateViewWithUserData()
                     } else {
@@ -222,7 +222,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                     }
                 } catch {
                     success = false
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -230,7 +230,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                 }
                 message = error.description
                 success = false
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
 
             }
         }
@@ -241,7 +241,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     func userLoginAction() {
 //        pvc_showLoginInWebView()
 //        self.performSegueWithIdentifier(SegueProfileLoginIn, sender: nil)
-        if(UserInfoHelper.sharedInstance.checkUserLogin())
+        if(UserInfoHelper.shared.checkUserLogin())
         {
             
         }
@@ -253,7 +253,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
             self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
         }else{
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
+            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
 
         }
 
@@ -265,7 +265,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
             self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
         }else{
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
+            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
 
         }
     }
@@ -276,7 +276,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
             let dic:[String:String] = ["uname":uname!,"type":"following"]
             self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
         }else{
-            CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
+            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
         }
     }
     
@@ -360,7 +360,7 @@ extension CPProfileViewController : UITableViewDelegate {
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
                 self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
             }else{
-                CPGlobalHelper.sharedInstance.showMessage("You Should Login first!", view: self.view)
+                CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
             }
         
         }else if(viewType == "feedback"){
@@ -374,11 +374,11 @@ extension CPProfileViewController : UITableViewDelegate {
             
         }else if(viewType == "rate"){
             
-            AppVersionHelper.sharedInstance.rateUs()
+            AppVersionHelper.shared.rateUs()
             
         }else if(viewType == "share"){
             
-            ShareHelper.sharedInstance.shareContentInView(self, content: ShareContent(), soucre: .App)
+            ShareHelper.shared.shareContentInView(self, content: ShareContent(), soucre: .App)
             
         }else if(viewType == "settings"){
             

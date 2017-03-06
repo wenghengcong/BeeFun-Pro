@@ -19,7 +19,7 @@ struct AppToken {
     
     let defaults: UserDefaults
     
-    static let sharedInstance = AppToken()
+    static let shared = AppToken()
     
     
     init(defaults:UserDefaults) {

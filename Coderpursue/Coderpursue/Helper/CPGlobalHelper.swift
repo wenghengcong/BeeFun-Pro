@@ -11,7 +11,7 @@ import Foundation
 
 class CPGlobalHelper {
     
-    static let sharedInstance = CPGlobalHelper()
+    static let shared = CPGlobalHelper()
 
     func showMessage(_ message:String ,view:UIView) {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)

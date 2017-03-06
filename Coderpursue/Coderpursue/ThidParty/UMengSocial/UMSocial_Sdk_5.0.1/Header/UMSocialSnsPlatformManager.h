@@ -282,7 +282,7 @@ typedef void (^UMSocialSnsPlatformLoginHandler)(UIViewController *presentingCont
  
  @return `UMSocialSnsPlatformManager`的单例对象
  */
-+ (UMSocialSnsPlatformManager *)sharedInstance;
++ (UMSocialSnsPlatformManager *)shared;
 
 
 /**

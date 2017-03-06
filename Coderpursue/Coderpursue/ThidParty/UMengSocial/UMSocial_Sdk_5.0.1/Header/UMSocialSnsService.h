@@ -118,6 +118,6 @@
  
  @return `UMSocialSnsService`的单例对象
  */
-+ (UMSocialSnsService *)sharedInstance;
++ (UMSocialSnsService *)shared;
 
 @end

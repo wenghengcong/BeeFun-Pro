@@ -47,17 +47,17 @@ class CPProSettingsViewController: CPBaseViewController {
     
     
     func psvc_readPlist(){
-        settingsArr = CPGlobalHelper.sharedInstance.readPlist("CPSettingsList")
+        settingsArr = CPGlobalHelper.shared.readPlist("CPSettingsList")
     }
     
     func psvc_logoutAction() {
         
-        if( !(UserInfoHelper.sharedInstance.isLogin) ){
-            CPGlobalHelper.sharedInstance.showMessage("You didn't login !", view: self.view)
+        if( !(UserInfoHelper.shared.isLogin) ){
+            CPGlobalHelper.shared.showMessage("You didn't login !", view: self.view)
             return
         }
         
-        UserInfoHelper.sharedInstance.deleteUser()
+        UserInfoHelper.shared.deleteUser()
         
         NotificationCenter.default.post(name: Notification.Name(rawValue:kNotificationDidGitLogOut), object:nil)
 
@@ -90,7 +90,7 @@ extension CPProSettingsViewController : UITableViewDataSource {
         let row = (indexPath as NSIndexPath).row
         let settings:ObjSettings = settingsArr[section][row]
         if(settings.itemKey == "version"){
-            settings.itemValue = AppVersionHelper.sharedInstance.bundleReleaseVersion()
+            settings.itemValue = AppVersionHelper.shared.bundleReleaseVersion()
         }
         
         cell!.objSettings = settings

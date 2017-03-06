@@ -95,7 +95,7 @@ class CPLoginViewController: CPBaseViewController {
     func lvc_checkInputText(){
         
         if( (usernameTF.text!.isEmpty) || (passwordTF.text!.isEmpty) ){
-            CPGlobalHelper.sharedInstance.showMessage("Input username or password", view: self.view)
+            CPGlobalHelper.shared.showMessage("Input username or password", view: self.view)
             return
         }
         
@@ -104,7 +104,7 @@ class CPLoginViewController: CPBaseViewController {
     
     func lvc_saveAuthorization(_ auth:String){
         
-        var token = AppToken.sharedInstance
+        var token = AppToken.shared
         token.access_token = auth
         
     }

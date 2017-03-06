@@ -30,7 +30,7 @@ class ShareContent: NSObject {
 
 class ShareHelper: NSObject,UMSocialUIDelegate {
     
-    static let sharedInstance = ShareHelper()
+    static let shared = ShareHelper()
     
     var sourceType:ShareSource = .Defalult
     var shareContent:ShareContent? = ShareContent.init()

@@ -172,7 +172,7 @@ class CPSearchViewController: CPBaseViewController {
         let keyword:String? = searchBar.text
         
         if ( (keyword == nil) || (keyword?.isEmpty)! ) {
-            CPGlobalHelper.sharedInstance.showError("input keyword",view: self.view)
+            CPGlobalHelper.shared.showError("input keyword",view: self.view)
             return true
         }else{
             
@@ -248,14 +248,14 @@ class CPSearchViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }
@@ -311,14 +311,14 @@ class CPSearchViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                    CPGlobalHelper.shared.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.sharedInstance.showError(message, view: self.view)
+                CPGlobalHelper.shared.showError(message, view: self.view)
                 
             }
         }

@@ -87,7 +87,7 @@ class CPGitLoginViewController: CPWebViewController {
                         let scope = arr[1].substring(from:arr[1].index(arr[1].startIndex ,offsetBy:7))
                         let tokentype = arr[2].substring(from:arr[2].index(arr[2].startIndex ,offsetBy:11))
                         
-                        var token = AppToken.sharedInstance
+                        var token = AppToken.shared
                         token.access_token = String(format: "token %@", accesstoken)
                         //                        token.access_token = accesstoken
                         token.token_type = tokentype

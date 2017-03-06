@@ -10,7 +10,7 @@ import UIKit
 
 class AppVersionHelper: NSObject {
     
-    static let sharedInstance = AppVersionHelper()
+    static let shared = AppVersionHelper()
 
     let appstoreUrl = "https://itunes.apple.com/cn/app/da-niu-jia/id1053003221?mt=8"
     

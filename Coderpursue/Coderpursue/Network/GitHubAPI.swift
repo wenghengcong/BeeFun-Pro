@@ -47,10 +47,10 @@ struct Provider{
         switch target {
             
         default:
-//            print("current token:\( AppToken.sharedInstance.access_token!)")
+//            print("current token:\( AppToken.shared.access_token!)")
            endpoint = endpoint.adding(newHTTPHeaderFields: ["User-Agent":"Coderpursue"])
 
-            return endpoint.adding(newHTTPHeaderFields: ["Authorization": AppToken.sharedInstance.access_token ?? ""])
+            return endpoint.adding(newHTTPHeaderFields: ["Authorization": AppToken.shared.access_token ?? ""])
         }
     }
     static func stubBehaviour(_: GitHubAPI) -> Moya.StubBehavior {

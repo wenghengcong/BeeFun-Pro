@@ -33,7 +33,7 @@ class CPLoginViewController: CPBaseViewController {
     }
 
     override func leftItemAction(_ sender: UIButton?) {
-        self.navigationController?.popViewController(animated: true)
+       _ =  self.navigationController?.popViewController(animated: true)
     }
     
     // MAEK: - view
@@ -117,7 +117,7 @@ class CPLoginViewController: CPBaseViewController {
             
             ObjUser.saveUserInfo(gitUser)
             //post successful noti
-            self.navigationController?.popViewController(animated: true)
+            _ =  self.navigationController?.popViewController(animated: true)
             NotificationCenter.default.post(name: Notification.Name(rawValue: kNotificationDidGitLogin), object:nil)
             
         }else {

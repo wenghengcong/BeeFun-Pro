@@ -39,7 +39,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
     }
     
     override func leftItemAction(_ sender: UIButton?) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
     func tsc_setupTableView() {

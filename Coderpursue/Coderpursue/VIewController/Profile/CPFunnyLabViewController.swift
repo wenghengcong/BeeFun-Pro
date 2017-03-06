@@ -24,7 +24,7 @@ class CPFunnyLabViewController: CPBaseViewController {
     }
     
     override func leftItemAction(_ sender: UIButton?) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
 
     /*

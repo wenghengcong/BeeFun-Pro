@@ -111,7 +111,6 @@ class CPGitLoginViewController: CPWebViewController {
             print(result)
             
             var message = "No data to show"
-
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {
@@ -120,7 +119,7 @@ class CPGitLoginViewController: CPWebViewController {
                     if let gitUser:ObjUser = Mapper<ObjUser>().map(JSONObject: try response.mapJSON()) {
                         ObjUser.saveUserInfo(gitUser)
                         //post successful noti
-                        self.navigationController?.popViewController(animated: true)
+                        _ = self.navigationController?.popViewController(animated: true)
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue:kNotificationDidGitLogin), object:nil)
                         
                     } else {
@@ -133,6 +132,7 @@ class CPGitLoginViewController: CPWebViewController {
                     break
                 }
                 message = error.description
+                NSLog( (message))
             }
 
         }
@@ -140,7 +140,7 @@ class CPGitLoginViewController: CPWebViewController {
     }
     
     override func leftItemAction(_ sender: UIButton?) {
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
 
     }
 

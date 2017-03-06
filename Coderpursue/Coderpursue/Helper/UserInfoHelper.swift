@@ -84,8 +84,8 @@ class UserInfoHelper: NSObject {
     }
     
     func loginTipAlertController() -> UIAlertController {
-        let alertController = UIAlertController.init(title: "Login Now?", message: "these data ask you github account.", preferredStyle: .alert)
-        let cancelAct = UIAlertAction.init(title: "Cancel", style: .cancel, handler: { action in
+        let alertController = UIAlertController.init(title: "Login Now?", message: "these data ask your github account.", preferredStyle: .alert)
+        let cancelAct = UIAlertAction.init(title: "Cancel", style: .destructive, handler: { action in
             
         })
         

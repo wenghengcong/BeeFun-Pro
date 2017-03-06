@@ -59,7 +59,7 @@ class CPProSettingsViewController: CPBaseViewController {
         
         UserInfoHelper.sharedInstance.deleteUser()
         
-        NotificationCenter.default.post(name: Notification.Name(rawValue: NotificationGitLogOutSuccessful), object:nil)
+        NotificationCenter.default.post(name: Notification.Name(rawValue:kNotificationDidGitLogOut), object:nil)
 
         self.navigationController?.popViewController(animated: true)
     }

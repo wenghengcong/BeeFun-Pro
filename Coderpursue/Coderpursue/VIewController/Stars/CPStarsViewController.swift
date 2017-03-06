@@ -32,8 +32,8 @@ class CPStarsViewController: CPBaseViewController{
         svc_setupSegmentView()
         svc_setupTableView()
         svc_updateNetrokData()
-        NotificationCenter.default.addObserver(self, selector: #selector(svc_loginSuccessful), name: NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(svc_logoutSuccessful), name: NSNotification.Name(rawValue: NotificationGitLogOutSuccessful), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(svc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(svc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.leftItem?.isHidden = true
         self.title = "Stars"
     }

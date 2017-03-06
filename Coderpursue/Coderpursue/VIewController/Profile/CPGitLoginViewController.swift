@@ -13,6 +13,7 @@ import Moya
 import Foundation
 
 
+/// 使用Github的登录页面
 class CPGitLoginViewController: CPWebViewController {
 
     override func viewDidLoad() {
@@ -22,6 +23,8 @@ class CPGitLoginViewController: CPWebViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Sign In"
+//        self.navigationController?.navigationBar.barTintColor = UIColor.white
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -118,7 +121,7 @@ class CPGitLoginViewController: CPWebViewController {
                         ObjUser.saveUserInfo(gitUser)
                         //post successful noti
                         self.navigationController?.popViewController(animated: true)
-                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object:nil)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue:kNotificationDidGitLogin), object:nil)
                         
                     } else {
                     }

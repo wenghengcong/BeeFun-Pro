@@ -12,6 +12,8 @@ import ObjectMapper
 import Moya
 import Foundation
 
+
+/// 自己绘制的登录页面
 class CPLoginViewController: CPBaseViewController {
     
     @IBOutlet weak var inputTextBgV: UIView!
@@ -116,7 +118,7 @@ class CPLoginViewController: CPBaseViewController {
             ObjUser.saveUserInfo(gitUser)
             //post successful noti
             self.navigationController?.popViewController(animated: true)
-            NotificationCenter.default.post(name: Notification.Name(rawValue: NotificationGitLoginSuccessful), object:nil)
+            NotificationCenter.default.post(name: Notification.Name(rawValue: kNotificationDidGitLogin), object:nil)
             
         }else {
             

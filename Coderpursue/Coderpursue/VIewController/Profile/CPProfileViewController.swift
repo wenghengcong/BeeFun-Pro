@@ -34,8 +34,8 @@ class CPProfileViewController: CPBaseViewController {
         pvc_customView()
         pvc_setupTableView()
        
-        NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: NotificationGitLogOutSuccessful), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.leftItem?.isHidden = true
         self.title = "Profile"
 
@@ -52,6 +52,7 @@ class CPProfileViewController: CPBaseViewController {
     }
     
     // MARK: load data
+    //登录成功后刷新数据
     func pvc_updateUserinfoData() {
         
         user = UserInfoHelper.sharedInstance.user
@@ -235,22 +236,15 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         }
 
     }
-
-    func pvc_showLoginInWebView() {
-        
-        NetworkHelper.clearCookies()
-        
-        let loginVC = CPGitLoginViewController()
-        let url = String(format: "https://github.com/login/oauth/authorize/?client_id=%@&state=%@&redirect_uri=%@&scope=%@",GithubAppClientId,"junglesong",GithubAppRedirectUrl,"user,user:email,user:follow,public_repo,repo,repo_deployment,repo:status,delete_repo,notifications,gist,read:repo_hook,write:repo_hook,admin:repo_hook,admin:org_hook,read:org,write:org,admin:org,read:public_key,write:public_key,admin:public_key" )
-        loginVC.url = url
-        loginVC.hidesBottomBarWhenPushed = true
-        self.navigationController?.pushViewController(loginVC, animated: true)
-        
-    }
     
+    //登录按钮，点击打开登录页面
     func userLoginAction() {
-        pvc_showLoginInWebView()
+//        pvc_showLoginInWebView()
 //        self.performSegueWithIdentifier(SegueProfileLoginIn, sender: nil)
+        if(UserInfoHelper.sharedInstance.checkUserLogin())
+        {
+            
+        }
     }
 
     func viewMyReposAction() {

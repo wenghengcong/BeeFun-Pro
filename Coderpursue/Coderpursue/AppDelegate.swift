@@ -13,7 +13,8 @@ import IQKeyboardManagerSwift
 class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
 
     var window: UIWindow?
-
+    var tabBarController:CPBaseTabBarController?
+    var storyBoard:UIStoryboard?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,6 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         
         //Umeng 
         MobClick.start(withAppkey: UMengAppSecret, reportPolicy: BATCH, channelId: nil)
+        
+        tabBarController = self.window!.rootViewController as! CPBaseTabBarController?
+        storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        
+        tabBarController = storyBoard?.instantiateViewController(withIdentifier: "tabbarController") as! CPBaseTabBarController?
         
         return true
     }

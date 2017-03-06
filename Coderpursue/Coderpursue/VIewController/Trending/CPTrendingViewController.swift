@@ -75,8 +75,8 @@ class CPTrendingViewController: CPBaseViewController {
         tvc_setupFilterView()
         tvc_addNaviBarButtonItem()
         updateNetrokData()
-        NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NSNotification.Name(rawValue: NotificationGitLoginSuccessful), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NSNotification.Name(rawValue: NotificationGitLogOutSuccessful), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.title = "Explore"
 
     }

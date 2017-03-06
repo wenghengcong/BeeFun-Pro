@@ -6,6 +6,13 @@
 //  Copyright © 2016年 JungleSong. All rights reserved.
 //
 
-public let NotificationGitLoginSuccessful  = "GitLoginSuccessfulNotification"
-    
-public let NotificationGitLogOutSuccessful  = "GitLogOutSuccessfulNotification"
+
+public let kNotificationWillGitLogin  = "kNotificationWillGitLogin"
+
+public let kNotificationDidGitLogin  = "kNotificationDidGitLogin"
+
+
+public let kNotificationWillGitLogOut  = "kNotificationWillGitLogOut"
+
+public let kNotificationDidGitLogOut  = "kNotificationDidGitLogOut"
+

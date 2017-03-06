@@ -58,4 +58,27 @@ class UserInfoHelper: NSObject {
         ObjUser.deleteUserInfo()
     }
     
+    func checkUserLogin() -> Bool{
+        if(isLogin){
+            //已登录，返回true
+            return true
+        }else{
+            //未登录，进行登录流程
+            popLoginView()
+            return false
+        }
+    }
+    
+    func popLoginView() {
+        
+        NetworkHelper.clearCookies()
+        
+        let loginVC = CPGitLoginViewController()
+        let url = String(format: "https://github.com/login/oauth/authorize/?client_id=%@&state=%@&redirect_uri=%@&scope=%@",GithubAppClientId,"junglesong",GithubAppRedirectUrl,"user,user:email,user:follow,public_repo,repo,repo_deployment,repo:status,delete_repo,notifications,gist,read:repo_hook,write:repo_hook,admin:repo_hook,admin:org_hook,read:org,write:org,admin:org,read:public_key,write:public_key,admin:public_key" )
+        loginVC.url = url
+        loginVC.hidesBottomBarWhenPushed = true
+        
+        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.tabBarController?.currentNavigationViewController()?.pushViewController(loginVC, animated: true)
+        }
 }

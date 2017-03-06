@@ -386,46 +386,46 @@ extension GitHubAPI: TargetType {
         
         switch self {
         case .updateUserInfo:
-            return .PATCH
+            return .patch
             //user email
         case .addEmail:
-            return .POST
+            return .post
         case .delEmail:
-            return .DELETE
+            return .delete
         //user followers
         case .follow(_):
-            return .PUT
+            return .put
         case .unfollow(_):
-            return .DELETE
+            return .delete
             
         //starring
         case .starRepo(_,_):
-            return .PUT
+            return .put
         case .unstarRepo(_,_):
-            return .DELETE
+            return .delete
         case .createIssue(_,_,_,_,_,_,_):
-            return .POST
+            return .post
         case .editIssue(_,_,_,_,_,_,_,_):
-            return .PATCH
+            return .patch
         case .lockIssue(_,_,_):
-            return .PUT
+            return .put
         case .unlockIssue(_,_,_):
-            return .DELETE
+            return .delete
         case .markRepoNotificationsAsRead:
-            return .PUT
+            return .put
         case .markNotificationsAsRead:
-            return .PUT
+            return .put
             
         //watching
         case .watchingRepo:
-            return .PUT
+            return .put
         case .unWatchingRepo:
-            return .DELETE
+            return .delete
    
         case .createFork:
-            return .POST
+            return .post
         default:
-            return .GET
+            return .get
 
         }
     }

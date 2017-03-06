@@ -29,31 +29,28 @@ typealias FailClosure = (_ errorMsg: String?) -> Void
 
 class GitHupPorvider<Target>: MoyaProvider<Target> where Target: TargetType {
     
-    override init(endpointClosure: @escaping EndpointClosure = MoyaProvider.DefaultEndpointMapping,
-         requestClosure: @escaping RequestClosure = MoyaProvider.DefaultRequestMapping,
-         stubClosure: @escaping StubClosure = MoyaProvider.NeverStub,
-         manager: Manager = MoyaProvider<Target>.DefaultAlamofireManager(),
-         plugins: [PluginType] = [],
-         trackInflights: Bool = false) {
+    override init(endpointClosure: @escaping (Target) -> Endpoint<Target>, requestClosure: @escaping (Endpoint<Target>, @escaping MoyaProvider<GitHubAPI>.RequestResultClosure) -> Void, stubClosure: @escaping (Target) -> StubBehavior, manager: Manager, plugins: [PluginType], trackInflights: Bool) {
         
         super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, manager: manager, plugins: plugins, trackInflights: trackInflights)
+        
     }
+    
 }
 
 struct Provider{
     
     fileprivate static var endpointsClosure = { (target: GitHubAPI) -> Endpoint<GitHubAPI> in
         
-        var endpoint: Endpoint<GitHubAPI> = Endpoint<GitHubAPI>(URL: url(target), sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
+        var endpoint: Endpoint<GitHubAPI> = Endpoint<GitHubAPI>(url: url(target), sampleResponseClosure: {.networkResponse(200, target.sampleData)}, method: target.method, parameters: target.parameters)
         // Sign all non-XApp token requests
 
         switch target {
             
         default:
 //            print("current token:\( AppToken.sharedInstance.access_token!)")
-            endpoint.endpointByAddingHTTPHeaderFields(["User-Agent":"Coderpursue"])
+           endpoint = endpoint.adding(newHTTPHeaderFields: ["User-Agent":"Coderpursue"])
 
-            return endpoint.endpointByAddingHTTPHeaderFields(["Authorization": AppToken.sharedInstance.access_token ?? ""])
+            return endpoint.adding(newHTTPHeaderFields: ["Authorization": AppToken.sharedInstance.access_token ?? ""])
         }
     }
     static func stubBehaviour(_: GitHubAPI) -> Moya.StubBehavior {
@@ -61,7 +58,7 @@ struct Provider{
     }
     
     static func DefaultProvider() -> GitHupPorvider<GitHubAPI> {
-        return GitHupPorvider(endpointClosure: endpointsClosure, requestClosure: MoyaProvider.DefaultRequestMapping, stubClosure:MoyaProvider.NeverStub , manager: Alamofire.SessionManager.default, plugins:[])
+        return GitHupPorvider(endpointClosure: endpointsClosure, requestClosure: MoyaProvider.defaultRequestMapping, stubClosure:MoyaProvider.neverStub , manager: Alamofire.SessionManager.default, plugins:[],trackInflights:false)
     }
     
     fileprivate struct SharedProvider {
@@ -206,6 +203,11 @@ public enum GitHubAPI {
 }
 
 extension GitHubAPI: TargetType {
+    
+    public var parameterEncoding:ParameterEncoding
+    {
+        return Alamofire.ParameterEncoding as! ParameterEncoding
+    }
     
     public var baseURL: URL {
         switch self {

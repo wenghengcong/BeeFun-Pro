@@ -153,7 +153,7 @@ class CPReposViewController: CPBaseViewController {
             case let .success(response):
                 
                 do {
-                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
+                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos.self){
                         if(self.reposPageVal == 1) {
                             self.reposData.removeAll()
                             self.reposData = repos!

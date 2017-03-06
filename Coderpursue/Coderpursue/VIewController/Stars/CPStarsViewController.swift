@@ -213,7 +213,7 @@ class CPStarsViewController: CPBaseViewController{
             case let .success(response):
                 
                 do {
-                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
+                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos.self){
                         if(pageVal == 1) {
                             self.reposData.removeAll()
                             self.reposData = repos!

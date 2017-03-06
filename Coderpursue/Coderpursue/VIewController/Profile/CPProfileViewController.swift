@@ -230,7 +230,6 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                 message = error.description
                 success = false
                 CPGlobalHelper.showError(message, view: self.view)
-
             }
         }
 

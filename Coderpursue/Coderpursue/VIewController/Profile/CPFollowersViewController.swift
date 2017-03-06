@@ -150,7 +150,7 @@ class CPFollowersViewController: CPBaseViewController {
             case let .success(response):
                 
                 do {
-                    if let userResult:[ObjUser]? = try response.mapArray(ObjUser) {
+                    if let userResult:[ObjUser]? = try response.mapArray(ObjUser.self) {
                         if(self.userPageVal == 1) {
                             self.userData.removeAll()
                             self.userData = userResult
@@ -200,7 +200,7 @@ class CPFollowersViewController: CPBaseViewController {
             case let .success(response):
                 
                 do {
-                    if let userResult:[ObjUser]? = try response.mapArray(ObjUser) {
+                    if let userResult:[ObjUser]? = try response.mapArray(ObjUser.self) {
                         if(self.userPageVal == 1) {
                             self.userData.removeAll()
                             self.userData = userResult

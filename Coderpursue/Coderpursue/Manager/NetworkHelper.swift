@@ -15,9 +15,7 @@ open class NetworkHelper: NSObject {
         let storage : HTTPCookieStorage = HTTPCookieStorage.shared
         for cookie in storage.cookies! {
             storage.deleteCookie(cookie)
-        }
-        UserDefaults.standard
-        
+        }        
     }
     
 }

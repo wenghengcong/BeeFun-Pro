@@ -61,7 +61,7 @@ class CPProSettingsViewController: CPBaseViewController {
         
         NotificationCenter.default.post(name: Notification.Name(rawValue:kNotificationDidGitLogOut), object:nil)
 
-        self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
 }

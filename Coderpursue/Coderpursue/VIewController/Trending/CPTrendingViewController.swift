@@ -339,7 +339,7 @@ class CPTrendingViewController: CPBaseViewController {
             case let .success(response):
                 
                 do {
-                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
+                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos.self){
                         if(self.paraUser.page == 1){
                             self.reposData.removeAll()
                             self.reposData = repos!
@@ -454,7 +454,8 @@ class CPTrendingViewController: CPBaseViewController {
             case let .success(response):
                 
                 do {
-                    if let shows:[ObjShowcase]? = try response.mapArray(ObjShowcase){
+                    if let shows:[ObjShowcase]? = try response.mapArray(ObjShowcase.self
+                        ){
                         
                         self.showcasesData.removeAll()
                         self.showcasesData = shows!

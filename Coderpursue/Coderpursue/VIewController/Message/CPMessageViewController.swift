@@ -228,7 +228,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
                 
                 do {
 
-                    if let notis:[ObjNotification]? = try response.mapArray(ObjNotification){
+                    if let notis:[ObjNotification]? = try response.mapArray(ObjNotification.self){
                         if(pageVal == 1) {
                             self.notificationsData.removeAll()
                             self.notificationsData = notis!
@@ -275,7 +275,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
             case let .success(response):
                 
                 do {
-                    if let issues:[ObjIssue]? = try response.mapArray(ObjIssue){
+                    if let issues:[ObjIssue]? = try response.mapArray(ObjIssue.self){
                         if(pageVal == 1) {
                             self.issuesData.removeAll()
                             self.issuesData = issues!

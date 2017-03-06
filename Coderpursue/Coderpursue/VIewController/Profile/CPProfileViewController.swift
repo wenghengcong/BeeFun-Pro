@@ -55,8 +55,8 @@ class CPProfileViewController: CPBaseViewController {
     //登录成功后刷新数据
     func pvc_updateUserinfoData() {
         
-        user = UserInfoHelper.shared.user
-        isLogin = UserInfoHelper.shared.isLogin
+        user = UserManager.shared.user
+        isLogin = UserManager.shared.isLogin
         profileHeaderV.user = user
         if isLogin{
 //            pvc_getUserinfoRequest()
@@ -73,7 +73,7 @@ class CPProfileViewController: CPBaseViewController {
     }
     
     func pvc_isLogin()->Bool{
-        if( !(UserInfoHelper.shared.checkUserLogin()) ){
+        if( !(UserManager.shared.checkUserLogin()) ){
             return false
         }
         return true
@@ -116,8 +116,8 @@ class CPProfileViewController: CPBaseViewController {
     func pvc_getUserinfoRequest(){
         
         var username = ""
-        if(UserInfoHelper.shared.isLogin){
-            username = UserInfoHelper.shared.user!.login!
+        if(UserManager.shared.isLogin){
+            username = UserManager.shared.user!.login!
         }
         
         Provider.sharedProvider.request(.userInfo(username:username) ) { (result) -> () in
@@ -213,7 +213,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                     if let result:ObjUser = Mapper<ObjUser>().map(JSONObject:try response.mapJSON() ) {
                         ObjUser.saveUserInfo(result)
                         self.user = result
-                        self.isLogin = UserInfoHelper.shared.isLogin
+                        self.isLogin = UserManager.shared.isLogin
                         self.profileHeaderV.user = self.user
                         self.pvc_updateViewWithUserData()
                     } else {
@@ -240,14 +240,14 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     func userLoginAction() {
 //        pvc_showLoginInWebView()
 //        self.performSegueWithIdentifier(SegueProfileLoginIn, sender: nil)
-        if(UserInfoHelper.shared.checkUserLogin())
+        if(UserManager.shared.checkUserLogin())
         {
             
         }
     }
 
     func viewMyReposAction() {
-        if ( UserInfoHelper.shared.checkUserLogin() ){
+        if ( UserManager.shared.checkUserLogin() ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
             self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
@@ -255,7 +255,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     }
     
     func viewMyFollowerAction() {
-        if ( UserInfoHelper.shared.checkUserLogin()  ){
+        if ( UserManager.shared.checkUserLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
             self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
@@ -265,7 +265,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     }
     
     func viewMyFollowingAction() {
-        if ( UserInfoHelper.shared.checkUserLogin()  ){
+        if ( UserManager.shared.checkUserLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
             self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
@@ -347,7 +347,7 @@ extension CPProfileViewController : UITableViewDelegate {
 
         if ( (viewType == "watched")||(viewType == "forked") ){
             
-            if (UserInfoHelper.shared.checkUserLogin() ){
+            if (UserManager.shared.checkUserLogin() ){
                 let uname = user!.login
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
                 self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)

@@ -1,5 +1,5 @@
 //
-//  UserInfoHelper.swift
+//  UserManager.swift
 //  Coderpursue
 //
 //  Created by wenghengcong on 16/1/16.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class UserInfoHelper: NSObject {
+class UserManager: NSObject {
     
-    static let shared = UserInfoHelper()
+    static let shared = UserManager()
 
     var user:ObjUser? {
         get {
@@ -84,7 +84,7 @@ class UserInfoHelper: NSObject {
     }
     
     func loginTipAlertController() -> UIAlertController {
-        let alertController = UIAlertController.init(title: "Login Now?", message: "these data ask your github account.", preferredStyle: .alert)
+        let alertController = UIAlertController.init(title: "Sign in Now?", message: "these data ask your github account.", preferredStyle: .alert)
         let cancelAct = UIAlertAction.init(title: "Cancel", style: .destructive, handler: { action in
             
         })

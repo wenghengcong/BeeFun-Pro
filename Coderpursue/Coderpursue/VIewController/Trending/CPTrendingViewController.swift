@@ -96,10 +96,10 @@ class CPTrendingViewController: CPBaseViewController {
             tvc_updateNetrokData()
             return
         }
-        if UserInfoHelper.shared.isLogin {
+        if UserManager.shared.isLogin {
             tvc_updateNetrokData()
         }else{
-            let alertController = UserInfoHelper.shared.loginTipAlertController()
+            let alertController = UserManager.shared.loginTipAlertController()
             self.present(alertController, animated: true, completion: {
                 
             })
@@ -298,7 +298,7 @@ class CPTrendingViewController: CPBaseViewController {
     }
     
     func tvc_isLogin()->Bool{
-        if( !(UserInfoHelper.shared.checkUserLogin() ) ){
+        if( !(UserManager.shared.checkUserLogin() ) ){
             return false
         }
         return true

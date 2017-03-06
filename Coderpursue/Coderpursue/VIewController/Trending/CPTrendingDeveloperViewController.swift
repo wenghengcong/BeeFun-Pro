@@ -75,7 +75,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
         developerInfoV.userActionDelegate = self
         
-        if(developer!.login == UserInfoHelper.shared.user?.name){
+        if(developer!.login == UserManager.shared.user?.name){
             followBtn.isHidden = true
         }else{
             followBtn.isHidden = false
@@ -479,7 +479,7 @@ extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
     
     func segueGotoViewController() {
         
-        if (!UserInfoHelper.shared.isLogin){
+        if (!UserManager.shared.isLogin){
             CPGlobalHelper.showError("Please login first", view: self.view)
             return
         }

@@ -63,10 +63,10 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     }
     
     func mvc_firstCheckLogin() {
-        if UserInfoHelper.shared.isLogin {
+        if UserManager.shared.isLogin {
             mvc_updateNetrokData()
         }else{
-            let alertController = UserInfoHelper.shared.loginTipAlertController()
+            let alertController = UserManager.shared.loginTipAlertController()
             self.present(alertController, animated: true, completion: {
                 
             })
@@ -88,7 +88,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     }
     
     func mvc_isLogin()->Bool{
-        if( !(UserInfoHelper.shared.checkUserLogin()) ){
+        if( !(UserManager.shared.checkUserLogin()) ){
             notificationsData.removeAll()
             issuesData.removeAll()
             tableView.reloadData()
@@ -99,7 +99,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     
     func mvc_updateNetrokData() {
         
-        if (UserInfoHelper.shared.isLogin){
+        if (UserManager.shared.isLogin){
             //已登录
             tableView.mj_footer.isHidden = false
             if(segControl.selectedSegmentIndex == 0 ) {

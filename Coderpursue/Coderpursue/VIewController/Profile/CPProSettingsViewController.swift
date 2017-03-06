@@ -52,12 +52,12 @@ class CPProSettingsViewController: CPBaseViewController {
     
     func psvc_logoutAction() {
         
-        if( !(UserInfoHelper.shared.isLogin) ){
+        if( !(UserManager.shared.isLogin) ){
             CPGlobalHelper.showMessage("You didn't login !", view: self.view)
             return
         }
         
-        UserInfoHelper.shared.deleteUser()
+        UserManager.shared.deleteUser()
         
         NotificationCenter.default.post(name: Notification.Name(rawValue:kNotificationDidGitLogOut), object:nil)
 

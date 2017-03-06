@@ -48,10 +48,10 @@ class CPStarsViewController: CPBaseViewController{
     }
     
     func svc_firstCheckLogin() {
-        if UserInfoHelper.shared.isLogin {
+        if UserManager.shared.isLogin {
             svc_updateNetrokData()
         }else{
-            let alertController = UserInfoHelper.shared.loginTipAlertController()
+            let alertController = UserManager.shared.loginTipAlertController()
             self.present(alertController, animated: true, completion: {
                 
             })
@@ -71,7 +71,7 @@ class CPStarsViewController: CPBaseViewController{
     
     
     func svc_isLogin()->Bool{
-        if( !(UserInfoHelper.shared.checkUserLogin()) ){
+        if( !(UserManager.shared.checkUserLogin()) ){
             reposData.removeAll()
             eventsData.removeAll()
             tableView.reloadData()
@@ -82,7 +82,7 @@ class CPStarsViewController: CPBaseViewController{
     
     func svc_updateNetrokData() {
         
-        if UserInfoHelper.shared.isLogin{
+        if UserManager.shared.isLogin{
             
             tableView.mj_footer.isHidden = false
 

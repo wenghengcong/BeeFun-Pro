@@ -128,7 +128,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     func rvc_userIsLogin() {
         
-        user = UserInfoHelper.shared.user
+        user = UserManager.shared.user
         
         reposPoseterV.reposActionDelegate = self
         
@@ -220,7 +220,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     func rvc_checkWatchedRequset() {
         
-        if (!UserInfoHelper.shared.isLogin){
+        if (!UserManager.shared.isLogin){
             return
         }
         
@@ -257,7 +257,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     func rvc_checkStarredRqeuset() {
         
-        if (!UserInfoHelper.shared.isLogin){
+        if (!UserManager.shared.isLogin){
             return
         }
         

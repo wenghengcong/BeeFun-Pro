@@ -138,8 +138,7 @@ class CPReposPosterView: UIView {
         }
         
         if let created_at = repo!.created_at {
-            let createAt:Date = created_at.toDate(format: .iso8601Format(.full))!
-            timeLabel.text = "created at: "+createAt.toString()!
+            timeLabel.text = TimeHelper.shared.readableTime(rare: created_at, prefix: "created at: ")
         }
         
         

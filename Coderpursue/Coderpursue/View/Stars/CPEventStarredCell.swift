@@ -23,9 +23,7 @@ class CPEventStarredCell: CPEventBaseCell {
     override func eventCell_fillData() {
         
         reposBtn.setTitle(event?.repo?.name, for:UIControlState())
-        
-        let updateAt:Date = event!.created_at!.toDate(format:DateFormat.iso8601Format(.full))!
-        timeLabel.text = updateAt.toString(style: .colloquial)
+        timeLabel.text = TimeHelper.shared.readableTime(rare: event!.created_at, prefix: nil)
 
     }
     

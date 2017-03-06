@@ -72,8 +72,8 @@ class CPMesNotificationCell: CPBaseViewCell {
         
         if let time = noti?.updated_at {
             //time
-            let updateAt:Date = time.toDate(format: DateFormat.iso8601Format(.full))!
-            timeLabel.text = updateAt.toString(style: .colloquial)
+            timeLabel.text = TimeHelper.shared.readableTime(rare: time, prefix: nil)
+
         }
         
 

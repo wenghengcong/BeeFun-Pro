@@ -63,8 +63,7 @@ class CPMesIssueCell: CPBaseViewCell {
         }
         
         //time
-        let updateAt:Date = issue!.created_at!.toDate(format: DateFormat.iso8601Format(.full))!
-        timeLabel.text = updateAt.toString(style: .colloquial)
+        timeLabel.text = TimeHelper.shared.readableTime(rare: issue!.created_at, prefix: nil)
     }
 
 

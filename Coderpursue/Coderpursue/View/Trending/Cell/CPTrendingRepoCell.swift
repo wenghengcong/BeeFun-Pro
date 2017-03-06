@@ -37,9 +37,8 @@ class CPTrendingRepoCell: CPBaseViewCell {
             
             nameLabel.text = objRepos!.name!
             descLabel.text = objRepos!.cdescription
-            let updateAt:Date = objRepos!.pushed_at!.toDate(format: .iso8601Format(.full))!
-            
-            timeLabel.text = updateAt.toString(style: .colloquial)
+            timeLabel.text = TimeHelper.shared.readableTime(rare: objRepos!.pushed_at, prefix: nil)
+
             starNumLabel.text = "\(objRepos!.stargazers_count!)"
             forkNumLabel.text = "\(objRepos!.forks_count!)"
             if let lan = objRepos!.language {

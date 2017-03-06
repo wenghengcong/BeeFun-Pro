@@ -80,5 +80,22 @@ class UserInfoHelper: NSObject {
         
         let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.tabBarController?.currentNavigationViewController()?.pushViewController(loginVC, animated: true)
-        }
+        
+    }
+    
+    func loginTipAlertController() -> UIAlertController {
+        let alertController = UIAlertController.init(title: "Login Now?", message: "these data ask you github account.", preferredStyle: .alert)
+        let cancelAct = UIAlertAction.init(title: "Cancel", style: .cancel, handler: { action in
+            
+        })
+        
+        let okAct = UIAlertAction.init(title: "Go", style: .default, handler: { (action) in
+            self.popLoginView()
+        })
+        
+        alertController.addAction(cancelAct)
+        alertController.addAction(okAct)
+        return alertController
+    }
+    
 }

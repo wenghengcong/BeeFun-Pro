@@ -46,6 +46,17 @@ class CPStarsViewController: CPBaseViewController{
         NotificationCenter.default.removeObserver(self)
     }
     
+    func svc_firstCheckLogin() {
+        if UserInfoHelper.shared.isLogin {
+            svc_updateNetrokData()
+        }else{
+            let alertController = UserInfoHelper.shared.loginTipAlertController()
+            self.present(alertController, animated: true, completion: {
+                
+            })
+        }
+    }
+    
     func svc_loginSuccessful() {
         svc_updateNetrokData()
     }
@@ -59,8 +70,7 @@ class CPStarsViewController: CPBaseViewController{
     
     
     func svc_isLogin()->Bool{
-        if( !(UserInfoHelper.shared.isLogin) ){
-            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
+        if( !(UserInfoHelper.shared.checkUserLogin()) ){
             reposData.removeAll()
             eventsData.removeAll()
             tableView.reloadData()
@@ -71,7 +81,7 @@ class CPStarsViewController: CPBaseViewController{
     
     func svc_updateNetrokData() {
         
-        if svc_isLogin(){
+        if UserInfoHelper.shared.isLogin{
             
             tableView.mj_footer.isHidden = false
 
@@ -215,14 +225,14 @@ class CPStarsViewController: CPBaseViewController{
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
             
@@ -261,7 +271,7 @@ class CPStarsViewController: CPBaseViewController{
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
                 self.tableView.reloadData()
 
@@ -270,7 +280,7 @@ class CPStarsViewController: CPBaseViewController{
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }

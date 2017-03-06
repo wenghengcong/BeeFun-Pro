@@ -240,7 +240,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }
@@ -272,14 +272,14 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     }
                 } catch {
 
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }
@@ -305,7 +305,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = true
-                    CPGlobalHelper.shared.showError("Follow Successful", view: self.view)
+                    CPGlobalHelper.showError("Follow Successful", view: self.view)
 
                 }
                 self.dvc_updateViewContent()
@@ -315,7 +315,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }
@@ -342,7 +342,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = false
-                    CPGlobalHelper.shared.showError("Unollow Successful", view: self.view)
+                    CPGlobalHelper.showError("Unollow Successful", view: self.view)
 
                 }
                 
@@ -353,7 +353,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }
@@ -480,7 +480,7 @@ extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
     func segueGotoViewController() {
         
         if (!UserInfoHelper.shared.isLogin){
-            CPGlobalHelper.shared.showError("Please login first", view: self.view)
+            CPGlobalHelper.showError("Please login first", view: self.view)
             return
         }
         

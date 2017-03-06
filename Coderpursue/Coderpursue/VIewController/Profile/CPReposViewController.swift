@@ -164,7 +164,7 @@ class CPReposViewController: CPBaseViewController {
                         
                     } else {
 
-                        CPGlobalHelper.shared.showError(message, view: self.view)
+                        CPGlobalHelper.showError(message, view: self.view)
                     }
                 } catch {
 
@@ -213,7 +213,7 @@ class CPReposViewController: CPBaseViewController {
 
                     }
                 } catch {
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
                 //                self.tableView.reloadData()
             case let .failure(error):
@@ -221,7 +221,7 @@ class CPReposViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
 
             }
             

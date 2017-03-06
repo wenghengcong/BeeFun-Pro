@@ -74,7 +74,8 @@ class CPTrendingViewController: CPBaseViewController {
         tvc_setupTableView()
         tvc_setupFilterView()
         tvc_addNaviBarButtonItem()
-        updateNetrokData()
+        tvc_firstCheckLogin()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.title = "Explore"
@@ -89,6 +90,21 @@ class CPTrendingViewController: CPBaseViewController {
         super.viewWillAppear(animated)
     }
     
+    func tvc_firstCheckLogin() {
+        
+        if (segControl.selectedSegmentIndex != 1){
+            tvc_updateNetrokData()
+            return
+        }
+        if UserInfoHelper.shared.isLogin {
+            tvc_updateNetrokData()
+        }else{
+            let alertController = UserInfoHelper.shared.loginTipAlertController()
+            self.present(alertController, animated: true, completion: {
+                
+            })
+        }
+    }
     
     func tvc_loginSuccessful() {
         
@@ -246,7 +262,7 @@ class CPTrendingViewController: CPBaseViewController {
 
     }
     
-    func updateNetrokData() {
+    func tvc_updateNetrokData() {
         
         if(segControl.selectedSegmentIndex == 0) {
             tvc_getReposRequest()
@@ -267,7 +283,7 @@ class CPTrendingViewController: CPBaseViewController {
         }else{
 
         }
-        updateNetrokData()
+        tvc_updateNetrokData()
     }
     
     func footerRefresh(){
@@ -278,12 +294,11 @@ class CPTrendingViewController: CPBaseViewController {
         }else{
             
         }
-        updateNetrokData()
+        tvc_updateNetrokData()
     }
     
     func tvc_isLogin()->Bool{
-        if( !(UserInfoHelper.shared.isLogin) ){
-            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
+        if( !(UserInfoHelper.shared.checkUserLogin() ) ){
             return false
         }
         return true
@@ -339,14 +354,14 @@ class CPTrendingViewController: CPBaseViewController {
 
                     }
                 } catch {
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
             
@@ -407,14 +422,14 @@ class CPTrendingViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }
@@ -448,14 +463,14 @@ class CPTrendingViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }

@@ -101,14 +101,14 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
                     }
 
                 } catch {
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
             

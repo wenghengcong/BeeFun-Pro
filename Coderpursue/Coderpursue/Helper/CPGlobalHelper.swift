@@ -13,14 +13,14 @@ class CPGlobalHelper {
     
     static let shared = CPGlobalHelper()
 
-    func showMessage(_ message:String ,view:UIView) {
+    class func showMessage(_ message:String ,view:UIView) {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud?.labelText = message
         hud?.mode = .text
         hud?.hide(true, afterDelay: 1.5)
     }
     
-    func showError(_ error:String ,view:UIView) {
+    class func showError(_ error:String ,view:UIView) {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
         hud?.labelText = error
         hud?.mode = .text
@@ -29,14 +29,14 @@ class CPGlobalHelper {
     
     /** calculator text size */
     
-    func calculatorTextSize(_ text:String ,size:CGSize ,font:UIFont) -> CGRect {
+    class func calculatorTextSize(_ text:String ,size:CGSize ,font:UIFont) -> CGRect {
         
         let boundingBox:CGRect = text.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         return boundingBox
         
     }
     
-    func heightWithConstrainedWidth(_ text:String ,width: CGFloat, font: UIFont) -> CGFloat {
+    class func heightWithConstrainedWidth(_ text:String ,width: CGFloat, font: UIFont) -> CGFloat {
         
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
         
@@ -45,7 +45,7 @@ class CPGlobalHelper {
         return boundingBox.height
     }
     
-    func widthWithConstrainedHeight(_ text:String ,height: CGFloat, font: UIFont) -> CGFloat {
+    class func widthWithConstrainedHeight(_ text:String ,height: CGFloat, font: UIFont) -> CGFloat {
         
         let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: height)
         
@@ -58,7 +58,7 @@ class CPGlobalHelper {
     
     
     //read plis file and convert data to array
-    func readPlist(_ file:String)->[[ObjSettings]] {
+    class func readPlist(_ file:String)->[[ObjSettings]] {
         
         var settingsArr:[[ObjSettings]] = []
 

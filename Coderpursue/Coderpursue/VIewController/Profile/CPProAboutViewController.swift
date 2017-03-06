@@ -46,7 +46,7 @@ class CPProAboutViewController: CPBaseViewController {
     }
     
     func pavc_readPlist(){
-        settingsArr = CPGlobalHelper.shared.readPlist("CPAboutList")
+        settingsArr = CPGlobalHelper.readPlist("CPAboutList")
     }
 }
 
@@ -124,8 +124,7 @@ extension CPProAboutViewController : UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if( !(UserInfoHelper.shared.isLogin) ){
-            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
+        if( !(UserInfoHelper.shared.checkUserLogin()) ){
             return
         }
         

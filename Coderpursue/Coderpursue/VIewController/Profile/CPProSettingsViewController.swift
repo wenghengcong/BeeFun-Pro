@@ -47,13 +47,13 @@ class CPProSettingsViewController: CPBaseViewController {
     
     
     func psvc_readPlist(){
-        settingsArr = CPGlobalHelper.shared.readPlist("CPSettingsList")
+        settingsArr = CPGlobalHelper.readPlist("CPSettingsList")
     }
     
     func psvc_logoutAction() {
         
         if( !(UserInfoHelper.shared.isLogin) ){
-            CPGlobalHelper.shared.showMessage("You didn't login !", view: self.view)
+            CPGlobalHelper.showMessage("You didn't login !", view: self.view)
             return
         }
         

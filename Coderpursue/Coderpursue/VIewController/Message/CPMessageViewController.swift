@@ -11,7 +11,7 @@ import Moya
 import Foundation
 import MJRefresh
 
-class CPMessageViewController: CPBaseViewController {
+class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
@@ -43,10 +43,11 @@ class CPMessageViewController: CPBaseViewController {
     let footer = MJRefreshAutoNormalFooter()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         mvc_setupSegmentView()
         mvc_setupTableView()
-        mvc_updateNetrokData()
+        mvc_firstCheckLogin()
         NotificationCenter.default.addObserver(self, selector: #selector(mvc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(mvc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.leftItem?.isHidden = true
@@ -61,11 +62,24 @@ class CPMessageViewController: CPBaseViewController {
         super.viewWillAppear(animated)
     }
     
+    func mvc_firstCheckLogin() {
+        if UserInfoHelper.shared.isLogin {
+            mvc_updateNetrokData()
+        }else{
+            let alertController = UserInfoHelper.shared.loginTipAlertController()
+            self.present(alertController, animated: true, completion: {
+                
+            })
+        }
+    }
+    
+    
+    /// 登录成功的通知
     func mvc_loginSuccessful() {
         
         mvc_updateNetrokData()
     }
-    
+    /// 注销成功的通知
     func mvc_logoutSuccessful() {
         
         issuesData.removeAll()
@@ -74,8 +88,7 @@ class CPMessageViewController: CPBaseViewController {
     }
     
     func mvc_isLogin()->Bool{
-        if( !(UserInfoHelper.shared.isLogin) ){
-            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
+        if( !(UserInfoHelper.shared.checkUserLogin()) ){
             notificationsData.removeAll()
             issuesData.removeAll()
             tableView.reloadData()
@@ -86,14 +99,15 @@ class CPMessageViewController: CPBaseViewController {
     
     func mvc_updateNetrokData() {
         
-        if mvc_isLogin(){
-            
+        if (UserInfoHelper.shared.isLogin){
+            //已登录
             tableView.mj_footer.isHidden = false
             if(segControl.selectedSegmentIndex == 0 ) {
                 mvc_getNotificationsRequest(self.notisPageVal)
             }else if(segControl.selectedSegmentIndex == 1){
                 mvc_getIssuesRequest(self.issuesPageVal)
             }
+            
         }else{
             //加载未登录的页面
             tableView.mj_header.endRefreshing()
@@ -226,14 +240,14 @@ class CPMessageViewController: CPBaseViewController {
                     }
                 } catch {
 
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }
@@ -274,14 +288,14 @@ class CPMessageViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }

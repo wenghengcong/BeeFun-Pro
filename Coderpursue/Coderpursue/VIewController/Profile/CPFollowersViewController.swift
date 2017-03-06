@@ -165,7 +165,7 @@ class CPFollowersViewController: CPBaseViewController {
                     }
                 } catch {
 
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -173,7 +173,7 @@ class CPFollowersViewController: CPBaseViewController {
                 }
                 message = error.description
 
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }
@@ -215,7 +215,7 @@ class CPFollowersViewController: CPBaseViewController {
                     }
                 } catch {
 
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -223,7 +223,7 @@ class CPFollowersViewController: CPBaseViewController {
                 }
                 message = error.description
 
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }

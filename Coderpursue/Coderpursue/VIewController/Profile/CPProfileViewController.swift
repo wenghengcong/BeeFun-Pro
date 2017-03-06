@@ -67,14 +67,13 @@ class CPProfileViewController: CPBaseViewController {
     
     func pvc_loadSettingPlistData() {
         
-        settingsArr = CPGlobalHelper.shared.readPlist("CPProfileList")
+        settingsArr = CPGlobalHelper.readPlist("CPProfileList")
         self.tableView.reloadData()
 
     }
     
     func pvc_isLogin()->Bool{
-        if( !(UserInfoHelper.shared.isLogin) ){
-            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
+        if( !(UserInfoHelper.shared.checkUserLogin()) ){
             return false
         }
         return true
@@ -137,14 +136,14 @@ class CPProfileViewController: CPBaseViewController {
                         
                     }
                 } catch {
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
                 
             }
         }
@@ -222,7 +221,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                     }
                 } catch {
                     success = false
-                    CPGlobalHelper.shared.showError(message, view: self.view)
+                    CPGlobalHelper.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -230,7 +229,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                 }
                 message = error.description
                 success = false
-                CPGlobalHelper.shared.showError(message, view: self.view)
+                CPGlobalHelper.showError(message, view: self.view)
 
             }
         }
@@ -248,35 +247,28 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     }
 
     func viewMyReposAction() {
-        if ( isLogin && (user != nil) ){
+        if ( UserInfoHelper.shared.checkUserLogin() ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
             self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
-        }else{
-            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
-
         }
-
     }
     
     func viewMyFollowerAction() {
-        if ( isLogin && (user != nil) ){
+        if ( UserInfoHelper.shared.checkUserLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
             self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
         }else{
-            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
 
         }
     }
     
     func viewMyFollowingAction() {
-        if ( isLogin && (user != nil) ){
+        if ( UserInfoHelper.shared.checkUserLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
             self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
-        }else{
-            CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
         }
     }
     
@@ -355,12 +347,10 @@ extension CPProfileViewController : UITableViewDelegate {
 
         if ( (viewType == "watched")||(viewType == "forked") ){
             
-            if (isLogin && (user != nil) ){
+            if (UserInfoHelper.shared.checkUserLogin() ){
                 let uname = user!.login
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
                 self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
-            }else{
-                CPGlobalHelper.shared.showMessage("You Should Login first!", view: self.view)
             }
         
         }else if(viewType == "feedback"){

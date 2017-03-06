@@ -121,7 +121,7 @@ class CPStarsViewController: CPBaseViewController{
             
         }
         
-        segControl.snp_makeConstraints { (make) -> Void in
+        segControl.snp.makeConstraints { (make) -> Void in
             make.top.equalTo(64)
             make.height.equalTo(44)
             make.width.equalTo(self.view)

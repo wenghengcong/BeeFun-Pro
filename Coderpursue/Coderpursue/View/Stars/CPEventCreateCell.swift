@@ -80,8 +80,7 @@ class CPEventCreateCell: CPEventBaseCell {
         
         let firstTop = 9
         let lalHeight = 16
-        
-        typeImageV.snp_remakeConstraints { (make) -> Void in
+        typeImageV.snp.remakeConstraints { (make) -> Void in
             
             make.size.equalTo(CGSize.init(width: 25, height: 25))
             make.leading.equalTo(10)
@@ -89,9 +88,9 @@ class CPEventCreateCell: CPEventBaseCell {
         }
         
         createLabel.sizeToFit()
-        createLabel.snp_remakeConstraints { (make) -> Void in
+        createLabel.snp.remakeConstraints { (make) -> Void in
             
-            make.leading.equalTo(typeImageV.snp_trailing).offset(8)
+            make.leading.equalTo(typeImageV.snp.trailing).offset(8)
             make.top.equalTo(firstTop)
             make.width.equalTo(createLabel.width)
             make.height.equalTo(createLabel.height)
@@ -99,8 +98,8 @@ class CPEventCreateCell: CPEventBaseCell {
         
         let typeValW = self.width-createLabel.right-rightPad
         
-        typeValBtn.snp_remakeConstraints { (make) -> Void in
-            make.leading.equalTo(createLabel.snp_trailing).offset(5)
+        typeValBtn.snp.remakeConstraints { (make) -> Void in
+            make.leading.equalTo(createLabel.snp.trailing).offset(5)
             make.top.equalTo(firstTop)
             make.width.equalTo(typeValW)
             make.height.equalTo(lalHeight)
@@ -110,19 +109,19 @@ class CPEventCreateCell: CPEventBaseCell {
             
             let reposWidth = self.width-createLabel.left-rightPad;
             
-            reposNameBtn.snp_remakeConstraints({ (make) -> Void in
-                make.leading.equalTo(createLabel.snp_leading)
-                make.top.equalTo(createLabel.snp_bottom).offset(0)
+            reposNameBtn.snp.remakeConstraints({ (make) -> Void in
+                make.leading.equalTo(createLabel.snp.leading)
+                make.top.equalTo(createLabel.snp.bottom).offset(0)
                 make.width.equalTo(reposWidth)
                 make.height.equalTo(lalHeight)
             })
             
         }else{
             
-            inLabel.snp_remakeConstraints({ (make) -> Void in
+            inLabel.snp.remakeConstraints({ (make) -> Void in
                 
-                make.leading.equalTo(createLabel.snp_leading)
-                make.top.equalTo(createLabel.snp_bottom).offset(0)
+                make.leading.equalTo(createLabel.snp.leading)
+                make.top.equalTo(createLabel.snp.bottom).offset(0)
                 make.width.equalTo(22)
                 make.height.equalTo(lalHeight)
                 
@@ -130,9 +129,9 @@ class CPEventCreateCell: CPEventBaseCell {
             
             let reposWidth = self.width-inLabel.right-rightPad;
             
-            reposNameBtn.snp_remakeConstraints({ (make) -> Void in
-                make.leading.equalTo(inLabel.snp_trailing).offset(5)
-                make.top.equalTo(createLabel.snp_bottom).offset(0)
+            reposNameBtn.snp.remakeConstraints({ (make) -> Void in
+                make.leading.equalTo(inLabel.snp.trailing).offset(5)
+                make.top.equalTo(createLabel.snp.bottom).offset(0)
                 make.width.equalTo(reposWidth)
                 make.height.equalTo(lalHeight)
             })

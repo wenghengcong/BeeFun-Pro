@@ -100,19 +100,19 @@ class CPEventPushCell: CPEventBaseCell {
             
             if (i == 0) {
 
-                commitBtn.snp_makeConstraints({ (make) -> Void in
+                commitBtn.snp.makeConstraints({ (make) -> Void in
                     
-                    make.leading.equalTo(atLabel.snp_leading)
-                    make.top.equalTo(reposNameBtn.snp_bottom).offset(5)
+                    make.leading.equalTo(atLabel.snp.leading)
+                    make.top.equalTo(reposNameBtn.snp.bottom).offset(5)
                     make.width.equalTo(btnW)
                     make.height.equalTo(20)
                     
                 })
                 
-                commitLabel.snp_makeConstraints({ (make) -> Void in
+                commitLabel.snp.makeConstraints({ (make) -> Void in
                     
-                    make.leading.equalTo(commitBtn.snp_trailing).offset(0)
-                    make.top.equalTo(commitBtn.snp_top)
+                    make.leading.equalTo(commitBtn.snp.trailing).offset(0)
+                    make.top.equalTo(commitBtn.snp.top)
                     make.width.equalTo(lalW)
                     make.height.equalTo(20)
                     
@@ -123,19 +123,19 @@ class CPEventPushCell: CPEventBaseCell {
                 let lastBtn:UIButton = commitBtns[i-1]
                 
                 commitLabel.sizeToFit()
-                commitBtn.snp_makeConstraints({ (make) -> Void in
+                commitBtn.snp.makeConstraints({ (make) -> Void in
                     
-                    make.leading.equalTo(lastBtn.snp_leading)
-                    make.top.equalTo(lastBtn.snp_bottom).offset(0)
+                    make.leading.equalTo(lastBtn.snp.leading)
+                    make.top.equalTo(lastBtn.snp.bottom).offset(0)
                     make.width.equalTo(btnW)
                     make.height.equalTo(20)
                     
                 })
                 
-                commitLabel.snp_makeConstraints({ (make) -> Void in
+                commitLabel.snp.makeConstraints({ (make) -> Void in
                     
-                    make.leading.equalTo(commitBtn.snp_trailing).offset(0)
-                    make.top.equalTo(commitBtn.snp_top)
+                    make.leading.equalTo(commitBtn.snp.trailing).offset(0)
+                    make.top.equalTo(commitBtn.snp.top)
                     make.width.equalTo(lalW)
                     make.height.equalTo(20)
                     

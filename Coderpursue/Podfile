@@ -20,6 +20,8 @@ target 'Coderpursue' do
 	pod 'MJRefresh'
     pod 'SwiftDate', '~> 4.0'
 	pod 'Bugly'
+    pod "PromiseKit", "~> 4.0"
+    pod 'SwiftMessages'
     #pod 'UMengAnalytics-NO-IDFA'
 end
 

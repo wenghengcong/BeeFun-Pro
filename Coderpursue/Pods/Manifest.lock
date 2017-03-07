@@ -26,6 +26,7 @@ PODS:
   - Result (3.2.1)
   - SnapKit (3.2.0)
   - SwiftDate (4.0.13)
+  - SwiftMessages (3.2.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - ReachabilitySwift (~> 3)
   - SnapKit
   - SwiftDate (~> 4.0)
+  - SwiftMessages
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -55,7 +57,8 @@ SPEC CHECKSUMS:
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
+  SwiftMessages: d114d273978678c0dce036f30273865af7303a35
 
-PODFILE CHECKSUM: 513aaeba166054c85ef831607c742a795fbf49dd
+PODFILE CHECKSUM: f2c462bcc2487a86b492e5120af2e44448998eea
 
 COCOAPODS: 1.2.0.beta.1

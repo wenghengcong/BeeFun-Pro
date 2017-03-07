@@ -31,7 +31,7 @@ class CPStarsViewController: CPBaseViewController{
         super.viewDidLoad()
         svc_setupSegmentView()
         svc_setupTableView()
-        svc_firstCheckLogin()
+        svc_updateNetrokData()
         
         NotificationCenter.default.addObserver(self, selector: #selector(svc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(svc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
@@ -45,19 +45,6 @@ class CPStarsViewController: CPBaseViewController{
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-    }
-    
-    func svc_firstCheckLogin() {
-        if UserManager.shared.isLogin {
-            svc_updateNetrokData()
-        }else{
-            UserManager.shared.showNotLoginTips()
-
-//            let alertController = UserManager.shared.loginTipAlertController()
-//            self.present(alertController, animated: true, completion: {
-//                
-//            })
-        }
     }
     
     func svc_loginSuccessful() {
@@ -84,7 +71,7 @@ class CPStarsViewController: CPBaseViewController{
     
     func svc_updateNetrokData() {
         
-        if UserManager.shared.isLogin{
+        if UserManager.shared.checkUserLogin(){
             
             tableView.mj_footer.isHidden = false
 

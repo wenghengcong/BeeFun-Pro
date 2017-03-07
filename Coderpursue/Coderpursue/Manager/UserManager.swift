@@ -107,12 +107,16 @@ class UserManager: NSObject {
         
         let status = MessageView.viewFromNib(layout: .MessageView)
         status.configureContent(title: "Login Now?", body: "These data ask your github account", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: "Login", buttonTapHandler: { _ in
+            SwiftMessages.hide()
             self.popLoginView()
         })
         status.configureTheme(.error)
+        status.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
+        status.bodyLabel?.font = UIFont.systemFont(ofSize: 13.0)
+        status.button?.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
         
         var statusConfig = SwiftMessages.defaultConfig
-        statusConfig.duration = .seconds(seconds: 1.5)
+        statusConfig.duration = .seconds(seconds: 1.0)
         statusConfig.presentationContext = .automatic
         SwiftMessages.show(config: statusConfig, view: status)
     }
@@ -120,7 +124,6 @@ class UserManager: NSObject {
     
     /// 登录提示Alert
     ///
-    /// - Returns: <#return value description#>
     func loginTipAlertController() -> UIAlertController {
         
         let alertController = UIAlertController.init(title: "Sign in Now?", message: "these data ask your github account.", preferredStyle: .alert)

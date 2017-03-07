@@ -78,7 +78,7 @@ class CPGitLoginViewController: CPWebViewController {
                 MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
                 let str = String(data: response.data!, encoding: String.Encoding.utf8)
                 //access_token=7c897cd55113db38df41521eb897f47e395df845&scope=public_repo%2Cuser&token_type=bearer
-                print("access: \(str)")
+//                print("access: \(str)")
                 if str != nil {
                     let arr:[String] = (str!.components(separatedBy: ("&")))
                     
@@ -92,7 +92,7 @@ class CPGitLoginViewController: CPWebViewController {
                         //                        token.access_token = accesstoken
                         token.token_type = tokentype
                         token.scope = scope
-                        print(token)
+//                        print(token)
                         self.glv_getUserinfo(accesstoken)
                         
                     }
@@ -108,7 +108,7 @@ class CPGitLoginViewController: CPWebViewController {
 
         let provider = Provider.sharedProvider
         provider.request(.myInfo) { (result) -> () in
-            print(result)
+//            print(result)
             
             var message = "No data to show"
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
@@ -132,7 +132,6 @@ class CPGitLoginViewController: CPWebViewController {
                     break
                 }
                 message = error.description
-                NSLog( (message))
             }
 
         }

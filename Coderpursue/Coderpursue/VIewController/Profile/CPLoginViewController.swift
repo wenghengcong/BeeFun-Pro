@@ -84,7 +84,7 @@ class CPLoginViewController: CPBaseViewController {
             switch response.result{
                 case let .success(response):
                     self.lvc_saveAuthorization(authorizationHeaderStr)
-                    self.lvc_saveUserInfoData((response as AnyObject).data!)
+                    self.lvc_saveUserInfoData((response as AnyObject).data! as Data)
                 case .failure(_): break
                 
             }

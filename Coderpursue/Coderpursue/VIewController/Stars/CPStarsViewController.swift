@@ -51,10 +51,12 @@ class CPStarsViewController: CPBaseViewController{
         if UserManager.shared.isLogin {
             svc_updateNetrokData()
         }else{
-            let alertController = UserManager.shared.loginTipAlertController()
-            self.present(alertController, animated: true, completion: {
-                
-            })
+            UserManager.shared.showNotLoginTips()
+
+//            let alertController = UserManager.shared.loginTipAlertController()
+//            self.present(alertController, animated: true, completion: {
+//                
+//            })
         }
     }
     

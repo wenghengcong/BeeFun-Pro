@@ -73,7 +73,7 @@ class CPProfileViewController: CPBaseViewController {
     }
     
     func pvc_isLogin()->Bool{
-        if( !(UserManager.shared.checkUserLogin()) ){
+        if( !(UserManager.shared.needLogin()) ){
             return false
         }
         return true
@@ -237,16 +237,14 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     
     //登录按钮，点击打开登录页面
     func userLoginAction() {
-//        pvc_showLoginInWebView()
-//        self.performSegueWithIdentifier(SegueProfileLoginIn, sender: nil)
-        if(UserManager.shared.checkUserLogin())
+        if(UserManager.shared.needLogin())
         {
             
         }
     }
 
     func viewMyReposAction() {
-        if ( UserManager.shared.checkUserLogin() ){
+        if ( UserManager.shared.needLogin() ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
             self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
@@ -254,7 +252,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     }
     
     func viewMyFollowerAction() {
-        if ( UserManager.shared.checkUserLogin()  ){
+        if ( UserManager.shared.needLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
             self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
@@ -264,7 +262,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
     }
     
     func viewMyFollowingAction() {
-        if ( UserManager.shared.checkUserLogin()  ){
+        if ( UserManager.shared.needLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
             self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
@@ -346,7 +344,7 @@ extension CPProfileViewController : UITableViewDelegate {
 
         if ( (viewType == "watched")||(viewType == "forked") ){
             
-            if (UserManager.shared.checkUserLogin() ){
+            if (UserManager.shared.needLogin() ){
                 let uname = user!.login
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
                 self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)

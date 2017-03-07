@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftMessages
 
 class UserManager: NSObject {
     
@@ -58,17 +59,35 @@ class UserManager: NSObject {
         ObjUser.deleteUserInfo()
     }
     
+    
+    /// 检查是否登录，未登录时，弹出提示
+    ///
     func checkUserLogin() -> Bool{
         if(isLogin){
             //已登录，返回true
             return true
         }else{
-            //未登录，进行登录流程
+            //未登录，显示提示
+            showNotLoginTips()
+            return false
+        }
+    }
+    
+    
+    /// 需要登录，未登录弹出登录页面
+    ///
+    func needLogin() -> Bool {
+        if(isLogin){
+            //已登录，返回true
+            return true
+        }else{
+            //未登录，弹出登录界面
             popLoginView()
             return false
         }
     }
     
+    /// 弹出登录页面
     func popLoginView() {
         
         NetworkHelper.clearCookies()
@@ -83,7 +102,27 @@ class UserManager: NSObject {
         
     }
     
+    /// 显示登录tip
+    func showNotLoginTips()  {
+        
+        let status = MessageView.viewFromNib(layout: .MessageView)
+        status.configureContent(title: "Login Now?", body: "These data ask your github account", iconImage: nil, iconText: nil, buttonImage: nil, buttonTitle: "Login", buttonTapHandler: { _ in
+            self.popLoginView()
+        })
+        status.configureTheme(.error)
+        
+        var statusConfig = SwiftMessages.defaultConfig
+        statusConfig.duration = .seconds(seconds: 1.5)
+        statusConfig.presentationContext = .automatic
+        SwiftMessages.show(config: statusConfig, view: status)
+    }
+    
+    
+    /// 登录提示Alert
+    ///
+    /// - Returns: <#return value description#>
     func loginTipAlertController() -> UIAlertController {
+        
         let alertController = UIAlertController.init(title: "Sign in Now?", message: "these data ask your github account.", preferredStyle: .alert)
         let cancelAct = UIAlertAction.init(title: "Cancel", style: .destructive, handler: { action in
             

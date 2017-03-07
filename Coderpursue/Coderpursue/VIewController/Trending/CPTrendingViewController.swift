@@ -99,10 +99,12 @@ class CPTrendingViewController: CPBaseViewController {
         if UserManager.shared.isLogin {
             tvc_updateNetrokData()
         }else{
-            let alertController = UserManager.shared.loginTipAlertController()
-            self.present(alertController, animated: true, completion: {
-                
-            })
+            UserManager.shared.showNotLoginTips()
+
+//            let alertController = UserManager.shared.loginTipAlertController()
+//            self.present(alertController, animated: true, completion: {
+//                
+//            })
         }
     }
     

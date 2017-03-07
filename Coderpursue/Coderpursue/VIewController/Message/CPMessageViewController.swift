@@ -48,7 +48,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         
         mvc_setupSegmentView()
         mvc_setupTableView()
-        mvc_firstCheckLogin()
+        mvc_updateNetrokData()
         NotificationCenter.default.addObserver(self, selector: #selector(mvc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(mvc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.leftItem?.isHidden = true
@@ -62,18 +62,6 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
-    func mvc_firstCheckLogin() {
-        if UserManager.shared.isLogin {
-            mvc_updateNetrokData()
-        }else{
-            let alertController = UserManager.shared.loginTipAlertController()
-            self.present(alertController, animated: true, completion: {
-                
-            })
-        }
-    }
-    
     
     /// 登录成功的通知
     func mvc_loginSuccessful() {
@@ -100,7 +88,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     
     func mvc_updateNetrokData() {
         
-        if (UserManager.shared.isLogin){
+        if (UserManager.shared.checkUserLogin()){
             //已登录
             tableView.mj_footer.isHidden = false
             if(segControl.selectedSegmentIndex == 0 ) {

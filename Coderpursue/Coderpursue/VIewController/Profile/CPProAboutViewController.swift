@@ -124,7 +124,7 @@ extension CPProAboutViewController : UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if( !(UserManager.shared.checkUserLogin()) ){
+        if( !(UserManager.shared.needLogin()) ){
             return
         }
         

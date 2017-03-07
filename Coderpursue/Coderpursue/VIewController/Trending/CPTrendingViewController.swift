@@ -199,7 +199,7 @@ class CPTrendingViewController: CPBaseViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
-        header.setTitle("Pull down to refresh", for: .idle)
+        header.setTitle("", for: .idle)
         header.setTitle("Release to refresh", for: .pulling)
         header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingViewController.headerRefresh))
@@ -207,7 +207,7 @@ class CPTrendingViewController: CPBaseViewController {
         self.tableView.mj_header = header
         
         // 上拉刷新
-        footer.setTitle("Click or drag up to refresh", for: .idle)
+        footer.setTitle("", for: .idle)
         footer.setTitle("Loading more ...", for: .pulling)
         footer.setTitle("No more data", for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingViewController.footerRefresh))

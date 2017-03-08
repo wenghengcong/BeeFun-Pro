@@ -3,21 +3,27 @@
 [![](https://img.shields.io/badge/version-1.0.4-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-3.0-green.svg)](https://developer.apple.com/swift/)
 
+
+
+[App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
+
+[ReadMe 中文](https://github.com/wenghengcong/Coderpursue/blob/developer/README.md)  
+
+
+
 Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift.Also,It's an open project.
 
 You can get the app by QR code or on App Store.
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" height="200" width="200" ></a>
 
-[App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 
-[ReadMe 中文](https://github.com/wenghengcong/Coderpursue/blob/developer/README.md)  
-  
+
 ***
-  
+
 ### Feature
 
-- v1.0.4
+- v1.1.0
   1. Explore Github: Explore Trending Repositories or showcases；
   2. Search User and Repositories；
   3. star/watch/fork repository；
@@ -33,30 +39,30 @@ You can get the app by QR code or on App Store.
 ### Thanks
 
  [open source lib](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/opensource.md)
- 
+
  [bugs](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/bugs.md)
- 
+
  [suggestions](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/suggestion.md)
- 
+
  [reference](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/reference.md)
- 
+
  [other](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/other.md) 
- 
+
  ***
- 
+
 ### TODO
 
 Now,I should improve the quality of the application first.
 
 Also,I will add these features to next version.
 
-- v1.1.0
+- v2.0
   1. ~~search Repository;~~
   2. ~~trending Repositories filter by tiem period;~~
   3. add notification detail page;
   4. add Issue detail page;
   5. add event deatail page;
-   
+
 ***
 
 ### App Preview
@@ -78,19 +84,19 @@ Also,I will add these features to next version.
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1424.PNG" align="left" height="356" width="200" ></a>
 
 <br />
-  
+
 ***
 
 ### About Me
 	Email：wenghengcong@163.com
 	Weibo：http://weibo.com/1820994470
 	Blog：wenghengcong.com
-	
+
 ***
 
 ### Other Github client
 
-  - [Explorer for Github](https://itunes.apple.com/cn/app/explorer-for-github/id1032918575?l=en&mt=8)
+- [Explorer for Github](https://itunes.apple.com/cn/app/explorer-for-github/id1032918575?l=en&mt=8)
   - [Github stars!](https://itunes.apple.com/cn/app/github-stars!-push-notifications/id856357021?l=en&mt=8)
   - [iOctocat](https://itunes.apple.com/cn/app/ioctocat-mobile-client-for/id669642611?l=en&mt=8)
   - [Git Up](https://itunes.apple.com/cn/app/git-up-whats-hot-on-github/id727039913?l=en&mt=8)

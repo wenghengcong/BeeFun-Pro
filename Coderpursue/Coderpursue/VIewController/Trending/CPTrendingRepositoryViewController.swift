@@ -145,6 +145,9 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     }
     
     
+    /// 导航栏左边按钮
+    ///
+    /// - Parameter sender: <#sender description#>
     override func leftItemAction(_ sender: UIButton?) {
         _ = self.navigationController?.popViewController(animated: true)
     }
@@ -185,7 +188,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userSomeRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
@@ -229,7 +232,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.checkWatched(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             switch result {
@@ -266,7 +269,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.checkStarred(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
@@ -299,7 +302,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         let repoName = repos!.name!
         Provider.sharedProvider.request(.watchingRepo(owner:owner,repo:repoName,subscribed:"true",ignored:"false") ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
@@ -333,7 +336,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.unWatchingRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
@@ -368,7 +371,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.starRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
@@ -402,7 +405,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.unstarRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
@@ -437,7 +440,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.createFork(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)

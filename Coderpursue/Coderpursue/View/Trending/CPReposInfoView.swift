@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// Repos 底部的代码库的详细信息视图
 class CPReposInfoView: UIView {
 
     @IBOutlet weak var watchBtn: UIButton!

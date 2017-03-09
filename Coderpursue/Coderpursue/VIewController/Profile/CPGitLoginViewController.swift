@@ -110,7 +110,7 @@ class CPGitLoginViewController: CPWebViewController {
         provider.request(.myInfo) { (result) -> () in
 //            print(result)
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
             switch result {

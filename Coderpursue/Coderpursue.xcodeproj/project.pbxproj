@@ -106,6 +106,12 @@
 		5EACCFCC1C8DEB490059A303 /* ParaSearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */; };
 		5EACCFCF1C8E5F450059A303 /* ParaComparison.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFCE1C8E5F450059A303 /* ParaComparison.swift */; };
 		5EACCFD11C8E62C70059A303 /* ParaTrending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFD01C8E62C70059A303 /* ParaTrending.swift */; };
+		5EBD35FA1E71484000C4E350 /* JSDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD35F41E71484000C4E350 /* JSDevice.swift */; };
+		5EBD35FC1E71484000C4E350 /* UIDevice+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD35F61E71484000C4E350 /* UIDevice+Device.swift */; };
+		5EBD35FD1E71484000C4E350 /* UIScreen+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD35F71E71484000C4E350 /* UIScreen+Size.swift */; };
+		5EBD35FE1E71484000C4E350 /* UIView+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD35F81E71484000C4E350 /* UIView+Draw.swift */; };
+		5EBD35FF1E71484000C4E350 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD35F91E71484000C4E350 /* UIView+Nib.swift */; };
+		5EBD36011E71568200C4E350 /* ComonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD36001E71568200C4E350 /* ComonString.swift */; };
 		5EBF89AD1C926AB4009B3F5B /* CPMyReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */; };
 		5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */; };
 		5EC58D7C1E6DAAF60069AE82 /* AppVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */; };
@@ -156,15 +162,11 @@
 		FE26BCBD1C4231FB00887534 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE26BCBC1C4231FB00887534 /* Alamofire.framework */; };
 		FE26BCC61C44754C00887534 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE26BCC51C44754C00887534 /* ObjectMapper.framework */; };
 		FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3179AB1C405EF300150370 /* CPWebViewController.swift */; };
-		FE37DEF51C4A614000B8449D /* UIView+Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE37DEF41C4A614000B8449D /* UIView+Position.swift */; };
 		FE37DEF71C4A8F1F00B8449D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE37DEF61C4A8F1F00B8449D /* Kingfisher.framework */; };
-		FE37DEF91C4B2E7700B8449D /* UIView+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE37DEF81C4B2E7700B8449D /* UIView+Draw.swift */; };
 		FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C11C53850D0048BA1D /* Response+ObjectMapper.swift */; };
 		FE3ED3C61C5C49700048BA1D /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C51C5C49700048BA1D /* HMSegmentedControl.m */; };
 		FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */; };
 		FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */; };
-		FE49DF941C4B5AE600676131 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF931C4B5AE600676131 /* Device.swift */; };
-		FE49DF981C4B5D6A00676131 /* UIDevice+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF971C4B5D6A00676131 /* UIDevice+Model.swift */; };
 		FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */; };
 		FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */; };
 		FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6333E91C532E76006D7A2B /* CPStarsViewController.swift */; };
@@ -344,6 +346,12 @@
 		5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchUser.swift; sourceTree = "<group>"; };
 		5EACCFCE1C8E5F450059A303 /* ParaComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaComparison.swift; sourceTree = "<group>"; };
 		5EACCFD01C8E62C70059A303 /* ParaTrending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaTrending.swift; sourceTree = "<group>"; };
+		5EBD35F41E71484000C4E350 /* JSDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSDevice.swift; sourceTree = "<group>"; };
+		5EBD35F61E71484000C4E350 /* UIDevice+Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Device.swift"; sourceTree = "<group>"; };
+		5EBD35F71E71484000C4E350 /* UIScreen+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Size.swift"; sourceTree = "<group>"; };
+		5EBD35F81E71484000C4E350 /* UIView+Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Draw.swift"; sourceTree = "<group>"; };
+		5EBD35F91E71484000C4E350 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
+		5EBD36001E71568200C4E350 /* ComonString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComonString.swift; sourceTree = "<group>"; };
 		5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMyReposCell.swift; sourceTree = "<group>"; };
 		5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMyReposCell.xib; sourceTree = "<group>"; };
 		5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionHelper.swift; sourceTree = "<group>"; };
@@ -398,16 +406,12 @@
 		FE26BCBC1C4231FB00887534 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		FE26BCC51C44754C00887534 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Pods/../build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		FE3179AB1C405EF300150370 /* CPWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPWebViewController.swift; sourceTree = "<group>"; };
-		FE37DEF41C4A614000B8449D /* UIView+Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Position.swift"; sourceTree = "<group>"; };
 		FE37DEF61C4A8F1F00B8449D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../../Library/Developer/Xcode/DerivedData/Coderpursue-fyrcacrvclpljuegolrtoeolcnta/Build/Products/Debug-iphoneos/Kingfisher.framework"; sourceTree = "<group>"; };
-		FE37DEF81C4B2E7700B8449D /* UIView+Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Draw.swift"; sourceTree = "<group>"; };
 		FE3ED3C11C53850D0048BA1D /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ObjectMapper.swift"; sourceTree = "<group>"; };
 		FE3ED3C41C5C49700048BA1D /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
 		FE3ED3C51C5C49700048BA1D /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPReposViewController.swift; sourceTree = "<group>"; };
 		FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFollowersViewController.swift; sourceTree = "<group>"; };
-		FE49DF931C4B5AE600676131 /* Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
-		FE49DF971C4B5D6A00676131 /* UIDevice+Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Model.swift"; sourceTree = "<group>"; };
 		FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsCell.swift; sourceTree = "<group>"; };
 		FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		FE6333E91C532E76006D7A2B /* CPStarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStarsViewController.swift; sourceTree = "<group>"; };
@@ -828,10 +832,11 @@
 			isa = PBXGroup;
 			children = (
 				FE0FE0D41C3DC1C00005DDE5 /* UINavigationController+Pop.swift */,
-				FE37DEF41C4A614000B8449D /* UIView+Position.swift */,
-				FE37DEF81C4B2E7700B8449D /* UIView+Draw.swift */,
-				FE49DF931C4B5AE600676131 /* Device.swift */,
-				FE49DF971C4B5D6A00676131 /* UIDevice+Model.swift */,
+				5EBD35F41E71484000C4E350 /* JSDevice.swift */,
+				5EBD35F61E71484000C4E350 /* UIDevice+Device.swift */,
+				5EBD35F71E71484000C4E350 /* UIScreen+Size.swift */,
+				5EBD35F81E71484000C4E350 /* UIView+Draw.swift */,
+				5EBD35F91E71484000C4E350 /* UIView+Nib.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -854,6 +859,7 @@
 				FED481081C3C7121002956A8 /* CPStyleGuide.swift */,
 				FE0FE0D81C3F14F10005DDE5 /* ProjectKey.swift */,
 				5E4ABFD11C90FF450041FA89 /* CPStoryBoarySegueCon.swift */,
+				5EBD36001E71568200C4E350 /* ComonString.swift */,
 			);
 			path = ProConfig;
 			sourceTree = "<group>";
@@ -1396,30 +1402,33 @@
 			files = (
 				FE6980E31C5602C40026089B /* ObjPermissions.swift in Sources */,
 				FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */,
+				5EBD35FD1E71484000C4E350 /* UIScreen+Size.swift in Sources */,
 				5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */,
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
 				5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */,
 				5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */,
-				FE37DEF51C4A614000B8449D /* UIView+Position.swift in Sources */,
 				5EE91F7D1C7C4792003F4CBF /* ObjSubject.swift in Sources */,
 				FE3ED3C61C5C49700048BA1D /* HMSegmentedControl.m in Sources */,
 				FEAB7EB61C5E2B8500C78E87 /* DataModel.swift in Sources */,
+				5EBD35FC1E71484000C4E350 /* UIDevice+Device.swift in Sources */,
 				FE19F9411C3944C7009986FE /* CPNotiName.swift in Sources */,
 				5EBF89AD1C926AB4009B3F5B /* CPMyReposCell.swift in Sources */,
 				5EF6E3CA1C8AC4A1004F6473 /* CPStarredReposCell.swift in Sources */,
 				5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */,
 				5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */,
 				5E546D931C8EDE8B00E94997 /* ObjErropReponse.swift in Sources */,
+				5EBD36011E71568200C4E350 /* ComonString.swift in Sources */,
 				FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */,
 				5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */,
 				5E738C981C92C26F0075C82C /* CPHttpStatusCode.swift in Sources */,
 				5EC58D891E6DAAF60069AE82 /* TimeHelper.swift in Sources */,
 				5E7F24781CB8F622001BD4C8 /* ParaSearchRepos.swift in Sources */,
+				5EBD35FA1E71484000C4E350 /* JSDevice.swift in Sources */,
 				5EC58D7C1E6DAAF60069AE82 /* AppVersionHelper.swift in Sources */,
 				5E4ABFDD1C9113140041FA89 /* CPShowcaseInfoView.swift in Sources */,
 				5EC58D7D1E6DAAF60069AE82 /* CPGlobalHelper.swift in Sources */,
-				FE37DEF91C4B2E7700B8449D /* UIView+Draw.swift in Sources */,
 				FE6980E21C5602C40026089B /* ObjEmail.swift in Sources */,
+				5EBD35FE1E71484000C4E350 /* UIView+Draw.swift in Sources */,
 				5E546DA51C8FAC2200E94997 /* ParaSort.swift in Sources */,
 				5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */,
 				5ECB407C1C9950DB00B0C6FF /* CPSettingsLabelCell.swift in Sources */,
@@ -1435,7 +1444,6 @@
 				5EC58D871E6DAAF60069AE82 /* PlistHelper.swift in Sources */,
 				5E4ABFDF1C916C330041FA89 /* CPDeveloperInfoView.swift in Sources */,
 				FE91BA971C334C9F002AECB6 /* CPLoginViewController.swift in Sources */,
-				FE49DF941C4B5AE600676131 /* Device.swift in Sources */,
 				5E546D911C8EDE4800E94997 /* ObjError.swift in Sources */,
 				FE0FE0D51C3DC1C00005DDE5 /* UINavigationController+Pop.swift in Sources */,
 				FE91BA871C3338D7002AECB6 /* CPBaseViewController.swift in Sources */,
@@ -1462,6 +1470,7 @@
 				5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */,
 				5E546D8F1C8EDE3100E94997 /* ObjResponser.swift in Sources */,
 				FE91BA931C33399C002AECB6 /* CPTrendingViewController.swift in Sources */,
+				5EBD35FF1E71484000C4E350 /* UIView+Nib.swift in Sources */,
 				5E4ABFC11C9032D40041FA89 /* CPTrendingShowcaseCell.swift in Sources */,
 				5ECB40721C994C5D00B0C6FF /* CPProSettingsViewController.swift in Sources */,
 				5E546D891C8EDE1800E94997 /* ObjSettings.swift in Sources */,
@@ -1495,7 +1504,6 @@
 				FEC0DC3A1C28B39F0008C7C1 /* AppDelegate.swift in Sources */,
 				5EE91F7F1C7C481A003F4CBF /* ObjNotification.swift in Sources */,
 				5E7F24761CB897D7001BD4C8 /* CPSearchFilterView.swift in Sources */,
-				FE49DF981C4B5D6A00676131 /* UIDevice+Model.swift in Sources */,
 				5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */,
 				FED481091C3C7121002956A8 /* CPStyleGuide.swift in Sources */,
 			);

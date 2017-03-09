@@ -136,7 +136,7 @@ class CPFollowersViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userFollowers(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             if(self.userPageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -186,7 +186,7 @@ class CPFollowersViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userFollowing(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             if(self.userPageVal == 1) {
                 self.tableView.mj_header.endRefreshing()

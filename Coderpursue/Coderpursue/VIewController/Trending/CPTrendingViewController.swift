@@ -330,7 +330,7 @@ class CPTrendingViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.trendingRepos(since:paraSince,language:"all") ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
@@ -391,7 +391,7 @@ class CPTrendingViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.searchUsers(para:self.paraUser) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             if(self.paraUser.page == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -445,7 +445,7 @@ class CPTrendingViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.trendingShowcases() ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()

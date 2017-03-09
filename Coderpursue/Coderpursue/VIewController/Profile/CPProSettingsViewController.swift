@@ -115,7 +115,7 @@ extension CPProSettingsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.ScreenWidth, height: 15))
+        let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 15))
         view.backgroundColor = UIColor.viewBackgroundColor()
         return view
         

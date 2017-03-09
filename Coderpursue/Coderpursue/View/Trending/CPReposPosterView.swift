@@ -9,6 +9,7 @@
 import UIKit
 import SwiftDate
 
+
 protocol ReposActionProtocol {
     
     func watchReposAction()
@@ -17,6 +18,7 @@ protocol ReposActionProtocol {
     
 }
 
+/// Repos 头部的代码库的主要信息视图
 class CPReposPosterView: UIView {
 
     @IBOutlet weak var imgV: UIImageView!
@@ -122,6 +124,26 @@ class CPReposPosterView: UIView {
 
     }
     
+    override func layoutSubviews() {
+        
+        let margin:CGFloat = 10.0
+        let top:CGFloat = imgV.bottom+10.0
+        let width = (ScreenSize.width-4*margin)/3;
+        let height:CGFloat = 30.0
+        
+        let btnArr = [watchBtn,starBtn,forkBtn]
+        
+        for (index,button) in btnArr.enumerated() {
+            let left = CGFloat.init(index) * (width+margin) + margin
+            button?.snp.remakeConstraints({ (make) in
+                make.left.equalTo(left)
+                make.top.equalTo(top)
+                make.width.equalTo(width)
+                make.height.equalTo(height)
+            })
+        }
+
+    }
     
     func rpc_fillData() {
         

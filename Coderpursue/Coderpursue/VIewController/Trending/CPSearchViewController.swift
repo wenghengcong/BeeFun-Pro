@@ -18,7 +18,7 @@ class CPSearchViewController: CPBaseViewController {
     var searchPlacehoder = "Search"
     
     var searchFilterH:CGFloat = 290
-    lazy var searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: ScreenSize.ScreenWidth-70, height: 20))
+    lazy var searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: ScreenSize.width-70, height: 20))
     var tableView = UITableView()
     var maskView = UIView()
     let header = MJRefreshNormalHeader()
@@ -205,7 +205,7 @@ class CPSearchViewController: CPBaseViewController {
 
         Provider.sharedProvider.request(.searchUsers(para:self.paraUser) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             if(self.paraRepos.page == 1 ) {
                 self.tableView.mj_header.endRefreshing()
@@ -269,7 +269,7 @@ class CPSearchViewController: CPBaseViewController {
 
         Provider.sharedProvider.request(.searchRepos(para:self.paraRepos) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             if( self.paraRepos.page == 1 ) {
                 self.tableView.mj_header.endRefreshing()

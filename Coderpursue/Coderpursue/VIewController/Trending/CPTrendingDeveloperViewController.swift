@@ -220,7 +220,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.checkUserFollowing(username:username) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             print(result)
@@ -255,7 +255,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
         Provider.sharedProvider.request(.userInfo(username:username) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
@@ -295,7 +295,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.follow(username:username) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             
@@ -332,7 +332,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.unfollow(username:username) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
             

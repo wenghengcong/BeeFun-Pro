@@ -144,7 +144,7 @@ class CPReposViewController: CPBaseViewController {
         Provider.sharedProvider.request( .userRepos( username:self.username!,page:self.reposPageVal,perpage:self.reposPerpage,type:self.typeVal, sort:self.sortVal ,direction:self.directionVal ) ) { (result) -> () in
             print(result)
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
@@ -191,7 +191,7 @@ class CPReposViewController: CPBaseViewController {
         Provider.sharedProvider.request( .userWatchedRepos( page:self.reposPageVal,perpage:self.reposPerpage,username:self.username! ) ) { (result) -> () in
             print(result)
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()

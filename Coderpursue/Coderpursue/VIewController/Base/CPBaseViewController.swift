@@ -145,10 +145,16 @@ extension CPBaseViewController : NavigationControllerBackButtonDelegate {
         return false
     }
     
+    /// 导航栏左边按钮点击
+    ///
+    /// - Parameter sender: <#sender description#>
     func leftItemAction(_ sender:UIButton?) {
         
     }
     
+    /// 导航栏右边按钮点击
+    ///
+    /// - Parameter sender: <#sender description#>
     func rightItemAction(_ sender:UIButton?) {
         
     }

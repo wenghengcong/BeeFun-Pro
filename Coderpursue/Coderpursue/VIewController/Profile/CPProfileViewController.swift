@@ -122,7 +122,7 @@ class CPProfileViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userInfo(username:username) ) { (result) -> () in
             
-            var message = "No data to show"
+            var message = kNoMessageTip
             
             switch result {
             case let .success(response):
@@ -204,7 +204,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         Provider.sharedProvider.request(.myInfo ) { (result) -> () in
 
             var success = true
-            var message = "No data to show"
+            var message = kNoMessageTip
 
             switch result {
             case let .success(response):
@@ -311,7 +311,7 @@ extension CPProfileViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.ScreenWidth, height: 10))
+        let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 10))
         view.backgroundColor = UIColor.viewBackgroundColor()
         return view
         

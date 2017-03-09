@@ -46,7 +46,7 @@ extension String {
     ///   - width: 文本占宽
     ///   - font: 文本字体
     /// - Returns: 文本高度
-    func height(withConstrainedWtdth width:CGFloat, font:UIFont) -> CGFloat {
+    func height(with width:CGFloat, font:UIFont) -> CGFloat {
         let calString = self as NSString
         return calString.height(with: width, font: font)
     }
@@ -56,7 +56,7 @@ extension String {
     ///   - height: 文本占高
     ///   - font: 文本字体
     /// - Returns: 文本宽度
-    func width(withConstrainedHeight height: CGFloat ,font:UIFont) -> CGFloat {
+    func width(with height: CGFloat ,font:UIFont) -> CGFloat {
         let calString = self as NSString
         return calString.width(with: height, font: font)
     }

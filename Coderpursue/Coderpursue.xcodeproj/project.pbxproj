@@ -112,6 +112,9 @@
 		5EBD35FE1E71484000C4E350 /* UIView+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD35F81E71484000C4E350 /* UIView+Draw.swift */; };
 		5EBD35FF1E71484000C4E350 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD35F91E71484000C4E350 /* UIView+Nib.swift */; };
 		5EBD36011E71568200C4E350 /* ComonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD36001E71568200C4E350 /* ComonString.swift */; };
+		5EBD360B1E72099100C4E350 /* NSAttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD36081E72099100C4E350 /* NSAttributedString+Size.swift */; };
+		5EBD360C1E72099100C4E350 /* NSString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD36091E72099100C4E350 /* NSString+Size.swift */; };
+		5EBD360D1E72099100C4E350 /* UILabel+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD360A1E72099100C4E350 /* UILabel+Size.swift */; };
 		5EBF89AD1C926AB4009B3F5B /* CPMyReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */; };
 		5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */; };
 		5EC58D7C1E6DAAF60069AE82 /* AppVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */; };
@@ -352,6 +355,9 @@
 		5EBD35F81E71484000C4E350 /* UIView+Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Draw.swift"; sourceTree = "<group>"; };
 		5EBD35F91E71484000C4E350 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		5EBD36001E71568200C4E350 /* ComonString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComonString.swift; sourceTree = "<group>"; };
+		5EBD36081E72099100C4E350 /* NSAttributedString+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Size.swift"; sourceTree = "<group>"; };
+		5EBD36091E72099100C4E350 /* NSString+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Size.swift"; sourceTree = "<group>"; };
+		5EBD360A1E72099100C4E350 /* UILabel+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Size.swift"; sourceTree = "<group>"; };
 		5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMyReposCell.swift; sourceTree = "<group>"; };
 		5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMyReposCell.xib; sourceTree = "<group>"; };
 		5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionHelper.swift; sourceTree = "<group>"; };
@@ -836,6 +842,9 @@
 				5EBD35F61E71484000C4E350 /* UIDevice+Device.swift */,
 				5EBD35F71E71484000C4E350 /* UIScreen+Size.swift */,
 				5EBD35F81E71484000C4E350 /* UIView+Draw.swift */,
+				5EBD36081E72099100C4E350 /* NSAttributedString+Size.swift */,
+				5EBD36091E72099100C4E350 /* NSString+Size.swift */,
+				5EBD360A1E72099100C4E350 /* UILabel+Size.swift */,
 				5EBD35F91E71484000C4E350 /* UIView+Nib.swift */,
 			);
 			path = Extension;
@@ -1470,15 +1479,18 @@
 				5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */,
 				5E546D8F1C8EDE3100E94997 /* ObjResponser.swift in Sources */,
 				FE91BA931C33399C002AECB6 /* CPTrendingViewController.swift in Sources */,
+				5EBD360B1E72099100C4E350 /* NSAttributedString+Size.swift in Sources */,
 				5EBD35FF1E71484000C4E350 /* UIView+Nib.swift in Sources */,
 				5E4ABFC11C9032D40041FA89 /* CPTrendingShowcaseCell.swift in Sources */,
 				5ECB40721C994C5D00B0C6FF /* CPProSettingsViewController.swift in Sources */,
 				5E546D891C8EDE1800E94997 /* ObjSettings.swift in Sources */,
 				5E4ABFBD1C9032D40041FA89 /* CPTrendingDeveloperCell.swift in Sources */,
+				5EBD360C1E72099100C4E350 /* NSString+Size.swift in Sources */,
 				5EACCFD11C8E62C70059A303 /* ParaTrending.swift in Sources */,
 				FE914DBB1C4BC1F1001C3D90 /* CPBaseViewCell.swift in Sources */,
 				5E4ABFD21C90FF450041FA89 /* CPStoryBoarySegueCon.swift in Sources */,
 				FE1DE7B41C51049A00865DD5 /* MBProgressHUD.m in Sources */,
+				5EBD360D1E72099100C4E350 /* UILabel+Size.swift in Sources */,
 				5EE91F851C7C4FF9003F4CBF /* ObjEvent.swift in Sources */,
 				FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */,
 				5EC58D881E6DAAF60069AE82 /* ShareHelper.swift in Sources */,

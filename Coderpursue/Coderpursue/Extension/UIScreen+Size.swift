@@ -8,6 +8,27 @@
 
 import UIKit
 
+
+//设计稿全部以iPhone 6尺寸设计
+
+func designBy4_7Inch(_ x:CGFloat) -> CGFloat {
+    let scale = ( (UIScreen.width()) / CGFloat(375.0) )
+    let result = scale * x
+    return result
+}
+
+func designBy3_5Inch(_ x:CGFloat) -> CGFloat {
+    let scale = ( (UIScreen.width()) / CGFloat(320.0) )
+    let result = scale * x
+    return result
+}
+
+func designBy5_5Inch(_ x:CGFloat) -> CGFloat {
+    let scale = ( (UIScreen.width()) / CGFloat(414.0) )
+    let result = scale * x
+    return result
+}
+
 extension UIScreen {
 
     public enum Size: Int {

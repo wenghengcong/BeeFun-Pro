@@ -10,7 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var tabBarController:CPBaseTabBarController?
@@ -69,10 +69,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
         //return UMSocialSnsService.handleOpen(url, wxApiDelegate: nil)
+        return true
     }
 
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        return UMSocialSnsService.handleOpen(url)
+        //return UMSocialSnsService.handleOpen(url)
+        return true
     }
 
 }

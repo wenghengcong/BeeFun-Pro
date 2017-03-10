@@ -44,7 +44,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         rvc_customView()
         rvc_userIsLogin()
@@ -66,24 +65,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
         self.rightItem?.isHidden = false
-        
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        
-        //Layout        
-        let infoViewT = reposInfoV.bottom+15
-        reposInfoV.snp.remakeConstraints { (make) in
-            make.left.right.equalTo(0)
-            make.top.equalTo( infoViewT)
-            make.height.equalTo(91)
-        }
-        
-        let tabViewT = reposInfoV.bottom+15
-        tableView.snp.remakeConstraints { (make) in
-            make.left.right.equalTo(0)
-            make.top.equalTo(tabViewT)
-            make.height.equalTo(311)
-        }
-        
     }
     
     func rvc_setupTableView() {
@@ -97,8 +79,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         header.setTitle("Release to refresh", for: .pulling)
         header.setTitle("Loading ...", for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingRepositoryViewController.headerRefresh))
-        // 现在的版本要用mj_header
-//        self.tableView.mj_header = header
     }
     
     // MARK: - action
@@ -116,9 +96,37 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         reposPoseterV.stared = hasStaredRepos
         
         reposInfoV.repo = objRepo
-        
-       prefectchShareImage(){
+        tableView.isHidden = false
+        self.view.backgroundColor = UIColor.viewBackgroundColor()
+
+        prefectchShareImage(){
             
+        }
+        
+        rvc_layoutSubView()
+    }
+    
+    func rvc_layoutSubView() {
+        
+        //Layout
+        reposPoseterV.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(64)
+            make.height.equalTo(149)
+        }
+        
+        let infoViewT = reposPoseterV.bottom+15
+        reposInfoV.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(infoViewT)
+            make.height.equalTo(90)
+        }
+        
+        let tabViewT = reposInfoV.bottom+15
+        tableView.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(tabViewT)
+            make.height.equalTo(311)
         }
     }
     
@@ -141,15 +149,11 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     
     func rvc_userIsLogin() {
-        
         user = UserManager.shared.user
-        
         reposPoseterV.reposActionDelegate = self
-        
         let uname = repos!.owner!.login!
         let ownerDic:[String:String] = ["img":"octicon_person_25","desc":uname,"discolsure":"true"]
         reposInfoArr.append(ownerDic)
-        
     }
     
     func rvc_loadAllRequset(){
@@ -196,6 +200,8 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     func rvc_getReopsRequest(){
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.view.backgroundColor = UIColor.white
+        self.tableView.isHidden = true
         
         let owner = repos!.owner!.login!
         let repoName = repos!.name!
@@ -208,7 +214,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             
             switch result {
             case let .success(response):
-                
                 do {
                     if let result:ObjRepos = Mapper<ObjRepos>().map(JSONObject: try response.mapJSON() ) {
                         self.repos = result
@@ -513,7 +518,6 @@ extension CPTrendingRepositoryViewController : UITableViewDataSource {
             cell!.fullline = false
         }
         cell!.duic_fillData(reposInfoArr[row])
-        cell!.backgroundColor = UIColor.hex("#e8e8e8", alpha: 1.0)
         
         return cell!;
         

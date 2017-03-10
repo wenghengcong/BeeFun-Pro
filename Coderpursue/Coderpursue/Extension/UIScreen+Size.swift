@@ -12,19 +12,19 @@ import UIKit
 //设计稿全部以iPhone 6尺寸设计
 
 func designBy4_7Inch(_ x:CGFloat) -> CGFloat {
-    let scale = ( (UIScreen.width()) / CGFloat(375.0) )
+    let scale = ( (UIScreen.width) / CGFloat(375.0) )
     let result = scale * x
     return result
 }
 
 func designBy3_5Inch(_ x:CGFloat) -> CGFloat {
-    let scale = ( (UIScreen.width()) / CGFloat(320.0) )
+    let scale = ( (UIScreen.width) / CGFloat(320.0) )
     let result = scale * x
     return result
 }
 
 func designBy5_5Inch(_ x:CGFloat) -> CGFloat {
-    let scale = ( (UIScreen.width()) / CGFloat(414.0) )
+    let scale = ( (UIScreen.width) / CGFloat(414.0) )
     let result = scale * x
     return result
 }
@@ -72,26 +72,36 @@ extension UIScreen {
     }
     
     // MARK: properties
-    public static func isRetina() -> Bool {
-        return UIScreen.main.scale > 1.0
-    }
     
+    /// 屏幕scale（避免与scale冲突）
+    static let screenScale = UIScreen.scale()
+
+    /// 是否是retina屏幕
+    static let isRetina = UIScreen.scale() > 1.0
+    
+    /// 屏幕bound(去掉s，避免与bounds冲突)
+    static let bound  = UIScreen.bounds()
+    
+    /// 屏幕Size
+    static let size  = UIScreen.bound.size
+    
+    /// 屏幕width
+    static let width  = UIScreen.size.width
+    
+    /// 屏幕height
+    static let height  = UIScreen.size.height
+    
+    
+    /// 返回屏幕bounds
+    ///
+    /// - Returns: <#return value description#>
     public static func bounds() -> CGRect {
         return UIScreen.main.bounds
     }
 
-    public static func size() -> CGSize {
-        return UIScreen.bounds().size
-    }
-    
-    public static func height() -> CGFloat {
-        return UIScreen.size().height
-    }
-    
-    public static func width() -> CGFloat {
-        return UIScreen.size().width
-    }
-    
+    /// 返回屏幕scale
+    ///
+    /// - Returns: <#return value description#>
     public static func scale() -> CGFloat {
         return UIScreen.main.scale
     }

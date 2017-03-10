@@ -33,6 +33,7 @@ class CPReposPosterView: UIView {
     @IBOutlet weak var forkBtn: UIButton!
 
     var reposActionDelegate:ReposActionProtocol?
+    var dynH:CGFloat = 0.0
     
     var repo:ObjRepos? {
         didSet{
@@ -67,7 +68,6 @@ class CPReposPosterView: UIView {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        rpv_customView()
     }
     
     override init(frame: CGRect) {
@@ -89,9 +89,15 @@ class CPReposPosterView: UIView {
     // MARK: - View
     func rpv_customView() {
         
+        self.backgroundColor = UIColor.white
         nameLabel.textColor = UIColor.labelTitleTextColor()
+        nameLabel.backgroundColor = UIColor.white
+        
         descLabel.textColor = UIColor.labelSubtitleTextColor()
+        descLabel.backgroundColor = UIColor.white
         descLabel.numberOfLines = 3;
+        
+        timeLabel.backgroundColor = UIColor.white
         timeLabel.textColor = UIColor.hex("#4876FF")
         
         /// Test
@@ -116,22 +122,22 @@ class CPReposPosterView: UIView {
             btn?.setTitleColor(UIColor.cpRedColor(), for: UIControlState())
             
         }
+
         watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), for: UIControlState())
         watchBtn.setTitle("Watch", for: UIControlState())
         watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_watchAction), for: .touchUpInside)
-
+        
         starBtn.setImage(UIImage(named: "octicon_star_red_20"), for: UIControlState())
         starBtn.setTitle("Star", for: UIControlState())
         starBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_starAction), for: .touchUpInside)
-
+        
         forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), for: UIControlState())
         forkBtn.setTitle("Fork", for: UIControlState())
         forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_forkAction), for: .touchUpInside)
-
     }
     
     override func layoutSubviews() {
-        
+    
         let margin:CGFloat = 10.0
         let imgW = designBy4_7Inch(80)
         
@@ -196,16 +202,12 @@ class CPReposPosterView: UIView {
             })
         }
 
-        let selfH = watchBtn.bottom + 10
-        self.snp.remakeConstraints { (make) in
-            make.left.right.equalTo(0)
-            make.top.equalTo(64)
-            make.height.equalTo(selfH)
-        }
     }
     
     // MARK: - Data
     func rpc_fillData() {
+        
+        rpv_customView()
         
         if let avatarUrl =  repo?.owner?.avatar_url {
             imgV.kf.setImage(with: URL(string: avatarUrl)!)

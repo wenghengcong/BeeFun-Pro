@@ -133,9 +133,10 @@ class CPReposPosterView: UIView {
     override func layoutSubviews() {
         
         let margin:CGFloat = 10.0
-
+        let imgW = designBy4_7Inch(80)
+        
         imgV.snp.remakeConstraints { (make) in
-            make.width.height.equalTo(80)
+            make.width.height.equalTo(imgW)
             make.top.equalTo(margin+7.0)
             make.left.equalTo(margin)
         }
@@ -151,10 +152,16 @@ class CPReposPosterView: UIView {
             make.height.equalTo(nameH)
         }
         
-        let descT = nameLabel.bottom+2.0
+        var descT = nameLabel.bottom+2.0
         var descH = descLabel.requiredHeight(width:nameLabel.width)
         if descH > 47.0 {
             descH = 47.0
+        }
+        
+        if descH < 18 {
+            descT = nameLabel.bottom + 12.0
+        }else if descH < 32 {
+            descH = nameLabel.bottom + 8.0
         }
         
         descLabel.snp.remakeConstraints { (make) in
@@ -175,7 +182,7 @@ class CPReposPosterView: UIView {
         
         let top:CGFloat = max(imgV.bottom, timeLabel.bottom)+10.0
         let width = (ScreenSize.width-4*margin)/3;
-        let height:CGFloat = 30.0
+        let height:CGFloat = designBy4_7Inch(30.0)
         
         let btnArr = [watchBtn,starBtn,forkBtn]
         

@@ -51,6 +51,8 @@
 		5E0DDC6D1E72D2F100493ABA /* UMSocialSDKPromptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E0DDC4E1E72D2F100493ABA /* UMSocialSDKPromptResources.bundle */; };
 		5E0DDC6E1E72D2F100493ABA /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E0DDC501E72D2F100493ABA /* UMSocialSDKResources.bundle */; };
 		5E0DDC6F1E72D2F100493ABA /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDC511E72D2F100493ABA /* UShareUI.framework */; };
+		5E0DDC711E72D42D00493ABA /* UMMobClick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDC701E72D42D00493ABA /* UMMobClick.framework */; };
+		5E0DDC731E72D4DB00493ABA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDC721E72D4DB00493ABA /* libc++.tbd */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
@@ -280,6 +282,8 @@
 		5E0DDC4E1E72D2F100493ABA /* UMSocialSDKPromptResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKPromptResources.bundle; sourceTree = "<group>"; };
 		5E0DDC501E72D2F100493ABA /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
 		5E0DDC511E72D2F100493ABA /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
+		5E0DDC701E72D42D00493ABA /* UMMobClick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMMobClick.framework; sourceTree = "<group>"; };
+		5E0DDC721E72D4DB00493ABA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
@@ -440,31 +444,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E76920A1CC2448D00E0C2D3 /* CoreData.framework in Frameworks */,
+				5E09439B1CC1F02B0047118D /* ImageIO.framework in Frameworks */,
+				5E0943951CC1F0100047118D /* libz.tbd in Frameworks */,
+				5E0DDC731E72D4DB00493ABA /* libc++.tbd in Frameworks */,
+				5E7692041CC2328B00E0C2D3 /* CoreTelephony.framework in Frameworks */,
+				5E7692001CC2326F00E0C2D3 /* SystemConfiguration.framework in Frameworks */,
+				5E7692021CC2327B00E0C2D3 /* CoreGraphics.framework in Frameworks */,
+				5E09439D1CC1F0320047118D /* libsqlite3.tbd in Frameworks */,
 				5E0DDC541E72D2F100493ABA /* Bolts.framework in Frameworks */,
 				5E7692121CC2453300E0C2D3 /* Social.framework in Frameworks */,
-				5E7692021CC2327B00E0C2D3 /* CoreGraphics.framework in Frameworks */,
 				5E0DDC6A1E72D2F100493ABA /* libUMSocialLog.a in Frameworks */,
 				5E0DDC6F1E72D2F100493ABA /* UShareUI.framework in Frameworks */,
-				5E7692041CC2328B00E0C2D3 /* CoreTelephony.framework in Frameworks */,
 				5E0DDC631E72D2F100493ABA /* libSocialTwitter.a in Frameworks */,
 				5E7692101CC244B500E0C2D3 /* QuartzCore.framework in Frameworks */,
 				5E76920E1CC244A500E0C2D3 /* OpenGLES.framework in Frameworks */,
 				5E76920C1CC2449700E0C2D3 /* Accounts.framework in Frameworks */,
 				5E0DDC5D1E72D2F100493ABA /* TencentOpenAPI.framework in Frameworks */,
-				5E76920A1CC2448D00E0C2D3 /* CoreData.framework in Frameworks */,
-				5E09439D1CC1F0320047118D /* libsqlite3.tbd in Frameworks */,
+				5E0DDC711E72D42D00493ABA /* UMMobClick.framework in Frameworks */,
 				5E0DDC651E72D2F100493ABA /* TwitterKit.framework in Frameworks */,
 				5E0DDC531E72D2F100493ABA /* libSocialDingDing.a in Frameworks */,
 				5E7692081CC2436D00E0C2D3 /* AdSupport.framework in Frameworks */,
 				5E0DDC671E72D2F100493ABA /* libWeChatSDK.a in Frameworks */,
 				5E0DDC561E72D2F100493ABA /* FBSDKLoginKit.framework in Frameworks */,
-				5E09439B1CC1F02B0047118D /* ImageIO.framework in Frameworks */,
 				5E7692061CC2329100E0C2D3 /* libiconv.tbd in Frameworks */,
 				5E0DDC581E72D2F100493ABA /* FBSDKShareKit.framework in Frameworks */,
 				5E0DDC5B1E72D2F100493ABA /* linkedin-sdk.framework in Frameworks */,
 				5E0DDC5F1E72D2F100493ABA /* libSocialSina.a in Frameworks */,
-				5E0943951CC1F0100047118D /* libz.tbd in Frameworks */,
-				5E7692001CC2326F00E0C2D3 /* SystemConfiguration.framework in Frameworks */,
 				5E7691FE1CC2323C00E0C2D3 /* Security.framework in Frameworks */,
 				5E09439F1CC1F03C0047118D /* MessageUI.framework in Frameworks */,
 				5E0943991CC1F0220047118D /* JavaScriptCore.framework in Frameworks */,
@@ -509,6 +515,7 @@
 		4D8F6ECC1AEDFB027177FDBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E0DDC721E72D4DB00493ABA /* libc++.tbd */,
 				5E7692111CC2453300E0C2D3 /* Social.framework */,
 				5E76920F1CC244B500E0C2D3 /* QuartzCore.framework */,
 				5E76920D1CC244A500E0C2D3 /* OpenGLES.framework */,
@@ -915,6 +922,7 @@
 		FE91BA751C333804002AECB6 /* ThidParty */ = {
 			isa = PBXGroup;
 			children = (
+				5E0DDC701E72D42D00493ABA /* UMMobClick.framework */,
 				5E0DDC131E72D2F100493ABA /* UMSocial */,
 				FE3ED3C31C5C49700048BA1D /* HMSegmentedControl */,
 				FE1DE7AB1C5103E200865DD5 /* MBProgressHUD */,
@@ -1640,6 +1648,7 @@
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Twitter",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialUI",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty",
 				);
 				INFOPLIST_FILE = Coderpursue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1699,6 +1708,7 @@
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Twitter",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialUI",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty",
 				);
 				INFOPLIST_FILE = Coderpursue/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

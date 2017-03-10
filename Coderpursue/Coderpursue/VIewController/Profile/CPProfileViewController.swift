@@ -365,7 +365,7 @@ extension CPProfileViewController : UITableViewDelegate {
             
         }else if(viewType == "share"){
             
-            ShareHelper.shared.shareContentInView(self, content: ShareContent(), soucre: .App)
+            //ShareHelper.shared.shareContentInView(self, content: ShareContent(), soucre: .App)
             
         }else if(viewType == "settings"){
             

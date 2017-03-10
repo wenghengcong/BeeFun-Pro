@@ -193,11 +193,11 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             prefectchShareImage({
                 MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
                 shareContent.shareImage = self.userShareImage
-                ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+                //ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
             })
         }else{
             shareContent.shareImage = self.userShareImage
-            ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+            //ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
         }
         
     }

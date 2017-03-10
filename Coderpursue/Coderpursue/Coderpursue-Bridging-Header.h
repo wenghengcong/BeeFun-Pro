@@ -7,20 +7,25 @@
 #import <Bugly/Bugly.h>
 
 //友盟分享
-#import "UMSocial.h"
-#import "UMSocialFacebookHandler.h"
-#import "UMSocialSinaSSOHandler.h"
+#import <UMSocialCore/UMSocialCore.h>
+#import <UShareUI/UShareUI.h>
+
+#import "UMSocialDingDingHandler.h"     //钉钉
+#import "UMSocialFaceBookHandler.h"     //facebook
+#import "UMSocialLinkedinHandler.h"     //linkedin
+#import "UMSocialSinaHandler.h"
 #import "UMSocialQQHandler.h"
 #import "UMSocialTwitterHandler.h"
 #import "UMSocialWechatHandler.h"
-#import "UMSocialScreenShoter.h"
-#import "UMSocialShakeService.h"
 
+
+#import <DTShareKit/DTOpenKit.h>
 #import "WXApi.h"
 #import "WeiboSDK.h"
+#import <TencentOpenAPI/QQApiInterface.h>
 
-#import "MobClick.h"
-#import "MobClickSocialAnalytics.h"
+#import <UMMobClick/MobClick.h>
+#import <UMMobClick/MobClickSocialAnalytics.h>
 
 
 

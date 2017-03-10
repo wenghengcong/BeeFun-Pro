@@ -25,10 +25,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
         Bugly.start(withAppId: TencentBuglyAppID)
         
         //Umeng Social
-        ShareHelper.shared.configUMSocailPlatforms()
+        //ShareHelper.shared.configUMSocailPlatforms()
         
-        //Umeng 
-        MobClick.start(withAppkey: UMengAppSecret, reportPolicy: BATCH, channelId: nil)
+        //友盟分析
+        UMAnalyticsConfig.sharedInstance().appKey = UMengAppSecret
+        //发送策略：BATCH启动，SEND_INTERVAL，间隔发送
+        UMAnalyticsConfig.sharedInstance().ePolicy = SEND_INTERVAL
+        MobClick.setAppVersion(AppVersionHelper.shared.bundleBuildVersion())
+        MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
         
         tabBarController = self.window!.rootViewController as! CPBaseTabBarController?
         storyBoard = UIStoryboard.init(name: "Main", bundle: nil)

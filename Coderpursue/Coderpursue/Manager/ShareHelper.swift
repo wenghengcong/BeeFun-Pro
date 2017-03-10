@@ -27,7 +27,7 @@ class ShareContent: NSObject {
         super.init()
     }
 }
-
+/*
 class ShareHelper: NSObject,UMSocialUIDelegate {
     
     static let shared = ShareHelper()
@@ -286,3 +286,4 @@ class ShareHelper: NSObject,UMSocialUIDelegate {
     }
     
 }
+ */

@@ -20,6 +20,7 @@
 		5E09439B1CC1F02B0047118D /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E09439A1CC1F02B0047118D /* ImageIO.framework */; };
 		5E09439D1CC1F0320047118D /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E09439C1CC1F0320047118D /* libsqlite3.tbd */; };
 		5E09439F1CC1F03C0047118D /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E09439E1CC1F03C0047118D /* MessageUI.framework */; };
+		5E0DDC121E729D8700493ABA /* InfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDC111E729D8700493ABA /* InfoButton.swift */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
@@ -229,6 +230,7 @@
 		5E09439A1CC1F02B0047118D /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		5E09439C1CC1F0320047118D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5E09439E1CC1F03C0047118D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		5E0DDC111E729D8700493ABA /* InfoButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoButton.swift; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
@@ -1118,6 +1120,7 @@
 				5E4ABFB61C9032D40041FA89 /* Cell */,
 				5E4ABFC31C9032FE0041FA89 /* CPReposPosterView.swift */,
 				5E4ABFCF1C907DDE0041FA89 /* CPReposInfoView.swift */,
+				5E0DDC111E729D8700493ABA /* InfoButton.swift */,
 				5E4ABFDC1C9113140041FA89 /* CPShowcaseInfoView.swift */,
 				5E4ABFDE1C916C330041FA89 /* CPDeveloperInfoView.swift */,
 				5E738C9D1C93A53D0075C82C /* CPFilterTableView.swift */,
@@ -1414,6 +1417,7 @@
 				5EBD35FD1E71484000C4E350 /* UIScreen+Size.swift in Sources */,
 				5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */,
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
+				5E0DDC121E729D8700493ABA /* InfoButton.swift in Sources */,
 				5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */,
 				5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */,
 				5EE91F7D1C7C4792003F4CBF /* ObjSubject.swift in Sources */,

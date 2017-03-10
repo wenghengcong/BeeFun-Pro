@@ -74,6 +74,7 @@ class CPReposInfoView: UIView {
             btn.layer.borderColor = UIColor.lineBackgroundColor().cgColor
             btn.layer.borderWidth = borderWidth
             btn.setTitleColor(UIColor.labelTitleTextColor(), for: UIControlState())
+//            btn .addTarget(self, action: #selctor(), for: .touchUpInside)
         }
         
         let imgEdgeInsets2 = UIEdgeInsetsMake(0, -40, 0, 10)
@@ -110,7 +111,7 @@ class CPReposInfoView: UIView {
     
     // MARK: - layout
     override func layoutSubviews() {
-        
+        super.layoutSubviews()
     }
     
     // MARK: - data
@@ -157,8 +158,12 @@ class CPReposInfoView: UIView {
             
         }
 
+        self.setNeedsLayout()
         
     }
 
-
+    func jumpWebView() {
+        
+    }
+    
 }

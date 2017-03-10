@@ -89,11 +89,10 @@ class CPReposPosterView: UIView {
     // MARK: - View
     func rpv_customView() {
         
-        self.backgroundColor = UIColor.hexStr("#e8e8e8", alpha: 1.0)
-        nameLabel.textColor = UIColor.black
-        descLabel.textColor = UIColor.darkGray
-        timeLabel.textColor = UIColor.darkGray
-        
+        nameLabel.textColor = UIColor.labelTitleTextColor()
+        descLabel.textColor = UIColor.labelSubtitleTextColor()
+        descLabel.numberOfLines = 3;
+        timeLabel.textColor = UIColor.hex("#4876FF")
         
         /// Test
 //        nameLabel.backgroundColor = UIColor.red
@@ -137,12 +136,12 @@ class CPReposPosterView: UIView {
 
         imgV.snp.remakeConstraints { (make) in
             make.width.height.equalTo(80)
-            make.top.equalTo(margin+5.0)
+            make.top.equalTo(margin+7.0)
             make.left.equalTo(margin)
         }
         
         let nameL = imgV.right+10
-        let nameT = 14
+        let nameT = 10
         let nameH = 24
         
         nameLabel.snp.remakeConstraints { (make) in
@@ -152,9 +151,12 @@ class CPReposPosterView: UIView {
             make.height.equalTo(nameH)
         }
         
-        let descT = nameLabel.bottom
-        let descH = descLabel.requiredHeight(width:nameLabel.width)
-
+        let descT = nameLabel.bottom+2.0
+        var descH = descLabel.requiredHeight(width:nameLabel.width)
+        if descH > 47.0 {
+            descH = 47.0
+        }
+        
         descLabel.snp.remakeConstraints { (make) in
             make.leading.equalTo(nameL)
             make.trailing.equalTo(-margin)
@@ -162,7 +164,7 @@ class CPReposPosterView: UIView {
             make.height.equalTo(descH)
         }
         
-        let timeT = descLabel.bottom
+        let timeT = imgV.bottom-16
         timeLabel.snp.remakeConstraints { (make) in
             make.leading.equalTo(nameL)
             make.trailing.equalTo(-margin)

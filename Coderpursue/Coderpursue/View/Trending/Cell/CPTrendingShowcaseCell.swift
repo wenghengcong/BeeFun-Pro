@@ -65,9 +65,9 @@ class CPTrendingShowcaseCell: CPBaseViewCell {
         
         nameLabel.textColor = UIColor.white
         
-        descBgView.backgroundColor = UIColor.hexStr("#f7f7f7", alpha: 1.0)
+        descBgView.backgroundColor = UIColor.hex("#f7f7f7", alpha: 1.0)
         descLabel.numberOfLines = 0
-        descLabel.textColor = UIColor.hexStr("#333333", alpha: 1.0)
+        descLabel.textColor = UIColor.hex("#333333", alpha: 1.0)
         
         bottomLineV.backgroundColor = UIColor.lineBackgroundColor()
 

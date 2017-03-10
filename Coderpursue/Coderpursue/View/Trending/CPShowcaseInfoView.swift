@@ -43,7 +43,7 @@ class CPShowcaseInfoView: UIView {
     
     func siv_customView() {
         
-        self.backgroundColor = UIColor.hexStr("#e8e8e8", alpha: 1.0)
+        self.backgroundColor = UIColor.hex("#e8e8e8", alpha: 1.0)
         imgV.layer.cornerRadius = imgV.width/2
         imgV.layer.masksToBounds = true
         

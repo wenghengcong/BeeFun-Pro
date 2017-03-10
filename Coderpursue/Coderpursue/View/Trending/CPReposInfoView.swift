@@ -50,7 +50,7 @@ class CPReposInfoView: UIView {
     
     func riv_customView() {
         
-        self.backgroundColor = UIColor.hexStr("#e8e8e8", alpha: 1.0)
+        self.backgroundColor = UIColor.hex("#e8e8e8", alpha: 1.0)
         
         let imgEdgeInsets1 = UIEdgeInsetsMake(0, 0, 0, 10)
         let borderWidth:CGFloat = 0.5

@@ -117,7 +117,7 @@ class CPSearchViewController: CPBaseViewController {
 
     func svc_setupMaskView(){
         maskView.frame = CGRect(x: 0, y: searchFilterH+topOffset, width: self.view.width, height: self.view.height-searchFilterH-topOffset)
-        maskView.backgroundColor = UIColor.hexStr("#666666", alpha: 0.3)
+        maskView.backgroundColor = UIColor.hex("#666666", alpha: 0.3)
         maskView.isHidden = true
 
         self.view.insertSubview(maskView, aboveSubview: tableView)

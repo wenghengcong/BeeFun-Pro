@@ -68,11 +68,8 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         self.rightItem?.isHidden = false
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.view.backgroundColor = UIColor.white
         
-        //Layout
-
-        
+        //Layout        
         let infoViewT = reposInfoV.bottom+15
         reposInfoV.snp.remakeConstraints { (make) in
             make.left.right.equalTo(0)
@@ -516,7 +513,7 @@ extension CPTrendingRepositoryViewController : UITableViewDataSource {
             cell!.fullline = false
         }
         cell!.duic_fillData(reposInfoArr[row])
-        cell!.backgroundColor = UIColor.hexStr("#e8e8e8", alpha: 1.0)
+        cell!.backgroundColor = UIColor.hex("#e8e8e8", alpha: 1.0)
         
         return cell!;
         

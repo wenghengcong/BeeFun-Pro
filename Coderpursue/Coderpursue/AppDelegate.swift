@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        UMSocialSnsService.applicationDidBecomeActive()
+        //UMSocialSnsService.applicationDidBecomeActive()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WXApiDelegate {
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
-        return UMSocialSnsService.handleOpen(url, wxApiDelegate: nil)
+        //return UMSocialSnsService.handleOpen(url, wxApiDelegate: nil)
     }
 
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {

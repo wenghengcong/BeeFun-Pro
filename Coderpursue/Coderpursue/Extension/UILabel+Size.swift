@@ -22,4 +22,15 @@ extension UILabel {
         }
     }
     
+    func requiredHeight(width:CGFloat) -> CGFloat {
+        
+        let label:UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width, height: .greatestFiniteMagnitude))
+        label.numberOfLines = 0
+        label.lineBreakMode = NSLineBreakMode.byWordWrapping
+        label.font = self.font
+        label.text = self.text
+        label.sizeToFit()
+        return label.frame.height
+        
+    }
 }

@@ -11,7 +11,7 @@ import Foundation
 
 extension NSString {
     
-    
+    // FIXME: 为什么无效？？？
     /// 返回文本高度
     ///
     /// - Parameters:
@@ -20,7 +20,7 @@ extension NSString {
     /// - Returns: 文本高度
     func height(with width:CGFloat, font:UIFont) -> CGFloat {
         let constraintRect = CGSize(width:width,height:.greatestFiniteMagnitude)
-        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSFontAttributeName: font], context: nil)
         return boundingBox.height
     }
     
@@ -34,7 +34,10 @@ extension NSString {
     /// - Returns: 文本宽度
     func width(with height: CGFloat ,font:UIFont) -> CGFloat {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, context: nil)
+        let attributes = [NSFontAttributeName: font]
+        let option = NSStringDrawingOptions.usesLineFragmentOrigin
+        
+        let boundingBox = boundingRect(with: constraintRect, options: option, attributes: attributes, context: nil)
         return boundingBox.width
     }
 }

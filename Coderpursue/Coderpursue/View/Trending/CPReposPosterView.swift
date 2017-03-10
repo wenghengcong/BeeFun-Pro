@@ -85,13 +85,20 @@ class CPReposPosterView: UIView {
 
     }
 
-    
+
+    // MARK: - View
     func rpv_customView() {
         
         self.backgroundColor = UIColor.hexStr("#e8e8e8", alpha: 1.0)
         nameLabel.textColor = UIColor.black
         descLabel.textColor = UIColor.darkGray
         timeLabel.textColor = UIColor.darkGray
+        
+        
+        /// Test
+//        nameLabel.backgroundColor = UIColor.red
+//        descLabel.backgroundColor = UIColor.blue
+//        timeLabel.backgroundColor = UIColor.green
         
         let imgEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 10)
         let cornerRadius:CGFloat = 5.0
@@ -127,7 +134,44 @@ class CPReposPosterView: UIView {
     override func layoutSubviews() {
         
         let margin:CGFloat = 10.0
-        let top:CGFloat = imgV.bottom+10.0
+
+        imgV.snp.remakeConstraints { (make) in
+            make.width.height.equalTo(80)
+            make.top.equalTo(margin+5.0)
+            make.left.equalTo(margin)
+        }
+        
+        let nameL = imgV.right+10
+        let nameT = 14
+        let nameH = 24
+        
+        nameLabel.snp.remakeConstraints { (make) in
+            make.top.equalTo(nameT)
+            make.leading.equalTo(nameL)
+            make.trailing.equalTo(-margin)
+            make.height.equalTo(nameH)
+        }
+        
+        let descT = nameLabel.bottom
+        let descH = descLabel.requiredHeight(width:nameLabel.width)
+
+        descLabel.snp.remakeConstraints { (make) in
+            make.leading.equalTo(nameL)
+            make.trailing.equalTo(-margin)
+            make.top.equalTo(descT)
+            make.height.equalTo(descH)
+        }
+        
+        let timeT = descLabel.bottom
+        timeLabel.snp.remakeConstraints { (make) in
+            make.leading.equalTo(nameL)
+            make.trailing.equalTo(-margin)
+            make.top.equalTo(timeT)
+            make.height.equalTo(21)
+        }
+        
+        
+        let top:CGFloat = max(imgV.bottom, timeLabel.bottom)+10.0
         let width = (ScreenSize.width-4*margin)/3;
         let height:CGFloat = 30.0
         
@@ -143,8 +187,15 @@ class CPReposPosterView: UIView {
             })
         }
 
+        let selfH = watchBtn.bottom + 10
+        self.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(64)
+            make.height.equalTo(selfH)
+        }
     }
     
+    // MARK: - Data
     func rpc_fillData() {
         
         if let avatarUrl =  repo?.owner?.avatar_url {
@@ -163,9 +214,10 @@ class CPReposPosterView: UIView {
             timeLabel.text = TimeHelper.shared.readableTime(rare: created_at, prefix: "created at: ")
         }
         
-        
+        self.setNeedsLayout()
     }
     
+    // MARK: - Action
     func rpc_watchAction() {
         if( self.reposActionDelegate != nil ){
             self.reposActionDelegate!.watchReposAction()

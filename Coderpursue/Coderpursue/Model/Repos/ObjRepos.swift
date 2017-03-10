@@ -106,18 +106,19 @@ watchers = 0;
 
 class ObjRepos: NSObject,Mappable {
     
+    //1
     var archive_url:String?
     var assignees_url:String?
     var blobs_url:String?
     var branches_url:String?
-    
     var clone_url:String?
     var collaborators_url:String?
     var comments_url:String?
     var commits_url:String?
-    
     var compare_url:String?
     var contents_url:String?
+    
+    //11
     var contributors_url:String?
     var created_at:String?
     var default_branch:String?
@@ -126,11 +127,11 @@ class ObjRepos: NSObject,Mappable {
     var downloads_url:String?
     var events_url:String?
     var fork:Int?
-    
     var forks:Int?
     var forks_count:Int?
-    var forks_url:String?
     
+    //21
+    var forks_url:String?
     var full_name:String?
     var git_commits_url:String?
     var git_refs_url:String?
@@ -140,17 +141,20 @@ class ObjRepos: NSObject,Mappable {
     var has_issues:Int?
     var has_pages:Int?
     var has_wiki:Int?
+    
+    //31
     var homepage:String?
     var hooks_url:String?
     var html_url:String?
     var id :Int?
     var issue_comment_url:String?
     var issue_events_url:String?
-    
     var issues_url:String?
     var keys_url:String?
     var labels_url:String?
     var language:String?
+    
+    //41
     var languages_url:String?
     var merges_url:String?
     var milestones_url:String?
@@ -161,8 +165,9 @@ class ObjRepos: NSObject,Mappable {
     var open_issues_count:Int?
     var owner:ObjUser?
     var permissions:ObjPermissions?
-    var cprivate:Bool?              //private同关键字冲突，加c前缀
     
+    //51
+    var cprivate:Bool?              //private同关键字冲突，加c前缀
     var pulls_url:String?
     var pushed_at:String?
     var releases_url:String?
@@ -172,17 +177,20 @@ class ObjRepos: NSObject,Mappable {
     var stargazers_url:String?
     var statuses_url:String?
     var subscribers_url:String?
+    
+    //61
     var subscription_url:String?
     var svn_url:String?
     var tags_url:String?
     var teams_url:String?
     var trees_url:String?
     var updated_at:String?
-    
     var url:String?
     var watchers:Int?
     var watchers_count:Int?
     var subscribers_count:Int?
+    
+    
     
     struct ReposKey {
         

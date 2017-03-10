@@ -70,6 +70,23 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.white
         
+        //Layout
+
+        
+        let infoViewT = reposInfoV.bottom+15
+        reposInfoV.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo( infoViewT)
+            make.height.equalTo(91)
+        }
+        
+        let tabViewT = reposInfoV.bottom+15
+        tableView.snp.remakeConstraints { (make) in
+            make.left.right.equalTo(0)
+            make.top.equalTo(tabViewT)
+            make.height.equalTo(311)
+        }
+        
     }
     
     func rvc_setupTableView() {

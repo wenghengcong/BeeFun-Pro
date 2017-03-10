@@ -580,7 +580,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bCB-Lk-Emu">
-                                        <rect key="frame" x="10" y="10" width="80" height="110"/>
+                                        <rect key="frame" x="10" y="10" width="80" height="80"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AFNetworking" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyw-yx-7iO">
@@ -634,84 +634,47 @@
                                     <outlet property="watchBtn" destination="HKX-RW-8ls" id="7tL-EG-Oes"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VK6-mr-2nh" customClass="CPReposInfoView" customModule="Coderpursue" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VK6-mr-2nh" customClass="CPReposInfoView" customModule="Coderpursue" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="251" width="375" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-35-Jd0">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hdG-35-Jd0">
                                         <rect key="frame" x="0.0" y="0.0" width="125" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="C7L-CL-aB3"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Watch"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fm-AG-FD0">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fm-AG-FD0">
                                         <rect key="frame" x="125" y="0.0" width="125" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="WFl-lI-VQs"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Star"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fy4-x3-nNj">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fy4-x3-nNj">
                                         <rect key="frame" x="250" y="0.0" width="125" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="tfG-Bk-dd1"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Fork"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Av-Og-f15">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Av-Og-f15">
                                         <rect key="frame" x="0.0" y="30" width="187.5" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="bTP-ws-Gzr"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Objective-C"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyh-Pn-5dZ">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jyh-Pn-5dZ">
                                         <rect key="frame" x="187" y="30" width="187.5" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="e5m-go-ssS"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Public"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNM-Z5-t0Q">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNM-Z5-t0Q">
                                         <rect key="frame" x="0.0" y="60" width="187.5" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="rtL-VM-XK5"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Issue"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELn-fb-fZx">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ELn-fb-fZx">
                                         <rect key="frame" x="187.5" y="60" width="187.5" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="eUk-nz-WuG"/>
-                                        </constraints>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="file"/>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="9Av-Og-f15" firstAttribute="top" secondItem="7fm-AG-FD0" secondAttribute="bottom" id="2at-JC-yps"/>
-                                    <constraint firstItem="7fm-AG-FD0" firstAttribute="width" secondItem="VK6-mr-2nh" secondAttribute="width" multiplier="1:3" id="Atr-Xs-YmB"/>
-                                    <constraint firstItem="hdG-35-Jd0" firstAttribute="top" secondItem="VK6-mr-2nh" secondAttribute="top" id="CRu-Qh-PgP"/>
-                                    <constraint firstItem="kNM-Z5-t0Q" firstAttribute="top" secondItem="9Av-Og-f15" secondAttribute="bottom" id="Hbl-Ue-sbG"/>
-                                    <constraint firstItem="Jyh-Pn-5dZ" firstAttribute="leading" secondItem="VK6-mr-2nh" secondAttribute="leading" constant="187" id="Iwu-1H-dmL"/>
-                                    <constraint firstItem="9Av-Og-f15" firstAttribute="leading" secondItem="VK6-mr-2nh" secondAttribute="leading" id="KGC-Gs-s1N"/>
-                                    <constraint firstItem="9Av-Og-f15" firstAttribute="width" secondItem="VK6-mr-2nh" secondAttribute="width" multiplier="1:2" id="Mfr-mD-2Zg"/>
-                                    <constraint firstItem="ELn-fb-fZx" firstAttribute="leading" secondItem="kNM-Z5-t0Q" secondAttribute="trailing" id="RL9-05-Xiw"/>
-                                    <constraint firstItem="Jyh-Pn-5dZ" firstAttribute="width" secondItem="9Av-Og-f15" secondAttribute="width" id="RNZ-4g-KSh"/>
-                                    <constraint firstItem="7fm-AG-FD0" firstAttribute="leading" secondItem="hdG-35-Jd0" secondAttribute="trailing" id="RWM-OU-gbk"/>
-                                    <constraint firstItem="ELn-fb-fZx" firstAttribute="top" secondItem="Jyh-Pn-5dZ" secondAttribute="bottom" id="Yeu-Gj-huO"/>
-                                    <constraint firstItem="Fy4-x3-nNj" firstAttribute="leading" secondItem="7fm-AG-FD0" secondAttribute="trailing" id="ZFU-Tp-4AK"/>
-                                    <constraint firstItem="7fm-AG-FD0" firstAttribute="top" secondItem="VK6-mr-2nh" secondAttribute="top" id="ZaN-zr-tFZ"/>
-                                    <constraint firstItem="ELn-fb-fZx" firstAttribute="width" secondItem="9Av-Og-f15" secondAttribute="width" id="bN4-cN-ltP"/>
-                                    <constraint firstItem="hdG-35-Jd0" firstAttribute="width" secondItem="VK6-mr-2nh" secondAttribute="width" multiplier="1:3" id="cwj-Yg-RbC"/>
-                                    <constraint firstItem="Fy4-x3-nNj" firstAttribute="width" secondItem="VK6-mr-2nh" secondAttribute="width" multiplier="1:3" id="d8J-rY-P8c"/>
-                                    <constraint firstAttribute="height" constant="91" id="eE7-wf-LDw"/>
-                                    <constraint firstItem="Fy4-x3-nNj" firstAttribute="top" secondItem="VK6-mr-2nh" secondAttribute="top" id="exu-ix-D8z"/>
-                                    <constraint firstItem="kNM-Z5-t0Q" firstAttribute="width" secondItem="9Av-Og-f15" secondAttribute="width" id="uGk-Ry-PAu"/>
-                                    <constraint firstItem="kNM-Z5-t0Q" firstAttribute="leading" secondItem="VK6-mr-2nh" secondAttribute="leading" id="vdb-L9-mli"/>
-                                    <constraint firstItem="hdG-35-Jd0" firstAttribute="leading" secondItem="VK6-mr-2nh" secondAttribute="leading" id="wVL-ll-xJu"/>
-                                    <constraint firstItem="Jyh-Pn-5dZ" firstAttribute="top" secondItem="Fy4-x3-nNj" secondAttribute="bottom" id="xDC-wy-zxi"/>
-                                </constraints>
                                 <connections>
                                     <outlet property="filesizeBtn" destination="ELn-fb-fZx" id="C1g-Ce-7FS"/>
                                     <outlet property="forkBtn" destination="Fy4-x3-nNj" id="V6w-MV-aGN"/>
@@ -722,8 +685,9 @@
                                     <outlet property="watchBtn" destination="hdG-35-Jd0" id="5FM-xd-d0D"/>
                                 </connections>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DOn-bB-VjD">
-                                <rect key="frame" x="0.0" y="357" width="375" height="310"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DOn-bB-VjD">
+                                <rect key="frame" x="0.0" y="356" width="375" height="311"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="DFV-4I-ATK" id="1zC-1i-GGg"/>
@@ -732,14 +696,6 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="DOn-bB-VjD" secondAttribute="trailing" id="3kp-Ew-rnM"/>
-                            <constraint firstAttribute="trailing" secondItem="VK6-mr-2nh" secondAttribute="trailing" id="6w2-g8-ppP"/>
-                            <constraint firstAttribute="bottom" secondItem="DOn-bB-VjD" secondAttribute="bottom" id="WdH-FK-HSS"/>
-                            <constraint firstItem="DOn-bB-VjD" firstAttribute="leading" secondItem="moG-rP-zps" secondAttribute="leading" id="XaH-wr-d6M"/>
-                            <constraint firstItem="DOn-bB-VjD" firstAttribute="top" secondItem="VK6-mr-2nh" secondAttribute="bottom" constant="15" id="nsh-dv-1pI"/>
-                            <constraint firstItem="VK6-mr-2nh" firstAttribute="leading" secondItem="moG-rP-zps" secondAttribute="leading" id="y99-fG-G95"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Repos" id="kMM-wg-JW6"/>
                     <connections>

@@ -175,28 +175,28 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         let shareContent:ShareContent = ShareContent()
         if let name = developer?.name{
-            shareContent.shareTitle = name
+            shareContent.title = name
         }else{
-            shareContent.shareTitle = developer?.login
+            shareContent.title = developer?.login
         }
         
         if let bio = developer?.bio {
-            shareContent.shareContent = "Developer \((developer?.name)!) " + ":\(bio)."
+            shareContent.content = "Developer \((developer?.name)!) " + ":\(bio)."
         }else{
-            shareContent.shareContent = "Developer \((developer?.login)!)"
+            shareContent.content = "Developer \((developer?.login)!)"
         }
         
-        shareContent.shareUrl = developer?.html_url
+        shareContent.url = developer?.html_url
         
         if userShareImage == nil {
             MBProgressHUD.showAdded(to: self.view, animated: true)
             prefectchShareImage({
                 MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
-                shareContent.shareImage = self.userShareImage
+                shareContent.image = self.userShareImage
                 //ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
             })
         }else{
-            shareContent.shareImage = self.userShareImage
+            shareContent.image = self.userShareImage
             //ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
         }
         

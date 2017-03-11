@@ -68,6 +68,7 @@
 		5E0DDCED1E72FFE800493ABA /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDCC01E72FFE800493ABA /* MOBFoundation.framework */; };
 		5E0DDCEE1E72FFE800493ABA /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E0DDCC11E72FFE800493ABA /* ShareSDK.bundle */; };
 		5E0DDCEF1E72FFE800493ABA /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */; };
+		5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF01E73010D00493ABA /* ShareManager.swift */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
@@ -310,6 +311,7 @@
 		5E0DDCC01E72FFE800493ABA /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		5E0DDCC11E72FFE800493ABA /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
 		5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
+		5E0DDCF01E73010D00493ABA /* ShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
@@ -470,6 +472,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E0943991CC1F0220047118D /* JavaScriptCore.framework in Frameworks */,
+				5E09439F1CC1F03C0047118D /* MessageUI.framework in Frameworks */,
 				5E0DDCDC1E72FFE800493ABA /* YiXinConnector.framework in Frameworks */,
 				5E0DDCD81E72FFE800493ABA /* SinaWeiboConnector.framework in Frameworks */,
 				5E76920A1CC2448D00E0C2D3 /* CoreData.framework in Frameworks */,
@@ -513,8 +517,6 @@
 				5E0DDCDD1E72FFE800493ABA /* YouTubeConnector.framework in Frameworks */,
 				5E0DDCE91E72FFE800493ABA /* libWeChatSDK.a in Frameworks */,
 				5E0DDCC51E72FFE800493ABA /* ShareSDKConfigFile.framework in Frameworks */,
-				5E09439F1CC1F03C0047118D /* MessageUI.framework in Frameworks */,
-				5E0943991CC1F0220047118D /* JavaScriptCore.framework in Frameworks */,
 				5E0943971CC1F01C0047118D /* libstdc++.tbd in Frameworks */,
 				5E0DDCD61E72FFE800493ABA /* QQConnector.framework in Frameworks */,
 				5E0DDCCF1E72FFE800493ABA /* InstagramConnector.framework in Frameworks */,
@@ -847,6 +849,7 @@
 				5EC58D791E6DAAF60069AE82 /* ShareHelper.swift */,
 				5EC58D7A1E6DAAF60069AE82 /* TimeHelper.swift */,
 				5EC58D7B1E6DAAF60069AE82 /* UserManager.swift */,
+				5E0DDCF01E73010D00493ABA /* ShareManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1497,6 +1500,7 @@
 				5EE91F831C7C4E32003F4CBF /* ObjEventPayload.swift in Sources */,
 				5EACCFCF1C8E5F450059A303 /* ParaComparison.swift in Sources */,
 				FE6980E61C5602C40026089B /* ObjUserSum.swift in Sources */,
+				5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */,
 				FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */,
 				5ECB40821C9A376B00B0C6FF /* CPProfileHeaderView.swift in Sources */,
 				FE6980E51C5602C40026089B /* ObjUser.swift in Sources */,

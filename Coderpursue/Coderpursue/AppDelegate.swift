@@ -27,6 +27,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //Umeng Social
         //ShareHelper.shared.configUMSocailPlatforms()
         
+        //ShareSDK
+        ShareManager.shared.registerAppWithPlatforms()
+        
         //友盟分析
         UMAnalyticsConfig.sharedInstance().appKey = UMengAppSecret
         //发送策略：BATCH启动，SEND_INTERVAL，间隔发送

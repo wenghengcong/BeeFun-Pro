@@ -39,9 +39,21 @@ public let TencentSDKAppID = "1105263895"
 public let TencentSDKAppKey = "iym79yrZuElPOCDh"
 //facebook
 public let FackbookSDKAppID = "789261007875015"
+public let FackbookSDKAppSecret = "b29f205f582c617fe26421b626c84576"
+
 //twitter
 public let TwitterSDKConsumerKey = "CDdurbc23ffDDs6VlBMOkX8oH"
 public let TwitterSDKConsumerSecret = "cythqJqoFnpgQTkUcetALuG6agOKZ3bil2AYGAb2KJjDPU7Ndx"
 
+//linkedin
+public let LinkedInSDKAppID = ""
+public let LinkedInSDKAppSecret = ""
 
+//有道云笔记
+public let YDNoteSDKConsumerKey = ""
+public let YDNoteSDKConsumerSecret = ""
+
+//钉钉
+public let DingTalkSDKAppID = ""
+public let DingTalkSDKAppSecret = ""
 

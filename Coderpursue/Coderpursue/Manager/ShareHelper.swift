@@ -8,25 +8,7 @@
 
 import UIKit
 
-public enum ShareSource:String {
-    case Defalult = "defalut"
-    case App = "app"
-    case Repository = "repository"
-    case User = "user"
-}
 
-class ShareContent: NSObject {
-    
-    var shareUrl:String?
-    var shareImageUrl:String?
-    var shareImage:UIImage?
-    var shareContent:String?
-    var shareTitle:String?
-    
-    override init() {
-        super.init()
-    }
-}
 /*
 class ShareHelper: NSObject,UMSocialUIDelegate {
     

@@ -173,23 +173,23 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     override func rightItemAction(_ sender: UIButton?) {
         
         let shareContent:ShareContent = ShareContent()
-        shareContent.shareTitle = repos?.name
+        shareContent.title = repos?.name
         if let repoDescription = repos?.cdescription {
-            shareContent.shareContent = "Code Repository \((repos?.name)!) : \(repoDescription)"
+            shareContent.content = "Code Repository \((repos?.name)!) : \(repoDescription)"
         }else{
-            shareContent.shareContent = "Code Repository \((repos?.name)!)"
+            shareContent.content = "Code Repository \((repos?.name)!)"
         }
-        shareContent.shareUrl = repos?.html_url
+        shareContent.url = repos?.html_url
         
         if reposShareImage == nil {
             MBProgressHUD.showAdded(to: self.view, animated: true)
             prefectchShareImage({
                 MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
-                shareContent.shareImage = self.reposShareImage
+                shareContent.image = self.reposShareImage
 //                ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
             })
         }else{
-            shareContent.shareImage = self.reposShareImage
+            shareContent.image = self.reposShareImage
 //            ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
         }
         

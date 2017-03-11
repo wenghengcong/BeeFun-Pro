@@ -79,6 +79,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //return UMSocialSnsService.handleOpen(url)
         return true
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        return true
+    }
 
 }
 

@@ -15,6 +15,7 @@
 
 //＝＝＝＝＝＝＝＝＝＝ShareSDKUI头文件，使用ShareSDK提供的UI需要导入＝＝＝＝＝
 #import <ShareSDKUI/ShareSDK+SSUI.h>
+#import <ShareSDKUI/SSUIShareActionSheetStyle.h>
 
 //＝＝＝＝＝＝＝＝＝＝以下是各个平台SDK的头文件，根据需要继承的平台添加＝＝＝
 //腾讯开放平台（对应QQ和QQ空间）SDK头文件

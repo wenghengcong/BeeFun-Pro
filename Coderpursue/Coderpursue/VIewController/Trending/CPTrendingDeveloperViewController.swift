@@ -31,7 +31,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     var developer:ObjUser?
     var devInfoArr = [[String:String]]()
-    var userShareImage:UIImage?
 
     var actionType:CPUserActionType = .Follow
     var followed:Bool = false
@@ -112,10 +111,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_updateViewContent() {
         
-        prefectchShareImage(){
-            
-        }
-        
         if(followed){
             followBtn.setTitle("Unfollow", for: UIControlState())
         }else{
@@ -150,23 +145,6 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         self.tableView.reloadData()
     }
     
-    func prefectchShareImage( _ completionHandler: @escaping ()-> Void){
-        
-        if let urlStr = developer?.avatar_url {
-            let url:URL = URL.init(string: urlStr)!
-            let downloader = KingfisherManager.shared.downloader
-            
-            downloader.downloadImage(with: url, options: nil, progressBlock: { (receivedSize, totalSize) in
-                
-                }, completionHandler: { (image, error, imageURL, originalData) in
-                self.userShareImage = image
-                completionHandler()
-            })
-            
-        }
-        
-    }
-    
     override func leftItemAction(_ sender: UIButton?) {
         _ = self.navigationController?.popViewController(animated: true)
     }
@@ -174,6 +152,9 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     override func rightItemAction(_ sender: UIButton?) {
         
         let shareContent:ShareContent = ShareContent()
+        shareContent.contentType = .image
+        shareContent.source = .user
+        
         if let name = developer?.name{
             shareContent.title = name
         }else{
@@ -188,16 +169,12 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         
         shareContent.url = developer?.html_url
         
-        if userShareImage == nil {
-            MBProgressHUD.showAdded(to: self.view, animated: true)
-            prefectchShareImage({
-                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
-                shareContent.image = self.userShareImage
-                //ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
-            })
+        if let urlStr = developer?.avatar_url {
+            shareContent.image = urlStr as AnyObject?
+            ShareManager.shared.share(content: shareContent)
         }else{
-            shareContent.image = self.userShareImage
-            //ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+            shareContent.image = UIImage(named: "app_logo_90")
+            ShareManager.shared.share(content: shareContent)
         }
         
     }

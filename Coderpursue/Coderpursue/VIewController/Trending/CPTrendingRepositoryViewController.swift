@@ -29,7 +29,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     var repos:ObjRepos?
     var reposInfoArr = [[String:String]]()
-    var reposShareImage:UIImage?
     
     var user:ObjUser?
     var hasWatchedRepos:Bool = false
@@ -98,10 +97,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         reposInfoV.repo = objRepo
         tableView.isHidden = false
         self.view.backgroundColor = UIColor.viewBackgroundColor()
-
-        prefectchShareImage(){
-            
-        }
         
         rvc_layoutSubView()
     }
@@ -129,24 +124,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             make.height.equalTo(311)
         }
     }
-    
-    func prefectchShareImage( _ completionHandler: @escaping ()-> Void ){
-        
-        if let urlStr = repos?.owner?.avatar_url {
-            let url:URL = URL.init(string: urlStr)!
-            let downloader = KingfisherManager.shared.downloader
-            
-            downloader.downloadImage(with: url, options: nil, progressBlock: { (receivedSize, totalSize) in
-                
-                }, completionHandler: { (image, error, imageURL, originalData) in
-                    self.reposShareImage = image
-                    completionHandler()
-            })
-            
-        }
 
-    }
-    
     
     func rvc_userIsLogin() {
         user = UserManager.shared.user
@@ -174,6 +152,9 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         let shareContent:ShareContent = ShareContent()
         shareContent.title = repos?.name
+        shareContent.contentType = SSDKContentType.image
+        shareContent.source = .repository
+        
         if let repoDescription = repos?.cdescription {
             shareContent.content = "Code Repository \((repos?.name)!) : \(repoDescription)"
         }else{
@@ -181,18 +162,13 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         }
         shareContent.url = repos?.html_url
         
-        if reposShareImage == nil {
-            MBProgressHUD.showAdded(to: self.view, animated: true)
-            prefectchShareImage({
-                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
-                shareContent.image = self.reposShareImage
-//                ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
-            })
+        if let urlStr = repos?.owner?.avatar_url {
+            shareContent.image = urlStr as AnyObject?
+            ShareManager.shared.share(content: shareContent)
         }else{
-            shareContent.image = self.reposShareImage
-//            ShareHelper.shared.shareContentInView(self, content: shareContent, soucre: ShareSource.Repository)
+            shareContent.image = UIImage(named: "app_logo_90")
+            ShareManager.shared.share(content: shareContent)
         }
-        
     }
     
     // MARK: - request

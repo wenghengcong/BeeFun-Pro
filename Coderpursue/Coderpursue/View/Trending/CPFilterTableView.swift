@@ -193,12 +193,12 @@ extension CPFilterTableView:UITableViewDataSource {
             
             cell.backgroundColor = UIColor.viewBackgroundColor()
             cell.textLabel!.font = UIFont.systemFont(ofSize: 14.0)
-            cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .Bottom)
-            cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .Right)
+            cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .bottom)
+            cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .right)
             
             if((indexPath as NSIndexPath).row == selTypeIndex){
                 cell.backgroundColor = UIColor.white
-                cell.removeBorder(.Right)
+                cell.removeBorder(.right)
                 cell.textLabel?.textColor = UIColor.cpRedColor()
             }
             

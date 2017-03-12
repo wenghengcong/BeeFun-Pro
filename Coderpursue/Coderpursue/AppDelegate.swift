@@ -23,12 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //bug 
 //        CrashReporter.shared().enableLog(true)
         Bugly.start(withAppId: TencentBuglyAppID)
-        
-        //Umeng Social
-        //ShareHelper.shared.configUMSocailPlatforms()
-        
+    
         //ShareSDK
-        ShareManager.shared.registerAppWithPlatforms()
+        ShareManager.shared.register()
         
         //友盟分析
         UMAnalyticsConfig.sharedInstance().appKey = UMengAppSecret

@@ -97,8 +97,7 @@ class UserManager: NSObject {
         loginVC.url = url
         loginVC.hidesBottomBarWhenPushed = true
         
-        let appDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.tabBarController?.currentNavigationViewController()?.pushViewController(loginVC, animated: true)
+        cpAppDelegate.tabBarController?.currentNavigationViewController()?.pushViewController(loginVC, animated: true)
         
     }
     

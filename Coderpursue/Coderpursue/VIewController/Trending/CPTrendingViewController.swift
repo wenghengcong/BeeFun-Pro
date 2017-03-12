@@ -342,11 +342,14 @@ class CPTrendingViewController: CPBaseViewController {
                 
                 do {
                     if let repos:[ObjRepos]? = try response.mapArray(ObjRepos.self){
+                        if repos?.count == 0{
+                            return
+                        }
                         if(self.paraUser.page == 1){
                             self.reposData.removeAll()
                             self.reposData = repos!
                             self.tableView.reloadData()
-                            self.tableView.setContentOffset(CGPoint.zero, animated:true)
+                            //self.tableView.setContentOffset(CGPoint.zero, animated:true)
                         }else{
                             self.reposData = self.reposData+repos!
                             self.tableView.reloadData()

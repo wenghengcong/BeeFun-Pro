@@ -1,6 +1,6 @@
 # Coderpursue 
 
-[![](https://img.shields.io/badge/version-1.0.4-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
+[![](https://img.shields.io/badge/version-1.2.0-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-3.0-green.svg)](https://developer.apple.com/swift/)
 
 
@@ -23,7 +23,7 @@ You can get the app by QR code or on App Store.
 
 ### Feature
 
-- v1.1.0
+- v1.2.0
   1. Explore Github: Explore Trending Repositories or showcases；
   2. Search User and Repositories；
   3. star/watch/fork repository；

@@ -69,6 +69,7 @@
 		5E0DDCEE1E72FFE800493ABA /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E0DDCC11E72FFE800493ABA /* ShareSDK.bundle */; };
 		5E0DDCEF1E72FFE800493ABA /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */; };
 		5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF01E73010D00493ABA /* ShareManager.swift */; };
+		5E0DDCF31E74F33200493ABA /* InstanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF21E74F33200493ABA /* InstanceManager.swift */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
@@ -137,7 +138,6 @@
 		5EC58D7D1E6DAAF60069AE82 /* CPGlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */; };
 		5EC58D7E1E6DAAF60069AE82 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */; };
 		5EC58D871E6DAAF60069AE82 /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D781E6DAAF60069AE82 /* PlistHelper.swift */; };
-		5EC58D881E6DAAF60069AE82 /* ShareHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D791E6DAAF60069AE82 /* ShareHelper.swift */; };
 		5EC58D891E6DAAF60069AE82 /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D7A1E6DAAF60069AE82 /* TimeHelper.swift */; };
 		5EC58D8A1E6DAAF60069AE82 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D7B1E6DAAF60069AE82 /* UserManager.swift */; };
 		5EC6C9831CA528D10067E2E4 /* CPCountry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EC6C9821CA528D10067E2E4 /* CPCountry.plist */; };
@@ -312,6 +312,7 @@
 		5E0DDCC11E72FFE800493ABA /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
 		5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
 		5E0DDCF01E73010D00493ABA /* ShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
+		5E0DDCF21E74F33200493ABA /* InstanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceManager.swift; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
@@ -380,7 +381,6 @@
 		5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGlobalHelper.swift; sourceTree = "<group>"; };
 		5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		5EC58D781E6DAAF60069AE82 /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
-		5EC58D791E6DAAF60069AE82 /* ShareHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareHelper.swift; sourceTree = "<group>"; };
 		5EC58D7A1E6DAAF60069AE82 /* TimeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeHelper.swift; sourceTree = "<group>"; };
 		5EC58D7B1E6DAAF60069AE82 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		5EC6C9821CA528D10067E2E4 /* CPCountry.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CPCountry.plist; sourceTree = "<group>"; };
@@ -846,10 +846,10 @@
 				5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */,
 				5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */,
 				5EC58D781E6DAAF60069AE82 /* PlistHelper.swift */,
-				5EC58D791E6DAAF60069AE82 /* ShareHelper.swift */,
 				5EC58D7A1E6DAAF60069AE82 /* TimeHelper.swift */,
 				5EC58D7B1E6DAAF60069AE82 /* UserManager.swift */,
 				5E0DDCF01E73010D00493ABA /* ShareManager.swift */,
+				5E0DDCF21E74F33200493ABA /* InstanceManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1496,6 +1496,7 @@
 				5EBD35FE1E71484000C4E350 /* UIView+Draw.swift in Sources */,
 				5E546DA51C8FAC2200E94997 /* ParaSort.swift in Sources */,
 				5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */,
+				5E0DDCF31E74F33200493ABA /* InstanceManager.swift in Sources */,
 				5ECB407C1C9950DB00B0C6FF /* CPSettingsLabelCell.swift in Sources */,
 				5EE91F831C7C4E32003F4CBF /* ObjEventPayload.swift in Sources */,
 				5EACCFCF1C8E5F450059A303 /* ParaComparison.swift in Sources */,
@@ -1550,7 +1551,6 @@
 				5EBD360D1E72099100C4E350 /* UILabel+Size.swift in Sources */,
 				5EE91F851C7C4FF9003F4CBF /* ObjEvent.swift in Sources */,
 				FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */,
-				5EC58D881E6DAAF60069AE82 /* ShareHelper.swift in Sources */,
 				FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */,
 				FE91BA951C333AE2002AECB6 /* CPBaseTabBarController.swift in Sources */,
 				5E4D9F741CC5189700DA8ECC /* CPGitLoginViewController.swift in Sources */,

@@ -155,12 +155,12 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         shareContent.contentType = SSDKContentType.image
         shareContent.source = .repository
         
-        if let repoDescription = repos?.cdescription {
-            shareContent.content = "Code Repository \((repos?.name)!) : \(repoDescription)"
-        }else{
-            shareContent.content = "Code Repository \((repos?.name)!)"
-        }
         shareContent.url = repos?.html_url
+        if let repoDescription = repos?.cdescription {
+            shareContent.content = "Code Repository \((repos?.name)!) : \(repoDescription) "+"\(shareContent.url!)"
+        }else{
+            shareContent.content = "Code Repository \((repos?.name)!) " + "\(shareContent.url!)"
+        }
         
         if let urlStr = repos?.owner?.avatar_url {
             shareContent.image = urlStr as AnyObject?

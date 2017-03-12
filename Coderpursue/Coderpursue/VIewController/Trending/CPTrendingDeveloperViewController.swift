@@ -161,13 +161,13 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             shareContent.title = developer?.login
         }
         
-        if let bio = developer?.bio {
-            shareContent.content = "Developer \((developer?.name)!) " + ":\(bio)."
-        }else{
-            shareContent.content = "Developer \((developer?.login)!)"
-        }
-        
         shareContent.url = developer?.html_url
+
+        if let bio = developer?.bio {
+            shareContent.content = "Developer \((developer?.name)!) " + ":\(bio)." + "\(shareContent.url!)"
+        }else{
+            shareContent.content = "Developer \((developer?.login)!)." + "\(shareContent.url!)"
+        }
         
         if let urlStr = developer?.avatar_url {
             shareContent.image = urlStr as AnyObject?

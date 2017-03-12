@@ -223,7 +223,7 @@ class ShareManager: NSObject {
         //处理好ShareContet中的属性
         handleShareContet()
         
-        let text = shareContent?.content
+        var text = shareContent?.content
         let image = shareContent?.image
         let images = shareContent?.images
 
@@ -265,6 +265,7 @@ class ShareManager: NSObject {
         if shareContent?.source == .app {
             //Twitter
             //Text、Image
+            //Twitter支持140字符！！！
             let en_content = "Coderpursue，an opensource swift github 3rd client for iOS."+ShortSocialAppStore
             let en_title = "Coderpursue，Just Coding"
             
@@ -274,6 +275,12 @@ class ShareManager: NSObject {
             //Facebook
             shareParams.ssdkSetupFacebookParams(byText: en_content, image: image, url: sURL, urlTitle: en_title, urlName: nil, attachementUrl: nil, type: .webPage)
         }else{
+            
+            if (text?.characters.count)! >= 140 {
+                let index = text?.index((text?.startIndex)!, offsetBy: 140)
+                text = text?.substring(to: index!)
+                shareParams.ssdkSetupTwitterParams(byText: text, images: images, latitude: 0.0, longitude: 0.0, type: .auto)
+            }
             
             shareParams.ssdkSetupFacebookParams(byText: text, image: image, url: sURL, urlTitle: title, urlName: nil, attachementUrl: nil, type: .auto)
         }

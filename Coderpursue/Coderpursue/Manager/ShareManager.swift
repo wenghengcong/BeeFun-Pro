@@ -311,7 +311,7 @@ class ShareManager: NSObject {
         }
         
         if shareContent?.content == nil {
-            shareContent?.content = "Coderpursue，开源的Swift Github第三方客户端。"
+            shareContent?.content = "Coderpursue，开源的Swift Github第三方客户端。"+ShortSocialAppStore
         }
         
         if shareContent?.contentType == nil {

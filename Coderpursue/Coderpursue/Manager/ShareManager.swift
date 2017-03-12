@@ -8,6 +8,17 @@
 
 import UIKit
 
+
+/// 分享状态的代理
+protocol shareResponseProtocol {
+    
+    func didStateChange(state:SSDKResponseState,platform:SSDKPlatformType,userdata:[AnyHashable:Any]?,content:SSDKContentEntity?,error:Error?,end:Bool)
+    func didShareBegin(state:SSDKResponseState,platform:SSDKPlatformType,userdata:[AnyHashable:Any]?,content:SSDKContentEntity?,error:Error?,end:Bool)
+    func didShareSuccess(state:SSDKResponseState,platform:SSDKPlatformType,userdata:[AnyHashable:Any]?,content:SSDKContentEntity?,error:Error?,end:Bool)
+    func didShareFail(state:SSDKResponseState,platform:SSDKPlatformType,userdata:[AnyHashable:Any]?,content:SSDKContentEntity?,error:Error?,end:Bool)
+     func didShareCancel(state:SSDKResponseState,platform:SSDKPlatformType,userdata:[AnyHashable:Any]?,content:SSDKContentEntity?,error:Error?,end:Bool)
+}
+
 public enum ShareSource:String {
     case defalult = "defalut"
     case app = "app"
@@ -34,8 +45,11 @@ class ShareContent: NSObject {
     ///分享图片数组
     var images:[AnyObject]?
     
-    ///分享类型
-    var type:SSDKContentType?
+    ///分享内容类型
+    var contentType:SSDKContentType?
+    
+    /// 分享平台类型
+    var platformType:SSDKPlatformType?
     
     override init() {
         super.init()
@@ -49,6 +63,7 @@ class ShareManager: NSObject {
     var sourceType:ShareSource = .defalult
     var shareContent:ShareContent? = ShareContent.init()
     var shareInViewController:UIViewController?
+    var delegate:shareResponseProtocol?
     var showPlatforms = [
         SSDKPlatformType.typeSinaWeibo.rawValue,   //微博
         SSDKPlatformType.typeWechat.rawValue,      //微信
@@ -82,13 +97,10 @@ class ShareManager: NSObject {
             {
             case .typeSinaWeibo:
                 ShareSDKConnector.connectWeibo(WeiboSDK.classForCoder())
-                break
             case .typeWechat:
                 ShareSDKConnector.connectWeChat(WXApi.classForCoder())
-                break
             case .typeQQ:
                 ShareSDKConnector.connectQQ(QQApiInterface.classForCoder(), tencentOAuthClass: TencentOAuth.classForCoder())
-                break
             default:
                 break
             }
@@ -168,34 +180,37 @@ class ShareManager: NSObject {
         
         let text = shareContent?.content
         let image = shareContent?.image
-        let images = shareContent?.images as AnyObject?
+        let images = shareContent?.images
 
         let sURL = shareContent?.URL
         let title = shareContent?.title
-        let type:SSDKContentType = (shareContent?.type)!
+        let contentType:SSDKContentType = (shareContent?.contentType)!
+        let platformType:SSDKPlatformType = (shareContent?.platformType)!
         
         let shareParams:NSMutableDictionary = NSMutableDictionary.init()
-        if type == .auto {
-            shareParams.ssdkSetupShareParams(byText: text, images: [image], url: sURL, title: title, type:.app)
+        if contentType == .auto {
+            shareParams.ssdkSetupShareParams(byText: text, images: images, url: sURL, title: title, type:.app)
         }
         //微信
-        shareParams.ssdkSetupWeChatParams(byText: text, title: title, url: sURL, thumbImage: nil, image: image, musicFileURL: nil, extInfo: nil, fileData: nil, emoticonData: nil, sourceFileExtension: nil, sourceFileData: nil, type: type, forPlatformSubType: .subTypeWechatSession)
+        shareParams.ssdkSetupWeChatParams(byText: text, title: title, url: sURL, thumbImage: nil, image: image, musicFileURL: nil, extInfo: nil, fileData: nil, emoticonData: nil, sourceFileExtension: nil, sourceFileData: nil, type: contentType, forPlatformSubType: .subTypeWechatSession)
         
-        shareParams.ssdkSetupWeChatParams(byText: text, title: title, url: sURL, thumbImage: nil, image: image, musicFileURL: nil, extInfo: nil, fileData: nil, emoticonData: nil, sourceFileExtension: nil, sourceFileData: nil, type: type, forPlatformSubType: .subTypeWechatFav)
+        shareParams.ssdkSetupWeChatParams(byText: text, title: title, url: sURL, thumbImage: nil, image: image, musicFileURL: nil, extInfo: nil, fileData: nil, emoticonData: nil, sourceFileExtension: nil, sourceFileData: nil, type: contentType, forPlatformSubType: .subTypeWechatFav)
 
-        shareParams.ssdkSetupWeChatParams(byText: text, title: title, url: sURL, thumbImage: nil, image: image, musicFileURL: nil, extInfo: nil, fileData: nil, emoticonData: nil, sourceFileExtension: nil, sourceFileData: nil, type: type, forPlatformSubType: .subTypeWechatTimeline)
+        shareParams.ssdkSetupWeChatParams(byText: text, title: title, url: sURL, thumbImage: nil, image: image, musicFileURL: nil, extInfo: nil, fileData: nil, emoticonData: nil, sourceFileExtension: nil, sourceFileData: nil, type: contentType, forPlatformSubType: .subTypeWechatTimeline)
 
         //微博
         // TODO: 经纬度
-        shareParams.ssdkSetupSinaWeiboShareParams(byText: text, title: title, image: images, url: sURL, latitude: 0.0, longitude: 0.0, objectID: nil, type: type)
+        shareParams.ssdkSetupSinaWeiboShareParams(byText: text, title: title, image: images, url: sURL, latitude: 0.0, longitude: 0.0, objectID: nil, type: contentType)
         
         //QQ
+        shareParams.ssdkSetupQQParams(byText: text, title: title, url: sURL, audioFlash: nil, videoFlash: nil, thumbImage: image, images: images, type: contentType, forPlatformSubType: platformType)
         
         //Facebook
-        
+        shareParams.ssdkSetupFacebookParams(byText: text, image: image, url: sURL, urlTitle: title, urlName: nil, attachementUrl: nil, type: contentType)
         
         //Twitter
-        
+        // TODO: 经纬度
+        shareParams.ssdkSetupTwitterParams(byText: text, images: images, latitude: 0.0, longitude: 0.0, type: contentType)
         
         return shareParams
     }
@@ -203,34 +218,44 @@ class ShareManager: NSObject {
     
     
     func share(source:ShareSource ,content:ShareContent ,view:UIView) {
-        
-        switch source {
-        case .app:
-            break
-        case .defalult:
-            break
-        case .repository:
-            break
-        case .user:
-            break
 
-        }
-        
+        print((source))
+
         //1、创建分享参数（必要）
         let shareParams = shareParamsWithDifferentPlatforms()
-        //2、分享
+        
+        //2、分享视图的定制
         SSUIShareActionSheetStyle.setShareActionSheetStyle(.simple)
         
-        ShareSDK.showShareActionSheet(view, items: showPlatforms, shareParams: shareParams) { (state, platflor, userdata, entity : SSDKContentEntity?, error :Error?, end:Bool) in
+        //3、分享
+        ShareSDK.showShareActionSheet(view, items: showPlatforms, shareParams: shareParams) { (state, platform, userdata, entity : SSDKContentEntity?, error :Error?, end:Bool) in
+            
+            if let method = self.delegate?.didStateChange(state: platform: userdata: content: error: end:){
+                method(state,platform,userdata,entity,error,end)
+                return
+            }
             
             switch state{
-                
-            case SSDKResponseState.success: print("分享成功")
-            case SSDKResponseState.fail:    print("授权失败,错误描述:\(error)")
-            case SSDKResponseState.cancel:  print("操作取消")
-                
-            default:
-                break
+            case .begin:
+                print("开始分享")
+                if let method = self.delegate?.didShareBegin(state: platform: userdata: content: error: end:){
+                    method(state,platform,userdata,entity,error,end)
+                }
+            case SSDKResponseState.success:
+                print("分享成功")
+                if let method = self.delegate?.didShareSuccess(state: platform: userdata: content: error: end:){
+                    method(state,platform,userdata,entity,error,end)
+                }
+            case SSDKResponseState.fail:
+                print("授权失败,错误描述:\(error)")
+                if let method = self.delegate?.didShareFail(state: platform: userdata: content: error: end:){
+                    method(state,platform,userdata,entity,error,end)
+                }
+            case SSDKResponseState.cancel:
+                print("操作取消")
+                if let method = self.delegate?.didShareCancel(state: platform: userdata: content: error: end:){
+                    method(state,platform,userdata,entity,error,end)
+                }
             }
         }
 
@@ -269,8 +294,8 @@ class ShareManager: NSObject {
             shareContent?.content = "Coderpursue，开源的Swift Github第三方客户端。"
         }
         
-        if shareContent?.type != nil {
-            shareContent?.type = .auto
+        if shareContent?.contentType != nil {
+            shareContent?.contentType = .auto
         }
         
     }

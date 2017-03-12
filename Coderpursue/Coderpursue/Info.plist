@@ -3,7 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>zh_CN</string>
+	<key>CFBundleDisplayName</key>
+	<string>$(PRODUCT_NAME)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -64,7 +66,7 @@
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.junglesong.coderpursue</string>
+			<string>coderpursue</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>coderpursue</string>
@@ -94,6 +96,7 @@
 		<string>sinaweibohd</string>
 		<string>sinaweibo</string>
 		<string>sinaweibosso</string>
+		<string>sinaweibohdsso</string>
 		<string>weibosdk</string>
 		<string>weibosdk2.5</string>
 		<string>mqqapi</string>
@@ -106,6 +109,7 @@
 		<string>mqqopensdkapi</string>
 		<string>mqqopensdkapiV2</string>
 		<string>mqqopensdkapiV3</string>
+		<string>mqqopensdkapiV4</string>
 		<string>mqzoneopensdk</string>
 		<string>wtloginmqq</string>
 		<string>wtloginmqq2</string>
@@ -122,6 +126,8 @@
 		<string>mttbrowser</string>
 		<string>fbapi</string>
 		<string>fb-messenger-api</string>
+		<string>fb-messenger</string>
+		<string>fbauth</string>
 		<string>fbauth2</string>
 		<string>fbshareextension</string>
 	</array>

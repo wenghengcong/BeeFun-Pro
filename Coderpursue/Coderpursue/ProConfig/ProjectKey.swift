@@ -24,7 +24,15 @@ public let ShareSDKAppKey = "11b9cf1d0cec0"
 public let ShareSDKAppSecret = "480ba09dc992ae0234a0fef9183ff836"
 //umeng
 public let UMengAppSecret = "56eb5109e0f55a2e0f002f84"
-public let SocailRedirectURL = "https://github.com/wenghengcong/Coderpursue"
+public let SocailGithub = "https://github.com/wenghengcong/Coderpursue"
+public let SocialAppStore = "https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8"
+
+
+/// 新浪短链服务
+public let ShortSocialAppStore = "http://t.cn/RinAeZq"
+public let ShortSocailGithub = "http://t.cn/Rqvjd6W"
+
+
 
 //weixin
 public let WeiXinSDKAppID = "wx9231f7e12ddac379"

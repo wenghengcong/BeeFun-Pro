@@ -151,6 +151,7 @@ class ShareManager: NSObject {
     func share(content:ShareContent) {
         
         print((content.source))
+        shareContent = content
         
         //1、创建分享参数（必要）
         let shareParams = shareParamsWithDifferentPlatforms()
@@ -174,19 +175,19 @@ class ShareManager: NSObject {
                 }
             case SSDKResponseState.success:
                 print("分享成功")
-                CPGlobalHelper.showMessage("Share Success", view: cpTopView!)
+                CPGlobalHelper.showMessage("Share Success", view: cpKeywindow!)
                 if let method = self.delegate?.didShareSuccess(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)
                 }
             case SSDKResponseState.fail:
                 print("授权失败,错误描述:\(error)")
-                CPGlobalHelper.showError("Share Failure", view: cpTopView!)
+                CPGlobalHelper.showError("Share Failure", view: cpKeywindow!)
                 if let method = self.delegate?.didShareFail(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)
                 }
             case SSDKResponseState.cancel:
                 print("操作取消")
-                CPGlobalHelper.showMessage("Share Cancel", view: cpTopView!)
+                CPGlobalHelper.showMessage("Share Cancel", view: cpKeywindow!)
                 if let method = self.delegate?.didShareCancel(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)
                 }

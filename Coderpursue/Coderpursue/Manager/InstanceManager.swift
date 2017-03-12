@@ -11,6 +11,8 @@ import UIKit
 /// 应用的代理
 let cpAppDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
+let cpKeywindow = cpAppDelegate.window
+
 
 /// 当前顶部视图控制器
 let cpTopViewController = cpAppDelegate.tabBarController?.topViewController()

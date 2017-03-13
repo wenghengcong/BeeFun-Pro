@@ -14,8 +14,6 @@ public enum TrendingSince:String {
     case Monthly = "monthly"
 }
 
-
-
 class ParaTrending: NSObject {
 
 }

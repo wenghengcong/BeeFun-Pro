@@ -1,0 +1,90 @@
+/* 
+  Localizable.strings
+  Coderpursue
+
+  Created by WengHengcong on 2017/3/13.
+  Copyright © 2017年 JungleSong. All rights reserved.
+*/
+
+//explore
+"Explore" = "Explore";
+
+"Repositories" = "Repositories";
+"Developers" = "Developers";
+"Showcases"="Showcases";
+//filter
+"Since"="Since";
+"daily"="daily";
+"weekly"="weekly";
+"monthly"="monthly";
+//search
+"Language"="Language";
+"Sort"="Sort";
+"Reset"="Reset";
+"Sure"="Sure";
+"Best match"="Best match";
+"Most stars"="Most stars";
+"Fewest stars"="Fewest stars";
+"Most forks"="Most forks";
+"Fewest forks"="Fewest forks";
+"Recently updated"="Recently updated";
+"Leaest recently updated"="Leaest recently updated";
+
+"Search repositories"="Search repositories";
+"Search Users"="Search Users";
+
+"Best match"="Best match";
+"Most followers"="Most followers";
+"Fewest followers"="Fewest followers";
+"Most recently joined"="Most recently joined";
+"Fewest recently joined"="Fewest recently joined";
+"Most repositories"="Most repositories";
+"Fewest repositories"="Fewest repositories";
+
+
+//Message
+"Message" = "Message";
+
+"Notifications"="Notifications";
+"Issues"="Issues";
+
+//Stars
+"Stars" = "Stars";
+
+"Repositories"="Repositories";
+"Event"="Event";
+
+//Profile
+"Profile" = "Profile";
+"Sign In"="Sign In";
+"Followers"="Followers";
+"Following"="Following";
+"Watched"="Watched";
+"Feedback"="Feedback";
+"Settings"="Settings";
+"Share"="Share";
+"Rate"="Rate";
+"About"="About";
+
+//Settings
+"Version"="Version";
+"Log Out"="Log Out";
+
+//About
+"About"="About";
+"Me"="Me";
+
+//repo view
+"Watch"="Watch";
+"Unwatch"="Unwatch";
+"Star"="Star";
+"Unstar"="Unstar";
+"Fork"="Fork";
+"Public"="Public";
+"Private"="Private";
+"catated at"="catated at";
+
+//user view
+"Joined on"="Joined on";
+"Follow"="Follow";
+"Unfollow"="Unfollow";

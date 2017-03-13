@@ -75,7 +75,7 @@ class CPSearchFilterView: UIView {
             paraBtn.setImage(UIImage(named: "arrow_up"), for: .selected)
             paraBtn.setTitleColor(UIColor.cpBlackColor(), for: UIControlState())
             paraBtn.setTitleColor(UIColor.cpRedColor(), for: .selected)
-            paraBtn.setTitle(filterPara[index], for: UIControlState())
+            paraBtn.setTitle(filterPara[index].localized, for: UIControlState())
             paraBtn.titleLabel?.font = UIFont.middleSizeSystemFont()
             paraBtn.tag = index
             paraBtn.addTarget(self, action:#selector(clickParaBtnAction(_:)), for: .touchUpInside)
@@ -109,14 +109,14 @@ class CPSearchFilterView: UIView {
         let footView = UIView.init(frame: CGRect(x: 0, y: tableView.bottom, width: width, height: actionBtnH))
         
         let resetBtn = UIButton.init(frame: CGRect(x: 0, y: 0, width: width/2, height: actionBtnH))
-        resetBtn.setTitle("Reset", for: UIControlState())
+        resetBtn.setTitle("Reset".localized, for: UIControlState())
         resetBtn.setTitleColor(UIColor.cpBlackColor(), for: UIControlState())
         resetBtn.backgroundColor = UIColor.white
         resetBtn.addTarget(self, action: #selector(CPSearchFilterView.resetParaAction), for: .touchUpInside)
         footView.addSubview(resetBtn)
         
         let sureBtn = UIButton.init(frame: CGRect(x: width/2,y: 0, width: width/2, height: actionBtnH))
-        sureBtn.setTitle("Sure", for: UIControlState())
+        sureBtn.setTitle("Sure".localized, for: UIControlState())
         sureBtn.setTitleColor(UIColor.white, for: UIControlState())
         sureBtn.backgroundColor = UIColor.cpRedColor()
         sureBtn.addTarget(self, action: #selector(CPSearchFilterView.sureAction), for: .touchUpInside)

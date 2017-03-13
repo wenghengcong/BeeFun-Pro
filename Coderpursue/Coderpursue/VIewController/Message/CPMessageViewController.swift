@@ -15,7 +15,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Notifications","Issues"])
+    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Notifications".localized,"Issues".localized])
     
     var notificationsData:[ObjNotification]! = []
     var issuesData:[ObjIssue]! = []
@@ -52,7 +52,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         NotificationCenter.default.addObserver(self, selector: #selector(mvc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(mvc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.leftItem?.isHidden = true
-        self.title = "Message"
+        self.title = "Message".localized
     }
 
     deinit {

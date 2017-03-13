@@ -22,7 +22,7 @@ class CPGitLoginViewController: CPWebViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.title = "Sign In"
+        self.title = "Sign In".localized
 //        self.navigationController?.navigationBar.barTintColor = UIColor.white
         
     }

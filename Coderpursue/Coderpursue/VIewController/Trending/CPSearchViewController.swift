@@ -68,14 +68,14 @@ class CPSearchViewController: CPBaseViewController {
         }
         
         if  pageType == .Repos {
-            sortArr = ["Best match","Most stars","Fewest stars","Most forks","Fewest forks","Recently updated","Leaest recently updated"]
+            sortArr = ["Best match".localized,"Most stars".localized,"Fewest stars".localized,"Most forks".localized,"Fewest forks".localized,"Recently updated".localized,"Leaest recently updated".localized]
         }else{
-            sortArr = ["Best match","Most followers","Fewest followers","Most recently joined","Leaest recently joined","Most repositories ","Fewest repositories"]
+            sortArr = ["Best match".localized,"Most followers".localized,"Fewest followers".localized,"Most recently joined".localized,"Leaest recently joined".localized,"Most repositories".localized,"Fewest repositories".localized]
         }
         searchFilterView = CPSearchFilterView()
         searchFilterView?.frame = CGRect(x: 0, y: topOffset, width: self.view.width, height: searchFilterH)
         searchFilterView?.searchParaDelegate = self
-        searchFilterView?.filterPara = ["Language","Sort"]
+        searchFilterView?.filterPara = ["Language".localized,"Sort".localized]
         searchFilterView?.filterData = [languageArr!,sortArr!]
         searchFilterView?.sfv_customView()
         self.view.addSubview(searchFilterView!)

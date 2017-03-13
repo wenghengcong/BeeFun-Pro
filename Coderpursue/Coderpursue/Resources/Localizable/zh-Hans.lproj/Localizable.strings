@@ -1,0 +1,90 @@
+/* 
+  Localizable.strings
+  Coderpursue
+
+  Created by WengHengcong on 2017/3/13.
+  Copyright © 2017年 JungleSong. All rights reserved.
+*/
+
+//explore
+"Explore" = "发现";
+
+"Repositories" = "项目";
+"Developers" = "用户";
+"Showcases"="Showcases";
+//filter
+"Since"="时间";
+"daily"="每天";
+"weekly"="每周";
+"monthly"="每月";
+//search
+"Language"="语言";
+"Sort"="排序";
+"Reset"="重置";
+"Sure"="确认";
+"Best match"="最优匹配";
+"Most stars"="收藏最多";
+"Fewest stars"="收藏最少";
+"Most forks"="派生最多";
+"Fewest forks"="派生最少";
+"Recently updated"="更新最近";
+"Leaest recently updated"="更新最少";
+
+"Search repositories"="搜索项目";
+"Search Users"="搜索用户";
+
+"Best match"="最优匹配";
+"Most followers"="粉丝最多";
+"Fewest followers"="粉丝最少";
+"Most recently joined"="加入最新";
+"Fewest recently joined"="加入最旧";
+"Most repositories"="项目最多";
+"Fewest repositories"="项目最少";
+
+
+//Message
+"Message" = "消息";
+
+"Notifications"="通知";
+"Issues"="Issues";
+
+//Stars
+"Stars" = "收藏";
+
+"Repositories"="项目";
+"Event"="事件";
+
+//Profile
+"Profile" = "我";
+"Sign In"="登录";
+"Followers"="粉丝";
+"Following"="关注";
+"Watched"="关注项目";
+"Feedback"="反馈";
+"Settings"="设置";
+"Share"="分享";
+"Rate"="评价";
+"About"="关于";
+
+//Settings
+"Version"="版本";
+"Log Out"="退出登录";
+
+//About
+//"About"="About";
+"Me"="我";
+
+//repo view
+"Watch"="关注";
+"Unwatch"="取消关注";
+"Star"="收藏";
+"Unstar"="取消收藏";
+"Fork"="派生";
+"Public"="公开";
+"Private"="私有";
+"catated at"="创建";
+
+//user view
+"Joined on"="加入于";
+"Follow"="关注";
+"Unfollow"="取消关注";

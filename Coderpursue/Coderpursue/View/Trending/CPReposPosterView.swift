@@ -44,11 +44,11 @@ class CPReposPosterView: UIView {
     var watched:Bool?{
         didSet{
             if(watched!){
-                watchBtn.setTitle("Unwatch".localized, for: UIControlState())
+                watchBtn.setTitle("Unwatch", for: UIControlState())
                 watchBtn.imageEdgeInsets = UIEdgeInsetsMake(0, 0, 0, 10)
 
             }else{
-                watchBtn.setTitle("Watch".localized, for: UIControlState())
+                watchBtn.setTitle("Watch", for: UIControlState())
                 watchBtn.imageEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 10)
 
             }
@@ -58,9 +58,9 @@ class CPReposPosterView: UIView {
     var stared:Bool?{
         didSet{
             if(stared!){
-                starBtn.setTitle("Unstar".localized, for: UIControlState())
+                starBtn.setTitle("Unstar", for: UIControlState())
             }else{
-                starBtn.setTitle("Star".localized, for: UIControlState())
+                starBtn.setTitle("Star", for: UIControlState())
             }
         }
 
@@ -124,15 +124,15 @@ class CPReposPosterView: UIView {
         }
 
         watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), for: UIControlState())
-        watchBtn.setTitle("Watch".localized, for: UIControlState())
+        watchBtn.setTitle("Watch", for: UIControlState())
         watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_watchAction), for: .touchUpInside)
         
         starBtn.setImage(UIImage(named: "octicon_star_red_20"), for: UIControlState())
-        starBtn.setTitle("Star".localized, for: UIControlState())
+        starBtn.setTitle("Star", for: UIControlState())
         starBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_starAction), for: .touchUpInside)
         
         forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), for: UIControlState())
-        forkBtn.setTitle("Fork".localized, for: UIControlState())
+        forkBtn.setTitle("Fork", for: UIControlState())
         forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_forkAction), for: .touchUpInside)
     }
     

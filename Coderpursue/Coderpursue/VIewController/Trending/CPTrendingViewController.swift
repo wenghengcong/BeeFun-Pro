@@ -24,7 +24,7 @@ class CPTrendingViewController: CPBaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //view
-    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories".localized,"Developers".localized,"Showcases".localized])
+    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories","Developers","Showcases"])
     var filterView:CPFilterTableView?
     let filterVHeight:CGFloat = 270    //filterview height
     let header = MJRefreshNormalHeader()
@@ -38,7 +38,7 @@ class CPTrendingViewController: CPBaseViewController {
     var cityArr:[String]?
     var countryArr:[String]?
     var languageArr:[String]?
-    var sinceArr:[String] = [TrendingSince.Daily.rawValue.localized,TrendingSince.Weekly.rawValue.localized,TrendingSince.Monthly.rawValue.localized]
+    var sinceArr:[String] = [TrendingSince.Daily.rawValue,TrendingSince.Weekly.rawValue,TrendingSince.Monthly.rawValue]
     
     // MARK: request parameters
     var lastSegmentIndex = 0
@@ -78,7 +78,7 @@ class CPTrendingViewController: CPBaseViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
-        self.title = "Explore".localized
+        self.title = "Explore"
 
     }
     
@@ -143,7 +143,7 @@ class CPTrendingViewController: CPBaseViewController {
         filterView!.coloumn = .two
         filterView!.rowWidths = [firW,secW]
         filterView!.rowHeights = [40.0,40.0]
-        filterView!.filterTypes = ["Since".localized]
+        filterView!.filterTypes = ["Since"]
         filterView!.filterData = [sinceArr]
         filterView!.filterViewInit()
         self.view.addSubview(filterView!)
@@ -242,10 +242,10 @@ class CPTrendingViewController: CPBaseViewController {
     func tvc_filterViewApper(){
         
         if ((segControl.selectedSegmentIndex == 0) && (lastSegmentIndex != segControl.selectedSegmentIndex) ) {
-            filterView!.filterTypes = ["Since".localized]
+            filterView!.filterTypes = ["Since"]
             filterView!.filterData = [sinceArr]
         }else if((segControl.selectedSegmentIndex == 1) && (lastSegmentIndex != segControl.selectedSegmentIndex)){
-            filterView!.filterTypes = ["Language".localized,"Country".localized]
+            filterView!.filterTypes = ["Language","Country"]
             filterView!.filterData = [languageArr!,countryArr!]
         }
         
@@ -490,7 +490,7 @@ extension CPTrendingViewController : CPFilterTableViewProtocol {
     func didSelectValueColoumn(_ row:Int ,type:String ,value:String) {
         
         if segControl.selectedSegmentIndex == 0 {
-            if type == "Since".localized {
+            if type == "Since" {
                 paraSince = value
             }else if(type == "Language"){
                 if value == "All" {
@@ -697,11 +697,11 @@ extension CPTrendingViewController : UITableViewDelegate {
         }else if(segue.identifier == SegueTrendingSearchView){
             
             var pageType:TrendingViewPageType = .Repos
-            var placeholder = "Search repositories".localized
+            var placeholder = "Search repositories"
             
             if segControl.selectedSegmentIndex == 1 {
                 pageType = .User
-                placeholder = "Search users".localized
+                placeholder = "Search users"
             }
             
             let searchVC = segue.destination as! CPSearchViewController

@@ -41,7 +41,7 @@ class CPReposViewController: CPBaseViewController {
         rvc_addNaviBarButtonItem()
         rvc_setupTableView()
         rvc_selectDataSource()
-        self.title = "Repositories".localized
+        self.title = "Repositories"
 
     }
     override func viewWillAppear(_ animated: Bool) {

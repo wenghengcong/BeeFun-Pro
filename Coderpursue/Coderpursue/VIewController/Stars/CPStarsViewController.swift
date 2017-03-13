@@ -15,7 +15,7 @@ class CPStarsViewController: CPBaseViewController{
 
     @IBOutlet weak var tableView: UITableView!
     
-    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories".localized,"Event".localized])
+    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories","Event"])
     
     var reposData:[ObjRepos]! = []
     var eventsData:[ObjEvent]! = []
@@ -36,7 +36,7 @@ class CPStarsViewController: CPBaseViewController{
         NotificationCenter.default.addObserver(self, selector: #selector(svc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(svc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.leftItem?.isHidden = true
-        self.title = "Stars".localized
+        self.title = "Stars"
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -21,7 +21,7 @@
 "8Kp-o3-Rn0.title" = "Gist";
 
 /* Class = "UIButton"; normalTitle = "Follow"; ObjectID = "9AD-ne-g0n"; */
-"9AD-ne-g0n.normalTitle" = "Follow";
+"9AD-ne-g0n.normalTitle" = "关注";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "Ak7-pF-M3c"; */
 "Ak7-pF-M3c.text" = "Label";
@@ -42,13 +42,13 @@
 "J2b-aB-lZr.normalTitle" = "登录";
 
 /* Class = "UILabel"; text = "Followers"; ObjectID = "LEZ-fc-j8q"; */
-"LEZ-fc-j8q.text" = "Followers";
+"LEZ-fc-j8q.text" = "粉丝";
 
 /* Class = "UIButton"; normalTitle = "Followers"; ObjectID = "MCC-gp-l5h"; */
-"MCC-gp-l5h.normalTitle" = "Followers";
+"MCC-gp-l5h.normalTitle" = "粉丝";
 
 /* Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "TPN-1C-0rZ"; */
-"TPN-1C-0rZ.normalTitle" = "Log Out";
+"TPN-1C-0rZ.normalTitle" = "退出登录";
 
 /* Class = "UILabel"; text = "Respositories"; ObjectID = "Whm-2U-6Jd"; */
 "Whm-2U-6Jd.text" = "Respositories";
@@ -69,7 +69,7 @@
 "csg-AS-XnP.text" = "0";
 
 /* Class = "UIButton"; normalTitle = "Following"; ObjectID = "eYN-qc-tcB"; */
-"eYN-qc-tcB.normalTitle" = "Following";
+"eYN-qc-tcB.normalTitle" = "关注";
 
 /* Class = "UIButton"; normalTitle = "Starred"; ObjectID = "hwI-GK-LVA"; */
 "hwI-GK-LVA.normalTitle" = "Starred";
@@ -111,7 +111,7 @@
 "tzS-eR-tmm.text" = "6955";
 
 /* Class = "UILabel"; text = "Following"; ObjectID = "v9f-7C-dt8"; */
-"v9f-7C-dt8.text" = "Following";
+"v9f-7C-dt8.text" = "关注";
 
 /* Class = "UILabel"; text = "AFNetworking"; ObjectID = "wUM-Sj-BLQ"; */
 "wUM-Sj-BLQ.text" = "AFNetworking";

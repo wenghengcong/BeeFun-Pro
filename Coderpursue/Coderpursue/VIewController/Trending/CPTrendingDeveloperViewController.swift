@@ -112,9 +112,9 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     func dvc_updateViewContent() {
         
         if(followed){
-            followBtn.setTitle("Unfollow", for: UIControlState())
+            followBtn.setTitle("Unfollow".localized, for: UIControlState())
         }else{
-            followBtn.setTitle("Follow", for: UIControlState())
+            followBtn.setTitle("Follow".localized, for: UIControlState())
         }
         
         if(developer==nil){
@@ -181,9 +181,9 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
     func dvc_followAction() {
         
-        if(followBtn.currentTitle == "Follow"){
+        if(followBtn.currentTitle == "Follow".localized){
             self.dvc_followUserRequest()
-        }else if(followBtn.currentTitle == "Unfollow"){
+        }else if(followBtn.currentTitle == "Unfollow".localized){
             self.dvc_unfolloweUserRequest()
         }
         

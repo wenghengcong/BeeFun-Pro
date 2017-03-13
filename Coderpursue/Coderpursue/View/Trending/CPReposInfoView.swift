@@ -138,9 +138,9 @@ class CPReposInfoView: UIView {
         
         if let cprivate = repo?.cprivate {
             if(cprivate){
-                privateBtn.setTitle("Private", for: UIControlState())
+                privateBtn.setTitle("Private".localized, for: UIControlState())
             }else{
-                privateBtn.setTitle("Public", for: UIControlState())
+                privateBtn.setTitle("Public".localized, for: UIControlState())
             }
         }
         

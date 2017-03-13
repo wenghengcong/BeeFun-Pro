@@ -51,7 +51,7 @@
 "TPN-1C-0rZ.normalTitle" = "退出登录";
 
 /* Class = "UILabel"; text = "Respositories"; ObjectID = "Whm-2U-6Jd"; */
-"Whm-2U-6Jd.text" = "Respositories";
+"Whm-2U-6Jd.text" = "项目";
 
 /* Class = "UIViewController"; title = "Stars"; ObjectID = "Yd6-KV-moW"; */
 "Yd6-KV-moW.title" = "收藏";

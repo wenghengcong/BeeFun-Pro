@@ -159,7 +159,7 @@ class CPTrendingViewController: CPBaseViewController {
         segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
         segControl.selectionIndicatorColor = UIColor.cpRedColor()
         segControl.selectionIndicatorHeight = 2
-        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];
+        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.red,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
         segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
@@ -245,7 +245,7 @@ class CPTrendingViewController: CPBaseViewController {
             filterView!.filterTypes = ["Since".localized]
             filterView!.filterData = [sinceArr]
         }else if((segControl.selectedSegmentIndex == 1) && (lastSegmentIndex != segControl.selectedSegmentIndex)){
-            filterView!.filterTypes = ["Language","Country"]
+            filterView!.filterTypes = ["Language".localized,"Country".localized]
             filterView!.filterData = [languageArr!,countryArr!]
         }
         

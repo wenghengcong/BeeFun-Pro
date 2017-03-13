@@ -48,6 +48,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         rvc_userIsLogin()
         rvc_setupTableView()
         rvc_loadAllRequset()
+        rvc_layoutSubView()
         self.title = repos!.name!
         
     }
@@ -104,24 +105,28 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     func rvc_layoutSubView() {
         
         //Layout
+        //designBy4_7Inch(80+30)->
+        let dynPostH = designBy4_7Inch(110) + 39
         reposPoseterV.snp.remakeConstraints { (make) in
             make.left.right.equalTo(0)
             make.top.equalTo(64)
-            make.height.equalTo(149)
+            make.height.equalTo(dynPostH)
         }
         
         let infoViewT = reposPoseterV.bottom+15
+        let dynInfoH = designBy4_7Inch(90)
         reposInfoV.snp.remakeConstraints { (make) in
             make.left.right.equalTo(0)
             make.top.equalTo(infoViewT)
-            make.height.equalTo(90)
+            make.height.equalTo(dynInfoH)
         }
         
         let tabViewT = reposInfoV.bottom+15
+        let tabViewH = ScreenSize.height-tabViewT
         tableView.snp.remakeConstraints { (make) in
             make.left.right.equalTo(0)
             make.top.equalTo(tabViewT)
-            make.height.equalTo(311)
+            make.height.equalTo(tabViewH)
         }
     }
 

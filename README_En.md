@@ -1,13 +1,11 @@
-# Coderpursue 
+## Coderpursue 
 
 [![](https://img.shields.io/badge/version-1.2.0-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-3.0-green.svg)](https://developer.apple.com/swift/)
 
-
-
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 
-[ReadMe 中文](https://github.com/wenghengcong/Coderpursue/blob/developer/README.md)  
+[ReadMe Chinese](https://github.com/wenghengcong/Coderpursue/blob/developer/README.md)  
 
 
 

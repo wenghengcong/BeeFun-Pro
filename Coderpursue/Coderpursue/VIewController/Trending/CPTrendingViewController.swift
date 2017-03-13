@@ -159,7 +159,7 @@ class CPTrendingViewController: CPBaseViewController {
         segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
         segControl.selectionIndicatorColor = UIColor.cpRedColor()
         segControl.selectionIndicatorHeight = 2
-        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.red,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
+        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
         segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         

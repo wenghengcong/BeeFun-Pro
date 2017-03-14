@@ -23,6 +23,7 @@ target 'Coderpursue' do
 	pod 'Bugly'
     pod "PromiseKit", "~> 4.0"
     pod 'SwiftMessages'
+    pod 'JPush'
     #pod 'UMengAnalytics-NO-IDFA'
 end
 

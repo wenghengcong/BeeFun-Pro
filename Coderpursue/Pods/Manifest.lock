@@ -3,6 +3,9 @@ PODS:
   - Bugly (2.4.6)
   - HMSegmentedControl (1.5.3)
   - IQKeyboardManagerSwift (4.0.8)
+  - JCore (1.1.1)
+  - JPush (3.0.2):
+    - JCore (~> 1.1.1)
   - Kingfisher (3.5.1)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
@@ -34,6 +37,7 @@ DEPENDENCIES:
   - Bugly
   - HMSegmentedControl
   - IQKeyboardManagerSwift
+  - JPush
   - Kingfisher
   - MBProgressHUD (~> 1.0.0)
   - MJRefresh
@@ -50,6 +54,8 @@ SPEC CHECKSUMS:
   Bugly: 7756e72c59387b0d490f46e83ab458ae94ee7fba
   HMSegmentedControl: 7c6145afb50f26cec5f3243082f6f12b9f41318f
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
+  JCore: 2210a789c8efb7dc2a46b1c24d2209b995b18ad2
+  JPush: 01a693fafe51b93eafc2e368bbc7a7cc07e12ce4
   Kingfisher: 12eeffeef42ea45b68c5e5acfe8ba9005b713ab4
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -62,6 +68,6 @@ SPEC CHECKSUMS:
   SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
   SwiftMessages: d114d273978678c0dce036f30273865af7303a35
 
-PODFILE CHECKSUM: ce00226682486257e142a1f3eb63cb33617857d7
+PODFILE CHECKSUM: a8e4879d5716bf59581f7c3066f84b0d3857136f
 
 COCOAPODS: 1.2.0.beta.1

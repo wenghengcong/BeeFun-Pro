@@ -8,9 +8,10 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
     var tabBarController:CPBaseTabBarController?
@@ -34,6 +35,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         MobClick.setAppVersion(AppVersionHelper.shared.bundleBuildVersion())
         MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
         
+        
+        //JPush
+        JPUSHService.setup(withOption: launchOptions, appKey: JPushAppKey, channel: JPushChannel, apsForProduction: false)
+
+        let pushConfig = JPUSHRegisterEntity.init()
+        let pushSwitch = (UIUserNotificationType.badge.rawValue|UIUserNotificationType.sound.rawValue|UIUserNotificationType.alert.rawValue)
+        pushConfig.types = Int(pushSwitch)
+        JPUSHService.register(forRemoteNotificationConfig: pushConfig, delegate: nil)
+        
+        
+        //User Notification
+        if #available(iOS 10.0, *) {
+            UNUserNotificationCenter.current().delegate = self
+        } else {
+            // Fallback on earlier versions
+        }
+        
         tabBarController = self.window!.rootViewController as! CPBaseTabBarController?
         storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         
@@ -41,6 +59,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    // MARK: - Device token
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        print(deviceToken)
+        JPUSHService.registerDeviceToken(deviceToken)
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("did fail to register for remote notifications with error: \(error)")
+    }
+    
+    // MARK: - UNUserNotificationCenterDelegate
+
+    //后台收到通知
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print(response)
+        completionHandler()
+    }
+    
+    //前台收到通知
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        print(notification)
+        // 需要执行这个方法，选择是否提醒用户，有Badge、Sound、Alert三种类型可以设置
+        
+        let option = ( UNNotificationPresentationOptions.badge.rawValue|UNNotificationPresentationOptions.alert.rawValue|UNNotificationPresentationOptions.sound.rawValue )
+        completionHandler(UNNotificationPresentationOptions(rawValue: option))
+    }
+    
+    
+    
+    // MARK: - App Life cycle
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -66,6 +117,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     
+    
+    // MARK: - Open URL
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
         //return UMSocialSnsService.handleOpen(url, wxApiDelegate: nil)

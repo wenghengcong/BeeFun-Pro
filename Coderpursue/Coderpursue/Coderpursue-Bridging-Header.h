@@ -4,6 +4,8 @@
 
 #import <Bugly/Bugly.h>
 
+#import <JPush/JPUSHService.h>
+
 #import <UMMobClick/MobClick.h>
 #import <UMMobClick/MobClickSocialAnalytics.h>
 

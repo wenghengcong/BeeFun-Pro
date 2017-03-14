@@ -101,6 +101,9 @@
 		5E546D9A1C8F61A000E94997 /* ObjSearchUserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546D991C8F61A000E94997 /* ObjSearchUserResponse.swift */; };
 		5E546DA51C8FAC2200E94997 /* ParaSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E546DA41C8FAC2200E94997 /* ParaSort.swift */; };
 		5E7368641E76907800AEBA77 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E7368661E76907800AEBA77 /* Localizable.strings */; };
+		5E73686C1E77D4CC00AEBA77 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E73686B1E77D4CC00AEBA77 /* CFNetwork.framework */; };
+		5E73686E1E77D4FE00AEBA77 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E73686D1E77D4FE00AEBA77 /* UserNotifications.framework */; };
+		5E7368701E77D50F00AEBA77 /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E73686F1E77D50F00AEBA77 /* libresolv.tbd */; };
 		5E738C981C92C26F0075C82C /* CPHttpStatusCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E738C971C92C26F0075C82C /* CPHttpStatusCode.swift */; };
 		5E738C9A1C93A3A60075C82C /* CPCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E738C991C93A3A60075C82C /* CPCity.plist */; };
 		5E738C9C1C93A3B50075C82C /* CPLanguage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E738C9B1C93A3B50075C82C /* CPLanguage.plist */; };
@@ -346,6 +349,10 @@
 		5E7368671E76908100AEBA77 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		5E7368681E76908100AEBA77 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5E7368691E76908100AEBA77 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		5E73686B1E77D4CC00AEBA77 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		5E73686D1E77D4FE00AEBA77 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		5E73686F1E77D50F00AEBA77 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
+		5E7368711E77D51D00AEBA77 /* Coderpursue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coderpursue.entitlements; sourceTree = "<group>"; };
 		5E738C971C92C26F0075C82C /* CPHttpStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPHttpStatusCode.swift; sourceTree = "<group>"; };
 		5E738C991C93A3A60075C82C /* CPCity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CPCity.plist; sourceTree = "<group>"; };
 		5E738C9B1C93A3B50075C82C /* CPLanguage.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CPLanguage.plist; sourceTree = "<group>"; };
@@ -471,17 +478,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E7368701E77D50F00AEBA77 /* libresolv.tbd in Frameworks */,
+				5E73686E1E77D4FE00AEBA77 /* UserNotifications.framework in Frameworks */,
+				5E0943951CC1F0100047118D /* libz.tbd in Frameworks */,
+				5E7691FE1CC2323C00E0C2D3 /* Security.framework in Frameworks */,
+				5E7692021CC2327B00E0C2D3 /* CoreGraphics.framework in Frameworks */,
+				5E7692041CC2328B00E0C2D3 /* CoreTelephony.framework in Frameworks */,
+				5E73686C1E77D4CC00AEBA77 /* CFNetwork.framework in Frameworks */,
 				5E0943991CC1F0220047118D /* JavaScriptCore.framework in Frameworks */,
 				5E09439F1CC1F03C0047118D /* MessageUI.framework in Frameworks */,
 				5E0DDCDC1E72FFE800493ABA /* YiXinConnector.framework in Frameworks */,
 				5E0DDCD81E72FFE800493ABA /* SinaWeiboConnector.framework in Frameworks */,
 				5E76920A1CC2448D00E0C2D3 /* CoreData.framework in Frameworks */,
 				5E09439B1CC1F02B0047118D /* ImageIO.framework in Frameworks */,
-				5E0943951CC1F0100047118D /* libz.tbd in Frameworks */,
 				5E0DDC731E72D4DB00493ABA /* libc++.tbd in Frameworks */,
-				5E7692041CC2328B00E0C2D3 /* CoreTelephony.framework in Frameworks */,
 				5E7692001CC2326F00E0C2D3 /* SystemConfiguration.framework in Frameworks */,
-				5E7692021CC2327B00E0C2D3 /* CoreGraphics.framework in Frameworks */,
 				5E0DDCD11E72FFE800493ABA /* KakaoConnector.framework in Frameworks */,
 				5E0DDCE71E72FFE800493ABA /* libWeiboSDK.a in Frameworks */,
 				5E09439D1CC1F0320047118D /* libsqlite3.tbd in Frameworks */,
@@ -512,7 +523,6 @@
 				5E0DDCEC1E72FFE800493ABA /* libYixinSDK.a in Frameworks */,
 				5E0DDCD51E72FFE800493ABA /* PrintConnector.framework in Frameworks */,
 				5E0DDCE01E72FFE800493ABA /* FBSDKMessengerShareKit.framework in Frameworks */,
-				5E7691FE1CC2323C00E0C2D3 /* Security.framework in Frameworks */,
 				5E0DDCDD1E72FFE800493ABA /* YouTubeConnector.framework in Frameworks */,
 				5E0DDCE91E72FFE800493ABA /* libWeChatSDK.a in Frameworks */,
 				5E0DDCC51E72FFE800493ABA /* ShareSDKConfigFile.framework in Frameworks */,
@@ -555,6 +565,9 @@
 		4D8F6ECC1AEDFB027177FDBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E73686F1E77D50F00AEBA77 /* libresolv.tbd */,
+				5E73686D1E77D4FE00AEBA77 /* UserNotifications.framework */,
+				5E73686B1E77D4CC00AEBA77 /* CFNetwork.framework */,
 				5E0DDC721E72D4DB00493ABA /* libc++.tbd */,
 				5E7692111CC2453300E0C2D3 /* Social.framework */,
 				5E76920F1CC244B500E0C2D3 /* QuartzCore.framework */,
@@ -1200,6 +1213,7 @@
 		FEC0DC381C28B39F0008C7C1 /* Coderpursue */ = {
 			isa = PBXGroup;
 			children = (
+				5E7368711E77D51D00AEBA77 /* Coderpursue.entitlements */,
 				FE0FE0D31C3DC1930005DDE5 /* Extension */,
 				FE19F93A1C390865009986FE /* ProConfig */,
 				FE19F93B1C390865009986FE /* Resources */,
@@ -1311,6 +1325,11 @@
 						DevelopmentTeam = 69XHTLCF36;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					FEC0DC4B1C28B39F0008C7C1 = {
 						CreatedOnToolsVersion = 7.2;
@@ -1725,6 +1744,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Coderpursue/Coderpursue.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Hengcong Weng (7RMANB5BXZ)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hengcong Weng (7RMANB5BXZ)";
 				DEVELOPMENT_TEAM = 69XHTLCF36;
@@ -1799,6 +1819,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Coderpursue/Coderpursue.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Hengcong Weng (69XHTLCF36)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hengcong Weng (69XHTLCF36)";
 				DEVELOPMENT_TEAM = 69XHTLCF36;

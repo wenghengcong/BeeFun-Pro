@@ -28,6 +28,12 @@ public let SocailGithub = "https://github.com/wenghengcong/Coderpursue"
 public let SocialAppStore = "https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8"
 
 
+//Jpush
+public let JPushAppKey = "4827a092fd9e6e3df7483caa"
+public let JPushAppSecret = ""
+public let JPushChannel = "App Store"
+
+
 /// 新浪短链服务
 public let ShortSocialAppStore = "http://t.cn/RinAeZq"
 public let ShortSocailGithub = "http://t.cn/Rqvjd6W"

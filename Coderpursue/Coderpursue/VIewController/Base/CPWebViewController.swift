@@ -10,12 +10,24 @@ import UIKit
 import WebKit
 import MBProgressHUD
 
+
+/// 展示的hud是否占全屏
+///
+/// - full: 全屏
+/// - topOffset: 顶部有64的高度
+enum HudMode:String {
+    case full = "full"
+    case topOffset = "top"
+}
+
 class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDelegate {
 
     // MARK: - property
     
     var webView : UIWebView?
-    
+    var hudMode:HudMode = .topOffset
+    var hud:MBProgressHUD = MBProgressHUD.init()
+
     var url : String? {
         didSet {
             let urlTmp = URL(string: url!)
@@ -28,7 +40,6 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
     var html : String? {
         
         didSet {
-            
             if webView != nil {
                 self.webView!.loadHTMLString(html!, baseURL: nil)
             }
@@ -45,9 +56,7 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
 
     // MARK: - view
     func wvc_customInit() {
-        
         wbc_configUIWebView()
- 
     }
     
     func wbc_configUIWebView() {
@@ -130,21 +139,35 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
 //    }
     
     func webViewDidStartLoad(_ webView: UIWebView) {
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-
+        
+        let isFull = (hudMode == .full)
+        
+        hud.frame = ScreenSize.bounds
+        hud.show(animated: true)
+        
+        if isFull {
+            if hud.isDescendant(of: cpKeywindow!){
+                hud.hide(animated: false)
+            }
+            cpKeywindow!.addSubview(hud)
+        }else{
+            if hud.isDescendant(of: self.view){
+                hud.hide(animated: false)
+            }
+            self.view.addSubview(hud)
+        }
+        hud.show(animated: true)
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        
-        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+        //hud hide后会自动移除
+        hud.hide(animated: true)
         self.webView!.scrollView.contentInset = UIEdgeInsetsMake(self.topOffset, 0, 0, 0)
         self.webView!.scrollView.scrollRectToVisible(CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 0.1), animated: true)
-        
     }
     
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
-        MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
-
+        hud.hide(animated: true)
     }
     
     
@@ -160,8 +183,6 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
     
     // MARK: back and forward
     func goBack() {
-        
-        
         if (webView!.canGoBack) {
             webView!.goBack()
         }else {

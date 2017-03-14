@@ -13,6 +13,7 @@ import UIKit
 // MARK: - screen info
 struct ScreenSize {
     
+    static let bounds           = UIScreen.bound
     static let width            = UIScreen.width
     static let height           = UIScreen.height
     static let scale            = UIScreen.scale()

@@ -13,9 +13,12 @@ import Moya
 import Foundation
 import MBProgressHUD
 
+
+
+
 /// 使用Github的登录页面
 class CPGitLoginViewController: CPWebViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -49,15 +52,13 @@ class CPGitLoginViewController: CPWebViewController {
         let codePrefix: String = "code="
         
         if urlStr.contains(codePrefix) {
-            
+        
             let range:Range = urlStr.range(of: codePrefix)!
             let index: Int = urlStr.characters.distance(from: urlStr.startIndex, to: range.lowerBound)+5
             
             let codeRange = (urlStr.characters.index(urlStr.startIndex, offsetBy: index) ..< urlStr.characters.index(urlStr.startIndex, offsetBy: index+20))
             
             let codeStr = urlStr.substring(with: codeRange)
-            
-            
             glvc_SignIn(codeStr)
         }
     }
@@ -67,7 +68,9 @@ class CPGitLoginViewController: CPWebViewController {
     ///
     /// - Parameter code: <#code description#>
     func glvc_SignIn(_ code :String) {
-        
+    
+        MBProgressHUD.showAdded(to: cpKeywindow!, animated: true)
+
         let para = [
             "client_id":GithubAppClientId,
             "client_secret":GithubAppClientSecret,
@@ -76,10 +79,7 @@ class CPGitLoginViewController: CPWebViewController {
             "state":"junglesong"
             ]
         
-        let hud = MBProgressHUD.init(window: cpKeywindow!)
-        hud.dimBackground = true
-        hud.show(true)
-        
+
         //POST请求
         Alamofire.request("https://github.com/login/oauth/access_token",method:.post,parameters: para)
             .responseJSON { response in
@@ -118,10 +118,8 @@ class CPGitLoginViewController: CPWebViewController {
         let provider = Provider.sharedProvider
         provider.request(.myInfo) { (result) -> () in
 //            print(result)
-            
+            MBProgressHUD.hide(for: cpKeywindow!, animated: true)
             var message = kNoMessageTip
-            MBProgressHUD.hideAllHUDs(for: cpKeywindow!, animated: true)
-            
             switch result {
             case let .success(response):
                 do {

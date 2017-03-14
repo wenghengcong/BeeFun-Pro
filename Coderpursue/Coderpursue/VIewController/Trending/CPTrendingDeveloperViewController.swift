@@ -13,7 +13,7 @@ import MJRefresh
 import ObjectMapper
 import SwiftDate
 import Kingfisher
-
+import MBProgressHUD
 
 public enum CPUserActionType:String {
     case Follow = "watch"

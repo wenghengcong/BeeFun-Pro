@@ -33,7 +33,7 @@ DEPENDENCIES:
   - Bugly
   - IQKeyboardManagerSwift
   - Kingfisher
-  - MBProgressHUD
+  - MBProgressHUD (~> 1.0.0)
   - MJRefresh
   - Moya
   - ObjectMapper (~> 2.2)
@@ -59,6 +59,6 @@ SPEC CHECKSUMS:
   SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
   SwiftMessages: d114d273978678c0dce036f30273865af7303a35
 
-PODFILE CHECKSUM: f2c462bcc2487a86b492e5120af2e44448998eea
+PODFILE CHECKSUM: 7dab15d5cb117075f341912b8d8658dfc9f72436
 
 COCOAPODS: 1.2.0.beta.1

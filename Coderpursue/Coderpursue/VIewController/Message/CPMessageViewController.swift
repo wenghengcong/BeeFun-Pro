@@ -10,6 +10,7 @@ import UIKit
 import Moya
 import Foundation
 import MJRefresh
+import MBProgressHUD
 
 class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
 

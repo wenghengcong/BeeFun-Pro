@@ -11,7 +11,7 @@ import Alamofire
 import ObjectMapper
 import Moya
 import Foundation
-
+import MBProgressHUD
 
 /// 使用Github的登录页面
 class CPGitLoginViewController: CPWebViewController {
@@ -77,8 +77,8 @@ class CPGitLoginViewController: CPWebViewController {
             ]
         
         let hud = MBProgressHUD.init(window: cpKeywindow!)
-        hud?.dimBackground = true
-        hud?.show(true)
+        hud.dimBackground = true
+        hud.show(true)
         
         //POST请求
         Alamofire.request("https://github.com/login/oauth/access_token",method:.post,parameters: para)

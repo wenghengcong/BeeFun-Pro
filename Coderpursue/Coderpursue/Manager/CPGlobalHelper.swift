@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import MBProgressHUD
 
 class CPGlobalHelper {
     
@@ -15,16 +16,16 @@ class CPGlobalHelper {
 
     class func showMessage(_ message:String ,view:UIView) {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
-        hud?.labelText = message
-        hud?.mode = .text
-        hud?.hide(true, afterDelay: 1.5)
+        hud.labelText = message
+        hud.mode = .text
+        hud.hide(true, afterDelay: 1.5)
     }
     
     class func showError(_ error:String ,view:UIView) {
         let hud = MBProgressHUD.showAdded(to: view, animated: true)
-        hud?.labelText = error
-        hud?.mode = .text
-        hud?.hide(true, afterDelay: 1.5)
+        hud.labelText = error
+        hud.mode = .text
+        hud.hide(true, afterDelay: 1.5)
     }
     
     /** calculator text size */

@@ -11,6 +11,7 @@ import Moya
 import Foundation
 import MJRefresh
 import ObjectMapper
+import MBProgressHUD
 
 class CPTrendingShowcaseViewController: CPBaseViewController {
 

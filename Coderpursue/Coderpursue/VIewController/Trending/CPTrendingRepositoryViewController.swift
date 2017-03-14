@@ -12,6 +12,8 @@ import Foundation
 import MJRefresh
 import ObjectMapper
 import Kingfisher
+import MBProgressHUD
+
 
 public enum CPReposActionType:String {
     case Watch = "watch"

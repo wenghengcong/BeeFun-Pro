@@ -11,7 +11,7 @@ import Alamofire
 import ObjectMapper
 import Moya
 import Foundation
-
+import MBProgressHUD
 
 /// 自己绘制的登录页面
 class CPLoginViewController: CPBaseViewController {

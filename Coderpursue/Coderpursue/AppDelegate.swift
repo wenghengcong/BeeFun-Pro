@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         
         //JPush
+        // TODO: channel改为正式
         JPUSHService.setup(withOption: launchOptions, appKey: JPushAppKey, channel: JPushChannel, apsForProduction: false)
 
         let pushConfig = JPUSHRegisterEntity.init()
@@ -52,6 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             // Fallback on earlier versions
         }
         
+        
         tabBarController = self.window!.rootViewController as! CPBaseTabBarController?
         storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         
@@ -62,7 +64,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     // MARK: - Device token
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print(deviceToken)
+        let deviceTokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+        print("device token \(deviceTokenString)")
         JPUSHService.registerDeviceToken(deviceToken)
     }
     

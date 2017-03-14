@@ -16,8 +16,8 @@ target 'Coderpursue' do
     pod 'ReachabilitySwift', '~> 3'
     #pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 	#pod 'PullToBounce'
-	pod 'MBProgressHUD'
-	pod 'MJRefresh'
+    pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'MJRefresh'
     pod 'SwiftDate', '~> 4.0'
 	pod 'Bugly'
     pod "PromiseKit", "~> 4.0"

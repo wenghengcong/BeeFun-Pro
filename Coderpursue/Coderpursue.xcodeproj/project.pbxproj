@@ -178,7 +178,6 @@
 		FE19F93D1C39331B009986FE /* UIColor+Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F93C1C39331B009986FE /* UIColor+Project.swift */; };
 		FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F93E1C394398009986FE /* UIFont+Project.swift */; };
 		FE19F9411C3944C7009986FE /* CPNotiName.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE19F9401C3944C7009986FE /* CPNotiName.swift */; };
-		FE1DE7B41C51049A00865DD5 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = FE1DE7B31C51049A00865DD5 /* MBProgressHUD.m */; };
 		FE26BCBD1C4231FB00887534 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE26BCBC1C4231FB00887534 /* Alamofire.framework */; };
 		FE26BCC61C44754C00887534 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE26BCC51C44754C00887534 /* ObjectMapper.framework */; };
 		FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3179AB1C405EF300150370 /* CPWebViewController.swift */; };
@@ -427,8 +426,6 @@
 		FE19F93C1C39331B009986FE /* UIColor+Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Project.swift"; sourceTree = "<group>"; };
 		FE19F93E1C394398009986FE /* UIFont+Project.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Project.swift"; sourceTree = "<group>"; };
 		FE19F9401C3944C7009986FE /* CPNotiName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPNotiName.swift; sourceTree = "<group>"; };
-		FE1DE7B21C51049A00865DD5 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
-		FE1DE7B31C51049A00865DD5 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		FE1DE7B51C5104AC00865DD5 /* Coderpursue-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Coderpursue-Bridging-Header.h"; sourceTree = "<group>"; };
 		FE26BCBC1C4231FB00887534 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		FE26BCC51C44754C00887534 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Pods/../build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
@@ -956,15 +953,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FE1DE7AB1C5103E200865DD5 /* MBProgressHUD */ = {
-			isa = PBXGroup;
-			children = (
-				FE1DE7B21C51049A00865DD5 /* MBProgressHUD.h */,
-				FE1DE7B31C51049A00865DD5 /* MBProgressHUD.m */,
-			);
-			path = MBProgressHUD;
-			sourceTree = "<group>";
-		};
 		FE3ED3C31C5C49700048BA1D /* HMSegmentedControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -1032,7 +1020,6 @@
 				5E0DDC741E72FFE800493ABA /* ShareSDK */,
 				5E0DDC701E72D42D00493ABA /* UMMobClick.framework */,
 				FE3ED3C31C5C49700048BA1D /* HMSegmentedControl */,
-				FE1DE7AB1C5103E200865DD5 /* MBProgressHUD */,
 			);
 			path = ThidParty;
 			sourceTree = "<group>";
@@ -1562,7 +1549,6 @@
 				5EACCFD11C8E62C70059A303 /* ParaTrending.swift in Sources */,
 				FE914DBB1C4BC1F1001C3D90 /* CPBaseViewCell.swift in Sources */,
 				5E4ABFD21C90FF450041FA89 /* CPStoryBoarySegueCon.swift in Sources */,
-				FE1DE7B41C51049A00865DD5 /* MBProgressHUD.m in Sources */,
 				5EBD360D1E72099100C4E350 /* UILabel+Size.swift in Sources */,
 				5EE91F851C7C4FF9003F4CBF /* ObjEvent.swift in Sources */,
 				FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */,

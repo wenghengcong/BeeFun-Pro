@@ -37,6 +37,9 @@ class CPGitLoginViewController: CPWebViewController {
         
     }
     
+    /// 网页请求成功后
+    ///
+    /// - Parameter webView: <#webView description#>
     override func webViewDidFinishLoad(_ webView: UIWebView) {
         
         super.webViewDidFinishLoad(webView)        
@@ -60,6 +63,9 @@ class CPGitLoginViewController: CPWebViewController {
     }
     
     
+    /// 登陆成功后
+    ///
+    /// - Parameter code: <#code description#>
     func glvc_SignIn(_ code :String) {
         
         let para = [
@@ -70,12 +76,14 @@ class CPGitLoginViewController: CPWebViewController {
             "state":"junglesong"
             ]
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-
+        let hud = MBProgressHUD.init(window: cpKeywindow!)
+        hud?.dimBackground = true
+        hud?.show(true)
+        
         //POST请求
         Alamofire.request("https://github.com/login/oauth/access_token",method:.post,parameters: para)
             .responseJSON { response in
-                MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+                
                 let str = String(data: response.data!, encoding: String.Encoding.utf8)
                 //access_token=7c897cd55113db38df41521eb897f47e395df845&scope=public_repo%2Cuser&token_type=bearer
 //                print("access: \(str)")
@@ -102,16 +110,17 @@ class CPGitLoginViewController: CPWebViewController {
         
     }
     
+    /// 获取个人信息
+    ///
+    /// - Parameter token: <#token description#>
     func glv_getUserinfo(_ token:String){
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
-
         let provider = Provider.sharedProvider
         provider.request(.myInfo) { (result) -> () in
 //            print(result)
             
             var message = kNoMessageTip
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            MBProgressHUD.hideAllHUDs(for: cpKeywindow!, animated: true)
             
             switch result {
             case let .success(response):

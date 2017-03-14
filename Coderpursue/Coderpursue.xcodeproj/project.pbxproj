@@ -183,7 +183,6 @@
 		FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3179AB1C405EF300150370 /* CPWebViewController.swift */; };
 		FE37DEF71C4A8F1F00B8449D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE37DEF61C4A8F1F00B8449D /* Kingfisher.framework */; };
 		FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C11C53850D0048BA1D /* Response+ObjectMapper.swift */; };
-		FE3ED3C61C5C49700048BA1D /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C51C5C49700048BA1D /* HMSegmentedControl.m */; };
 		FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */; };
 		FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */; };
 		FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */; };
@@ -432,8 +431,6 @@
 		FE3179AB1C405EF300150370 /* CPWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPWebViewController.swift; sourceTree = "<group>"; };
 		FE37DEF61C4A8F1F00B8449D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../../Library/Developer/Xcode/DerivedData/Coderpursue-fyrcacrvclpljuegolrtoeolcnta/Build/Products/Debug-iphoneos/Kingfisher.framework"; sourceTree = "<group>"; };
 		FE3ED3C11C53850D0048BA1D /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ObjectMapper.swift"; sourceTree = "<group>"; };
-		FE3ED3C41C5C49700048BA1D /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
-		FE3ED3C51C5C49700048BA1D /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
 		FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPReposViewController.swift; sourceTree = "<group>"; };
 		FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFollowersViewController.swift; sourceTree = "<group>"; };
 		FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsCell.swift; sourceTree = "<group>"; };
@@ -953,15 +950,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		FE3ED3C31C5C49700048BA1D /* HMSegmentedControl */ = {
-			isa = PBXGroup;
-			children = (
-				FE3ED3C41C5C49700048BA1D /* HMSegmentedControl.h */,
-				FE3ED3C51C5C49700048BA1D /* HMSegmentedControl.m */,
-			);
-			path = HMSegmentedControl;
-			sourceTree = "<group>";
-		};
 		FE6980DC1C5602C40026089B /* User */ = {
 			isa = PBXGroup;
 			children = (
@@ -1019,7 +1007,6 @@
 			children = (
 				5E0DDC741E72FFE800493ABA /* ShareSDK */,
 				5E0DDC701E72D42D00493ABA /* UMMobClick.framework */,
-				FE3ED3C31C5C49700048BA1D /* HMSegmentedControl */,
 			);
 			path = ThidParty;
 			sourceTree = "<group>";
@@ -1475,7 +1462,6 @@
 				5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */,
 				5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */,
 				5EE91F7D1C7C4792003F4CBF /* ObjSubject.swift in Sources */,
-				FE3ED3C61C5C49700048BA1D /* HMSegmentedControl.m in Sources */,
 				FEAB7EB61C5E2B8500C78E87 /* DataModel.swift in Sources */,
 				5EBD35FC1E71484000C4E350 /* UIDevice+Device.swift in Sources */,
 				FE19F9411C3944C7009986FE /* CPNotiName.swift in Sources */,

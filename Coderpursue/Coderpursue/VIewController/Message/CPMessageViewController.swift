@@ -11,6 +11,7 @@ import Moya
 import Foundation
 import MJRefresh
 import MBProgressHUD
+import HMSegmentedControl
 
 class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
 
@@ -113,8 +114,8 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         segControl.verticalDividerColor = UIColor.lineBackgroundColor()
         segControl.verticalDividerWidth = 1
         segControl.isVerticalDividerEnabled = true
-        segControl.selectionStyle = HMSegmentedControlSelectionStyleFullWidthStripe
-        segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocationDown
+        segControl.selectionStyle =  HMSegmentedControlSelectionStyle.fullWidthStripe
+        segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
         segControl.selectionIndicatorColor = UIColor.cpRedColor()
         segControl.selectionIndicatorHeight = 2
         segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];

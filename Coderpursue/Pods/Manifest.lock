@@ -1,6 +1,7 @@
 PODS:
   - Alamofire (4.4.0)
   - Bugly (2.4.6)
+  - HMSegmentedControl (1.5.3)
   - IQKeyboardManagerSwift (4.0.8)
   - Kingfisher (3.5.1)
   - MBProgressHUD (1.0.0)
@@ -31,6 +32,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire
   - Bugly
+  - HMSegmentedControl
   - IQKeyboardManagerSwift
   - Kingfisher
   - MBProgressHUD (~> 1.0.0)
@@ -46,6 +48,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Bugly: 7756e72c59387b0d490f46e83ab458ae94ee7fba
+  HMSegmentedControl: 7c6145afb50f26cec5f3243082f6f12b9f41318f
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
   Kingfisher: 12eeffeef42ea45b68c5e5acfe8ba9005b713ab4
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
@@ -59,6 +62,6 @@ SPEC CHECKSUMS:
   SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
   SwiftMessages: d114d273978678c0dce036f30273865af7303a35
 
-PODFILE CHECKSUM: 7dab15d5cb117075f341912b8d8658dfc9f72436
+PODFILE CHECKSUM: ce00226682486257e142a1f3eb63cb33617857d7
 
 COCOAPODS: 1.2.0.beta.1

@@ -17,6 +17,7 @@ target 'Coderpursue' do
     #pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 	#pod 'PullToBounce'
     pod 'MBProgressHUD', '~> 1.0.0'
+    pod 'HMSegmentedControl'
     pod 'MJRefresh'
     pod 'SwiftDate', '~> 4.0'
 	pod 'Bugly'

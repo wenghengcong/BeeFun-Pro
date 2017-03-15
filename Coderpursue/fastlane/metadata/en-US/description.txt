@@ -1,0 +1,9 @@
+Coderpursue is an open source swift client of github.
+
+Features:
+>Search repository and user.
+>Explore Github: find interesting repositories and developers.
+>Browser your notifications and events.
+>Follow/UnFollow someone.
+>Star/Watch/Fork repository.
+>Share repository or user to Weibo and Facebook.

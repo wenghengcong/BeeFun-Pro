@@ -12,3 +12,6 @@
 
 output_directory "~/Desktop/Coderpursue/"
 #output_name "MyApp"           # the name of the ipa file
+#configuration					#The configuration to use when building the app. Defaults to 'Release'
+#codesigning_identity	#The name of the code signing identity to use. It has to match the name exactly. e.g. 'iPhone Distribution: SunApps GmbH'
+provisioning_profile_path   # [DEPRECATED!] Use target specific provisioning profiles instead - The path to the provisioning profile (optional)

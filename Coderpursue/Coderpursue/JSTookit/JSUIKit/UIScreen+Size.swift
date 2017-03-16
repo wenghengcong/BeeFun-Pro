@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 //设计稿全部以iPhone 6尺寸设计
 
 func designBy4_7Inch(_ x:CGFloat) -> CGFloat {
@@ -30,7 +29,7 @@ func designBy5_5Inch(_ x:CGFloat) -> CGFloat {
 }
 
 extension UIScreen {
-
+    
     public enum Size: Int {
         case unknownSize = 0
         case screen3_5Inch
@@ -72,10 +71,9 @@ extension UIScreen {
     }
     
     // MARK: properties
-    
     /// 屏幕scale（避免与scale冲突）
     static let screenScale = UIScreen.scale()
-
+    
     /// 是否是retina屏幕
     static let isRetina = UIScreen.scale() > 1.0
     
@@ -98,7 +96,7 @@ extension UIScreen {
     public static func bounds() -> CGRect {
         return UIScreen.main.bounds
     }
-
+    
     /// 返回屏幕scale
     ///
     /// - Returns: <#return value description#>

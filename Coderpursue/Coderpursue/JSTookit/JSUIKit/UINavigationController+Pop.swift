@@ -1,21 +1,22 @@
 //
-//  File.swift
-//  Coderpursue
+//  UINavigationController+Pop.swift
+//  LoveYou
 //
-//  Created by wenghengcong on 16/1/7.
-//  Copyright © 2016年 JungleSong. All rights reserved.
+//  Created by WengHengcong on 2017/3/8.
+//  Copyright © 2017年 JungleSong. All rights reserved.
 //
 
 import UIKit
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
+    switch (lhs, rhs) {
+    case let (l?, r?):
+        return l < r
+    case (nil, _?):
+        return true
+    default:
+        return false
+    }
 }
 
 
@@ -59,5 +60,3 @@ extension UINavigationController {
         return false
     }
 }
-
-

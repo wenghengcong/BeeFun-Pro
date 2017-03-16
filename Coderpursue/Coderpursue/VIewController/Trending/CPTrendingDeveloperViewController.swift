@@ -70,7 +70,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         self.rightItem?.isHidden = false
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        self.view.backgroundColor = UIColor.viewBackgroundColor()
+        self.view.backgroundColor = UIColor.viewBackgroundColor
 
         developerInfoV.userActionDelegate = self
         
@@ -90,7 +90,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.tableView.allowsSelection = false
         self.automaticallyAdjustsScrollViewInsets = false
         
@@ -407,7 +407,7 @@ extension CPTrendingDeveloperViewController : UITableViewDataSource {
             return nil
         }
         let view = UIView.init(frame: CGRect(x: 0, y: 0, width: self.view.width, height: 10))
-        view.backgroundColor = UIColor.viewBackgroundColor()
+        view.backgroundColor = UIColor.viewBackgroundColor
  
         return view
     }

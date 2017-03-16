@@ -103,11 +103,11 @@ class CPProfileViewController: CPBaseViewController {
         self.tableView.dataSource=self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
 //        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellId)    //register class by code
         self.tableView.register(UINib(nibName: "CPSettingsCell", bundle: nil), forCellReuseIdentifier: cellId) //regiseter by xib
-//        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Top)
-//        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Bottom)
+//        self.tableView.addSingleBorder(UIColor.lineBackgroundColor, at:UIView.ViewBorder.Top)
+//        self.tableView.addSingleBorder(UIColor.lineBackgroundColor, at:UIView.ViewBorder.Bottom)
     }
     
     
@@ -312,7 +312,7 @@ extension CPProfileViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 10))
-        view.backgroundColor = UIColor.viewBackgroundColor()
+        view.backgroundColor = UIColor.viewBackgroundColor
         return view
         
     }

@@ -45,6 +45,7 @@
 		5E03FD281E7A8FB1005B9664 /* UIView+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD081E7A8FB1005B9664 /* UIView+Draw.swift */; };
 		5E03FD291E7A8FB1005B9664 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD091E7A8FB1005B9664 /* UIView+Nib.swift */; };
 		5E03FD2A1E7A8FB1005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD0A1E7A8FB1005B9664 /* README.md */; };
+		5E03FD2D1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD2C1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift */; };
 		5E0943931CC1F0020047118D /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0943921CC1F0020047118D /* libicucore.tbd */; };
 		5E0943951CC1F0100047118D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0943941CC1F0100047118D /* libz.tbd */; };
 		5E0943971CC1F01C0047118D /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0943961CC1F01C0047118D /* libstdc++.tbd */; };
@@ -295,6 +296,7 @@
 		5E03FD081E7A8FB1005B9664 /* UIView+Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Draw.swift"; sourceTree = "<group>"; };
 		5E03FD091E7A8FB1005B9664 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
 		5E03FD0A1E7A8FB1005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5E03FD2C1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaverBridge.swift; sourceTree = "<group>"; };
 		5E0943921CC1F0020047118D /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		5E0943941CC1F0100047118D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5E0943961CC1F01C0047118D /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -667,13 +669,13 @@
 		5E03FCE71E7A8FB1005B9664 /* JSFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				5E03FCEE1E7A8FB1005B9664 /* README.md */,
 				5E03FCE81E7A8FB1005B9664 /* Data+Extension.swift */,
 				5E03FCE91E7A8FB1005B9664 /* JSApp.swift */,
 				5E03FCEA1E7A8FB1005B9664 /* JSClass.swift */,
 				5E03FCEB1E7A8FB1005B9664 /* JSObject.swift */,
 				5E03FCEC1E7A8FB1005B9664 /* NSAttributedString+Size.swift */,
 				5E03FCED1E7A8FB1005B9664 /* NSString+Size.swift */,
-				5E03FCEE1E7A8FB1005B9664 /* README.md */,
 				5E03FCEF1E7A8FB1005B9664 /* String+Extension.swift */,
 			);
 			path = JSFoundation;
@@ -707,6 +709,8 @@
 		5E03FCF71E7A8FB1005B9664 /* JSUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				5E03FD021E7A8FB1005B9664 /* README.md */,
+				5E03FD001E7A8FB1005B9664 /* JSUIKit.swift */,
 				5E03FCF81E7A8FB1005B9664 /* JSApperence.swift */,
 				5E03FCF91E7A8FB1005B9664 /* JSApplication.swift */,
 				5E03FCFA1E7A8FB1005B9664 /* JSCollectionViewCell.swift */,
@@ -715,9 +719,7 @@
 				5E03FCFD1E7A8FB1005B9664 /* JSNavigationController.swift */,
 				5E03FCFE1E7A8FB1005B9664 /* JSTabBarController.swift */,
 				5E03FCFF1E7A8FB1005B9664 /* JSTableViewCell.swift */,
-				5E03FD001E7A8FB1005B9664 /* JSUIKit.swift */,
 				5E03FD011E7A8FB1005B9664 /* JSViewController.swift */,
-				5E03FD021E7A8FB1005B9664 /* README.md */,
 				5E03FD031E7A8FB1005B9664 /* UIColor+Extension.swift */,
 				5E03FD041E7A8FB1005B9664 /* UIDevice+Device.swift */,
 				5E03FD051E7A8FB1005B9664 /* UILabel+Size.swift */,
@@ -727,6 +729,14 @@
 				5E03FD091E7A8FB1005B9664 /* UIView+Nib.swift */,
 			);
 			path = JSUIKit;
+			sourceTree = "<group>";
+		};
+		5E03FD2B1E7A936C005B9664 /* Bridge */ = {
+			isa = PBXGroup;
+			children = (
+				5E03FD2C1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift */,
+			);
+			path = Bridge;
 			sourceTree = "<group>";
 		};
 		5E0DDC741E72FFE800493ABA /* ShareSDK */ = {
@@ -1135,6 +1145,7 @@
 		FE91BA751C333804002AECB6 /* ThidParty */ = {
 			isa = PBXGroup;
 			children = (
+				5E03FD2B1E7A936C005B9664 /* Bridge */,
 				5E0DDC741E72FFE800493ABA /* ShareSDK */,
 				5E0DDC701E72D42D00493ABA /* UMMobClick.framework */,
 			);
@@ -1720,6 +1731,7 @@
 				5E7F24761CB897D7001BD4C8 /* CPSearchFilterView.swift in Sources */,
 				5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */,
 				FED481091C3C7121002956A8 /* CPStyleGuide.swift in Sources */,
+				5E03FD2D1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift in Sources */,
 				5E03FD0F1E7A8FB1005B9664 /* JSObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

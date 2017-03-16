@@ -63,9 +63,9 @@ class CPBaseViewController: UIViewController,UIGestureRecognizerDelegate {
     }
     
     func customView() {
-        self.view.backgroundColor = UIColor.viewBackgroundColor()
+        self.view.backgroundColor = UIColor.viewBackgroundColor
         //下面语句添加在CPBaseNavigationController中无效
-        self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarBackgroundColor()
+        self.navigationController?.navigationBar.barTintColor = UIColor.navigationBarBackgroundColor
         self.navigationController?.navigationBar.titleTextAttributes = CPStyleGuide.navTitleTextAttributes()
         //返回按钮颜色与文字
         self.navigationController?.navigationBar.tintColor = UIColor.white

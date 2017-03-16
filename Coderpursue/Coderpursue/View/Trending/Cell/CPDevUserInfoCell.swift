@@ -40,7 +40,7 @@ class CPDevUserInfoCell: CPBaseViewCell {
     }
     
     func duic_customView() {
-        infoLabel.textColor = UIColor.labelTitleTextColor()
+        infoLabel.textColor = UIColor.labelTitleTextColor
     }
     
     

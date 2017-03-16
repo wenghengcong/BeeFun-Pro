@@ -98,7 +98,7 @@ class UserManager: NSObject {
         loginVC.hudMode = .topOffset
         loginVC.hidesBottomBarWhenPushed = true
         
-        cpAppDelegate.tabBarController?.currentNavigationViewController()?.pushViewController(loginVC, animated: true)
+        jsAppDelegate.tabBarController?.currentNavigationViewController()?.pushViewController(loginVC, animated: true)
         
     }
     

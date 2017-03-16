@@ -41,7 +41,7 @@ class CPProSettingsViewController: CPBaseViewController {
         self.tableView.dataSource=self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.automaticallyAdjustsScrollViewInsets = false
     }
     
@@ -116,7 +116,7 @@ extension CPProSettingsViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 15))
-        view.backgroundColor = UIColor.viewBackgroundColor()
+        view.backgroundColor = UIColor.viewBackgroundColor
         return view
         
     }

@@ -71,9 +71,9 @@ class CPReposInfoView: UIView {
             })
             btn.imageView?.contentMode = .scaleAspectFit
             btn.imageEdgeInsets = imgEdgeInsets1
-            btn.layer.borderColor = UIColor.lineBackgroundColor().cgColor
+            btn.layer.borderColor = UIColor.lineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
-            btn.setTitleColor(UIColor.labelTitleTextColor(), for: UIControlState())
+            btn.setTitleColor(UIColor.labelTitleTextColor, for: UIControlState())
 //            btn .addTarget(self, action: #selctor(), for: .touchUpInside)
         }
         
@@ -93,9 +93,9 @@ class CPReposInfoView: UIView {
             })
             btn.imageView?.contentMode = .scaleAspectFit
             btn.imageEdgeInsets = imgEdgeInsets2
-            btn.layer.borderColor = UIColor.lineBackgroundColor().cgColor
+            btn.layer.borderColor = UIColor.lineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
-            btn.setTitleColor(UIColor.labelTitleTextColor(), for: UIControlState())
+            btn.setTitleColor(UIColor.labelTitleTextColor, for: UIControlState())
         }
         
         watchBtn.setImage(UIImage(named: "octicon_watch_20"), for: UIControlState())

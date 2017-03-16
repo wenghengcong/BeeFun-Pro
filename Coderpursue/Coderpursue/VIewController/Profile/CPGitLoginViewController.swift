@@ -69,7 +69,7 @@ class CPGitLoginViewController: CPWebViewController {
     /// - Parameter code: <#code description#>
     func glvc_SignIn(_ code :String) {
     
-        MBProgressHUD.showAdded(to: cpKeywindow!, animated: true)
+        MBProgressHUD.showAdded(to: jsKeywindow!, animated: true)
 
         let para = [
             "client_id":GithubAppClientId,
@@ -118,7 +118,7 @@ class CPGitLoginViewController: CPWebViewController {
         let provider = Provider.sharedProvider
         provider.request(.myInfo) { (result) -> () in
 //            print(result)
-            MBProgressHUD.hide(for: cpKeywindow!, animated: true)
+            MBProgressHUD.hide(for: jsKeywindow!, animated: true)
             var message = kNoMessageTip
             switch result {
             case let .success(response):

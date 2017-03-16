@@ -80,7 +80,7 @@ class CPReposViewController: CPBaseViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新

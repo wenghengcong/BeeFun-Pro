@@ -147,10 +147,10 @@ extension UIView {
     }
     
     enum ViewBorder:String {
-        case Left = "borderLeft"
-        case Right = "borderRight"
-        case Top = "borderTop"
-        case Bottom = "borderBottom"
+        case left = "borderLeft"
+        case right = "borderRight"
+        case top = "borderTop"
+        case bottom = "borderBottom"
     }
     
     var defaultBorderColor:UIColor {
@@ -207,16 +207,16 @@ extension UIView {
         border.name = at.rawValue
         
         switch (at) {
-        case .Top:
+        case .top:
             border.frame = CGRect(x: 0, y: 0, width: self.width, height: linewidth)
             break
-        case .Left:
+        case .left:
             border.frame = CGRect(x: 0, y: 0, width: linewidth, height: self.height)
             break
-        case .Right:
+        case .right:
             border.frame = CGRect(x: self.width-linewidth, y: 0, width: linewidth, height: self.height)
             break
-        case .Bottom:
+        case .bottom:
             border.frame = CGRect(x: 0, y: self.height-linewidth, width: self.width, height: linewidth)
             break
         }
@@ -237,10 +237,10 @@ extension UIView {
     }
     
     func removeAllBorders() {
-        removeBorder(.Top)
-        removeBorder(.Left)
-        removeBorder(.Bottom)
-        removeBorder(.Right)
+        removeBorder(.top)
+        removeBorder(.left)
+        removeBorder(.bottom)
+        removeBorder(.right)
     }
     
 }

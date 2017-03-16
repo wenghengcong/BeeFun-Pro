@@ -100,7 +100,7 @@ class CPFilterTableView: UIView {
             let width = rowWidths[index]
             if(index == 0){
                 tableView.frame = CGRect(x: 0, y: 0, width: width, height: self.height)
-                tableView.backgroundColor = UIColor.viewBackgroundColor()
+                tableView.backgroundColor = UIColor.viewBackgroundColor
             }else{
                 let lastTableview = tableviews[index-1]
                 tableView.frame = CGRect(x: lastTableview.right, y: 0, width: width, height: 260)
@@ -116,7 +116,7 @@ class CPFilterTableView: UIView {
         }
         
         let bottomView = UIView(frame:CGRect(x: 0, y: firTableView!.bottom, width: width, height: 10))
-        bottomView.backgroundColor = UIColor.cpRedColor()
+        bottomView.backgroundColor = UIColor.cpRedColor
         self.addSubview(bottomView)
     }
     
@@ -187,19 +187,19 @@ extension CPFilterTableView:UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
-        cell.textLabel?.textColor = UIColor.labelTitleTextColor()
+        cell.textLabel?.textColor = UIColor.labelTitleTextColor
 
         if(tableView == firTableView){
             
-            cell.backgroundColor = UIColor.viewBackgroundColor()
+            cell.backgroundColor = UIColor.viewBackgroundColor
             cell.textLabel!.font = UIFont.systemFont(ofSize: 14.0)
-            cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .bottom)
-            cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .right)
+            cell.addSingleBorder(UIColor.lineBackgroundColor, linewidth: 0.5, at: .bottom)
+            cell.addSingleBorder(UIColor.lineBackgroundColor, linewidth: 0.5, at: .right)
             
             if((indexPath as NSIndexPath).row == selTypeIndex){
                 cell.backgroundColor = UIColor.white
                 cell.removeBorder(.right)
-                cell.textLabel?.textColor = UIColor.cpRedColor()
+                cell.textLabel?.textColor = UIColor.cpRedColor
             }
             
         }else{
@@ -208,7 +208,7 @@ extension CPFilterTableView:UITableViewDataSource {
             
             let selValueIndex = (selTypeIndex == 0) ? selFirValueIndex : selSecValueIndex
             if((indexPath as NSIndexPath).row == selValueIndex){
-                cell.textLabel?.textColor = UIColor.cpRedColor()
+                cell.textLabel?.textColor = UIColor.cpRedColor
             }
             
         }

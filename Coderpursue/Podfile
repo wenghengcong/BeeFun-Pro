@@ -18,6 +18,8 @@ target 'Coderpursue' do
 	#pod 'PullToBounce'
     pod 'MBProgressHUD', '~> 1.0.0'
     pod 'HMSegmentedControl'
+    pod 'SwiftyJSON'
+    pod 'SwiftyBeaver'
     pod 'MJRefresh'
     pod 'SwiftDate', '~> 4.0'
 	pod 'Bugly'

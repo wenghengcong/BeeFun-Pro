@@ -18,8 +18,8 @@ class CPBaseTabBarController: UITabBarController {
     }
     
     func customView() {
-        self.tabBar.barTintColor = UIColor.tabBarBackgroundColor()  //背景色
-        self.tabBar.tintColor = UIColor.tabBarTitleTextColor()//文字颜色
+        self.tabBar.barTintColor = UIColor.tabBarBackgroundColor  //背景色
+        self.tabBar.tintColor = UIColor.tabBarTitleTextColor//文字颜色
     }
 
     //http://stackoverflow.com/questions/26667009/get-top-most-uiviewcontroller

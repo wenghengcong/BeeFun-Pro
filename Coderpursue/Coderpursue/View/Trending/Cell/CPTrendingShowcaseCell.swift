@@ -69,7 +69,7 @@ class CPTrendingShowcaseCell: CPBaseViewCell {
         descLabel.numberOfLines = 0
         descLabel.textColor = UIColor.hex("#333333", alpha: 1.0)
         
-        bottomLineV.backgroundColor = UIColor.lineBackgroundColor()
+        bottomLineV.backgroundColor = UIColor.lineBackgroundColor
 
     }
 }

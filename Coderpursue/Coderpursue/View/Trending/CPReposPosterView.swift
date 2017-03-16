@@ -90,10 +90,10 @@ class CPReposPosterView: UIView {
     func rpv_customView() {
         
         self.backgroundColor = UIColor.white
-        nameLabel.textColor = UIColor.labelTitleTextColor()
+        nameLabel.textColor = UIColor.labelTitleTextColor
         nameLabel.backgroundColor = UIColor.white
         
-        descLabel.textColor = UIColor.labelSubtitleTextColor()
+        descLabel.textColor = UIColor.labelSubtitleTextColor
         descLabel.backgroundColor = UIColor.white
         descLabel.numberOfLines = 3;
         
@@ -117,9 +117,9 @@ class CPReposPosterView: UIView {
             btn?.imageEdgeInsets = imgEdgeInsets
             btn?.layer.cornerRadius = cornerRadius
             btn?.layer.masksToBounds = true
-            btn?.layer.borderColor = UIColor.cpRedColor().cgColor
+            btn?.layer.borderColor = UIColor.cpRedColor.cgColor
             btn?.layer.borderWidth = borderWidth
-            btn?.setTitleColor(UIColor.cpRedColor(), for: UIControlState())
+            btn?.setTitleColor(UIColor.cpRedColor, for: UIControlState())
             
         }
 

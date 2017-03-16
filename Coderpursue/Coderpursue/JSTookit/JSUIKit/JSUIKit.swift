@@ -13,15 +13,6 @@ let jsAppDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
 let jsKeywindow = jsAppDelegate.window
 
-/// 当前顶部视图控制器
-let jsTopViewController = jsAppDelegate.tabBarController.topViewController()
-
-/// 当前顶部导航栏控制器
-let jsTopNavigationViewController = jsAppDelegate.tabBarController.currentNavigationViewController()
-
-/// 当前顶部视图
-let jsTopView = jsTopViewController?.view
-
 let uiStatusBarHeight = 20.0
 
 let uiNavigationBarHeight = 44.0

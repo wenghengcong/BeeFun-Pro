@@ -75,7 +75,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.automaticallyAdjustsScrollViewInsets = false
         header.setTitle("Pull down to refresh", for: .idle)
         header.setTitle("Release to refresh", for: .pulling)
@@ -99,7 +99,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         reposInfoV.repo = objRepo
         tableView.isHidden = false
-        self.view.backgroundColor = UIColor.viewBackgroundColor()
+        self.view.backgroundColor = UIColor.viewBackgroundColor
         
         rvc_layoutSubView()
     }

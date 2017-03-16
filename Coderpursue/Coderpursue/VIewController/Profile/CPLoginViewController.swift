@@ -39,23 +39,23 @@ class CPLoginViewController: CPBaseViewController {
     // MAEK: - view
     func lvc_customView() {
         
-        seplineV.backgroundColor = UIColor.lineBackgroundColor()
+        seplineV.backgroundColor = UIColor.lineBackgroundColor
         
-        inputTextBgV.layer.borderColor = UIColor.lineBackgroundColor().cgColor
+        inputTextBgV.layer.borderColor = UIColor.lineBackgroundColor.cgColor
         inputTextBgV.layer.borderWidth = 0.5
         
         usernameTF.attributedPlaceholder = NSAttributedString.init(string: "username or email", attributes: CPStyleGuide.textFieldPlaceholderAttributes())
         passwordTF.attributedPlaceholder = NSAttributedString.init(string: "password", attributes: CPStyleGuide.textFieldPlaceholderAttributes())
         
-        usernameTF.textColor = UIColor.textViewTextColor()
+        usernameTF.textColor = UIColor.textViewTextColor
         usernameTF.font = UIFont.hugeSizeSystemFont()
-        passwordTF.textColor = UIColor.textViewTextColor()
+        passwordTF.textColor = UIColor.textViewTextColor
         passwordTF.font = UIFont.hugeSizeSystemFont()
         
         signInButton.layer.cornerRadius = 5
         signInButton.layer.masksToBounds = true
-        signInButton.backgroundColor = UIColor.buttonRedBackgroundColor()
-        signInButton.setTitleColor(UIColor.buttonWihteTitleTextColor(), for: UIControlState())
+        signInButton.backgroundColor = UIColor.buttonRedBackgroundColor
+        signInButton.setTitleColor(UIColor.buttonWihteTitleTextColor, for: UIControlState())
         signInButton.addTarget(self, action: #selector(CPLoginViewController.lvc_singInAction(_:)), for: UIControlEvents.touchUpInside)
         
         

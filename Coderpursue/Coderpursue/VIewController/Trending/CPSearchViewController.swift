@@ -94,7 +94,7 @@ class CPSearchViewController: CPBaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor.viewBackgroundColor()
+        tableView.backgroundColor = UIColor.viewBackgroundColor
         automaticallyAdjustsScrollViewInsets = false
         self.view.insertSubview(tableView, belowSubview: self.searchFilterView!)
         

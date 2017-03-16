@@ -11,8 +11,8 @@ import UIKit
 extension Data{
     
     /// 返回Data的String
-    var string:String {
-        return String(data: fooData, encoding: String.Encoding.utf8)
+    var string:String? {
+        return String(data:self, encoding: String.Encoding.utf8)
     }
     
 }

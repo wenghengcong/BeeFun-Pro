@@ -31,6 +31,8 @@ PODS:
   - SnapKit (3.2.0)
   - SwiftDate (4.0.13)
   - SwiftMessages (3.2.1)
+  - SwiftyBeaver (1.1.3)
+  - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
   - Alamofire
@@ -48,6 +50,8 @@ DEPENDENCIES:
   - SnapKit
   - SwiftDate (~> 4.0)
   - SwiftMessages
+  - SwiftyBeaver
+  - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -67,7 +71,9 @@ SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
   SwiftMessages: d114d273978678c0dce036f30273865af7303a35
+  SwiftyBeaver: 949aa1439b8fa3667f68555cfef65de46a70ccde
+  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: a8e4879d5716bf59581f7c3066f84b0d3857136f
+PODFILE CHECKSUM: e48f26e88cb5a365d1ffa579916ca15614218481
 
 COCOAPODS: 1.2.0

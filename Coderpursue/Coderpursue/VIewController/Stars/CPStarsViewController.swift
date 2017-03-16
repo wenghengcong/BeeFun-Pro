@@ -95,16 +95,16 @@ class CPStarsViewController: CPBaseViewController{
     func svc_setupSegmentView() {
         
         self.view.addSubview(segControl)
-        segControl.verticalDividerColor = UIColor.lineBackgroundColor()
+        segControl.verticalDividerColor = UIColor.lineBackgroundColor
         segControl.verticalDividerWidth = 1
         segControl.isVerticalDividerEnabled = true
         segControl.selectionStyle = HMSegmentedControlSelectionStyle.fullWidthStripe
         segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
-        segControl.selectionIndicatorColor = UIColor.cpRedColor()
+        segControl.selectionIndicatorColor = UIColor.cpRedColor
         segControl.selectionIndicatorHeight = 2
-        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];
+        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
-        segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];
+        segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
@@ -137,7 +137,7 @@ class CPStarsViewController: CPBaseViewController{
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新

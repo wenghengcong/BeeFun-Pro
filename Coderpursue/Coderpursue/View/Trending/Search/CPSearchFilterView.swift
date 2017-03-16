@@ -57,7 +57,7 @@ class CPSearchFilterView: UIView {
     
     func sfv_customView() {
         
-        self.backgroundColor = UIColor.viewBackgroundColor()
+        self.backgroundColor = UIColor.viewBackgroundColor
 
         let column = filterPara.count
         let btnW:CGFloat = width/CGFloat(column)
@@ -73,8 +73,8 @@ class CPSearchFilterView: UIView {
             paraBtn.setImage(UIImage(named: "arrow_down"), for: .highlighted)
 
             paraBtn.setImage(UIImage(named: "arrow_up"), for: .selected)
-            paraBtn.setTitleColor(UIColor.cpBlackColor(), for: UIControlState())
-            paraBtn.setTitleColor(UIColor.cpRedColor(), for: .selected)
+            paraBtn.setTitleColor(UIColor.cpBlackColor, for: UIControlState())
+            paraBtn.setTitleColor(UIColor.cpRedColor, for: .selected)
             paraBtn.setTitle(filterPara[index], for: UIControlState())
             paraBtn.titleLabel?.font = UIFont.middleSizeSystemFont()
             paraBtn.tag = index
@@ -97,7 +97,7 @@ class CPSearchFilterView: UIView {
         let actionBtnH:CGFloat = 40
         
         tableView.frame = CGRect(x: 0, y: 0, width: width,height: contentView.height-actionBtnH)
-        tableView.backgroundColor = UIColor.viewBackgroundColor()
+        tableView.backgroundColor = UIColor.viewBackgroundColor
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .singleLine
@@ -110,7 +110,7 @@ class CPSearchFilterView: UIView {
         
         let resetBtn = UIButton.init(frame: CGRect(x: 0, y: 0, width: width/2, height: actionBtnH))
         resetBtn.setTitle("Reset", for: UIControlState())
-        resetBtn.setTitleColor(UIColor.cpBlackColor(), for: UIControlState())
+        resetBtn.setTitleColor(UIColor.cpBlackColor, for: UIControlState())
         resetBtn.backgroundColor = UIColor.white
         resetBtn.addTarget(self, action: #selector(CPSearchFilterView.resetParaAction), for: .touchUpInside)
         footView.addSubview(resetBtn)
@@ -118,7 +118,7 @@ class CPSearchFilterView: UIView {
         let sureBtn = UIButton.init(frame: CGRect(x: width/2,y: 0, width: width/2, height: actionBtnH))
         sureBtn.setTitle("Sure", for: UIControlState())
         sureBtn.setTitleColor(UIColor.white, for: UIControlState())
-        sureBtn.backgroundColor = UIColor.cpRedColor()
+        sureBtn.backgroundColor = UIColor.cpRedColor
         sureBtn.addTarget(self, action: #selector(CPSearchFilterView.sureAction), for: .touchUpInside)
         
         footView.addSubview(sureBtn)
@@ -219,8 +219,8 @@ extension CPSearchFilterView:UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        cell.textLabel?.textColor = UIColor.labelTitleTextColor()
-        cell.backgroundColor = UIColor.viewBackgroundColor()
+        cell.textLabel?.textColor = UIColor.labelTitleTextColor
+        cell.backgroundColor = UIColor.viewBackgroundColor
         cell.textLabel!.font = UIFont.systemFont(ofSize: 14.0)
         cell.textLabel?.textAlignment = .center
         cell.selectionStyle = .none
@@ -229,7 +229,7 @@ extension CPSearchFilterView:UITableViewDataSource {
         let selValueIndex = selValueDic[currentPara]
         if((indexPath as NSIndexPath).row == selValueIndex){
             cell.backgroundColor = UIColor.white
-            cell.textLabel?.textColor = UIColor.cpRedColor()
+            cell.textLabel?.textColor = UIColor.cpRedColor
         }
         
         //make the seperator line is full width

@@ -146,10 +146,10 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
         hud.show(animated: true)
         
         if isFull {
-            if hud.isDescendant(of: cpKeywindow!){
+            if hud.isDescendant(of: jsKeywindow!){
                 hud.hide(animated: false)
             }
-            cpKeywindow!.addSubview(hud)
+            jsKeywindow!.addSubview(hud)
         }else{
             if hud.isDescendant(of: self.view){
                 hud.hide(animated: false)

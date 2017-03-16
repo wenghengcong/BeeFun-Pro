@@ -88,21 +88,21 @@ class CPProfileHeaderView: UIView {
         phv_loginBtn.setTitle("Sign   In", for: UIControlState())
 //        phv_editProfileBtn.addTarget(self, action: "phv_editProfileAction:", forControlEvents: .TouchUpInside)
         
-        phv_numOfReposLabel.textColor = UIColor.labelTitleTextColor()
-        phv_reposLabel.textColor = UIColor.labelSubtitleTextColor()
+        phv_numOfReposLabel.textColor = UIColor.labelTitleTextColor
+        phv_reposLabel.textColor = UIColor.labelSubtitleTextColor
         
-        phv_numOfFollwerLabel.textColor = UIColor.labelTitleTextColor()
-        phv_followersLabel.textColor = UIColor.labelSubtitleTextColor()
+        phv_numOfFollwerLabel.textColor = UIColor.labelTitleTextColor
+        phv_followersLabel.textColor = UIColor.labelSubtitleTextColor
         
-        phv_numOfFollowingLabel.textColor = UIColor.labelTitleTextColor()
-        phv_followingLabel.textColor = UIColor.labelSubtitleTextColor()
+        phv_numOfFollowingLabel.textColor = UIColor.labelTitleTextColor
+        phv_followingLabel.textColor = UIColor.labelSubtitleTextColor
         
         //add border to sperator three columns
-        reposBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
+        reposBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor)
         reposBgV.isUserInteractionEnabled = true
-        followerBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
+        followerBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor)
         followerBgV.isUserInteractionEnabled = true
-        followingBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor())
+        followingBgV.addOnePixelAroundBorder(UIColor.lineBackgroundColor)
         followingBgV.isUserInteractionEnabled = true
         
         let reposGes = UITapGestureRecognizer(target: self, action: #selector(CPProfileHeaderView.phv_reposAction(_:)))

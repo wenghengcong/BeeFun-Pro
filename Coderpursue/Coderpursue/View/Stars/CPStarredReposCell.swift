@@ -83,22 +83,22 @@ class CPStarredReposCell: CPBaseViewCell {
         logoImgV.layer.cornerRadius = logoImgV.width/2
         logoImgV.layer.masksToBounds = true
         
-        nameLabel.textColor = UIColor.labelTitleTextColor()
+        nameLabel.textColor = UIColor.labelTitleTextColor
         nameLabel.font = UIFont.largeSizeSystemFont()
         
-        descLabel.textColor = UIColor.labelSubtitleTextColor()
+        descLabel.textColor = UIColor.labelSubtitleTextColor
         descLabel.font = UIFont.middleSizeSystemFont()
         
-        timeLabel.textColor = UIColor.labelSubtitleTextColor()
+        timeLabel.textColor = UIColor.labelSubtitleTextColor
         timeLabel.font = UIFont.smallSizeSystemFont()
         
-        starNumLabel.textColor = UIColor.labelSubtitleTextColor()
+        starNumLabel.textColor = UIColor.labelSubtitleTextColor
         starNumLabel.font = UIFont.smallSizeSystemFont()
         
-        forkNumLabel.textColor = UIColor.labelSubtitleTextColor()
+        forkNumLabel.textColor = UIColor.labelSubtitleTextColor
         forkNumLabel.font = UIFont.smallSizeSystemFont()
         
-        langLabel.textColor = UIColor.labelSubtitleTextColor()
+        langLabel.textColor = UIColor.labelSubtitleTextColor
         langLabel.font = UIFont.smallSizeSystemFont()
         
     }

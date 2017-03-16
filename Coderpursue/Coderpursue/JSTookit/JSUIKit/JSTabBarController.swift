@@ -50,22 +50,22 @@ class JSTabBarController: UITabBarController {
         }
         
         guard titles != nil else {
-            JSLog.error("error:titles must't empty")
+//            JSLog.error("error:titles must't empty")
             return
         }
         
         guard selectedImages != nil else {
-            JSLog.error("error:select images must't empty")
+//            JSLog.error("error:select images must't empty")
             return
         }
         
         guard images != nil else {
-            JSLog.error("error:default images must't empty")
+//            JSLog.error("error:default images must't empty")
             return
         }
         
         guard controllers != nil else {
-            JSLog.error("error:controllers must't empty")
+//            JSLog.error("error:controllers must't empty")
             return
         }
         

@@ -65,11 +65,11 @@ class CPEventPushCell: CPEventBaseCell {
             let shaStr = commit.sha!.substring(to: index)+"-"
             shaBtn.tag = commitTag+i
             shaBtn.setTitle(shaStr, for: UIControlState())
-            shaBtn.setTitleColor(UIColor.cpBlackColor(), for: UIControlState())
-            shaBtn.setTitleColor(UIColor.cpBlackColor(), for: .highlighted)
+            shaBtn.setTitleColor(UIColor.cpBlackColor, for: UIControlState())
+            shaBtn.setTitleColor(UIColor.cpBlackColor, for: .highlighted)
             shaBtn.titleLabel!.font = UIFont.systemFont(ofSize: 15)
             shaBtn.titleLabel!.textAlignment = .left
-//            shaBtn.backgroundColor = UIColor.orangeColor()
+//            shaBtn.backgroundColor = UIColor.orangeColor
             self.contentView.addSubview(shaBtn)
             commitBtns.append(shaBtn)
             
@@ -77,7 +77,7 @@ class CPEventPushCell: CPEventBaseCell {
             commitLabel.tag = commitTag+i
             commitLabel.text = commit.message
             commitLabel.font = UIFont.systemFont(ofSize: 15)
-            commitLabel.textColor = UIColor.cpBlackColor()
+            commitLabel.textColor = UIColor.cpBlackColor
             self.contentView.addSubview(commitLabel)
             commitLabels.append(commitLabel)
             

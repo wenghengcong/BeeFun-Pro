@@ -63,8 +63,8 @@ class CPDeveloperInfoView: UIView {
         self.avatarImgV.layer.cornerRadius = avatarImgV.width/2
         self.avatarImgV.layer.masksToBounds = true
 
-        self.nameLabel.textColor = UIColor.labelTitleTextColor()
-        self.emailLabel.textColor = UIColor.labelTitleTextColor()
+        self.nameLabel.textColor = UIColor.labelTitleTextColor
+        self.emailLabel.textColor = UIColor.labelTitleTextColor
         
         let imgEdgeInsets1 = UIEdgeInsetsMake(0, -5, 0, 10)
         let borderWidth:CGFloat = 0.5
@@ -74,9 +74,9 @@ class CPDeveloperInfoView: UIView {
         for btn in btnArr1 {
             btn.backgroundColor = UIColor.white
             btn.imageEdgeInsets = imgEdgeInsets1
-            btn.layer.borderColor = UIColor.lineBackgroundColor().cgColor
+            btn.layer.borderColor = UIColor.lineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
-            btn.setTitleColor(UIColor.cpRedColor(), for: UIControlState())
+            btn.setTitleColor(UIColor.cpRedColor, for: UIControlState())
             btn.titleLabel?.numberOfLines = 0
             btn.titleLabel?.textAlignment = .center
         }

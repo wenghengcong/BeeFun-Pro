@@ -27,9 +27,9 @@ class CPEventCreateCell: CPEventBaseCell {
     let rightPad:CGFloat = 10
     
     override func eventCell_customView() {
-//        createLabel.backgroundColor = UIColor.orangeColor()
-//        typeValBtn.backgroundColor = UIColor.blueColor()
-//        reposNameBtn.backgroundColor = UIColor.purpleColor()
+//        createLabel.backgroundColor = UIColor.orangeColor
+//        typeValBtn.backgroundColor = UIColor.blueColor
+//        reposNameBtn.backgroundColor = UIColor.purpleColor
     }
     
     override func eventCell_fillData() {

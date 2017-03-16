@@ -140,7 +140,7 @@ class CPTrendingViewController: CPBaseViewController {
         let firW:CGFloat = 100.0
         let secW:CGFloat = self.view.width-firW
         filterView = CPFilterTableView(frame: CGRect(x: 0, y: 64-filterVHeight-10, width: self.view.width, height: filterVHeight))
-        filterView!.backgroundColor = UIColor.viewBackgroundColor()
+        filterView!.backgroundColor = UIColor.viewBackgroundColor
         filterView!.filterDelegate = self
         filterView!.coloumn = .two
         filterView!.rowWidths = [firW,secW]
@@ -154,16 +154,16 @@ class CPTrendingViewController: CPBaseViewController {
     func tvc_setupSegmentView() {
         
         self.view.addSubview(segControl)
-        segControl.verticalDividerColor = UIColor.lineBackgroundColor()
+        segControl.verticalDividerColor = UIColor.lineBackgroundColor
         segControl.verticalDividerWidth = 1
         segControl.isVerticalDividerEnabled = true
         segControl.selectionStyle = HMSegmentedControlSelectionStyle.fullWidthStripe
         segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
-        segControl.selectionIndicatorColor = UIColor.cpRedColor()
+        segControl.selectionIndicatorColor = UIColor.cpRedColor
         segControl.selectionIndicatorHeight = 2
-        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];
+        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
-        segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor(),NSFontAttributeName:UIFont.hugeSizeSystemFont()];
+        segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
@@ -199,7 +199,7 @@ class CPTrendingViewController: CPBaseViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新

@@ -13,39 +13,39 @@
 		5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */; };
 		5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */; };
 		5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */; };
-		5E03FD0B1E7A8FB1005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCE61E7A8FB1005B9664 /* README.md */; };
-		5E03FD0C1E7A8FB1005B9664 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCE81E7A8FB1005B9664 /* Data+Extension.swift */; };
-		5E03FD0D1E7A8FB1005B9664 /* JSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCE91E7A8FB1005B9664 /* JSApp.swift */; };
-		5E03FD0E1E7A8FB1005B9664 /* JSClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCEA1E7A8FB1005B9664 /* JSClass.swift */; };
-		5E03FD0F1E7A8FB1005B9664 /* JSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCEB1E7A8FB1005B9664 /* JSObject.swift */; };
-		5E03FD101E7A8FB1005B9664 /* NSAttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCEC1E7A8FB1005B9664 /* NSAttributedString+Size.swift */; };
-		5E03FD111E7A8FB1005B9664 /* NSString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCED1E7A8FB1005B9664 /* NSString+Size.swift */; };
-		5E03FD121E7A8FB1005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCEE1E7A8FB1005B9664 /* README.md */; };
-		5E03FD131E7A8FB1005B9664 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCEF1E7A8FB1005B9664 /* String+Extension.swift */; };
-		5E03FD141E7A8FB1005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCF11E7A8FB1005B9664 /* README.md */; };
-		5E03FD151E7A8FB1005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCF31E7A8FB1005B9664 /* README.md */; };
-		5E03FD161E7A8FB1005B9664 /* JSCommentStyleGudie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCF51E7A8FB1005B9664 /* JSCommentStyleGudie.swift */; };
-		5E03FD171E7A8FB1005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCF61E7A8FB1005B9664 /* README.md */; };
-		5E03FD181E7A8FB1005B9664 /* JSApperence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCF81E7A8FB1005B9664 /* JSApperence.swift */; };
-		5E03FD191E7A8FB1005B9664 /* JSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCF91E7A8FB1005B9664 /* JSApplication.swift */; };
-		5E03FD1A1E7A8FB1005B9664 /* JSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCFA1E7A8FB1005B9664 /* JSCollectionViewCell.swift */; };
-		5E03FD1B1E7A8FB1005B9664 /* JSDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCFB1E7A8FB1005B9664 /* JSDevice.swift */; };
-		5E03FD1C1E7A8FB1005B9664 /* JSFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCFC1E7A8FB1005B9664 /* JSFile.swift */; };
-		5E03FD1D1E7A8FB1005B9664 /* JSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCFD1E7A8FB1005B9664 /* JSNavigationController.swift */; };
-		5E03FD1E1E7A8FB1005B9664 /* JSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCFE1E7A8FB1005B9664 /* JSTabBarController.swift */; };
-		5E03FD1F1E7A8FB1005B9664 /* JSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FCFF1E7A8FB1005B9664 /* JSTableViewCell.swift */; };
-		5E03FD201E7A8FB1005B9664 /* JSUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD001E7A8FB1005B9664 /* JSUIKit.swift */; };
-		5E03FD211E7A8FB1005B9664 /* JSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD011E7A8FB1005B9664 /* JSViewController.swift */; };
-		5E03FD221E7A8FB1005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD021E7A8FB1005B9664 /* README.md */; };
-		5E03FD231E7A8FB1005B9664 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD031E7A8FB1005B9664 /* UIColor+Extension.swift */; };
-		5E03FD241E7A8FB1005B9664 /* UIDevice+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD041E7A8FB1005B9664 /* UIDevice+Device.swift */; };
-		5E03FD251E7A8FB1005B9664 /* UILabel+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD051E7A8FB1005B9664 /* UILabel+Size.swift */; };
-		5E03FD261E7A8FB1005B9664 /* UINavigationController+Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD061E7A8FB1005B9664 /* UINavigationController+Pop.swift */; };
-		5E03FD271E7A8FB1005B9664 /* UIScreen+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD071E7A8FB1005B9664 /* UIScreen+Size.swift */; };
-		5E03FD281E7A8FB1005B9664 /* UIView+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD081E7A8FB1005B9664 /* UIView+Draw.swift */; };
-		5E03FD291E7A8FB1005B9664 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD091E7A8FB1005B9664 /* UIView+Nib.swift */; };
-		5E03FD2A1E7A8FB1005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD0A1E7A8FB1005B9664 /* README.md */; };
 		5E03FD2D1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD2C1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift */; };
+		5E03FD571E7A982B005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD321E7A982B005B9664 /* README.md */; };
+		5E03FD581E7A982B005B9664 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD341E7A982B005B9664 /* Data+Extension.swift */; };
+		5E03FD591E7A982B005B9664 /* JSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD351E7A982B005B9664 /* JSApp.swift */; };
+		5E03FD5A1E7A982C005B9664 /* JSClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD361E7A982B005B9664 /* JSClass.swift */; };
+		5E03FD5B1E7A982C005B9664 /* JSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD371E7A982B005B9664 /* JSObject.swift */; };
+		5E03FD5C1E7A982C005B9664 /* NSAttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD381E7A982B005B9664 /* NSAttributedString+Size.swift */; };
+		5E03FD5D1E7A982C005B9664 /* NSString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD391E7A982B005B9664 /* NSString+Size.swift */; };
+		5E03FD5E1E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD3A1E7A982B005B9664 /* README.md */; };
+		5E03FD5F1E7A982C005B9664 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD3B1E7A982B005B9664 /* String+Extension.swift */; };
+		5E03FD601E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD3D1E7A982B005B9664 /* README.md */; };
+		5E03FD611E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD3F1E7A982B005B9664 /* README.md */; };
+		5E03FD621E7A982C005B9664 /* JSCommentStyleGudie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD411E7A982B005B9664 /* JSCommentStyleGudie.swift */; };
+		5E03FD631E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD421E7A982B005B9664 /* README.md */; };
+		5E03FD641E7A982C005B9664 /* JSApperence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD441E7A982B005B9664 /* JSApperence.swift */; };
+		5E03FD651E7A982C005B9664 /* JSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD451E7A982B005B9664 /* JSApplication.swift */; };
+		5E03FD661E7A982C005B9664 /* JSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD461E7A982B005B9664 /* JSCollectionViewCell.swift */; };
+		5E03FD671E7A982C005B9664 /* JSDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD471E7A982B005B9664 /* JSDevice.swift */; };
+		5E03FD681E7A982C005B9664 /* JSFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD481E7A982B005B9664 /* JSFile.swift */; };
+		5E03FD691E7A982C005B9664 /* JSNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD491E7A982B005B9664 /* JSNavigationController.swift */; };
+		5E03FD6A1E7A982C005B9664 /* JSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4A1E7A982B005B9664 /* JSTabBarController.swift */; };
+		5E03FD6B1E7A982C005B9664 /* JSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4B1E7A982B005B9664 /* JSTableViewCell.swift */; };
+		5E03FD6C1E7A982C005B9664 /* JSUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4C1E7A982B005B9664 /* JSUIKit.swift */; };
+		5E03FD6D1E7A982C005B9664 /* JSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4D1E7A982B005B9664 /* JSViewController.swift */; };
+		5E03FD6E1E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4E1E7A982B005B9664 /* README.md */; };
+		5E03FD6F1E7A982C005B9664 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4F1E7A982B005B9664 /* UIColor+Extension.swift */; };
+		5E03FD701E7A982C005B9664 /* UIDevice+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD501E7A982B005B9664 /* UIDevice+Device.swift */; };
+		5E03FD711E7A982C005B9664 /* UILabel+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD511E7A982B005B9664 /* UILabel+Size.swift */; };
+		5E03FD721E7A982C005B9664 /* UINavigationController+Pop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD521E7A982B005B9664 /* UINavigationController+Pop.swift */; };
+		5E03FD731E7A982C005B9664 /* UIScreen+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD531E7A982B005B9664 /* UIScreen+Size.swift */; };
+		5E03FD741E7A982C005B9664 /* UIView+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD541E7A982B005B9664 /* UIView+Draw.swift */; };
+		5E03FD751E7A982C005B9664 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD551E7A982B005B9664 /* UIView+Nib.swift */; };
+		5E03FD761E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD561E7A982B005B9664 /* README.md */; };
 		5E0943931CC1F0020047118D /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0943921CC1F0020047118D /* libicucore.tbd */; };
 		5E0943951CC1F0100047118D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0943941CC1F0100047118D /* libz.tbd */; };
 		5E0943971CC1F01C0047118D /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0943961CC1F01C0047118D /* libstdc++.tbd */; };
@@ -264,39 +264,39 @@
 		5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventPushCell.xib; sourceTree = "<group>"; };
 		5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesNotificationCell.swift; sourceTree = "<group>"; };
 		5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesNotificationCell.xib; sourceTree = "<group>"; };
-		5E03FCE61E7A8FB1005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5E03FCE81E7A8FB1005B9664 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
-		5E03FCE91E7A8FB1005B9664 /* JSApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSApp.swift; sourceTree = "<group>"; };
-		5E03FCEA1E7A8FB1005B9664 /* JSClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSClass.swift; sourceTree = "<group>"; };
-		5E03FCEB1E7A8FB1005B9664 /* JSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSObject.swift; sourceTree = "<group>"; };
-		5E03FCEC1E7A8FB1005B9664 /* NSAttributedString+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Size.swift"; sourceTree = "<group>"; };
-		5E03FCED1E7A8FB1005B9664 /* NSString+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Size.swift"; sourceTree = "<group>"; };
-		5E03FCEE1E7A8FB1005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5E03FCEF1E7A8FB1005B9664 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		5E03FCF11E7A8FB1005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5E03FCF31E7A8FB1005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5E03FCF51E7A8FB1005B9664 /* JSCommentStyleGudie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSCommentStyleGudie.swift; sourceTree = "<group>"; };
-		5E03FCF61E7A8FB1005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5E03FCF81E7A8FB1005B9664 /* JSApperence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSApperence.swift; sourceTree = "<group>"; };
-		5E03FCF91E7A8FB1005B9664 /* JSApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSApplication.swift; sourceTree = "<group>"; };
-		5E03FCFA1E7A8FB1005B9664 /* JSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSCollectionViewCell.swift; sourceTree = "<group>"; };
-		5E03FCFB1E7A8FB1005B9664 /* JSDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSDevice.swift; sourceTree = "<group>"; };
-		5E03FCFC1E7A8FB1005B9664 /* JSFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSFile.swift; sourceTree = "<group>"; };
-		5E03FCFD1E7A8FB1005B9664 /* JSNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSNavigationController.swift; sourceTree = "<group>"; };
-		5E03FCFE1E7A8FB1005B9664 /* JSTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSTabBarController.swift; sourceTree = "<group>"; };
-		5E03FCFF1E7A8FB1005B9664 /* JSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSTableViewCell.swift; sourceTree = "<group>"; };
-		5E03FD001E7A8FB1005B9664 /* JSUIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSUIKit.swift; sourceTree = "<group>"; };
-		5E03FD011E7A8FB1005B9664 /* JSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSViewController.swift; sourceTree = "<group>"; };
-		5E03FD021E7A8FB1005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5E03FD031E7A8FB1005B9664 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		5E03FD041E7A8FB1005B9664 /* UIDevice+Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Device.swift"; sourceTree = "<group>"; };
-		5E03FD051E7A8FB1005B9664 /* UILabel+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Size.swift"; sourceTree = "<group>"; };
-		5E03FD061E7A8FB1005B9664 /* UINavigationController+Pop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Pop.swift"; sourceTree = "<group>"; };
-		5E03FD071E7A8FB1005B9664 /* UIScreen+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Size.swift"; sourceTree = "<group>"; };
-		5E03FD081E7A8FB1005B9664 /* UIView+Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Draw.swift"; sourceTree = "<group>"; };
-		5E03FD091E7A8FB1005B9664 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
-		5E03FD0A1E7A8FB1005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5E03FD2C1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaverBridge.swift; sourceTree = "<group>"; };
+		5E03FD321E7A982B005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5E03FD341E7A982B005B9664 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		5E03FD351E7A982B005B9664 /* JSApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSApp.swift; sourceTree = "<group>"; };
+		5E03FD361E7A982B005B9664 /* JSClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSClass.swift; sourceTree = "<group>"; };
+		5E03FD371E7A982B005B9664 /* JSObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSObject.swift; sourceTree = "<group>"; };
+		5E03FD381E7A982B005B9664 /* NSAttributedString+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Size.swift"; sourceTree = "<group>"; };
+		5E03FD391E7A982B005B9664 /* NSString+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSString+Size.swift"; sourceTree = "<group>"; };
+		5E03FD3A1E7A982B005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5E03FD3B1E7A982B005B9664 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		5E03FD3D1E7A982B005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5E03FD3F1E7A982B005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5E03FD411E7A982B005B9664 /* JSCommentStyleGudie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSCommentStyleGudie.swift; sourceTree = "<group>"; };
+		5E03FD421E7A982B005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5E03FD441E7A982B005B9664 /* JSApperence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSApperence.swift; sourceTree = "<group>"; };
+		5E03FD451E7A982B005B9664 /* JSApplication.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSApplication.swift; sourceTree = "<group>"; };
+		5E03FD461E7A982B005B9664 /* JSCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSCollectionViewCell.swift; sourceTree = "<group>"; };
+		5E03FD471E7A982B005B9664 /* JSDevice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSDevice.swift; sourceTree = "<group>"; };
+		5E03FD481E7A982B005B9664 /* JSFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSFile.swift; sourceTree = "<group>"; };
+		5E03FD491E7A982B005B9664 /* JSNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSNavigationController.swift; sourceTree = "<group>"; };
+		5E03FD4A1E7A982B005B9664 /* JSTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSTabBarController.swift; sourceTree = "<group>"; };
+		5E03FD4B1E7A982B005B9664 /* JSTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSTableViewCell.swift; sourceTree = "<group>"; };
+		5E03FD4C1E7A982B005B9664 /* JSUIKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSUIKit.swift; sourceTree = "<group>"; };
+		5E03FD4D1E7A982B005B9664 /* JSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSViewController.swift; sourceTree = "<group>"; };
+		5E03FD4E1E7A982B005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		5E03FD4F1E7A982B005B9664 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		5E03FD501E7A982B005B9664 /* UIDevice+Device.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIDevice+Device.swift"; sourceTree = "<group>"; };
+		5E03FD511E7A982B005B9664 /* UILabel+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Size.swift"; sourceTree = "<group>"; };
+		5E03FD521E7A982B005B9664 /* UINavigationController+Pop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Pop.swift"; sourceTree = "<group>"; };
+		5E03FD531E7A982B005B9664 /* UIScreen+Size.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScreen+Size.swift"; sourceTree = "<group>"; };
+		5E03FD541E7A982B005B9664 /* UIView+Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Draw.swift"; sourceTree = "<group>"; };
+		5E03FD551E7A982B005B9664 /* UIView+Nib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
+		5E03FD561E7A982B005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5E0943921CC1F0020047118D /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		5E0943941CC1F0100047118D /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		5E0943961CC1F01C0047118D /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
@@ -644,99 +644,99 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5E03FCE41E7A8FB1005B9664 /* JSTookit */ = {
-			isa = PBXGroup;
-			children = (
-				5E03FCE51E7A8FB1005B9664 /* JSCrash */,
-				5E03FCE71E7A8FB1005B9664 /* JSFoundation */,
-				5E03FCF01E7A8FB1005B9664 /* JSModel */,
-				5E03FCF21E7A8FB1005B9664 /* JSNetwork */,
-				5E03FCF41E7A8FB1005B9664 /* JSStyleGuide */,
-				5E03FCF71E7A8FB1005B9664 /* JSUIKit */,
-				5E03FD0A1E7A8FB1005B9664 /* README.md */,
-			);
-			path = JSTookit;
-			sourceTree = "<group>";
-		};
-		5E03FCE51E7A8FB1005B9664 /* JSCrash */ = {
-			isa = PBXGroup;
-			children = (
-				5E03FCE61E7A8FB1005B9664 /* README.md */,
-			);
-			path = JSCrash;
-			sourceTree = "<group>";
-		};
-		5E03FCE71E7A8FB1005B9664 /* JSFoundation */ = {
-			isa = PBXGroup;
-			children = (
-				5E03FCEE1E7A8FB1005B9664 /* README.md */,
-				5E03FCE81E7A8FB1005B9664 /* Data+Extension.swift */,
-				5E03FCE91E7A8FB1005B9664 /* JSApp.swift */,
-				5E03FCEA1E7A8FB1005B9664 /* JSClass.swift */,
-				5E03FCEB1E7A8FB1005B9664 /* JSObject.swift */,
-				5E03FCEC1E7A8FB1005B9664 /* NSAttributedString+Size.swift */,
-				5E03FCED1E7A8FB1005B9664 /* NSString+Size.swift */,
-				5E03FCEF1E7A8FB1005B9664 /* String+Extension.swift */,
-			);
-			path = JSFoundation;
-			sourceTree = "<group>";
-		};
-		5E03FCF01E7A8FB1005B9664 /* JSModel */ = {
-			isa = PBXGroup;
-			children = (
-				5E03FCF11E7A8FB1005B9664 /* README.md */,
-			);
-			path = JSModel;
-			sourceTree = "<group>";
-		};
-		5E03FCF21E7A8FB1005B9664 /* JSNetwork */ = {
-			isa = PBXGroup;
-			children = (
-				5E03FCF31E7A8FB1005B9664 /* README.md */,
-			);
-			path = JSNetwork;
-			sourceTree = "<group>";
-		};
-		5E03FCF41E7A8FB1005B9664 /* JSStyleGuide */ = {
-			isa = PBXGroup;
-			children = (
-				5E03FCF51E7A8FB1005B9664 /* JSCommentStyleGudie.swift */,
-				5E03FCF61E7A8FB1005B9664 /* README.md */,
-			);
-			path = JSStyleGuide;
-			sourceTree = "<group>";
-		};
-		5E03FCF71E7A8FB1005B9664 /* JSUIKit */ = {
-			isa = PBXGroup;
-			children = (
-				5E03FD021E7A8FB1005B9664 /* README.md */,
-				5E03FD001E7A8FB1005B9664 /* JSUIKit.swift */,
-				5E03FCF81E7A8FB1005B9664 /* JSApperence.swift */,
-				5E03FCF91E7A8FB1005B9664 /* JSApplication.swift */,
-				5E03FCFA1E7A8FB1005B9664 /* JSCollectionViewCell.swift */,
-				5E03FCFB1E7A8FB1005B9664 /* JSDevice.swift */,
-				5E03FCFC1E7A8FB1005B9664 /* JSFile.swift */,
-				5E03FCFD1E7A8FB1005B9664 /* JSNavigationController.swift */,
-				5E03FCFE1E7A8FB1005B9664 /* JSTabBarController.swift */,
-				5E03FCFF1E7A8FB1005B9664 /* JSTableViewCell.swift */,
-				5E03FD011E7A8FB1005B9664 /* JSViewController.swift */,
-				5E03FD031E7A8FB1005B9664 /* UIColor+Extension.swift */,
-				5E03FD041E7A8FB1005B9664 /* UIDevice+Device.swift */,
-				5E03FD051E7A8FB1005B9664 /* UILabel+Size.swift */,
-				5E03FD061E7A8FB1005B9664 /* UINavigationController+Pop.swift */,
-				5E03FD071E7A8FB1005B9664 /* UIScreen+Size.swift */,
-				5E03FD081E7A8FB1005B9664 /* UIView+Draw.swift */,
-				5E03FD091E7A8FB1005B9664 /* UIView+Nib.swift */,
-			);
-			path = JSUIKit;
-			sourceTree = "<group>";
-		};
 		5E03FD2B1E7A936C005B9664 /* Bridge */ = {
 			isa = PBXGroup;
 			children = (
 				5E03FD2C1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift */,
 			);
 			path = Bridge;
+			sourceTree = "<group>";
+		};
+		5E03FD301E7A982B005B9664 /* JSToolKit */ = {
+			isa = PBXGroup;
+			children = (
+				5E03FD311E7A982B005B9664 /* JSCrash */,
+				5E03FD331E7A982B005B9664 /* JSFoundation */,
+				5E03FD3C1E7A982B005B9664 /* JSModel */,
+				5E03FD3E1E7A982B005B9664 /* JSNetwork */,
+				5E03FD401E7A982B005B9664 /* JSStyleGuide */,
+				5E03FD431E7A982B005B9664 /* JSUIKit */,
+				5E03FD561E7A982B005B9664 /* README.md */,
+			);
+			path = JSToolKit;
+			sourceTree = "<group>";
+		};
+		5E03FD311E7A982B005B9664 /* JSCrash */ = {
+			isa = PBXGroup;
+			children = (
+				5E03FD321E7A982B005B9664 /* README.md */,
+			);
+			path = JSCrash;
+			sourceTree = "<group>";
+		};
+		5E03FD331E7A982B005B9664 /* JSFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				5E03FD341E7A982B005B9664 /* Data+Extension.swift */,
+				5E03FD351E7A982B005B9664 /* JSApp.swift */,
+				5E03FD361E7A982B005B9664 /* JSClass.swift */,
+				5E03FD371E7A982B005B9664 /* JSObject.swift */,
+				5E03FD381E7A982B005B9664 /* NSAttributedString+Size.swift */,
+				5E03FD391E7A982B005B9664 /* NSString+Size.swift */,
+				5E03FD3A1E7A982B005B9664 /* README.md */,
+				5E03FD3B1E7A982B005B9664 /* String+Extension.swift */,
+			);
+			path = JSFoundation;
+			sourceTree = "<group>";
+		};
+		5E03FD3C1E7A982B005B9664 /* JSModel */ = {
+			isa = PBXGroup;
+			children = (
+				5E03FD3D1E7A982B005B9664 /* README.md */,
+			);
+			path = JSModel;
+			sourceTree = "<group>";
+		};
+		5E03FD3E1E7A982B005B9664 /* JSNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				5E03FD3F1E7A982B005B9664 /* README.md */,
+			);
+			path = JSNetwork;
+			sourceTree = "<group>";
+		};
+		5E03FD401E7A982B005B9664 /* JSStyleGuide */ = {
+			isa = PBXGroup;
+			children = (
+				5E03FD411E7A982B005B9664 /* JSCommentStyleGudie.swift */,
+				5E03FD421E7A982B005B9664 /* README.md */,
+			);
+			path = JSStyleGuide;
+			sourceTree = "<group>";
+		};
+		5E03FD431E7A982B005B9664 /* JSUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				5E03FD441E7A982B005B9664 /* JSApperence.swift */,
+				5E03FD451E7A982B005B9664 /* JSApplication.swift */,
+				5E03FD461E7A982B005B9664 /* JSCollectionViewCell.swift */,
+				5E03FD471E7A982B005B9664 /* JSDevice.swift */,
+				5E03FD481E7A982B005B9664 /* JSFile.swift */,
+				5E03FD491E7A982B005B9664 /* JSNavigationController.swift */,
+				5E03FD4A1E7A982B005B9664 /* JSTabBarController.swift */,
+				5E03FD4B1E7A982B005B9664 /* JSTableViewCell.swift */,
+				5E03FD4C1E7A982B005B9664 /* JSUIKit.swift */,
+				5E03FD4D1E7A982B005B9664 /* JSViewController.swift */,
+				5E03FD4E1E7A982B005B9664 /* README.md */,
+				5E03FD4F1E7A982B005B9664 /* UIColor+Extension.swift */,
+				5E03FD501E7A982B005B9664 /* UIDevice+Device.swift */,
+				5E03FD511E7A982B005B9664 /* UILabel+Size.swift */,
+				5E03FD521E7A982B005B9664 /* UINavigationController+Pop.swift */,
+				5E03FD531E7A982B005B9664 /* UIScreen+Size.swift */,
+				5E03FD541E7A982B005B9664 /* UIView+Draw.swift */,
+				5E03FD551E7A982B005B9664 /* UIView+Nib.swift */,
+			);
+			path = JSUIKit;
 			sourceTree = "<group>";
 		};
 		5E0DDC741E72FFE800493ABA /* ShareSDK */ = {
@@ -1342,7 +1342,7 @@
 			isa = PBXGroup;
 			children = (
 				5E7368711E77D51D00AEBA77 /* Coderpursue.entitlements */,
-				5E03FCE41E7A8FB1005B9664 /* JSTookit */,
+				5E03FD301E7A982B005B9664 /* JSToolKit */,
 				FE19F93A1C390865009986FE /* ProConfig */,
 				FE19F93B1C390865009986FE /* Resources */,
 				5EC58D621E6DAAF60069AE82 /* Manager */,
@@ -1600,7 +1600,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E03FD161E7A8FB1005B9664 /* JSCommentStyleGudie.swift in Sources */,
 				FE6980E31C5602C40026089B /* ObjPermissions.swift in Sources */,
 				FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */,
 				5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */,
@@ -1610,11 +1609,10 @@
 				5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */,
 				5EE91F7D1C7C4792003F4CBF /* ObjSubject.swift in Sources */,
 				FEAB7EB61C5E2B8500C78E87 /* DataModel.swift in Sources */,
-				5E03FD231E7A8FB1005B9664 /* UIColor+Extension.swift in Sources */,
+				5E03FD701E7A982C005B9664 /* UIDevice+Device.swift in Sources */,
 				FE19F9411C3944C7009986FE /* CPNotiName.swift in Sources */,
 				5EBF89AD1C926AB4009B3F5B /* CPMyReposCell.swift in Sources */,
 				5EF6E3CA1C8AC4A1004F6473 /* CPStarredReposCell.swift in Sources */,
-				5E03FD191E7A8FB1005B9664 /* JSApplication.swift in Sources */,
 				5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */,
 				5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */,
 				5E546D931C8EDE8B00E94997 /* ObjErropReponse.swift in Sources */,
@@ -1622,117 +1620,119 @@
 				FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */,
 				5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */,
 				5E738C981C92C26F0075C82C /* CPHttpStatusCode.swift in Sources */,
-				5E03FD201E7A8FB1005B9664 /* JSUIKit.swift in Sources */,
-				5E03FD171E7A8FB1005B9664 /* README.md in Sources */,
 				5EC58D891E6DAAF60069AE82 /* TimeHelper.swift in Sources */,
 				5E7F24781CB8F622001BD4C8 /* ParaSearchRepos.swift in Sources */,
+				5E03FD6F1E7A982C005B9664 /* UIColor+Extension.swift in Sources */,
 				5EC58D7C1E6DAAF60069AE82 /* AppVersionHelper.swift in Sources */,
 				5E4ABFDD1C9113140041FA89 /* CPShowcaseInfoView.swift in Sources */,
 				5EC58D7D1E6DAAF60069AE82 /* CPGlobalHelper.swift in Sources */,
-				5E03FD101E7A8FB1005B9664 /* NSAttributedString+Size.swift in Sources */,
 				FE6980E21C5602C40026089B /* ObjEmail.swift in Sources */,
-				5E03FD211E7A8FB1005B9664 /* JSViewController.swift in Sources */,
-				5E03FD181E7A8FB1005B9664 /* JSApperence.swift in Sources */,
-				5E03FD1A1E7A8FB1005B9664 /* JSCollectionViewCell.swift in Sources */,
 				5E546DA51C8FAC2200E94997 /* ParaSort.swift in Sources */,
 				5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */,
 				5E0DDCF31E74F33200493ABA /* InstanceManager.swift in Sources */,
 				5ECB407C1C9950DB00B0C6FF /* CPSettingsLabelCell.swift in Sources */,
 				5EE91F831C7C4E32003F4CBF /* ObjEventPayload.swift in Sources */,
 				5EACCFCF1C8E5F450059A303 /* ParaComparison.swift in Sources */,
-				5E03FD271E7A8FB1005B9664 /* UIScreen+Size.swift in Sources */,
+				5E03FD741E7A982C005B9664 /* UIView+Draw.swift in Sources */,
+				5E03FD641E7A982C005B9664 /* JSApperence.swift in Sources */,
 				FE6980E61C5602C40026089B /* ObjUserSum.swift in Sources */,
 				5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */,
 				FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */,
-				5E03FD291E7A8FB1005B9664 /* UIView+Nib.swift in Sources */,
+				5E03FD651E7A982C005B9664 /* JSApplication.swift in Sources */,
 				5ECB40821C9A376B00B0C6FF /* CPProfileHeaderView.swift in Sources */,
-				5E03FD281E7A8FB1005B9664 /* UIView+Draw.swift in Sources */,
+				5E03FD6E1E7A982C005B9664 /* README.md in Sources */,
+				5E03FD6D1E7A982C005B9664 /* JSViewController.swift in Sources */,
+				5E03FD681E7A982C005B9664 /* JSFile.swift in Sources */,
 				FE6980E51C5602C40026089B /* ObjUser.swift in Sources */,
-				5E03FD261E7A8FB1005B9664 /* UINavigationController+Pop.swift in Sources */,
-				5E03FD251E7A8FB1005B9664 /* UILabel+Size.swift in Sources */,
-				5E03FD0E1E7A8FB1005B9664 /* JSClass.swift in Sources */,
 				5EE3FF5A1C7C076E00760F0F /* ObjIssue.swift in Sources */,
 				5E738C9E1C93A53D0075C82C /* CPFilterTableView.swift in Sources */,
-				5E03FD0B1E7A8FB1005B9664 /* README.md in Sources */,
-				5E03FD141E7A8FB1005B9664 /* README.md in Sources */,
+				5E03FD611E7A982C005B9664 /* README.md in Sources */,
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
 				5EC58D871E6DAAF60069AE82 /* PlistHelper.swift in Sources */,
 				5E4ABFDF1C916C330041FA89 /* CPDeveloperInfoView.swift in Sources */,
+				5E03FD711E7A982C005B9664 /* UILabel+Size.swift in Sources */,
 				FE91BA971C334C9F002AECB6 /* CPLoginViewController.swift in Sources */,
 				5E546D911C8EDE4800E94997 /* ObjError.swift in Sources */,
 				FE91BA871C3338D7002AECB6 /* CPBaseViewController.swift in Sources */,
 				5E4B99041C928D32000A6B94 /* CPProfileReposCell.swift in Sources */,
+				5E03FD731E7A982C005B9664 /* UIScreen+Size.swift in Sources */,
+				5E03FD5B1E7A982C005B9664 /* JSObject.swift in Sources */,
 				5E4ABFD91C91046F0041FA89 /* CPTrendingDeveloperViewController.swift in Sources */,
-				5E03FD0D1E7A8FB1005B9664 /* JSApp.swift in Sources */,
+				5E03FD581E7A982B005B9664 /* Data+Extension.swift in Sources */,
 				FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */,
 				FE91BA8F1C33396E002AECB6 /* CPProfileViewController.swift in Sources */,
 				5E4ABFE11C9181640041FA89 /* CPDevUserInfoCell.swift in Sources */,
 				5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */,
+				5E03FD691E7A982C005B9664 /* JSNavigationController.swift in Sources */,
+				5E03FD5E1E7A982C005B9664 /* README.md in Sources */,
 				FE0FE0D91C3F14F10005DDE5 /* ProjectKey.swift in Sources */,
 				FE17EA401C5723270061F624 /* ObjReposSum.swift in Sources */,
 				5E7F247A1CB92BD0001BD4C8 /* ObjSearchReposResponse.swift in Sources */,
 				FE19F93D1C39331B009986FE /* UIColor+Project.swift in Sources */,
 				5E546D9A1C8F61A000E94997 /* ObjSearchUserResponse.swift in Sources */,
+				5E03FD721E7A982C005B9664 /* UINavigationController+Pop.swift in Sources */,
 				FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */,
 				FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */,
-				5E03FD1D1E7A8FB1005B9664 /* JSNavigationController.swift in Sources */,
 				5E03D58D1C8C488D00E8C1FD /* CPEventPushCell.swift in Sources */,
-				5E03FD241E7A8FB1005B9664 /* UIDevice+Device.swift in Sources */,
 				5EC58D8A1E6DAAF60069AE82 /* UserManager.swift in Sources */,
 				FE91BA8B1C333948002AECB6 /* CPGistViewController.swift in Sources */,
-				5E03FD121E7A8FB1005B9664 /* README.md in Sources */,
 				5EC6C98B1CA54D810067E2E4 /* CPFunnyAwardViewController.swift in Sources */,
 				5EACCFCC1C8DEB490059A303 /* ParaSearchUser.swift in Sources */,
-				5E03FD0C1E7A8FB1005B9664 /* Data+Extension.swift in Sources */,
 				5E4ABFBF1C9032D40041FA89 /* CPTrendingRepoCell.swift in Sources */,
+				5E03FD601E7A982C005B9664 /* README.md in Sources */,
 				FE0FE0D71C3DC7BB0005DDE5 /* ObjBase.swift in Sources */,
 				5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */,
+				5E03FD671E7A982C005B9664 /* JSDevice.swift in Sources */,
 				5E546D8F1C8EDE3100E94997 /* ObjResponser.swift in Sources */,
+				5E03FD661E7A982C005B9664 /* JSCollectionViewCell.swift in Sources */,
 				FE91BA931C33399C002AECB6 /* CPTrendingViewController.swift in Sources */,
-				5E03FD131E7A8FB1005B9664 /* String+Extension.swift in Sources */,
 				5E4ABFC11C9032D40041FA89 /* CPTrendingShowcaseCell.swift in Sources */,
-				5E03FD1C1E7A8FB1005B9664 /* JSFile.swift in Sources */,
+				5E03FD5C1E7A982C005B9664 /* NSAttributedString+Size.swift in Sources */,
 				5ECB40721C994C5D00B0C6FF /* CPProSettingsViewController.swift in Sources */,
 				5E546D891C8EDE1800E94997 /* ObjSettings.swift in Sources */,
 				5E4ABFBD1C9032D40041FA89 /* CPTrendingDeveloperCell.swift in Sources */,
 				5EACCFD11C8E62C70059A303 /* ParaTrending.swift in Sources */,
 				FE914DBB1C4BC1F1001C3D90 /* CPBaseViewCell.swift in Sources */,
-				5E03FD2A1E7A8FB1005B9664 /* README.md in Sources */,
-				5E03FD1B1E7A8FB1005B9664 /* JSDevice.swift in Sources */,
+				5E03FD5D1E7A982C005B9664 /* NSString+Size.swift in Sources */,
+				5E03FD5F1E7A982C005B9664 /* String+Extension.swift in Sources */,
 				5E4ABFD21C90FF450041FA89 /* CPStoryBoarySegueCon.swift in Sources */,
 				5EE91F851C7C4FF9003F4CBF /* ObjEvent.swift in Sources */,
 				FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */,
 				FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */,
 				FE91BA951C333AE2002AECB6 /* CPBaseTabBarController.swift in Sources */,
 				5E4D9F741CC5189700DA8ECC /* CPGitLoginViewController.swift in Sources */,
+				5E03FD6C1E7A982C005B9664 /* JSUIKit.swift in Sources */,
 				5EF6E3CC1C8AC4B0004F6473 /* CPEventStarredCell.swift in Sources */,
 				5E03D58B1C8BCC1D00E8C1FD /* CPEventBaseCell.swift in Sources */,
-				5E03FD221E7A8FB1005B9664 /* README.md in Sources */,
 				FE6980E41C5602C40026089B /* ObjPlan.swift in Sources */,
+				5E03FD5A1E7A982C005B9664 /* JSClass.swift in Sources */,
 				5E4ABFD01C907DDE0041FA89 /* CPReposInfoView.swift in Sources */,
 				5E4ABFDB1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift in Sources */,
+				5E03FD761E7A982C005B9664 /* README.md in Sources */,
 				5EC58D7E1E6DAAF60069AE82 /* NetworkHelper.swift in Sources */,
-				5E03FD151E7A8FB1005B9664 /* README.md in Sources */,
 				5EE91F811C7C4D05003F4CBF /* ObjComment.swift in Sources */,
 				FE17EA3E1C5723050061F624 /* ObjRepos.swift in Sources */,
 				5EEE93DA1C8BA922003911B2 /* CPEventCreateCell.swift in Sources */,
 				5EE91F871C7C5922003F4CBF /* ObjCommit.swift in Sources */,
 				5ECB406D1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift in Sources */,
-				5E03FD1F1E7A8FB1005B9664 /* JSTableViewCell.swift in Sources */,
-				5E03FD111E7A8FB1005B9664 /* NSString+Size.swift in Sources */,
 				5E4ABFC41C9032FE0041FA89 /* CPReposPosterView.swift in Sources */,
+				5E03FD591E7A982B005B9664 /* JSApp.swift in Sources */,
 				5E546D971C8F618000E94997 /* ObjShowcase.swift in Sources */,
 				5E546D8E1C8EDE3100E94997 /* ObjResponseHeader.swift in Sources */,
 				5E546D8D1C8EDE3100E94997 /* AppToken.swift in Sources */,
+				5E03FD6B1E7A982C005B9664 /* JSTableViewCell.swift in Sources */,
+				5E03FD6A1E7A982C005B9664 /* JSTabBarController.swift in Sources */,
 				FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */,
-				5E03FD1E1E7A8FB1005B9664 /* JSTabBarController.swift in Sources */,
 				FEC0DC3A1C28B39F0008C7C1 /* AppDelegate.swift in Sources */,
+				5E03FD571E7A982B005B9664 /* README.md in Sources */,
 				5EE91F7F1C7C481A003F4CBF /* ObjNotification.swift in Sources */,
+				5E03FD631E7A982C005B9664 /* README.md in Sources */,
 				5E7F24761CB897D7001BD4C8 /* CPSearchFilterView.swift in Sources */,
+				5E03FD621E7A982C005B9664 /* JSCommentStyleGudie.swift in Sources */,
+				5E03FD751E7A982C005B9664 /* UIView+Nib.swift in Sources */,
 				5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */,
 				FED481091C3C7121002956A8 /* CPStyleGuide.swift in Sources */,
 				5E03FD2D1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift in Sources */,
-				5E03FD0F1E7A8FB1005B9664 /* JSObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

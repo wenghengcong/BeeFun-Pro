@@ -26,7 +26,7 @@ class CPTrendingViewController: CPBaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //view
-    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories","Developers","Showcases"])
+    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories".localized,"Developers".localized,"Showcases".localized])
     var filterView:CPFilterTableView?
     let filterVHeight:CGFloat = 270    //filterview height
     let header = MJRefreshNormalHeader()
@@ -80,7 +80,7 @@ class CPTrendingViewController: CPBaseViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_loginSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CPTrendingViewController.tvc_logoutSuccessful), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
-        self.title = "Explore"
+        self.title = "Explore".localized
 
     }
     
@@ -102,11 +102,6 @@ class CPTrendingViewController: CPBaseViewController {
             tvc_updateNetrokData()
         }else{
             UserManager.shared.showNotLoginTips()
-
-//            let alertController = UserManager.shared.loginTipAlertController()
-//            self.present(alertController, animated: true, completion: {
-//                
-//            })
         }
     }
     
@@ -204,16 +199,16 @@ class CPTrendingViewController: CPBaseViewController {
         
         // 下拉刷新
         header.setTitle("", for: .idle)
-        header.setTitle("Release to refresh", for: .pulling)
-        header.setTitle("Loading ...", for: .refreshing)
+        header.setTitle(kHeaderPullTip, for: .pulling)
+        header.setTitle(kHeaderPullingTip, for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
         // 上拉刷新
         footer.setTitle("", for: .idle)
-        footer.setTitle("Loading more ...", for: .pulling)
-        footer.setTitle("No more data", for: .noMoreData)
+        footer.setTitle(kFooterLoadTip, for: .pulling)
+        footer.setTitle(kFooterLoadNoDataTip, for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingViewController.footerRefresh))
         footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer

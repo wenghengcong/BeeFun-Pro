@@ -53,8 +53,8 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
         
         // 下拉刷新
         header.setTitle("Pull down to refresh", for: .idle)
-        header.setTitle("Release to refresh", for: .pulling)
-        header.setTitle("Loading ...", for: .refreshing)
+        header.setTitle(kHeaderPullTip, for: .pulling)
+        header.setTitle(kHeaderPullingTip, for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingShowcaseViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header

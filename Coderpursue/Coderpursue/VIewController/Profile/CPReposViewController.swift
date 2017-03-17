@@ -85,16 +85,16 @@ class CPReposViewController: CPBaseViewController {
         
         // 下拉刷新
         header.setTitle("", for: .idle)
-        header.setTitle("Release to refresh", for: .pulling)
-        header.setTitle("Loading ...", for: .refreshing)
+        header.setTitle(kHeaderPullTip, for: .pulling)
+        header.setTitle(kHeaderPullingTip, for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPReposViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
         // 上拉刷新
         footer.setTitle("", for: .idle)
-        footer.setTitle("Loading more ...", for: .pulling)
-        footer.setTitle("No more data", for: .noMoreData)
+        footer.setTitle(kFooterLoadTip, for: .pulling)
+        footer.setTitle(kFooterLoadNoDataTip, for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPReposViewController.footerRefresh))
         footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer

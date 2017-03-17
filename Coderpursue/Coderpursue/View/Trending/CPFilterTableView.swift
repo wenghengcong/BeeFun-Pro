@@ -142,6 +142,8 @@ class CPFilterTableView: UIView {
         secTableView!.reloadData()
     }
     
+    
+    /// 重置所有属性
     func resetProperty() {
         selTypeIndex = 0
         lastTypeIndex = 0

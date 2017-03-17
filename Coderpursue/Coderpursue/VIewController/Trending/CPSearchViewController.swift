@@ -100,16 +100,16 @@ class CPSearchViewController: CPBaseViewController {
         
         // 下拉刷新
         header.setTitle("", for: .idle)
-        header.setTitle("Release to refresh", for: .pulling)
-        header.setTitle("Loading ...", for: .refreshing)
+        header.setTitle(kHeaderPullTip, for: .pulling)
+        header.setTitle(kHeaderPullingTip, for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPSearchViewController.svc_headerRefresh) )
         header.isHidden = true
         self.tableView.mj_header = header
         
         // 上拉刷新
         footer.setTitle("", for: .idle)
-        footer.setTitle("Loading more ...", for: .pulling)
-        footer.setTitle("No more data", for: .noMoreData)
+        footer.setTitle(kFooterLoadTip, for: .pulling)
+        footer.setTitle(kFooterLoadNoDataTip, for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPSearchViewController.svc_footerRefresh) )
         footer.isRefreshingTitleHidden = true
         footer.isHidden = true

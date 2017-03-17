@@ -1956,8 +1956,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "110ac836-0b62-472a-9d2a-3a45393e8667";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.junglesong.coderpursue";
+				PROVISIONING_PROFILE = "384fbbea-757b-480c-bfce-6d31c5090d1a";
+				PROVISIONING_PROFILE_SPECIFIER = coderpursue_dev_pp;
 				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2031,8 +2031,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "600111b2-c478-4227-b2da-476ba30734db";
-				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.junglesong.coderpursue";
+				PROVISIONING_PROFILE = "b07352f3-53f6-4695-81b1-3cebd0083c35";
+				PROVISIONING_PROFILE_SPECIFIER = coderpursue_dis_pp;
 				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

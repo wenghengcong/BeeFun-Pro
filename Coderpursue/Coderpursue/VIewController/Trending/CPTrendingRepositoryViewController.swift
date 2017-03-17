@@ -78,8 +78,8 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.automaticallyAdjustsScrollViewInsets = false
         header.setTitle("Pull down to refresh", for: .idle)
-        header.setTitle("Release to refresh", for: .pulling)
-        header.setTitle("Loading ...", for: .refreshing)
+        header.setTitle(kHeaderPullTip, for: .pulling)
+        header.setTitle(kHeaderPullingTip, for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingRepositoryViewController.headerRefresh))
     }
     

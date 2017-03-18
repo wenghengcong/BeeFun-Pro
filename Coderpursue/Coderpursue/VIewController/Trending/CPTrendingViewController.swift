@@ -330,7 +330,7 @@ class CPTrendingViewController: CPBaseViewController {
     
     func tvc_getReposRequest() {
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
         
         Provider.sharedProvider.request(.trendingRepos(since:paraSince,language:"all") ) { (result) -> () in
             
@@ -339,7 +339,7 @@ class CPTrendingViewController: CPBaseViewController {
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):
@@ -394,7 +394,7 @@ class CPTrendingViewController: CPBaseViewController {
         resetSearchUserParameters()
         print("search user query:\(paraUser.q)")
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
         
         Provider.sharedProvider.request(.searchUsers(para:self.paraUser) ) { (result) -> () in
             
@@ -406,7 +406,7 @@ class CPTrendingViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):
@@ -448,7 +448,7 @@ class CPTrendingViewController: CPBaseViewController {
     
     func tvc_getShowcasesRequest() {
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
         
         Provider.sharedProvider.request(.trendingShowcases() ) { (result) -> () in
             
@@ -457,7 +457,7 @@ class CPTrendingViewController: CPBaseViewController {
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):

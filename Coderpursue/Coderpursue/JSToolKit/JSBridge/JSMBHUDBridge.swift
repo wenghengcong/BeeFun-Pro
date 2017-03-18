@@ -11,6 +11,15 @@ import MBProgressHUD
 
 class JSMBHUDBridge: NSObject {
 
+    /// 显示Hud
+    class func showHud() {
+        MBProgressHUD.showAdded(to: jsTopView!, animated: true)
+    }
+    
+    /// 隐藏Hud
+    class func hideHud() {
+        MBProgressHUD.hide(for: jsTopView!, animated: true)
+    }
     
     /// 显示信息
     ///

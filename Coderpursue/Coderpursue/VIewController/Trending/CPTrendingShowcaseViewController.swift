@@ -73,7 +73,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
     
     func tsc_getShowcaseRequest(){
     
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
         
         Provider.sharedProvider.request(.trendingShowcase(showcase:showcase.slug!) ) { (result) -> () in
             
@@ -81,7 +81,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
             
             self.tableView.mj_header.endRefreshing()
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):

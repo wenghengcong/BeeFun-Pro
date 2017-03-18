@@ -182,7 +182,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     func rvc_getReopsRequest(){
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
         self.view.backgroundColor = UIColor.white
         self.tableView.isHidden = true
         
@@ -193,7 +193,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):
@@ -236,7 +236,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             switch result {
             case let .success(response):
                 
@@ -273,7 +273,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             print(result)
             switch result {
             case let .success(response):
@@ -306,7 +306,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             print(result)
             switch result {
             case let .success(response):
@@ -340,7 +340,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             print(result)
             switch result {
             case let .success(response):
@@ -375,7 +375,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             print(result)
             switch result {
             case let .success(response):
@@ -409,7 +409,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             print(result)
             switch result {
             case let .success(response):
@@ -444,7 +444,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             print(result)
             switch result {
             case let .success(response):

@@ -133,7 +133,8 @@ class CPFollowersViewController: CPBaseViewController {
     // MARK: fetch data form request
     func tvc_getUserFollowerRequest() {
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud()
         
         Provider.sharedProvider.request(.userFollowers(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
@@ -145,7 +146,7 @@ class CPFollowersViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):
@@ -183,7 +184,7 @@ class CPFollowersViewController: CPBaseViewController {
     
     func tvc_getUserFollowingRequst() {
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
         
         Provider.sharedProvider.request(.userFollowing(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
@@ -195,7 +196,7 @@ class CPFollowersViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):

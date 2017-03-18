@@ -199,7 +199,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             print(result)
             switch result {
             case let .success(response):
@@ -226,7 +226,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_getUserinfoRequest(){
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
         
         let username = developer!.login!
 
@@ -234,7 +234,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):
@@ -266,7 +266,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_followUserRequest(){
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
         
         let username = developer!.login!
         
@@ -274,7 +274,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):
@@ -303,7 +303,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_unfolloweUserRequest(){
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud()
         
         let username = developer!.login!
         
@@ -311,7 +311,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud()
             
             switch result {
             case let .success(response):

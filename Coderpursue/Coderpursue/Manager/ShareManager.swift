@@ -160,7 +160,7 @@ class ShareManager: NSObject {
         SSUIShareActionSheetStyle.setShareActionSheetStyle(.simple)
         
         //3、分享
-        ShareSDK.showShareActionSheet(cpTopView!, items: showPlatforms, shareParams: shareParams) { (state, platform, userdata, entity : SSDKContentEntity?, error :Error?, end:Bool) in
+        ShareSDK.showShareActionSheet(jsTopView!, items: showPlatforms, shareParams: shareParams) { (state, platform, userdata, entity : SSDKContentEntity?, error :Error?, end:Bool) in
             
             if let method = self.delegate?.didStateChange(state: platform: userdata: content: error: end:){
                 method(state,platform,userdata,entity,error,end)

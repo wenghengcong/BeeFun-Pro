@@ -101,10 +101,12 @@
 		5E0DDCEE1E72FFE800493ABA /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E0DDCC11E72FFE800493ABA /* ShareSDK.bundle */; };
 		5E0DDCEF1E72FFE800493ABA /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */; };
 		5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF01E73010D00493ABA /* ShareManager.swift */; };
-		5E0DDCF31E74F33200493ABA /* InstanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF21E74F33200493ABA /* InstanceManager.swift */; };
 		5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */; };
 		5E15CAD21E7D6A0C009B84D7 /* JSSwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */; };
 		5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */; };
+		5E15CAD61E7D6D9D009B84D7 /* JSUIGloable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD51E7D6D9D009B84D7 /* JSUIGloable.swift */; };
+		5E15CAD81E7D6DFA009B84D7 /* JSFoundationGloable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD71E7D6DFA009B84D7 /* JSFoundationGloable.swift */; };
+		5E15CADA1E7D6E08009B84D7 /* JSFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD91E7D6E08009B84D7 /* JSFoundation.swift */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
@@ -374,12 +376,14 @@
 		5E0DDCC11E72FFE800493ABA /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
 		5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
 		5E0DDCF01E73010D00493ABA /* ShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
-		5E0DDCF21E74F33200493ABA /* InstanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceManager.swift; sourceTree = "<group>"; };
 		5E15CAC21E7D4DDF009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
 		5E15CAC81E7D4FD7009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E15CACA1E7D4FD9009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
 		5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSMBHUDBridge.swift; sourceTree = "<group>"; };
+		5E15CAD51E7D6D9D009B84D7 /* JSUIGloable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSUIGloable.swift; sourceTree = "<group>"; };
+		5E15CAD71E7D6DFA009B84D7 /* JSFoundationGloable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSFoundationGloable.swift; sourceTree = "<group>"; };
+		5E15CAD91E7D6E08009B84D7 /* JSFoundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSFoundation.swift; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
@@ -683,6 +687,8 @@
 			isa = PBXGroup;
 			children = (
 				5E03FD3A1E7A982B005B9664 /* README.md */,
+				5E15CAD91E7D6E08009B84D7 /* JSFoundation.swift */,
+				5E15CAD71E7D6DFA009B84D7 /* JSFoundationGloable.swift */,
 				5E03FD341E7A982B005B9664 /* Data+Extension.swift */,
 				5E03FD351E7A982B005B9664 /* JSApp.swift */,
 				5E03FD361E7A982B005B9664 /* JSClass.swift */,
@@ -724,6 +730,9 @@
 		5E03FD431E7A982B005B9664 /* JSUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				5E03FD4E1E7A982B005B9664 /* README.md */,
+				5E03FD4C1E7A982B005B9664 /* JSUIKit.swift */,
+				5E15CAD51E7D6D9D009B84D7 /* JSUIGloable.swift */,
 				5E03FD441E7A982B005B9664 /* JSApperence.swift */,
 				5E03FD451E7A982B005B9664 /* JSApplication.swift */,
 				5E03FD461E7A982B005B9664 /* JSCollectionViewCell.swift */,
@@ -732,9 +741,7 @@
 				5E03FD491E7A982B005B9664 /* JSNavigationController.swift */,
 				5E03FD4A1E7A982B005B9664 /* JSTabBarController.swift */,
 				5E03FD4B1E7A982B005B9664 /* JSTableViewCell.swift */,
-				5E03FD4C1E7A982B005B9664 /* JSUIKit.swift */,
 				5E03FD4D1E7A982B005B9664 /* JSViewController.swift */,
-				5E03FD4E1E7A982B005B9664 /* README.md */,
 				5E03FD4F1E7A982B005B9664 /* UIColor+Extension.swift */,
 				5E03FD501E7A982B005B9664 /* UIDevice+Device.swift */,
 				5E03FD511E7A982B005B9664 /* UILabel+Size.swift */,
@@ -1028,7 +1035,6 @@
 				5EC58D7A1E6DAAF60069AE82 /* TimeHelper.swift */,
 				5EC58D7B1E6DAAF60069AE82 /* UserManager.swift */,
 				5E0DDCF01E73010D00493ABA /* ShareManager.swift */,
-				5E0DDCF21E74F33200493ABA /* InstanceManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1649,7 +1655,6 @@
 				FE6980E21C5602C40026089B /* ObjEmail.swift in Sources */,
 				5E546DA51C8FAC2200E94997 /* ParaSort.swift in Sources */,
 				5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */,
-				5E0DDCF31E74F33200493ABA /* InstanceManager.swift in Sources */,
 				5ECB407C1C9950DB00B0C6FF /* CPSettingsLabelCell.swift in Sources */,
 				5EE91F831C7C4E32003F4CBF /* ObjEventPayload.swift in Sources */,
 				5EACCFCF1C8E5F450059A303 /* ParaComparison.swift in Sources */,
@@ -1669,6 +1674,7 @@
 				5E738C9E1C93A53D0075C82C /* CPFilterTableView.swift in Sources */,
 				5E03FD611E7A982C005B9664 /* README.md in Sources */,
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
+				5E15CAD61E7D6D9D009B84D7 /* JSUIGloable.swift in Sources */,
 				5EC58D871E6DAAF60069AE82 /* PlistHelper.swift in Sources */,
 				5E4ABFDF1C916C330041FA89 /* CPDeveloperInfoView.swift in Sources */,
 				5E03FD711E7A982C005B9664 /* UILabel+Size.swift in Sources */,
@@ -1678,6 +1684,7 @@
 				5E4B99041C928D32000A6B94 /* CPProfileReposCell.swift in Sources */,
 				5E03FD731E7A982C005B9664 /* UIScreen+Size.swift in Sources */,
 				5E03FD5B1E7A982C005B9664 /* JSObject.swift in Sources */,
+				5E15CADA1E7D6E08009B84D7 /* JSFoundation.swift in Sources */,
 				5E4ABFD91C91046F0041FA89 /* CPTrendingDeveloperViewController.swift in Sources */,
 				5E03FD581E7A982B005B9664 /* Data+Extension.swift in Sources */,
 				FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */,
@@ -1695,6 +1702,7 @@
 				FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */,
 				FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */,
 				5E03D58D1C8C488D00E8C1FD /* CPEventPushCell.swift in Sources */,
+				5E15CAD81E7D6DFA009B84D7 /* JSFoundationGloable.swift in Sources */,
 				5EC58D8A1E6DAAF60069AE82 /* UserManager.swift in Sources */,
 				FE91BA8B1C333948002AECB6 /* CPGistViewController.swift in Sources */,
 				5EC6C98B1CA54D810067E2E4 /* CPFunnyAwardViewController.swift in Sources */,

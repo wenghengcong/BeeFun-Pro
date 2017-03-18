@@ -24,36 +24,12 @@ class CPTrendingShowcaseCell: CPBaseViewCell {
     var showcase:ObjShowcase? {
         
         didSet {
-            
-            let urlPath:String = showcase!.image_url!
-            
-            let cache = KingfisherManager.shared.cache
-            
-            //first:cache disk
-            //if no disk cache,download image
-            if let cacheImg = cache.retrieveImageInDiskCache(forKey: urlPath){
-                let colorImg:UIColor = UIColor(patternImage:cacheImg)
-                self.bgImageV.backgroundColor = colorImg
-            }else{
-                
-                let downloader = KingfisherManager.shared.downloader
-                downloader.downloadImage(with: URL(string: urlPath)!, options: [.downloader(downloader)], progressBlock: { (receivedSize, totalSize) in
-                    
-                    }, completionHandler: { (image, error, imageURL, originalData) -> () in
-                        
-                        if(image != nil){
-                            cache.store(image!, forKey: urlPath)
-                            let colorImg:UIColor = UIColor(patternImage:image!)
-                            self.bgImageV.backgroundColor = colorImg
-                            
-                        }
-                    }
-                )
-                
-                nameLabel.text = showcase!.name!
-                descLabel.text = showcase!.cdescription
-            
+            if let imgagUrl = showcase!.image_url {
+                let url = URL(string: imgagUrl)
+                self.bgImageV.kf.setImage(with: url)
             }
+            nameLabel.text = showcase!.name!
+            descLabel.text = showcase!.cdescription
         
         }
 

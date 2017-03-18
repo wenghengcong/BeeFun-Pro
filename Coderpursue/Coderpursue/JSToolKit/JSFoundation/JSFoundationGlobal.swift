@@ -11,6 +11,6 @@ import UIKit
 /// 应用的代理
 let jsAppDelegate:AppDelegate = UIApplication.shared.delegate as! AppDelegate
 
-class JSFoundationGloable: NSObject {
+class JSFoundationGlobal: NSObject {
 
 }

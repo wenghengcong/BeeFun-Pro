@@ -104,8 +104,8 @@
 		5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */; };
 		5E15CAD21E7D6A0C009B84D7 /* JSSwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */; };
 		5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */; };
-		5E15CAD61E7D6D9D009B84D7 /* JSUIGloable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD51E7D6D9D009B84D7 /* JSUIGloable.swift */; };
-		5E15CAD81E7D6DFA009B84D7 /* JSFoundationGloable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD71E7D6DFA009B84D7 /* JSFoundationGloable.swift */; };
+		5E15CAD61E7D6D9D009B84D7 /* JSUIGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD51E7D6D9D009B84D7 /* JSUIGlobal.swift */; };
+		5E15CAD81E7D6DFA009B84D7 /* JSFoundationGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD71E7D6DFA009B84D7 /* JSFoundationGlobal.swift */; };
 		5E15CADA1E7D6E08009B84D7 /* JSFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD91E7D6E08009B84D7 /* JSFoundation.swift */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
@@ -381,8 +381,8 @@
 		5E15CACA1E7D4FD9009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
 		5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSMBHUDBridge.swift; sourceTree = "<group>"; };
-		5E15CAD51E7D6D9D009B84D7 /* JSUIGloable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSUIGloable.swift; sourceTree = "<group>"; };
-		5E15CAD71E7D6DFA009B84D7 /* JSFoundationGloable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSFoundationGloable.swift; sourceTree = "<group>"; };
+		5E15CAD51E7D6D9D009B84D7 /* JSUIGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSUIGlobal.swift; sourceTree = "<group>"; };
+		5E15CAD71E7D6DFA009B84D7 /* JSFoundationGlobal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSFoundationGlobal.swift; sourceTree = "<group>"; };
 		5E15CAD91E7D6E08009B84D7 /* JSFoundation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSFoundation.swift; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
@@ -688,7 +688,7 @@
 			children = (
 				5E03FD3A1E7A982B005B9664 /* README.md */,
 				5E15CAD91E7D6E08009B84D7 /* JSFoundation.swift */,
-				5E15CAD71E7D6DFA009B84D7 /* JSFoundationGloable.swift */,
+				5E15CAD71E7D6DFA009B84D7 /* JSFoundationGlobal.swift */,
 				5E03FD341E7A982B005B9664 /* Data+Extension.swift */,
 				5E03FD351E7A982B005B9664 /* JSApp.swift */,
 				5E03FD361E7A982B005B9664 /* JSClass.swift */,
@@ -732,7 +732,7 @@
 			children = (
 				5E03FD4E1E7A982B005B9664 /* README.md */,
 				5E03FD4C1E7A982B005B9664 /* JSUIKit.swift */,
-				5E15CAD51E7D6D9D009B84D7 /* JSUIGloable.swift */,
+				5E15CAD51E7D6D9D009B84D7 /* JSUIGlobal.swift */,
 				5E03FD441E7A982B005B9664 /* JSApperence.swift */,
 				5E03FD451E7A982B005B9664 /* JSApplication.swift */,
 				5E03FD461E7A982B005B9664 /* JSCollectionViewCell.swift */,
@@ -1674,7 +1674,7 @@
 				5E738C9E1C93A53D0075C82C /* CPFilterTableView.swift in Sources */,
 				5E03FD611E7A982C005B9664 /* README.md in Sources */,
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
-				5E15CAD61E7D6D9D009B84D7 /* JSUIGloable.swift in Sources */,
+				5E15CAD61E7D6D9D009B84D7 /* JSUIGlobal.swift in Sources */,
 				5EC58D871E6DAAF60069AE82 /* PlistHelper.swift in Sources */,
 				5E4ABFDF1C916C330041FA89 /* CPDeveloperInfoView.swift in Sources */,
 				5E03FD711E7A982C005B9664 /* UILabel+Size.swift in Sources */,
@@ -1702,7 +1702,7 @@
 				FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */,
 				FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */,
 				5E03D58D1C8C488D00E8C1FD /* CPEventPushCell.swift in Sources */,
-				5E15CAD81E7D6DFA009B84D7 /* JSFoundationGloable.swift in Sources */,
+				5E15CAD81E7D6DFA009B84D7 /* JSFoundationGlobal.swift in Sources */,
 				5EC58D8A1E6DAAF60069AE82 /* UserManager.swift in Sources */,
 				FE91BA8B1C333948002AECB6 /* CPGistViewController.swift in Sources */,
 				5EC6C98B1CA54D810067E2E4 /* CPFunnyAwardViewController.swift in Sources */,

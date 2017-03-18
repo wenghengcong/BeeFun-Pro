@@ -8,6 +8,9 @@
 
 import UIKit
 
+class JSUIKit: NSObject {
+    
+}
 
 
 

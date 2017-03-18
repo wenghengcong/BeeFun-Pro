@@ -8,6 +8,10 @@
 
 import UIKit
 
+class JSUIGlobal: NSObject {
+    
+}
+
 /// 全局keywindow
 let jsKeywindow = jsAppDelegate.window
 

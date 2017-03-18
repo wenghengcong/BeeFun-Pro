@@ -13,19 +13,14 @@
 		5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */; };
 		5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */; };
 		5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */; };
-		5E03FD571E7A982B005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD321E7A982B005B9664 /* README.md */; };
 		5E03FD581E7A982B005B9664 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD341E7A982B005B9664 /* Data+Extension.swift */; };
 		5E03FD591E7A982B005B9664 /* JSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD351E7A982B005B9664 /* JSApp.swift */; };
 		5E03FD5A1E7A982C005B9664 /* JSClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD361E7A982B005B9664 /* JSClass.swift */; };
 		5E03FD5B1E7A982C005B9664 /* JSObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD371E7A982B005B9664 /* JSObject.swift */; };
 		5E03FD5C1E7A982C005B9664 /* NSAttributedString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD381E7A982B005B9664 /* NSAttributedString+Size.swift */; };
 		5E03FD5D1E7A982C005B9664 /* NSString+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD391E7A982B005B9664 /* NSString+Size.swift */; };
-		5E03FD5E1E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD3A1E7A982B005B9664 /* README.md */; };
 		5E03FD5F1E7A982C005B9664 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD3B1E7A982B005B9664 /* String+Extension.swift */; };
-		5E03FD601E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD3D1E7A982B005B9664 /* README.md */; };
-		5E03FD611E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD3F1E7A982B005B9664 /* README.md */; };
 		5E03FD621E7A982C005B9664 /* JSCommentStyleGudie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD411E7A982B005B9664 /* JSCommentStyleGudie.swift */; };
-		5E03FD631E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD421E7A982B005B9664 /* README.md */; };
 		5E03FD641E7A982C005B9664 /* JSApperence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD441E7A982B005B9664 /* JSApperence.swift */; };
 		5E03FD651E7A982C005B9664 /* JSApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD451E7A982B005B9664 /* JSApplication.swift */; };
 		5E03FD661E7A982C005B9664 /* JSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD461E7A982B005B9664 /* JSCollectionViewCell.swift */; };
@@ -36,7 +31,6 @@
 		5E03FD6B1E7A982C005B9664 /* JSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4B1E7A982B005B9664 /* JSTableViewCell.swift */; };
 		5E03FD6C1E7A982C005B9664 /* JSUIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4C1E7A982B005B9664 /* JSUIKit.swift */; };
 		5E03FD6D1E7A982C005B9664 /* JSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4D1E7A982B005B9664 /* JSViewController.swift */; };
-		5E03FD6E1E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4E1E7A982B005B9664 /* README.md */; };
 		5E03FD6F1E7A982C005B9664 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD4F1E7A982B005B9664 /* UIColor+Extension.swift */; };
 		5E03FD701E7A982C005B9664 /* UIDevice+Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD501E7A982B005B9664 /* UIDevice+Device.swift */; };
 		5E03FD711E7A982C005B9664 /* UILabel+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD511E7A982B005B9664 /* UILabel+Size.swift */; };
@@ -44,7 +38,6 @@
 		5E03FD731E7A982C005B9664 /* UIScreen+Size.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD531E7A982B005B9664 /* UIScreen+Size.swift */; };
 		5E03FD741E7A982C005B9664 /* UIView+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD541E7A982B005B9664 /* UIView+Draw.swift */; };
 		5E03FD751E7A982C005B9664 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD551E7A982B005B9664 /* UIView+Nib.swift */; };
-		5E03FD761E7A982C005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD561E7A982B005B9664 /* README.md */; };
 		5E0943931CC1F0020047118D /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0943921CC1F0020047118D /* libicucore.tbd */; };
 		5E0943951CC1F0100047118D /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0943941CC1F0100047118D /* libz.tbd */; };
 		5E0943971CC1F01C0047118D /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0943961CC1F01C0047118D /* libstdc++.tbd */; };
@@ -1666,13 +1659,11 @@
 				FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */,
 				5E03FD651E7A982C005B9664 /* JSApplication.swift in Sources */,
 				5ECB40821C9A376B00B0C6FF /* CPProfileHeaderView.swift in Sources */,
-				5E03FD6E1E7A982C005B9664 /* README.md in Sources */,
 				5E03FD6D1E7A982C005B9664 /* JSViewController.swift in Sources */,
 				5E03FD681E7A982C005B9664 /* JSFile.swift in Sources */,
 				FE6980E51C5602C40026089B /* ObjUser.swift in Sources */,
 				5EE3FF5A1C7C076E00760F0F /* ObjIssue.swift in Sources */,
 				5E738C9E1C93A53D0075C82C /* CPFilterTableView.swift in Sources */,
-				5E03FD611E7A982C005B9664 /* README.md in Sources */,
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
 				5E15CAD61E7D6D9D009B84D7 /* JSUIGlobal.swift in Sources */,
 				5EC58D871E6DAAF60069AE82 /* PlistHelper.swift in Sources */,
@@ -1692,7 +1683,6 @@
 				5E4ABFE11C9181640041FA89 /* CPDevUserInfoCell.swift in Sources */,
 				5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */,
 				5E03FD691E7A982C005B9664 /* JSNavigationController.swift in Sources */,
-				5E03FD5E1E7A982C005B9664 /* README.md in Sources */,
 				FE0FE0D91C3F14F10005DDE5 /* ProjectKey.swift in Sources */,
 				FE17EA401C5723270061F624 /* ObjReposSum.swift in Sources */,
 				5E7F247A1CB92BD0001BD4C8 /* ObjSearchReposResponse.swift in Sources */,
@@ -1708,7 +1698,6 @@
 				5EC6C98B1CA54D810067E2E4 /* CPFunnyAwardViewController.swift in Sources */,
 				5EACCFCC1C8DEB490059A303 /* ParaSearchUser.swift in Sources */,
 				5E4ABFBF1C9032D40041FA89 /* CPTrendingRepoCell.swift in Sources */,
-				5E03FD601E7A982C005B9664 /* README.md in Sources */,
 				FE0FE0D71C3DC7BB0005DDE5 /* ObjBase.swift in Sources */,
 				5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */,
 				5E03FD671E7A982C005B9664 /* JSDevice.swift in Sources */,
@@ -1737,7 +1726,6 @@
 				5E03FD5A1E7A982C005B9664 /* JSClass.swift in Sources */,
 				5E4ABFD01C907DDE0041FA89 /* CPReposInfoView.swift in Sources */,
 				5E4ABFDB1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift in Sources */,
-				5E03FD761E7A982C005B9664 /* README.md in Sources */,
 				5EC58D7E1E6DAAF60069AE82 /* NetworkHelper.swift in Sources */,
 				5EE91F811C7C4D05003F4CBF /* ObjComment.swift in Sources */,
 				FE17EA3E1C5723050061F624 /* ObjRepos.swift in Sources */,
@@ -1753,9 +1741,7 @@
 				5E03FD6A1E7A982C005B9664 /* JSTabBarController.swift in Sources */,
 				FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */,
 				FEC0DC3A1C28B39F0008C7C1 /* AppDelegate.swift in Sources */,
-				5E03FD571E7A982B005B9664 /* README.md in Sources */,
 				5EE91F7F1C7C481A003F4CBF /* ObjNotification.swift in Sources */,
-				5E03FD631E7A982C005B9664 /* README.md in Sources */,
 				5E7F24761CB897D7001BD4C8 /* CPSearchFilterView.swift in Sources */,
 				5E03FD621E7A982C005B9664 /* JSCommentStyleGudie.swift in Sources */,
 				5E03FD751E7A982C005B9664 /* UIView+Nib.swift in Sources */,
@@ -1977,16 +1963,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Facebook",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Twitter",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/DingDing",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Facebook",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Linkedin",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/QQ",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Twitter",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialSDK",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialUI",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/Optional",
@@ -2005,23 +1981,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_5.0.1",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Facebook",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Twitter",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/UMSocial_ScreenShot_Sdk",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/UMSocial_Shake_Sdk",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Wechat",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMAnalytics_Sdk_3.6.7",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/DingDing",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Facebook",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Linkedin",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/QQ",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Sina",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Twitter",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/WeChat",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/APSocialSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/WeChatSDK",
@@ -2053,16 +2012,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Facebook",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Twitter",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/DingDing",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Facebook",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Linkedin",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/QQ",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Twitter",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialSDK",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialUI",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/Optional",
@@ -2081,23 +2030,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_5.0.1",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Facebook",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/SinaSSO",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/TencentOpenAPI",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Twitter",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/UMSocial_ScreenShot_Sdk",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/UMSocial_Shake_Sdk",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMengSocial/UMSocial_Sdk_Extra_Frameworks/Wechat",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMAnalytics_Sdk_3.6.7",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/DingDing",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Facebook",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Linkedin",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/QQ",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Sina",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/Twitter",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/SocialLibraries/WeChat",
-					"$(PROJECT_DIR)/Coderpursue/ThidParty/UMSocial/UMSocialSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/APSocialSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
 					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/WeChatSDK",

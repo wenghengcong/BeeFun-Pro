@@ -289,14 +289,11 @@ extension CPFilterTableView:UITableViewDelegate {
 
         let indexOfTableviews = (tableView == firTableView) ? 0:1
         
-        JSLanguage.setEnglish()
-        
         /// 其中的数据在传进来时，已经本地化
-        let type = filterTypes[selTypeIndex]
-        let typeLo = type.localized
+        let type = filterTypes[selTypeIndex].enLocalized
         let selValueIndex = (selTypeIndex == 0) ? selFirValueIndex : selSecValueIndex
         //其中的数据从plist中读取已经本地化
-        let value = filterData[selTypeIndex][selValueIndex]
+        let value = (filterData[selTypeIndex][selValueIndex]).enLocalized
         
         resetAllColoumnsData()
         
@@ -308,7 +305,5 @@ extension CPFilterTableView:UITableViewDelegate {
             }
             
         }
-        
-        JSLanguage.setUserLanguage()        
     }
 }

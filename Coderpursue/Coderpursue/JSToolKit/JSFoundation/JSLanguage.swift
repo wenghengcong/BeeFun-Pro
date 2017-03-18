@@ -12,19 +12,23 @@ import UIKit
 let kAppleLanguageKey = "AppleLanguages"
 
 /// 用户选择的语言
-let kAppChooseLanguageKey = "kAppChooseLanguageKey"
-
-let kChineseLanguage = "zh-Hans"
-
-let kEnglishLanguage = "en"
+let kAppUserLanguageKey = "kAppUserLanguageKey"
 
 
+
+
+/// 语言管理类，分为系统语言、APP语言、用户选择语言
 class JSLanguage: NSObject {
     
     
     /// 获取系统的两位语言代码
     class var languageCode:String {
         return  Locale.current.languageCode!
+    }
+    
+    /// 获取两位区域代码
+    class var regionCode:String {
+        return  Locale.current.regionCode!
     }
     
     /// 获取系统的语言
@@ -35,80 +39,75 @@ class JSLanguage: NSObject {
             var system = languageCode
             if (system == "zh") {
                 system = kChineseLanguage
-            }else if(system == "zh"){
+            }else if(system == "en"){
                 system = kEnglishLanguage
             }else{
                 system = kEnglishLanguage
             }
-            JSLog.debug("system language is \(system) ")
             return system
         }
     }
     
     /// 用户选择的语言，默认是系统的语言
     class var userLanguage:String {
-        
         set {
             let def = UserDefaults.standard
-            def.set(newValue, forKey: kAppChooseLanguageKey)
+            def.set(newValue, forKey: kAppUserLanguageKey)
             def.synchronize()
-            JSLog.debug("user choose new language \(newValue) ")
         }
         
         get {
             let def = UserDefaults.standard
-            var choose = def.object(forKey: kAppChooseLanguageKey)
+            var choose = def.object(forKey: kAppUserLanguageKey)
             if choose == nil{
                 choose = systemLanguage
             }
-            JSLog.debug("user choose language is \(choose!) ")
             return choose as! String
         }
     }
     
-    /// 当前设置的语言
-    class var currentLanguage:String {
+
+    
+    /// APP语言
+    class var appLanguage:String {
         set {
             let def = UserDefaults.standard
             def.set([newValue], forKey: kAppleLanguageKey)
             def.synchronize()
-            JSLog.debug("set current language is \(newValue) ")
         }
         
         get {
             let def = UserDefaults.standard
             let langArray = def.object(forKey: kAppleLanguageKey) as! NSArray
             let current = langArray.firstObject as! String
-            JSLog.debug("current language is \(current) ")
             return current
         }
     }
     
-    /// 设置APP内语言为选中的语言
-    class func setUserLanguage() {
-        currentLanguage = userLanguage
-    }
-    
-    /// 设置语言
-    ///
-    /// - Parameter lang: <#lang description#>
+    /// 设置用户选择语言
     class func switchLanguage(to lang: String) {
-        currentLanguage = lang
+        userLanguage = lang
     }
     
-    /// 设置为本地默认化语言
-    class func setSystemLanguage() {
-        switchLanguage(to: systemLanguage)
+    /// 将用户选择的语言同步到App语言
+    class func synchronize() {
+        appLanguage = userLanguage
     }
     
-    /// 设置为英文语言
+    /// 初始化语言，默认为系统的语言
+    class func initUserLanguage() {
+        userLanguage = systemLanguage
+        synchronize()
+    }
+    
+    /// 设置APP语言为英文语言
     class func setEnglish() {
-        switchLanguage(to: kEnglishLanguage)
+        appLanguage = kEnglishLanguage
     }
     
-    /// 设置为中文语言
+    /// 设置APP语言为中文语言
     class func setChinese() {
-        switchLanguage(to: kChineseLanguage)
+        appLanguage = kChineseLanguage
     }
     
 }

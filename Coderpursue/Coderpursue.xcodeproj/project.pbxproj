@@ -103,6 +103,7 @@
 		5E0DDCEF1E72FFE800493ABA /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */; };
 		5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF01E73010D00493ABA /* ShareManager.swift */; };
 		5E0DDCF31E74F33200493ABA /* InstanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF21E74F33200493ABA /* InstanceManager.swift */; };
+		5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
@@ -374,6 +375,9 @@
 		5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
 		5E0DDCF01E73010D00493ABA /* ShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
 		5E0DDCF21E74F33200493ABA /* InstanceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstanceManager.swift; sourceTree = "<group>"; };
+		5E15CAC21E7D4DDF009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
+		5E15CAC81E7D4FD7009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5E15CACA1E7D4FD9009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
@@ -518,7 +522,6 @@
 		FEC0DC391C28B39F0008C7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEC0DC401C28B39F0008C7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FEC0DC451C28B39F0008C7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FEC0DC471C28B39F0008C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FEC0DC4C1C28B39F0008C7C1 /* CoderpursueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderpursueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC0DC501C28B39F0008C7C1 /* CoderpursueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderpursueTests.swift; sourceTree = "<group>"; };
 		FEC0DC521C28B39F0008C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1365,7 +1368,8 @@
 				FEC0DC3F1C28B39F0008C7C1 /* Main.storyboard */,
 				FE1DE7B51C5104AC00865DD5 /* Coderpursue-Bridging-Header.h */,
 				FEC0DC441C28B39F0008C7C1 /* LaunchScreen.storyboard */,
-				FEC0DC471C28B39F0008C7C1 /* Info.plist */,
+				5E15CAC31E7D4DDF009B84D7 /* Info.plist */,
+				5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */,
 			);
 			path = Coderpursue;
 			sourceTree = "<group>";
@@ -1507,6 +1511,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */,
+				5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */,
 				FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */,
 				5EFAE6591E7B920F003194C3 /* CPCity.plist in Resources */,
 				5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */,
@@ -1779,6 +1784,23 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		5E15CAC31E7D4DDF009B84D7 /* Info.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E15CAC21E7D4DDF009B84D7 /* zh-Hans */,
+			);
+			name = Info.plist;
+			sourceTree = "<group>";
+		};
+		5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E15CAC81E7D4FD7009B84D7 /* en */,
+				5E15CACA1E7D4FD9009B84D7 /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		5E7368661E76907800AEBA77 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

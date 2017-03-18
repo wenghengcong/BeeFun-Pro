@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         JSSwiftyBeaverBridge.SwitfyBeaverInit()
         
         //设置语言
-        JSLanguage.setUserLanguage()
+        JSLanguage.initUserLanguage()
         
         // Override point for customization after application launch.
         IQKeyboardManager.sharedManager().enable = true

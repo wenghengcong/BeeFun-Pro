@@ -109,14 +109,14 @@ class CPSearchFilterView: UIView {
         let footView = UIView.init(frame: CGRect(x: 0, y: tableView.bottom, width: width, height: actionBtnH))
         
         let resetBtn = UIButton.init(frame: CGRect(x: 0, y: 0, width: width/2, height: actionBtnH))
-        resetBtn.setTitle("Reset", for: UIControlState())
+        resetBtn.setTitle("Reset".localized, for: UIControlState())
         resetBtn.setTitleColor(UIColor.cpBlackColor, for: UIControlState())
         resetBtn.backgroundColor = UIColor.white
         resetBtn.addTarget(self, action: #selector(CPSearchFilterView.resetParaAction), for: .touchUpInside)
         footView.addSubview(resetBtn)
         
         let sureBtn = UIButton.init(frame: CGRect(x: width/2,y: 0, width: width/2, height: actionBtnH))
-        sureBtn.setTitle("Sure", for: UIControlState())
+        sureBtn.setTitle("Sure".localized, for: UIControlState())
         sureBtn.setTitleColor(UIColor.white, for: UIControlState())
         sureBtn.backgroundColor = UIColor.cpRedColor
         sureBtn.addTarget(self, action: #selector(CPSearchFilterView.sureAction), for: .touchUpInside)
@@ -256,7 +256,8 @@ extension CPSearchFilterView:UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let currentPara = filterPara[selParaIndex]
+        /// 获取选中的value，需要将其英文化
+        let currentPara = filterPara[selParaIndex].enLocalized
         selValueDic[currentPara] = (indexPath as NSIndexPath).row
         print(selValueDic)
         tableView.reloadData()

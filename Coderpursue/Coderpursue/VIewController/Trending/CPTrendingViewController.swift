@@ -710,11 +710,11 @@ extension CPTrendingViewController : UITableViewDelegate {
         }else if(segue.identifier == SegueTrendingSearchView){
             
             var pageType:TrendingViewPageType = .Repos
-            var placeholder = "Search repositories"
+            var placeholder = "Search repositories".localized
             
             if segControl.selectedSegmentIndex == 1 {
                 pageType = .User
-                placeholder = "Search users"
+                placeholder = "Search users".localized
             }
             
             let searchVC = segue.destination as! CPSearchViewController

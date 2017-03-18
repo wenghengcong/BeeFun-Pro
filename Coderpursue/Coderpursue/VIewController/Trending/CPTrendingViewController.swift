@@ -548,8 +548,7 @@ extension CPTrendingViewController : UITableViewDataSource {
             }
             return 0
 
-        }else if(segControl.selectedSegmentIndex == 1)
-        {
+        }else if(segControl.selectedSegmentIndex == 1){
             if (self.devesData != nil){
                 return self.devesData.count
             }
@@ -633,6 +632,10 @@ extension CPTrendingViewController : UITableViewDataSource {
             cell = (CPTrendingShowcaseCell.cellFromNibNamed("CPTrendingShowcaseCell") as! CPTrendingShowcaseCell)
             
         }
+        if self.showcasesData.isBeyond(index: row) {
+            return cell!
+        }
+        
         let showcase = self.showcasesData[row]
         cell!.showcase = showcase
         return cell!;

@@ -14,12 +14,48 @@ extension String {
     //http://stackoverflow.com/questions/25081757/whats-nslocalizedstring-equivalent-in-swift
     //https://github.com/nixzhu/dev-blog/blob/master/2014-04-24-internationalization-tutorial-for-ios-2014.md
     
+    
+    /// 获取APP语言字符串
     var localized: String {
-        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
+        let lang = JSLanguage.appLanguage
+        let path = Bundle.main.path(forResource: lang, ofType: "lproj")
+        let bundle = Bundle(path: path!)!
+        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
     }
     
+    /// 获取英文国际化字符串
+    var enLocalized: String {
+        let path = Bundle.main.path(forResource: kEnglishLanguage, ofType: "lproj")
+        let bundle = Bundle(path: path!)!
+        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+    }
+    
+    /// 获取中文国际化字符串
+    var cnLocalized: String {
+        let path = Bundle.main.path(forResource: kChineseLanguage, ofType: "lproj")
+        let bundle = Bundle(path: path!)!
+        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+    }
+    
+    /// 获取APP语言字符串
     func localized(withComment:String) -> String {
-        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: withComment)
+        let path = Bundle.main.path(forResource: kChineseLanguage, ofType: "lproj")
+        let bundle = Bundle(path: path!)!
+        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: withComment)
+    }
+    
+    /// 获取英文国际化字符串
+    func enLocalized(withComment:String) -> String {
+        let path = Bundle.main.path(forResource: kEnglishLanguage, ofType: "lproj")
+        let bundle = Bundle(path: path!)!
+        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: withComment)
+    }
+    
+    /// 获取中文国际化字符串
+    func cnLocalized(withComment:String) -> String {
+        let path = Bundle.main.path(forResource: kChineseLanguage, ofType: "lproj")
+        let bundle = Bundle(path: path!)!
+        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: withComment)
     }
     
 }

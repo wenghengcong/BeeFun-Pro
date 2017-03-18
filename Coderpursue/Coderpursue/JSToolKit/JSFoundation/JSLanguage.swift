@@ -37,9 +37,9 @@ class JSLanguage: NSObject {
             //NSLocale.preferredLanguages.first获取到的仍然是app内设置的语言选择
 //            let system = NSLocale.preferredLanguages.first!
             var system = languageCode
-            if (system == "zh") {
+            if (system.contains("zh")) {
                 system = kChineseLanguage
-            }else if(system == "en"){
+            }else if(system.contains("en")){
                 system = kEnglishLanguage
             }else{
                 system = kEnglishLanguage
@@ -79,7 +79,14 @@ class JSLanguage: NSObject {
         get {
             let def = UserDefaults.standard
             let langArray = def.object(forKey: kAppleLanguageKey) as! NSArray
-            let current = langArray.firstObject as! String
+            var current = langArray.firstObject as! String
+            if (current.contains("zh")) {
+                current = kChineseLanguage
+            }else if(current.contains("en")){
+                current = kEnglishLanguage
+            }else{
+                current = kEnglishLanguage
+            }
             return current
         }
     }

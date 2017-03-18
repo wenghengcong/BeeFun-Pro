@@ -18,9 +18,12 @@ extension String {
     /// 获取APP语言字符串
     var localized: String {
         let lang = JSLanguage.appLanguage
-        let path = Bundle.main.path(forResource: lang, ofType: "lproj")
-        let bundle = Bundle(path: path!)!
-        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+        var localStr = ""
+        if let pathR = Bundle.main.path(forResource: lang, ofType: "lproj") {
+            let bundle = Bundle(path: pathR)!
+            localStr = NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+        }
+        return localStr
     }
     
     /// 获取英文国际化字符串

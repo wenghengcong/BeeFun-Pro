@@ -12,9 +12,6 @@ class JSUIGlobal: NSObject {
     
 }
 
-/// 全局keywindow
-let jsKeywindow = jsAppDelegate.window
-
 /// 状态栏高度20
 let uiStatusBarHeight = 20.0
 
@@ -31,51 +28,15 @@ let uiTabBarHeight = 49.0
 let uiKeyboardHeight = 20.0
 
 
-//http://stackoverflow.com/questions/26667009/get-top-most-uiviewcontroller
-
-/// 获取顶部视图控制器
-///
-/// - Parameter controller: <#controller description#>
-/// - Returns: <#return value description#>
-func topViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
-    if let navigationController = controller as? UINavigationController {
-        return topViewController(controller: navigationController.visibleViewController)
-    }
-    if let tabController = controller as? UITabBarController {
-        if let selected = tabController.selectedViewController {
-            return topViewController(controller: selected)
-        }
-    }
-    if let presented = controller?.presentedViewController {
-        return topViewController(controller: presented)
-    }
-    return controller
-}
-
-
-/// 顶部控制器
-///
-/// - Returns: <#return value description#>
-func currentNavigationViewController() -> UINavigationController?{
-    let nav = topViewController()?.navigationController
-    return nav
-}
-
-
-/// 当前视图控制器，即顶部视图控制器
-///
-/// - Returns: <#return value description#>
-func currentViewController() -> UIViewController? {
-    return topViewController()
-}
-
+/// 全局keywindow
+let jsKeywindow = jsAppDelegate.window
 
 /// 当前顶部视图控制器
-let jsTopViewController = topViewController()
+let jsTopViewController = jsAppDelegate.tabBarController?.topViewController()
 
 
 /// 当前顶部导航栏控制器
-let jsTopNavigationViewController = currentNavigationViewController()
+let jsTopNavigationViewController = jsAppDelegate.tabBarController?.currentNavigationViewController()
 
 
 /// 当前顶部视图

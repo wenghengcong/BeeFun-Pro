@@ -6,6 +6,8 @@
   Copyright © 2017年 JungleSong. All rights reserved.
 */
 
+/*****英文转中文 Start******/
+
 //explore
 "Explore" = "Explore";
 
@@ -89,3 +91,95 @@
 "Joined on"="Joined on";
 "Follow"="Follow";
 "Unfollow"="Unfollow";
+
+/*****英文转中文 End******/
+
+
+/*****中文转英文 Start******/
+
+//explore
+"发现" = "Explore";
+
+"项目" = "Repositories";
+"用户" = "Developers";
+"列表"="Showcases";
+//filter
+"时间"="Since";
+"每天"="daily";
+"每周"="weekly";
+"每月"="monthly";
+//search
+"语言"="Language";
+"国家"="Country";
+"排序"="Sort";
+"重置"="Reset";
+"默认"="Sure";
+"最优匹配"="Best match";
+"收藏最多"="Most stars";
+"收藏最少"="Fewest stars";
+"派生最多"="Most forks";
+"派生最少"="Fewest forks";
+"更新最近"="Recently updated";
+"更新最少"="Leaest recently updated";
+
+"搜索项目"="Search repositories";
+"搜索用户"="Search Users";
+
+"最优匹配"="Best match";
+"粉丝最多"="Most followers";
+"粉丝最少"="Fewest followers";
+"加入最新"="Most recently joined";
+"加入最旧"="Fewest recently joined";
+"项目最多"="Most repositories";
+"项目最少"="Fewest repositories";
+
+
+//Message
+"消息" = "Message";
+
+"通知"="Notifications";
+"Issues"="Issues";
+
+//Stars
+"收藏" = "Stars";
+
+"项目"="Repositories";
+"事件"="Event";
+
+//Profile
+"我" = "Profile";
+"登录"="Sign In";
+"粉丝"="Followers";
+"关注"="Following";
+"关注项目"="Watched";
+"反馈"="Feedback";
+"设置"="Settings";
+"分享"="Share";
+"评价"="Rate";
+"关于"="About";
+
+//Settings
+"版本"="Version";
+"退出登录"="Log Out";
+
+//About
+"关于"="About";
+"我"="Me";
+
+//repo view
+"关注"="Watch";
+"取消关注"="Unwatch";
+"收藏"="Star";
+"取消收藏"="Unstar";
+"派生"="Fork";
+"公开"="Public";
+"私有"="Private";
+"创建"="catated at";
+
+//user view
+"加入于"="Joined on";
+"关注"="Follow";
+"取消关注"="Unfollow";
+
+/*****中文转英文 End******/
+

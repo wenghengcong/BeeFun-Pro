@@ -242,7 +242,7 @@ class CPTrendingViewController: CPBaseViewController {
             filterView!.filterTypes = ["Since"]
             filterView!.filterData = [sinceArr]
         }else if((segControl.selectedSegmentIndex == 1) && (lastSegmentIndex != segControl.selectedSegmentIndex)){
-            filterView!.filterTypes = ["Language","Country"]
+            filterView!.filterTypes = ["Language".localized,"Country".localized]
             filterView!.filterData = [languageArr!,countryArr!]
         }
         
@@ -261,6 +261,7 @@ class CPTrendingViewController: CPBaseViewController {
 
     }
     
+    /// 加载数据
     func tvc_updateNetrokData() {
         
         if(segControl.selectedSegmentIndex == 0) {
@@ -274,6 +275,7 @@ class CPTrendingViewController: CPBaseViewController {
 
     }
     
+    /// 下拉刷新
     func headerRefresh(){
         if(segControl.selectedSegmentIndex == 0) {
 
@@ -285,6 +287,7 @@ class CPTrendingViewController: CPBaseViewController {
         tvc_updateNetrokData()
     }
     
+    /// 上拉加载
     func footerRefresh(){
         if(segControl.selectedSegmentIndex == 0) {
 
@@ -296,6 +299,10 @@ class CPTrendingViewController: CPBaseViewController {
         tvc_updateNetrokData()
     }
     
+    
+    /// 判断是否登录
+    ///
+    /// - Returns: <#return value description#>
     func tvc_isLogin()->Bool{
         if( !(UserManager.shared.checkUserLogin() ) ){
             return false
@@ -303,7 +310,7 @@ class CPTrendingViewController: CPBaseViewController {
         return true
     }
     
-    // MARK: fetch data form plist file
+    // MARK:- 从plist中获取用语filter的数据
     func tvc_getDataFromPlist() {
         
         if let path = Bundle.main.path(forResource: "CPCity", ofType: "plist") {
@@ -407,13 +414,13 @@ class CPTrendingViewController: CPBaseViewController {
                 do {
                     if let userResult:ObjSearchUserResponse = Mapper<ObjSearchUserResponse>().map(JSONObject:try response.mapJSON() ) {
                         if(self.paraUser.page == 1) {
-                            
+                            //在第一页，之前有数据，清空
                             if(self.devesData != nil){
                                 self.devesData.removeAll()
-                                self.devesData = userResult.items
-                                self.tableView.reloadData()
-                                self.tableView.setContentOffset(CGPoint.zero, animated:true)
                             }
+                            self.devesData = userResult.items
+                            self.tableView.reloadData()
+                            self.tableView.setContentOffset(CGPoint.zero, animated:true)
 
                         }else{
                             self.devesData = self.devesData+userResult.items!
@@ -481,6 +488,7 @@ class CPTrendingViewController: CPBaseViewController {
     }
 
 }
+// MARK: - 筛选视图的回调
 
 extension CPTrendingViewController : CPFilterTableViewProtocol {
     //filter delegate
@@ -569,6 +577,10 @@ extension CPTrendingViewController : UITableViewDataSource {
                 cell = (CPTrendingRepoCell.cellFromNibNamed("CPTrendingRepoCell") as! CPTrendingRepoCell)
             }
             
+            if self.reposData.isBeyond(index: row) {
+                return cell!
+            }
+            
             //handle line in cell
             if row == 0 {
                 cell!.topline = true
@@ -585,12 +597,16 @@ extension CPTrendingViewController : UITableViewDataSource {
             return cell!;
             
         }else if(segControl.selectedSegmentIndex == 1) {
-            
+        
             cellId = "CPTrendingDeveloperCellIdentifier"
             var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingDeveloperCell
             if cell == nil {
                 cell = (CPTrendingDeveloperCell.cellFromNibNamed("CPTrendingDeveloperCell") as! CPTrendingDeveloperCell)
                 
+            }
+            
+            if self.devesData.isBeyond(index: row) {
+                return cell!
             }
             
             //handle line in cell

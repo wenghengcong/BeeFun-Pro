@@ -18,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     var storyBoard:UIStoryboard?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        //JSLog
+        JSSwiftyBeaverBridge.SwitfyBeaverInit()
+        
+        //设置语言
+        JSLanguage.setUserLanguage()
+        
         // Override point for customization after application launch.
         IQKeyboardManager.sharedManager().enable = true
         

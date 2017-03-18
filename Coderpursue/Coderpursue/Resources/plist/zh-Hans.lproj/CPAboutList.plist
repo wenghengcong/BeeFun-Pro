@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<dict>
+			<key>itemKey</key>
+			<string>coderpursue</string>
+			<key>itemName</key>
+			<string>码者</string>
+			<key>itemIcon</key>
+			<string>octicon_watch_red_20</string>
+			<key>itemDisclosure</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>itemKey</key>
+			<string>me</string>
+			<key>itemName</key>
+			<string>我</string>
+			<key>itemIcon</key>
+			<string>octicon_watch_red_20</string>
+			<key>itemDisclosure</key>
+			<true/>
+		</dict>
+	</array>
+</array>
+</plist>

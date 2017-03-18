@@ -42,9 +42,9 @@ class CPFollowersViewController: CPBaseViewController {
         fvc_setupTableView()
         fvc_selectDataSource()
         if(viewType == "follower"){
-            self.title = "Followers"
+            self.title = "Followers".localized
         }else if(viewType == "following"){
-            self.title = "Following"
+            self.title = "Following".localized
         }
     }
     

@@ -37,7 +37,7 @@ class CPProfileViewController: CPBaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.leftItem?.isHidden = true
-        self.title = "Profile"
+        self.title = "Profile".localized
 
     }
     

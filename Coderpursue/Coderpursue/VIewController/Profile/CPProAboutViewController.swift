@@ -21,7 +21,7 @@ class CPProAboutViewController: CPBaseViewController {
         pavc_readPlist()
         pavc_setupTableView()
         pavc_customView()
-        self.title = "About"
+        self.title = "About".localized
     }
     
     override func viewWillAppear(_ animated: Bool) {

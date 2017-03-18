@@ -40,7 +40,7 @@ class CPTrendingViewController: CPBaseViewController {
     var cityArr:[String]?
     var countryArr:[String]?
     var languageArr:[String]?
-    var sinceArr:[String] = [TrendingSince.Daily.rawValue,TrendingSince.Weekly.rawValue,TrendingSince.Monthly.rawValue]
+    var sinceArr:[String] = [TrendingSince.Daily.rawValue.localized,TrendingSince.Weekly.rawValue.localized,TrendingSince.Monthly.rawValue.localized]
     
     // MARK: request parameters
     var lastSegmentIndex = 0
@@ -140,7 +140,7 @@ class CPTrendingViewController: CPBaseViewController {
         filterView!.coloumn = .two
         filterView!.rowWidths = [firW,secW]
         filterView!.rowHeights = [40.0,40.0]
-        filterView!.filterTypes = ["Since"]
+        filterView!.filterTypes = ["Since".localized]
         filterView!.filterData = [sinceArr]
         filterView!.filterViewInit()
         self.view.addSubview(filterView!)
@@ -239,7 +239,7 @@ class CPTrendingViewController: CPBaseViewController {
     func tvc_filterViewApper(){
         
         if ((segControl.selectedSegmentIndex == 0) && (lastSegmentIndex != segControl.selectedSegmentIndex) ) {
-            filterView!.filterTypes = ["Since"]
+            filterView!.filterTypes = ["Since".localized]
             filterView!.filterData = [sinceArr]
         }else if((segControl.selectedSegmentIndex == 1) && (lastSegmentIndex != segControl.selectedSegmentIndex)){
             filterView!.filterTypes = ["Language".localized,"Country".localized]

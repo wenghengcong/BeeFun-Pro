@@ -21,7 +21,7 @@ class CPProSettingsViewController: CPBaseViewController {
         psvc_setupTableView()
         psvc_customView()
         psvc_readPlist()
-        self.title = "Settings"
+        self.title = "Settings".localized
 
     }
     override func viewWillAppear(_ animated: Bool) {

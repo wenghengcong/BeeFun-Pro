@@ -9,11 +9,11 @@
 import UIKit
 
 /// 当前顶部视图控制器
-let cpTopViewController = jsAppDelegate.tabBarController?.topViewController()
+let cpTopViewController = topViewController()
 
 
 /// 当前顶部导航栏控制器
-let cpTopNavigationViewController = jsAppDelegate.tabBarController?.currentNavigationViewController()
+let cpTopNavigationViewController = currentNavigationViewController()
 
 
 /// 当前顶部视图

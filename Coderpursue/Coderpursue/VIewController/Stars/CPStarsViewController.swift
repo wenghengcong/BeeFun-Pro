@@ -217,14 +217,14 @@ class CPStarsViewController: CPBaseViewController{
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
             
@@ -263,7 +263,7 @@ class CPStarsViewController: CPBaseViewController{
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
                 self.tableView.reloadData()
 
@@ -272,7 +272,7 @@ class CPStarsViewController: CPBaseViewController{
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }

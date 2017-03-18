@@ -175,19 +175,19 @@ class ShareManager: NSObject {
                 }
             case SSDKResponseState.success:
                 print("分享成功")
-                CPGlobalHelper.showMessage("Share Success", view: jsKeywindow!)
+                JSMBHUDBridge.showMessage("Share Success", view: jsKeywindow!)
                 if let method = self.delegate?.didShareSuccess(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)
                 }
             case SSDKResponseState.fail:
                 print("授权失败,错误描述:\(error)")
-                CPGlobalHelper.showError("Share Failure", view: jsKeywindow!)
+                JSMBHUDBridge.showError("Share Failure", view: jsKeywindow!)
                 if let method = self.delegate?.didShareFail(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)
                 }
             case SSDKResponseState.cancel:
                 print("操作取消")
-                CPGlobalHelper.showMessage("Share Cancel", view: jsKeywindow!)
+                JSMBHUDBridge.showMessage("Share Cancel", view: jsKeywindow!)
                 if let method = self.delegate?.didShareCancel(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)
                 }

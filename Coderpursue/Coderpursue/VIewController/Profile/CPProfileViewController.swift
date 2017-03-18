@@ -136,14 +136,14 @@ class CPProfileViewController: CPBaseViewController {
                         
                     }
                 } catch {
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -221,7 +221,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                     }
                 } catch {
                     success = false
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -229,7 +229,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                 }
                 message = error.description
                 success = false
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
             }
         }
 

@@ -60,7 +60,7 @@ class CPFunnyLabViewController: CPBaseViewController {
             self.navigationController?.pushViewController(awardVC, animated: true)
             
         }else{
-            CPGlobalHelper.showMessage("Input your github username", view: self.view)
+            JSMBHUDBridge.showMessage("Input your github username", view: self.view)
             return
         }
         

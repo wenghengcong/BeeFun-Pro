@@ -95,7 +95,7 @@ class CPLoginViewController: CPBaseViewController {
     func lvc_checkInputText(){
         
         if( (usernameTF.text!.isEmpty) || (passwordTF.text!.isEmpty) ){
-            CPGlobalHelper.showMessage("Input username or password", view: self.view)
+            JSMBHUDBridge.showMessage("Input username or password", view: self.view)
             return
         }
         

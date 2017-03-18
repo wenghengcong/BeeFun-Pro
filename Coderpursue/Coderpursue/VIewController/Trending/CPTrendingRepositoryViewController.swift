@@ -207,7 +207,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     }
                 } catch {
 
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -215,7 +215,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 }
                 message = error.description
 
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -253,7 +253,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -291,7 +291,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -314,7 +314,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = true
-                    CPGlobalHelper.showError("Watch Successsful", view: self.view)
+                    JSMBHUDBridge.showError("Watch Successsful", view: self.view)
                     self.rvc_updateViewContent()
                 }else{
                     
@@ -325,7 +325,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -348,7 +348,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = false
-                    CPGlobalHelper.showError("Unwatch Successsful", view: self.view)
+                    JSMBHUDBridge.showError("Unwatch Successsful", view: self.view)
                     self.rvc_updateViewContent()
 
                 }else{
@@ -360,7 +360,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -383,7 +383,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = true
-                    CPGlobalHelper.showError("Star Successsful", view: self.view)
+                    JSMBHUDBridge.showError("Star Successsful", view: self.view)
                     self.rvc_updateViewContent()
                 }else{
                     
@@ -394,7 +394,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -417,7 +417,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = false
-                    CPGlobalHelper.showError("Unstar this repository successsful!", view: self.view)
+                    JSMBHUDBridge.showError("Unstar this repository successsful!", view: self.view)
                     self.rvc_updateViewContent()
 
                 }else{
@@ -429,7 +429,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -451,7 +451,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                 
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.accepted.rawValue){
-                    CPGlobalHelper.showError("Fork this repository successsful!", view: self.view)
+                    JSMBHUDBridge.showError("Fork this repository successsful!", view: self.view)
                 }else{
                 }
                 
@@ -460,7 +460,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }

@@ -217,7 +217,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -249,14 +249,14 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     }
                 } catch {
 
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -282,7 +282,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = true
-                    CPGlobalHelper.showError("Follow Successful", view: self.view)
+                    JSMBHUDBridge.showError("Follow Successful", view: self.view)
 
                 }
                 self.dvc_updateViewContent()
@@ -292,7 +292,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -319,7 +319,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = false
-                    CPGlobalHelper.showError("Unollow Successful", view: self.view)
+                    JSMBHUDBridge.showError("Unollow Successful", view: self.view)
 
                 }
                 
@@ -330,7 +330,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -457,7 +457,7 @@ extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
     func segueGotoViewController() {
         
         if (!UserManager.shared.isLogin){
-            CPGlobalHelper.showError("Please login first", view: self.view)
+            JSMBHUDBridge.showError("Please login first", view: self.view)
             return
         }
         

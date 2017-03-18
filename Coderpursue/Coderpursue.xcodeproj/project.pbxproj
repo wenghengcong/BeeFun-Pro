@@ -13,7 +13,6 @@
 		5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */; };
 		5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */; };
 		5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */; };
-		5E03FD2D1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD2C1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift */; };
 		5E03FD571E7A982B005B9664 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD321E7A982B005B9664 /* README.md */; };
 		5E03FD581E7A982B005B9664 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD341E7A982B005B9664 /* Data+Extension.swift */; };
 		5E03FD591E7A982B005B9664 /* JSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD351E7A982B005B9664 /* JSApp.swift */; };
@@ -104,6 +103,8 @@
 		5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF01E73010D00493ABA /* ShareManager.swift */; };
 		5E0DDCF31E74F33200493ABA /* InstanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF21E74F33200493ABA /* InstanceManager.swift */; };
 		5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */; };
+		5E15CAD21E7D6A0C009B84D7 /* JSSwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */; };
+		5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
@@ -267,7 +268,6 @@
 		5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventPushCell.xib; sourceTree = "<group>"; };
 		5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesNotificationCell.swift; sourceTree = "<group>"; };
 		5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesNotificationCell.xib; sourceTree = "<group>"; };
-		5E03FD2C1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaverBridge.swift; sourceTree = "<group>"; };
 		5E03FD321E7A982B005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5E03FD341E7A982B005B9664 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		5E03FD351E7A982B005B9664 /* JSApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSApp.swift; sourceTree = "<group>"; };
@@ -378,6 +378,8 @@
 		5E15CAC21E7D4DDF009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
 		5E15CAC81E7D4FD7009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E15CACA1E7D4FD9009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
+		5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSMBHUDBridge.swift; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
@@ -654,14 +656,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5E03FD2B1E7A936C005B9664 /* Bridge */ = {
-			isa = PBXGroup;
-			children = (
-				5E03FD2C1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift */,
-			);
-			path = Bridge;
-			sourceTree = "<group>";
-		};
 		5E03FD301E7A982B005B9664 /* JSToolKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,6 +666,7 @@
 				5E03FD3E1E7A982B005B9664 /* JSNetwork */,
 				5E03FD401E7A982B005B9664 /* JSStyleGuide */,
 				5E03FD431E7A982B005B9664 /* JSUIKit */,
+				5E15CAD01E7D6A0C009B84D7 /* JSBridge */,
 			);
 			path = JSToolKit;
 			sourceTree = "<group>";
@@ -941,6 +936,15 @@
 			path = Required;
 			sourceTree = "<group>";
 		};
+		5E15CAD01E7D6A0C009B84D7 /* JSBridge */ = {
+			isa = PBXGroup;
+			children = (
+				5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */,
+				5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */,
+			);
+			path = JSBridge;
+			sourceTree = "<group>";
+		};
 		5E4ABFB61C9032D40041FA89 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1157,7 +1161,6 @@
 		FE91BA751C333804002AECB6 /* ThidParty */ = {
 			isa = PBXGroup;
 			children = (
-				5E03FD2B1E7A936C005B9664 /* Bridge */,
 				5E0DDC741E72FFE800493ABA /* ShareSDK */,
 				5E0DDC701E72D42D00493ABA /* UMMobClick.framework */,
 			);
@@ -1614,6 +1617,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */,
 				FE6980E31C5602C40026089B /* ObjPermissions.swift in Sources */,
 				FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */,
 				5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */,
@@ -1650,6 +1654,7 @@
 				5EE91F831C7C4E32003F4CBF /* ObjEventPayload.swift in Sources */,
 				5EACCFCF1C8E5F450059A303 /* ParaComparison.swift in Sources */,
 				5E03FD741E7A982C005B9664 /* UIView+Draw.swift in Sources */,
+				5E15CAD21E7D6A0C009B84D7 /* JSSwiftyBeaver.swift in Sources */,
 				5E03FD641E7A982C005B9664 /* JSApperence.swift in Sources */,
 				FE6980E61C5602C40026089B /* ObjUserSum.swift in Sources */,
 				5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */,
@@ -1748,7 +1753,6 @@
 				5E03FD751E7A982C005B9664 /* UIView+Nib.swift in Sources */,
 				5EE3FF581C7C065900760F0F /* ObjLabel.swift in Sources */,
 				FED481091C3C7121002956A8 /* CPStyleGuide.swift in Sources */,
-				5E03FD2D1E7A936C005B9664 /* JSSwiftyBeaverBridge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

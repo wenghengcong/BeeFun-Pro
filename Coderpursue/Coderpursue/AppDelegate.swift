@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         //JSLog
-        JSSwiftyBeaverBridge.SwitfyBeaverInit()
+        JSSwiftyBeaver.bridgeInit()
         
         //设置语言
         JSLanguage.initUserLanguage()

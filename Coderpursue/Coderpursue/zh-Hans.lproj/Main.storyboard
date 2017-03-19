@@ -33,7 +33,7 @@
         <scene sceneID="CGQ-og-QC3">
             <objects>
                 <navigationController title="Stars" id="3ai-xQ-RFW" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Stars" image="tab_star" selectedImage="tab_star_sel" id="cip-ko-VOO"/>
+                    <tabBarItem key="tabBarItem" title="收藏" image="tab_star" selectedImage="tab_star_sel" id="cip-ko-VOO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PGE-k7-b3G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -199,7 +199,7 @@
                             <constraint firstItem="nFN-5X-KVv" firstAttribute="leading" secondItem="fvT-kE-BOr" secondAttribute="leading" id="wkb-cL-mKB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Stars" id="jcF-kd-uq7"/>
+                    <navigationItem key="navigationItem" title="收藏" id="jcF-kd-uq7"/>
                     <connections>
                         <outlet property="tableView" destination="nFN-5X-KVv" id="fDZ-yY-NJX"/>
                         <segue destination="DFV-4I-ATK" kind="show" identifier="ShowRepoDetailSegue" id="9bj-WN-PEl"/>
@@ -231,11 +231,11 @@
             </objects>
             <point key="canvasLocation" x="1217" y="598"/>
         </scene>
-        <!--Explore-->
+        <!--发现-->
         <scene sceneID="TB7-hQ-fi8">
             <objects>
                 <navigationController id="lAP-Eg-5KM" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" image="tab_trending" selectedImage="tab_trending_sel" id="6tt-Ce-XeT"/>
+                    <tabBarItem key="tabBarItem" title="发现" image="tab_trending" selectedImage="tab_trending_sel" id="6tt-Ce-XeT"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pV5-to-I10">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -478,7 +478,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Wtm-Wf-KLw"/>
                                 </constraints>
-                                <state key="normal" title="Log Out">
+                                <state key="normal" title="退出登录">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
@@ -776,11 +776,11 @@
             </objects>
             <point key="canvasLocation" x="1047" y="-1462"/>
         </scene>
-        <!--Profile-->
+        <!--我-->
         <scene sceneID="uph-4U-viH">
             <objects>
                 <navigationController id="CLS-sg-WiJ" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Profile" image="tab_profile" selectedImage="tab_profile_sel" id="xw0-IQ-hKh"/>
+                    <tabBarItem key="tabBarItem" title="我" image="tab_profile" selectedImage="tab_profile_sel" id="xw0-IQ-hKh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xvZ-Mh-LAR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -838,7 +838,7 @@
                                             <constraint firstAttribute="height" constant="50" id="4Uv-bh-X8j"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" title="Sign   In">
+                                        <state key="normal" title="登    录">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
@@ -866,7 +866,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Repositories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whm-2U-6Jd">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="项目" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Whm-2U-6Jd">
                                                         <rect key="frame" x="0.0" y="24" width="124" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="iXc-SZ-YJj"/>
@@ -899,7 +899,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Followers" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEZ-fc-j8q">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粉丝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LEZ-fc-j8q">
                                                         <rect key="frame" x="0.0" y="23" width="124" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="26o-Zt-8FO"/>
@@ -932,7 +932,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Following" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9f-7C-dt8">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粉丝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9f-7C-dt8">
                                                         <rect key="frame" x="0.0" y="23" width="124" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="0AX-fF-NOB"/>
@@ -1272,11 +1272,11 @@
             </objects>
             <point key="canvasLocation" x="977" y="2896"/>
         </scene>
-        <!--Message-->
+        <!--消息-->
         <scene sceneID="igp-jT-fcW">
             <objects>
                 <navigationController id="n2v-4O-Ysv" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Message" image="tab_message" selectedImage="tab_message_sel" id="1vW-qp-Co7"/>
+                    <tabBarItem key="tabBarItem" title="消息" image="tab_message" selectedImage="tab_message_sel" id="1vW-qp-Co7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OR1-eh-UTX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1403,9 +1403,9 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9bj-WN-PEl"/>
-        <segue reference="Ah2-FE-EYQ"/>
-        <segue reference="Ocj-6m-P78"/>
         <segue reference="4pF-1J-jZn"/>
+        <segue reference="Ah2-FE-EYQ"/>
+        <segue reference="MU4-AJ-ink"/>
+        <segue reference="Ocj-6m-P78"/>
     </inferredMetricsTieBreakers>
 </document>

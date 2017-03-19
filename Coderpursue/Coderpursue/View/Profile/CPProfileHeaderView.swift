@@ -73,6 +73,8 @@ class CPProfileHeaderView: UIView {
         
         self.backgroundColor = UIColor.white
         
+        phv_backImgV.image = UIImage.init(named: "profile_bg")
+        
         phv_avatarImgV.layer.cornerRadius = phv_avatarImgV.width/2
         phv_avatarImgV.layer.masksToBounds = true
         
@@ -85,7 +87,7 @@ class CPProfileHeaderView: UIView {
         phv_loginBtn.addTarget(self, action: #selector(CPProfileHeaderView.phv_loginAction), for: .touchUpInside)
         phv_loginBtn.backgroundColor = UIColor.clear
         phv_loginBtn.titleLabel?.font = UIFont.systemFont(ofSize: 25.0)
-        phv_loginBtn.setTitle("Sign   In", for: UIControlState())
+        phv_loginBtn.setTitle("Sign In".localized, for: UIControlState())
 //        phv_editProfileBtn.addTarget(self, action: "phv_editProfileAction:", forControlEvents: .TouchUpInside)
         
         phv_numOfReposLabel.textColor = UIColor.labelTitleTextColor

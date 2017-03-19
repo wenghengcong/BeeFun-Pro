@@ -213,7 +213,7 @@ extension CPProSettingsViewController {
     func reloadMainStroyboard() {
         
         let storyboardName = "Main"
-        let storyboard = UIStoryboard.init(name: storyboardName, bundle: nil)
+        let storyboard = UIStoryboard.init(name: storyboardName, bundle:Bundle.appBundle)
         jsKeywindow?.rootViewController = storyboard.instantiateInitialViewController()
     }
     

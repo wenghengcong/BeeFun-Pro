@@ -22,6 +22,21 @@ class CPBaseTabBarController: UITabBarController {
         self.tabBar.tintColor = UIColor.tabBarTitleTextColor//文字颜色
     }
     
+    func getRootController(by index:Int) -> UIViewController? {
+        if (self.viewControllers?.isBeyond(index: index))! {
+            return nil
+        }
+        let viewC = self.viewControllers?[index]
+        return viewC
+    }
+    
+    func reloadAllChildController() {
+        for item in self.tabBar.items! {
+            let newTitle = item.title?.localized
+            item.title = newTitle
+        }
+    }
+    
     /// 返回当前顶部视图控制器
     ///
     /// - Parameter controller: <#controller description#>

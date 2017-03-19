@@ -206,10 +206,19 @@ extension CPProSettingsViewController {
 
     func reloadAllResource() {
         self.tableView.reloadData()
+        self.reloadMainStroyboard()
+        self.reloadOtherViewController()
     }
     
     func reloadMainStroyboard() {
-
+        
+        let storyboardName = "Main"
+        let storyboard = UIStoryboard.init(name: storyboardName, bundle: nil)
+        jsKeywindow?.rootViewController = storyboard.instantiateInitialViewController()
+    }
+    
+    func reloadOtherViewController() {
+        jsAppDelegate.tabBarController?.reloadAllChildController()
     }
     
 }

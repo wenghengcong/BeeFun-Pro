@@ -110,6 +110,7 @@
 		5E15CB001E7E3DC2009B84D7 /* CPSettingsLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAFC1E7E3DC2009B84D7 /* CPSettingsLabelCell.swift */; };
 		5E15CB011E7E3DC2009B84D7 /* CPSettingsLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAFD1E7E3DC2009B84D7 /* CPSettingsLabelCell.xib */; };
 		5E15CB031E7E9496009B84D7 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CB021E7E9495009B84D7 /* Bundle+Extension.swift */; };
+		5E15CB051E7EB4AE009B84D7 /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CB041E7EB4AE009B84D7 /* UIStoryboard+Extension.swift */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
@@ -394,6 +395,7 @@
 		5E15CAFC1E7E3DC2009B84D7 /* CPSettingsLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsLabelCell.swift; sourceTree = "<group>"; };
 		5E15CAFD1E7E3DC2009B84D7 /* CPSettingsLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSettingsLabelCell.xib; sourceTree = "<group>"; };
 		5E15CB021E7E9495009B84D7 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		5E15CB041E7EB4AE009B84D7 /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
@@ -753,6 +755,7 @@
 				5E03FD531E7A982B005B9664 /* UIScreen+Size.swift */,
 				5E03FD541E7A982B005B9664 /* UIView+Draw.swift */,
 				5E03FD551E7A982B005B9664 /* UIView+Nib.swift */,
+				5E15CB041E7EB4AE009B84D7 /* UIStoryboard+Extension.swift */,
 			);
 			path = JSUIKit;
 			sourceTree = "<group>";
@@ -1671,6 +1674,7 @@
 				5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */,
 				5E738C981C92C26F0075C82C /* CPHttpStatusCode.swift in Sources */,
 				5EFAE6681E7CDABB003194C3 /* Array+Extension.swift in Sources */,
+				5E15CB051E7EB4AE009B84D7 /* UIStoryboard+Extension.swift in Sources */,
 				5EC58D891E6DAAF60069AE82 /* TimeHelper.swift in Sources */,
 				5E7F24781CB8F622001BD4C8 /* ParaSearchRepos.swift in Sources */,
 				5E03FD6F1E7A982C005B9664 /* UIColor+Extension.swift in Sources */,

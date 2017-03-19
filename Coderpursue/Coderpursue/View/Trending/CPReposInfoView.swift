@@ -133,14 +133,16 @@ class CPReposInfoView: UIView {
         
         if let lan = repo?.language {
             lanBtn.setTitle("\(lan)", for: UIControlState())
+        }else{
+            lanBtn.setTitle("Unknown".localized, for: UIControlState())
         }
         
         
         if let cprivate = repo?.cprivate {
             if(cprivate){
-                privateBtn.setTitle("Private", for: UIControlState())
+                privateBtn.setTitle("Private".localized, for: UIControlState())
             }else{
-                privateBtn.setTitle("Public", for: UIControlState())
+                privateBtn.setTitle("Public".localized, for: UIControlState())
             }
         }
         

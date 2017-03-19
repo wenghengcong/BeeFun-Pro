@@ -81,13 +81,13 @@ class CPDeveloperInfoView: UIView {
             btn.titleLabel?.textAlignment = .center
         }
         
-        followerBtn.setTitle("0 \nFollower", for: UIControlState())
+        followerBtn.setTitle("0 \n"+"Follower".localized, for: UIControlState())
         followerBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followAction), for: .touchUpInside)
 
-        reposBtn.setTitle("0 \nRepositories", for: UIControlState())
+        reposBtn.setTitle("0 \n"+"Repositories".localized, for: UIControlState())
         reposBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_reposAction), for: .touchUpInside)
 
-        followingBtn.setTitle("0 \nFollowing", for: UIControlState())
+        followingBtn.setTitle("0 \n"+"Following".localized, for: UIControlState())
         followingBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followingAction), for: .touchUpInside)
 
     }

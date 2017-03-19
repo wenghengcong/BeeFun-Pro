@@ -49,7 +49,7 @@
 "Message" = "消息";
 
 "Notifications"="通知";
-"Issues"="Issues";
+"Issues"="问题";
 
 //Stars
 "Stars" = "收藏";
@@ -91,6 +91,8 @@
 "Follow"="关注";
 "Unfollow"="取消关注";
 
+//other
+"Unknown" = "未知";
 
 /*****英文转中文 End******/
 
@@ -166,9 +168,8 @@
 
 //Message
 "消息" = "消息";
-
 "通知"="通知";
-"Issues"="Issues";
+"问题"="问题";
 
 //Stars
 "收藏" = "收藏";

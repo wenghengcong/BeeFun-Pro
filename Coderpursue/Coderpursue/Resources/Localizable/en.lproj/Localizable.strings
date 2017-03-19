@@ -49,7 +49,6 @@
 "Message" = "Message";
 
 "Notifications"="Notifications";
-"Issues"="Issues";
 
 //Stars
 "Stars" = "Stars";
@@ -90,6 +89,10 @@
 "Joined on"="Joined on";
 "Follow"="Follow";
 "Unfollow"="Unfollow";
+
+
+//other
+"Unknown" = "Unknown";
 
 /*****英文转中文 End******/
 
@@ -168,7 +171,7 @@
 "消息" = "Message";
 
 "通知"="Notifications";
-"Issues"="Issues";
+"问题"="Issues";
 
 //Stars
 "收藏" = "Stars";

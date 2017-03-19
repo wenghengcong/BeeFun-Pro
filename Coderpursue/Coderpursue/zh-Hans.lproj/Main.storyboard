@@ -405,7 +405,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="cG5-57-O6k"/>
                                 </constraints>
-                                <state key="normal" title="Follow">
+                                <state key="normal" title="关注">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
@@ -1403,9 +1403,9 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4pF-1J-jZn"/>
+        <segue reference="6vW-Nx-tiC"/>
         <segue reference="Ah2-FE-EYQ"/>
         <segue reference="MU4-AJ-ink"/>
-        <segue reference="Ocj-6m-P78"/>
+        <segue reference="Uie-OZ-gKU"/>
     </inferredMetricsTieBreakers>
 </document>

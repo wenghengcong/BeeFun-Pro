@@ -112,9 +112,9 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     func dvc_updateViewContent() {
         
         if(followed){
-            followBtn.setTitle("Unfollow", for: UIControlState())
+            followBtn.setTitle("Unfollow".localized, for: UIControlState())
         }else{
-            followBtn.setTitle("Follow", for: UIControlState())
+            followBtn.setTitle("Follow".localized, for: UIControlState())
         }
         
         if(developer==nil){
@@ -126,7 +126,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         if let joinTime:String = developer!.created_at {
             let ind = joinTime.characters.index(joinTime.startIndex, offsetBy: 10)
             let subStr = joinTime.substring(to: ind)
-            let join = "Joined on "+subStr
+            let join = "Joined on".localized + " "+subStr
             let joinDic:[String:String] = ["img":"octicon_time_25","desc":join,"discolsure":"false"]
             devInfoArr.append(joinDic)
         }
@@ -181,9 +181,9 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
 
     func dvc_followAction() {
         
-        if(followBtn.currentTitle == "Follow"){
+        if(followBtn.currentTitle == "Follow".localized){
             self.dvc_followUserRequest()
-        }else if(followBtn.currentTitle == "Unfollow"){
+        }else if(followBtn.currentTitle == "Unfollow".localized){
             self.dvc_unfolloweUserRequest()
         }
         

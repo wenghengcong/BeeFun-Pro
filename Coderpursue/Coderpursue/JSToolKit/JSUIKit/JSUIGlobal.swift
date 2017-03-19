@@ -13,20 +13,23 @@ class JSUIGlobal: NSObject {
 }
 
 /// 状态栏高度20
-let uiStatusBarHeight = 20.0
+let uiStatusBarHeight:CGFloat = 20.0
 
 /// 导航栏高度44
-let uiNavigationBarHeight = 44.0
+let uiNavigationBarHeight:CGFloat = 44.0
 
 /// 顶部高度=64
-let uiTopBarHeight = 64.0
+let uiTopBarHeight:CGFloat = 64.0
 
 /// 底部tabbar高度
-let uiTabBarHeight = 49.0
+let uiTabBarHeight:CGFloat = 49.0
 
 /// 键盘高度
-let uiKeyboardHeight = 20.0
+let uiKeyboardHeight:CGFloat = 20.0
 
+
+/// 距离顶部的point
+let uiTopPoint = CGPoint.init(x: 0, y: uiTopBarHeight)
 
 /// 全局keywindow
 let jsKeywindow = jsAppDelegate.window

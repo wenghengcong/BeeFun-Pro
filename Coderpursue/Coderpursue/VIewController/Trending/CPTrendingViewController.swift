@@ -59,7 +59,6 @@ class CPTrendingViewController: CPBaseViewController {
         
         print("\(s1),\(s2)")
         */
-        
         paraUser.q = paraUser.combineQuery()
         
     }
@@ -420,7 +419,7 @@ class CPTrendingViewController: CPBaseViewController {
                             }
                             self.devesData = userResult.items
                             self.tableView.reloadData()
-                            self.tableView.setContentOffset(CGPoint.zero, animated:true)
+//                            self.tableView.setContentOffset(uiTopPoint, animated:true)
 
                         }else{
                             self.devesData = self.devesData+userResult.items!

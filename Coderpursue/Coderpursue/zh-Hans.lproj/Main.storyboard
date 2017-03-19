@@ -932,7 +932,7 @@
                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="粉丝" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9f-7C-dt8">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="关注" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v9f-7C-dt8">
                                                         <rect key="frame" x="0.0" y="23" width="124" height="21"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="0AX-fF-NOB"/>
@@ -1403,9 +1403,9 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6vW-Nx-tiC"/>
+        <segue reference="4pF-1J-jZn"/>
         <segue reference="Ah2-FE-EYQ"/>
         <segue reference="MU4-AJ-ink"/>
-        <segue reference="Uie-OZ-gKU"/>
+        <segue reference="Ocj-6m-P78"/>
     </inferredMetricsTieBreakers>
 </document>

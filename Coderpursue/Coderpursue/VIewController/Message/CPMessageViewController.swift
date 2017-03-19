@@ -200,7 +200,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     
     func mvc_getNotificationsRequest(_ pageVal:Int) {
         
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
         
         Provider.sharedProvider.request( .myNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
             
@@ -212,7 +212,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):
@@ -248,7 +248,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     
     func mvc_getIssuesRequest(_ pageVal:Int) {
         
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
         
         Provider.sharedProvider.request(.allIssues( page:pageVal,perpage:10,filter:issueFilterPar,state:issueStatePar,labels:issueLabelsPar,sort:issueSortPar,direction:issueDirectionPar) ) { (result) -> () in
             
@@ -260,7 +260,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):

@@ -199,7 +199,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             print(result)
             switch result {
             case let .success(response):
@@ -226,7 +226,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_getUserinfoRequest(){
         
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
         
         let username = developer!.login!
 
@@ -234,7 +234,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):
@@ -266,7 +266,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_followUserRequest(){
         
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
         
         let username = developer!.login!
         
@@ -274,7 +274,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):
@@ -303,7 +303,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
     func dvc_unfolloweUserRequest(){
         
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
         
         let username = developer!.login!
         
@@ -311,7 +311,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
             
             var message = kNoMessageTip
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):

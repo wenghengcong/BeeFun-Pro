@@ -74,11 +74,11 @@ class CPLoginViewController: CPBaseViewController {
         let urlString = "https://api.github.com/user"
         let headers = ["Authorization": authorizationHeaderStr]
         
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
         
         Alamofire.request(urlString, parameters: ["":""], headers: headers).responseJSON { response in
 
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             debugPrint(response)
             switch response.result{

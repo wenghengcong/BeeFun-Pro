@@ -202,7 +202,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func searchUser() {
         
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
 
         Provider.sharedProvider.request(.searchUsers(para:self.paraUser) ) { (result) -> () in
             
@@ -214,7 +214,7 @@ class CPSearchViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):
@@ -266,7 +266,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func searchRepos() {
 
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
 
         Provider.sharedProvider.request(.searchRepos(para:self.paraRepos) ) { (result) -> () in
             
@@ -278,7 +278,7 @@ class CPSearchViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):

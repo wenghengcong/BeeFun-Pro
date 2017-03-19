@@ -186,7 +186,7 @@ class CPStarsViewController: CPBaseViewController{
         
         print("page:\(pageVal)")
         
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
         
         Provider.sharedProvider.request(.myStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
 
@@ -198,7 +198,7 @@ class CPStarsViewController: CPBaseViewController{
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):
@@ -233,7 +233,7 @@ class CPStarsViewController: CPBaseViewController{
     
     func svc_getUserEventsRequest(_ pageVal:Int) {
         
-        JSMBHUDBridge.showHud()
+        JSMBHUDBridge.showHud(view: self.view)
         
         Provider.sharedProvider.request(.userEvents(username:ObjUser.loadUserInfo()!.login! ,page:pageVal,perpage:15) ) { (result) -> () in
             
@@ -245,7 +245,7 @@ class CPStarsViewController: CPBaseViewController{
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            JSMBHUDBridge.hideHud()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):

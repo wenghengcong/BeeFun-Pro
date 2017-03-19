@@ -12,13 +12,13 @@ import MBProgressHUD
 class JSMBHUDBridge: NSObject {
 
     /// 显示Hud
-    class func showHud() {
-        MBProgressHUD.showAdded(to: jsTopView!, animated: true)
+    class func showHud(view:UIView) {
+        MBProgressHUD.showAdded(to: view, animated: true)
     }
     
     /// 隐藏Hud
-    class func hideHud() {
-        MBProgressHUD.hide(for: jsTopView!, animated: true)
+    class func hideHud(view:UIView) {
+        MBProgressHUD.hide(for: view, animated: true)
     }
     
     /// 显示信息

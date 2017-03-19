@@ -312,15 +312,15 @@ class CPTrendingViewController: CPBaseViewController {
     // MARK:- 从plist中获取用语filter的数据
     func tvc_getDataFromPlist() {
         
-        if let path = Bundle.main.path(forResource: "CPCity", ofType: "plist") {
+        if let path = Bundle.appBundle.path(forResource: "CPCity", ofType: "plist") {
             cityArr = NSArray(contentsOfFile: path)! as? [String]
         }
         
-        if let path = Bundle.main.path(forResource: "CPLanguage", ofType: "plist") {
+        if let path = Bundle.appBundle.path(forResource: "CPFilterLanguage", ofType: "plist") {
             languageArr = NSArray(contentsOfFile: path)! as? [String]
         }
         
-        if let path = Bundle.main.path(forResource: "CPCountry", ofType: "plist") {
+        if let path = Bundle.appBundle.path(forResource: "CPCountry", ofType: "plist") {
             countryArr = NSArray(contentsOfFile: path)! as? [String]
         }
     }

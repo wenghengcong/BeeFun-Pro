@@ -64,7 +64,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_initSearchFilterView() {
         
-        if let path = Bundle.main.path(forResource: "CPLanguage", ofType: "plist") {
+        if let path = Bundle.appBundle.path(forResource: "CPFilterLanguage", ofType: "plist") {
             languageArr = NSArray(contentsOfFile: path)! as? [String]
         }
         

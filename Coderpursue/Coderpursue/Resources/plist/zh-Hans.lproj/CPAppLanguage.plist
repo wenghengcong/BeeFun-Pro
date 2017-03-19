@@ -1,32 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
+<dict>
+	<key>New item</key>
 	<array>
 		<dict>
 			<key>itemKey</key>
-			<string>version</string>
+			<string>coderpursue</string>
 			<key>itemName</key>
-			<string>版本</string>
-			<key>itemValue</key>
-			<string>1.0</string>
+			<string>码者</string>
 			<key>itemIcon</key>
 			<string>octicon_watch_red_20</string>
 			<key>itemDisclosure</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>itemKey</key>
-			<string>language</string>
+			<string>me</string>
 			<key>itemName</key>
-			<string>多语言</string>
-			<key>itemValue</key>
-			<string>切换到英语</string>
+			<string>我</string>
 			<key>itemIcon</key>
 			<string>octicon_watch_red_20</string>
 			<key>itemDisclosure</key>
-			<false/>
+			<true/>
 		</dict>
 	</array>
-</array>
+</dict>
 </plist>

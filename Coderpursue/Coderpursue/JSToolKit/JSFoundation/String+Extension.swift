@@ -17,48 +17,32 @@ extension String {
     
     /// 获取APP语言字符串
     var localized: String {
-        let lang = JSLanguage.appLanguage
-        var localStr = ""
-        if let pathR = Bundle.main.path(forResource: lang, ofType: "lproj") {
-            let bundle = Bundle(path: pathR)!
-            localStr = NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
-        }
-        return localStr
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.appBundle, value: "", comment: "")
     }
     
     /// 获取英文国际化字符串
     var enLocalized: String {
-        let path = Bundle.main.path(forResource: kEnglishLanguage, ofType: "lproj")
-        let bundle = Bundle(path: path!)!
-        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.enBundle, value: "", comment: "")
     }
     
     /// 获取中文国际化字符串
     var cnLocalized: String {
-        let path = Bundle.main.path(forResource: kChineseLanguage, ofType: "lproj")
-        let bundle = Bundle(path: path!)!
-        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: "")
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.cnBundle, value: "", comment: "")
     }
     
     /// 获取APP语言字符串
     func localized(withComment:String) -> String {
-        let path = Bundle.main.path(forResource: kChineseLanguage, ofType: "lproj")
-        let bundle = Bundle(path: path!)!
-        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: withComment)
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.appBundle, value: "", comment: withComment)
     }
     
     /// 获取英文国际化字符串
     func enLocalized(withComment:String) -> String {
-        let path = Bundle.main.path(forResource: kEnglishLanguage, ofType: "lproj")
-        let bundle = Bundle(path: path!)!
-        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: withComment)
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.enBundle, value: "", comment: withComment)
     }
     
     /// 获取中文国际化字符串
     func cnLocalized(withComment:String) -> String {
-        let path = Bundle.main.path(forResource: kChineseLanguage, ofType: "lproj")
-        let bundle = Bundle(path: path!)!
-        return NSLocalizedString(self, tableName: nil, bundle: bundle, value: "", comment: withComment)
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.cnBundle, value: "", comment: withComment)
     }
     
 }

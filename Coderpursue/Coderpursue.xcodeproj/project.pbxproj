@@ -103,6 +103,13 @@
 		5E15CADB1E7D7B56009B84D7 /* CPProfileList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CADD1E7D7B56009B84D7 /* CPProfileList.plist */; };
 		5E15CADF1E7D7B61009B84D7 /* CPSettingsList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAE11E7D7B61009B84D7 /* CPSettingsList.plist */; };
 		5E15CAE31E7D7B68009B84D7 /* CPAboutList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAE51E7D7B68009B84D7 /* CPAboutList.plist */; };
+		5E15CAE91E7E3940009B84D7 /* CPSwitchLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAE81E7E3940009B84D7 /* CPSwitchLanguageController.swift */; };
+		5E15CAEC1E7E3A41009B84D7 /* CPAppLanguage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAEE1E7E3A41009B84D7 /* CPAppLanguage.plist */; };
+		5E15CAFE1E7E3DC2009B84D7 /* CPSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAFA1E7E3DC2009B84D7 /* CPSettingsCell.swift */; };
+		5E15CAFF1E7E3DC2009B84D7 /* CPSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAFB1E7E3DC2009B84D7 /* CPSettingsCell.xib */; };
+		5E15CB001E7E3DC2009B84D7 /* CPSettingsLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAFC1E7E3DC2009B84D7 /* CPSettingsLabelCell.swift */; };
+		5E15CB011E7E3DC2009B84D7 /* CPSettingsLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAFD1E7E3DC2009B84D7 /* CPSettingsLabelCell.xib */; };
+		5E15CB031E7E9496009B84D7 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CB021E7E9495009B84D7 /* Bundle+Extension.swift */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFB31C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */; };
@@ -172,9 +179,6 @@
 		5ECB406D1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB406C1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift */; };
 		5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */; };
 		5ECB40721C994C5D00B0C6FF /* CPProSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */; };
-		5ECB40781C99506800B0C6FF /* CPSettingsLabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECB40771C99506800B0C6FF /* CPSettingsLabelCell.xib */; };
-		5ECB407A1C9950C300B0C6FF /* CPSettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ECB40791C9950C300B0C6FF /* CPSettingsCell.xib */; };
-		5ECB407C1C9950DB00B0C6FF /* CPSettingsLabelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB407B1C9950DB00B0C6FF /* CPSettingsLabelCell.swift */; };
 		5ECB40821C9A376B00B0C6FF /* CPProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB40811C9A376B00B0C6FF /* CPProfileHeaderView.swift */; };
 		5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */; };
 		5EE3FF561C7C05D100760F0F /* ObjPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */; };
@@ -194,7 +198,7 @@
 		5EF6E3CE1C8AC4C9004F6473 /* CPEventStarredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EF6E3CD1C8AC4C9004F6473 /* CPEventStarredCell.xib */; };
 		5EFAE6591E7B920F003194C3 /* CPCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE65B1E7B920F003194C3 /* CPCity.plist */; };
 		5EFAE65D1E7B922A003194C3 /* CPCountry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE65F1E7B922A003194C3 /* CPCountry.plist */; };
-		5EFAE6611E7B9232003194C3 /* CPLanguage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE6631E7B9232003194C3 /* CPLanguage.plist */; };
+		5EFAE6611E7B9232003194C3 /* CPFilterLanguage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE6631E7B9232003194C3 /* CPFilterLanguage.plist */; };
 		5EFAE6661E7BC462003194C3 /* JSLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE6651E7BC462003194C3 /* JSLanguage.swift */; };
 		5EFAE6681E7CDABB003194C3 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE6671E7CDABB003194C3 /* Array+Extension.swift */; };
 		FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D11C3DC1350005DDE5 /* CPBaseNavigationController.swift */; };
@@ -212,7 +216,6 @@
 		FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C11C53850D0048BA1D /* Response+ObjectMapper.swift */; };
 		FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */; };
 		FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */; };
-		FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */; };
 		FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */; };
 		FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6333E91C532E76006D7A2B /* CPStarsViewController.swift */; };
 		FE6980E21C5602C40026089B /* ObjEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6980DD1C5602C40026089B /* ObjEmail.swift */; };
@@ -383,6 +386,14 @@
 		5E15CAE21E7D7B62009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPSettingsList.plist"; sourceTree = "<group>"; };
 		5E15CAE41E7D7B68009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPAboutList.plist; sourceTree = "<group>"; };
 		5E15CAE61E7D7B69009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPAboutList.plist"; sourceTree = "<group>"; };
+		5E15CAE81E7E3940009B84D7 /* CPSwitchLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSwitchLanguageController.swift; sourceTree = "<group>"; };
+		5E15CAED1E7E3A41009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPAppLanguage.plist; sourceTree = "<group>"; };
+		5E15CAEF1E7E3A43009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPAppLanguage.plist"; sourceTree = "<group>"; };
+		5E15CAFA1E7E3DC2009B84D7 /* CPSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsCell.swift; sourceTree = "<group>"; };
+		5E15CAFB1E7E3DC2009B84D7 /* CPSettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSettingsCell.xib; sourceTree = "<group>"; };
+		5E15CAFC1E7E3DC2009B84D7 /* CPSettingsLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsLabelCell.swift; sourceTree = "<group>"; };
+		5E15CAFD1E7E3DC2009B84D7 /* CPSettingsLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSettingsLabelCell.xib; sourceTree = "<group>"; };
+		5E15CB021E7E9495009B84D7 /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB21C9024ED0041FA89 /* CPTrendingRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepositoryViewController.swift; sourceTree = "<group>"; };
@@ -456,9 +467,6 @@
 		5ECB406C1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesNotiDetailViewController.swift; sourceTree = "<group>"; };
 		5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProAboutViewController.swift; sourceTree = "<group>"; };
 		5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProSettingsViewController.swift; sourceTree = "<group>"; };
-		5ECB40771C99506800B0C6FF /* CPSettingsLabelCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSettingsLabelCell.xib; sourceTree = "<group>"; };
-		5ECB40791C9950C300B0C6FF /* CPSettingsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPSettingsCell.xib; sourceTree = "<group>"; };
-		5ECB407B1C9950DB00B0C6FF /* CPSettingsLabelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsLabelCell.swift; sourceTree = "<group>"; };
 		5ECB40811C9A376B00B0C6FF /* CPProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProfileHeaderView.swift; sourceTree = "<group>"; };
 		5EE3FF531C7C00D000760F0F /* ObjMilestone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjMilestone.swift; sourceTree = "<group>"; };
 		5EE3FF551C7C05D100760F0F /* ObjPullRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjPullRequest.swift; sourceTree = "<group>"; };
@@ -480,8 +488,8 @@
 		5EFAE65C1E7B921A003194C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPCity.plist; sourceTree = "<group>"; };
 		5EFAE65E1E7B922A003194C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPCountry.plist; sourceTree = "<group>"; };
 		5EFAE6601E7B922C003194C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPCountry.plist"; sourceTree = "<group>"; };
-		5EFAE6621E7B9232003194C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPLanguage.plist; sourceTree = "<group>"; };
-		5EFAE6641E7B9233003194C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPLanguage.plist"; sourceTree = "<group>"; };
+		5EFAE6621E7B9232003194C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPFilterLanguage.plist; sourceTree = "<group>"; };
+		5EFAE6641E7B9233003194C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPFilterLanguage.plist"; sourceTree = "<group>"; };
 		5EFAE6651E7BC462003194C3 /* JSLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSLanguage.swift; sourceTree = "<group>"; };
 		5EFAE6671E7CDABB003194C3 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		69DA18879BDE528600046027 /* Pods-Coderpursue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coderpursue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coderpursue/Pods-Coderpursue.debug.xcconfig"; sourceTree = "<group>"; };
@@ -502,7 +510,6 @@
 		FE3ED3C11C53850D0048BA1D /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ObjectMapper.swift"; sourceTree = "<group>"; };
 		FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPReposViewController.swift; sourceTree = "<group>"; };
 		FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFollowersViewController.swift; sourceTree = "<group>"; };
-		FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSettingsCell.swift; sourceTree = "<group>"; };
 		FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		FE6333E91C532E76006D7A2B /* CPStarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStarsViewController.swift; sourceTree = "<group>"; };
 		FE6980DD1C5602C40026089B /* ObjEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjEmail.swift; sourceTree = "<group>"; };
@@ -694,6 +701,7 @@
 				5E03FD3B1E7A982B005B9664 /* String+Extension.swift */,
 				5EFAE6651E7BC462003194C3 /* JSLanguage.swift */,
 				5EFAE6671E7CDABB003194C3 /* Array+Extension.swift */,
+				5E15CB021E7E9495009B84D7 /* Bundle+Extension.swift */,
 			);
 			path = JSFoundation;
 			sourceTree = "<group>";
@@ -959,6 +967,18 @@
 			name = Project;
 			sourceTree = "<group>";
 		};
+		5E15CAF91E7E3DC2009B84D7 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5E15CAFA1E7E3DC2009B84D7 /* CPSettingsCell.swift */,
+				5E15CAFB1E7E3DC2009B84D7 /* CPSettingsCell.xib */,
+				5E15CAFC1E7E3DC2009B84D7 /* CPSettingsLabelCell.swift */,
+				5E15CAFD1E7E3DC2009B84D7 /* CPSettingsLabelCell.xib */,
+			);
+			name = Settings;
+			path = Coderpursue/VIewController/Settings;
+			sourceTree = SOURCE_ROOT;
+		};
 		5E4ABFB61C9032D40041FA89 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -1139,8 +1159,9 @@
 				5E15CAE11E7D7B61009B84D7 /* CPSettingsList.plist */,
 				5EFAE65F1E7B922A003194C3 /* CPCountry.plist */,
 				5EFAE65B1E7B920F003194C3 /* CPCity.plist */,
-				5EFAE6631E7B9232003194C3 /* CPLanguage.plist */,
+				5EFAE6631E7B9232003194C3 /* CPFilterLanguage.plist */,
 				5E15CAE51E7D7B68009B84D7 /* CPAboutList.plist */,
+				5E15CAEE1E7E3A41009B84D7 /* CPAppLanguage.plist */,
 			);
 			path = plist;
 			sourceTree = "<group>";
@@ -1185,6 +1206,7 @@
 			isa = PBXGroup;
 			children = (
 				FE91BA7E1C333859002AECB6 /* Base */,
+				5E15CAF91E7E3DC2009B84D7 /* Settings */,
 				FE91BA831C333859002AECB6 /* Trending */,
 				FE91BA801C333859002AECB6 /* Message */,
 				FE91BA821C333859002AECB6 /* Stars */,
@@ -1248,6 +1270,7 @@
 				5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */,
 				5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */,
 				5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */,
+				5E15CAE81E7E3940009B84D7 /* CPSwitchLanguageController.swift */,
 				5EC6C9891CA54D5F0067E2E4 /* Funny */,
 			);
 			path = Profile;
@@ -1304,10 +1327,6 @@
 			children = (
 				5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */,
 				5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */,
-				FE49DF9A1C4BAFDC00676131 /* CPSettingsCell.swift */,
-				5ECB40791C9950C300B0C6FF /* CPSettingsCell.xib */,
-				5ECB407B1C9950DB00B0C6FF /* CPSettingsLabelCell.swift */,
-				5ECB40771C99506800B0C6FF /* CPSettingsLabelCell.xib */,
 				5E4B99031C928D32000A6B94 /* CPProfileReposCell.swift */,
 				5E4B99051C928D3E000A6B94 /* CPProfileReposCell.xib */,
 				5ECB40811C9A376B00B0C6FF /* CPProfileHeaderView.swift */,
@@ -1530,8 +1549,11 @@
 				5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */,
 				5E0DDCC71E72FFE800493ABA /* ShareSDKUI.bundle in Resources */,
 				5E0DDCE81E72FFE800493ABA /* WeiboSDK.bundle in Resources */,
+				5E15CAFF1E7E3DC2009B84D7 /* CPSettingsCell.xib in Resources */,
+				5E15CB011E7E3DC2009B84D7 /* CPSettingsLabelCell.xib in Resources */,
 				5E0DDCEA1E72FFE800493ABA /* read_me.txt in Resources */,
 				5EFAE65D1E7B922A003194C3 /* CPCountry.plist in Resources */,
+				5E15CAEC1E7E3A41009B84D7 /* CPAppLanguage.plist in Resources */,
 				5E15CAE31E7D7B68009B84D7 /* CPAboutList.plist in Resources */,
 				5EF6E3CE1C8AC4C9004F6473 /* CPEventStarredCell.xib in Resources */,
 				5E0DDCC41E72FFE800493ABA /* ShareSDKConfigFile.bundle in Resources */,
@@ -1545,16 +1567,14 @@
 				5E4ABFC21C9032D40041FA89 /* CPTrendingShowcaseCell.xib in Resources */,
 				5E4ABFE31C9181700041FA89 /* CPDevUserInfoCell.xib in Resources */,
 				5E15CADF1E7D7B61009B84D7 /* CPSettingsList.plist in Resources */,
-				5ECB407A1C9950C300B0C6FF /* CPSettingsCell.xib in Resources */,
 				FEC0DC411C28B39F0008C7C1 /* Main.storyboard in Resources */,
 				5EEE93D81C8B1207003911B2 /* Assets.xcassets in Resources */,
 				5E0DDCE41E72FFE800493ABA /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				5E4B99061C928D3E000A6B94 /* CPProfileReposCell.xib in Resources */,
 				5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */,
 				5E4ABFC01C9032D40041FA89 /* CPTrendingRepoCell.xib in Resources */,
-				5ECB40781C99506800B0C6FF /* CPSettingsLabelCell.xib in Resources */,
 				5EACCFC91C8D52C60059A303 /* CPMesIssueCell.xib in Resources */,
-				5EFAE6611E7B9232003194C3 /* CPLanguage.plist in Resources */,
+				5EFAE6611E7B9232003194C3 /* CPFilterLanguage.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1627,10 +1647,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E15CB001E7E3DC2009B84D7 /* CPSettingsLabelCell.swift in Sources */,
 				5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */,
 				FE6980E31C5602C40026089B /* ObjPermissions.swift in Sources */,
 				FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */,
 				5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */,
+				5E15CAE91E7E3940009B84D7 /* CPSwitchLanguageController.swift in Sources */,
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
 				5E0DDC121E729D8700493ABA /* InfoButton.swift in Sources */,
 				5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */,
@@ -1646,7 +1668,6 @@
 				5E546D931C8EDE8B00E94997 /* ObjErropReponse.swift in Sources */,
 				5EFAE6661E7BC462003194C3 /* JSLanguage.swift in Sources */,
 				5EBD36011E71568200C4E350 /* ComonString.swift in Sources */,
-				FE49DF9B1C4BAFDD00676131 /* CPSettingsCell.swift in Sources */,
 				5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */,
 				5E738C981C92C26F0075C82C /* CPHttpStatusCode.swift in Sources */,
 				5EFAE6681E7CDABB003194C3 /* Array+Extension.swift in Sources */,
@@ -1659,7 +1680,6 @@
 				FE6980E21C5602C40026089B /* ObjEmail.swift in Sources */,
 				5E546DA51C8FAC2200E94997 /* ParaSort.swift in Sources */,
 				5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */,
-				5ECB407C1C9950DB00B0C6FF /* CPSettingsLabelCell.swift in Sources */,
 				5EE91F831C7C4E32003F4CBF /* ObjEventPayload.swift in Sources */,
 				5EACCFCF1C8E5F450059A303 /* ParaComparison.swift in Sources */,
 				5E03FD741E7A982C005B9664 /* UIView+Draw.swift in Sources */,
@@ -1687,6 +1707,7 @@
 				5E03FD731E7A982C005B9664 /* UIScreen+Size.swift in Sources */,
 				5E03FD5B1E7A982C005B9664 /* JSObject.swift in Sources */,
 				5E15CADA1E7D6E08009B84D7 /* JSFoundation.swift in Sources */,
+				5E15CAFE1E7E3DC2009B84D7 /* CPSettingsCell.swift in Sources */,
 				5E4ABFD91C91046F0041FA89 /* CPTrendingDeveloperViewController.swift in Sources */,
 				5E03FD581E7A982B005B9664 /* Data+Extension.swift in Sources */,
 				FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */,
@@ -1739,6 +1760,7 @@
 				5E4ABFDB1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift in Sources */,
 				5EC58D7E1E6DAAF60069AE82 /* NetworkHelper.swift in Sources */,
 				5EE91F811C7C4D05003F4CBF /* ObjComment.swift in Sources */,
+				5E15CB031E7E9496009B84D7 /* Bundle+Extension.swift in Sources */,
 				FE17EA3E1C5723050061F624 /* ObjRepos.swift in Sources */,
 				5EEE93DA1C8BA922003911B2 /* CPEventCreateCell.swift in Sources */,
 				5EE91F871C7C5922003F4CBF /* ObjCommit.swift in Sources */,
@@ -1838,6 +1860,15 @@
 			name = CPAboutList.plist;
 			sourceTree = "<group>";
 		};
+		5E15CAEE1E7E3A41009B84D7 /* CPAppLanguage.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E15CAED1E7E3A41009B84D7 /* en */,
+				5E15CAEF1E7E3A43009B84D7 /* zh-Hans */,
+			);
+			name = CPAppLanguage.plist;
+			sourceTree = "<group>";
+		};
 		5E7368661E76907800AEBA77 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1865,13 +1896,13 @@
 			name = CPCountry.plist;
 			sourceTree = "<group>";
 		};
-		5EFAE6631E7B9232003194C3 /* CPLanguage.plist */ = {
+		5EFAE6631E7B9232003194C3 /* CPFilterLanguage.plist */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5EFAE6621E7B9232003194C3 /* en */,
 				5EFAE6641E7B9233003194C3 /* zh-Hans */,
 			);
-			name = CPLanguage.plist;
+			name = CPFilterLanguage.plist;
 			sourceTree = "<group>";
 		};
 		FEC0DC3F1C28B39F0008C7C1 /* Main.storyboard */ = {

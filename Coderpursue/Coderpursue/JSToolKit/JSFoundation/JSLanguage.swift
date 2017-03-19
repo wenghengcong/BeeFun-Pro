@@ -49,7 +49,7 @@ class JSLanguage: NSObject {
     }
     
     /// 用户选择的语言，默认是系统的语言
-    class var userLanguage:String {
+    class var userLanguage:String? {
         set {
             let def = UserDefaults.standard
             def.set(newValue, forKey: kAppUserLanguageKey)
@@ -58,11 +58,8 @@ class JSLanguage: NSObject {
         
         get {
             let def = UserDefaults.standard
-            var choose = def.object(forKey: kAppUserLanguageKey)
-            if choose == nil{
-                choose = systemLanguage
-            }
-            return choose as! String
+            let choose = def.object(forKey: kAppUserLanguageKey)
+            return choose as! String?
         }
     }
     
@@ -98,23 +95,25 @@ class JSLanguage: NSObject {
     
     /// 将用户选择的语言同步到App语言
     class func synchronize() {
-        appLanguage = userLanguage
+        appLanguage = userLanguage!
     }
     
     /// 初始化语言，默认为系统的语言
     class func initUserLanguage() {
-        userLanguage = systemLanguage
+        if userLanguage == nil {
+            userLanguage = systemLanguage
+        }
         synchronize()
     }
     
     /// 设置APP语言为英文语言
     class func setEnglish() {
-        appLanguage = kEnglishLanguage
+        userLanguage = kEnglishLanguage
     }
     
     /// 设置APP语言为中文语言
     class func setChinese() {
-        appLanguage = kChineseLanguage
+        userLanguage = kChineseLanguage
     }
     
 }

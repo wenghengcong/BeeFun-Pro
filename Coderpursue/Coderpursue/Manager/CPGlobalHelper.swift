@@ -51,7 +51,7 @@ class CPGlobalHelper {
         
         var settingsArr:[[ObjSettings]] = []
 
-        if let path = Bundle.main.path(forResource: file, ofType: "plist") {
+        if let path = Bundle.appBundle.path(forResource: file, ofType: "plist") {
             let dictArr = NSArray(contentsOfFile: path)!
             // use swift dictionary as normal
 //            print(dictArr)

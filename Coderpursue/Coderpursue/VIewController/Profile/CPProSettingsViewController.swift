@@ -146,7 +146,70 @@ extension CPProSettingsViewController : UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let section = (indexPath as NSIndexPath).section
+        let row = (indexPath as NSIndexPath).row
+        let settings:ObjSettings = settingsArr[section][row]
         
+        let viewType = settings.itemKey!
+        let viewValue = settings.itemValue!
+        
+        if(viewType == "language"){
+            if viewValue == "切换到英语" {
+                
+                let alertController = UIAlertController(title: "切换到英语?", message:"Tha app shows in English", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+                    // ...
+                }
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "确定", style: .default) { (action) in
+                    JSLanguage.setEnglish()
+                    JSLanguage.synchronize()
+                    self.reloadAllResource()
+                }
+                alertController.addAction(OKAction)
+                
+                self.present(alertController, animated: true) {
+                    // ...
+                }
+
+            }else if(viewValue == "Change to Chinese"){
+                
+                let alertController = UIAlertController(title: "Change to Chinese?", message:"App将会显示成中文", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // ...
+                }
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "Sure", style: .default) { (action) in
+                    JSLanguage.setChinese()
+                    JSLanguage.synchronize()
+                    self.reloadAllResource()
+                }
+                alertController.addAction(OKAction)
+                
+                self.present(alertController, animated: true) {
+                    // ...
+                }
+                
+            }
+        }
+        
+    }
+    
+}
+
+
+extension CPProSettingsViewController {
+
+    func reloadAllResource() {
+        self.tableView.reloadData()
+    }
+    
+    func reloadMainStroyboard() {
+
     }
     
 }

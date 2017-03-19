@@ -13,7 +13,7 @@ import ObjectMapper
 class JSFile: NSObject{
     
    public class  func readJsonBySwiftyJSON(_ path:String) -> JSON {
-        let path = Bundle.main.path(forResource: path, ofType: "json")
+        let path = Bundle.appBundle.path(forResource: path, ofType: "json")
         var result:JSON
         if path != nil {
             if let dataFromList = NSData.init(contentsOfFile: path!){
@@ -29,7 +29,7 @@ class JSFile: NSObject{
     
     public class  func readJsonByMapper<T:Mappable>(_ path:String,object:T) -> T {
         
-        let path = Bundle.main.path(forResource: path, ofType: "json")
+        let path = Bundle.appBundle.path(forResource: path, ofType: "json")
         if path != nil {
             if let dataFromList = NSData.init(contentsOfFile: path!){
                 let jsonStr:String = (NSString(data: dataFromList as Data, encoding: String.Encoding.utf8.rawValue))! as String // UTF8转String

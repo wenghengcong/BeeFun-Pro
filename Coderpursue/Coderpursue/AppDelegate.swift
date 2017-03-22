@@ -66,6 +66,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         tabBarController = storyBoard?.instantiateViewController(withIdentifier: "tabbarController") as! CPBaseTabBarController?
         
+        if let dictionary = Bundle.main.infoDictionary {
+//            let appName = dictionary["APP_DISPLAYNAME"] as! String
+//            print("appName: \(appName)")
+        }
+        
         return true
     }
     

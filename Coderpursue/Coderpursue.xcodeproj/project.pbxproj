@@ -215,6 +215,7 @@
 		5EFAE6611E7B9232003194C3 /* CPFilterLanguage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE6631E7B9232003194C3 /* CPFilterLanguage.plist */; };
 		5EFAE6661E7BC462003194C3 /* JSLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE6651E7BC462003194C3 /* JSLanguage.swift */; };
 		5EFAE6681E7CDABB003194C3 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE6671E7CDABB003194C3 /* Array+Extension.swift */; };
+		5EFDF2611E820A530088FBBB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFDF2601E820A530088FBBB /* Info.plist */; };
 		FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D11C3DC1350005DDE5 /* CPBaseNavigationController.swift */; };
 		FE0FE0D71C3DC7BB0005DDE5 /* ObjBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D61C3DC7BB0005DDE5 /* ObjBase.swift */; };
 		FE0FE0D91C3F14F10005DDE5 /* ProjectKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D81C3F14F10005DDE5 /* ProjectKey.swift */; };
@@ -386,7 +387,6 @@
 		5E0DDCC11E72FFE800493ABA /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
 		5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
 		5E0DDCF01E73010D00493ABA /* ShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
-		5E15CAC21E7D4DDF009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/Info.plist"; sourceTree = "<group>"; };
 		5E15CAC81E7D4FD7009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E15CACA1E7D4FD9009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -467,7 +467,6 @@
 		5E73686B1E77D4CC00AEBA77 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		5E73686D1E77D4FE00AEBA77 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		5E73686F1E77D50F00AEBA77 /* libresolv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libresolv.tbd; path = usr/lib/libresolv.tbd; sourceTree = SDKROOT; };
-		5E7368711E77D51D00AEBA77 /* Coderpursue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coderpursue.entitlements; sourceTree = "<group>"; };
 		5E738C971C92C26F0075C82C /* CPHttpStatusCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPHttpStatusCode.swift; sourceTree = "<group>"; };
 		5E738C9D1C93A53D0075C82C /* CPFilterTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFilterTableView.swift; sourceTree = "<group>"; };
 		5E7691FD1CC2323C00E0C2D3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -492,6 +491,7 @@
 		5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchUser.swift; sourceTree = "<group>"; };
 		5EACCFCE1C8E5F450059A303 /* ParaComparison.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaComparison.swift; sourceTree = "<group>"; };
 		5EACCFD01C8E62C70059A303 /* ParaTrending.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaTrending.swift; sourceTree = "<group>"; };
+		5EBBA6F31E82182700651BE6 /* Coderpursue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Coderpursue.entitlements; sourceTree = "<group>"; };
 		5EBD36001E71568200C4E350 /* ComonString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComonString.swift; sourceTree = "<group>"; };
 		5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMyReposCell.swift; sourceTree = "<group>"; };
 		5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMyReposCell.xib; sourceTree = "<group>"; };
@@ -531,6 +531,7 @@
 		5EFAE6641E7B9233003194C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPFilterLanguage.plist"; sourceTree = "<group>"; };
 		5EFAE6651E7BC462003194C3 /* JSLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSLanguage.swift; sourceTree = "<group>"; };
 		5EFAE6671E7CDABB003194C3 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
+		5EFDF2601E820A530088FBBB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		69DA18879BDE528600046027 /* Pods-Coderpursue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coderpursue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coderpursue/Pods-Coderpursue.debug.xcconfig"; sourceTree = "<group>"; };
 		7C4A8DBCF2271C938FDD0F1B /* Pods-Coderpursue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coderpursue.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coderpursue/Pods-Coderpursue.release.xcconfig"; sourceTree = "<group>"; };
 		FE0FE0D11C3DC1350005DDE5 /* CPBaseNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPBaseNavigationController.swift; sourceTree = "<group>"; };
@@ -1457,7 +1458,7 @@
 		FEC0DC381C28B39F0008C7C1 /* Coderpursue */ = {
 			isa = PBXGroup;
 			children = (
-				5E7368711E77D51D00AEBA77 /* Coderpursue.entitlements */,
+				5EBBA6F31E82182700651BE6 /* Coderpursue.entitlements */,
 				5E03FD301E7A982B005B9664 /* JSToolKit */,
 				FE19F93A1C390865009986FE /* ProConfig */,
 				FE19F93B1C390865009986FE /* Resources */,
@@ -1469,7 +1470,7 @@
 				FE91BA771C333804002AECB6 /* VIewController */,
 				5E15CAE71E7D7FD3009B84D7 /* Project */,
 				FEC0DC391C28B39F0008C7C1 /* AppDelegate.swift */,
-				5E15CAC31E7D4DDF009B84D7 /* Info.plist */,
+				5EFDF2601E820A530088FBBB /* Info.plist */,
 			);
 			path = Coderpursue;
 			sourceTree = "<group>";
@@ -1620,6 +1621,7 @@
 				5E0DDCE81E72FFE800493ABA /* WeiboSDK.bundle in Resources */,
 				5E15CB441E7ED6DD009B84D7 /* tab_trending@2x.png in Resources */,
 				5E87F6B81E820407001608F1 /* Debug.xcconfig in Resources */,
+				5EFDF2611E820A530088FBBB /* Info.plist in Resources */,
 				5E15CAFF1E7E3DC2009B84D7 /* CPSettingsCell.xib in Resources */,
 				5E15CB301E7ED6B7009B84D7 /* tab_gist@2x.png in Resources */,
 				5E15CB011E7E3DC2009B84D7 /* CPSettingsLabelCell.xib in Resources */,
@@ -1897,14 +1899,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5E15CAC31E7D4DDF009B84D7 /* Info.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E15CAC21E7D4DDF009B84D7 /* zh-Hans */,
-			);
-			name = Info.plist;
-			sourceTree = "<group>";
-		};
 		5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -2192,7 +2186,7 @@
 		};
 		FEC0DC611C28B39F0008C7C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 69DA18879BDE528600046027 /* Pods-Coderpursue.debug.xcconfig */;
+			baseConfigurationReference = 5E87F6B51E820407001608F1 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2241,7 +2235,7 @@
 		};
 		FEC0DC621C28B39F0008C7C1 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C4A8DBCF2271C938FDD0F1B /* Pods-Coderpursue.release.xcconfig */;
+			baseConfigurationReference = 5E87F6B61E820407001608F1 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -2279,8 +2273,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "b07352f3-53f6-4695-81b1-3cebd0083c35";
-				PROVISIONING_PROFILE_SPECIFIER = coderpursue_dis_pp;
+				PROVISIONING_PROFILE = "cf223cf5-c8d2-43d1-9f5e-acd2d54d4958";
+				PROVISIONING_PROFILE_SPECIFIER = coderpursue_ad_pp;
 				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

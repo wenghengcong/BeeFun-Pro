@@ -7,4 +7,6 @@
 //  Copyright © 2017年 JungleSong. All rights reserved.
 //
 
-APP_DISPLAYNAME = Common
+VERSION_NUM = 1.0
+
+BUILD_NUM =  1

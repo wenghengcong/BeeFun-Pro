@@ -6,5 +6,11 @@
 //  Created by WengHengcong on 2017/3/21.
 //  Copyright © 2017年 JungleSong. All rights reserved.
 //
+#include "Common.xcconfig"
+#include "Pods/Target Support Files/Pods-Coderpursue/Pods-Coderpursue.debug.xcconfig"
+
+VERSION_NUM = 2.0
+
+BUILD_NUM =  1
 
 APP_DISPLAYNAME = Debug

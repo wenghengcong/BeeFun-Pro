@@ -621,7 +621,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VK6-mr-2nh" customClass="CPReposInfoView" customModule="Coderpursue" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VK6-mr-2nh">
                                 <rect key="frame" x="0.0" y="220" width="375" height="91"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -655,15 +655,6 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="filesizeBtn" destination="ELn-fb-fZx" id="C1g-Ce-7FS"/>
-                                    <outlet property="forkBtn" destination="Fy4-x3-nNj" id="V6w-MV-aGN"/>
-                                    <outlet property="issueBtn" destination="kNM-Z5-t0Q" id="RaG-9W-9ld"/>
-                                    <outlet property="lanBtn" destination="9Av-Og-f15" id="gxt-DQ-e8d"/>
-                                    <outlet property="privateBtn" destination="Jyh-Pn-5dZ" id="sFE-Na-wbh"/>
-                                    <outlet property="starBtn" destination="7fm-AG-FD0" id="zQg-Ue-scE"/>
-                                    <outlet property="watchBtn" destination="hdG-35-Jd0" id="5FM-xd-d0D"/>
-                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DOn-bB-VjD">
                                 <rect key="frame" x="0.0" y="325" width="375" height="341"/>
@@ -679,7 +670,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Repos" id="kMM-wg-JW6"/>
                     <connections>
-                        <outlet property="reposInfoV" destination="VK6-mr-2nh" id="tUX-Cf-WpH"/>
                         <outlet property="tableView" destination="DOn-bB-VjD" id="MnF-L9-6LH"/>
                         <segue destination="Ax2-Kg-xXj" kind="show" identifier="RepositoryToOwner" id="VaJ-wG-uf1"/>
                     </connections>

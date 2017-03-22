@@ -11,15 +11,15 @@ import UIKit
 /// Repos 底部的代码库的详细信息视图
 class CPReposInfoView: UIView {
 
-    @IBOutlet weak var watchBtn: UIButton!
-    @IBOutlet weak var starBtn: UIButton!
-    @IBOutlet weak var forkBtn: UIButton!
+    var watchBtn: UIButton = UIButton.init()
+    var starBtn: UIButton = UIButton.init()
+    var forkBtn: UIButton = UIButton.init()
 
-    @IBOutlet weak var lanBtn: UIButton!
-    @IBOutlet weak var privateBtn: UIButton!
+    var lanBtn: UIButton = UIButton.init()
+    var privateBtn: UIButton = UIButton.init()
     
-    @IBOutlet weak var issueBtn: UIButton!
-    @IBOutlet weak var filesizeBtn: UIButton!
+    var issueBtn: UIButton = UIButton.init()
+    var filesizeBtn: UIButton = UIButton.init()
     
     var repo:ObjRepos? {
         didSet{
@@ -27,13 +27,15 @@ class CPReposInfoView: UIView {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
-        riv_customView()
+        self.addSubview(self.watchBtn)
+        self.addSubview(self.starBtn)
+        self.addSubview(self.forkBtn)
+        self.addSubview(self.lanBtn)
+        self.addSubview(self.privateBtn)
+        self.addSubview(self.issueBtn)
+        self.addSubview(self.filesizeBtn)
     }
     
     init(obj:ObjRepos){

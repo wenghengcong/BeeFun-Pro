@@ -25,7 +25,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
 
     var reposPoseterV: CPReposPosterView = CPReposPosterView.init(frame: CGRect.zero)
     
-    @IBOutlet weak var reposInfoV: CPReposInfoView!
+    var reposInfoV: CPReposInfoView = CPReposInfoView.init(frame: CGRect.zero)
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -65,6 +65,8 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     func rvc_customView(){
         
         self.view.addSubview(self.reposPoseterV)
+        self.view.addSubview(self.reposInfoV)
+        
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
         self.rightItem?.isHidden = false

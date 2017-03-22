@@ -33,7 +33,7 @@ class CPReposInfoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        riv_customView()
     }
     
     init(obj:ObjRepos){
@@ -45,7 +45,6 @@ class CPReposInfoView: UIView {
         super.init(coder: aDecoder)
         
     }
-    
     
     /// view
     func riv_customView() {

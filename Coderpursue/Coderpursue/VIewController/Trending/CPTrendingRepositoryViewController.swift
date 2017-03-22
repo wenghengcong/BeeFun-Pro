@@ -23,7 +23,7 @@ public enum CPReposActionType:String {
 
 class CPTrendingRepositoryViewController: CPBaseViewController {
 
-    @IBOutlet weak var reposPoseterV: CPReposPosterView!
+    var reposPoseterV: CPReposPosterView = CPReposPosterView.init(frame: CGRect.zero)
     
     @IBOutlet weak var reposInfoV: CPReposInfoView!
     
@@ -64,6 +64,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     func rvc_customView(){
         
+        self.view.addSubview(self.reposPoseterV)
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
         self.rightItem?.isHidden = false

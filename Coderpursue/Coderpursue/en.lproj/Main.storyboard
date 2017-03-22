@@ -307,7 +307,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="183"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="zqN-Yx-4yT">
-                                        <rect key="frame" x="152.5" y="16" width="70" height="70"/>
+                                        <rect key="frame" x="153" y="16" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="0Mu-VL-Th2"/>
                                             <constraint firstAttribute="height" constant="70" id="ZTZ-F9-7Nx"/>
@@ -515,7 +515,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="app_logo_90" translatesAutoresizingMaskIntoConstraints="NO" id="rF4-bL-7BL">
-                                <rect key="frame" x="142.5" y="78" width="90" height="90"/>
+                                <rect key="frame" x="143" y="78" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="Me3-DK-GtN"/>
                                     <constraint firstAttribute="height" constant="90" id="ze9-Hz-mnU"/>
@@ -575,7 +575,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iYu-5z-SHE" customClass="CPReposPosterView" customModule="Coderpursue" customModuleProvider="target">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iYu-5z-SHE">
                                 <rect key="frame" x="0.0" y="64" width="375" height="149"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -620,15 +620,6 @@
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="descLabel" destination="xhz-dN-dmE" id="UwT-wR-3pY"/>
-                                    <outlet property="forkBtn" destination="ujR-iH-wFn" id="8SY-RA-DgU"/>
-                                    <outlet property="imgV" destination="bCB-Lk-Emu" id="l71-zZ-4sc"/>
-                                    <outlet property="nameLabel" destination="Vyw-yx-7iO" id="l2s-XM-GjA"/>
-                                    <outlet property="starBtn" destination="NwY-Mo-DBu" id="zGx-h6-iU6"/>
-                                    <outlet property="timeLabel" destination="9Bv-bJ-81E" id="cWF-Vl-Gat"/>
-                                    <outlet property="watchBtn" destination="HKX-RW-8ls" id="7tL-EG-Oes"/>
-                                </connections>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VK6-mr-2nh" customClass="CPReposInfoView" customModule="Coderpursue" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="220" width="375" height="91"/>
@@ -689,7 +680,6 @@
                     <navigationItem key="navigationItem" title="Repos" id="kMM-wg-JW6"/>
                     <connections>
                         <outlet property="reposInfoV" destination="VK6-mr-2nh" id="tUX-Cf-WpH"/>
-                        <outlet property="reposPoseterV" destination="iYu-5z-SHE" id="6o4-eS-3PS"/>
                         <outlet property="tableView" destination="DOn-bB-VjD" id="MnF-L9-6LH"/>
                         <segue destination="Ax2-Kg-xXj" kind="show" identifier="RepositoryToOwner" id="VaJ-wG-uf1"/>
                     </connections>
@@ -718,7 +708,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="172"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Gv-RL-bdy">
-                                        <rect key="frame" x="152.5" y="13" width="70" height="70"/>
+                                        <rect key="frame" x="153" y="13" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="ZeB-GR-XNg"/>
                                             <constraint firstAttribute="width" constant="70" id="iNC-y0-oQ9"/>
@@ -816,7 +806,7 @@
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uo8-kR-vcp">
-                                        <rect key="frame" x="152.5" y="19" width="70" height="70"/>
+                                        <rect key="frame" x="153" y="19" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="70" id="4ZH-e7-umw"/>
                                             <constraint firstAttribute="width" constant="70" id="Yr7-20-fEc"/>
@@ -1184,7 +1174,7 @@
                                 </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github_signin_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Vgf-7C-JbT">
-                                <rect key="frame" x="87.5" y="85" width="200" height="165"/>
+                                <rect key="frame" x="88" y="85" width="200" height="165"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="hJ3-II-hlI"/>
                                     <constraint firstAttribute="height" constant="165" id="pAs-yF-7SP"/>
@@ -1403,9 +1393,9 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9bj-WN-PEl"/>
-        <segue reference="Ah2-FE-EYQ"/>
-        <segue reference="Ocj-6m-P78"/>
         <segue reference="4pF-1J-jZn"/>
+        <segue reference="Ocj-6m-P78"/>
+        <segue reference="9bj-WN-PEl"/>
+        <segue reference="VaJ-wG-uf1"/>
     </inferredMetricsTieBreakers>
 </document>

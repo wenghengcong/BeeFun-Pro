@@ -21,16 +21,16 @@ protocol ReposActionProtocol {
 /// Repos 头部的代码库的主要信息视图
 class CPReposPosterView: UIView {
 
-    @IBOutlet weak var imgV: UIImageView!
-
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-
+    var imgV: UIImageView = UIImageView.init()
     
-    @IBOutlet weak var watchBtn: UIButton!
-    @IBOutlet weak var starBtn: UIButton!
-    @IBOutlet weak var forkBtn: UIButton!
+    var nameLabel: UILabel = UILabel.init()
+    var descLabel: UILabel = UILabel.init()
+    var timeLabel: UILabel = UILabel.init()
+    
+    var watchBtn: UIButton = UIButton.init()
+    var starBtn: UIButton = UIButton.init()
+    var forkBtn: UIButton = UIButton.init()
+
 
     var reposActionDelegate:ReposActionProtocol?
     var dynH:CGFloat = 0.0
@@ -65,14 +65,16 @@ class CPReposPosterView: UIView {
         }
 
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        self.addSubview(self.imgV)
+        self.addSubview(self.nameLabel)
+        self.addSubview(self.descLabel)
+        self.addSubview(self.timeLabel)
+        self.addSubview(self.watchBtn)
+        self.addSubview(self.forkBtn)
+        self.addSubview(self.starBtn)
     }
     
     init(obj:ObjRepos){
@@ -82,7 +84,6 @@ class CPReposPosterView: UIView {
 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
     }
 
 
@@ -113,13 +114,13 @@ class CPReposPosterView: UIView {
         
         for btn in btnArr {
             
-            btn?.imageView?.contentMode = .scaleAspectFit
-            btn?.imageEdgeInsets = imgEdgeInsets
-            btn?.layer.cornerRadius = cornerRadius
-            btn?.layer.masksToBounds = true
-            btn?.layer.borderColor = UIColor.cpRedColor.cgColor
-            btn?.layer.borderWidth = borderWidth
-            btn?.setTitleColor(UIColor.cpRedColor, for: UIControlState())
+            btn.imageView?.contentMode = .scaleAspectFit
+            btn.imageEdgeInsets = imgEdgeInsets
+            btn.layer.cornerRadius = cornerRadius
+            btn.layer.masksToBounds = true
+            btn.layer.borderColor = UIColor.cpRedColor.cgColor
+            btn.layer.borderWidth = borderWidth
+            btn.setTitleColor(UIColor.cpRedColor, for: UIControlState())
             
         }
 
@@ -194,7 +195,7 @@ class CPReposPosterView: UIView {
         
         for (index,button) in btnArr.enumerated() {
             let left = CGFloat.init(index) * (width+margin) + margin
-            button?.snp.remakeConstraints({ (make) in
+            button.snp.remakeConstraints({ (make) in
                 make.left.equalTo(left)
                 make.top.equalTo(top)
                 make.width.equalTo(width)

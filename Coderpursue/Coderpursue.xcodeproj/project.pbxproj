@@ -182,6 +182,7 @@
 		5EBD36011E71568200C4E350 /* ComonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD36001E71568200C4E350 /* ComonString.swift */; };
 		5EBF89AD1C926AB4009B3F5B /* CPMyReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */; };
 		5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */; };
+		5EC1499E1E828F90002039C2 /* Adhoc.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5EC1499D1E828F90002039C2 /* Adhoc.xcconfig */; };
 		5EC58D7C1E6DAAF60069AE82 /* AppVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */; };
 		5EC58D7D1E6DAAF60069AE82 /* CPGlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */; };
 		5EC58D7E1E6DAAF60069AE82 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */; };
@@ -495,6 +496,7 @@
 		5EBD36001E71568200C4E350 /* ComonString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComonString.swift; sourceTree = "<group>"; };
 		5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMyReposCell.swift; sourceTree = "<group>"; };
 		5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMyReposCell.xib; sourceTree = "<group>"; };
+		5EC1499D1E828F90002039C2 /* Adhoc.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Adhoc.xcconfig; sourceTree = "<group>"; };
 		5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionHelper.swift; sourceTree = "<group>"; };
 		5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGlobalHelper.swift; sourceTree = "<group>"; };
 		5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
@@ -1103,6 +1105,7 @@
 			children = (
 				5E87F6B41E820407001608F1 /* Common.xcconfig */,
 				5E87F6B51E820407001608F1 /* Debug.xcconfig */,
+				5EC1499D1E828F90002039C2 /* Adhoc.xcconfig */,
 				5E87F6B61E820407001608F1 /* Release.xcconfig */,
 			);
 			path = XcodeConfig;
@@ -1623,6 +1626,7 @@
 				5E87F6B81E820407001608F1 /* Debug.xcconfig in Resources */,
 				5EFDF2611E820A530088FBBB /* Info.plist in Resources */,
 				5E15CAFF1E7E3DC2009B84D7 /* CPSettingsCell.xib in Resources */,
+				5EC1499E1E828F90002039C2 /* Adhoc.xcconfig in Resources */,
 				5E15CB301E7ED6B7009B84D7 /* tab_gist@2x.png in Resources */,
 				5E15CB011E7E3DC2009B84D7 /* CPSettingsLabelCell.xib in Resources */,
 				5E0DDCEA1E72FFE800493ABA /* read_me.txt in Resources */,
@@ -2092,6 +2096,130 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5EC149991E828F71002039C2 /* Achoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: JD mobile (3TWAPM288B)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: JD mobile (3TWAPM288B)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "arm64 armv7s armv7";
+			};
+			name = Achoc;
+		};
+		5EC1499A1E828F71002039C2 /* Achoc */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EC1499D1E828F90002039C2 /* Adhoc.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Coderpursue/Coderpursue.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Hengcong Weng (7RMANB5BXZ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Hengcong Weng (7RMANB5BXZ)";
+				DEVELOPMENT_TEAM = 69XHTLCF36;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/Optional",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformConnector",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/DingTalkSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/FacebookMessengerSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/KaKaoSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/MPShareSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/QQSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/RenRenSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/Required",
+				);
+				INFOPLIST_FILE = Coderpursue/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_GENERATE_MAP_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/APSocialSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/SinaWeiboSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/Coderpursue/ThidParty/ShareSDK/Support/PlatformSDK/YiXinSDK",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "384fbbea-757b-480c-bfce-6d31c5090d1a";
+				PROVISIONING_PROFILE_SPECIFIER = coderpursue_dev_pp;
+				SWIFT_OBJC_BRIDGING_HEADER = "Coderpursue/Coderpursue-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Achoc;
+		};
+		5EC1499B1E828F71002039C2 /* Achoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = CoderpursueTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.CoderpursueTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Coderpursue.app/Coderpursue";
+			};
+			name = Achoc;
+		};
+		5EC1499C1E828F71002039C2 /* Achoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = CoderpursueUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.CoderpursueUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Coderpursue;
+				USES_XCTRUNNER = YES;
+			};
+			name = Achoc;
+		};
 		FEC0DC5E1C28B39F0008C7C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2340,6 +2468,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEC0DC5E1C28B39F0008C7C1 /* Debug */,
+				5EC149991E828F71002039C2 /* Achoc */,
 				FEC0DC5F1C28B39F0008C7C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2349,6 +2478,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEC0DC611C28B39F0008C7C1 /* Debug */,
+				5EC1499A1E828F71002039C2 /* Achoc */,
 				FEC0DC621C28B39F0008C7C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2358,6 +2488,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEC0DC641C28B39F0008C7C1 /* Debug */,
+				5EC1499B1E828F71002039C2 /* Achoc */,
 				FEC0DC651C28B39F0008C7C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -2367,6 +2498,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEC0DC671C28B39F0008C7C1 /* Debug */,
+				5EC1499C1E828F71002039C2 /* Achoc */,
 				FEC0DC681C28B39F0008C7C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

@@ -171,6 +171,9 @@
 		5E7F24761CB897D7001BD4C8 /* CPSearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24751CB897D7001BD4C8 /* CPSearchFilterView.swift */; };
 		5E7F24781CB8F622001BD4C8 /* ParaSearchRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24771CB8F622001BD4C8 /* ParaSearchRepos.swift */; };
 		5E7F247A1CB92BD0001BD4C8 /* ObjSearchReposResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24791CB92BD0001BD4C8 /* ObjSearchReposResponse.swift */; };
+		5E87F6B71E820407001608F1 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B41E820407001608F1 /* Common.xcconfig */; };
+		5E87F6B81E820407001608F1 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B51E820407001608F1 /* Debug.xcconfig */; };
+		5E87F6B91E820407001608F1 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B61E820407001608F1 /* Release.xcconfig */; };
 		5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */; };
 		5EACCFC91C8D52C60059A303 /* CPMesIssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */; };
 		5EACCFCC1C8DEB490059A303 /* ParaSearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */; };
@@ -481,6 +484,9 @@
 		5E7F24751CB897D7001BD4C8 /* CPSearchFilterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchFilterView.swift; sourceTree = "<group>"; };
 		5E7F24771CB8F622001BD4C8 /* ParaSearchRepos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchRepos.swift; sourceTree = "<group>"; };
 		5E7F24791CB92BD0001BD4C8 /* ObjSearchReposResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjSearchReposResponse.swift; sourceTree = "<group>"; };
+		5E87F6B41E820407001608F1 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
+		5E87F6B51E820407001608F1 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		5E87F6B61E820407001608F1 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesIssueCell.swift; sourceTree = "<group>"; };
 		5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesIssueCell.xib; sourceTree = "<group>"; };
 		5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchUser.swift; sourceTree = "<group>"; };
@@ -1091,6 +1097,16 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		5E87F6B31E820407001608F1 /* XcodeConfig */ = {
+			isa = PBXGroup;
+			children = (
+				5E87F6B41E820407001608F1 /* Common.xcconfig */,
+				5E87F6B51E820407001608F1 /* Debug.xcconfig */,
+				5E87F6B61E820407001608F1 /* Release.xcconfig */,
+			);
+			path = XcodeConfig;
+			sourceTree = "<group>";
+		};
 		5EACCFCA1C8DEB210059A303 /* Parameters */ = {
 			isa = PBXGroup;
 			children = (
@@ -1418,6 +1434,7 @@
 		FEC0DC2D1C28B39E0008C7C1 = {
 			isa = PBXGroup;
 			children = (
+				5E87F6B31E820407001608F1 /* XcodeConfig */,
 				FEC0DC381C28B39F0008C7C1 /* Coderpursue */,
 				FEC0DC4F1C28B39F0008C7C1 /* CoderpursueTests */,
 				FEC0DC5A1C28B39F0008C7C1 /* CoderpursueUITests */,
@@ -1593,6 +1610,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E87F6B91E820407001608F1 /* Release.xcconfig in Resources */,
 				5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */,
 				5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */,
 				FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */,
@@ -1601,6 +1619,7 @@
 				5E0DDCC71E72FFE800493ABA /* ShareSDKUI.bundle in Resources */,
 				5E0DDCE81E72FFE800493ABA /* WeiboSDK.bundle in Resources */,
 				5E15CB441E7ED6DD009B84D7 /* tab_trending@2x.png in Resources */,
+				5E87F6B81E820407001608F1 /* Debug.xcconfig in Resources */,
 				5E15CAFF1E7E3DC2009B84D7 /* CPSettingsCell.xib in Resources */,
 				5E15CB301E7ED6B7009B84D7 /* tab_gist@2x.png in Resources */,
 				5E15CB011E7E3DC2009B84D7 /* CPSettingsLabelCell.xib in Resources */,
@@ -1632,6 +1651,7 @@
 				5E4B99061C928D3E000A6B94 /* CPProfileReposCell.xib in Resources */,
 				5E15CB3C1E7ED6D1009B84D7 /* tab_profile_sel@2x.png in Resources */,
 				5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */,
+				5E87F6B71E820407001608F1 /* Common.xcconfig in Resources */,
 				5E4ABFC01C9032D40041FA89 /* CPTrendingRepoCell.xib in Resources */,
 				5E15CB501E7ED6F0009B84D7 /* tab_star_sel@2x.png in Resources */,
 				5EACCFC91C8D52C60059A303 /* CPMesIssueCell.xib in Resources */,

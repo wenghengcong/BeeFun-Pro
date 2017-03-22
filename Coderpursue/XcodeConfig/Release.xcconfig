@@ -1,0 +1,10 @@
+
+//
+//  Config.xcconfig
+//  Coderpursue
+//
+//  Created by WengHengcong on 2017/3/21.
+//  Copyright © 2017年 JungleSong. All rights reserved.
+//
+
+APP_DISPLAYNAME = Release

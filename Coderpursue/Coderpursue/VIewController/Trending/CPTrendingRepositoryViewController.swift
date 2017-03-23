@@ -50,7 +50,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         rvc_userIsLogin()
         rvc_setupTableView()
         rvc_loadAllRequset()
-        rvc_layoutSubView()
         self.title = repos!.name!
         
     }
@@ -72,6 +71,21 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         self.rightItemSelImage = UIImage(named: "nav_share_35")
         self.rightItem?.isHidden = false
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
+        
+        //Layout
+        //designBy4_7Inch(80+30)->
+        let dynPostH = designBy4_7Inch(110) + 39
+        reposPoseterV.frame = CGRect.init(x: 0, y: 64, width: ScreenSize.width, height: dynPostH)
+        
+        let infoViewT = reposPoseterV.bottom+10
+        let dynInfoH = designBy4_7Inch(90)
+        
+        reposInfoV.frame = CGRect.init(x: 0, y: infoViewT, width: ScreenSize.width, height: dynInfoH)
+        
+        let tabViewT = reposInfoV.bottom+10
+        let tabViewH = ScreenSize.height-tabViewT
+        tableView.frame = CGRect.init(x: 0, y: tabViewT, width: ScreenSize.width, height: tabViewH)
     }
     
     func rvc_setupTableView() {
@@ -104,36 +118,6 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         reposInfoV.repo = objRepo
         tableView.isHidden = false
         self.view.backgroundColor = UIColor.viewBackgroundColor
-        
-        rvc_layoutSubView()
-    }
-    
-    func rvc_layoutSubView() {
-        
-        //Layout
-        //designBy4_7Inch(80+30)->
-        let dynPostH = designBy4_7Inch(110) + 39
-        reposPoseterV.snp.remakeConstraints { (make) in
-            make.left.right.equalTo(0)
-            make.top.equalTo(64)
-            make.height.equalTo(dynPostH)
-        }
-        
-        let infoViewT = reposPoseterV.bottom+15
-        let dynInfoH = designBy4_7Inch(90)
-        reposInfoV.snp.remakeConstraints { (make) in
-            make.left.right.equalTo(0)
-            make.top.equalTo(infoViewT)
-            make.height.equalTo(dynInfoH)
-        }
-        
-        let tabViewT = reposInfoV.bottom+15
-        let tabViewH = ScreenSize.height-tabViewT
-        tableView.snp.remakeConstraints { (make) in
-            make.left.right.equalTo(0)
-            make.top.equalTo(tabViewT)
-            make.height.equalTo(tabViewH)
-        }
     }
 
     

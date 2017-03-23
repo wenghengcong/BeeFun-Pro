@@ -54,11 +54,14 @@ class CPReposInfoView: UIView {
         
         self.backgroundColor = UIColor.white
         
-    }
-    
-    // MARK: - layout
-    override func layoutSubviews() {
-        super.layoutSubviews()
+        watchBtn.setImage(UIImage(named: "octicon_watch_20"), for: UIControlState())
+        starBtn.setImage(UIImage(named: "octicon_star_20"), for: UIControlState())
+        forkBtn.setImage(UIImage(named: "octicon_fork_20"), for: UIControlState())
+        
+        lanBtn.setImage(UIImage(named: "octicon_language_20"), for: UIControlState())
+        privateBtn.setImage(UIImage(named: "octicon_private_20"), for: UIControlState())
+        issueBtn.setImage(UIImage(named: "octicon_issue_20"), for: UIControlState())
+        filesizeBtn.setImage(UIImage(named: "octicon_filesize_20"), for: UIControlState())
         
         let widthBy3Part = UIScreen.width/3
         let widthBy2Part = UIScreen.width/2
@@ -72,18 +75,13 @@ class CPReposInfoView: UIView {
         
         for (index,btn) in btnArr1.enumerated() {
             let x = CGFloat(index) * widthBy3Part
-            btn.snp.makeConstraints({ (make) in
-                make.top.equalTo(line1Y)
-                make.leading.equalTo(x)
-                make.width.equalTo(widthBy3Part)
-                make.height.equalTo(lineH)
-            })
+            btn.frame = CGRect.init(x: x, y: line1Y, width: widthBy3Part, height: lineH)
             btn.imageView?.contentMode = .scaleAspectFit
             btn.imageEdgeInsets = imgEdgeInsets1
             btn.layer.borderColor = UIColor.lineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
             btn.setTitleColor(UIColor.labelTitleTextColor, for: UIControlState())
-            //            btn .addTarget(self, action: #selctor(), for: .touchUpInside)
         }
         
         let imgEdgeInsets2 = UIEdgeInsetsMake(0, -40, 0, 10)
@@ -93,15 +91,10 @@ class CPReposInfoView: UIView {
             
             let x = CGFloat(index%2) * widthBy2Part
             let y = (index < 2) ? lineH : (2*lineH)
-            
-            btn.snp.makeConstraints({ (make) in
-                make.top.equalTo(y)
-                make.leading.equalTo(x)
-                make.width.equalTo(widthBy2Part)
-                make.height.equalTo(lineH)
-            })
+            btn.frame = CGRect.init(x: x, y: y, width: widthBy2Part, height: lineH)
             btn.imageView?.contentMode = .scaleAspectFit
             btn.imageEdgeInsets = imgEdgeInsets2
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
             btn.layer.borderColor = UIColor.lineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
             btn.setTitleColor(UIColor.labelTitleTextColor, for: UIControlState())
@@ -109,10 +102,14 @@ class CPReposInfoView: UIView {
 
     }
     
+    // MARK: - layout
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+    }
+    
     // MARK: - data
     func riv_fillData() {
-        
-        riv_settingButtons()
         
         if let watchCount = repo?.subscribers_count {
             watchBtn.setTitle("\(watchCount)", for: UIControlState())
@@ -163,14 +160,7 @@ class CPReposInfoView: UIView {
     
     func riv_settingButtons(){
         
-        watchBtn.setImage(UIImage(named: "octicon_watch_20"), for: UIControlState())
-        starBtn.setImage(UIImage(named: "octicon_star_20"), for: UIControlState())
-        forkBtn.setImage(UIImage(named: "octicon_fork_20"), for: UIControlState())
-        
-        lanBtn.setImage(UIImage(named: "octicon_language_20"), for: UIControlState())
-        privateBtn.setImage(UIImage(named: "octicon_private_20"), for: UIControlState())
-        issueBtn.setImage(UIImage(named: "octicon_issue_20"), for: UIControlState())
-        filesizeBtn.setImage(UIImage(named: "octicon_filesize_20"), for: UIControlState())
+
 
     }
     

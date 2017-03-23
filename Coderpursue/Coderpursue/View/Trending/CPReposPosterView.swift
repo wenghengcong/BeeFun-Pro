@@ -96,6 +96,10 @@ class CPReposPosterView: UIView {
         self.addSubview(self.forkBtn)
         self.addSubview(self.starBtn)
         
+        self.nameLabel.font = UIFont.systemFont(ofSize: 20.0)
+        self.descLabel.font = UIFont.systemFont(ofSize: 13.0)
+        self.timeLabel.font = UIFont.systemFont(ofSize: 13.0)
+
         self.backgroundColor = UIColor.white
         nameLabel.textColor = UIColor.labelTitleTextColor
         nameLabel.backgroundColor = UIColor.white
@@ -106,15 +110,41 @@ class CPReposPosterView: UIView {
         
         timeLabel.backgroundColor = UIColor.white
         timeLabel.textColor = UIColor.hex("#4876FF")
-
+        
+        watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), for: UIControlState())
+        watchBtn.setTitle("Watch".localized, for: UIControlState())
+        watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_watchAction), for: .touchUpInside)
+        
+        starBtn.setImage(UIImage(named: "octicon_star_red_20"), for: UIControlState())
+        starBtn.setTitle("Star".localized, for: UIControlState())
+        starBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_starAction), for: .touchUpInside)
+        
+        forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), for: UIControlState())
+        forkBtn.setTitle("Fork".localized, for: UIControlState())
+        forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_forkAction), for: .touchUpInside)
+        
+        let margin:CGFloat = 10.0
+        let imgW = designBy4_7Inch(80)
+        
+        imgV.frame = CGRect.init(x: margin, y: margin+7.0, width: imgW, height: imgW)
+        
+        let nameL:CGFloat = imgV.right+10.0
+        let nameW:CGFloat = ScreenSize.width-nameL-margin
+        
+        nameLabel.frame = CGRect.init(x: nameL, y: 10.0, width: nameW, height: 24.0)
         
         let imgEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 10)
         let cornerRadius:CGFloat = 5.0
         let borderWidth:CGFloat = 0.5
         
+        
+        let top:CGFloat = max(imgV.bottom, timeLabel.bottom)+14.0
+        let width = (ScreenSize.width-4*margin)/3;
+        let height:CGFloat = designBy4_7Inch(30.0)
+        
         let btnArr = [watchBtn,starBtn,forkBtn]
         
-        for btn in btnArr {
+        for (index,btn) in btnArr.enumerated() {
             
             btn.imageView?.contentMode = .scaleAspectFit
             btn.imageEdgeInsets = imgEdgeInsets
@@ -123,31 +153,16 @@ class CPReposPosterView: UIView {
             btn.layer.borderColor = UIColor.cpRedColor.cgColor
             btn.layer.borderWidth = borderWidth
             btn.setTitleColor(UIColor.cpRedColor, for: UIControlState())
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
             
+            let left = CGFloat.init(index) * (width+margin) + margin
+            btn.frame = CGRect.init(x: left, y: top, width: width, height: height)
         }
+
     }
     
     override func layoutSubviews() {
-    
-        let margin:CGFloat = 10.0
-        let imgW = designBy4_7Inch(80)
-        
-        imgV.snp.remakeConstraints { (make) in
-            make.width.height.equalTo(imgW)
-            make.top.equalTo(margin+7.0)
-            make.left.equalTo(margin)
-        }
-        
-        let nameL = imgV.right+10
-        let nameT = 10
-        let nameH = 24
-        
-        nameLabel.snp.remakeConstraints { (make) in
-            make.top.equalTo(nameT)
-            make.leading.equalTo(nameL)
-            make.trailing.equalTo(-margin)
-            make.height.equalTo(nameH)
-        }
+        super.layoutSubviews()
         
         var descT = nameLabel.bottom+2.0
         var descH = descLabel.requiredHeight(width:nameLabel.width)
@@ -161,45 +176,16 @@ class CPReposPosterView: UIView {
             descH = nameLabel.bottom + 8.0
         }
         
-        descLabel.snp.remakeConstraints { (make) in
-            make.leading.equalTo(nameL)
-            make.trailing.equalTo(-margin)
-            make.top.equalTo(descT)
-            make.height.equalTo(descH)
-        }
+        descLabel.frame = CGRect.init(x: nameLabel.left,y: descT,width:nameLabel.width, height: descH)
         
         let timeT = imgV.bottom-16
-        timeLabel.snp.remakeConstraints { (make) in
-            make.leading.equalTo(nameL)
-            make.trailing.equalTo(-margin)
-            make.top.equalTo(timeT)
-            make.height.equalTo(21)
-        }
-        
-        
-        let top:CGFloat = max(imgV.bottom, timeLabel.bottom)+10.0
-        let width = (ScreenSize.width-4*margin)/3;
-        let height:CGFloat = designBy4_7Inch(30.0)
-        
-        let btnArr = [watchBtn,starBtn,forkBtn]
-        
-        for (index,button) in btnArr.enumerated() {
-            let left = CGFloat.init(index) * (width+margin) + margin
-            button.snp.remakeConstraints({ (make) in
-                make.left.equalTo(left)
-                make.top.equalTo(top)
-                make.width.equalTo(width)
-                make.height.equalTo(height)
-            })
-        }
+        timeLabel.frame = CGRect.init(x: nameLabel.left, y: timeT, width: nameLabel.width, height: 21)
 
     }
     
     // MARK: - Data
     func rpv_fillData() {
-        
-        rpv_settingButtons()
-        
+    
         if let avatarUrl =  repo?.owner?.avatar_url {
             imgV.kf.setImage(with: URL(string: avatarUrl)!)
         }
@@ -218,23 +204,7 @@ class CPReposPosterView: UIView {
         
         self.setNeedsLayout()
     }
-    
-    
-    func rpv_settingButtons(){
-        
-        watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), for: UIControlState())
-        watchBtn.setTitle("Watch".localized, for: UIControlState())
-        watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_watchAction), for: .touchUpInside)
-        
-        starBtn.setImage(UIImage(named: "octicon_star_red_20"), for: UIControlState())
-        starBtn.setTitle("Star".localized, for: UIControlState())
-        starBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_starAction), for: .touchUpInside)
-        
-        forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), for: UIControlState())
-        forkBtn.setTitle("Fork".localized, for: UIControlState())
-        forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_forkAction), for: .touchUpInside)
-    }
-    
+
     // MARK: - Action
     func rpv_watchAction() {
         if( self.reposActionDelegate != nil ){

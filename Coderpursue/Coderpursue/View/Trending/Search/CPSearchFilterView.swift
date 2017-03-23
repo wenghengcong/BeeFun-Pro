@@ -30,6 +30,7 @@ class CPSearchFilterView: UIView {
     var selParaIndex = 0    //current select para index
     var selValueDic:[String:Int] = [:]
     
+    //顶部一排的筛选选项按钮
     var paraBtns:[UIButton] = []
     
     var filterPara:[String] = [] {
@@ -225,6 +226,7 @@ extension CPSearchFilterView:UITableViewDataSource {
         cell.textLabel?.textAlignment = .center
         cell.selectionStyle = .none
         
+        //排序选项已经本地化
         let currentPara = filterPara[selParaIndex]
         let selValueIndex = selValueDic[currentPara]
         if((indexPath as NSIndexPath).row == selValueIndex){
@@ -257,7 +259,7 @@ extension CPSearchFilterView:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         /// 获取选中的value，需要将其英文化
-        let currentPara = filterPara[selParaIndex].enLocalized
+        let currentPara = filterPara[selParaIndex].localized
         selValueDic[currentPara] = (indexPath as NSIndexPath).row
         print(selValueDic)
         tableView.reloadData()

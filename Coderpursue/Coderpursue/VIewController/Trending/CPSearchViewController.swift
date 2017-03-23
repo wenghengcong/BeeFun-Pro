@@ -46,11 +46,6 @@ class CPSearchViewController: CPBaseViewController {
         svc_setupTableView()
         svc_setupMaskView()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func svc_initNavBar() {
         
@@ -65,9 +60,10 @@ class CPSearchViewController: CPBaseViewController {
     func svc_initSearchFilterView() {
         
         if let path = Bundle.appBundle.path(forResource: "CPFilterLanguage", ofType: "plist") {
+            //编程语言没有本地化，均为统一
             languageArr = NSArray(contentsOfFile: path)! as? [String]
         }
-        
+        //sort选项是有本地化
         if  pageType == .repos {
             sortArr = ["Best match".localized,"Most stars".localized,"Fewest stars".localized,"Most forks".localized,"Fewest forks".localized,"Recently updated".localized,"Leaest recently updated".localized]
         }else{
@@ -76,6 +72,7 @@ class CPSearchViewController: CPBaseViewController {
         searchFilterView = CPSearchFilterView()
         searchFilterView?.frame = CGRect(x: 0, y: topOffset, width: self.view.width, height: searchFilterH)
         searchFilterView?.searchParaDelegate = self
+        //筛选选项：是有本地化，语言、排序
         searchFilterView?.filterPara = ["Language".localized,"Sort".localized]
         searchFilterView?.filterData = [languageArr!,sortArr!]
         searchFilterView?.sfv_customView()
@@ -394,7 +391,7 @@ extension CPSearchViewController:CPSearchFilterViewProtcocol {
         
         var lanPara:String?
         
-        if languageStr == "All" {
+        if languageStr == "All".localized {
             
         }else{
             lanPara = languageStr

@@ -90,7 +90,9 @@
 "Joined on"="Joined on";
 "Follow"="Follow";
 "Unfollow"="Unfollow";
-
+"Follower"="Follower";
+"Repositories"="Repositories";
+"Following"="Following";
 
 //other
 "Unknown" = "Unknown";

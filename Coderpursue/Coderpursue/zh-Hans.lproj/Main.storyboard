@@ -221,9 +221,6 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
-                    <connections>
-                        <segue destination="Ax2-Kg-xXj" kind="show" identifier="TrendingSearchViewUserDetailSegue" id="EfK-vJ-Xr3"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FaO-LS-AFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -279,7 +276,6 @@
                     <navigationItem key="navigationItem" title="Explore" id="qoa-mp-B6Q"/>
                     <connections>
                         <outlet property="tableView" destination="2w5-hE-F4q" id="5JZ-S7-LZD"/>
-                        <segue destination="Ax2-Kg-xXj" kind="show" identifier="ShowDeveDetailSegue" id="Ah2-FE-EYQ"/>
                         <segue destination="9Nl-ng-E8B" kind="show" identifier="ShowShowcaseDetailSegue" id="zwh-97-WFq"/>
                         <segue destination="nff-sI-GcA" kind="show" identifier="TrendingSearchViewSegue" id="Kwu-WV-Di8"/>
                     </connections>
@@ -287,29 +283,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIR-VO-qip" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="308" y="-1462"/>
-        </scene>
-        <!--Developer View Controller-->
-        <scene sceneID="R5e-Cn-GTK">
-            <objects>
-                <viewController id="Ax2-Kg-xXj" customClass="CPDeveloperViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cyQ-da-Jac"/>
-                        <viewControllerLayoutGuide type="bottom" id="NhY-p6-gcX"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="dWq-Yg-YXS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <connections>
-                        <segue destination="Irt-Xi-kye" kind="show" identifier="UserToRepository" id="Uie-OZ-gKU"/>
-                        <segue destination="7o3-oB-z3K" kind="show" identifier="UserToFollower" id="6vW-Nx-tiC"/>
-                        <segue destination="7o3-oB-z3K" kind="show" identifier="UserToFollowing" id="2ub-ii-V44"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tgF-fa-Kvh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2314.5" y="1289.5"/>
         </scene>
         <!--Pro Settings View Controller-->
         <scene sceneID="eDz-7i-Rhi">
@@ -423,7 +396,6 @@
                     <connections>
                         <outlet property="introTextV" destination="lwb-pO-CWh" id="VKH-RD-2uX"/>
                         <outlet property="tableView" destination="tV8-En-sb8" id="i20-rG-Zod"/>
-                        <segue destination="Ax2-Kg-xXj" kind="show" identifier="ProfileAboutMeSegue" id="vR9-E5-mPh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FD5-wE-9H6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -805,7 +777,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="cme-H5-VpA" id="Dhk-Yb-bQX"/>
-                        <segue destination="Ax2-Kg-xXj" kind="show" identifier="ShowDeveDetailSegue" id="Uwe-C7-efJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DE6-IZ-YzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1131,9 +1102,4 @@
         <image name="tab_trending" width="25" height="25"/>
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="vR9-E5-mPh"/>
-        <segue reference="Uie-OZ-gKU"/>
-        <segue reference="6vW-Nx-tiC"/>
-    </inferredMetricsTieBreakers>
 </document>

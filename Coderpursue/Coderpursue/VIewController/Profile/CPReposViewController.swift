@@ -13,7 +13,7 @@ import MJRefresh
 
 class CPReposViewController: CPBaseViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView = UITableView.init()
 
     //incoming var
     var dic:[String:String]?
@@ -76,6 +76,9 @@ class CPReposViewController: CPBaseViewController {
     }
     
     func rvc_setupTableView() {
+        
+        self.view.addSubview(tableView)
+        self.tableView.frame = CGRect.init(x: 0, y: uiTopBarHeight, width: ScreenSize.width, height: ScreenSize.height-uiTopBarHeight)
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -314,6 +317,7 @@ extension CPReposViewController : UITableViewDelegate {
         let repos = self.reposData[(indexPath as NSIndexPath).row]
         
         let vc = CPRepositoryViewController()
+        vc.hidesBottomBarWhenPushed = true
         vc.repos = repos
         self.navigationController?.pushViewController(vc, animated: true)
     }

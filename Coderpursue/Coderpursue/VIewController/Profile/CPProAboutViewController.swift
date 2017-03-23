@@ -151,40 +151,20 @@ extension CPProAboutViewController : UITableViewDelegate {
             coderpursuePrj.owner = me
             coderpursuePrj.name = "Coderpursue"
             let vc = CPRepositoryViewController()
+            vc.hidesBottomBarWhenPushed = true
             vc.repos = coderpursuePrj
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else if(viewType == "me"){
-            
-//            let vc = CPDeveloperViewController()
-//            vc.developer = me
-//            self.navigationController?.pushViewController(vc, animated: true)
 
-            self.performSegue(withIdentifier: SegueProfileAboutMe, sender: nil)
+            let vc = CPDeveloperViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.developer = me
+            self.navigationController?.pushViewController(vc, animated: true)
 
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-        let me = ObjUser()
-        me.name = "wenghengcong"
-        me.login = "wenghengcong"
-        
-        let coderpursuePrj = ObjRepos()
-        coderpursuePrj.owner = me
-        coderpursuePrj.name = "Coderpursue"
-        
-        if(segue.identifier == SegueProfileAboutMe){
-            
-            let devVC = segue.destination as! CPDeveloperViewController
-            devVC.hidesBottomBarWhenPushed = true
-            devVC.developer = me
-            
-        }
-        
-    }
+
     
 }
 

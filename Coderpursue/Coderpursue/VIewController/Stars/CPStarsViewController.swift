@@ -414,6 +414,7 @@ extension CPStarsViewController : UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let repos = self.reposData[(indexPath as NSIndexPath).row]
         let vc = CPRepositoryViewController()
+        vc.hidesBottomBarWhenPushed = true
         vc.repos = repos
         self.navigationController?.pushViewController(vc, animated: true)        
     }

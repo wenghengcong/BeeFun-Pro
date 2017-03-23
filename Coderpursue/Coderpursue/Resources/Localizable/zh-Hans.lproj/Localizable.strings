@@ -91,6 +91,9 @@
 "Joined on"="加入于";
 "Follow"="关注";
 "Unfollow"="取消关注";
+"Follower"="粉丝";
+"Repositories"="项目";
+"Following"="关注";
 
 //other
 "Unknown" = "未知";

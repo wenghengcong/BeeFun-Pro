@@ -556,6 +556,7 @@ extension CPSearchViewController: UITableViewDelegate {
         if pageType == .repos {
             let repos = self.reposData[(indexPath as NSIndexPath).row]
             let vc = CPRepositoryViewController()
+            vc.hidesBottomBarWhenPushed = true
             vc.repos = repos
             self.navigationController?.pushViewController(vc, animated: true)
             
@@ -563,25 +564,12 @@ extension CPSearchViewController: UITableViewDelegate {
         }
             
         let dev = self.usersData[(indexPath as NSIndexPath).row]
-        self.performSegue(withIdentifier: SegueTrendingSearchUserDetailView, sender: dev)
+        let vc = CPDeveloperViewController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.developer = dev
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if(segue.identifier == SegueTrendingSearchUserDetailView){
-            
-            let devVC = segue.destination as! CPDeveloperViewController
-            devVC.hidesBottomBarWhenPushed = true
-            
-            let dev = sender as? ObjUser
-            if(dev != nil){
-                devVC.developer = dev
-            }
-            
-        }
-    }
-
     
 }
 

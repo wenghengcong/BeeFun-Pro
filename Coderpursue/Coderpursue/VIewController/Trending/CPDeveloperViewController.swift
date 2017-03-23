@@ -481,66 +481,37 @@ extension CPDeveloperViewController:UserProfileActionProtocol {
         case .Follow:
             let uname = developer!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
-            self.performSegue(withIdentifier: SegueUserToFollower, sender: dic)
+            let vc = CPFollowersViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.dic = dic
+            vc.username = dic["uname"]
+            vc.viewType = dic["type"]
+            self.navigationController?.pushViewController(vc, animated: true)
             
         case .Repos:
             
             let uname = developer!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
-            self.performSegue(withIdentifier: SegueUserToRepository, sender: dic)
+            let vc = CPReposViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.dic = dic
+            vc.username = dic["uname"]
+            vc.viewType = dic["type"]
+            self.navigationController?.pushViewController(vc, animated: true)
 
         case .Following:
             let uname = developer!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
-            self.performSegue(withIdentifier: SegueUserToFollowing, sender: dic)
-
+            let vc = CPFollowersViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.dic = dic
+            vc.username = dic["uname"]
+            vc.viewType = dic["type"]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if (segue.identifier == SegueUserToRepository){
-            
-            let reposVC = segue.destination as! CPReposViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            
-            let dic = sender as? [String:String]
-            if (dic != nil) {
-                reposVC.dic = dic!
-                reposVC.username = dic!["uname"]
-                reposVC.viewType = dic!["type"]
-            }
-            
-        }else if(segue.identifier == SegueUserToFollowing){
-            
-            let followVC = segue.destination as! CPFollowersViewController
-            followVC.hidesBottomBarWhenPushed = true
-            
-            let dic = sender as? [String:String]
-            if (dic != nil) {
-                followVC.dic = dic!
-                followVC.username = dic!["uname"]
-                followVC.viewType = dic!["type"]
-            }
-            
-        }else if(segue.identifier == SegueUserToFollower){
-            
-            let followVC = segue.destination as! CPFollowersViewController
-            followVC.hidesBottomBarWhenPushed = true
-            
-            let dic = sender as? [String:String]
-            if (dic != nil) {
-                followVC.dic = dic!
-                followVC.username = dic!["uname"]
-                followVC.viewType = dic!["type"]
-            }
-            
-        }
-    }
-
-    
     
 }
 

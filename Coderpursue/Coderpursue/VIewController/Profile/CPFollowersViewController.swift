@@ -15,7 +15,7 @@ import MBProgressHUD
 
 class CPFollowersViewController: CPBaseViewController {
 
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView = UITableView.init()
     
     //incoming var
     var dic:[String:String]?
@@ -79,6 +79,9 @@ class CPFollowersViewController: CPBaseViewController {
     }
     
     func fvc_setupTableView() {
+        
+        self.view.addSubview(tableView)
+        self.tableView.frame = CGRect.init(x: 0, y: uiTopBarHeight, width: ScreenSize.width, height: ScreenSize.height-uiTopBarHeight)
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -288,24 +291,10 @@ extension CPFollowersViewController : UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
     
         let user = self.userData[(indexPath as NSIndexPath).row]
-        self.performSegue(withIdentifier: SegueTrendingShowDeveloperDetail, sender: user)
 
+        let vc = CPDeveloperViewController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.developer = user
+        self.navigationController?.pushViewController(vc, animated: true)
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if(segue.identifier == SegueProfileShowDeveloperDetail){
-            
-            let devVC = segue.destination as! CPDeveloperViewController
-            devVC.hidesBottomBarWhenPushed = true
-            
-            let dev = sender as? ObjUser
-            if(dev != nil){
-                devVC.developer = dev
-            }
-        }
-        
-        
-    }
-    
 }

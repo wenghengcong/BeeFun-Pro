@@ -677,7 +677,11 @@ extension CPTrendingViewController : UITableViewDelegate {
         }else if(segControl.selectedSegmentIndex == 1){
             
             let dev = self.devesData[(indexPath as NSIndexPath).row]
-            self.performSegue(withIdentifier: SegueTrendingShowDeveloperDetail, sender: dev)
+            let vc = CPDeveloperViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.developer = dev
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }else {
             
             let showcase = self.showcasesData[(indexPath as NSIndexPath).row]
@@ -687,16 +691,8 @@ extension CPTrendingViewController : UITableViewDelegate {
     
     // MARK: - Segue跳转
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == SegueTrendingShowDeveloperDetail){
-            let devVC = segue.destination as! CPDeveloperViewController
-            devVC.hidesBottomBarWhenPushed = true
-            
-            let dev = sender as? ObjUser
-            if(dev != nil){
-                devVC.developer = dev
-            }
-            
-        }else if(segue.identifier == SegueTrendingShowShowcaseDetail){
+        
+        if(segue.identifier == SegueTrendingShowShowcaseDetail){
             
             let showcaseVC = segue.destination as! CPTrendingShowcaseViewController
             showcaseVC.hidesBottomBarWhenPushed = true

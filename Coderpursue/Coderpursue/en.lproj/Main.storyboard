@@ -202,7 +202,6 @@
                     <navigationItem key="navigationItem" title="Stars" id="jcF-kd-uq7"/>
                     <connections>
                         <outlet property="tableView" destination="nFN-5X-KVv" id="fDZ-yY-NJX"/>
-                        <segue destination="DFV-4I-ATK" kind="show" identifier="ShowRepoDetailSegue" id="9bj-WN-PEl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYB-28-99h" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -223,7 +222,6 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
-                        <segue destination="DFV-4I-ATK" kind="show" identifier="TrendingSearchReposDetaiViewSegue" id="oX4-rD-6rY"/>
                         <segue destination="Ax2-Kg-xXj" kind="show" identifier="TrendingSearchViewUserDetailSegue" id="EfK-vJ-Xr3"/>
                     </connections>
                 </viewController>
@@ -281,7 +279,6 @@
                     <navigationItem key="navigationItem" title="Explore" id="qoa-mp-B6Q"/>
                     <connections>
                         <outlet property="tableView" destination="2w5-hE-F4q" id="5JZ-S7-LZD"/>
-                        <segue destination="DFV-4I-ATK" kind="show" identifier="ShowRepoDetailSegue" id="wKV-hJ-UO0"/>
                         <segue destination="Ax2-Kg-xXj" kind="show" identifier="ShowDeveDetailSegue" id="Ah2-FE-EYQ"/>
                         <segue destination="9Nl-ng-E8B" kind="show" identifier="ShowShowcaseDetailSegue" id="zwh-97-WFq"/>
                         <segue destination="nff-sI-GcA" kind="show" identifier="TrendingSearchViewSegue" id="Kwu-WV-Di8"/>
@@ -555,35 +552,12 @@
                     <connections>
                         <outlet property="introTextV" destination="lwb-pO-CWh" id="VKH-RD-2uX"/>
                         <outlet property="tableView" destination="tV8-En-sb8" id="i20-rG-Zod"/>
-                        <segue destination="DFV-4I-ATK" kind="show" identifier="ProfileAboutCoderpursueSegue" id="uhR-d2-GJG"/>
                         <segue destination="Ax2-Kg-xXj" kind="show" identifier="ProfileAboutMeSegue" id="vR9-E5-mPh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FD5-wE-9H6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1684" y="3265"/>
-        </scene>
-        <!--Repos-->
-        <scene sceneID="ydQ-zN-pRx">
-            <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="DFV-4I-ATK" customClass="CPTrendingRepositoryViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="G6O-Nf-RUj"/>
-                        <viewControllerLayoutGuide type="bottom" id="KOS-tg-uLR"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="moG-rP-zps">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Repos" id="kMM-wg-JW6"/>
-                    <connections>
-                        <segue destination="Ax2-Kg-xXj" kind="show" identifier="RepositoryToOwner" id="VaJ-wG-uf1"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ApR-YE-Z9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2463.1999999999998" y="269.41529235382313"/>
         </scene>
         <!--Trending Showcase View Controller-->
         <scene sceneID="H5G-K4-gEm">
@@ -656,7 +630,6 @@
                     <connections>
                         <outlet property="showcaseInfoV" destination="MKX-5W-Toc" id="a4R-d0-xe9"/>
                         <outlet property="tableView" destination="Gkt-By-2C5" id="x1Z-i8-URI"/>
-                        <segue destination="DFV-4I-ATK" kind="show" identifier="ShowRepoDetailSegue" id="MU4-AJ-ink"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xal-2O-Qto" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -999,7 +972,6 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="X5B-BZ-xTC" id="qGx-t3-JhG"/>
-                        <segue destination="DFV-4I-ATK" kind="show" identifier="ShowRepoDetailSegue" id="6UL-L4-rCi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuB-Q9-mZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1292,7 +1264,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="4pF-1J-jZn"/>
         <segue reference="Ocj-6m-P78"/>
-        <segue reference="9bj-WN-PEl"/>
-        <segue reference="VaJ-wG-uf1"/>
+        <segue reference="vR9-E5-mPh"/>
     </inferredMetricsTieBreakers>
 </document>

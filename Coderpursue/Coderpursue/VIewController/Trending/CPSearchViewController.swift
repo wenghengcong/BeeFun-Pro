@@ -575,7 +575,7 @@ extension CPSearchViewController: UITableViewDelegate {
         
         if pageType == .Repos {
             let repos = self.reposData[(indexPath as NSIndexPath).row]
-            let vc = CPTrendingRepositoryViewController()
+            let vc = CPRepositoryViewController()
             vc.repos = repos
             self.navigationController?.pushViewController(vc, animated: true)
             

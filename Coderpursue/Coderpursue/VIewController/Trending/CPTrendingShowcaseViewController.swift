@@ -176,7 +176,7 @@ extension CPTrendingShowcaseViewController : UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         let repos = self.showcase.repositories![(indexPath as NSIndexPath).row]
-        let vc = CPTrendingRepositoryViewController()
+        let vc = CPRepositoryViewController()
         vc.repos = repos
         self.navigationController?.pushViewController(vc, animated: true)
     }

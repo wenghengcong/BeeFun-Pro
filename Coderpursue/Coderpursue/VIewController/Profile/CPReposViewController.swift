@@ -313,7 +313,7 @@ extension CPReposViewController : UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let repos = self.reposData[(indexPath as NSIndexPath).row]
         
-        let vc = CPTrendingRepositoryViewController()
+        let vc = CPRepositoryViewController()
         vc.repos = repos
         self.navigationController?.pushViewController(vc, animated: true)
     }

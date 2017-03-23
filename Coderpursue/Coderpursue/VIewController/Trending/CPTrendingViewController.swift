@@ -668,7 +668,7 @@ extension CPTrendingViewController : UITableViewDelegate {
         if segControl.selectedSegmentIndex == 0 {
             
             let repos = self.reposData[(indexPath as NSIndexPath).row]
-            let vc = CPTrendingRepositoryViewController()
+            let vc = CPRepositoryViewController()
             vc.repos = repos
             self.navigationController?.pushViewController(vc, animated: true)
             

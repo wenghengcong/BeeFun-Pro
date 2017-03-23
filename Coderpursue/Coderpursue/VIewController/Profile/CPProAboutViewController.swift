@@ -150,7 +150,7 @@ extension CPProAboutViewController : UITableViewDelegate {
             let coderpursuePrj = ObjRepos()
             coderpursuePrj.owner = me
             coderpursuePrj.name = "Coderpursue"
-            let vc = CPTrendingRepositoryViewController()
+            let vc = CPRepositoryViewController()
             vc.repos = coderpursuePrj
             self.navigationController?.pushViewController(vc, animated: true)
             

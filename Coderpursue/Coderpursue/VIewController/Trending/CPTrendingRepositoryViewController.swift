@@ -21,7 +21,7 @@ public enum CPReposActionType:String {
     case Fork = "fork"
 }
 
-class CPTrendingRepositoryViewController: CPBaseViewController {
+class CPRepositoryViewController: CPBaseViewController {
 
     var reposPoseterV: CPReposPosterView = CPReposPosterView.init(frame: CGRect.zero)
     
@@ -98,7 +98,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", for: .idle)
         header.setTitle(kHeaderPullTip, for: .pulling)
         header.setTitle(kHeaderPullingTip, for: .refreshing)
-        header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingRepositoryViewController.headerRefresh))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPRepositoryViewController.headerRefresh))
     }
     
     // MARK: - action
@@ -458,7 +458,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
 }
 
 
-extension CPTrendingRepositoryViewController : UITableViewDataSource {
+extension CPRepositoryViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -495,7 +495,7 @@ extension CPTrendingRepositoryViewController : UITableViewDataSource {
     }
     
 }
-extension CPTrendingRepositoryViewController : UITableViewDelegate {
+extension CPRepositoryViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -526,7 +526,7 @@ extension CPTrendingRepositoryViewController : UITableViewDelegate {
     
 }
 
-extension CPTrendingRepositoryViewController:ReposActionProtocol {
+extension CPRepositoryViewController:ReposActionProtocol {
     
     
     func watchReposAction() {

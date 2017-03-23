@@ -16,8 +16,8 @@ import HMSegmentedControl
 
 public enum TrendingViewPageType:String {
     
-    case User = "user"
-    case Repos = "repos"
+    case user = "user"
+    case repos = "repos"
     
 }
 
@@ -226,6 +226,7 @@ class CPTrendingViewController: CPBaseViewController {
         }
     }
     
+    // MARK: action 搜索
     override func rightItemAction(_ sender: UIButton?) {
     
         if !tvc_isLogin() {
@@ -683,6 +684,7 @@ extension CPTrendingViewController : UITableViewDelegate {
         }
     }
     
+    // MARK: - Segue跳转
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == SegueTrendingShowDeveloperDetail){
             let devVC = segue.destination as! CPDeveloperViewController
@@ -705,11 +707,11 @@ extension CPTrendingViewController : UITableViewDelegate {
             
         }else if(segue.identifier == SegueTrendingSearchView){
             
-            var pageType:TrendingViewPageType = .Repos
+            var pageType:TrendingViewPageType = .repos
             var placeholder = "Search repositories".localized
             
             if segControl.selectedSegmentIndex == 1 {
-                pageType = .User
+                pageType = .user
                 placeholder = "Search users".localized
             }
             

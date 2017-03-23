@@ -15,7 +15,7 @@ import MBProgressHUD
 
 class CPSearchViewController: CPBaseViewController {
 
-    var pageType:TrendingViewPageType = .Repos
+    var pageType:TrendingViewPageType = .repos
     var searchPlacehoder = "Search".localized
     
     var searchFilterH:CGFloat = 290
@@ -68,7 +68,7 @@ class CPSearchViewController: CPBaseViewController {
             languageArr = NSArray(contentsOfFile: path)! as? [String]
         }
         
-        if  pageType == .Repos {
+        if  pageType == .repos {
             sortArr = ["Best match".localized,"Most stars".localized,"Fewest stars".localized,"Most forks".localized,"Fewest forks".localized,"Recently updated".localized,"Leaest recently updated".localized]
         }else{
             sortArr = ["Best match".localized,"Most followers".localized,"Fewest followers".localized,"Most recently joined".localized,"Leaest recently joined".localized,"Most repositories".localized,"Fewest repositories".localized]
@@ -131,7 +131,7 @@ class CPSearchViewController: CPBaseViewController {
             return
         }
         
-        if pageType == .Repos {
+        if pageType == .repos {
             paraRepos.page = 1
             searchRepos()
         }else{
@@ -147,7 +147,7 @@ class CPSearchViewController: CPBaseViewController {
             return
         }
         
-        if pageType == .Repos {
+        if pageType == .repos {
             paraRepos.page += 1
             searchRepos()
         }else{
@@ -159,7 +159,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_combineQueryString() {
         
-        if pageType == .Repos {
+        if pageType == .repos {
             paraRepos.keyword = searchBar.text!
             paraRepos.q =  paraRepos.combineQuery()
         }else{
@@ -330,7 +330,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_reloadData() {
 
-        if pageType == .Repos {
+        if pageType == .repos {
 
             if ((reposData == nil) || (reposData.count == 0))  {
                 header.isHidden = true
@@ -405,7 +405,7 @@ extension CPSearchViewController:CPSearchFilterViewProtcocol {
         
 
         
-        if pageType == .Repos {
+        if pageType == .repos {
             paraRepos.languagePara = lanPara
             if sortIndex == 0 {
                 sortPara = ""
@@ -487,7 +487,7 @@ extension CPSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if pageType == .Repos {
+        if pageType == .repos {
             if (reposData != nil){
                 return reposData.count
             }
@@ -506,7 +506,7 @@ extension CPSearchViewController: UITableViewDataSource {
         let row = (indexPath as NSIndexPath).row
         var cellId = ""
         
-        if pageType == .Repos {
+        if pageType == .repos {
             
             cellId = "CPTrendingRepoCellIdentifier"
             var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingRepoCell
@@ -563,7 +563,7 @@ extension CPSearchViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if pageType == .Repos {
+        if pageType == .repos {
             return 85
         }
         return 71
@@ -573,7 +573,7 @@ extension CPSearchViewController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if pageType == .Repos {
+        if pageType == .repos {
             let repos = self.reposData[(indexPath as NSIndexPath).row]
             let vc = CPRepositoryViewController()
             vc.repos = repos

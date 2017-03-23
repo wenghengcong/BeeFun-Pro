@@ -105,6 +105,51 @@ extension String {
 
 extension String {
     
+    /// 随机字符串，包含大小写字母、数字
+    ///
+    /// - Parameter length: 长度应小于62
+    /// - Returns: <#return value description#>
+    static func randomCharsNums(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return random(length: length, letters: letters)
+    }
+    
+    /// 随机字符串，只包含大小写字母
+    ///
+    /// - Parameter length: 长度应小于52
+    /// - Returns: <#return value description#>
+    static func randomChars(length: Int) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        return random(length: length, letters: letters)
+    }
+    
+    /// 随机字符串，只包含数字
+    ///
+    /// - Parameter length: 长度应小于10
+    static func randomNums(length: Int) -> String {
+        let letters = "0123456789"
+        return random(length: length, letters: letters)
+    }
+    
+    
+    /// 随机字符串
+    ///
+    /// - Parameters:
+    ///   - length: 生成的字符串长度
+    ///   - letters: 用语生成随机字符串的字符串数据集
+    /// - Returns: <#return value description#>
+    static func random(length: Int,letters:String) -> String {
+        let len = UInt32(letters.length)
+        var randomString = ""
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            let nextCharIndex = letters.index(letters.startIndex, offsetBy: Int(rand))
+            let nextChar = String(letters[nextCharIndex])
+            randomString += nextChar
+        }
+        
+        return randomString
+    }
 }
 
 extension String{

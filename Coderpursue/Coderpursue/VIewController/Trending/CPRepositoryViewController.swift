@@ -506,24 +506,12 @@ extension CPRepositoryViewController : UITableViewDelegate {
         
         self.tableView.deselectRow(at: indexPath, animated: true)
         let user = self.repos!.owner!
-        self.performSegue(withIdentifier: SegueRepositoryToOwner, sender: user)
-        
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if(segue.identifier == SegueRepositoryToOwner) {
-            let devVC = segue.destination as! CPDeveloperViewController
-            devVC.hidesBottomBarWhenPushed = true
-            
-            let user = sender as? ObjUser
-            if(user != nil){
-                devVC.developer = user
-            }
-        }
+        let vc = CPDeveloperViewController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.developer = user
+        self.navigationController?.pushViewController(vc, animated: true)
 
     }
-    
 }
 
 extension CPRepositoryViewController:ReposActionProtocol {

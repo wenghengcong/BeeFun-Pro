@@ -160,8 +160,6 @@ class CPReposInfoView: UIView {
     
     func riv_settingButtons(){
         
-
-
     }
     
     

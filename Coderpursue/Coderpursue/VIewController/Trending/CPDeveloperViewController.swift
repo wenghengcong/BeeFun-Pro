@@ -24,10 +24,10 @@ public enum CPUserActionType:String {
 
 class CPDeveloperViewController: CPBaseViewController {
 
-    @IBOutlet weak var developerInfoV: CPDeveloperInfoView!
+    var developerInfoV: CPDeveloperInfoView = CPDeveloperInfoView.init(frame: CGRect.zero)
     
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var followBtn: UIButton!
+    var tableView: UITableView = UITableView.init()
+    var followBtn: UIButton = UIButton.init()
     
     var developer:ObjUser?
     var devInfoArr = [[String:String]]()
@@ -42,8 +42,6 @@ class CPDeveloperViewController: CPBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         dvc_customView()
         dvc_setupTableView()
         dvc_updateViewContent()
@@ -64,7 +62,7 @@ class CPDeveloperViewController: CPBaseViewController {
     // MARK: - view
     
     func dvc_customView(){
-
+        
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
         self.rightItem?.isHidden = false
@@ -72,6 +70,15 @@ class CPDeveloperViewController: CPBaseViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.viewBackgroundColor
 
+        self.view.addSubview(developerInfoV)
+        self.view.addSubview(tableView)
+        self.view.addSubview(followBtn)
+        developerInfoV.frame = CGRect.init(x: 0, y: uiTopBarHeight, width: ScreenSize.width, height: 183.0)
+        
+        let tabY = developerInfoV.bottom+15.0
+        let tabH = ScreenSize.height-tabY
+        tableView.frame = CGRect.init(x: 0, y: tabY, width: ScreenSize.width, height: tabH)
+        
         developerInfoV.userActionDelegate = self
         
         if(developer!.login == UserManager.shared.user?.name){
@@ -79,9 +86,18 @@ class CPDeveloperViewController: CPBaseViewController {
         }else{
             followBtn.isHidden = false
         }
+        
+        followBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
+        followBtn.backgroundColor = UIColor.cpRedColor
         followBtn.layer.cornerRadius = 5
         followBtn.layer.masksToBounds = true
         followBtn.addTarget(self, action: #selector(CPDeveloperViewController.dvc_followAction), for: UIControlEvents.touchUpInside)
+        
+        let followX:CGFloat = 10.0
+        let followW = ScreenSize.width-2*followX
+        let followH:CGFloat = 40.0
+        let followY = ScreenSize.height-followH-57.0
+        followBtn.frame = CGRect.init(x: followX, y: followY, width: followW, height: followH)
         
     }
     

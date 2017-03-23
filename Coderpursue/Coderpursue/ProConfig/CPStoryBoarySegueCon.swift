@@ -31,11 +31,6 @@ public let SegueProfileAboutMe  = "ProfileAboutMeSegue"
 //login
 public let SegueProfileLoginIn  = "ProfileLoginInSegue"
 
-
-//repository
-public let SegueRepositoryToOwner = "RepositoryToOwner"
-
-
 //user
 public let SegueUserToRepository = "UserToRepository"
 public let SegueUserToFollower = "UserToFollower"

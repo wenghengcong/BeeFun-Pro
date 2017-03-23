@@ -134,6 +134,10 @@ extension CPProAboutViewController : UITableViewDelegate {
         
         let viewType = settings.itemKey!
         
+        let me = ObjUser()
+        me.name = "wenghengcong"
+        me.login = "wenghengcong"
+        
         if(viewType == "openlib"){
             
 //            self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: nil)
@@ -143,9 +147,19 @@ extension CPProAboutViewController : UITableViewDelegate {
 
         }else if(viewType == "coderpursue"){
             
-            self.performSegue(withIdentifier: SegueProfileAboutCoderpursue, sender: nil)
-
+            let coderpursuePrj = ObjRepos()
+            coderpursuePrj.owner = me
+            coderpursuePrj.name = "Coderpursue"
+            let vc = CPTrendingRepositoryViewController()
+            vc.repos = coderpursuePrj
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }else if(viewType == "me"){
+            
+//            let vc = CPTrendingDeveloperViewController()
+//            vc.developer = me
+//            self.navigationController?.pushViewController(vc, animated: true)
+
             self.performSegue(withIdentifier: SegueProfileAboutMe, sender: nil)
 
         }
@@ -162,14 +176,7 @@ extension CPProAboutViewController : UITableViewDelegate {
         coderpursuePrj.owner = me
         coderpursuePrj.name = "Coderpursue"
         
-        if (segue.identifier == SegueProfileAboutCoderpursue){
-            
-            let reposVC = segue.destination as! CPTrendingRepositoryViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            
-            reposVC.repos = coderpursuePrj
-            
-        }else if(segue.identifier == SegueProfileAboutMe){
+        if(segue.identifier == SegueProfileAboutMe){
             
             let devVC = segue.destination as! CPTrendingDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true

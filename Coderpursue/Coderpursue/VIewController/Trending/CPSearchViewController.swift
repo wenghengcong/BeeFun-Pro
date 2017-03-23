@@ -124,10 +124,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_headerRefresh() {
         
-        if svc_checkSearchKeywordIsNull() {
-            return
-        }
-        
+        svc_checkSearchKeywordIsNull()
         if pageType == .repos {
             paraRepos.page = 1
             searchRepos()
@@ -140,10 +137,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_footerRefresh() {
         
-        if svc_checkSearchKeywordIsNull() {
-            return
-        }
-        
+        svc_checkSearchKeywordIsNull()
         if pageType == .repos {
             paraRepos.page += 1
             searchRepos()
@@ -165,29 +159,18 @@ class CPSearchViewController: CPBaseViewController {
         }
     }
     
-    func svc_checkSearchKeywordIsNull() -> Bool {
+    /// 检查搜索关键字是否为空，假如为空，生成一个长度为5的随机字符串
+    func svc_checkSearchKeywordIsNull() {
         
         let keyword:String? = searchBar.text
-        
         if ( (keyword == nil) || (keyword?.isEmpty)! ) {
-            JSMBHUDBridge.showError("input keyword",view: self.view)
-            return true
-        }else{
-            
+            searchBar.text =  String.randomChars(length: 2)
         }
-        
-        return false
-        
     }
     
     func svc_searchNow() {
-        
-        if svc_checkSearchKeywordIsNull(){
-            return
-        }else{
-            svc_startSearchRequest()
-        }
-        
+        svc_checkSearchKeywordIsNull()
+        svc_startSearchRequest()
     }
     
     func svc_startSearchRequest() {

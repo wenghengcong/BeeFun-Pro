@@ -24,15 +24,21 @@ class CPSearchFilterView: UIView {
     var tableView:UITableView = UITableView()
     var contentView = UIView()
     
+    /// 筛选项一行的高度
     var paraBtnH:CGFloat = 40.0
+    
+    /// 筛选具体选项数据展示的高度
     var contengH:CGFloat = 0.0
     
     var selParaIndex = 0    //current select para index
+
+    /// 筛选后得到的字典{[选项：选项序]}，比如：{[语言：1]}
     var selValueDic:[String:Int] = [:]
     
     //顶部一排的筛选选项按钮
     var paraBtns:[UIButton] = []
     
+    /// 筛选项，比如“Language”和"Sort"
     var filterPara:[String] = [] {
         didSet {
             for item in filterPara {
@@ -41,6 +47,7 @@ class CPSearchFilterView: UIView {
         }
     }
     
+    /// 筛选项对应的选项数据，需要跟筛选项对应
     var filterData:[[String]] = [[]] {
         didSet {
             
@@ -149,6 +156,9 @@ class CPSearchFilterView: UIView {
     }
     
     
+    /// 点击筛选项按钮
+    ///
+    /// - Parameter sender: <#sender description#>
     func clickParaBtnAction(_ sender:UIButton?){
         
         if let btn = sender {
@@ -178,6 +188,7 @@ class CPSearchFilterView: UIView {
         
     }
     
+    /// 充值按钮
     func resetParaAction() {
         
         for (selPara, _) in selValueDic {
@@ -187,6 +198,7 @@ class CPSearchFilterView: UIView {
         sureAction()
     }
     
+    /// 确定按钮
     func sureAction() {
         
         if searchParaDelegate != nil {
@@ -256,6 +268,12 @@ extension CPSearchFilterView:UITableViewDelegate {
         return 35
     }
     
+    
+    /// 点击具体某一个筛选项对应的选项
+    ///
+    /// - Parameters:
+    ///   - tableView: <#tableView description#>
+    ///   - indexPath: <#indexPath description#>
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         /// 获取选中的value，需要将其英文化

@@ -304,7 +304,7 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="183"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" translatesAutoresizingMaskIntoConstraints="NO" id="zqN-Yx-4yT">
-                                        <rect key="frame" x="153" y="16" width="70" height="70"/>
+                                        <rect key="frame" x="152.5" y="16" width="70" height="70"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="70" id="0Mu-VL-Th2"/>
                                             <constraint firstAttribute="height" constant="70" id="ZTZ-F9-7Nx"/>
@@ -1262,8 +1262,8 @@
         <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ocj-6m-P78"/>
-        <segue reference="4pF-1J-jZn"/>
         <segue reference="vR9-E5-mPh"/>
+        <segue reference="Uie-OZ-gKU"/>
+        <segue reference="6vW-Nx-tiC"/>
     </inferredMetricsTieBreakers>
 </document>

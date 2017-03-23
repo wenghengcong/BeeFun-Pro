@@ -27,7 +27,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
     
     var reposInfoV: CPReposInfoView = CPReposInfoView.init(frame: CGRect.zero)
     
-    @IBOutlet weak var tableView: UITableView!
+    var tableView: UITableView = UITableView.init()
     
     var repos:ObjRepos?
     var reposInfoArr = [[String:String]]()
@@ -66,6 +66,7 @@ class CPTrendingRepositoryViewController: CPBaseViewController {
         
         self.view.addSubview(self.reposPoseterV)
         self.view.addSubview(self.reposInfoV)
+        self.view.addSubview(self.tableView)
         
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")

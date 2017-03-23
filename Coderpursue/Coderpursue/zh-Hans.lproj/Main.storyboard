@@ -660,17 +660,12 @@
                                 <rect key="frame" x="0.0" y="325" width="375" height="341"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="DFV-4I-ATK" id="1zC-1i-GGg"/>
-                                    <outlet property="delegate" destination="DFV-4I-ATK" id="Gug-N9-yen"/>
-                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Repos" id="kMM-wg-JW6"/>
                     <connections>
-                        <outlet property="tableView" destination="DOn-bB-VjD" id="MnF-L9-6LH"/>
                         <segue destination="Ax2-Kg-xXj" kind="show" identifier="RepositoryToOwner" id="VaJ-wG-uf1"/>
                     </connections>
                 </viewController>

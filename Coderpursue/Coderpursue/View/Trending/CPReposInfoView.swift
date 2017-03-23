@@ -29,6 +29,21 @@ class CPReposInfoView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        riv_customView()
+    }
+    
+    convenience init(obj:ObjRepos){
+        self.init(frame:CGRect.zero)
+        self.repo = obj
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    /// view
+    func riv_customView() {
+        
         self.addSubview(self.watchBtn)
         self.addSubview(self.starBtn)
         self.addSubview(self.forkBtn)
@@ -36,22 +51,15 @@ class CPReposInfoView: UIView {
         self.addSubview(self.privateBtn)
         self.addSubview(self.issueBtn)
         self.addSubview(self.filesizeBtn)
-    }
-    
-    init(obj:ObjRepos){
-        super.init(frame:CGRect.zero)
-        self.repo = obj
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-    }
-    
-    /// view
-    func riv_customView() {
         
         self.backgroundColor = UIColor.white
+        
+    }
+    
+    // MARK: - layout
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
         let widthBy3Part = UIScreen.width/3
         let widthBy2Part = UIScreen.width/2
         let lineH = designBy4_7Inch(30.0)
@@ -61,7 +69,7 @@ class CPReposInfoView: UIView {
         
         let btnArr1:[UIButton] = [watchBtn,starBtn,forkBtn]
         let line1Y:CGFloat = 0.0
-
+        
         for (index,btn) in btnArr1.enumerated() {
             let x = CGFloat(index) * widthBy3Part
             btn.snp.makeConstraints({ (make) in
@@ -75,7 +83,7 @@ class CPReposInfoView: UIView {
             btn.layer.borderColor = UIColor.lineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
             btn.setTitleColor(UIColor.labelTitleTextColor, for: UIControlState())
-//            btn .addTarget(self, action: #selctor(), for: .touchUpInside)
+            //            btn .addTarget(self, action: #selctor(), for: .touchUpInside)
         }
         
         let imgEdgeInsets2 = UIEdgeInsetsMake(0, -40, 0, 10)
@@ -85,7 +93,7 @@ class CPReposInfoView: UIView {
             
             let x = CGFloat(index%2) * widthBy2Part
             let y = (index < 2) ? lineH : (2*lineH)
-
+            
             btn.snp.makeConstraints({ (make) in
                 make.top.equalTo(y)
                 make.leading.equalTo(x)
@@ -98,27 +106,14 @@ class CPReposInfoView: UIView {
             btn.layer.borderWidth = borderWidth
             btn.setTitleColor(UIColor.labelTitleTextColor, for: UIControlState())
         }
-        
-        watchBtn.setImage(UIImage(named: "octicon_watch_20"), for: UIControlState())
-        starBtn.setImage(UIImage(named: "octicon_star_20"), for: UIControlState())
-        forkBtn.setImage(UIImage(named: "octicon_fork_20"), for: UIControlState())
-        
-        lanBtn.setImage(UIImage(named: "octicon_language_20"), for: UIControlState())
-        privateBtn.setImage(UIImage(named: "octicon_private_20"), for: UIControlState())
-        issueBtn.setImage(UIImage(named: "octicon_issue_20"), for: UIControlState())
-        filesizeBtn.setImage(UIImage(named: "octicon_filesize_20"), for: UIControlState())
-    
-    }
-    
-    // MARK: - layout
-    override func layoutSubviews() {
-        super.layoutSubviews()
+
     }
     
     // MARK: - data
     func riv_fillData() {
         
-        riv_customView()
+        riv_settingButtons()
+        
         if let watchCount = repo?.subscribers_count {
             watchBtn.setTitle("\(watchCount)", for: UIControlState())
         }
@@ -165,6 +160,21 @@ class CPReposInfoView: UIView {
         
     }
 
+    
+    func riv_settingButtons(){
+        
+        watchBtn.setImage(UIImage(named: "octicon_watch_20"), for: UIControlState())
+        starBtn.setImage(UIImage(named: "octicon_star_20"), for: UIControlState())
+        forkBtn.setImage(UIImage(named: "octicon_fork_20"), for: UIControlState())
+        
+        lanBtn.setImage(UIImage(named: "octicon_language_20"), for: UIControlState())
+        privateBtn.setImage(UIImage(named: "octicon_private_20"), for: UIControlState())
+        issueBtn.setImage(UIImage(named: "octicon_issue_20"), for: UIControlState())
+        filesizeBtn.setImage(UIImage(named: "octicon_filesize_20"), for: UIControlState())
+
+    }
+    
+    
     func jumpWebView() {
         
     }

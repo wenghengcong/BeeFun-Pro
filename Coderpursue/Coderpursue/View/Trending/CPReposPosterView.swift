@@ -37,7 +37,7 @@ class CPReposPosterView: UIView {
     
     var repo:ObjRepos? {
         didSet{
-            rpc_fillData()
+            rpv_fillData()
         }
     }
     
@@ -66,19 +66,17 @@ class CPReposPosterView: UIView {
 
     }
     
+    // MARK: - Init
+    /// Init
+    ///
+    /// - Parameter frame: <#frame description#>
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.addSubview(self.imgV)
-        self.addSubview(self.nameLabel)
-        self.addSubview(self.descLabel)
-        self.addSubview(self.timeLabel)
-        self.addSubview(self.watchBtn)
-        self.addSubview(self.forkBtn)
-        self.addSubview(self.starBtn)
+        rpv_customView()
     }
     
-    init(obj:ObjRepos){
-        super.init(frame:CGRect.zero)
+    convenience init(obj:ObjRepos){
+        self.init(frame:CGRect.zero)
         self.repo = obj
     }
 
@@ -90,6 +88,14 @@ class CPReposPosterView: UIView {
     // MARK: - View
     func rpv_customView() {
         
+        self.addSubview(self.imgV)
+        self.addSubview(self.nameLabel)
+        self.addSubview(self.descLabel)
+        self.addSubview(self.timeLabel)
+        self.addSubview(self.watchBtn)
+        self.addSubview(self.forkBtn)
+        self.addSubview(self.starBtn)
+        
         self.backgroundColor = UIColor.white
         nameLabel.textColor = UIColor.labelTitleTextColor
         nameLabel.backgroundColor = UIColor.white
@@ -100,11 +106,7 @@ class CPReposPosterView: UIView {
         
         timeLabel.backgroundColor = UIColor.white
         timeLabel.textColor = UIColor.hex("#4876FF")
-        
-        /// Test
-//        nameLabel.backgroundColor = UIColor.red
-//        descLabel.backgroundColor = UIColor.blue
-//        timeLabel.backgroundColor = UIColor.green
+
         
         let imgEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 10)
         let cornerRadius:CGFloat = 5.0
@@ -123,18 +125,6 @@ class CPReposPosterView: UIView {
             btn.setTitleColor(UIColor.cpRedColor, for: UIControlState())
             
         }
-
-        watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), for: UIControlState())
-        watchBtn.setTitle("Watch".localized, for: UIControlState())
-        watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_watchAction), for: .touchUpInside)
-        
-        starBtn.setImage(UIImage(named: "octicon_star_red_20"), for: UIControlState())
-        starBtn.setTitle("Star".localized, for: UIControlState())
-        starBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_starAction), for: .touchUpInside)
-        
-        forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), for: UIControlState())
-        forkBtn.setTitle("Fork".localized, for: UIControlState())
-        forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpc_forkAction), for: .touchUpInside)
     }
     
     override func layoutSubviews() {
@@ -206,9 +196,9 @@ class CPReposPosterView: UIView {
     }
     
     // MARK: - Data
-    func rpc_fillData() {
+    func rpv_fillData() {
         
-        rpv_customView()
+        rpv_settingButtons()
         
         if let avatarUrl =  repo?.owner?.avatar_url {
             imgV.kf.setImage(with: URL(string: avatarUrl)!)
@@ -229,22 +219,38 @@ class CPReposPosterView: UIView {
         self.setNeedsLayout()
     }
     
+    
+    func rpv_settingButtons(){
+        
+        watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), for: UIControlState())
+        watchBtn.setTitle("Watch".localized, for: UIControlState())
+        watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_watchAction), for: .touchUpInside)
+        
+        starBtn.setImage(UIImage(named: "octicon_star_red_20"), for: UIControlState())
+        starBtn.setTitle("Star".localized, for: UIControlState())
+        starBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_starAction), for: .touchUpInside)
+        
+        forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), for: UIControlState())
+        forkBtn.setTitle("Fork".localized, for: UIControlState())
+        forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_forkAction), for: .touchUpInside)
+    }
+    
     // MARK: - Action
-    func rpc_watchAction() {
+    func rpv_watchAction() {
         if( self.reposActionDelegate != nil ){
             self.reposActionDelegate!.watchReposAction()
         }
         
     }
     
-    func rpc_starAction() {
+    func rpv_starAction() {
         if( self.reposActionDelegate != nil ){
             self.reposActionDelegate!.starReposAction()
         }
         
     }
     
-    func rpc_forkAction() {
+    func rpv_forkAction() {
         if( self.reposActionDelegate != nil ){
             self.reposActionDelegate!.forkReposAction()
         }

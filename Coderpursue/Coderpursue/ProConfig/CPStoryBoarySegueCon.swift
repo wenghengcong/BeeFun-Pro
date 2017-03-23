@@ -25,7 +25,6 @@ public let SegueProfileSettingView = "SettingsViewSegue"
 public let SegueProfileFunnyLabView = "SettingsFunnyLabSegue"
 
 
-public let SegueProfileShowRepositoryDetail = "ShowRepoDetailSegue"
 public let SegueProfileShowDeveloperDetail = "ShowDeveDetailSegue"
 
 //profile about view

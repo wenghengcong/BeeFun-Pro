@@ -312,21 +312,10 @@ extension CPReposViewController : UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         let repos = self.reposData[(indexPath as NSIndexPath).row]
-        self.performSegue(withIdentifier: SegueProfileShowRepositoryDetail, sender: repos)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if (segue.identifier == SegueProfileShowRepositoryDetail){
-            let reposVC = segue.destination as! CPTrendingRepositoryViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            
-            let repos = sender as? ObjRepos
-            if(repos != nil){
-                reposVC.repos = repos
-            }
-            
-        }
+        
+        let vc = CPTrendingRepositoryViewController()
+        vc.repos = repos
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

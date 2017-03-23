@@ -156,7 +156,7 @@ extension CPProAboutViewController : UITableViewDelegate {
             
         }else if(viewType == "me"){
             
-//            let vc = CPTrendingDeveloperViewController()
+//            let vc = CPDeveloperViewController()
 //            vc.developer = me
 //            self.navigationController?.pushViewController(vc, animated: true)
 
@@ -178,7 +178,7 @@ extension CPProAboutViewController : UITableViewDelegate {
         
         if(segue.identifier == SegueProfileAboutMe){
             
-            let devVC = segue.destination as! CPTrendingDeveloperViewController
+            let devVC = segue.destination as! CPDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             devVC.developer = me
             

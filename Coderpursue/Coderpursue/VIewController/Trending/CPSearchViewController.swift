@@ -591,7 +591,7 @@ extension CPSearchViewController: UITableViewDelegate {
         
         if(segue.identifier == SegueTrendingSearchUserDetailView){
             
-            let devVC = segue.destination as! CPTrendingDeveloperViewController
+            let devVC = segue.destination as! CPDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             
             let dev = sender as? ObjUser

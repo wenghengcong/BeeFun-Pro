@@ -1,5 +1,5 @@
 //
-//  CPTrendingDeveloperViewController.swift
+//  CPDeveloperViewController.swift
 //  Coderpursue
 //
 //  Created by WengHengcong on 3/10/16.
@@ -22,7 +22,7 @@ public enum CPUserActionType:String {
 }
 
 
-class CPTrendingDeveloperViewController: CPBaseViewController {
+class CPDeveloperViewController: CPBaseViewController {
 
     @IBOutlet weak var developerInfoV: CPDeveloperInfoView!
     
@@ -81,7 +81,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         }
         followBtn.layer.cornerRadius = 5
         followBtn.layer.masksToBounds = true
-        followBtn.addTarget(self, action: #selector(CPTrendingDeveloperViewController.dvc_followAction), for: UIControlEvents.touchUpInside)
+        followBtn.addTarget(self, action: #selector(CPDeveloperViewController.dvc_followAction), for: UIControlEvents.touchUpInside)
         
     }
     
@@ -97,7 +97,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", for: .idle)
         header.setTitle(kHeaderPullTip, for: .pulling)
         header.setTitle(kHeaderPullingTip, for: .refreshing)
-        header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingDeveloperViewController.headerRefresh))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPDeveloperViewController.headerRefresh))
         // 现在的版本要用mj_header
 //        self.tableView.mj_header = header
         
@@ -342,7 +342,7 @@ class CPTrendingDeveloperViewController: CPBaseViewController {
     
 }
 
-extension CPTrendingDeveloperViewController : UITableViewDataSource {
+extension CPDeveloperViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -414,7 +414,7 @@ extension CPTrendingDeveloperViewController : UITableViewDataSource {
     
 }
 
-extension CPTrendingDeveloperViewController : UITableViewDelegate {
+extension CPDeveloperViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 0){
@@ -435,7 +435,7 @@ extension CPTrendingDeveloperViewController : UITableViewDelegate {
     
 }
 
-extension CPTrendingDeveloperViewController:UserProfileActionProtocol {
+extension CPDeveloperViewController:UserProfileActionProtocol {
     
     
     func viewFollowAction() {

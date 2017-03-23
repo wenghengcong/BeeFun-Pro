@@ -685,7 +685,7 @@ extension CPTrendingViewController : UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == SegueTrendingShowDeveloperDetail){
-            let devVC = segue.destination as! CPTrendingDeveloperViewController
+            let devVC = segue.destination as! CPDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             
             let dev = sender as? ObjUser

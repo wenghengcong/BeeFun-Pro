@@ -296,7 +296,7 @@ extension CPFollowersViewController : UITableViewDelegate {
 
         if(segue.identifier == SegueProfileShowDeveloperDetail){
             
-            let devVC = segue.destination as! CPTrendingDeveloperViewController
+            let devVC = segue.destination as! CPDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             
             let dev = sender as? ObjUser

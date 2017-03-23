@@ -288,10 +288,10 @@
             </objects>
             <point key="canvasLocation" x="308" y="-1462"/>
         </scene>
-        <!--Trending Developer View Controller-->
+        <!--Developer View Controller-->
         <scene sceneID="R5e-Cn-GTK">
             <objects>
-                <viewController id="Ax2-Kg-xXj" customClass="CPTrendingDeveloperViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ax2-Kg-xXj" customClass="CPDeveloperViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cyQ-da-Jac"/>
                         <viewControllerLayoutGuide type="bottom" id="NhY-p6-gcX"/>

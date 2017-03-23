@@ -513,7 +513,7 @@ extension CPRepositoryViewController : UITableViewDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if(segue.identifier == SegueRepositoryToOwner) {
-            let devVC = segue.destination as! CPTrendingDeveloperViewController
+            let devVC = segue.destination as! CPDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             
             let user = sender as? ObjUser

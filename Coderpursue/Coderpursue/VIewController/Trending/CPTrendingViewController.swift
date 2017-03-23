@@ -668,7 +668,10 @@ extension CPTrendingViewController : UITableViewDelegate {
         if segControl.selectedSegmentIndex == 0 {
             
             let repos = self.reposData[(indexPath as NSIndexPath).row]
-            self.performSegue(withIdentifier: SegueTrendingShowRepositoryDetail, sender: repos)
+            let vc = CPTrendingRepositoryViewController()
+            vc.repos = repos
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }else if(segControl.selectedSegmentIndex == 1){
             
             let dev = self.devesData[(indexPath as NSIndexPath).row]
@@ -681,16 +684,7 @@ extension CPTrendingViewController : UITableViewDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == SegueTrendingShowRepositoryDetail){
-            let reposVC = segue.destination as! CPTrendingRepositoryViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            
-            let repos = sender as? ObjRepos
-            if(repos != nil){
-                reposVC.repos = repos
-            }
-
-        }else if(segue.identifier == SegueTrendingShowDeveloperDetail){
+        if(segue.identifier == SegueTrendingShowDeveloperDetail){
             let devVC = segue.destination as! CPTrendingDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true
             

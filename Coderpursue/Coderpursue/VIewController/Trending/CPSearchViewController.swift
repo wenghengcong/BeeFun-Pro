@@ -387,8 +387,8 @@ extension CPSearchViewController:CPSearchFilterViewProtcocol {
     
     func didBeginSearch(_ para: [String : Int]) {
         
-        let languageIndex:Int = para["Language"]!
-        let sortIndex:Int = para["Sort"]!
+        let languageIndex:Int = para["Language".localized]!
+        let sortIndex:Int = para["Sort".localized]!
         
         let languageStr = languageArr![languageIndex]
         
@@ -575,7 +575,10 @@ extension CPSearchViewController: UITableViewDelegate {
         
         if pageType == .Repos {
             let repos = self.reposData[(indexPath as NSIndexPath).row]
-            self.performSegue(withIdentifier: SegueTrendingSearchReposDetailView, sender: repos)
+            let vc = CPTrendingRepositoryViewController()
+            vc.repos = repos
+            self.navigationController?.pushViewController(vc, animated: true)
+            
             return
         }
             
@@ -586,17 +589,7 @@ extension CPSearchViewController: UITableViewDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if (segue.identifier == SegueTrendingSearchReposDetailView){
-
-            let reposVC = segue.destination as! CPTrendingRepositoryViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            
-            let repos = sender as? ObjRepos
-            if(repos != nil){
-                reposVC.repos = repos
-            }
-            
-        }else if(segue.identifier == SegueTrendingSearchUserDetailView){
+        if(segue.identifier == SegueTrendingSearchUserDetailView){
             
             let devVC = segue.destination as! CPTrendingDeveloperViewController
             devVC.hidesBottomBarWhenPushed = true

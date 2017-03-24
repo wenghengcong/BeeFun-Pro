@@ -13,8 +13,6 @@ public let SegueTrendingShowShowcaseDetail = "ShowShowcaseDetailSegue"
 public let SegueTrendingSearchView = "TrendingSearchViewSegue"
 
 //profile
-public let SegueProfileShowFollowerList = "ShowFollowerListSegue"
-public let SegueProfileShowRepositoryList = "ShowRepositoryListSegue"
 public let SegueProfileAboutView = "AboutViewSegue"
 public let SegueProfileSettingView = "SettingsViewSegue"
 public let SegueProfileFunnyLabView = "SettingsFunnyLabSegue"

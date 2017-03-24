@@ -154,31 +154,7 @@ class CPProfileViewController: CPBaseViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if (segue.identifier == SegueProfileShowRepositoryList){
-          
-            let reposVC = segue.destination as! CPReposViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            
-            let dic = sender as? [String:String]
-            if (dic != nil) {
-                reposVC.dic = dic!
-                reposVC.username = dic!["uname"]
-                reposVC.viewType = dic!["type"]
-            }
-            
-        }else if(segue.identifier == SegueProfileShowFollowerList){
-            
-            let followVC = segue.destination as! CPFollowersViewController
-            followVC.hidesBottomBarWhenPushed = true
-            
-            let dic = sender as? [String:String]
-            if (dic != nil) {
-                followVC.dic = dic!
-                followVC.username = dic!["uname"]
-                followVC.viewType = dic!["type"]
-            }
-            
-        }else if(segue.identifier == SegueProfileAboutView){
+        if(segue.identifier == SegueProfileAboutView){
             
             let aboutVC = segue.destination as! CPProAboutViewController
             aboutVC.hidesBottomBarWhenPushed = true
@@ -247,7 +223,12 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( UserManager.shared.needLogin() ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
-            self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
+            let vc = CPReposViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.dic = dic
+            vc.username = dic["uname"]
+            vc.viewType = dic["type"]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -255,7 +236,12 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( UserManager.shared.needLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
-            self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
+            let vc = CPFollowersViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.dic = dic
+            vc.username = dic["uname"]
+            vc.viewType = dic["type"]
+            self.navigationController?.pushViewController(vc, animated: true)
         }else{
 
         }
@@ -265,7 +251,12 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( UserManager.shared.needLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
-            self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
+            let vc = CPFollowersViewController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.dic = dic
+            vc.username = dic["uname"]
+            vc.viewType = dic["type"]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -347,7 +338,12 @@ extension CPProfileViewController : UITableViewDelegate {
             if (UserManager.shared.needLogin() ){
                 let uname = user!.login
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
-                self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
+                let vc = CPReposViewController()
+                vc.hidesBottomBarWhenPushed = true
+                vc.dic = dic
+                vc.username = dic["uname"]
+                vc.viewType = dic["type"]
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         
         }else if(viewType == "feedback"){

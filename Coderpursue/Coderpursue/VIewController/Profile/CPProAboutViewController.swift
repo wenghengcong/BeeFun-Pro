@@ -150,14 +150,14 @@ extension CPProAboutViewController : UITableViewDelegate {
             let coderpursuePrj = ObjRepos()
             coderpursuePrj.owner = me
             coderpursuePrj.name = "Coderpursue"
-            let vc = CPRepositoryViewController()
+            let vc = CPRepoDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.repos = coderpursuePrj
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else if(viewType == "me"){
 
-            let vc = CPDeveloperViewController()
+            let vc = CPUserDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.developer = me
             self.navigationController?.pushViewController(vc, animated: true)

@@ -1,5 +1,5 @@
 //
-//  CPDeveloperViewController.swift
+//  CPUserDetailController.swift
 //  Coderpursue
 //
 //  Created by WengHengcong on 3/10/16.
@@ -22,7 +22,7 @@ public enum CPUserActionType:String {
 }
 
 
-class CPDeveloperViewController: CPBaseViewController {
+class CPUserDetailController: CPBaseViewController {
 
     var developerInfoV: CPDeveloperInfoView = CPDeveloperInfoView.init(frame: CGRect.zero)
     
@@ -91,7 +91,7 @@ class CPDeveloperViewController: CPBaseViewController {
         followBtn.backgroundColor = UIColor.cpRedColor
         followBtn.layer.cornerRadius = 5
         followBtn.layer.masksToBounds = true
-        followBtn.addTarget(self, action: #selector(CPDeveloperViewController.dvc_followAction), for: UIControlEvents.touchUpInside)
+        followBtn.addTarget(self, action: #selector(CPUserDetailController.dvc_followAction), for: UIControlEvents.touchUpInside)
         
         let followX:CGFloat = 10.0
         let followW = ScreenSize.width-2*followX
@@ -113,7 +113,7 @@ class CPDeveloperViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", for: .idle)
         header.setTitle(kHeaderPullTip, for: .pulling)
         header.setTitle(kHeaderPullingTip, for: .refreshing)
-        header.setRefreshingTarget(self, refreshingAction: #selector(CPDeveloperViewController.headerRefresh))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPUserDetailController.headerRefresh))
         // 现在的版本要用mj_header
 //        self.tableView.mj_header = header
         
@@ -358,7 +358,7 @@ class CPDeveloperViewController: CPBaseViewController {
     
 }
 
-extension CPDeveloperViewController : UITableViewDataSource {
+extension CPUserDetailController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -430,7 +430,7 @@ extension CPDeveloperViewController : UITableViewDataSource {
     
 }
 
-extension CPDeveloperViewController : UITableViewDelegate {
+extension CPUserDetailController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if (section == 0){
@@ -451,7 +451,7 @@ extension CPDeveloperViewController : UITableViewDelegate {
     
 }
 
-extension CPDeveloperViewController:UserProfileActionProtocol {
+extension CPUserDetailController:UserProfileActionProtocol {
     
     
     func viewFollowAction() {
@@ -481,7 +481,7 @@ extension CPDeveloperViewController:UserProfileActionProtocol {
         case .Follow:
             let uname = developer!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
-            let vc = CPFollowersViewController()
+            let vc = CPUserListController()
             vc.hidesBottomBarWhenPushed = true
             vc.dic = dic
             vc.username = dic["uname"]
@@ -492,7 +492,7 @@ extension CPDeveloperViewController:UserProfileActionProtocol {
             
             let uname = developer!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
-            let vc = CPReposViewController()
+            let vc = CPRepoListController()
             vc.hidesBottomBarWhenPushed = true
             vc.dic = dic
             vc.username = dic["uname"]
@@ -502,7 +502,7 @@ extension CPDeveloperViewController:UserProfileActionProtocol {
         case .Following:
             let uname = developer!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
-            let vc = CPFollowersViewController()
+            let vc = CPUserListController()
             vc.hidesBottomBarWhenPushed = true
             vc.dic = dic
             vc.username = dic["uname"]

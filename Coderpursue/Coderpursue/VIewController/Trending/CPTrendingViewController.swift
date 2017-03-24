@@ -669,7 +669,7 @@ extension CPTrendingViewController : UITableViewDelegate {
         if segControl.selectedSegmentIndex == 0 {
             
             let repos = self.reposData[(indexPath as NSIndexPath).row]
-            let vc = CPRepositoryViewController()
+            let vc = CPRepoDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.repos = repos
             self.navigationController?.pushViewController(vc, animated: true)
@@ -677,7 +677,7 @@ extension CPTrendingViewController : UITableViewDelegate {
         }else if(segControl.selectedSegmentIndex == 1){
             
             let dev = self.devesData[(indexPath as NSIndexPath).row]
-            let vc = CPDeveloperViewController()
+            let vc = CPUserDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.developer = dev
             self.navigationController?.pushViewController(vc, animated: true)

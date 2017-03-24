@@ -123,7 +123,6 @@
 		5E15CB501E7ED6F0009B84D7 /* tab_star_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CB521E7ED6F0009B84D7 /* tab_star_sel@2x.png */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
 		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
-		5E4ABFB31C9024ED0041FA89 /* CPRepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB21C9024ED0041FA89 /* CPRepositoryViewController.swift */; };
 		5E4ABFBD1C9032D40041FA89 /* CPTrendingDeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB71C9032D40041FA89 /* CPTrendingDeveloperCell.swift */; };
 		5E4ABFBE1C9032D40041FA89 /* CPTrendingDeveloperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB81C9032D40041FA89 /* CPTrendingDeveloperCell.xib */; };
 		5E4ABFBF1C9032D40041FA89 /* CPTrendingRepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB91C9032D40041FA89 /* CPTrendingRepoCell.swift */; };
@@ -133,7 +132,6 @@
 		5E4ABFC41C9032FE0041FA89 /* CPReposPosterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFC31C9032FE0041FA89 /* CPReposPosterView.swift */; };
 		5E4ABFD01C907DDE0041FA89 /* CPReposInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFCF1C907DDE0041FA89 /* CPReposInfoView.swift */; };
 		5E4ABFD21C90FF450041FA89 /* CPStoryBoarySegueCon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFD11C90FF450041FA89 /* CPStoryBoarySegueCon.swift */; };
-		5E4ABFD91C91046F0041FA89 /* CPDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFD81C91046F0041FA89 /* CPDeveloperViewController.swift */; };
 		5E4ABFDB1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFDA1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift */; };
 		5E4ABFDD1C9113140041FA89 /* CPShowcaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFDC1C9113140041FA89 /* CPShowcaseInfoView.swift */; };
 		5E4ABFDF1C916C330041FA89 /* CPDeveloperInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFDE1C916C330041FA89 /* CPDeveloperInfoView.swift */; };
@@ -183,6 +181,10 @@
 		5EBF89AD1C926AB4009B3F5B /* CPMyReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */; };
 		5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */; };
 		5EC1499E1E828F90002039C2 /* Adhoc.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5EC1499D1E828F90002039C2 /* Adhoc.xcconfig */; };
+		5EC149A91E84AA42002039C2 /* CPUserDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A51E84AA42002039C2 /* CPUserDetailController.swift */; };
+		5EC149AA1E84AA42002039C2 /* CPUserListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A61E84AA42002039C2 /* CPUserListController.swift */; };
+		5EC149AB1E84AA42002039C2 /* CPRepoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A71E84AA42002039C2 /* CPRepoDetailController.swift */; };
+		5EC149AC1E84AA42002039C2 /* CPRepoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A81E84AA42002039C2 /* CPRepoListController.swift */; };
 		5EC58D7C1E6DAAF60069AE82 /* AppVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */; };
 		5EC58D7D1E6DAAF60069AE82 /* CPGlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */; };
 		5EC58D7E1E6DAAF60069AE82 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */; };
@@ -230,8 +232,6 @@
 		FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3179AB1C405EF300150370 /* CPWebViewController.swift */; };
 		FE37DEF71C4A8F1F00B8449D /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE37DEF61C4A8F1F00B8449D /* Kingfisher.framework */; };
 		FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C11C53850D0048BA1D /* Response+ObjectMapper.swift */; };
-		FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */; };
-		FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */; };
 		FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */; };
 		FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6333E91C532E76006D7A2B /* CPStarsViewController.swift */; };
 		FE6980E21C5602C40026089B /* ObjEmail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6980DD1C5602C40026089B /* ObjEmail.swift */; };
@@ -434,7 +434,6 @@
 		5E15CB531E7ED6F1009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/tab_star_sel@2x.png"; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
-		5E4ABFB21C9024ED0041FA89 /* CPRepositoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPRepositoryViewController.swift; sourceTree = "<group>"; };
 		5E4ABFB71C9032D40041FA89 /* CPTrendingDeveloperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingDeveloperCell.swift; sourceTree = "<group>"; };
 		5E4ABFB81C9032D40041FA89 /* CPTrendingDeveloperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPTrendingDeveloperCell.xib; sourceTree = "<group>"; };
 		5E4ABFB91C9032D40041FA89 /* CPTrendingRepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepoCell.swift; sourceTree = "<group>"; };
@@ -444,7 +443,6 @@
 		5E4ABFC31C9032FE0041FA89 /* CPReposPosterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPReposPosterView.swift; sourceTree = "<group>"; };
 		5E4ABFCF1C907DDE0041FA89 /* CPReposInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPReposInfoView.swift; sourceTree = "<group>"; };
 		5E4ABFD11C90FF450041FA89 /* CPStoryBoarySegueCon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStoryBoarySegueCon.swift; sourceTree = "<group>"; };
-		5E4ABFD81C91046F0041FA89 /* CPDeveloperViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPDeveloperViewController.swift; sourceTree = "<group>"; };
 		5E4ABFDA1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingShowcaseViewController.swift; sourceTree = "<group>"; };
 		5E4ABFDC1C9113140041FA89 /* CPShowcaseInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPShowcaseInfoView.swift; sourceTree = "<group>"; };
 		5E4ABFDE1C916C330041FA89 /* CPDeveloperInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPDeveloperInfoView.swift; sourceTree = "<group>"; };
@@ -497,6 +495,10 @@
 		5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMyReposCell.swift; sourceTree = "<group>"; };
 		5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMyReposCell.xib; sourceTree = "<group>"; };
 		5EC1499D1E828F90002039C2 /* Adhoc.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Adhoc.xcconfig; sourceTree = "<group>"; };
+		5EC149A51E84AA42002039C2 /* CPUserDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUserDetailController.swift; sourceTree = "<group>"; };
+		5EC149A61E84AA42002039C2 /* CPUserListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUserListController.swift; sourceTree = "<group>"; };
+		5EC149A71E84AA42002039C2 /* CPRepoDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPRepoDetailController.swift; sourceTree = "<group>"; };
+		5EC149A81E84AA42002039C2 /* CPRepoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPRepoListController.swift; sourceTree = "<group>"; };
 		5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionHelper.swift; sourceTree = "<group>"; };
 		5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGlobalHelper.swift; sourceTree = "<group>"; };
 		5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
@@ -550,8 +552,6 @@
 		FE3179AB1C405EF300150370 /* CPWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPWebViewController.swift; sourceTree = "<group>"; };
 		FE37DEF61C4A8F1F00B8449D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../../Library/Developer/Xcode/DerivedData/Coderpursue-fyrcacrvclpljuegolrtoeolcnta/Build/Products/Debug-iphoneos/Kingfisher.framework"; sourceTree = "<group>"; };
 		FE3ED3C11C53850D0048BA1D /* Response+ObjectMapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Response+ObjectMapper.swift"; sourceTree = "<group>"; };
-		FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPReposViewController.swift; sourceTree = "<group>"; };
-		FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFollowersViewController.swift; sourceTree = "<group>"; };
 		FE6055C91C41B8FC0073BC0A /* GitHubAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		FE6333E91C532E76006D7A2B /* CPStarsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStarsViewController.swift; sourceTree = "<group>"; };
 		FE6980DD1C5602C40026089B /* ObjEmail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjEmail.swift; sourceTree = "<group>"; };
@@ -1123,6 +1123,17 @@
 			path = Parameters;
 			sourceTree = "<group>";
 		};
+		5EC149A41E84AA42002039C2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5EC149A51E84AA42002039C2 /* CPUserDetailController.swift */,
+				5EC149A71E84AA42002039C2 /* CPRepoDetailController.swift */,
+				5EC149A61E84AA42002039C2 /* CPUserListController.swift */,
+				5EC149A81E84AA42002039C2 /* CPRepoListController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		5EC58D621E6DAAF60069AE82 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -1291,6 +1302,7 @@
 			isa = PBXGroup;
 			children = (
 				FE91BA781C333836002AECB6 /* Base */,
+				5EC149A41E84AA42002039C2 /* Common */,
 				FE91BA7D1C333836002AECB6 /* Trending */,
 				FE91BA7A1C333836002AECB6 /* Message */,
 				FE91BA7C1C333836002AECB6 /* Stars */,
@@ -1336,8 +1348,6 @@
 				FE91BA8E1C33396E002AECB6 /* CPProfileViewController.swift */,
 				FE91BA961C334C9F002AECB6 /* CPLoginViewController.swift */,
 				5E4D9F731CC5189700DA8ECC /* CPGitLoginViewController.swift */,
-				FE3ED3C81C5C67790048BA1D /* CPReposViewController.swift */,
-				FE3ED3CA1C5C679F0048BA1D /* CPFollowersViewController.swift */,
 				5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */,
 				5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */,
 				5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */,
@@ -1360,8 +1370,6 @@
 			children = (
 				FE91BA921C33399C002AECB6 /* CPTrendingViewController.swift */,
 				5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */,
-				5E4ABFB21C9024ED0041FA89 /* CPRepositoryViewController.swift */,
-				5E4ABFD81C91046F0041FA89 /* CPDeveloperViewController.swift */,
 				5E4ABFDA1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift */,
 			);
 			path = Trending;
@@ -1737,20 +1745,20 @@
 				5E15CB001E7E3DC2009B84D7 /* CPSettingsLabelCell.swift in Sources */,
 				5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */,
 				FE6980E31C5602C40026089B /* ObjPermissions.swift in Sources */,
-				FE3ED3C91C5C67790048BA1D /* CPReposViewController.swift in Sources */,
 				5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */,
 				5E15CAE91E7E3940009B84D7 /* CPSwitchLanguageController.swift in Sources */,
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
 				5E0DDC121E729D8700493ABA /* InfoButton.swift in Sources */,
 				5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */,
+				5EC149AA1E84AA42002039C2 /* CPUserListController.swift in Sources */,
 				5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */,
 				5EE91F7D1C7C4792003F4CBF /* ObjSubject.swift in Sources */,
 				FEAB7EB61C5E2B8500C78E87 /* DataModel.swift in Sources */,
+				5EC149AB1E84AA42002039C2 /* CPRepoDetailController.swift in Sources */,
 				5E03FD701E7A982C005B9664 /* UIDevice+Device.swift in Sources */,
 				FE19F9411C3944C7009986FE /* CPNotiName.swift in Sources */,
 				5EBF89AD1C926AB4009B3F5B /* CPMyReposCell.swift in Sources */,
 				5EF6E3CA1C8AC4A1004F6473 /* CPStarredReposCell.swift in Sources */,
-				5E4ABFB31C9024ED0041FA89 /* CPRepositoryViewController.swift in Sources */,
 				5EE3FF541C7C00D000760F0F /* ObjMilestone.swift in Sources */,
 				5E546D931C8EDE8B00E94997 /* ObjErropReponse.swift in Sources */,
 				5EFAE6661E7BC462003194C3 /* JSLanguage.swift in Sources */,
@@ -1775,7 +1783,6 @@
 				5E03FD641E7A982C005B9664 /* JSApperence.swift in Sources */,
 				FE6980E61C5602C40026089B /* ObjUserSum.swift in Sources */,
 				5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */,
-				FE3ED3CB1C5C679F0048BA1D /* CPFollowersViewController.swift in Sources */,
 				5E03FD651E7A982C005B9664 /* JSApplication.swift in Sources */,
 				5ECB40821C9A376B00B0C6FF /* CPProfileHeaderView.swift in Sources */,
 				5E03FD6D1E7A982C005B9664 /* JSViewController.swift in Sources */,
@@ -1796,7 +1803,6 @@
 				5E03FD5B1E7A982C005B9664 /* JSObject.swift in Sources */,
 				5E15CADA1E7D6E08009B84D7 /* JSFoundation.swift in Sources */,
 				5E15CAFE1E7E3DC2009B84D7 /* CPSettingsCell.swift in Sources */,
-				5E4ABFD91C91046F0041FA89 /* CPDeveloperViewController.swift in Sources */,
 				5E03FD581E7A982B005B9664 /* Data+Extension.swift in Sources */,
 				FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */,
 				FE91BA8F1C33396E002AECB6 /* CPProfileViewController.swift in Sources */,
@@ -1825,6 +1831,7 @@
 				5E03FD661E7A982C005B9664 /* JSCollectionViewCell.swift in Sources */,
 				FE91BA931C33399C002AECB6 /* CPTrendingViewController.swift in Sources */,
 				5E4ABFC11C9032D40041FA89 /* CPTrendingShowcaseCell.swift in Sources */,
+				5EC149A91E84AA42002039C2 /* CPUserDetailController.swift in Sources */,
 				5E03FD5C1E7A982C005B9664 /* NSAttributedString+Size.swift in Sources */,
 				5ECB40721C994C5D00B0C6FF /* CPProSettingsViewController.swift in Sources */,
 				5E546D891C8EDE1800E94997 /* ObjSettings.swift in Sources */,
@@ -1850,6 +1857,7 @@
 				5EE91F811C7C4D05003F4CBF /* ObjComment.swift in Sources */,
 				5E15CB031E7E9496009B84D7 /* Bundle+Extension.swift in Sources */,
 				FE17EA3E1C5723050061F624 /* ObjRepos.swift in Sources */,
+				5EC149AC1E84AA42002039C2 /* CPRepoListController.swift in Sources */,
 				5EEE93DA1C8BA922003911B2 /* CPEventCreateCell.swift in Sources */,
 				5EE91F871C7C5922003F4CBF /* ObjCommit.swift in Sources */,
 				5ECB406D1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift in Sources */,

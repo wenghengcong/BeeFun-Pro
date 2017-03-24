@@ -1,5 +1,5 @@
 //
-//  CPReposViewController.swift
+//  CPUserListController.swift
 //  Coderpursue
 //
 //  Created by wenghengcong on 16/1/30.
@@ -10,50 +10,54 @@ import UIKit
 import Moya
 import Foundation
 import MJRefresh
+import ObjectMapper
+import MBProgressHUD
 
-class CPReposViewController: CPBaseViewController {
+class CPUserListController: CPBaseViewController {
 
     var tableView: UITableView = UITableView.init()
-
+    
     //incoming var
     var dic:[String:String]?
     var username:String?
     var viewType:String?
     
-    var reposData:[ObjRepos]! = []
-    var reposPageVal = 1
-    var reposPerpage = 15
+    // MARK: request parameters
+    var userData:[ObjUser]! = []
+    var userPageVal = 1
+    var userPerpageVal = 15
     
     var typeVal:String = "owner"
     var sortVal:String = "created"
     var directionVal:String = "desc"
     
-    
-    // 顶部刷新
     let header = MJRefreshNormalHeader()
-    // 底部刷新
     let footer = MJRefreshAutoNormalFooter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        rvc_addNaviBarButtonItem()
-        rvc_setupTableView()
-        rvc_selectDataSource()
-        self.title = "Repositories".localized
-
+        fvc_addNaviBarButtonItem()
+        fvc_setupTableView()
+        fvc_selectDataSource()
+        if(viewType == "follower"){
+            self.title = "Followers".localized
+        }else if(viewType == "following"){
+            self.title = "Following".localized
+        }
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
     }
     
     override func leftItemAction(_ sender: UIButton?) {
-       _ = self.navigationController?.popViewController(animated: true)
+        _ = self.navigationController?.popViewController(animated: true)
     }
     
-    func rvc_addNaviBarButtonItem() {
+    func fvc_addNaviBarButtonItem() {
         
         /*
         let btnName = UIButton()
@@ -66,16 +70,15 @@ class CPReposViewController: CPBaseViewController {
         rightBarButton.customView = btnName
         self.navigationItem.rightBarButtonItem = rightBarButton
         */
-        
 
 
     }
     
-    func rvc_rightButtonTouch() {
+    func fvc_rightButtonTouch() {
         
     }
     
-    func rvc_setupTableView() {
+    func fvc_setupTableView() {
         
         self.view.addSubview(tableView)
         self.tableView.frame = CGRect.init(x: 0, y: uiTopBarHeight, width: ScreenSize.width, height: ScreenSize.height-uiTopBarHeight)
@@ -90,7 +93,7 @@ class CPReposViewController: CPBaseViewController {
         header.setTitle("", for: .idle)
         header.setTitle(kHeaderPullTip, for: .pulling)
         header.setTitle(kHeaderPullingTip, for: .refreshing)
-        header.setRefreshingTarget(self, refreshingAction: #selector(CPReposViewController.headerRefresh))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPUserListController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
         
@@ -98,150 +101,142 @@ class CPReposViewController: CPBaseViewController {
         footer.setTitle("", for: .idle)
         footer.setTitle(kFooterLoadTip, for: .pulling)
         footer.setTitle(kFooterLoadNoDataTip, for: .noMoreData)
-        footer.setRefreshingTarget(self, refreshingAction: #selector(CPReposViewController.footerRefresh))
+        footer.setRefreshingTarget(self, refreshingAction: #selector(CPUserListController.footerRefresh))
         footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer
     }
     
     // 顶部刷新
     func headerRefresh(){
-        print("下拉刷新")
-        reposPageVal = 1
-        rvc_selectDataSource()
+        userPageVal = 1
+        fvc_selectDataSource()
     }
     
     // 底部刷新
     func footerRefresh(){
-        print("上拉刷新")
-        reposPageVal += 1
-        rvc_selectDataSource()
+        userPageVal += 1
+        fvc_selectDataSource()
     }
-    
-    func rvc_updateViewContent() {
+
+    func fvc_updateViewContent() {
         
         self.tableView.reloadData()
     }
     
-    func rvc_selectDataSource() {
+    func fvc_selectDataSource() {
         
-        if(self.viewType == "myrepositories") {
-            rvc_getMyReposRequest()
-        }else if(self.viewType == "watched"){
-            rvc_getWatchedReposRequest()
-        }else if(self.viewType == "forked"){
-            rvc_getForkedReposRequst()
-        }else{
-            rvc_getMyReposRequest()
+        if(self.viewType == "follower") {
+            tvc_getUserFollowerRequest()
+        }else if(self.viewType == "following"){
+            tvc_getUserFollowingRequst()
         }
         
     }
     
-    // MARK: request for repos
-    
-    func rvc_getMyReposRequest() {
+    // MARK: fetch data form request
+    func tvc_getUserFollowerRequest() {
         
-        if (username == nil){
-            return
-        }
+        JSMBHUDBridge.showHud(view: self.view)
         
-        Provider.sharedProvider.request( .userRepos( username:self.username!,page:self.reposPageVal,perpage:self.reposPerpage,type:self.typeVal, sort:self.sortVal ,direction:self.directionVal ) ) { (result) -> () in
-            print(result)
+        Provider.sharedProvider.request(.userFollowers(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
             var message = kNoMessageTip
             
-            self.tableView.mj_header.endRefreshing()
-            self.tableView.mj_footer.endRefreshing()
-            
-            switch result {
-            case let .success(response):
-                
-                do {
-                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos.self){
-                        if(self.reposPageVal == 1) {
-                            self.reposData.removeAll()
-                            self.reposData = repos!
-                        }else{
-                            self.reposData = self.reposData+repos!
-                        }
-                        self.rvc_updateViewContent()
-                        
-                    } else {
-
-                        JSMBHUDBridge.showError(message, view: self.view)
-                    }
-                } catch {
-
-                }
-                //                self.tableView.reloadData()
-            case let .failure(error):
-                guard let error = error as? CustomStringConvertible else {
-                    break
-                }
-                message = error.description
-
+            if(self.userPageVal == 1) {
+                self.tableView.mj_header.endRefreshing()
+            }else{
+                self.tableView.mj_footer.endRefreshing()
             }
             
-        }
-        
-        
-    }
-    
-    func rvc_getWatchedReposRequest() {
-        if (username == nil){
-            return
-        }
-        
-        Provider.sharedProvider.request( .userWatchedRepos( page:self.reposPageVal,perpage:self.reposPerpage,username:self.username! ) ) { (result) -> () in
-            print(result)
-            
-            var message = kNoMessageTip
-            
-            self.tableView.mj_header.endRefreshing()
-            self.tableView.mj_footer.endRefreshing()
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):
                 
                 do {
-                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
-                        if(self.reposPageVal == 1) {
-                            self.reposData.removeAll()
-                            self.reposData = repos!
+                    if let userResult:[ObjUser]? = try response.mapArray(ObjUser.self) {
+                        if(self.userPageVal == 1) {
+                            self.userData.removeAll()
+                            self.userData = userResult
                         }else{
-                            self.reposData = self.reposData+repos!
+                            self.userData = self.userData+userResult!
                         }
-                        self.rvc_updateViewContent()
+                        
+                        self.fvc_updateViewContent()
                         
                     } else {
 
                     }
                 } catch {
+
                     JSMBHUDBridge.showError(message, view: self.view)
                 }
-                //                self.tableView.reloadData()
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
+
                 JSMBHUDBridge.showError(message, view: self.view)
-
+                
             }
-            
         }
-
+        
     }
     
-    func rvc_getForkedReposRequst() {
+    func tvc_getUserFollowingRequst() {
+        
+        JSMBHUDBridge.showHud(view: self.view)
+        
+        Provider.sharedProvider.request(.userFollowing(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
+            
+            var message = kNoMessageTip
+            
+            if(self.userPageVal == 1) {
+                self.tableView.mj_header.endRefreshing()
+            }else{
+                self.tableView.mj_footer.endRefreshing()
+            }
+            
+            JSMBHUDBridge.hideHud(view: self.view)
+            
+            switch result {
+            case let .success(response):
+                
+                do {
+                    if let userResult:[ObjUser]? = try response.mapArray(ObjUser.self) {
+                        if(self.userPageVal == 1) {
+                            self.userData.removeAll()
+                            self.userData = userResult
+                        }else{
+                            self.userData = self.userData+userResult!
+                        }
+                        
+                        self.fvc_updateViewContent()
+                        
+                    } else {
+
+                    }
+                } catch {
+
+                    JSMBHUDBridge.showError(message, view: self.view)
+                }
+            case let .failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+
+                JSMBHUDBridge.showError(message, view: self.view)
+                
+            }
+        }
         
     }
 
-
-    
 }
 
-
-extension CPReposViewController : UITableViewDataSource {
+extension CPUserListController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -249,77 +244,56 @@ extension CPReposViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return  self.reposData.count
+        return self.userData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let row = (indexPath as NSIndexPath).row
-        var cellId = ""
-        if(self.viewType == "myrepositories") {
-            cellId = "CPMyReposCellIdentifier"
-            var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPMyReposCell
-            if cell == nil {
-                cell = (CPMyReposCell.cellFromNibNamed("CPMyReposCell") as! CPMyReposCell)
-            }
-            
-            //handle line in cell
-            if row == 0 {
-                cell!.topline = true
-            }
-            if (row == reposData.count-1) {
-                cell!.fullline = true
-            }else {
-                cell!.fullline = false
-            }
-            
-            let repos = self.reposData[row]
-            cell!.objRepos = repos
-            
-            return cell!;
-        }
         
-        cellId = "CPProfileReposCellIdentifier"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPProfileReposCell
+        let cellId = "CPTrendingDeveloperCellIdentifier"
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingDeveloperCell
         if cell == nil {
-            cell = (CPProfileReposCell.cellFromNibNamed("CPProfileReposCell") as! CPProfileReposCell)
+            cell = (CPTrendingDeveloperCell.cellFromNibNamed("CPTrendingDeveloperCell") as! CPTrendingDeveloperCell)
+            
         }
         
         //handle line in cell
         if row == 0 {
             cell!.topline = true
         }
-        if (row == reposData.count-1) {
+        if (row == userData.count-1) {
             cell!.fullline = true
         }else {
             cell!.fullline = false
         }
         
-        let repos = self.reposData[row]
-        cell!.objRepos = repos
+        let user = self.userData[row]
+        cell!.user = user
+        cell!.userNo = row
         
         return cell!;
-        
         
     }
     
 }
-extension CPReposViewController : UITableViewDelegate {
+
+extension CPUserListController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return 85
+        return 71
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let repos = self.reposData[(indexPath as NSIndexPath).row]
-        
-        let vc = CPRepositoryViewController()
+    
+        let user = self.userData[(indexPath as NSIndexPath).row]
+
+        let vc = CPUserDetailController()
         vc.hidesBottomBarWhenPushed = true
-        vc.repos = repos
+        vc.developer = user
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }
-

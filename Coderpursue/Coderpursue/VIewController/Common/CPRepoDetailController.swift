@@ -1,5 +1,5 @@
 //
-//  CPRepositoryViewController.swift
+//  CPRepoDetailController.swift
 //  Coderpursue
 //
 //  Created by WengHengcong on 3/9/16.
@@ -21,7 +21,7 @@ public enum CPReposActionType:String {
     case Fork = "fork"
 }
 
-class CPRepositoryViewController: CPBaseViewController {
+class CPRepoDetailController: CPBaseViewController {
 
     var reposPoseterV: CPReposPosterView = CPReposPosterView.init(frame: CGRect.zero)
     
@@ -98,7 +98,7 @@ class CPRepositoryViewController: CPBaseViewController {
         header.setTitle("Pull down to refresh", for: .idle)
         header.setTitle(kHeaderPullTip, for: .pulling)
         header.setTitle(kHeaderPullingTip, for: .refreshing)
-        header.setRefreshingTarget(self, refreshingAction: #selector(CPRepositoryViewController.headerRefresh))
+        header.setRefreshingTarget(self, refreshingAction: #selector(CPRepoDetailController.headerRefresh))
     }
     
     // MARK: - action
@@ -458,7 +458,7 @@ class CPRepositoryViewController: CPBaseViewController {
 }
 
 
-extension CPRepositoryViewController : UITableViewDataSource {
+extension CPRepoDetailController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -495,7 +495,7 @@ extension CPRepositoryViewController : UITableViewDataSource {
     }
     
 }
-extension CPRepositoryViewController : UITableViewDelegate {
+extension CPRepoDetailController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
@@ -506,7 +506,7 @@ extension CPRepositoryViewController : UITableViewDelegate {
         
         self.tableView.deselectRow(at: indexPath, animated: true)
         let user = self.repos!.owner!
-        let vc = CPDeveloperViewController()
+        let vc = CPUserDetailController()
         vc.hidesBottomBarWhenPushed = true
         vc.developer = user
         self.navigationController?.pushViewController(vc, animated: true)
@@ -514,7 +514,7 @@ extension CPRepositoryViewController : UITableViewDelegate {
     }
 }
 
-extension CPRepositoryViewController:ReposActionProtocol {
+extension CPRepoDetailController:ReposActionProtocol {
     
     
     func watchReposAction() {

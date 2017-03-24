@@ -223,7 +223,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( UserManager.shared.needLogin() ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
-            let vc = CPReposViewController()
+            let vc = CPRepoListController()
             vc.hidesBottomBarWhenPushed = true
             vc.dic = dic
             vc.username = dic["uname"]
@@ -236,7 +236,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( UserManager.shared.needLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
-            let vc = CPFollowersViewController()
+            let vc = CPUserListController()
             vc.hidesBottomBarWhenPushed = true
             vc.dic = dic
             vc.username = dic["uname"]
@@ -251,7 +251,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( UserManager.shared.needLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
-            let vc = CPFollowersViewController()
+            let vc = CPUserListController()
             vc.hidesBottomBarWhenPushed = true
             vc.dic = dic
             vc.username = dic["uname"]
@@ -338,7 +338,7 @@ extension CPProfileViewController : UITableViewDelegate {
             if (UserManager.shared.needLogin() ){
                 let uname = user!.login
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
-                let vc = CPReposViewController()
+                let vc = CPRepoListController()
                 vc.hidesBottomBarWhenPushed = true
                 vc.dic = dic
                 vc.username = dic["uname"]

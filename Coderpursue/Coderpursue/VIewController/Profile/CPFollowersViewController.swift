@@ -137,7 +137,6 @@ class CPFollowersViewController: CPBaseViewController {
     func tvc_getUserFollowerRequest() {
         
         JSMBHUDBridge.showHud(view: self.view)
-        JSMBHUDBridge.showHud(view: self.view)
         
         Provider.sharedProvider.request(.userFollowers(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             

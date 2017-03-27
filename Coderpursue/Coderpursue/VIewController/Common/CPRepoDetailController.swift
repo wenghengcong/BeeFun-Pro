@@ -118,6 +118,13 @@ class CPRepoDetailController: CPBaseViewController {
         reposInfoV.repo = objRepo
         tableView.isHidden = false
         self.view.backgroundColor = UIColor.viewBackgroundColor
+        
+        if objRepo.html_url != nil {
+            let homepage:[String:String] = ["img":"octicon_person_25","desc":"Homepage","discolsure":"true"]
+            reposInfoArr.append(homepage)
+            tableView.reloadData()
+        }
+
     }
 
     
@@ -465,7 +472,7 @@ extension CPRepoDetailController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return reposInfoArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -505,11 +512,22 @@ extension CPRepoDetailController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.tableView.deselectRow(at: indexPath, animated: true)
-        let user = self.repos!.owner!
-        let vc = CPUserDetailController()
-        vc.hidesBottomBarWhenPushed = true
-        vc.developer = user
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        let row = (indexPath as NSIndexPath).row
+
+        if row == 0 {
+            if let owner = self.repos?.owner {
+                let vc = CPUserDetailController()
+                vc.hidesBottomBarWhenPushed = true
+                vc.developer = owner
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }else if(row == 1){
+            let webView = CPWebViewController()
+            webView.url = self.repos?.html_url
+            webView.url = "https://www.baidu.com"
+            self.navigationController?.pushViewController(webView, animated: true)
+        }
 
     }
 }

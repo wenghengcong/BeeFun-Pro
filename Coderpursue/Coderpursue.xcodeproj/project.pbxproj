@@ -122,7 +122,6 @@
 		5E15CB4C1E7ED6EA009B84D7 /* tab_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CB4E1E7ED6EA009B84D7 /* tab_star@2x.png */; };
 		5E15CB501E7ED6F0009B84D7 /* tab_star_sel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CB521E7ED6F0009B84D7 /* tab_star_sel@2x.png */; };
 		5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */; };
-		5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */; };
 		5E4ABFBD1C9032D40041FA89 /* CPTrendingDeveloperCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB71C9032D40041FA89 /* CPTrendingDeveloperCell.swift */; };
 		5E4ABFBE1C9032D40041FA89 /* CPTrendingDeveloperCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB81C9032D40041FA89 /* CPTrendingDeveloperCell.xib */; };
 		5E4ABFBF1C9032D40041FA89 /* CPTrendingRepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4ABFB91C9032D40041FA89 /* CPTrendingRepoCell.swift */; };
@@ -172,6 +171,7 @@
 		5E87F6B71E820407001608F1 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B41E820407001608F1 /* Common.xcconfig */; };
 		5E87F6B81E820407001608F1 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B51E820407001608F1 /* Debug.xcconfig */; };
 		5E87F6B91E820407001608F1 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B61E820407001608F1 /* Release.xcconfig */; };
+		5EA9493B1E89282E00D5A8E1 /* CPIssueDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA9493A1E89282E00D5A8E1 /* CPIssueDetailController.swift */; };
 		5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */; };
 		5EACCFC91C8D52C60059A303 /* CPMesIssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */; };
 		5EACCFCC1C8DEB490059A303 /* ParaSearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */; };
@@ -193,7 +193,6 @@
 		5EC58D8A1E6DAAF60069AE82 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D7B1E6DAAF60069AE82 /* UserManager.swift */; };
 		5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */; };
 		5EC6C98B1CA54D810067E2E4 /* CPFunnyAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC6C98A1CA54D810067E2E4 /* CPFunnyAwardViewController.swift */; };
-		5ECB406D1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB406C1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift */; };
 		5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */; };
 		5ECB40721C994C5D00B0C6FF /* CPProSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */; };
 		5ECB40821C9A376B00B0C6FF /* CPProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ECB40811C9A376B00B0C6FF /* CPProfileHeaderView.swift */; };
@@ -433,7 +432,6 @@
 		5E15CB511E7ED6F0009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = "en.lproj/tab_star_sel@2x.png"; sourceTree = "<group>"; };
 		5E15CB531E7ED6F1009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "zh-Hans"; path = "zh-Hans.lproj/tab_star_sel@2x.png"; sourceTree = "<group>"; };
 		5E3CFC2F1CB4A35E0080C930 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
-		5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMessageViewControllerBackup.swift; sourceTree = "<group>"; };
 		5E4ABFB71C9032D40041FA89 /* CPTrendingDeveloperCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingDeveloperCell.swift; sourceTree = "<group>"; };
 		5E4ABFB81C9032D40041FA89 /* CPTrendingDeveloperCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPTrendingDeveloperCell.xib; sourceTree = "<group>"; };
 		5E4ABFB91C9032D40041FA89 /* CPTrendingRepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingRepoCell.swift; sourceTree = "<group>"; };
@@ -485,6 +483,7 @@
 		5E87F6B41E820407001608F1 /* Common.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Common.xcconfig; sourceTree = "<group>"; };
 		5E87F6B51E820407001608F1 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		5E87F6B61E820407001608F1 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
+		5EA9493A1E89282E00D5A8E1 /* CPIssueDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPIssueDetailController.swift; sourceTree = "<group>"; };
 		5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesIssueCell.swift; sourceTree = "<group>"; };
 		5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesIssueCell.xib; sourceTree = "<group>"; };
 		5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchUser.swift; sourceTree = "<group>"; };
@@ -507,7 +506,6 @@
 		5EC58D7B1E6DAAF60069AE82 /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		5EC6C9871CA538FE0067E2E4 /* CPFunnyLabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFunnyLabViewController.swift; sourceTree = "<group>"; };
 		5EC6C98A1CA54D810067E2E4 /* CPFunnyAwardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPFunnyAwardViewController.swift; sourceTree = "<group>"; };
-		5ECB406C1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesNotiDetailViewController.swift; sourceTree = "<group>"; };
 		5ECB406F1C994C5000B0C6FF /* CPProAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProAboutViewController.swift; sourceTree = "<group>"; };
 		5ECB40711C994C5D00B0C6FF /* CPProSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProSettingsViewController.swift; sourceTree = "<group>"; };
 		5ECB40811C9A376B00B0C6FF /* CPProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPProfileHeaderView.swift; sourceTree = "<group>"; };
@@ -1336,8 +1334,7 @@
 			isa = PBXGroup;
 			children = (
 				FE91BA8C1C33395C002AECB6 /* CPMessageViewController.swift */,
-				5E4ABFB01C9000060041FA89 /* CPMessageViewControllerBackup.swift */,
-				5ECB406C1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift */,
+				5EA9493A1E89282E00D5A8E1 /* CPIssueDetailController.swift */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -1775,7 +1772,6 @@
 				5EC58D7D1E6DAAF60069AE82 /* CPGlobalHelper.swift in Sources */,
 				FE6980E21C5602C40026089B /* ObjEmail.swift in Sources */,
 				5E546DA51C8FAC2200E94997 /* ParaSort.swift in Sources */,
-				5E4ABFB11C9000060041FA89 /* CPMessageViewControllerBackup.swift in Sources */,
 				5EE91F831C7C4E32003F4CBF /* ObjEventPayload.swift in Sources */,
 				5EACCFCF1C8E5F450059A303 /* ParaComparison.swift in Sources */,
 				5E03FD741E7A982C005B9664 /* UIView+Draw.swift in Sources */,
@@ -1792,6 +1788,7 @@
 				5E738C9E1C93A53D0075C82C /* CPFilterTableView.swift in Sources */,
 				FE91BA891C3338F9002AECB6 /* CPBaseTableViewController.swift in Sources */,
 				5E15CAD61E7D6D9D009B84D7 /* JSUIGlobal.swift in Sources */,
+				5EA9493B1E89282E00D5A8E1 /* CPIssueDetailController.swift in Sources */,
 				5EC58D871E6DAAF60069AE82 /* PlistHelper.swift in Sources */,
 				5E4ABFDF1C916C330041FA89 /* CPDeveloperInfoView.swift in Sources */,
 				5E03FD711E7A982C005B9664 /* UILabel+Size.swift in Sources */,
@@ -1860,7 +1857,6 @@
 				5EC149AC1E84AA42002039C2 /* CPRepoListController.swift in Sources */,
 				5EEE93DA1C8BA922003911B2 /* CPEventCreateCell.swift in Sources */,
 				5EE91F871C7C5922003F4CBF /* ObjCommit.swift in Sources */,
-				5ECB406D1C98288B00B0C6FF /* CPMesNotiDetailViewController.swift in Sources */,
 				5E4ABFC41C9032FE0041FA89 /* CPReposPosterView.swift in Sources */,
 				5E03FD591E7A982B005B9664 /* JSApp.swift in Sources */,
 				5E546D971C8F618000E94997 /* ObjShowcase.swift in Sources */,

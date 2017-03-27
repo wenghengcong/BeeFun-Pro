@@ -10,7 +10,18 @@ import UIKit
 import MBProgressHUD
 
 class JSMBHUDBridge: NSObject {
-
+    
+    /// 显示Hud
+    class func showHudInWindow() {
+        showHud(view: jsKeywindow!)
+    }
+    
+    /// 隐藏Hud
+    class func hideHudInWindow() {
+        hideHud(view: jsKeywindow!)
+    }
+    
+    
     /// 显示Hud
     class func showHud(view:UIView) {
         MBProgressHUD.showAdded(to: view, animated: true)
@@ -28,6 +39,12 @@ class JSMBHUDBridge: NSObject {
         showMessage(message, view: jsTopView!)
     }
     
+    /// 在window上显示信息
+    ///
+    /// - Parameter message: <#message description#>
+    class func showMessageInWindow(_ message:String){
+        showMessage(message, view: jsKeywindow!)
+    }
     
     /// 显示信息
     ///
@@ -39,6 +56,13 @@ class JSMBHUDBridge: NSObject {
         hud.label.text = message
         hud.mode = .text
         hud.hide(animated: true, afterDelay: 1.5)
+    }
+    
+    /// 在window上显示错误信息
+    ///
+    /// - Parameter message: <#message description#>
+    class func showErrorInWindow(_ message:String){
+        showError(message, view: jsKeywindow!)
     }
     
     /// 显示错误信息

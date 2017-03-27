@@ -91,6 +91,7 @@ class CPReposInfoView: UIView {
             
             let x = CGFloat(index%2) * widthBy2Part
             let y = (index < 2) ? lineH : (2*lineH)
+            btn.tag = index
             btn.frame = CGRect.init(x: x, y: y, width: widthBy2Part, height: lineH)
             btn.imageView?.contentMode = .scaleAspectFit
             btn.imageEdgeInsets = imgEdgeInsets2
@@ -98,6 +99,7 @@ class CPReposInfoView: UIView {
             btn.layer.borderColor = UIColor.lineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
             btn.setTitleColor(UIColor.labelTitleTextColor, for: UIControlState())
+            btn.addTarget(self, action:#selector(jumpWebView(sender:)), for: .touchUpInside)
         }
 
     }
@@ -123,13 +125,11 @@ class CPReposInfoView: UIView {
             forkBtn.setTitle("\(forksCount)", for: UIControlState())
         }
         
-        
         if let lan = repo?.language {
             lanBtn.setTitle("\(lan)", for: UIControlState())
         }else{
             lanBtn.setTitle("Unknown".localized, for: UIControlState())
         }
-        
         
         if let cprivate = repo?.cprivate {
             if(cprivate){
@@ -147,10 +147,8 @@ class CPReposInfoView: UIView {
             }
         }
         if let fileMB = repo?.size {
-            
             let fileMB = String(format: "%.2f", ((Double)(fileMB)/1024.0) )
             filesizeBtn.setTitle("\(fileMB) MB", for: UIControlState())
-            
         }
 
         self.setNeedsLayout()
@@ -163,8 +161,22 @@ class CPReposInfoView: UIView {
     }
     
     
-    func jumpWebView() {
+    func jumpWebView(sender:UIButton) {
+        let index = sender.tag
+        var jumpUrl = ""
         
+        switch index {
+        case 0:
+            jumpUrl = ""
+            
+        default:
+            jumpUrl = ""
+        
+        }
+        
+        let webView = CPWebViewController()
+        webView.url = jumpUrl
+        jsTopNavigationViewController?.pushViewController(webView, animated: true)
     }
     
 }

@@ -32,7 +32,7 @@ let uiKeyboardHeight:CGFloat = 20.0
 let uiTopPoint = CGPoint.init(x: 0, y: uiTopBarHeight)
 
 /// 全局keywindow
-let jsKeywindow = jsAppDelegate.window
+let jsKeywindow  = UIApplication.shared.windows.first
 
 /// 当前顶部视图控制器
 let jsTopViewController = jsAppDelegate.tabBarController?.topViewController()

@@ -21,8 +21,8 @@ class CPGitLoginViewController: CPWebViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.title = "Sign In".localized
@@ -53,6 +53,8 @@ class CPGitLoginViewController: CPWebViewController {
         
         if urlStr.contains(codePrefix) {
         
+            JSMBHUDBridge.showHudInWindow()
+            
             let range:Range = urlStr.range(of: codePrefix)!
             let index: Int = urlStr.characters.distance(from: urlStr.startIndex, to: range.lowerBound)+5
             
@@ -68,9 +70,6 @@ class CPGitLoginViewController: CPWebViewController {
     ///
     /// - Parameter code: <#code description#>
     func glvc_SignIn(_ code :String) {
-    
-        MBProgressHUD.showAdded(to: jsKeywindow!, animated: true)
-
         let para = [
             "client_id":GithubAppClientId,
             "client_secret":GithubAppClientSecret,
@@ -118,7 +117,8 @@ class CPGitLoginViewController: CPWebViewController {
         let provider = Provider.sharedProvider
         provider.request(.myInfo) { (result) -> () in
 //            print(result)
-            MBProgressHUD.hide(for: jsKeywindow!, animated: true)
+            JSMBHUDBridge.hideHudInWindow()
+            
             var message = kNoMessageTip
             switch result {
             case let .success(response):

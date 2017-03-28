@@ -172,6 +172,7 @@
 		5E87F6B81E820407001608F1 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B51E820407001608F1 /* Debug.xcconfig */; };
 		5E87F6B91E820407001608F1 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B61E820407001608F1 /* Release.xcconfig */; };
 		5EA9493B1E89282E00D5A8E1 /* CPIssueDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA9493A1E89282E00D5A8E1 /* CPIssueDetailController.swift */; };
+		5EA9493D1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA9493C1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift */; };
 		5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */; };
 		5EACCFC91C8D52C60059A303 /* CPMesIssueCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */; };
 		5EACCFCC1C8DEB490059A303 /* ParaSearchUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */; };
@@ -484,6 +485,7 @@
 		5E87F6B51E820407001608F1 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		5E87F6B61E820407001608F1 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		5EA9493A1E89282E00D5A8E1 /* CPIssueDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPIssueDetailController.swift; sourceTree = "<group>"; };
+		5EA9493C1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSHMSegmentedBridge.swift; sourceTree = "<group>"; };
 		5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesIssueCell.swift; sourceTree = "<group>"; };
 		5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesIssueCell.xib; sourceTree = "<group>"; };
 		5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchUser.swift; sourceTree = "<group>"; };
@@ -992,6 +994,7 @@
 			children = (
 				5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */,
 				5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */,
+				5EA9493C1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift */,
 			);
 			path = JSBridge;
 			sourceTree = "<group>";
@@ -1863,6 +1866,7 @@
 				5E546D8E1C8EDE3100E94997 /* ObjResponseHeader.swift in Sources */,
 				5E546D8D1C8EDE3100E94997 /* AppToken.swift in Sources */,
 				5E03FD6B1E7A982C005B9664 /* JSTableViewCell.swift in Sources */,
+				5EA9493D1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift in Sources */,
 				5E03FD6A1E7A982C005B9664 /* JSTabBarController.swift in Sources */,
 				FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */,
 				FEC0DC3A1C28B39F0008C7C1 /* AppDelegate.swift in Sources */,

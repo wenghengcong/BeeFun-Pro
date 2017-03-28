@@ -162,6 +162,7 @@ class CPReposInfoView: UIView {
     
     
     func jumpWebView(sender:UIButton) {
+        /*
         let index = sender.tag
         var jumpUrl = ""
         
@@ -177,6 +178,7 @@ class CPReposInfoView: UIView {
         let webView = CPWebViewController()
         webView.url = jumpUrl
         jsTopNavigationViewController?.pushViewController(webView, animated: true)
+         */
     }
     
 }

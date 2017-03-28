@@ -17,7 +17,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Notifications".localized,"Issues".localized])
+    var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Notifications".localized,"Issues".localized])
     
     var notificationsData:[ObjNotification]! = []
     var issuesData:[ObjIssue]! = []
@@ -111,16 +111,6 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     func mvc_setupSegmentView() {
         
         self.view.addSubview(segControl)
-        segControl.verticalDividerColor = UIColor.lineBackgroundColor
-        segControl.verticalDividerWidth = 1
-        segControl.isVerticalDividerEnabled = true
-        segControl.selectionStyle =  HMSegmentedControlSelectionStyle.fullWidthStripe
-        segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
-        segControl.selectionIndicatorColor = UIColor.cpRedColor
-        segControl.selectionIndicatorHeight = 2
-        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
-        
-        segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
@@ -139,13 +129,6 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
                 self.tableView.reloadData()
             }
         
-        }
-        
-        segControl.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(64)
-            make.height.equalTo(44)
-            make.width.equalTo(self.view)
-            make.left.equalTo(0)
         }
         
     }

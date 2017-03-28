@@ -17,7 +17,7 @@ class CPStarsViewController: CPBaseViewController{
 
     @IBOutlet weak var tableView: UITableView!
     
-    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories".localized,"Event".localized])
+    var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Repositories".localized,"Event".localized])
     
     var reposData:[ObjRepos]! = []
     var eventsData:[ObjEvent]! = []
@@ -95,16 +95,6 @@ class CPStarsViewController: CPBaseViewController{
     func svc_setupSegmentView() {
         
         self.view.addSubview(segControl)
-        segControl.verticalDividerColor = UIColor.lineBackgroundColor
-        segControl.verticalDividerWidth = 1
-        segControl.isVerticalDividerEnabled = true
-        segControl.selectionStyle = HMSegmentedControlSelectionStyle.fullWidthStripe
-        segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
-        segControl.selectionIndicatorColor = UIColor.cpRedColor
-        segControl.selectionIndicatorHeight = 2
-        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
-        
-        segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
         
         segControl.indexChangeBlock = {
             (index:Int)-> Void in
@@ -121,13 +111,6 @@ class CPStarsViewController: CPBaseViewController{
                 self.tableView.reloadData()
             }
             
-        }
-        
-        segControl.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(64)
-            make.height.equalTo(44)
-            make.width.equalTo(self.view)
-            make.left.equalTo(0)
         }
         
     }

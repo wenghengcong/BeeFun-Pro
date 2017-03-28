@@ -26,7 +26,8 @@ class CPTrendingViewController: CPBaseViewController {
     @IBOutlet weak var tableView: UITableView!
     
     //view
-    var segControl:HMSegmentedControl! = HMSegmentedControl.init(sectionTitles: ["Repositories".localized,"Developers".localized,"Showcases".localized])
+    var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Repositories".localized,"Developers".localized,"Showcases".localized])
+
     var filterView:CPFilterTableView?
     let filterVHeight:CGFloat = 270    //filterview height
     let header = MJRefreshNormalHeader()
@@ -69,7 +70,6 @@ class CPTrendingViewController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         tvc_getDataFromPlist()
         tvc_setupSegmentView()
         tvc_setupTableView()
@@ -148,44 +148,20 @@ class CPTrendingViewController: CPBaseViewController {
     func tvc_setupSegmentView() {
         
         self.view.addSubview(segControl)
-        segControl.verticalDividerColor = UIColor.lineBackgroundColor
-        segControl.verticalDividerWidth = 1
-        segControl.isVerticalDividerEnabled = true
-        segControl.selectionStyle = HMSegmentedControlSelectionStyle.fullWidthStripe
-        segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
-        segControl.selectionIndicatorColor = UIColor.cpRedColor
-        segControl.selectionIndicatorHeight = 2
-        segControl.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.labelTitleTextColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
-        
-        segControl.selectedTitleTextAttributes = [NSForegroundColorAttributeName : UIColor.cpRedColor,NSFontAttributeName:UIFont.hugeSizeSystemFont()];
-        
-        segControl.indexChangeBlock = {
-            (index:Int)-> Void in
-            
-            self.filterView?.resetProperty()
 
-            if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
-                self.leftItem?.isHidden = false
-                self.tvc_getReposRequest()
-            }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
-                self.leftItem?.isHidden = false
-                self.tvc_getUserRequest()
-            }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
-                self.leftItem?.isHidden = true
-                self.tvc_getShowcasesRequest()
-            }else{
-                self.tableView.reloadData()
-            }
-            
+        self.filterView?.resetProperty()
+        if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
+            self.leftItem?.isHidden = false
+            self.tvc_getReposRequest()
+        }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
+            self.leftItem?.isHidden = false
+            self.tvc_getUserRequest()
+        }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
+            self.leftItem?.isHidden = true
+            self.tvc_getShowcasesRequest()
+        }else{
+            self.tableView.reloadData()
         }
-        
-        segControl.snp.makeConstraints { (make) -> Void in
-            make.top.equalTo(64)
-            make.height.equalTo(44)
-            make.width.equalTo(self.view)
-            make.left.equalTo(0)
-        }
-        
     }
     
     func tvc_setupTableView() {

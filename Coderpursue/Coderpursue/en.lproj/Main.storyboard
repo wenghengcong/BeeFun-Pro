@@ -59,7 +59,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="85" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nFN-5X-KVv">
-                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="519"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CPStarredReposCellIdentifier" rowHeight="85" id="yLE-TZ-D3o" customClass="CPStarredReposCell" customModule="Coderpursue" customModuleProvider="target">
@@ -195,7 +195,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="nFN-5X-KVv" secondAttribute="trailing" id="gQf-Me-pmH"/>
                             <constraint firstItem="G1D-iP-BEs" firstAttribute="top" secondItem="nFN-5X-KVv" secondAttribute="bottom" id="mCv-nU-xvL"/>
-                            <constraint firstItem="nFN-5X-KVv" firstAttribute="top" secondItem="Cmq-uo-Yi4" secondAttribute="bottom" constant="44" id="sqk-7A-OBd"/>
+                            <constraint firstItem="nFN-5X-KVv" firstAttribute="top" secondItem="Cmq-uo-Yi4" secondAttribute="bottom" constant="35" id="sqk-7A-OBd"/>
                             <constraint firstItem="nFN-5X-KVv" firstAttribute="leading" secondItem="fvT-kE-BOr" secondAttribute="leading" id="wkb-cL-mKB"/>
                         </constraints>
                     </view>
@@ -257,7 +257,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="2w5-hE-F4q">
-                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="519"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="IYd-sN-OJ9" id="lWu-ui-0MN"/>
@@ -270,7 +270,7 @@
                             <constraint firstAttribute="trailing" secondItem="2w5-hE-F4q" secondAttribute="trailing" id="XJA-jP-rMD"/>
                             <constraint firstItem="2w5-hE-F4q" firstAttribute="leading" secondItem="Der-Hc-LPH" secondAttribute="leading" id="exf-31-TtR"/>
                             <constraint firstItem="pdP-H3-tAU" firstAttribute="top" secondItem="2w5-hE-F4q" secondAttribute="bottom" id="kI3-ay-pnj"/>
-                            <constraint firstItem="2w5-hE-F4q" firstAttribute="top" secondItem="cbp-sy-yoy" secondAttribute="bottom" constant="44" id="n9J-ok-kj0"/>
+                            <constraint firstItem="2w5-hE-F4q" firstAttribute="top" secondItem="cbp-sy-yoy" secondAttribute="bottom" constant="35" id="n9J-ok-kj0"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Explore" id="qoa-mp-B6Q"/>
@@ -944,7 +944,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nt2-UD-XxL">
-                                <rect key="frame" x="0.0" y="108" width="375" height="510"/>
+                                <rect key="frame" x="0.0" y="99" width="375" height="519"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="stj-JY-WEa" id="k8S-zK-Zk6"/>
@@ -957,7 +957,7 @@
                             <constraint firstItem="nt2-UD-XxL" firstAttribute="leading" secondItem="j3k-bw-6hK" secondAttribute="leading" id="0BS-0z-hcJ"/>
                             <constraint firstItem="Qww-Du-t98" firstAttribute="top" secondItem="nt2-UD-XxL" secondAttribute="bottom" id="284-2t-RdI"/>
                             <constraint firstAttribute="trailing" secondItem="nt2-UD-XxL" secondAttribute="trailing" id="Ii4-W6-vSZ"/>
-                            <constraint firstItem="nt2-UD-XxL" firstAttribute="top" secondItem="tiP-LD-t2V" secondAttribute="bottom" constant="44" id="gtf-Tn-HK5"/>
+                            <constraint firstItem="nt2-UD-XxL" firstAttribute="top" secondItem="tiP-LD-t2V" secondAttribute="bottom" constant="35" id="gtf-Tn-HK5"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Message" id="BZf-3C-k9a"/>

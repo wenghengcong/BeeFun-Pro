@@ -134,7 +134,7 @@ class CPReposPosterView: UIView {
         nameLabel.frame = CGRect.init(x: nameL, y: 10.0, width: nameW, height: 24.0)
         
         let imgEdgeInsets = UIEdgeInsetsMake(0, -5, 0, 10)
-        let cornerRadius:CGFloat = 5.0
+        let cornerRadius:CGFloat = 3.0
         let borderWidth:CGFloat = 0.5
         
         

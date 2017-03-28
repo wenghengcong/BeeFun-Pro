@@ -298,7 +298,7 @@ class CPUserDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = true
-                    JSMBHUDBridge.showMessage("Follow".localized+"Successful".localized, view: self.view)
+                    JSMBHUDBridge.showMessage("Follow".localized+"Success".localized, view: self.view)
 
                 }
                 self.dvc_updateViewContent()
@@ -335,7 +335,7 @@ class CPUserDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = false
-                    JSMBHUDBridge.showMessage("UnFollow".localized+"Successful".localized, view: self.view)
+                    JSMBHUDBridge.showMessage("UnFollow".localized+"Success".localized, view: self.view)
 
                 }
                 

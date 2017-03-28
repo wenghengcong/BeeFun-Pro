@@ -63,6 +63,9 @@ class CPRepoDetailController: CPBaseViewController {
     
     func rvc_customView(){
         
+        self.reposPoseterV.isHidden = true
+        self.reposInfoV.isHidden = true
+        self.tableView.isHidden = true
         self.view.addSubview(self.reposPoseterV)
         self.view.addSubview(self.reposInfoV)
         self.view.addSubview(self.tableView)
@@ -110,20 +113,25 @@ class CPRepoDetailController: CPBaseViewController {
     
     func rvc_updateViewContent() {
         
-        let objRepo = repos!
-        reposPoseterV.repo = objRepo
-        reposPoseterV.watched = hasWatchedRepos
-        reposPoseterV.stared = hasStaredRepos
-        
-        reposInfoV.repo = objRepo
-        tableView.isHidden = false
-        self.view.backgroundColor = UIColor.viewBackgroundColor
-        
-        if objRepo.html_url != nil {
-            let homepage:[String:String] = ["img":"octicon_person_25","desc":"Homepage","discolsure":"true"]
-            reposInfoArr.append(homepage)
-            tableView.reloadData()
+        if let objRepo = self.repos {
+            
+            self.view.backgroundColor = UIColor.viewBackgroundColor
+
+            self.reposPoseterV.isHidden = false
+            self.reposInfoV.isHidden = false
+            self.tableView.isHidden = false
+            
+            reposPoseterV.repo = objRepo
+            reposInfoV.repo = objRepo
+            if objRepo.html_url != nil {
+                if reposInfoArr.count < 2 {
+                    let homepage:[String:String] = ["img":"coticon_repository_25","desc":"Homepage","discolsure":"true"]
+                    reposInfoArr.append(homepage)
+                    tableView.reloadData()
+                }
+            }
         }
+
 
     }
 
@@ -192,18 +200,26 @@ class CPRepoDetailController: CPBaseViewController {
             
             switch result {
             case let .success(response):
-                do {
-                    if let result:ObjRepos = Mapper<ObjRepos>().map(JSONObject: try response.mapJSON() ) {
-                        self.repos = result
-                        self.rvc_updateViewContent()
-
-                    } else {
-
+                
+                let statusCode = response.statusCode
+                if(statusCode == CPHttpStatusCode.ok.rawValue){
+                    do {
+                        if let result:ObjRepos = Mapper<ObjRepos>().map(JSONObject: try response.mapJSON() ) {
+                            self.repos = result
+                            self.rvc_updateViewContent()
+                            
+                        } else {
+                            
+                        }
+                    } catch {
+                        
+                        JSMBHUDBridge.showError(message, view: self.view)
                     }
-                } catch {
-
+                }else{
                     JSMBHUDBridge.showError(message, view: self.view)
                 }
+                
+
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
@@ -241,7 +257,7 @@ class CPRepoDetailController: CPBaseViewController {
                 }else{
                     self.hasWatchedRepos = false
                 }
-                self.rvc_updateViewContent()
+                self.reposPoseterV.watched = self.hasWatchedRepos
                 
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -279,7 +295,7 @@ class CPRepoDetailController: CPBaseViewController {
                 }else{
                     self.hasStaredRepos = false
                 }
-                self.rvc_updateViewContent()
+                self.reposPoseterV.stared = self.hasStaredRepos
                 
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -310,7 +326,8 @@ class CPRepoDetailController: CPBaseViewController {
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = true
                     JSMBHUDBridge.showError("Watch Successsful", view: self.view)
-                    self.rvc_updateViewContent()
+                    self.reposPoseterV.watched = self.hasWatchedRepos
+
                 }else{
                     
                 }
@@ -344,8 +361,7 @@ class CPRepoDetailController: CPBaseViewController {
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = false
                     JSMBHUDBridge.showError("Unwatch Successsful", view: self.view)
-                    self.rvc_updateViewContent()
-
+                    self.reposPoseterV.watched = self.hasWatchedRepos
                 }else{
                     
                 }
@@ -379,7 +395,7 @@ class CPRepoDetailController: CPBaseViewController {
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = true
                     JSMBHUDBridge.showError("Star Successsful", view: self.view)
-                    self.rvc_updateViewContent()
+                    self.reposPoseterV.stared = self.hasStaredRepos
                 }else{
                     
                 }
@@ -413,7 +429,7 @@ class CPRepoDetailController: CPBaseViewController {
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = false
                     JSMBHUDBridge.showError("Unstar this repository successsful!", view: self.view)
-                    self.rvc_updateViewContent()
+                    self.reposPoseterV.stared = self.hasStaredRepos
 
                 }else{
                     
@@ -525,7 +541,7 @@ extension CPRepoDetailController : UITableViewDelegate {
         }else if(row == 1){
             let webView = CPWebViewController()
             webView.url = self.repos?.html_url
-            webView.url = "https://www.baidu.com"
+//            webView.url = "https://www.baidu.com"
             self.navigationController?.pushViewController(webView, animated: true)
         }
 
@@ -561,24 +577,24 @@ extension CPRepoDetailController:ReposActionProtocol {
         switch(actionType){
         case .Watch:
             if(hasWatchedRepos){
-                title = "Unwatching..."
+                title = "Unwatching".localized + "..."
                 message = ""
             }else{
-                title = "Watching..."
+                title = "Watching".localized + "..."
                 message = "Watching a Repository registers the user to receive notifications on new discussions."
             }
 
         case .Star:
             if(hasStaredRepos){
-                title = "Unstarring..."
+                title = "Unstarring".localized + "..."
                 message = ""
             }else{
-                title = "Starring..."
+                title = "Starring".localized + "..."
                 message = "Repository Starring is a feature that lets users bookmark repositories."
             }
 
         case .Fork:
-            title = "Forking..."
+            title = "Forking".localized + "..."
             message = "A fork is a copy of a repository."
         }
         
@@ -610,8 +626,7 @@ extension CPRepoDetailController:ReposActionProtocol {
                 self.rvc_forkRequest()
             }
             
-            self.rvc_updateViewContent()
-
+//            self.rvc_updateViewContent()
         }
         alertController.addAction(OKAction)
         

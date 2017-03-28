@@ -45,6 +45,7 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
 
         }
     }
+    
     var html : String? {
         
         didSet {
@@ -171,6 +172,8 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
+        
+        self.title = webView.stringByEvaluatingJavaScript(from: "document.title")
         //hud hide后会自动移除
         hud.hide(animated: true)
         self.webView!.scrollView.contentInset = UIEdgeInsetsMake(self.topOffset, 0, 0, 0)

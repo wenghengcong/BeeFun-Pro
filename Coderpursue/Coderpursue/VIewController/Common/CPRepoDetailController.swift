@@ -577,24 +577,24 @@ extension CPRepoDetailController:ReposActionProtocol {
         switch(actionType){
         case .Watch:
             if(hasWatchedRepos){
-                title = "Unwatching".localized + "..."
+                title = "Unwatching".localized + kSignApostrophe
                 message = ""
             }else{
-                title = "Watching".localized + "..."
+                title = "Watching".localized + kSignApostrophe
                 message = "Watching a Repository registers the user to receive notifications on new discussions."
             }
 
         case .Star:
             if(hasStaredRepos){
-                title = "Unstarring".localized + "..."
+                title = "Unstarring".localized + kSignApostrophe
                 message = ""
             }else{
-                title = "Starring".localized + "..."
+                title = "Starring".localized + kSignApostrophe
                 message = "Repository Starring is a feature that lets users bookmark repositories."
             }
 
         case .Fork:
-            title = "Forking".localized + "..."
+            title = "Forking".localized + kSignApostrophe
             message = "A fork is a copy of a repository."
         }
         

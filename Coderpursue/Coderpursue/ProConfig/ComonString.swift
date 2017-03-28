@@ -7,6 +7,10 @@
 //
 
 
+
+public let kSignApostrophe = "..."
+
+
 public let kLoginFirstTip = "Please login first".localized
 
 /// 无数据提示
@@ -16,11 +20,11 @@ public let kNoDataFoundTip = "No Data Found".localized
 public let kHeaderPullTip = "Release to refresh".localized
 
 /// 下拉中
-public let kHeaderPullingTip = "Loading".localized+"..."
+public let kHeaderPullingTip = "Loading".localized+kSignApostrophe
 
 
 /// 上拉加载提示
-public let kFooterLoadTip = "Load".localized+"More".localized+"..."
+public let kFooterLoadTip = "Load".localized+"More".localized+kSignApostrophe
 
 /// 上拉加载无数据提示
 public let kFooterLoadNoDataTip = "No More data".localized

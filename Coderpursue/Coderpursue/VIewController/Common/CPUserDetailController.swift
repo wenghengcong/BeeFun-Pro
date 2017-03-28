@@ -101,6 +101,8 @@ class CPUserDetailController: CPBaseViewController {
         self.tableView.isHidden = true
         self.developerInfoV.isHidden = true
         self.followBtn.isHidden = true
+        
+        self.dvc_updateFolloweBtn()
     }
     
     func dvc_setupTableView() {
@@ -166,7 +168,7 @@ class CPUserDetailController: CPBaseViewController {
         }
         
         if let _ = developer!.html_url {
-            let homepageDic:Dictionary = ["key":"homepage","img":"coticon_home_25","desc":"Homepage","discolsure":"true"]
+            let homepageDic:Dictionary = ["key":"homepage","img":"coticon_home_25","desc":"Homepage".localized,"discolsure":"true"]
             devInfoArr.append(homepageDic)
         }
         

@@ -125,7 +125,7 @@ class CPRepoDetailController: CPBaseViewController {
             reposInfoV.repo = objRepo
             if objRepo.html_url != nil {
                 if reposInfoArr.count < 2 {
-                    let homepage:[String:String] = ["img":"coticon_repository_25","desc":"Homepage","discolsure":"true"]
+                    let homepage:[String:String] = ["img":"coticon_repository_25","desc":"Homepage".localized,"discolsure":"true"]
                     reposInfoArr.append(homepage)
                     tableView.reloadData()
                 }

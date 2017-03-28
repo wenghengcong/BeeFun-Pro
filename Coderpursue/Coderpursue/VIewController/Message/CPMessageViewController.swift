@@ -130,8 +130,10 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
             }
             
             if( (self.segControl.selectedSegmentIndex == 0)&&self.notificationsData.isEmpty ){
+                self.tableView.allowsSelection = false
                 self.mvc_getNotificationsRequest(self.notisPageVal)
             }else if( (self.segControl.selectedSegmentIndex == 1)&&self.issuesData.isEmpty ){
+                self.tableView.allowsSelection = true
                 self.mvc_getIssuesRequest(self.issuesPageVal)
             }else{
                 self.tableView.reloadData()
@@ -154,7 +156,6 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor
-//        self.tableView.allowsSelection = false
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新

@@ -10,20 +10,20 @@
 public let kLoginFirstTip = "Please login first".localized
 
 /// 无数据提示
-public let kNoMessageTip = "No Data Found".localized
+public let kNoDataFoundTip = "No Data Found".localized
 
 /// 下拉刷新提示
-public let kHeaderPullTip = "Release to refresh"
+public let kHeaderPullTip = "Release to refresh".localized
 
 /// 下拉中
-public let kHeaderPullingTip = "Loading ..."
+public let kHeaderPullingTip = "Loading".localized+"..."
 
 
 /// 上拉加载提示
-public let kFooterLoadTip = "Loading more ..."
+public let kFooterLoadTip = "Load".localized+"More".localized+"..."
 
 /// 上拉加载无数据提示
-public let kFooterLoadNoDataTip = "No More data"
+public let kFooterLoadNoDataTip = "No More data".localized
 
 public let kChineseLanguage = "zh-Hans"
 

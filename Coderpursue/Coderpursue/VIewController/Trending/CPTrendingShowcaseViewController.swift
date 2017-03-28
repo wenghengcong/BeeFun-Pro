@@ -77,7 +77,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.trendingShowcase(showcase:showcase.slug!) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             self.tableView.mj_header.endRefreshing()
             

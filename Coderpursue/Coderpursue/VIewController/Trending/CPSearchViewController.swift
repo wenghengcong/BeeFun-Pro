@@ -186,7 +186,7 @@ class CPSearchViewController: CPBaseViewController {
 
         Provider.sharedProvider.request(.searchUsers(para:self.paraUser) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if(self.paraRepos.page == 1 ) {
                 self.tableView.mj_header.endRefreshing()
@@ -250,7 +250,7 @@ class CPSearchViewController: CPBaseViewController {
 
         Provider.sharedProvider.request(.searchRepos(para:self.paraRepos) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if( self.paraRepos.page == 1 ) {
                 self.tableView.mj_header.endRefreshing()

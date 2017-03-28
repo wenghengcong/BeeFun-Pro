@@ -204,7 +204,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         
         Provider.sharedProvider.request( .myNotifications(page:pageVal,perpage:15,all:notiAllPar ,participating:notiPartPar) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -252,7 +252,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         
         Provider.sharedProvider.request(.allIssues( page:pageVal,perpage:10,filter:issueFilterPar,state:issueStatePar,labels:issueLabelsPar,sort:issueSortPar,direction:issueDirectionPar) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()

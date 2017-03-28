@@ -140,7 +140,7 @@ class CPUserListController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userFollowers(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if(self.userPageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -190,7 +190,7 @@ class CPUserListController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userFollowing(page:self.userPageVal,perpage:self.userPerpageVal,username:self.username!) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if(self.userPageVal == 1) {
                 self.tableView.mj_header.endRefreshing()

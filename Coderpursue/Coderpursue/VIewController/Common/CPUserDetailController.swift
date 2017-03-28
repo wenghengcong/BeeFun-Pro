@@ -213,7 +213,7 @@ class CPUserDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.checkUserFollowing(username:username) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             print(result)
@@ -248,7 +248,7 @@ class CPUserDetailController: CPBaseViewController {
 
         Provider.sharedProvider.request(.userInfo(username:username) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             
@@ -288,7 +288,7 @@ class CPUserDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.follow(username:username) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             
@@ -325,7 +325,7 @@ class CPUserDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.unfollow(username:username) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             

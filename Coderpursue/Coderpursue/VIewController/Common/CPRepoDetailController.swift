@@ -194,7 +194,7 @@ class CPRepoDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userSomeRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             
@@ -245,7 +245,7 @@ class CPRepoDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.checkWatched(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             switch result {
@@ -282,7 +282,7 @@ class CPRepoDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.checkStarred(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             print(result)
@@ -315,7 +315,7 @@ class CPRepoDetailController: CPBaseViewController {
         let repoName = repos!.name!
         Provider.sharedProvider.request(.watchingRepo(owner:owner,repo:repoName,subscribed:"true",ignored:"false") ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             print(result)
@@ -350,7 +350,7 @@ class CPRepoDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.unWatchingRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             print(result)
@@ -384,7 +384,7 @@ class CPRepoDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.starRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             print(result)
@@ -418,7 +418,7 @@ class CPRepoDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.unstarRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             print(result)
@@ -453,7 +453,7 @@ class CPRepoDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.createFork(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             JSMBHUDBridge.hideHud(view: self.view)
             print(result)

@@ -103,10 +103,18 @@
 "Share Failure"="分享失败";
 "Share Cancel"="取消分享";
 "Please login first"="请先登录";
+"No Data Found"="没有找到宝藏";
+"Release to refresh"="下拉刷新";
+"Load"="加载";
+"Loading"="加载中";
+"More"="更多";
+"No More data"="😭没有更多数据啦";
+
 
 //其他
 "Unknown" = "未知";
 "Success"="成功"
+
 
 /*****英文转中文 End******/
 

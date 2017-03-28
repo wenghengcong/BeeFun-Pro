@@ -190,7 +190,7 @@ class CPStarsViewController: CPBaseViewController{
         
         Provider.sharedProvider.request(.myStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
 
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()
@@ -237,7 +237,7 @@ class CPStarsViewController: CPBaseViewController{
         
         Provider.sharedProvider.request(.userEvents(username:ObjUser.loadUserInfo()!.login! ,page:pageVal,perpage:15) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if(pageVal == 1) {
                 self.tableView.mj_header.endRefreshing()

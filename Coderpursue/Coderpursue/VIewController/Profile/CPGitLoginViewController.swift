@@ -119,7 +119,7 @@ class CPGitLoginViewController: CPWebViewController {
 //            print(result)
             JSMBHUDBridge.hideHudInWindow()
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             switch result {
             case let .success(response):
                 do {

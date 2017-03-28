@@ -122,7 +122,7 @@ class CPProfileViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userInfo(username:username) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             switch result {
             case let .success(response):
@@ -180,7 +180,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         Provider.sharedProvider.request(.myInfo ) { (result) -> () in
 
             var success = true
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
 
             switch result {
             case let .success(response):

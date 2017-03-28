@@ -165,10 +165,9 @@ class CPUserDetailController: CPBaseViewController {
             devInfoArr.append(companyDic)
         }
         
-
-        
         developerInfoV.developer = developer
         self.tableView.reloadData()
+        JSMBHUDBridge.hideHud(view: self.view)
     }
     
     override func leftItemAction(_ sender: UIButton?) {
@@ -260,7 +259,6 @@ class CPUserDetailController: CPBaseViewController {
             
             var message = kNoDataFoundTip
             
-            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):

@@ -130,9 +130,9 @@ class CPRepoDetailController: CPBaseViewController {
                     tableView.reloadData()
                 }
             }
+            
+            JSMBHUDBridge.hideHud(view: self.view)
         }
-
-
     }
 
     
@@ -195,8 +195,6 @@ class CPRepoDetailController: CPBaseViewController {
         Provider.sharedProvider.request(.userSomeRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
             var message = kNoDataFoundTip
-            
-            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):

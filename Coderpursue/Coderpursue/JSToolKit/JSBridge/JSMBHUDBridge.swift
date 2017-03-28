@@ -29,7 +29,6 @@ class JSMBHUDBridge: NSObject {
     
     /// 隐藏Hud
     class func hideHud(view:UIView) {
-        MBProgressHUD.hideAllHUDs(for: view, animated: true)
         MBProgressHUD.hide(for: view, animated: true)
     }
     

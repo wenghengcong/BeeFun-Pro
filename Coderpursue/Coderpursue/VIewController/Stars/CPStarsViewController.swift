@@ -92,28 +92,69 @@ class CPStarsViewController: CPBaseViewController{
         }
     }
     
+    // MARK: - SegmentControl
+    
     func svc_setupSegmentView() {
-        
+        segControl.addTarget(self, action: #selector(CPStarsViewController.svc_segmentControlChangeValue), for: .valueChanged)
         self.view.addSubview(segControl)
+    }
+    
+    func svc_segmentControlChangeValue() {
         
-        segControl.indexChangeBlock = {
-            (index:Int)-> Void in
-            
-            if(!self.svc_isLogin()){
-                return
-            }
-            
-            if( (self.segControl.selectedSegmentIndex == 0) && self.reposData != nil){
-                self.svc_getUserReposRequest(self.reposPageVal)
-            }else if( (self.segControl.selectedSegmentIndex == 1)&&self.eventsData != nil ){
-                self.svc_getUserEventsRequest(self.eventPageVal)
-            }else{
-                self.tableView.reloadData()
-            }
-            
+        if(!self.svc_isLogin()){
+            return
         }
         
+        if( (self.segControl.selectedSegmentIndex == 0) && self.reposData != nil){
+            self.svc_getUserReposRequest(self.reposPageVal)
+        }else if( (self.segControl.selectedSegmentIndex == 1)&&self.eventsData != nil ){
+            self.svc_getUserEventsRequest(self.eventPageVal)
+        }else{
+            self.tableView.reloadData()
+        }
     }
+    
+    
+    func svc_addSwipeGesture() {
+        
+        let swipeLeft = UISwipeGestureRecognizer.init(target: self, action: #selector(CPStarsViewController.svc_swipeRight(sengder:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.tableView.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer.init(target: self, action: #selector(CPStarsViewController.svc_swipeLeft(sengder:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.tableView.addGestureRecognizer(swipeRight)
+    }
+    
+    /// 左滑
+    func svc_swipeLeft(sengder:Any) {
+        let currentIndex = segControl.selectedSegmentIndex
+        var nextIndex = 0
+        if  currentIndex == 0{
+            nextIndex = segControl.sectionTitles.count-1
+        }else{
+            nextIndex = currentIndex-1
+        }
+        segControl.setSelectedSegmentIndex(UInt(nextIndex), animated: true)
+        svc_segmentControlChangeValue()
+        tableView.setContentOffset(CGPoint.zero, animated:true)
+    }
+    
+    /// 右滑
+    func svc_swipeRight(sengder:Any) {
+        let currentIndex = segControl.selectedSegmentIndex
+        var nextIndex:Int = 0
+        if  currentIndex == segControl.sectionTitles.count-1{
+            nextIndex = 0
+        }else{
+            nextIndex = currentIndex+1
+        }
+        segControl.setSelectedSegmentIndex(UInt(nextIndex), animated: true)
+        svc_segmentControlChangeValue()
+        tableView.setContentOffset(CGPoint.zero, animated:true)
+    }
+    
+    // MARK: - Tableview
     
     func svc_setupTableView() {
         
@@ -138,6 +179,8 @@ class CPStarsViewController: CPBaseViewController{
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPStarsViewController.footerRefresh))
         footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer
+        
+        self.svc_addSwipeGesture()
     }
     
     // 顶部刷新

@@ -107,32 +107,73 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
             
         }
     }
+    
+    // MARK: - SegmentControl
 
     func mvc_setupSegmentView() {
-        
+        segControl.addTarget(self, action: #selector(CPMessageViewController.mvc_segmentControlChangeValue), for: .valueChanged)
         self.view.addSubview(segControl)
-        
-        segControl.indexChangeBlock = {
-            (index:Int)-> Void in
-            
-            if(!self.mvc_isLogin()){
-                return
-            }
-            
-            if( (self.segControl.selectedSegmentIndex == 0)&&self.notificationsData.isEmpty ){
-                self.tableView.allowsSelection = false
-                self.mvc_getNotificationsRequest(self.notisPageVal)
-            }else if( (self.segControl.selectedSegmentIndex == 1)&&self.issuesData.isEmpty ){
-                self.tableView.allowsSelection = true
-                self.mvc_getIssuesRequest(self.issuesPageVal)
-            }else{
-                self.tableView.reloadData()
-            }
-        
-        }
-        
     }
     
+    func mvc_segmentControlChangeValue() {
+        
+        if(!self.mvc_isLogin()){
+            return
+        }
+        
+        if( (self.segControl.selectedSegmentIndex == 0)&&self.notificationsData.isEmpty ){
+            self.tableView.allowsSelection = false
+            self.mvc_getNotificationsRequest(self.notisPageVal)
+        }else if( (self.segControl.selectedSegmentIndex == 1)&&self.issuesData.isEmpty ){
+            self.tableView.allowsSelection = true
+            self.mvc_getIssuesRequest(self.issuesPageVal)
+        }else{
+            self.tableView.reloadData()
+        }
+    }
+    
+    
+    func mvc_addSwipeGesture() {
+        
+        let swipeLeft = UISwipeGestureRecognizer.init(target: self, action: #selector(CPMessageViewController.mvc_swipeRight(sengder:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.tableView.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer.init(target: self, action: #selector(CPMessageViewController.mvc_swipeLeft(sengder:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.tableView.addGestureRecognizer(swipeRight)
+    }
+    
+    /// 左滑
+    func mvc_swipeLeft(sengder:Any) {
+        let currentIndex = segControl.selectedSegmentIndex
+        var nextIndex = 0
+        if  currentIndex == 0{
+            nextIndex = segControl.sectionTitles.count-1
+        }else{
+            nextIndex = currentIndex-1
+        }
+        segControl.setSelectedSegmentIndex(UInt(nextIndex), animated: true)
+        mvc_segmentControlChangeValue()
+        tableView.setContentOffset(CGPoint.zero, animated:true)
+    }
+    
+    /// 右滑
+    func mvc_swipeRight(sengder:Any) {
+        let currentIndex = segControl.selectedSegmentIndex
+        var nextIndex:Int = 0
+        if  currentIndex == segControl.sectionTitles.count-1{
+            nextIndex = 0
+        }else{
+            nextIndex = currentIndex+1
+        }
+        segControl.setSelectedSegmentIndex(UInt(nextIndex), animated: true)
+        mvc_segmentControlChangeValue()
+        tableView.setContentOffset(CGPoint.zero, animated:true)
+    }
+    
+    // MARK: - TableView
+
     func mvc_setupTableView() {
         
         self.tableView.dataSource = self
@@ -156,6 +197,8 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPMessageViewController.footerRefresh))
         footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer
+        
+        self.mvc_addSwipeGesture()
     }
     
     // 顶部刷新
@@ -361,6 +404,7 @@ extension CPMessageViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
         let row = indexPath.row
         
         if segControl.selectedSegmentIndex == 1 {

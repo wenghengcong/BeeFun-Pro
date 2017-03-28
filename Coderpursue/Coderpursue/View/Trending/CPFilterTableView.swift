@@ -99,6 +99,8 @@ class CPFilterTableView: UIView {
     /// 值Table
     var secTableView:UITableView?    
     
+    // MARK: - view cycle
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 //        ftv_customView()

@@ -15,8 +15,6 @@ let kAppleLanguageKey = "AppleLanguages"
 let kAppUserLanguageKey = "kAppUserLanguageKey"
 
 
-
-
 /// 语言管理类，分为系统语言、APP语言、用户选择语言
 class JSLanguage: NSObject {
     

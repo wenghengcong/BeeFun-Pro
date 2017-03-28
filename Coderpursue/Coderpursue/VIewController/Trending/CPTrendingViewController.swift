@@ -72,8 +72,8 @@ class CPTrendingViewController: CPBaseViewController {
 
         tvc_getDataFromPlist()
         tvc_setupSegmentView()
-        tvc_setupTableView()
         tvc_setupFilterView()
+        tvc_setupTableView()
         tvc_addNaviBarButtonItem()
         tvc_firstCheckLogin()
         
@@ -147,30 +147,6 @@ class CPTrendingViewController: CPBaseViewController {
         self.view.addSubview(filterView!)
     }
     
-    func tvc_setupSegmentView() {
-        
-        self.view.addSubview(segControl)
-
-        segControl.indexChangeBlock = {
-            (index:Int)-> Void in
-            
-            self.filterView?.resetProperty()
-            if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
-                self.leftItem?.isHidden = false
-                self.tvc_getReposRequest()
-            }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
-                self.leftItem?.isHidden = false
-                self.tvc_getUserRequest()
-            }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
-                self.leftItem?.isHidden = true
-                self.tvc_getShowcasesRequest()
-            }else{
-                self.tableView.reloadData()
-            }
-        }
-
-    }
-    
     func tvc_setupTableView() {
         
         self.tableView.dataSource = self
@@ -194,6 +170,72 @@ class CPTrendingViewController: CPBaseViewController {
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingViewController.footerRefresh))
         footer.isRefreshingTitleHidden = true
         self.tableView.mj_footer = footer
+        
+        self.tvc_addSwipeGesture()
+    }
+    
+    // MARK: - SegmentControl
+    
+    func tvc_setupSegmentView() {
+        segControl.addTarget(self, action: #selector(CPTrendingViewController.tvc_segmentControlChangeValue), for: .valueChanged)
+        self.view.addSubview(segControl)
+    }
+    
+    func tvc_segmentControlChangeValue() {
+        
+        self.filterView?.resetProperty()
+        if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
+            self.leftItem?.isHidden = false
+            self.tvc_getReposRequest()
+        }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
+            self.leftItem?.isHidden = false
+            self.tvc_getUserRequest()
+        }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
+            self.leftItem?.isHidden = true
+            self.tvc_getShowcasesRequest()
+        }else{
+            self.tableView.reloadData()
+        }
+    }
+
+    
+    func tvc_addSwipeGesture() {
+        
+        let swipeLeft = UISwipeGestureRecognizer.init(target: self, action: #selector(CPTrendingViewController.tvc_swipeRight(sengder:)))
+        swipeLeft.direction = UISwipeGestureRecognizerDirection.left
+        self.tableView.addGestureRecognizer(swipeLeft)
+        
+        let swipeRight = UISwipeGestureRecognizer.init(target: self, action: #selector(CPTrendingViewController.tvc_swipeLeft(sengder:)))
+        swipeRight.direction = UISwipeGestureRecognizerDirection.right
+        self.tableView.addGestureRecognizer(swipeRight)
+    }
+    
+    /// 左滑
+    func tvc_swipeLeft(sengder:Any) {
+        let currentIndex = segControl.selectedSegmentIndex
+        var nextIndex = 0
+        if  currentIndex == 0{
+            nextIndex = segControl.sectionTitles.count-1
+        }else{
+            nextIndex = currentIndex-1
+        }
+        segControl.setSelectedSegmentIndex(UInt(nextIndex), animated: true)
+        tvc_segmentControlChangeValue()
+        tableView.setContentOffset(CGPoint.zero, animated:true)
+    }
+    
+    /// 右滑
+    func tvc_swipeRight(sengder:Any) {
+        let currentIndex = segControl.selectedSegmentIndex
+        var nextIndex:Int = 0
+        if  currentIndex == segControl.sectionTitles.count-1{
+            nextIndex = 0
+        }else{
+            nextIndex = currentIndex+1
+        }
+        segControl.setSelectedSegmentIndex(UInt(nextIndex), animated: true)
+        tvc_segmentControlChangeValue()
+        tableView.setContentOffset(CGPoint.zero, animated:true)
     }
 
     

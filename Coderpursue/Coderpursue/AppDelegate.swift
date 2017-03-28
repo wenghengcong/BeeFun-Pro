@@ -67,10 +67,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         tabBarController = storyBoard?.instantiateViewController(withIdentifier: "tabbarController") as! CPBaseTabBarController?
         
-        if let dictionary = Bundle.main.infoDictionary {
+//        if let dictionary = Bundle.main.infoDictionary {
 //            let appName = dictionary["APP_DISPLAYNAME"] as! String
 //            print("appName: \(appName)")
-        }
+//        }
         
         // Define a Region in Rome/Italy and set it as default region
         // Our Region also uses Gregorian Calendar and Italy Locale

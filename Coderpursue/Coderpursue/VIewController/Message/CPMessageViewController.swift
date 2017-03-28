@@ -296,7 +296,7 @@ extension CPMessageViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         
         var cellId = ""
         

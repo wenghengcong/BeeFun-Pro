@@ -138,7 +138,7 @@ extension CPTrendingShowcaseViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         
         let cellId = "CPTrendingRepoCellIdentifier"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingRepoCell
@@ -175,7 +175,7 @@ extension CPTrendingShowcaseViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let repos = self.showcase.repositories![(indexPath as NSIndexPath).row]
+        let repos = self.showcase.repositories![indexPath.row]
         let vc = CPRepoDetailController()
         vc.hidesBottomBarWhenPushed = true
         vc.repos = repos

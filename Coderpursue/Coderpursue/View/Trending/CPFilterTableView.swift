@@ -221,9 +221,9 @@ extension CPFilterTableView:UITableViewDataSource {
         var cellText = ""
 
         if(tableView == firTableView){
-            cellText = filterTypes[(indexPath as NSIndexPath).row]
+            cellText = filterTypes[indexPath.row]
         }else{
-            cellText = filterData[selTypeIndex][(indexPath as NSIndexPath).row]
+            cellText = filterData[selTypeIndex][indexPath.row]
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
@@ -237,7 +237,7 @@ extension CPFilterTableView:UITableViewDataSource {
             cell.addSingleBorder(UIColor.lineBackgroundColor, linewidth: 0.5, at: .bottom)
             cell.addSingleBorder(UIColor.lineBackgroundColor, linewidth: 0.5, at: .right)
             
-            if((indexPath as NSIndexPath).row == selTypeIndex){
+            if(indexPath.row == selTypeIndex){
                 cell.backgroundColor = UIColor.white
                 cell.removeBorder(.right)
                 cell.textLabel?.textColor = UIColor.cpRedColor
@@ -248,7 +248,7 @@ extension CPFilterTableView:UITableViewDataSource {
             cell.selectionStyle = .none
             
             let selValueIndex = (selTypeIndex == 0) ? selFirValueIndex : selSecValueIndex
-            if((indexPath as NSIndexPath).row == selValueIndex){
+            if(indexPath.row == selValueIndex){
                 cell.textLabel?.textColor = UIColor.cpRedColor
             }
             
@@ -278,12 +278,12 @@ extension CPFilterTableView:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (tableView == firTableView){
-            selTypeIndex = (indexPath as NSIndexPath).row
+            selTypeIndex = indexPath.row
         }else{
             if (selTypeIndex == 0) {
-                selFirValueIndex = (indexPath as NSIndexPath).row
+                selFirValueIndex = indexPath.row
             }else{
-                selSecValueIndex = (indexPath as NSIndexPath).row
+                selSecValueIndex = indexPath.row
             }
         }
 
@@ -299,9 +299,9 @@ extension CPFilterTableView:UITableViewDelegate {
         
         if(filterDelegate != nil){
             if (indexOfTableviews == 0 ) {
-                filterDelegate?.didSelectTypeColoumn((indexPath as NSIndexPath).row, type: type, value: value)
+                filterDelegate?.didSelectTypeColoumn(indexPath.row, type: type, value: value)
             }else if(indexOfTableviews == 1){
-                filterDelegate?.didSelectValueColoumn((indexPath as NSIndexPath).row, type: type, value: value)
+                filterDelegate?.didSelectValueColoumn(indexPath.row, type: type, value: value)
             }
             
         }

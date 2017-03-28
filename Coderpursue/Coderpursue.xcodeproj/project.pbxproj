@@ -532,7 +532,6 @@
 		5EFAE65E1E7B922A003194C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPCountry.plist; sourceTree = "<group>"; };
 		5EFAE6601E7B922C003194C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPCountry.plist"; sourceTree = "<group>"; };
 		5EFAE6621E7B9232003194C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPFilterLanguage.plist; sourceTree = "<group>"; };
-		5EFAE6641E7B9233003194C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPFilterLanguage.plist"; sourceTree = "<group>"; };
 		5EFAE6651E7BC462003194C3 /* JSLanguage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSLanguage.swift; sourceTree = "<group>"; };
 		5EFAE6671E7CDABB003194C3 /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		5EFDF2601E820A530088FBBB /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -2078,7 +2077,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5EFAE6621E7B9232003194C3 /* en */,
-				5EFAE6641E7B9233003194C3 /* zh-Hans */,
 			);
 			name = CPFilterLanguage.plist;
 			sourceTree = "<group>";

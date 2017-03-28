@@ -241,7 +241,7 @@ extension CPSearchFilterView:UITableViewDataSource {
         //排序选项已经本地化
         let currentPara = filterPara[selParaIndex]
         let selValueIndex = selValueDic[currentPara]
-        if((indexPath as NSIndexPath).row == selValueIndex){
+        if(indexPath.row == selValueIndex){
             cell.backgroundColor = UIColor.white
             cell.textLabel?.textColor = UIColor.cpRedColor
         }
@@ -254,7 +254,7 @@ extension CPSearchFilterView:UITableViewDataSource {
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
         
-        cell.textLabel!.text = filterData[selParaIndex][(indexPath as NSIndexPath).row]
+        cell.textLabel!.text = filterData[selParaIndex][indexPath.row]
         
         return cell
     }
@@ -278,7 +278,7 @@ extension CPSearchFilterView:UITableViewDelegate {
         
         /// 获取选中的value，需要将其英文化
         let currentPara = filterPara[selParaIndex].localized
-        selValueDic[currentPara] = (indexPath as NSIndexPath).row
+        selValueDic[currentPara] = indexPath.row
         print(selValueDic)
         tableView.reloadData()
         

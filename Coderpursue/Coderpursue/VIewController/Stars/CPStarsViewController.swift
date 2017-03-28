@@ -279,7 +279,7 @@ extension CPStarsViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
 
         var cellId = ""
         
@@ -369,7 +369,7 @@ extension CPStarsViewController : UITableViewDelegate {
             
         }else{
             
-            let event:ObjEvent = self.eventsData[(indexPath as NSIndexPath).row]
+            let event:ObjEvent = self.eventsData[indexPath.row]
             let eventType:EventType = EventType(rawValue: (event.type!))!
             
             switch(eventType) {
@@ -395,7 +395,7 @@ extension CPStarsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let repos = self.reposData[(indexPath as NSIndexPath).row]
+        let repos = self.reposData[indexPath.row]
         let vc = CPRepoDetailController()
         vc.hidesBottomBarWhenPushed = true
         vc.repos = repos

@@ -282,7 +282,7 @@ extension CPProfileViewController : UITableViewDataSource {
                 cell = (CPSettingsCell.cellFromNibNamed("CPSettingsCell") as! CPSettingsCell)
             }
             let section = (indexPath as NSIndexPath).section
-            let row = (indexPath as NSIndexPath).row
+            let row = indexPath.row
             let settings:ObjSettings = settingsArr[section][row]
             cell!.objSettings = settings
             
@@ -328,7 +328,7 @@ extension CPProfileViewController : UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
 
         let viewType = settings.itemKey!

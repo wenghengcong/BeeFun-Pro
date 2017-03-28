@@ -491,7 +491,7 @@ extension CPRepoDetailController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let cellId = "CPDevUserInfoCellIdentifier"
 
         var cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPDevUserInfoCell

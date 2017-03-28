@@ -43,7 +43,7 @@ class CPTrendingViewController: CPBaseViewController {
     var languageArr:[String]?
     var sinceArr:[String] = [TrendingSince.Daily.rawValue.localized,TrendingSince.Weekly.rawValue.localized,TrendingSince.Monthly.rawValue.localized]
     
-    // MARK: request parameters
+    // MARK: - request parameters
     var lastSegmentIndex = 0
     var paraUser:ParaSearchUser = ParaSearchUser.init()
     var paraSince:String = "daily"
@@ -65,7 +65,7 @@ class CPTrendingViewController: CPBaseViewController {
     }
     
     
-    // MARK: view cycle
+    // MARK: - view cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,6 +104,7 @@ class CPTrendingViewController: CPBaseViewController {
         }
     }
     
+    /// 登录
     func tvc_loginSuccessful() {
         
         if(self.segControl.selectedSegmentIndex == 1){
@@ -111,13 +112,14 @@ class CPTrendingViewController: CPBaseViewController {
         }
     }
     
+    /// 退出登录
     func tvc_logoutSuccessful() {
         
         devesData.removeAll()
         tableView.reloadData()
     }
     
-    // MARK: view
+    // MARK: - view
     
     func tvc_addNaviBarButtonItem() {
         
@@ -139,8 +141,8 @@ class CPTrendingViewController: CPBaseViewController {
         filterView!.coloumn = .two
         filterView!.rowWidths = [firW,secW]
         filterView!.rowHeights = [40.0,40.0]
-        filterView!.filterTypes = ["Since".localized]
-        filterView!.filterData = [sinceArr]
+        filterView!.filterTypes = ["Since".localized,"Language".localized]
+        filterView!.filterData = [sinceArr,languageArr!]
         filterView!.filterViewInit()
         self.view.addSubview(filterView!)
     }
@@ -195,7 +197,7 @@ class CPTrendingViewController: CPBaseViewController {
     }
 
     
-    // MARK: action
+    // MARK: - action
     
     override func leftItemAction(_ sender: UIButton?) {
         let btn = sender!
@@ -217,11 +219,12 @@ class CPTrendingViewController: CPBaseViewController {
 
     }
     
+    // MARK: - 筛选视图
     func tvc_filterViewApper(){
         
         if ((segControl.selectedSegmentIndex == 0) && (lastSegmentIndex != segControl.selectedSegmentIndex) ) {
-            filterView!.filterTypes = ["Since".localized]
-            filterView!.filterData = [sinceArr]
+            filterView!.filterTypes = ["Since".localized,"Language".localized]
+            filterView!.filterData = [sinceArr,languageArr!]
         }else if((segControl.selectedSegmentIndex == 1) && (lastSegmentIndex != segControl.selectedSegmentIndex)){
             filterView!.filterTypes = ["Language".localized,"Country".localized]
             filterView!.filterData = [languageArr!,countryArr!]
@@ -313,7 +316,7 @@ class CPTrendingViewController: CPBaseViewController {
         
         JSMBHUDBridge.showHud(view: self.view)
         
-        Provider.sharedProvider.request(.trendingRepos(since:paraSince,language:"all") ) { (result) -> () in
+        Provider.sharedProvider.request(.trendingRepos(since:paraSince,language:paraLanguage) ) { (result) -> () in
             
             var message = kNoDataFoundTip
             
@@ -482,7 +485,7 @@ extension CPTrendingViewController : CPFilterTableViewProtocol {
                 if value == "All" {
                     paraLanguage = "all"
                 }else{
-                    paraLanguage = value
+                    paraLanguage = value.replacingOccurrences(of: " ", with: "-").lowercased()
                 }
             }
             paraUser.page = 1
@@ -545,7 +548,7 @@ extension CPTrendingViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         
         var cellId = ""
         
@@ -649,7 +652,7 @@ extension CPTrendingViewController : UITableViewDelegate {
         
         if segControl.selectedSegmentIndex == 0 {
             
-            let repos = self.reposData[(indexPath as NSIndexPath).row]
+            let repos = self.reposData[indexPath.row]
             let vc = CPRepoDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.repos = repos
@@ -657,7 +660,7 @@ extension CPTrendingViewController : UITableViewDelegate {
             
         }else if(segControl.selectedSegmentIndex == 1){
             
-            let dev = self.devesData[(indexPath as NSIndexPath).row]
+            let dev = self.devesData[indexPath.row]
             let vc = CPUserDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.developer = dev
@@ -665,7 +668,7 @@ extension CPTrendingViewController : UITableViewDelegate {
             
         }else {
             
-            let showcase = self.showcasesData[(indexPath as NSIndexPath).row]
+            let showcase = self.showcasesData[indexPath.row]
             self.performSegue(withIdentifier: SegueTrendingShowShowcaseDetail, sender: showcase)
         }
     }

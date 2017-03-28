@@ -249,7 +249,7 @@ extension CPUserListController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         
         let cellId = "CPTrendingDeveloperCellIdentifier"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingDeveloperCell
@@ -289,7 +289,7 @@ extension CPUserListController : UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
     
-        let user = self.userData[(indexPath as NSIndexPath).row]
+        let user = self.userData[indexPath.row]
 
         let vc = CPUserDetailController()
         vc.hidesBottomBarWhenPushed = true

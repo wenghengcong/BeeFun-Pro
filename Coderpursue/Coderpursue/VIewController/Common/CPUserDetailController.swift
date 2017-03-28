@@ -382,7 +382,7 @@ extension CPUserDetailController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         
         let cellId = "CPDevUserInfoCellIdentifier"
 
@@ -455,7 +455,7 @@ extension CPUserDetailController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         self.tableView.deselectRow(at: indexPath, animated: true)
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let dic = devInfoArr[row]
         let cellKey = dic["key"]
         

@@ -73,7 +73,7 @@ extension CPProAboutViewController : UITableViewDataSource {
             
         }
         let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
         cell!.objSettings = settings
         
@@ -130,7 +130,7 @@ extension CPProAboutViewController : UITableViewDelegate {
         }
         
         let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
         
         let viewType = settings.itemKey!

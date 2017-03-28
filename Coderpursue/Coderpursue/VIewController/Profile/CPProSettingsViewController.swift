@@ -87,7 +87,7 @@ extension CPProSettingsViewController : UITableViewDataSource {
             
         }
         let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
         if(settings.itemKey == "version"){
             settings.itemValue = AppVersionHelper.shared.bundleReleaseVersion()
@@ -147,7 +147,7 @@ extension CPProSettingsViewController : UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
         
         let viewType = settings.itemKey!

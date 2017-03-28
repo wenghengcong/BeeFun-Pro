@@ -254,7 +254,7 @@ extension CPRepoListController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         var cellId = ""
         if(self.viewType == "myrepositories") {
             cellId = "CPMyReposCellIdentifier"
@@ -314,7 +314,7 @@ extension CPRepoListController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let repos = self.reposData[(indexPath as NSIndexPath).row]
+        let repos = self.reposData[indexPath.row]
         
         let vc = CPRepoDetailController()
         vc.hidesBottomBarWhenPushed = true

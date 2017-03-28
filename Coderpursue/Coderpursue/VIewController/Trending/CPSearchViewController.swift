@@ -483,7 +483,7 @@ extension CPSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         var cellId = ""
         
         if pageType == .repos {
@@ -554,7 +554,7 @@ extension CPSearchViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         if pageType == .repos {
-            let repos = self.reposData[(indexPath as NSIndexPath).row]
+            let repos = self.reposData[indexPath.row]
             let vc = CPRepoDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.repos = repos
@@ -563,7 +563,7 @@ extension CPSearchViewController: UITableViewDelegate {
             return
         }
             
-        let dev = self.usersData[(indexPath as NSIndexPath).row]
+        let dev = self.usersData[indexPath.row]
         let vc = CPUserDetailController()
         vc.hidesBottomBarWhenPushed = true
         vc.developer = dev

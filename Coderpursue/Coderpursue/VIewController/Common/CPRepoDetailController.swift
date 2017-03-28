@@ -541,7 +541,6 @@ extension CPRepoDetailController : UITableViewDelegate {
         }else if(row == 1){
             let webView = CPWebViewController()
             webView.url = self.repos?.html_url
-//            webView.url = "https://www.baidu.com"
             self.navigationController?.pushViewController(webView, animated: true)
         }
 
@@ -574,6 +573,7 @@ extension CPRepoDetailController:ReposActionProtocol {
 //        var clickSure: ((UIAlertAction) -> Void) = {
 //            (UIAlertAction)->Void in
 //        }
+        // TODO: localized
         switch(actionType){
         case .Watch:
             if(hasWatchedRepos){

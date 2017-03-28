@@ -154,7 +154,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor
-        self.tableView.allowsSelection = false
+//        self.tableView.allowsSelection = false
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
@@ -377,6 +377,18 @@ extension CPMessageViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let row = indexPath.row
+        
+        if segControl.selectedSegmentIndex == 1 {
+            if issuesData.isBeyond(index: row) {
+                return
+            }
+            let issue:ObjIssue =  issuesData[row]
+            let webView = CPWebViewController()
+            webView.hidesBottomBarWhenPushed = true
+            webView.url = issue.html_url
+            self.navigationController?.pushViewController(webView, animated: true)
+        }
     }
     
 }

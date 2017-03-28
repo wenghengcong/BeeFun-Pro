@@ -8,9 +8,11 @@
 
 
 
+/// 省略号
 public let kSignApostrophe = "..."
 
 
+/// 登录提示
 public let kLoginFirstTip = "Please login first".localized
 
 /// 无数据提示
@@ -21,8 +23,7 @@ public let kHeaderPullTip = "Release to refresh".localized
 
 /// 下拉中
 public let kHeaderPullingTip = "Loading".localized+kSignApostrophe
-
-
+ 
 /// 上拉加载提示
 public let kFooterLoadTip = "Load".localized+"More".localized+kSignApostrophe
 

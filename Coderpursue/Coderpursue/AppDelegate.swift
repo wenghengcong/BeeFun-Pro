@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import UserNotifications
+import SwiftDate
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
@@ -70,6 +71,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
 //            let appName = dictionary["APP_DISPLAYNAME"] as! String
 //            print("appName: \(appName)")
         }
+        
+        // Define a Region in Rome/Italy and set it as default region
+        // Our Region also uses Gregorian Calendar and Italy Locale
+//        let romeRegion = Region(tz: TimeZoneName.asiaShanghai, cal: CalendarName.gregorian, loc: LocaleName.chineseSimplified)
+//        Date.setDefaultRegion(romeRegion)
         
         return true
     }

@@ -298,7 +298,7 @@ class CPUserDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = true
-                    JSMBHUDBridge.showError("Follow Successful", view: self.view)
+                    JSMBHUDBridge.showMessage("Follow".localized+"Successful".localized, view: self.view)
 
                 }
                 self.dvc_updateViewContent()
@@ -335,7 +335,7 @@ class CPUserDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = false
-                    JSMBHUDBridge.showError("Unollow Successful", view: self.view)
+                    JSMBHUDBridge.showMessage("UnFollow".localized+"Successful".localized, view: self.view)
 
                 }
                 
@@ -473,7 +473,7 @@ extension CPUserDetailController:UserProfileActionProtocol {
     func segueGotoViewController() {
         
         if (!UserManager.shared.isLogin){
-            JSMBHUDBridge.showError("Please login first", view: self.view)
+            JSMBHUDBridge.showError("Please login first".localized, view: self.view)
             return
         }
         

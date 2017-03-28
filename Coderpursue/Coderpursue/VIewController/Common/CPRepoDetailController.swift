@@ -325,7 +325,7 @@ class CPRepoDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = true
-                    JSMBHUDBridge.showError("Watch Successsful", view: self.view)
+                    JSMBHUDBridge.showMessage("Watch".localized+"Successful".localized, view: self.view)
                     self.reposPoseterV.watched = self.hasWatchedRepos
 
                 }else{
@@ -360,7 +360,7 @@ class CPRepoDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = false
-                    JSMBHUDBridge.showError("Unwatch Successsful", view: self.view)
+                    JSMBHUDBridge.showMessage("Unwatch".localized+"Successful".localized, view: self.view)
                     self.reposPoseterV.watched = self.hasWatchedRepos
                 }else{
                     
@@ -394,7 +394,7 @@ class CPRepoDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = true
-                    JSMBHUDBridge.showError("Star Successsful", view: self.view)
+                    JSMBHUDBridge.showMessage("Star".localized+"Successful".localized, view: self.view)
                     self.reposPoseterV.stared = self.hasStaredRepos
                 }else{
                     
@@ -428,7 +428,7 @@ class CPRepoDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = false
-                    JSMBHUDBridge.showError("Unstar this repository successsful!", view: self.view)
+                    JSMBHUDBridge.showMessage("Unstar".localized+"Successful!", view: self.view)
                     self.reposPoseterV.stared = self.hasStaredRepos
 
                 }else{
@@ -462,7 +462,7 @@ class CPRepoDetailController: CPBaseViewController {
                 
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.accepted.rawValue){
-                    JSMBHUDBridge.showError("Fork this repository successsful!", view: self.view)
+                    JSMBHUDBridge.showMessage("Fork".localized+"Successful".localized, view: self.view)
                 }else{
                 }
                 

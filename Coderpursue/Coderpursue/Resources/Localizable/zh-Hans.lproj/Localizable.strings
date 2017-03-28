@@ -95,10 +95,6 @@
 "Repositories"="项目";
 "Following"="关注";
 
-//other
-"Unknown" = "未知";
-
-
 //长文本
 "  Coderpursue is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!" = "  Coderpursue 是github客户端，也是Swift语言编写的一个开源项目。欢迎更多的人参与到该项目的设计与开发工作，也欢迎大家能提出更多的建议和上报bugs!";
 
@@ -106,7 +102,11 @@
 "Share Success"="分享成功";
 "Share Failure"="分享失败";
 "Share Cancel"="取消分享";
+"Please login first"="请先登录";
 
+//其他
+"Unknown" = "未知";
+"Successful"="成功"
 
 /*****英文转中文 End******/
 

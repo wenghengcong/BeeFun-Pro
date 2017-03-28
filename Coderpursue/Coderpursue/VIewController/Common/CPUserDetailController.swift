@@ -473,7 +473,7 @@ extension CPUserDetailController:UserProfileActionProtocol {
     func segueGotoViewController() {
         
         if (!UserManager.shared.isLogin){
-            JSMBHUDBridge.showError("Please login first".localized, view: self.view)
+            JSMBHUDBridge.showError(kLoginFirstTip, view: self.view)
             return
         }
         

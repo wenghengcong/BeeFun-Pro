@@ -7,8 +7,10 @@
 //
 
 
+public let kLoginFirstTip = "Please login first".localized
+
 /// 无数据提示
-public let kNoMessageTip = "No Data Found"
+public let kNoMessageTip = "No Data Found".localized
 
 /// 下拉刷新提示
 public let kHeaderPullTip = "Release to refresh"

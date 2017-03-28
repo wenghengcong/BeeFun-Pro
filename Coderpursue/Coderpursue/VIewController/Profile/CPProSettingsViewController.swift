@@ -53,7 +53,7 @@ class CPProSettingsViewController: CPBaseViewController {
     func psvc_logoutAction() {
         
         if( !(UserManager.shared.isLogin) ){
-            JSMBHUDBridge.showMessage("You didn't login !", view: self.view)
+            JSMBHUDBridge.showMessage(kLoginFirstTip, view: self.view)
             return
         }
         

@@ -357,7 +357,7 @@ extension CPProfileViewController : UITableViewDelegate {
             
         }else if(viewType == "rate"){
             
-            AppVersionHelper.shared.rateUs()
+            JSApp.rateUs()
             
         }else if(viewType == "share"){
             

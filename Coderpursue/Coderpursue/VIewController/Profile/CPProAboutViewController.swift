@@ -150,7 +150,7 @@ extension CPProAboutViewController : UITableViewDelegate {
             
             let coderpursuePrj = ObjRepos()
             coderpursuePrj.owner = me
-            coderpursuePrj.name = "Coderpursue"
+            coderpursuePrj.name = JSApp.displayName
             let vc = CPRepoDetailController()
             vc.hidesBottomBarWhenPushed = true
             vc.repos = coderpursuePrj

@@ -90,7 +90,7 @@ extension CPProSettingsViewController : UITableViewDataSource {
         let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
         if(settings.itemKey == "version"){
-            settings.itemValue = AppVersionHelper.shared.bundleReleaseVersion()
+            settings.itemValue = JSApp.appVersion
         }
         
         cell!.objSettings = settings

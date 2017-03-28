@@ -186,7 +186,6 @@
 		5EC149AA1E84AA42002039C2 /* CPUserListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A61E84AA42002039C2 /* CPUserListController.swift */; };
 		5EC149AB1E84AA42002039C2 /* CPRepoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A71E84AA42002039C2 /* CPRepoDetailController.swift */; };
 		5EC149AC1E84AA42002039C2 /* CPRepoListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A81E84AA42002039C2 /* CPRepoListController.swift */; };
-		5EC58D7C1E6DAAF60069AE82 /* AppVersionHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */; };
 		5EC58D7D1E6DAAF60069AE82 /* CPGlobalHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */; };
 		5EC58D7E1E6DAAF60069AE82 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */; };
 		5EC58D871E6DAAF60069AE82 /* PlistHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC58D781E6DAAF60069AE82 /* PlistHelper.swift */; };
@@ -501,7 +500,6 @@
 		5EC149A61E84AA42002039C2 /* CPUserListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPUserListController.swift; sourceTree = "<group>"; };
 		5EC149A71E84AA42002039C2 /* CPRepoDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPRepoDetailController.swift; sourceTree = "<group>"; };
 		5EC149A81E84AA42002039C2 /* CPRepoListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPRepoListController.swift; sourceTree = "<group>"; };
-		5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionHelper.swift; sourceTree = "<group>"; };
 		5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPGlobalHelper.swift; sourceTree = "<group>"; };
 		5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		5EC58D781E6DAAF60069AE82 /* PlistHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlistHelper.swift; sourceTree = "<group>"; };
@@ -1138,7 +1136,6 @@
 		5EC58D621E6DAAF60069AE82 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				5EC58D631E6DAAF60069AE82 /* AppVersionHelper.swift */,
 				5EC58D641E6DAAF60069AE82 /* CPGlobalHelper.swift */,
 				5EC58D651E6DAAF60069AE82 /* NetworkHelper.swift */,
 				5EC58D781E6DAAF60069AE82 /* PlistHelper.swift */,
@@ -1770,7 +1767,6 @@
 				5EC58D891E6DAAF60069AE82 /* TimeHelper.swift in Sources */,
 				5E7F24781CB8F622001BD4C8 /* ParaSearchRepos.swift in Sources */,
 				5E03FD6F1E7A982C005B9664 /* UIColor+Extension.swift in Sources */,
-				5EC58D7C1E6DAAF60069AE82 /* AppVersionHelper.swift in Sources */,
 				5E4ABFDD1C9113140041FA89 /* CPShowcaseInfoView.swift in Sources */,
 				5EC58D7D1E6DAAF60069AE82 /* CPGlobalHelper.swift in Sources */,
 				FE6980E21C5602C40026089B /* ObjEmail.swift in Sources */,

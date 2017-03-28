@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         UMAnalyticsConfig.sharedInstance().appKey = UMengAppSecret
         //发送策略：BATCH启动，SEND_INTERVAL，间隔发送
         UMAnalyticsConfig.sharedInstance().ePolicy = SEND_INTERVAL
-        MobClick.setAppVersion(AppVersionHelper.shared.bundleBuildVersion())
+        MobClick.setAppVersion(JSApp.appVersion)
         MobClick.start(withConfigure: UMAnalyticsConfig.sharedInstance())
         
         
@@ -66,11 +66,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
         
         tabBarController = storyBoard?.instantiateViewController(withIdentifier: "tabbarController") as! CPBaseTabBarController?
-        
-//        if let dictionary = Bundle.main.infoDictionary {
-//            let appName = dictionary["APP_DISPLAYNAME"] as! String
-//            print("appName: \(appName)")
-//        }
         
         // Define a Region in Rome/Italy and set it as default region
         // Our Region also uses Gregorian Calendar and Italy Locale

@@ -21,7 +21,7 @@ public let kHeaderPullingTip = "Loading ..."
 public let kFooterLoadTip = "Loading more ..."
 
 /// 上拉加载无数据提示
-public let kFooterLoadNoDataTip = "No more data"
+public let kFooterLoadNoDataTip = "No More data"
 
 public let kChineseLanguage = "zh-Hans"
 

@@ -26,7 +26,7 @@ class TimeHelper: NSObject {
                 
                 var internet = createAt.string()
                 if prefix != nil {
-                   internet = prefix! + internet
+                   internet = prefix!.localized + " :" + internet
                 }
                 return internet
             } catch  {
@@ -52,7 +52,7 @@ class TimeHelper: NSObject {
                 
                 var (readable,_) = try createAt.colloquialSinceNow()
                 if prefix != nil {
-                    readable = prefix! + readable
+                    readable = prefix!.localized + " :"  + readable
                 }
                 return readable
             } catch  {

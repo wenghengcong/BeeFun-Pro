@@ -7,6 +7,7 @@
 //
 
 
+public let kSignEmptySpace = " "
 
 /// 省略号
 public let kSignApostrophe = "..."
@@ -33,3 +34,19 @@ public let kFooterLoadNoDataTip = "No More data".localized
 public let kChineseLanguage = "zh-Hans"
 
 public let kEnglishLanguage = "en"
+
+public let kWatchingTip = "registers the user to receive notifications on new discussions".localized
+public let kStaringTip = "lets users bookmark repositories.".localized
+public let KForkingTip = "A fork is a copy of a repository.".localized
+
+public let KMailSubject = "Suggestions or report bugs".localized
+
+public let KMyIcloudEmail = "wenghengcong@icloud.com"
+
+public let KSendEmailErrorTitle = "Could not send Email"
+
+public let KSendEmailErrorContent = "Your device could not send e-mail.  Please check e-mail configuration and try again."
+
+
+
+

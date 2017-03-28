@@ -167,9 +167,9 @@ class CPRepoDetailController: CPBaseViewController {
         
         shareContent.url = repos?.html_url
         if let repoDescription = repos?.cdescription {
-            shareContent.content = "Code Repository \((repos?.name)!) : \(repoDescription) "+"\(shareContent.url!)"
+            shareContent.content = "Repository".localized+" \((repos?.name)!) : \(repoDescription) "+"\(shareContent.url!)"
         }else{
-            shareContent.content = "Code Repository \((repos?.name)!) " + "\(shareContent.url!)"
+            shareContent.content = "Repository".localized+" \((repos?.name)!) " + "\(shareContent.url!)"
         }
         
         if let urlStr = repos?.owner?.avatar_url {
@@ -323,7 +323,7 @@ class CPRepoDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = true
-                    JSMBHUDBridge.showMessage("Watch".localized+"Success".localized, view: self.view)
+                    JSMBHUDBridge.showMessage("Watch".localized+kSignEmptySpace+"Success".localized, view: self.view)
                     self.reposPoseterV.watched = self.hasWatchedRepos
 
                 }else{
@@ -358,7 +358,7 @@ class CPRepoDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasWatchedRepos = false
-                    JSMBHUDBridge.showMessage("Unwatch".localized+"Success".localized, view: self.view)
+                    JSMBHUDBridge.showMessage("Unwatch".localized+kSignEmptySpace+"Success".localized, view: self.view)
                     self.reposPoseterV.watched = self.hasWatchedRepos
                 }else{
                     
@@ -392,7 +392,7 @@ class CPRepoDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.hasStaredRepos = true
-                    JSMBHUDBridge.showMessage("Star".localized+"Success".localized, view: self.view)
+                    JSMBHUDBridge.showMessage("Star".localized+kSignEmptySpace+"Success".localized, view: self.view)
                     self.reposPoseterV.stared = self.hasStaredRepos
                 }else{
                     
@@ -460,7 +460,7 @@ class CPRepoDetailController: CPBaseViewController {
                 
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.accepted.rawValue){
-                    JSMBHUDBridge.showMessage("Fork".localized+"Success".localized, view: self.view)
+                    JSMBHUDBridge.showMessage("Fork".localized+kSignEmptySpace+"Success".localized, view: self.view)
                 }else{
                 }
                 
@@ -588,7 +588,7 @@ extension CPRepoDetailController:ReposActionProtocol {
                 message = ""
             }else{
                 title = "Watching".localized + kSignApostrophe
-                message = "Watching a Repository registers the user to receive notifications on new discussions."
+                message = kWatchingTip
             }
 
         case .Star:
@@ -597,22 +597,22 @@ extension CPRepoDetailController:ReposActionProtocol {
                 message = ""
             }else{
                 title = "Starring".localized + kSignApostrophe
-                message = "Repository Starring is a feature that lets users bookmark repositories."
+                message = kStaringTip
             }
 
         case .Fork:
             title = "Forking".localized + kSignApostrophe
-            message = "A fork is a copy of a repository."
+            message = KForkingTip
         }
         
         let alertController = UIAlertController(title: title, message:message, preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { (action) in
             // ...
         }
         alertController.addAction(cancelAction)
         
-        let OKAction = UIAlertAction(title: "Sure", style: .default) { (action) in
+        let OKAction = UIAlertAction(title: "Sure".localized, style: .default) { (action) in
             
             switch(self.actionType){
             case .Watch:

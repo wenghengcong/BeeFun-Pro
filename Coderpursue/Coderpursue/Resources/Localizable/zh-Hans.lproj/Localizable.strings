@@ -97,6 +97,12 @@
 
 //长文本
 "  Coderpursue is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!" = "  Coderpursue 是github客户端，也是Swift语言编写的一个开源项目。欢迎更多的人参与到该项目的设计与开发工作，也欢迎大家能提出更多的建议和上报bugs!";
+"registers the user to receive notifications on new discussions" = "用户注册后，可以接受新讨论的通知";
+"lets users bookmark repositories."="用户可以收藏项目";
+"A fork is a copy of a repository."="拷贝项目";
+"Suggestions or report bugs"="建议或者提报Bugs";
+"Could not send Email"="无法发送邮件";
+"Your device could not send e-mail.  Please check e-mail configuration and try again."="您的设备无法发送邮件，请检查【设置】中【邮件】设置，然后重试。";
 
 //提醒
 "Share Success"="分享成功";
@@ -110,12 +116,19 @@
 "More"="更多";
 "No More data"="😭没有更多数据啦";
 
+"Watching"="关注";
+"Unwatching"="取消关注中";
+"Unstarring"="取消收藏中";
+"Starring"="取消收藏中";
+"Forking"="派生中";
 
 //其他
 "Unknown" = "未知";
 "Success"="成功";
 "created at"="创建于";
 "Homepage"="主页";
+"Cancel"="取消";
+"Failure"="失败";
 
 /*****英文转中文 End******/
 

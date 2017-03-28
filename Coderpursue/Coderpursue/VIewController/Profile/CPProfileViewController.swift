@@ -388,9 +388,9 @@ extension CPProfileViewController : MFMailComposeViewControllerDelegate {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["wenghengcong@icloud.com"])
+        mailComposerVC.setToRecipients([KMyIcloudEmail])
         mailComposerVC.setCcRecipients([""])
-        mailComposerVC.setSubject("Suggestions or report bugs")
+        mailComposerVC.setSubject(KMailSubject)
         mailComposerVC.setMessageBody("", isHTML: false)
         
         return mailComposerVC
@@ -398,7 +398,7 @@ extension CPProfileViewController : MFMailComposeViewControllerDelegate {
     
     func showSendMailErrorAlert() {
         
-        let sendMailErrorAlert = UIAlertView(title: "Could not send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        let sendMailErrorAlert = UIAlertView(title: KSendEmailErrorTitle, message: KSendEmailErrorContent, delegate: self, cancelButtonTitle: "Sure".localized)
         sendMailErrorAlert.show()
     }
     

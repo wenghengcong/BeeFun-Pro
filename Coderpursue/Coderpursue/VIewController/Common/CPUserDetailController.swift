@@ -189,9 +189,9 @@ class CPUserDetailController: CPBaseViewController {
         shareContent.url = developer?.html_url
 
         if let bio = developer?.bio {
-            shareContent.content = "Developer \((developer?.name)!) " + ":\(bio)." + "\(shareContent.url!)"
+            shareContent.content = "Developer".localized + " \((developer?.name)!) " + ":\(bio)." + "\(shareContent.url!)"
         }else{
-            shareContent.content = "Developer \((developer?.login)!)." + "\(shareContent.url!)"
+            shareContent.content = "Developer".localized + " \((developer?.login)!)." + "\(shareContent.url!)"
         }
         
         if let urlStr = developer?.avatar_url {
@@ -306,7 +306,7 @@ class CPUserDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = true
-                    JSMBHUDBridge.showMessage("Follow".localized+"Success".localized, view: self.view)
+                    JSMBHUDBridge.showMessage("Follow".localized+kSignEmptySpace+"Success".localized, view: self.view)
 
                 }
                 self.dvc_updateFolloweBtn()
@@ -343,7 +343,7 @@ class CPUserDetailController: CPBaseViewController {
                 let statusCode = response.statusCode
                 if(statusCode == CPHttpStatusCode.noContent.rawValue){
                     self.followed = false
-                    JSMBHUDBridge.showMessage("UnFollow".localized+"Success".localized, view: self.view)
+                    JSMBHUDBridge.showMessage("UnFollow".localized+kSignEmptySpace+"Success".localized, view: self.view)
 
                 }
                 

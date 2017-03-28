@@ -116,6 +116,8 @@
 "Success"="Success";
 "created at"="created at";
 "Homepage"="Homepage";
+"Cancel"="Cancel";
+"Failure"="Failure";
 
 
 /*****英文转中文 End******/
@@ -170,7 +172,7 @@
 "国家"="Country";
 "排序"="Sort";
 "重置"="Reset";
-"默认"="Sure";
+"确认"="Sure";
 "最优匹配"="Best match";
 "收藏最多"="Most stars";
 "收藏最少"="Fewest stars";

@@ -125,8 +125,8 @@ class CPRepoDetailController: CPBaseViewController {
             reposInfoV.repo = objRepo
             if objRepo.html_url != nil {
                 if reposInfoArr.count < 2 {
-                    let homepage:[String:String] = ["img":"coticon_repository_25","desc":"Homepage".localized,"discolsure":"true"]
-                    reposInfoArr.append(homepage)
+                    let homepage:[String:String] = ["key":"homepage","img":"coticon_repository_25","desc":"Homepage".localized,"discolsure":"true"]
+                    reposInfoArr.insert(homepage, at: 0)
                     tableView.reloadData()
                 }
             }
@@ -140,7 +140,7 @@ class CPRepoDetailController: CPBaseViewController {
         user = UserManager.shared.user
         reposPoseterV.reposActionDelegate = self
         let uname = repos!.owner!.login!
-        let ownerDic:[String:String] = ["img":"octicon_person_25","desc":uname,"discolsure":"true"]
+        let ownerDic:[String:String] = ["key":"owner","img":"octicon_person_25","desc":uname,"discolsure":"true"]
         reposInfoArr.append(ownerDic)
     }
     
@@ -529,19 +529,28 @@ extension CPRepoDetailController : UITableViewDelegate {
         
         self.tableView.deselectRow(at: indexPath, animated: true)
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
+        let dic = reposInfoArr[row]
+        let cellKey = dic["key"]
 
-        if row == 0 {
+        if cellKey == "homepage" {
+            let webView = CPWebViewController()
+            webView.url = self.repos?.html_url
+            self.navigationController?.pushViewController(webView, animated: true)
+
+        }else if(cellKey == "owner"){
             if let owner = self.repos?.owner {
                 let vc = CPUserDetailController()
                 vc.hidesBottomBarWhenPushed = true
                 vc.developer = owner
                 self.navigationController?.pushViewController(vc, animated: true)
             }
+        }
+
+        
+        if row == 0 {
+
         }else if(row == 1){
-            let webView = CPWebViewController()
-            webView.url = self.repos?.html_url
-            self.navigationController?.pushViewController(webView, animated: true)
         }
 
     }

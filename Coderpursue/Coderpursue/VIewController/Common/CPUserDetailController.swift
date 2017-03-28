@@ -62,6 +62,10 @@ class CPUserDetailController: CPBaseViewController {
     
     func dvc_customView(){
         
+        self.tableView.isHidden = true
+        self.developerInfoV.isHidden = true
+        self.followBtn.isHidden = true
+        
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
         
@@ -79,12 +83,6 @@ class CPUserDetailController: CPBaseViewController {
         
         developerInfoV.userActionDelegate = self
         
-        if(developer!.login == UserManager.shared.user?.name){
-            followBtn.isHidden = true
-        }else{
-            followBtn.isHidden = false
-        }
-        
         followBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15.0)
         followBtn.backgroundColor = UIColor.cpRedColor
         followBtn.layer.cornerRadius = 5
@@ -96,11 +94,6 @@ class CPUserDetailController: CPBaseViewController {
         let followH:CGFloat = 40.0
         let followY = ScreenSize.height-followH-57.0
         followBtn.frame = CGRect.init(x: followX, y: followY, width: followW, height: followH)
-        
-        
-        self.tableView.isHidden = true
-        self.developerInfoV.isHidden = true
-        self.followBtn.isHidden = true
         
         self.dvc_updateFolloweBtn()
     }
@@ -149,6 +142,11 @@ class CPUserDetailController: CPBaseViewController {
         
         devInfoArr.removeAll()
         
+        if let _ = developer!.html_url {
+            let homepageDic:Dictionary = ["key":"homepage","img":"coticon_home_25","desc":"Homepage".localized,"discolsure":"true"]
+            devInfoArr.insert(homepageDic, at: 0)
+        }
+        
         if let joinTime:String = developer!.created_at {
             let ind = joinTime.characters.index(joinTime.startIndex, offsetBy: 10)
             let subStr = joinTime.substring(to: ind)
@@ -167,10 +165,7 @@ class CPUserDetailController: CPBaseViewController {
             devInfoArr.append(companyDic)
         }
         
-        if let _ = developer!.html_url {
-            let homepageDic:Dictionary = ["key":"homepage","img":"coticon_home_25","desc":"Homepage".localized,"discolsure":"true"]
-            devInfoArr.append(homepageDic)
-        }
+
         
         developerInfoV.developer = developer
         self.tableView.reloadData()
@@ -241,7 +236,7 @@ class CPUserDetailController: CPBaseViewController {
                 }else{
                     self.followed = false
                 }
-                self.dvc_updateViewContent()
+                self.dvc_updateFolloweBtn()
                 
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {

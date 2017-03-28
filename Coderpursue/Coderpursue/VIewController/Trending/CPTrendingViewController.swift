@@ -149,19 +149,24 @@ class CPTrendingViewController: CPBaseViewController {
         
         self.view.addSubview(segControl)
 
-        self.filterView?.resetProperty()
-        if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
-            self.leftItem?.isHidden = false
-            self.tvc_getReposRequest()
-        }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
-            self.leftItem?.isHidden = false
-            self.tvc_getUserRequest()
-        }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
-            self.leftItem?.isHidden = true
-            self.tvc_getShowcasesRequest()
-        }else{
-            self.tableView.reloadData()
+        segControl.indexChangeBlock = {
+            (index:Int)-> Void in
+            
+            self.filterView?.resetProperty()
+            if( (self.segControl.selectedSegmentIndex == 0) && (self.reposData != nil) ){
+                self.leftItem?.isHidden = false
+                self.tvc_getReposRequest()
+            }else if( (self.segControl.selectedSegmentIndex == 1) && (self.devesData != nil) ){
+                self.leftItem?.isHidden = false
+                self.tvc_getUserRequest()
+            }else if( (self.segControl.selectedSegmentIndex == 2) && (self.showcasesData != nil) ){
+                self.leftItem?.isHidden = true
+                self.tvc_getShowcasesRequest()
+            }else{
+                self.tableView.reloadData()
+            }
         }
+
     }
     
     func tvc_setupTableView() {

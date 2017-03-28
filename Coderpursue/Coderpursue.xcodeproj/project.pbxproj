@@ -486,6 +486,7 @@
 		5E87F6B61E820407001608F1 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		5EA9493A1E89282E00D5A8E1 /* CPIssueDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPIssueDetailController.swift; sourceTree = "<group>"; };
 		5EA9493C1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSHMSegmentedBridge.swift; sourceTree = "<group>"; };
+		5EA9493E1E8A643A00D5A8E1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPFilterLanguage.plist"; sourceTree = "<group>"; };
 		5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesIssueCell.swift; sourceTree = "<group>"; };
 		5EACCFC81C8D52C60059A303 /* CPMesIssueCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesIssueCell.xib; sourceTree = "<group>"; };
 		5EACCFCB1C8DEB490059A303 /* ParaSearchUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParaSearchUser.swift; sourceTree = "<group>"; };
@@ -2077,6 +2078,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				5EFAE6621E7B9232003194C3 /* en */,
+				5EA9493E1E8A643A00D5A8E1 /* zh-Hans */,
 			);
 			name = CPFilterLanguage.plist;
 			sourceTree = "<group>";

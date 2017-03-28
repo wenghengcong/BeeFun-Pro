@@ -44,7 +44,6 @@ class CPUserDetailController: CPBaseViewController {
         super.viewDidLoad()
         dvc_customView()
         dvc_setupTableView()
-        dvc_updateViewContent()
         dvc_getUserinfoRequest()
         if let username = developer!.name {
             self.title = username
@@ -65,7 +64,6 @@ class CPUserDetailController: CPBaseViewController {
         
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
-        self.rightItem?.isHidden = false
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.viewBackgroundColor
@@ -99,6 +97,10 @@ class CPUserDetailController: CPBaseViewController {
         let followY = ScreenSize.height-followH-57.0
         followBtn.frame = CGRect.init(x: followX, y: followY, width: followW, height: followH)
         
+        
+        self.tableView.isHidden = true
+        self.developerInfoV.isHidden = true
+        self.followBtn.isHidden = true
     }
     
     func dvc_setupTableView() {
@@ -107,7 +109,7 @@ class CPUserDetailController: CPBaseViewController {
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
         self.tableView.backgroundColor = UIColor.viewBackgroundColor
-        self.tableView.allowsSelection = false
+        self.tableView.allowsSelection = true
         self.automaticallyAdjustsScrollViewInsets = false
         
         header.setTitle("Pull down to refresh", for: .idle)
@@ -116,7 +118,6 @@ class CPUserDetailController: CPBaseViewController {
         header.setRefreshingTarget(self, refreshingAction: #selector(CPUserDetailController.headerRefresh))
         // 现在的版本要用mj_header
 //        self.tableView.mj_header = header
-        
     }
 
     // MARK: - action
@@ -125,13 +126,20 @@ class CPUserDetailController: CPBaseViewController {
         print("下拉刷新")
     }
     
-    func dvc_updateViewContent() {
+    func dvc_updateFolloweBtn() {
         
         if(followed){
             followBtn.setTitle("Unfollow".localized, for: UIControlState())
         }else{
             followBtn.setTitle("Follow".localized, for: UIControlState())
         }
+    }
+    
+    func dvc_updateViewContent() {
+        
+        self.tableView.isHidden = false
+        self.developerInfoV.isHidden = false
+        self.followBtn.isHidden = false
         
         if(developer==nil){
             return
@@ -143,18 +151,23 @@ class CPUserDetailController: CPBaseViewController {
             let ind = joinTime.characters.index(joinTime.startIndex, offsetBy: 10)
             let subStr = joinTime.substring(to: ind)
             let join = "Joined on".localized + " "+subStr
-            let joinDic:[String:String] = ["img":"octicon_time_25","desc":join,"discolsure":"false"]
+            let joinDic:[String:String] = ["key":"join","img":"octicon_time_25","desc":join,"discolsure":"false"]
             devInfoArr.append(joinDic)
         }
         
         if let location:String = developer!.location {
-            let locDic:[String:String] = ["img":"octicon_loc_25","desc":location,"discolsure":"false"]
+            let locDic:[String:String] = ["key":"location","img":"octicon_loc_25","desc":location,"discolsure":"false"]
             devInfoArr.append(locDic)
         }
         
         if let company = developer!.company {
-            let companyDic:Dictionary = ["img":"octicon_org_25","desc":company,"discolsure":"false"]
+            let companyDic:Dictionary = ["key":"company","img":"octicon_org_25","desc":company,"discolsure":"false"]
             devInfoArr.append(companyDic)
+        }
+        
+        if let _ = developer!.html_url {
+            let homepageDic:Dictionary = ["key":"homepage","img":"coticon_home_25","desc":"Homepage","discolsure":"true"]
+            devInfoArr.append(homepageDic)
         }
         
         developerInfoV.developer = developer
@@ -301,7 +314,7 @@ class CPUserDetailController: CPBaseViewController {
                     JSMBHUDBridge.showMessage("Follow".localized+"Success".localized, view: self.view)
 
                 }
-                self.dvc_updateViewContent()
+                self.dvc_updateFolloweBtn()
                 
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -339,7 +352,7 @@ class CPUserDetailController: CPBaseViewController {
 
                 }
                 
-                self.dvc_updateViewContent()
+                self.dvc_updateFolloweBtn()
                 
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -446,7 +459,17 @@ extension CPUserDetailController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //repos_url
+        self.tableView.deselectRow(at: indexPath, animated: true)
+        let row = (indexPath as NSIndexPath).row
+        let dic = devInfoArr[row]
+        let cellKey = dic["key"]
+        
+        if cellKey == "homepage" {
+            let webView = CPWebViewController()
+            webView.url = developer?.html_url
+            self.navigationController?.pushViewController(webView, animated: true)
+        }
+
     }
     
 }

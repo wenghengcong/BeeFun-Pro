@@ -16,6 +16,7 @@ class CPDevUserInfoCell: CPBaseViewCell {
     
     @IBOutlet weak var disImgV: UIImageView!
     
+    var cellDic:Dictionary<String, Any>?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +46,8 @@ class CPDevUserInfoCell: CPBaseViewCell {
     
     
     func duic_fillData(_ dic:[String:String]) {
+        
+        cellDic = dic
         
         tagImagV.image = UIImage(named: dic["img"]!)
         infoLabel.text = dic["desc"]!

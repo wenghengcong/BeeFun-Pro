@@ -69,7 +69,7 @@ class CPTrendingViewController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
         tvc_getDataFromPlist()
         tvc_setupSegmentView()
         tvc_setupTableView()

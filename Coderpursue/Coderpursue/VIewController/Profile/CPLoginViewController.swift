@@ -28,7 +28,7 @@ class CPLoginViewController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
         lvc_customView()
     }
 

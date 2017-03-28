@@ -27,7 +27,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
         tsc_setupTableView()
         tsc_updateContentView()
         tsc_getShowcaseRequest()

@@ -45,7 +45,7 @@ class CPRepoDetailController: CPBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         rvc_customView()
         rvc_userIsLogin()
         rvc_setupTableView()

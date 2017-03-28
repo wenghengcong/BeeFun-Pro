@@ -8,7 +8,7 @@
 
 
 /// 无数据提示
-public let kNoMessageTip = "No data to show"
+public let kNoMessageTip = "No Data Found"
 
 /// 下拉刷新提示
 public let kHeaderPullTip = "Release to refresh"

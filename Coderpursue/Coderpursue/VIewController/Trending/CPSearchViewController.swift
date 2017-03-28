@@ -40,7 +40,7 @@ class CPSearchViewController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
         svc_initNavBar()
         svc_initSearchFilterView()
         svc_setupTableView()

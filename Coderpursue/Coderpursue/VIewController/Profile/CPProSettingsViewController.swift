@@ -17,7 +17,7 @@ class CPProSettingsViewController: CPBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         psvc_setupTableView()
         psvc_customView()
         psvc_readPlist()

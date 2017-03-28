@@ -37,7 +37,7 @@ class CPUserListController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        
         fvc_addNaviBarButtonItem()
         fvc_setupTableView()
         fvc_selectDataSource()

@@ -120,7 +120,8 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         if(!self.mvc_isLogin()){
             return
         }
-        
+        self.tableView.reloadData()
+
         if( (self.segControl.selectedSegmentIndex == 0)&&self.notificationsData.isEmpty ){
             self.tableView.allowsSelection = false
             self.mvc_getNotificationsRequest(self.notisPageVal)
@@ -128,7 +129,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
             self.tableView.allowsSelection = true
             self.mvc_getIssuesRequest(self.issuesPageVal)
         }else{
-            self.tableView.reloadData()
+            
         }
     }
     

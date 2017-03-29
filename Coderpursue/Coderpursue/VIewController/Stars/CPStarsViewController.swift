@@ -104,13 +104,13 @@ class CPStarsViewController: CPBaseViewController{
         if(!self.svc_isLogin()){
             return
         }
-        
+        self.tableView.reloadData()
+
         if( (self.segControl.selectedSegmentIndex == 0) && self.reposData != nil){
             self.svc_getUserReposRequest(self.reposPageVal)
         }else if( (self.segControl.selectedSegmentIndex == 1)&&self.eventsData != nil ){
             self.svc_getUserEventsRequest(self.eventPageVal)
         }else{
-            self.tableView.reloadData()
         }
     }
     

@@ -131,27 +131,17 @@ extension UIImage {
         return croppedImage
     }
     
-    /// 根据颜色返回图片
-    ///
-    /// - Parameter tintColor: 颜色
-    /// - Returns: <#return value description#>
-    public func withColor(_ tintColor: UIColor) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        
-        let context = UIGraphicsGetCurrentContext()
-        context?.translateBy(x: 0, y: self.size.height)
-        context?.scaleBy(x: 1.0, y: -1.0)
-        context?.setBlendMode(CGBlendMode.normal)
-        
-        let rect = CGRect(x: 0, y: 0, width: self.size.width, height: self.size.height) as CGRect
-        context?.clip(to: rect, mask: self.cgImage!)
-        tintColor.setFill()
-        context?.fill(rect)
-        
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()! as UIImage
+    ///根据颜色创建图片
+    public convenience init?(color: UIColor, size: CGSize = CGSize(width: 1, height: 1)) {
+        let rect = CGRect(origin: .zero, size: size)
+        UIGraphicsBeginImageContextWithOptions(rect.size, false, 0.0)
+        color.setFill()
+        UIRectFill(rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        return newImage
+        guard let cgImage = image?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
     }
     
     ///根据URL加载新图片

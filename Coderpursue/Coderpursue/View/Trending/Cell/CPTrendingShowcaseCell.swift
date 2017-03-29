@@ -37,6 +37,7 @@ class CPTrendingShowcaseCell: CPBaseViewCell {
     override func customCellView() {
     
         self.bgImageV.backgroundColor = UIColor.clear
+        self.bgImageV.image = UIImage.init(color: UIColor.lightGray)
         
         nameLabel.textColor = UIColor.white
         

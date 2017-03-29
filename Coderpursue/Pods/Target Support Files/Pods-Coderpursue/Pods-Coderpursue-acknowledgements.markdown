@@ -26,7 +26,7 @@ THE SOFTWARE.
 
 ## Bugly
 
-Copyright 2016 tencent.com. All rights reserved.
+Copyright 2017 tencent.com. All rights reserved.
 
 
 ## HMSegmentedControl

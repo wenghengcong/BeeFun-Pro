@@ -180,7 +180,7 @@ class ShareManager: NSObject {
                     method(state,platform,userdata,entity,error,end)
                 }
             case SSDKResponseState.fail:
-                print("授权失败,错误描述:\(error)")
+                print("授权失败,错误描述:\(String(describing: error))")
                 JSMBHUDBridge.showError("Share Failure".localized, view: jsKeywindow!)
                 if let method = self.delegate?.didShareFail(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)

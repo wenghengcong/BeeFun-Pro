@@ -168,9 +168,6 @@
 		5E7F24761CB897D7001BD4C8 /* CPSearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24751CB897D7001BD4C8 /* CPSearchFilterView.swift */; };
 		5E7F24781CB8F622001BD4C8 /* ParaSearchRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24771CB8F622001BD4C8 /* ParaSearchRepos.swift */; };
 		5E7F247A1CB92BD0001BD4C8 /* ObjSearchReposResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24791CB92BD0001BD4C8 /* ObjSearchReposResponse.swift */; };
-		5E87F6B71E820407001608F1 /* Common.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B41E820407001608F1 /* Common.xcconfig */; };
-		5E87F6B81E820407001608F1 /* Debug.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B51E820407001608F1 /* Debug.xcconfig */; };
-		5E87F6B91E820407001608F1 /* Release.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5E87F6B61E820407001608F1 /* Release.xcconfig */; };
 		5EA9493B1E89282E00D5A8E1 /* CPIssueDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA9493A1E89282E00D5A8E1 /* CPIssueDetailController.swift */; };
 		5EA9493D1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA9493C1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift */; };
 		5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */; };
@@ -181,7 +178,6 @@
 		5EBD36011E71568200C4E350 /* ComonString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBD36001E71568200C4E350 /* ComonString.swift */; };
 		5EBF89AD1C926AB4009B3F5B /* CPMyReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EBF89AB1C926AB4009B3F5B /* CPMyReposCell.swift */; };
 		5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EBF89AF1C926D4F009B3F5B /* CPMyReposCell.xib */; };
-		5EC1499E1E828F90002039C2 /* Adhoc.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 5EC1499D1E828F90002039C2 /* Adhoc.xcconfig */; };
 		5EC149A91E84AA42002039C2 /* CPUserDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A51E84AA42002039C2 /* CPUserDetailController.swift */; };
 		5EC149AA1E84AA42002039C2 /* CPUserListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A61E84AA42002039C2 /* CPUserListController.swift */; };
 		5EC149AB1E84AA42002039C2 /* CPRepoDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EC149A71E84AA42002039C2 /* CPRepoDetailController.swift */; };
@@ -217,7 +213,6 @@
 		5EFAE6611E7B9232003194C3 /* CPFilterLanguage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE6631E7B9232003194C3 /* CPFilterLanguage.plist */; };
 		5EFAE6661E7BC462003194C3 /* JSLanguage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE6651E7BC462003194C3 /* JSLanguage.swift */; };
 		5EFAE6681E7CDABB003194C3 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFAE6671E7CDABB003194C3 /* Array+Extension.swift */; };
-		5EFDF2611E820A530088FBBB /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFDF2601E820A530088FBBB /* Info.plist */; };
 		FE0FE0D21C3DC1350005DDE5 /* CPBaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D11C3DC1350005DDE5 /* CPBaseNavigationController.swift */; };
 		FE0FE0D71C3DC7BB0005DDE5 /* ObjBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D61C3DC7BB0005DDE5 /* ObjBase.swift */; };
 		FE0FE0D91C3F14F10005DDE5 /* ProjectKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE0FE0D81C3F14F10005DDE5 /* ProjectKey.swift */; };
@@ -1567,7 +1562,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = JungleSong;
 				TargetAttributes = {
 					FEC0DC351C28B39F0008C7C1 = {
@@ -1619,7 +1614,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E87F6B91E820407001608F1 /* Release.xcconfig in Resources */,
 				5EBF89B01C926D4F009B3F5B /* CPMyReposCell.xib in Resources */,
 				5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */,
 				FEC0DC461C28B39F0008C7C1 /* LaunchScreen.storyboard in Resources */,
@@ -1628,10 +1622,7 @@
 				5E0DDCC71E72FFE800493ABA /* ShareSDKUI.bundle in Resources */,
 				5E0DDCE81E72FFE800493ABA /* WeiboSDK.bundle in Resources */,
 				5E15CB441E7ED6DD009B84D7 /* tab_trending@2x.png in Resources */,
-				5E87F6B81E820407001608F1 /* Debug.xcconfig in Resources */,
-				5EFDF2611E820A530088FBBB /* Info.plist in Resources */,
 				5E15CAFF1E7E3DC2009B84D7 /* CPSettingsCell.xib in Resources */,
-				5EC1499E1E828F90002039C2 /* Adhoc.xcconfig in Resources */,
 				5E15CB301E7ED6B7009B84D7 /* tab_gist@2x.png in Resources */,
 				5E15CB011E7E3DC2009B84D7 /* CPSettingsLabelCell.xib in Resources */,
 				5E0DDCEA1E72FFE800493ABA /* read_me.txt in Resources */,
@@ -1662,7 +1653,6 @@
 				5E4B99061C928D3E000A6B94 /* CPProfileReposCell.xib in Resources */,
 				5E15CB3C1E7ED6D1009B84D7 /* tab_profile_sel@2x.png in Resources */,
 				5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */,
-				5E87F6B71E820407001608F1 /* Common.xcconfig in Resources */,
 				5E4ABFC01C9032D40041FA89 /* CPTrendingRepoCell.xib in Resources */,
 				5E15CB501E7ED6F0009B84D7 /* tab_star_sel@2x.png in Resources */,
 				5EACCFC91C8D52C60059A303 /* CPMesIssueCell.xib in Resources */,

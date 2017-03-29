@@ -94,6 +94,8 @@
 		5E0DDCEE1E72FFE800493ABA /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E0DDCC11E72FFE800493ABA /* ShareSDK.bundle */; };
 		5E0DDCEF1E72FFE800493ABA /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */; };
 		5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF01E73010D00493ABA /* ShareManager.swift */; };
+		5E115AAA1E8B923700DFA14A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AA91E8B923700DFA14A /* UIImage+Extension.swift */; };
+		5E115AAC1E8B92A400DFA14A /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AAB1E8B92A400DFA14A /* CGRect+Extension.swift */; };
 		5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */; };
 		5E15CAD21E7D6A0C009B84D7 /* JSSwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */; };
 		5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */; };
@@ -382,6 +384,8 @@
 		5E0DDCC11E72FFE800493ABA /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
 		5E0DDCC21E72FFE800493ABA /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
 		5E0DDCF01E73010D00493ABA /* ShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
+		5E115AA91E8B923700DFA14A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		5E115AAB1E8B92A400DFA14A /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		5E15CAC81E7D4FD7009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E15CACA1E7D4FD9009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -788,6 +792,8 @@
 				5E03FD541E7A982B005B9664 /* UIView+Draw.swift */,
 				5E03FD551E7A982B005B9664 /* UIView+Nib.swift */,
 				5E15CB041E7EB4AE009B84D7 /* UIStoryboard+Extension.swift */,
+				5E115AA91E8B923700DFA14A /* UIImage+Extension.swift */,
+				5E115AAB1E8B92A400DFA14A /* CGRect+Extension.swift */,
 			);
 			path = JSUIKit;
 			sourceTree = "<group>";
@@ -1734,6 +1740,7 @@
 				FE6980E31C5602C40026089B /* ObjPermissions.swift in Sources */,
 				5ECB40701C994C5000B0C6FF /* CPProAboutViewController.swift in Sources */,
 				5E15CAE91E7E3940009B84D7 /* CPSwitchLanguageController.swift in Sources */,
+				5E115AAA1E8B923700DFA14A /* UIImage+Extension.swift in Sources */,
 				FE91BA8D1C33395C002AECB6 /* CPMessageViewController.swift in Sources */,
 				5E0DDC121E729D8700493ABA /* InfoButton.swift in Sources */,
 				5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */,
@@ -1827,6 +1834,7 @@
 				5E03FD5D1E7A982C005B9664 /* NSString+Size.swift in Sources */,
 				5E03FD5F1E7A982C005B9664 /* String+Extension.swift in Sources */,
 				5E4ABFD21C90FF450041FA89 /* CPStoryBoarySegueCon.swift in Sources */,
+				5E115AAC1E8B92A400DFA14A /* CGRect+Extension.swift in Sources */,
 				5EE91F851C7C4FF9003F4CBF /* ObjEvent.swift in Sources */,
 				FE3ED3C21C53850D0048BA1D /* Response+ObjectMapper.swift in Sources */,
 				FE3179AC1C405EF300150370 /* CPWebViewController.swift in Sources */,

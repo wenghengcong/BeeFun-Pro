@@ -208,24 +208,6 @@
             </objects>
             <point key="canvasLocation" x="308" y="64"/>
         </scene>
-        <!--Search View Controller-->
-        <scene sceneID="0rW-gQ-k2H">
-            <objects>
-                <viewController id="nff-sI-GcA" customClass="CPSearchViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="OkY-i7-W9k"/>
-                        <viewControllerLayoutGuide type="bottom" id="jl8-90-1Uo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="0wT-Bv-DJa">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FaO-LS-AFE" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1217" y="598"/>
-        </scene>
         <!--Explore-->
         <scene sceneID="TB7-hQ-fi8">
             <objects>
@@ -277,7 +259,6 @@
                     <connections>
                         <outlet property="tableView" destination="2w5-hE-F4q" id="5JZ-S7-LZD"/>
                         <segue destination="9Nl-ng-E8B" kind="show" identifier="ShowShowcaseDetailSegue" id="zwh-97-WFq"/>
-                        <segue destination="nff-sI-GcA" kind="show" identifier="TrendingSearchViewSegue" id="Kwu-WV-Di8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lIR-VO-qip" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -742,7 +723,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PP4-uj-58n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="414.5" y="2110.5"/>
+            <point key="canvasLocation" x="247" y="1178"/>
         </scene>
         <!--Sign In-->
         <scene sceneID="m04-Ln-PBl">
@@ -914,23 +895,6 @@
             </objects>
             <point key="canvasLocation" x="-524" y="-700"/>
         </scene>
-        <!--Gist-->
-        <scene sceneID="HHt-I8-4AN">
-            <objects>
-                <navigationController id="5dk-Fn-pc1" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Gist" image="tab_gist" selectedImage="tab_gist_sel" id="8Kp-o3-Rn0"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="15V-ac-LRt">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="MXo-ne-uiV" kind="relationship" relationship="rootViewController" id="bDe-Fd-ccI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8tf-DB-av5" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="478.5" y="846.5"/>
-        </scene>
         <!--Message-->
         <scene sceneID="sqn-RG-YNS">
             <objects>
@@ -969,25 +933,6 @@
             </objects>
             <point key="canvasLocation" x="308" y="-700"/>
         </scene>
-        <!--Gist-->
-        <scene sceneID="3pB-hR-HF4">
-            <objects>
-                <viewController id="MXo-ne-uiV" customClass="CPGistViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="d6U-di-Zv9"/>
-                        <viewControllerLayoutGuide type="bottom" id="YLf-eo-TBd"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="oEl-Ku-xcr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Gist" id="o9u-Pv-1BB"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yeU-Ju-T91" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="370" y="846"/>
-        </scene>
     </scenes>
     <resources>
         <image name="app_logo_90" width="90" height="90"/>
@@ -996,8 +941,6 @@
         <image name="octicon_fork_15" width="15" height="15"/>
         <image name="octicon_star_15" width="15" height="15"/>
         <image name="profile_bg" width="160" height="80"/>
-        <image name="tab_gist" width="25" height="25"/>
-        <image name="tab_gist_sel" width="25" height="25"/>
         <image name="tab_message" width="24" height="24"/>
         <image name="tab_message_sel" width="24" height="24"/>
         <image name="tab_profile" width="25" height="25"/>

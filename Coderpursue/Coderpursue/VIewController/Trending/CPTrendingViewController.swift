@@ -259,8 +259,21 @@ class CPTrendingViewController: CPBaseViewController {
         if !tvc_isLogin() {
             return
         }
-        self.performSegue(withIdentifier: SegueTrendingSearchView, sender: nil)
-
+        var pageType:TrendingViewPageType = .repos
+        var placeholder = "Search repositories".localized
+        
+        if segControl.selectedSegmentIndex == 1 {
+            pageType = .user
+            placeholder = "Search users".localized
+        }
+        
+        let searchVC = CPSearchViewController()
+        
+        searchVC.hidesBottomBarWhenPushed = true
+        searchVC.pageType = pageType
+        searchVC.searchPlacehoder = placeholder
+        
+        self.navigationController?.pushViewController(searchVC, animated: true)
     }
     
     // MARK: - 筛选视图
@@ -730,23 +743,7 @@ extension CPTrendingViewController : UITableViewDelegate {
                 showcaseVC.showcase = showcase
             }
             
-        }else if(segue.identifier == SegueTrendingSearchView){
-            
-            var pageType:TrendingViewPageType = .repos
-            var placeholder = "Search repositories".localized
-            
-            if segControl.selectedSegmentIndex == 1 {
-                pageType = .user
-                placeholder = "Search users".localized
-            }
-            
-            let searchVC = segue.destination as! CPSearchViewController
-            
-            searchVC.hidesBottomBarWhenPushed = true
-            searchVC.pageType = pageType
-            searchVC.searchPlacehoder = placeholder
-        }
-        
+        }        
     }
     
 }

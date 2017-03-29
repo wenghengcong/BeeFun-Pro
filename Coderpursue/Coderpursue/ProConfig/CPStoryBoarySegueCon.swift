@@ -9,9 +9,6 @@
 //explore
 public let SegueTrendingShowShowcaseDetail = "ShowShowcaseDetailSegue"
 
-//explore search
-public let SegueTrendingSearchView = "TrendingSearchViewSegue"
-
 //profile
 public let SegueProfileAboutView = "AboutViewSegue"
 public let SegueProfileSettingView = "SettingsViewSegue"

@@ -20,5 +20,3 @@ public let SegueProfileFunnyLabView = "SettingsFunnyLabSegue"
 //login
 public let SegueProfileLoginIn  = "ProfileLoginInSegue"
 
-//message
-public let SegueUserMessageShowNotificationDetail = "ShowNotificationDetailSegue"

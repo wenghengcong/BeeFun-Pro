@@ -13,7 +13,7 @@ import MJRefresh
 import ObjectMapper
 import Kingfisher
 import MBProgressHUD
-
+import Result
 
 public enum CPReposActionType:String {
     case Watch = "watch"
@@ -123,10 +123,16 @@ class CPRepoDetailController: CPBaseViewController {
             
             reposPoseterV.repo = objRepo
             reposInfoV.repo = objRepo
+            
             if objRepo.html_url != nil {
                 if reposInfoArr.count < 2 {
                     let homepage:[String:String] = ["key":"homepage","img":"coticon_repository_25","desc":"Homepage".localized,"discolsure":"true"]
                     reposInfoArr.insert(homepage, at: 0)
+                    
+                    let uname = repos!.owner!.login!
+                    let ownerDic:[String:String] = ["key":"owner","img":"octicon_person_25","desc":uname,"discolsure":"true"]
+                    reposInfoArr.append(ownerDic)
+                    
                     tableView.reloadData()
                 }
             }
@@ -139,9 +145,7 @@ class CPRepoDetailController: CPBaseViewController {
     func rvc_userIsLogin() {
         user = UserManager.shared.user
         reposPoseterV.reposActionDelegate = self
-        let uname = repos!.owner!.login!
-        let ownerDic:[String:String] = ["key":"owner","img":"octicon_person_25","desc":uname,"discolsure":"true"]
-        reposInfoArr.append(ownerDic)
+
     }
     
     func rvc_loadAllRequset(){
@@ -194,43 +198,48 @@ class CPRepoDetailController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userSomeRepo(owner:owner,repo:repoName) ) { (result) -> () in
             
-            var message = kNoDataFoundTip
+            self.rvc_handleReposResponse(result:result)
+        }
+    }
+    
+    func rvc_handleReposResponse( result: Result<Moya.Response, MoyaError> ) {
+        
+        var message = kNoDataFoundTip
+        
+        switch result {
+        case let .success(response):
             
-            switch result {
-            case let .success(response):
-                
-                let statusCode = response.statusCode
-                if(statusCode == CPHttpStatusCode.ok.rawValue){
-                    do {
-                        if let result:ObjRepos = Mapper<ObjRepos>().map(JSONObject: try response.mapJSON() ) {
-                            self.repos = result
-                            self.rvc_updateViewContent()
-                            
-                        } else {
-                            
-                        }
-                    } catch {
+            let statusCode = response.statusCode
+            if(statusCode == CPHttpStatusCode.ok.rawValue){
+                do {
+                    if let result:ObjRepos = Mapper<ObjRepos>().map(JSONObject: try response.mapJSON() ) {
+                        self.repos = result
+                        self.rvc_updateViewContent()
                         
-                        JSMBHUDBridge.showError(message, view: self.view)
+                    } else {
+                        
                     }
-                }else{
+                } catch {
+                    
                     JSMBHUDBridge.showError(message, view: self.view)
                 }
-                
-
-            case let .failure(error):
-                guard let error = error as? CustomStringConvertible else {
-                    break
-                }
-                message = error.description
-
+            }else{
                 JSMBHUDBridge.showError(message, view: self.view)
-                
             }
+            
+            
+        case let .failure(error):
+            guard let error = error as? CustomStringConvertible else {
+                break
+            }
+            message = error.description
+            
+            JSMBHUDBridge.showError(message, view: self.view)
+            
         }
 
-        
     }
+    
     
     func rvc_checkWatchedRequset() {
         

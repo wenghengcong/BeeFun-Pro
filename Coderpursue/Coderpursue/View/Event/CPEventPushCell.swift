@@ -33,7 +33,7 @@ class CPEventPushCell: CPEventBaseCell {
     var commitTag = 1000000
     
     override func eventCell_customView() {
-        
+        reposNameBtn.addTarget(self, action: #selector(clickReposButton), for: .touchUpInside)
     }
     
     override func eventCell_fillData() {

@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0BA675D1A43DE2F70E8AB1A7 /* Pods_Coderpursue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E3608C6B9F8CEB6E8B525C /* Pods_Coderpursue.framework */; };
-		5E03D58B1C8BCC1D00E8C1FD /* CPEventBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */; };
-		5E03D58D1C8C488D00E8C1FD /* CPEventPushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D58C1C8C488D00E8C1FD /* CPEventPushCell.swift */; };
-		5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */; };
 		5E03D5911C8D20B200E8C1FD /* CPMesNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */; };
 		5E03D5931C8D20C800E8C1FD /* CPMesNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */; };
 		5E03FD581E7A982B005B9664 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E03FD341E7A982B005B9664 /* Data+Extension.swift */; };
@@ -97,6 +94,14 @@
 		5E115AAA1E8B923700DFA14A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AA91E8B923700DFA14A /* UIImage+Extension.swift */; };
 		5E115AAC1E8B92A400DFA14A /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AAB1E8B92A400DFA14A /* CGRect+Extension.swift */; };
 		5E115AAE1E8C940100DFA14A /* PayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AAD1E8C940100DFA14A /* PayManager.swift */; };
+		5E115AB71E8CDEE500DFA14A /* CPEventBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AB01E8CDEE500DFA14A /* CPEventBaseCell.swift */; };
+		5E115AB81E8CDEE500DFA14A /* CPEventCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AB11E8CDEE500DFA14A /* CPEventCreateCell.swift */; };
+		5E115AB91E8CDEE500DFA14A /* CPEventCreateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E115AB21E8CDEE500DFA14A /* CPEventCreateCell.xib */; };
+		5E115ABA1E8CDEE500DFA14A /* CPEventPushCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AB31E8CDEE500DFA14A /* CPEventPushCell.swift */; };
+		5E115ABB1E8CDEE500DFA14A /* CPEventPushCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E115AB41E8CDEE500DFA14A /* CPEventPushCell.xib */; };
+		5E115ABC1E8CDEE500DFA14A /* CPEventStarredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AB51E8CDEE500DFA14A /* CPEventStarredCell.swift */; };
+		5E115ABD1E8CDEE500DFA14A /* CPEventStarredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E115AB61E8CDEE500DFA14A /* CPEventStarredCell.xib */; };
+		5E115AC11E8CEADD00DFA14A /* JumpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AC01E8CEADD00DFA14A /* JumpManager.swift */; };
 		5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */; };
 		5E15CAD21E7D6A0C009B84D7 /* JSSwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */; };
 		5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */; };
@@ -206,11 +211,7 @@
 		5EE91F851C7C4FF9003F4CBF /* ObjEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91F841C7C4FF9003F4CBF /* ObjEvent.swift */; };
 		5EE91F871C7C5922003F4CBF /* ObjCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EE91F861C7C5922003F4CBF /* ObjCommit.swift */; };
 		5EEE93D81C8B1207003911B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5EEE93D71C8B1207003911B2 /* Assets.xcassets */; };
-		5EEE93DA1C8BA922003911B2 /* CPEventCreateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEE93D91C8BA922003911B2 /* CPEventCreateCell.swift */; };
-		5EEE93DE1C8BA93A003911B2 /* CPEventCreateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EEE93DD1C8BA93A003911B2 /* CPEventCreateCell.xib */; };
 		5EF6E3CA1C8AC4A1004F6473 /* CPStarredReposCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6E3C91C8AC4A1004F6473 /* CPStarredReposCell.swift */; };
-		5EF6E3CC1C8AC4B0004F6473 /* CPEventStarredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF6E3CB1C8AC4B0004F6473 /* CPEventStarredCell.swift */; };
-		5EF6E3CE1C8AC4C9004F6473 /* CPEventStarredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5EF6E3CD1C8AC4C9004F6473 /* CPEventStarredCell.xib */; };
 		5EFAE6591E7B920F003194C3 /* CPCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE65B1E7B920F003194C3 /* CPCity.plist */; };
 		5EFAE65D1E7B922A003194C3 /* CPCountry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE65F1E7B922A003194C3 /* CPCountry.plist */; };
 		5EFAE6611E7B9232003194C3 /* CPFilterLanguage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5EFAE6631E7B9232003194C3 /* CPFilterLanguage.plist */; };
@@ -274,9 +275,6 @@
 /* Begin PBXFileReference section */
 		1E8CC865E56BA5C5F2757091 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		29E3608C6B9F8CEB6E8B525C /* Pods_Coderpursue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coderpursue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventBaseCell.swift; sourceTree = "<group>"; };
-		5E03D58C1C8C488D00E8C1FD /* CPEventPushCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventPushCell.swift; sourceTree = "<group>"; };
-		5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventPushCell.xib; sourceTree = "<group>"; };
 		5E03D5901C8D20B200E8C1FD /* CPMesNotificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPMesNotificationCell.swift; sourceTree = "<group>"; };
 		5E03D5921C8D20C800E8C1FD /* CPMesNotificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPMesNotificationCell.xib; sourceTree = "<group>"; };
 		5E03FD321E7A982B005B9664 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -388,6 +386,14 @@
 		5E115AA91E8B923700DFA14A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5E115AAB1E8B92A400DFA14A /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
 		5E115AAD1E8C940100DFA14A /* PayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayManager.swift; sourceTree = "<group>"; };
+		5E115AB01E8CDEE500DFA14A /* CPEventBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventBaseCell.swift; sourceTree = "<group>"; };
+		5E115AB11E8CDEE500DFA14A /* CPEventCreateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventCreateCell.swift; sourceTree = "<group>"; };
+		5E115AB21E8CDEE500DFA14A /* CPEventCreateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventCreateCell.xib; sourceTree = "<group>"; };
+		5E115AB31E8CDEE500DFA14A /* CPEventPushCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventPushCell.swift; sourceTree = "<group>"; };
+		5E115AB41E8CDEE500DFA14A /* CPEventPushCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventPushCell.xib; sourceTree = "<group>"; };
+		5E115AB51E8CDEE500DFA14A /* CPEventStarredCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventStarredCell.swift; sourceTree = "<group>"; };
+		5E115AB61E8CDEE500DFA14A /* CPEventStarredCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventStarredCell.xib; sourceTree = "<group>"; };
+		5E115AC01E8CEADD00DFA14A /* JumpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpManager.swift; sourceTree = "<group>"; };
 		5E15CAC81E7D4FD7009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E15CACA1E7D4FD9009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -522,11 +528,7 @@
 		5EE91F841C7C4FF9003F4CBF /* ObjEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjEvent.swift; sourceTree = "<group>"; };
 		5EE91F861C7C5922003F4CBF /* ObjCommit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjCommit.swift; sourceTree = "<group>"; };
 		5EEE93D71C8B1207003911B2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5EEE93D91C8BA922003911B2 /* CPEventCreateCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventCreateCell.swift; sourceTree = "<group>"; };
-		5EEE93DD1C8BA93A003911B2 /* CPEventCreateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventCreateCell.xib; sourceTree = "<group>"; };
 		5EF6E3C91C8AC4A1004F6473 /* CPStarredReposCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStarredReposCell.swift; sourceTree = "<group>"; };
-		5EF6E3CB1C8AC4B0004F6473 /* CPEventStarredCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventStarredCell.swift; sourceTree = "<group>"; };
-		5EF6E3CD1C8AC4C9004F6473 /* CPEventStarredCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventStarredCell.xib; sourceTree = "<group>"; };
 		5EFAE65A1E7B920F003194C3 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPCity.plist"; sourceTree = "<group>"; };
 		5EFAE65C1E7B921A003194C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPCity.plist; sourceTree = "<group>"; };
 		5EFAE65E1E7B922A003194C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPCountry.plist; sourceTree = "<group>"; };
@@ -990,6 +992,20 @@
 			path = Required;
 			sourceTree = "<group>";
 		};
+		5E115AAF1E8CDEE500DFA14A /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				5E115AB01E8CDEE500DFA14A /* CPEventBaseCell.swift */,
+				5E115AB11E8CDEE500DFA14A /* CPEventCreateCell.swift */,
+				5E115AB21E8CDEE500DFA14A /* CPEventCreateCell.xib */,
+				5E115AB31E8CDEE500DFA14A /* CPEventPushCell.swift */,
+				5E115AB41E8CDEE500DFA14A /* CPEventPushCell.xib */,
+				5E115AB51E8CDEE500DFA14A /* CPEventStarredCell.swift */,
+				5E115AB61E8CDEE500DFA14A /* CPEventStarredCell.xib */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
 		5E15CAD01E7D6A0C009B84D7 /* JSBridge */ = {
 			isa = PBXGroup;
 			children = (
@@ -1146,6 +1162,7 @@
 				5EC58D7B1E6DAAF60069AE82 /* UserManager.swift */,
 				5E0DDCF01E73010D00493ABA /* ShareManager.swift */,
 				5E115AAD1E8C940100DFA14A /* PayManager.swift */,
+				5E115AC01E8CEADD00DFA14A /* JumpManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1293,6 +1310,7 @@
 				5E15CAF91E7E3DC2009B84D7 /* Settings */,
 				FE91BA831C333859002AECB6 /* Trending */,
 				FE91BA801C333859002AECB6 /* Message */,
+				5E115AAF1E8CDEE500DFA14A /* Event */,
 				FE91BA821C333859002AECB6 /* Stars */,
 				FE91BA7F1C333859002AECB6 /* Gist */,
 				FE91BA811C333859002AECB6 /* Profile */,
@@ -1418,13 +1436,6 @@
 			isa = PBXGroup;
 			children = (
 				5EF6E3C91C8AC4A1004F6473 /* CPStarredReposCell.swift */,
-				5E03D58A1C8BCC1D00E8C1FD /* CPEventBaseCell.swift */,
-				5EF6E3CB1C8AC4B0004F6473 /* CPEventStarredCell.swift */,
-				5EF6E3CD1C8AC4C9004F6473 /* CPEventStarredCell.xib */,
-				5EEE93D91C8BA922003911B2 /* CPEventCreateCell.swift */,
-				5EEE93DD1C8BA93A003911B2 /* CPEventCreateCell.xib */,
-				5E03D58C1C8C488D00E8C1FD /* CPEventPushCell.swift */,
-				5E03D58E1C8C489B00E8C1FD /* CPEventPushCell.xib */,
 			);
 			path = Stars;
 			sourceTree = "<group>";
@@ -1640,14 +1651,12 @@
 				5E15CB341E7ED6BE009B84D7 /* tab_message_sel@2x.png in Resources */,
 				5E15CAEC1E7E3A41009B84D7 /* CPAppLanguage.plist in Resources */,
 				5E15CAE31E7D7B68009B84D7 /* CPAboutList.plist in Resources */,
-				5EF6E3CE1C8AC4C9004F6473 /* CPEventStarredCell.xib in Resources */,
 				5E0DDCC41E72FFE800493ABA /* ShareSDKConfigFile.bundle in Resources */,
 				5E0DDCE51E72FFE800493ABA /* RennSDK.bundle in Resources */,
 				5E15CB481E7ED6E5009B84D7 /* tab_trending_sel@2x.png in Resources */,
 				5E0DDCEB1E72FFE800493ABA /* README.txt in Resources */,
 				5E15CADB1E7D7B56009B84D7 /* CPProfileList.plist in Resources */,
 				5E4ABFBE1C9032D40041FA89 /* CPTrendingDeveloperCell.xib in Resources */,
-				5EEE93DE1C8BA93A003911B2 /* CPEventCreateCell.xib in Resources */,
 				5E7368641E76907800AEBA77 /* Localizable.strings in Resources */,
 				5E0DDCEE1E72FFE800493ABA /* ShareSDK.bundle in Resources */,
 				5E15CB4C1E7ED6EA009B84D7 /* tab_star@2x.png in Resources */,
@@ -1658,14 +1667,16 @@
 				5E15CADF1E7D7B61009B84D7 /* CPSettingsList.plist in Resources */,
 				FEC0DC411C28B39F0008C7C1 /* Main.storyboard in Resources */,
 				5EEE93D81C8B1207003911B2 /* Assets.xcassets in Resources */,
+				5E115AB91E8CDEE500DFA14A /* CPEventCreateCell.xib in Resources */,
 				5E0DDCE41E72FFE800493ABA /* TencentOpenApi_IOS_Bundle.bundle in Resources */,
 				5E4B99061C928D3E000A6B94 /* CPProfileReposCell.xib in Resources */,
 				5E15CB3C1E7ED6D1009B84D7 /* tab_profile_sel@2x.png in Resources */,
-				5E03D58F1C8C489B00E8C1FD /* CPEventPushCell.xib in Resources */,
 				5E4ABFC01C9032D40041FA89 /* CPTrendingRepoCell.xib in Resources */,
 				5E15CB501E7ED6F0009B84D7 /* tab_star_sel@2x.png in Resources */,
 				5EACCFC91C8D52C60059A303 /* CPMesIssueCell.xib in Resources */,
 				5EFAE6611E7B9232003194C3 /* CPFilterLanguage.plist in Resources */,
+				5E115ABB1E8CDEE500DFA14A /* CPEventPushCell.xib in Resources */,
+				5E115ABD1E8CDEE500DFA14A /* CPEventStarredCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1749,6 +1760,7 @@
 				5EC6C9881CA538FE0067E2E4 /* CPFunnyLabViewController.swift in Sources */,
 				5EC149AA1E84AA42002039C2 /* CPUserListController.swift in Sources */,
 				5E3CFC301CB4A35E0080C930 /* CPSearchViewController.swift in Sources */,
+				5E115ABA1E8CDEE500DFA14A /* CPEventPushCell.swift in Sources */,
 				5EE91F7D1C7C4792003F4CBF /* ObjSubject.swift in Sources */,
 				FEAB7EB61C5E2B8500C78E87 /* DataModel.swift in Sources */,
 				5EC149AB1E84AA42002039C2 /* CPRepoDetailController.swift in Sources */,
@@ -1780,8 +1792,10 @@
 				FE6980E61C5602C40026089B /* ObjUserSum.swift in Sources */,
 				5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */,
 				5E03FD651E7A982C005B9664 /* JSApplication.swift in Sources */,
+				5E115AB71E8CDEE500DFA14A /* CPEventBaseCell.swift in Sources */,
 				5ECB40821C9A376B00B0C6FF /* CPProfileHeaderView.swift in Sources */,
 				5E03FD6D1E7A982C005B9664 /* JSViewController.swift in Sources */,
+				5E115AB81E8CDEE500DFA14A /* CPEventCreateCell.swift in Sources */,
 				5E03FD681E7A982C005B9664 /* JSFile.swift in Sources */,
 				FE6980E51C5602C40026089B /* ObjUser.swift in Sources */,
 				5EE3FF5A1C7C076E00760F0F /* ObjIssue.swift in Sources */,
@@ -1792,6 +1806,7 @@
 				5EC58D871E6DAAF60069AE82 /* PlistHelper.swift in Sources */,
 				5E4ABFDF1C916C330041FA89 /* CPDeveloperInfoView.swift in Sources */,
 				5E03FD711E7A982C005B9664 /* UILabel+Size.swift in Sources */,
+				5E115ABC1E8CDEE500DFA14A /* CPEventStarredCell.swift in Sources */,
 				FE91BA971C334C9F002AECB6 /* CPLoginViewController.swift in Sources */,
 				5E546D911C8EDE4800E94997 /* ObjError.swift in Sources */,
 				FE91BA871C3338D7002AECB6 /* CPBaseViewController.swift in Sources */,
@@ -1814,7 +1829,6 @@
 				5E03FD721E7A982C005B9664 /* UINavigationController+Pop.swift in Sources */,
 				FE6055CA1C41B8FC0073BC0A /* GitHubAPI.swift in Sources */,
 				FE6333EA1C532E76006D7A2B /* CPStarsViewController.swift in Sources */,
-				5E03D58D1C8C488D00E8C1FD /* CPEventPushCell.swift in Sources */,
 				5E15CAD81E7D6DFA009B84D7 /* JSFoundationGlobal.swift in Sources */,
 				5EC58D8A1E6DAAF60069AE82 /* UserManager.swift in Sources */,
 				FE91BA8B1C333948002AECB6 /* CPGistViewController.swift in Sources */,
@@ -1835,6 +1849,7 @@
 				5E4ABFBD1C9032D40041FA89 /* CPTrendingDeveloperCell.swift in Sources */,
 				5EACCFD11C8E62C70059A303 /* ParaTrending.swift in Sources */,
 				FE914DBB1C4BC1F1001C3D90 /* CPBaseViewCell.swift in Sources */,
+				5E115AC11E8CEADD00DFA14A /* JumpManager.swift in Sources */,
 				5E03FD5D1E7A982C005B9664 /* NSString+Size.swift in Sources */,
 				5E03FD5F1E7A982C005B9664 /* String+Extension.swift in Sources */,
 				5E4ABFD21C90FF450041FA89 /* CPStoryBoarySegueCon.swift in Sources */,
@@ -1845,8 +1860,6 @@
 				FE91BA951C333AE2002AECB6 /* CPBaseTabBarController.swift in Sources */,
 				5E4D9F741CC5189700DA8ECC /* CPGitLoginViewController.swift in Sources */,
 				5E03FD6C1E7A982C005B9664 /* JSUIKit.swift in Sources */,
-				5EF6E3CC1C8AC4B0004F6473 /* CPEventStarredCell.swift in Sources */,
-				5E03D58B1C8BCC1D00E8C1FD /* CPEventBaseCell.swift in Sources */,
 				FE6980E41C5602C40026089B /* ObjPlan.swift in Sources */,
 				5E03FD5A1E7A982C005B9664 /* JSClass.swift in Sources */,
 				5E4ABFD01C907DDE0041FA89 /* CPReposInfoView.swift in Sources */,
@@ -1856,7 +1869,6 @@
 				5E15CB031E7E9496009B84D7 /* Bundle+Extension.swift in Sources */,
 				FE17EA3E1C5723050061F624 /* ObjRepos.swift in Sources */,
 				5EC149AC1E84AA42002039C2 /* CPRepoListController.swift in Sources */,
-				5EEE93DA1C8BA922003911B2 /* CPEventCreateCell.swift in Sources */,
 				5EE91F871C7C5922003F4CBF /* ObjCommit.swift in Sources */,
 				5E4ABFC41C9032FE0041FA89 /* CPReposPosterView.swift in Sources */,
 				5E03FD591E7A982B005B9664 /* JSApp.swift in Sources */,

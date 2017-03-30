@@ -30,6 +30,7 @@ class CPEventCreateCell: CPEventBaseCell {
 //        createLabel.backgroundColor = UIColor.orangeColor
 //        typeValBtn.backgroundColor = UIColor.blueColor
 //        reposNameBtn.backgroundColor = UIColor.purpleColor
+        reposNameBtn.addTarget(self, action: #selector(clickReposButton), for: .touchUpInside)
     }
     
     override func eventCell_fillData() {

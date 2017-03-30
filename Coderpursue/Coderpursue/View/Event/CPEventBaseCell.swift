@@ -31,4 +31,22 @@ class CPEventBaseCell: CPBaseViewCell {
         
     }
     
+    func clickReposButton() {
+        if event != nil {
+            //name = zixun/GodEye
+            //拆分为owner.name:zixun
+            //name:GodEye
+            let subs = event?.repo?.name?.components(separatedBy: "/")
+            
+            if event?.repo?.owner == nil && subs?.count == 2 {
+                let owner = ObjUser()
+                owner.login = subs?[0]
+                owner.name = owner.login
+                event?.repo?.name = subs?[1]
+                event?.repo?.owner = owner
+            }
+            JumpManager.jumpReposDetailView(repos: event?.repo)
+        }
+    }
+    
 }

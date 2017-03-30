@@ -35,26 +35,6 @@
 			<key>itemDisclosure</key>
 			<true/>
 		</dict>
-		<dict>
-			<key>itemKey</key>
-			<string>rate</string>
-			<key>itemName</key>
-			<string>Rate</string>
-			<key>itemIcon</key>
-			<string>set_rate</string>
-			<key>itemDisclosure</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>itemKey</key>
-			<string>about</string>
-			<key>itemName</key>
-			<string>About</string>
-			<key>itemIcon</key>
-			<string>set_about</string>
-			<key>itemDisclosure</key>
-			<true/>
-		</dict>
 	</array>
 	<array>
 		<dict>

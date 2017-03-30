@@ -35,26 +35,6 @@
 			<key>itemDisclosure</key>
 			<true/>
 		</dict>
-		<dict>
-			<key>itemKey</key>
-			<string>rate</string>
-			<key>itemName</key>
-			<string>评价</string>
-			<key>itemIcon</key>
-			<string>set_rate</string>
-			<key>itemDisclosure</key>
-			<true/>
-		</dict>
-		<dict>
-			<key>itemKey</key>
-			<string>about</string>
-			<key>itemName</key>
-			<string>关于</string>
-			<key>itemIcon</key>
-			<string>set_about</string>
-			<key>itemDisclosure</key>
-			<true/>
-		</dict>
 	</array>
 	<array>
 		<dict>

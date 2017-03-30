@@ -166,12 +166,7 @@ class CPProfileViewController: CPBaseViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if(segue.identifier == SegueProfileAboutView){
-            
-            let aboutVC = segue.destination as! CPProAboutViewController
-            aboutVC.hidesBottomBarWhenPushed = true
-            
-        }else if(segue.identifier == SegueProfileSettingView){
+        if(segue.identifier == SegueProfileSettingView){
             let settingsVC = segue.destination as! CPProSettingsViewController
             settingsVC.hidesBottomBarWhenPushed = true
             
@@ -367,24 +362,14 @@ extension CPProfileViewController : UITableViewDelegate {
                 self.showSendMailErrorAlert()
             }
             
-        }else if(viewType == "rate"){
-            
-            JSApp.rateUs()
-            
         }else if(viewType == "share"){
             
             ShareManager.shared.shareApp()
             
         }else if(viewType == "settings"){
             self.performSegue(withIdentifier: SegueProfileSettingView, sender: nil)
-        }else if(viewType == "about"){
-
-            self.performSegue(withIdentifier: SegueProfileAboutView, sender: nil)
-            
         }else if(viewType == "funnylab"){
-            
             self.performSegue(withIdentifier: SegueProfileFunnyLabView, sender: nil)
-            
         }
         
     }

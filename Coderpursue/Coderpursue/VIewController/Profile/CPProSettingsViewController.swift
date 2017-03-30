@@ -151,9 +151,9 @@ extension CPProSettingsViewController : UITableViewDelegate {
         let settings:ObjSettings = settingsArr[section][row]
         
         let viewType = settings.itemKey!
-        let viewValue = settings.itemValue!
         
         if(viewType == "language"){
+            let viewValue = settings.itemValue
             if viewValue == "切换到英语" {
                 
                 let alertController = UIAlertController(title: "切换到英语?", message:"Tha app shows in English", preferredStyle: .alert)
@@ -195,10 +195,24 @@ extension CPProSettingsViewController : UITableViewDelegate {
                 }
                 
             }
+        }else if(viewType == "rate"){
+            
+            JSApp.rateUs()
+            
+        }else if(viewType == "about"){
+            
+            self.performSegue(withIdentifier: SegueProfileAboutView, sender: nil)
+            
         }
         
     }
-    
+    // MARK: - segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == SegueProfileAboutView){
+            let aboutVC = segue.destination as! CPProAboutViewController
+            aboutVC.hidesBottomBarWhenPushed = true
+        }
+    }
 }
 
 

@@ -318,11 +318,12 @@
                     <connections>
                         <outlet property="logOutBtn" destination="TPN-1C-0rZ" id="CdA-1y-JC9"/>
                         <outlet property="tableView" destination="rdP-sg-Z04" id="1q0-dC-Lap"/>
+                        <segue destination="Bka-Au-Ffg" kind="show" identifier="AboutViewSegue" id="Bib-0A-wm5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rsH-qm-jw7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="655" y="3616"/>
+            <point key="canvasLocation" x="1265" y="1178"/>
         </scene>
         <!--Pro About View Controller-->
         <scene sceneID="Zc9-E2-T0Z">
@@ -381,7 +382,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FD5-wE-9H6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1684" y="3265"/>
+            <point key="canvasLocation" x="2266" y="1178"/>
         </scene>
         <!--Trending Showcase View Controller-->
         <scene sceneID="H5G-K4-gEm">
@@ -715,7 +716,6 @@
                     <connections>
                         <outlet property="profileHeaderV" destination="Y22-sW-0Lp" id="TEp-qu-c28"/>
                         <outlet property="tableView" destination="iSK-7T-M0V" id="rex-hG-Am5"/>
-                        <segue destination="Bka-Au-Ffg" kind="show" identifier="AboutViewSegue" id="KTL-5q-vMG"/>
                         <segue destination="PAH-Xm-8JL" kind="show" identifier="SettingsViewSegue" id="j1C-rH-o5A"/>
                         <segue destination="H2q-Fg-o9a" kind="show" identifier="ProfileLoginInSegue" id="28f-mX-mrl"/>
                         <segue destination="z0k-zo-1DG" kind="show" identifier="SettingsFunnyLabSegue" id="ypP-4d-bLC"/>

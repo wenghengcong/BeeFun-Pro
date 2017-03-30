@@ -102,6 +102,7 @@
 		5E115ABC1E8CDEE500DFA14A /* CPEventStarredCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AB51E8CDEE500DFA14A /* CPEventStarredCell.swift */; };
 		5E115ABD1E8CDEE500DFA14A /* CPEventStarredCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5E115AB61E8CDEE500DFA14A /* CPEventStarredCell.xib */; };
 		5E115AC11E8CEADD00DFA14A /* JumpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AC01E8CEADD00DFA14A /* JumpManager.swift */; };
+		5E115AC31E8D01FE00DFA14A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E115AC21E8D01FE00DFA14A /* StoreKit.framework */; };
 		5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */; };
 		5E15CAD21E7D6A0C009B84D7 /* JSSwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */; };
 		5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */; };
@@ -394,6 +395,7 @@
 		5E115AB51E8CDEE500DFA14A /* CPEventStarredCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPEventStarredCell.swift; sourceTree = "<group>"; };
 		5E115AB61E8CDEE500DFA14A /* CPEventStarredCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CPEventStarredCell.xib; sourceTree = "<group>"; };
 		5E115AC01E8CEADD00DFA14A /* JumpManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JumpManager.swift; sourceTree = "<group>"; };
+		5E115AC21E8D01FE00DFA14A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		5E15CAC81E7D4FD7009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E15CACA1E7D4FD9009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E115AC31E8D01FE00DFA14A /* StoreKit.framework in Frameworks */,
 				5E7368701E77D50F00AEBA77 /* libresolv.tbd in Frameworks */,
 				5E73686E1E77D4FE00AEBA77 /* UserNotifications.framework in Frameworks */,
 				5E0943951CC1F0100047118D /* libz.tbd in Frameworks */,
@@ -674,6 +677,7 @@
 		4D8F6ECC1AEDFB027177FDBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5E115AC21E8D01FE00DFA14A /* StoreKit.framework */,
 				5E73686F1E77D50F00AEBA77 /* libresolv.tbd */,
 				5E73686D1E77D4FE00AEBA77 /* UserNotifications.framework */,
 				5E73686B1E77D4CC00AEBA77 /* CFNetwork.framework */,

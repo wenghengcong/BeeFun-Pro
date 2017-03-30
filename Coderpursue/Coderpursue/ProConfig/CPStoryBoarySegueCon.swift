@@ -14,6 +14,4 @@ public let SegueProfileAboutView = "AboutViewSegue"
 public let SegueProfileSettingView = "SettingsViewSegue"
 public let SegueProfileFunnyLabView = "SettingsFunnyLabSegue"
 
-//login
-public let SegueProfileLoginIn  = "ProfileLoginInSegue"
 

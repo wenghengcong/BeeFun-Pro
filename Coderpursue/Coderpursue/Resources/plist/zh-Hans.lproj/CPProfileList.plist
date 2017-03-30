@@ -5,18 +5,6 @@
 	<array>
 		<dict>
 			<key>itemKey</key>
-			<string>watched</string>
-			<key>itemName</key>
-			<string>关注项目</string>
-			<key>itemIcon</key>
-			<string>octicon_watch_red_20</string>
-			<key>itemDisclosure</key>
-			<true/>
-		</dict>
-	</array>
-	<array>
-		<dict>
-			<key>itemKey</key>
 			<string>feedback</string>
 			<key>itemName</key>
 			<string>反馈</string>

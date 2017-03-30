@@ -340,7 +340,7 @@ extension CPProfileViewController : UITableViewDelegate {
 
         let viewType = settings.itemKey!
 
-        if ( (viewType == "watched")||(viewType == "forked") ){
+        if ( (viewType == "forked") ){
             
             if (UserManager.shared.needLogin() ){
                 let uname = user!.login

@@ -126,8 +126,6 @@ class CPRepoListController: CPBaseViewController {
         
         if(self.viewType == "myrepositories") {
             rvc_getMyReposRequest()
-        }else if(self.viewType == "watched"){
-            rvc_getWatchedReposRequest()
         }else if(self.viewType == "forked"){
             rvc_getForkedReposRequst()
         }else{
@@ -186,58 +184,9 @@ class CPRepoListController: CPBaseViewController {
         
     }
     
-    func rvc_getWatchedReposRequest() {
-        if (username == nil){
-            return
-        }
-        
-        Provider.sharedProvider.request( .userWatchedRepos( page:self.reposPageVal,perpage:self.reposPerpage,username:self.username! ) ) { (result) -> () in
-            print(result)
-            
-            var message = kNoDataFoundTip
-            
-            self.tableView.mj_header.endRefreshing()
-            self.tableView.mj_footer.endRefreshing()
-            
-            switch result {
-            case let .success(response):
-                
-                do {
-                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
-                        if(self.reposPageVal == 1) {
-                            self.reposData.removeAll()
-                            self.reposData = repos!
-                        }else{
-                            self.reposData = self.reposData+repos!
-                        }
-                        self.rvc_updateViewContent()
-                        
-                    } else {
-
-                    }
-                } catch {
-                    JSMBHUDBridge.showError(message, view: self.view)
-                }
-                //                self.tableView.reloadData()
-            case let .failure(error):
-                guard let error = error as? CustomStringConvertible else {
-                    break
-                }
-                message = error.description
-                JSMBHUDBridge.showError(message, view: self.view)
-
-            }
-            
-        }
-
-    }
-    
     func rvc_getForkedReposRequst() {
         
-    }
-
-
-    
+    }    
 }
 
 

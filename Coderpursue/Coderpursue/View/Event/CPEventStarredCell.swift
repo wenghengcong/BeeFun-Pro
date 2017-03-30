@@ -17,7 +17,7 @@ class CPEventStarredCell: CPEventBaseCell {
     
     
     override func eventCell_customView() {
-        
+        reposBtn.addTarget(self, action: #selector(clickReposButton), for: .touchUpInside)
     }
     
     override func eventCell_fillData() {

@@ -212,7 +212,7 @@
         <scene sceneID="TB7-hQ-fi8">
             <objects>
                 <navigationController id="lAP-Eg-5KM" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" image="tab_trending" selectedImage="tab_trending_sel" id="6tt-Ce-XeT"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="tab_hot" selectedImage="tab_hot_sel" id="6tt-Ce-XeT"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pV5-to-I10">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -841,13 +841,13 @@
         <image name="octicon_fork_15" width="15" height="15"/>
         <image name="octicon_star_15" width="15" height="15"/>
         <image name="profile_bg" width="160" height="80"/>
+        <image name="tab_hot" width="16" height="16"/>
+        <image name="tab_hot_sel" width="16" height="16"/>
         <image name="tab_me" width="16" height="16"/>
         <image name="tab_me_sel" width="16" height="16"/>
         <image name="tab_mes" width="16" height="16"/>
         <image name="tab_mes_sel" width="16" height="16"/>
         <image name="tab_star" width="25" height="25"/>
         <image name="tab_star_sel" width="24" height="24"/>
-        <image name="tab_trending" width="25" height="25"/>
-        <image name="tab_trending_sel" width="25" height="25"/>
     </resources>
 </document>

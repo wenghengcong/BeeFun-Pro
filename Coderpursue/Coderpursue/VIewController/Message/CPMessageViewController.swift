@@ -17,7 +17,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Notifications".localized,"Issues".localized,"Event".localized])
+    var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Event".localized,"Issues".localized,"Notifications".localized])
     
     var notificationsData:[ObjNotification]! = []
     var issuesData:[ObjIssue]! = []
@@ -97,12 +97,12 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         if (UserManager.shared.checkUserLogin()){
             //已登录
             tableView.mj_footer.isHidden = false
-            if(segControl.selectedSegmentIndex == 0 ) {
-                mvc_getNotificationsRequest(self.notisPageVal)
+            if(segControl.selectedSegmentIndex == 0){
+                svc_getUserEventsRequest(self.eventPageVal)
             }else if(segControl.selectedSegmentIndex == 1){
                 mvc_getIssuesRequest(self.issuesPageVal)
             }else if(segControl.selectedSegmentIndex == 2){
-                svc_getUserEventsRequest(self.eventPageVal)
+                mvc_getNotificationsRequest(self.notisPageVal)
             }
             
         }else{
@@ -128,14 +128,14 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         }
         self.tableView.reloadData()
 
-        if( (self.segControl.selectedSegmentIndex == 0)&&self.notificationsData.isEmpty ){
+        if( (self.segControl.selectedSegmentIndex == 0)&&self.eventsData.isEmpty ){
+            self.svc_getUserEventsRequest(self.eventPageVal)
             self.tableView.allowsSelection = false
-            self.mvc_getNotificationsRequest(self.notisPageVal)
         }else if( (self.segControl.selectedSegmentIndex == 1)&&self.issuesData.isEmpty ){
             self.tableView.allowsSelection = true
             self.mvc_getIssuesRequest(self.issuesPageVal)
-        }else if( (self.segControl.selectedSegmentIndex == 2)&&self.eventsData.isEmpty ){
-            self.svc_getUserEventsRequest(self.eventPageVal)
+        }else if( (self.segControl.selectedSegmentIndex == 2)&&self.notificationsData.isEmpty ){
+            self.mvc_getNotificationsRequest(self.notisPageVal)
         }else{
             
         }
@@ -214,11 +214,11 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     func headerRefresh(){
         print("下拉刷新")
         if(segControl.selectedSegmentIndex == 0) {
-            self.notisPageVal = 1
+            self.eventPageVal = 1
         }else if(segControl.selectedSegmentIndex == 1){
             self.issuesPageVal = 1
         }else if(segControl.selectedSegmentIndex == 2){
-            self.eventPageVal = 1
+            self.notisPageVal = 1
         }
         mvc_updateNetrokData()
     }
@@ -227,11 +227,11 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
     func footerRefresh(){
         print("上拉刷新")
         if(segControl.selectedSegmentIndex == 0) {
-            self.notisPageVal += 1
+            self.eventPageVal += 1
         }else if(segControl.selectedSegmentIndex == 1){
             self.issuesPageVal += 1
         }else if(segControl.selectedSegmentIndex == 2){
-            self.eventPageVal += 1
+            self.notisPageVal += 1
         }
         mvc_updateNetrokData()
     }
@@ -391,11 +391,11 @@ extension CPMessageViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
         if (segControl.selectedSegmentIndex == 0) {
-            return self.notificationsData.count
+            return self.eventsData.count
         }else if (segControl.selectedSegmentIndex == 1) {
             return self.issuesData.count
         }else if (segControl.selectedSegmentIndex == 2) {
-            return self.eventsData.count
+            return self.notificationsData.count
         }
         
         return 0
@@ -407,7 +407,7 @@ extension CPMessageViewController : UITableViewDataSource {
         
         var cellId = ""
         
-        if segControl.selectedSegmentIndex == 0 {
+        if segControl.selectedSegmentIndex == 2 {
             cellId = "CPMesNotificationCellIdentifier"
             var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPMesNotificationCell
             if cell == nil {
@@ -510,10 +510,6 @@ extension CPMessageViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if segControl.selectedSegmentIndex == 0 {
-            return 55
-        }else if(segControl.selectedSegmentIndex == 1){
-            return 75
-        }else if(segControl.selectedSegmentIndex == 2){
             let event:ObjEvent = self.eventsData[indexPath.row]
             let eventType:EventType = EventType(rawValue: (event.type!))!
             
@@ -534,6 +530,11 @@ extension CPMessageViewController : UITableViewDelegate {
                 return 0
                 
             }
+
+        }else if(segControl.selectedSegmentIndex == 1){
+            return 75
+        }else if(segControl.selectedSegmentIndex == 2){
+            return 55
         }
         return 0
     }

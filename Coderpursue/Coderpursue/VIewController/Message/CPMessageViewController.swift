@@ -526,8 +526,8 @@ extension CPMessageViewController : UITableViewDelegate {
                 
             case .PushEvent:
                 
-                let height:CGFloat = CGFloat( (event.payload?.commits!.count)! ) * 25.0
-                let totalHeight:CGFloat = 65+height
+                let height:CGFloat = CGFloat( (event.payload?.commits!.count)! ) * 20.0
+                let totalHeight:CGFloat = 70+height
                 return totalHeight
                 
             default:

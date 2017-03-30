@@ -17,7 +17,7 @@ class CPStarsViewController: CPBaseViewController{
 
     @IBOutlet weak var tableView: UITableView!
     
-    var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Repositories".localized,"Event".localized])
+    var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Stars".localized,"Watched".localized])
     
     var reposData:[ObjRepos]! = []
     var watchsData:[ObjRepos]! = []

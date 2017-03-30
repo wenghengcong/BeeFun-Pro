@@ -363,17 +363,15 @@ extension CPProfileViewController : UITableViewDelegate {
             }
             
         }else if(viewType == "share"){
-            
             ShareManager.shared.shareApp()
-            
         }else if(viewType == "settings"){
             self.performSegue(withIdentifier: SegueProfileSettingView, sender: nil)
         }else if(viewType == "funnylab"){
             self.performSegue(withIdentifier: SegueProfileFunnyLabView, sender: nil)
+        }else if(viewType == "reward"){
+
         }
-        
     }
-    
 }
 
 extension CPProfileViewController : MFMailComposeViewControllerDelegate {

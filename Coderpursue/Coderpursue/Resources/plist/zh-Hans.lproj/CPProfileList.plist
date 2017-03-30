@@ -27,6 +27,18 @@
 	<array>
 		<dict>
 			<key>itemKey</key>
+			<string>reward</string>
+			<key>itemName</key>
+			<string>赞赏(￥6)</string>
+			<key>itemIcon</key>
+			<string>set_money</string>
+			<key>itemDisclosure</key>
+			<false/>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>itemKey</key>
 			<string>settings</string>
 			<key>itemName</key>
 			<string>设置</string>

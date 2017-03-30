@@ -20,12 +20,15 @@ class CPStarsViewController: CPBaseViewController{
     var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Repositories".localized,"Event".localized])
     
     var reposData:[ObjRepos]! = []
-    var eventsData:[ObjEvent]! = []
+    var watchsData:[ObjRepos]! = []
+    
     var sortVal:String = "created"
     var directionVal:String = "desc"
-    var reposPageVal = 1
-    var eventPageVal = 1
     
+    var reposPageVal = 1
+    var watchPageVal = 1
+    var reposPerpage = 7
+
     let header = MJRefreshNormalHeader()
     let footer = MJRefreshAutoNormalFooter()
     
@@ -56,7 +59,7 @@ class CPStarsViewController: CPBaseViewController{
     func svc_logoutSuccessful() {
         
         reposData.removeAll()
-        eventsData.removeAll()
+        watchsData.removeAll()
         tableView.reloadData()
     }
     
@@ -64,7 +67,7 @@ class CPStarsViewController: CPBaseViewController{
     func svc_isLogin()->Bool{
         if( !(UserManager.shared.checkUserLogin()) ){
             reposData.removeAll()
-            eventsData.removeAll()
+            watchsData.removeAll()
             tableView.reloadData()
             return false
         }
@@ -80,7 +83,7 @@ class CPStarsViewController: CPBaseViewController{
             if segControl.selectedSegmentIndex == 0 {
                 svc_getUserReposRequest(self.reposPageVal)
             }else{
-                svc_getUserEventsRequest(self.eventPageVal)
+                rvc_getWatchedReposRequest(self.watchPageVal)
             }
             
         }else{
@@ -106,10 +109,10 @@ class CPStarsViewController: CPBaseViewController{
         }
         self.tableView.reloadData()
 
-        if( (self.segControl.selectedSegmentIndex == 0) && self.reposData != nil){
+        if( (self.segControl.selectedSegmentIndex == 0) && self.reposData.isEmpty){
             self.svc_getUserReposRequest(self.reposPageVal)
-        }else if( (self.segControl.selectedSegmentIndex == 1)&&self.eventsData != nil ){
-            self.svc_getUserEventsRequest(self.eventPageVal)
+        }else if( (self.segControl.selectedSegmentIndex == 1) && self.watchsData.isEmpty ){
+            self.rvc_getWatchedReposRequest(self.watchPageVal)
         }else{
         }
     }
@@ -189,7 +192,7 @@ class CPStarsViewController: CPBaseViewController{
         if segControl.selectedSegmentIndex == 0 {
             self.reposPageVal = 1
         }else{
-            self.eventPageVal = 1
+            self.watchPageVal = 1
         }
         svc_updateNetrokData()
     }
@@ -200,7 +203,7 @@ class CPStarsViewController: CPBaseViewController{
         if segControl.selectedSegmentIndex == 0 {
             self.reposPageVal += 1
         }else{
-            self.eventPageVal += 1
+            self.watchPageVal += 1
         }
         svc_updateNetrokData()
     }
@@ -214,7 +217,7 @@ class CPStarsViewController: CPBaseViewController{
         
         JSMBHUDBridge.showHud(view: self.view)
         
-        Provider.sharedProvider.request(.myStarredRepos(page:pageVal,perpage:7,sort: sortVal,direction: directionVal) ) { (result) -> () in
+        Provider.sharedProvider.request(.myStarredRepos(page:pageVal,perpage:self.reposPerpage,sort: sortVal,direction: directionVal) ) { (result) -> () in
 
             var message = kNoDataFoundTip
             
@@ -257,42 +260,39 @@ class CPStarsViewController: CPBaseViewController{
         }
     }
     
-    func svc_getUserEventsRequest(_ pageVal:Int) {
+    func rvc_getWatchedReposRequest(_ pageVal:Int) {
+        let username = UserManager.shared.login
+        if (username == nil){
+            return
+        }
         
-        JSMBHUDBridge.showHud(view: self.view)
-        
-        Provider.sharedProvider.request(.userEvents(username:ObjUser.loadUserInfo()!.login! ,page:pageVal,perpage:15) ) { (result) -> () in
+        Provider.sharedProvider.request( .userWatchedRepos( page:pageVal,perpage:self.reposPerpage,username:username!) ) { (result) -> () in
+            print(result)
             
             var message = kNoDataFoundTip
             
-            if(pageVal == 1) {
-                self.tableView.mj_header.endRefreshing()
-            }else{
-                self.tableView.mj_footer.endRefreshing()
-            }
-            
-            JSMBHUDBridge.hideHud(view: self.view)
+            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
             
             switch result {
             case let .success(response):
                 
                 do {
-                    if let events:[ObjEvent]? = try response.mapArray(ObjEvent){
-                        if(pageVal == 1) {
-                            self.eventsData.removeAll()
-                            self.eventsData = events!
+                    if let repos:[ObjRepos]? = try response.mapArray(ObjRepos){
+                        if(self.watchPageVal == 1) {
+                            self.watchsData.removeAll()
+                            self.watchsData = repos!
                         }else{
-                            self.eventsData = self.eventsData+events!
+                            self.watchsData = self.watchsData+repos!
                         }
-                        
-                        
+                        self.tableView.reloadData()
                     } else {
+                        
                     }
                 } catch {
                     JSMBHUDBridge.showError(message, view: self.view)
                 }
-                self.tableView.reloadData()
-
+            //                self.tableView.reloadData()
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
@@ -301,6 +301,7 @@ class CPStarsViewController: CPBaseViewController{
                 JSMBHUDBridge.showError(message, view: self.view)
                 
             }
+            
         }
         
     }
@@ -317,7 +318,7 @@ extension CPStarsViewController : UITableViewDataSource {
         if segControl.selectedSegmentIndex == 0 {
             return  self.reposData.count
         }
-        return self.eventsData.count
+        return self.watchsData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -351,89 +352,33 @@ extension CPStarsViewController : UITableViewDataSource {
 
         }
         
-        var cell:CPEventBaseCell?
-        let event = self.eventsData[row]
-        let eventType:EventType = EventType(rawValue: (event.type!))!
-        
-        switch(eventType) {
-        case .WatchEvent:
-            cellId = "CPEventStarredCellIdentifier"
-            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventStarredCell
-            if cell == nil {
-                cell = (CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell)
-            }
-            
-        case .CreateEvent:
-            cellId = "CPEventCreateCellIdentifier"
-            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventCreateCell
-            if cell == nil {
-                cell = (CPEventCreateCell.cellFromNibNamed("CPEventCreateCell") as! CPEventCreateCell)
-            }
-            
-        case .PushEvent:
-            cellId = "CPEventPushCellIdentifier"
-            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventPushCell
-            if cell == nil {
-                cell = (CPEventPushCell.cellFromNibNamed("CPEventPushCell") as! CPEventPushCell)
-            }
-            
-        default:
-            cellId = "CPEventStarredCellIdentifier"
-            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventStarredCell
-            if cell == nil {
-                cell = (CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell)
-            }
-    
+        cellId = "CPProfileReposCellIdentifier"
+        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPProfileReposCell
+        if cell == nil {
+            cell = (CPProfileReposCell.cellFromNibNamed("CPProfileReposCell") as! CPProfileReposCell)
         }
         
         //handle line in cell
         if row == 0 {
             cell!.topline = true
         }
-        if (row == eventsData.count-1) {
+        if (row == reposData.count-1) {
             cell!.fullline = true
         }else {
             cell!.fullline = false
         }
-        cell!.event = event
+        
+        let repos = self.watchsData[row]
+        cell!.objRepos = repos
         
         return cell!;
-
     }
     
 }
 extension CPStarsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
-        if segControl.selectedSegmentIndex == 0 {
-            
-            return 85
-            
-        }else{
-            
-            let event:ObjEvent = self.eventsData[indexPath.row]
-            let eventType:EventType = EventType(rawValue: (event.type!))!
-            
-            switch(eventType) {
-            case .WatchEvent:
-                return 45
-                
-            case .CreateEvent:
-                return 65
-                
-            case .PushEvent:
-                
-                let height:CGFloat = CGFloat( (event.payload?.commits!.count)! ) * 25.0
-                let totalHeight:CGFloat = 65+height
-                return totalHeight
-                
-            default:
-                return 0
-                
-            }
-            
-        }
+        return 85
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

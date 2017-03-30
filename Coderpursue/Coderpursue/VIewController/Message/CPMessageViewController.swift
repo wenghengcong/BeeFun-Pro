@@ -134,7 +134,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         }else if( (self.segControl.selectedSegmentIndex == 1)&&self.issuesData.isEmpty ){
             self.tableView.allowsSelection = true
             self.mvc_getIssuesRequest(self.issuesPageVal)
-        }else if( (self.segControl.selectedSegmentIndex == 2)&&self.eventsData != nil ){
+        }else if( (self.segControl.selectedSegmentIndex == 2)&&self.eventsData.isEmpty ){
             self.svc_getUserEventsRequest(self.eventPageVal)
         }else{
             

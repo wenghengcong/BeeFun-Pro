@@ -25,7 +25,7 @@ extension UIColor {
     //MARK: tab bar
     class var tabBarTitleTextColor:UIColor {
         //red
-        return UIColor.hex("e31100", alpha: 1.0)
+        return UIColor.hex("d81e06", alpha: 1.0)
     }
     
     class var tabBarBackgroundColor:UIColor {

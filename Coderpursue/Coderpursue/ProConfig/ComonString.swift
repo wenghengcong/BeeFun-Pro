@@ -48,5 +48,10 @@ public let KSendEmailErrorTitle = "Could not send Email"
 public let KSendEmailErrorContent = "Your device could not send e-mail.  Please check e-mail configuration and try again."
 
 
+public let kAliPayMe = "alipayqr://platformapi/startapp?saId=10000007&qrcode=HTTPS%3a%2f%2fQR.ALIPAY.COM%2fFKX02008UEOALIPOFQRDAF"
+
+public let kAliPayPing = "alipayqr://platformapi/startapp?saId=10000007&qrcode=HTTPS%3a%2f%2fQR.ALIPAY.COM%2fFKX010935UVTHIGVFBSM2B"
+
+
 
 

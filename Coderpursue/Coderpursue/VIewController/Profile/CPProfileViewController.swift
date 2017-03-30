@@ -26,13 +26,15 @@ class CPProfileViewController: CPBaseViewController {
 
     var data: NSMutableData = NSMutableData()
 
+    // MARK: - view cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
         pvc_loadSettingPlistData()
         pvc_customView()
         pvc_setupTableView()
+        //pvc_addNavigationbar()
        
         NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
@@ -51,7 +53,7 @@ class CPProfileViewController: CPBaseViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // MARK: load data
+    // MARK: - load data
     //登录成功后刷新数据
     func pvc_updateUserinfoData() {
         
@@ -79,7 +81,14 @@ class CPProfileViewController: CPBaseViewController {
         return true
     }
     
-    // MARK: view
+    // MARK: - view
+    
+    /// 不在导航栏有按钮，不方便
+    func pvc_addNavigationbar() {
+        self.rightItemImage = UIImage(named: "set_settings_white")
+        self.rightItemSelImage = UIImage(named: "set_settings_white")
+        self.rightItem?.isHidden = false
+    }
     
     func pvc_customView() {
         
@@ -110,8 +119,11 @@ class CPProfileViewController: CPBaseViewController {
 //        self.tableView.addSingleBorder(UIColor.lineBackgroundColor, at:UIView.ViewBorder.Bottom)
     }
     
+    // MARK: - Action
+    override func rightItemAction(_ sender: UIButton?) {
+    }
     
-    // MARK: segue
+    // MARK:- segue
     
     func pvc_getUserinfoRequest(){
         
@@ -364,9 +376,7 @@ extension CPProfileViewController : UITableViewDelegate {
             ShareManager.shared.shareApp()
             
         }else if(viewType == "settings"){
-            
             self.performSegue(withIdentifier: SegueProfileSettingView, sender: nil)
-            
         }else if(viewType == "about"){
 
             self.performSegue(withIdentifier: SegueProfileAboutView, sender: nil)

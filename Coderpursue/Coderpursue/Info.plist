@@ -91,6 +91,10 @@
 	<string>Coder</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
+		<string>alipayauth</string>
+		<string>alipayqr</string>
+		<string>alipay</string>
+		<string>alipayshare</string>
 		<string>wechat</string>
 		<string>weixin</string>
 		<string>sinaweibohd</string>

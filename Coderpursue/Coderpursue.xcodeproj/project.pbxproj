@@ -96,6 +96,7 @@
 		5E0DDCF11E73010D00493ABA /* ShareManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0DDCF01E73010D00493ABA /* ShareManager.swift */; };
 		5E115AAA1E8B923700DFA14A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AA91E8B923700DFA14A /* UIImage+Extension.swift */; };
 		5E115AAC1E8B92A400DFA14A /* CGRect+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AAB1E8B92A400DFA14A /* CGRect+Extension.swift */; };
+		5E115AAE1E8C940100DFA14A /* PayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E115AAD1E8C940100DFA14A /* PayManager.swift */; };
 		5E15CAC71E7D4FD7009B84D7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E15CAC91E7D4FD7009B84D7 /* InfoPlist.strings */; };
 		5E15CAD21E7D6A0C009B84D7 /* JSSwiftyBeaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */; };
 		5E15CAD41E7D6A46009B84D7 /* JSMBHUDBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E15CAD31E7D6A46009B84D7 /* JSMBHUDBridge.swift */; };
@@ -386,6 +387,7 @@
 		5E0DDCF01E73010D00493ABA /* ShareManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareManager.swift; sourceTree = "<group>"; };
 		5E115AA91E8B923700DFA14A /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		5E115AAB1E8B92A400DFA14A /* CGRect+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGRect+Extension.swift"; sourceTree = "<group>"; };
+		5E115AAD1E8C940100DFA14A /* PayManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayManager.swift; sourceTree = "<group>"; };
 		5E15CAC81E7D4FD7009B84D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E15CACA1E7D4FD9009B84D7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5E15CAD11E7D6A0C009B84D7 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -1143,6 +1145,7 @@
 				5EC58D7A1E6DAAF60069AE82 /* TimeHelper.swift */,
 				5EC58D7B1E6DAAF60069AE82 /* UserManager.swift */,
 				5E0DDCF01E73010D00493ABA /* ShareManager.swift */,
+				5E115AAD1E8C940100DFA14A /* PayManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1759,6 +1762,7 @@
 				5EBD36011E71568200C4E350 /* ComonString.swift in Sources */,
 				5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */,
 				5E738C981C92C26F0075C82C /* CPHttpStatusCode.swift in Sources */,
+				5E115AAE1E8C940100DFA14A /* PayManager.swift in Sources */,
 				5EFAE6681E7CDABB003194C3 /* Array+Extension.swift in Sources */,
 				5E15CB051E7EB4AE009B84D7 /* UIStoryboard+Extension.swift in Sources */,
 				5EC58D891E6DAAF60069AE82 /* TimeHelper.swift in Sources */,

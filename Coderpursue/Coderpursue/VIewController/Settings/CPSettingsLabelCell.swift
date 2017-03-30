@@ -60,7 +60,7 @@ class CPSettingsLabelCell: CPBaseViewCell {
     
     func plc_customView(){
         
-        discolsureImgV.image = UIImage.init(named: "arrow_right")
+        discolsureImgV.image = UIImage.init(named: "arrow_right_gray")
         
     }
 

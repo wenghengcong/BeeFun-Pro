@@ -17,16 +17,18 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
 
-    var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Notifications".localized,"Issues".localized])
+    var segControl:HMSegmentedControl! = JSHMSegmentedBridge.segmentControl(titles: ["Notifications".localized,"Issues".localized,"Event".localized])
     
     var notificationsData:[ObjNotification]! = []
     var issuesData:[ObjIssue]! = []
+    var eventsData:[ObjEvent]! = []
 
     var sortVal:String = "created"
     var directionVal:String = "desc"
     
     var notisPageVal = 1
     var issuesPageVal = 1
+    var eventPageVal = 1
 
     // MARK: request parameters
 
@@ -75,6 +77,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         
         issuesData.removeAll()
         notificationsData.removeAll()
+        eventsData.removeAll()
         tableView.reloadData()
     }
     
@@ -82,6 +85,7 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         if( !(UserManager.shared.checkUserLogin()) ){
             notificationsData.removeAll()
             issuesData.removeAll()
+            eventsData.removeAll()
             tableView.reloadData()
             return false
         }
@@ -97,6 +101,8 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
                 mvc_getNotificationsRequest(self.notisPageVal)
             }else if(segControl.selectedSegmentIndex == 1){
                 mvc_getIssuesRequest(self.issuesPageVal)
+            }else if(segControl.selectedSegmentIndex == 2){
+                svc_getUserEventsRequest(self.eventPageVal)
             }
             
         }else{
@@ -128,6 +134,8 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         }else if( (self.segControl.selectedSegmentIndex == 1)&&self.issuesData.isEmpty ){
             self.tableView.allowsSelection = true
             self.mvc_getIssuesRequest(self.issuesPageVal)
+        }else if( (self.segControl.selectedSegmentIndex == 2)&&self.eventsData != nil ){
+            self.svc_getUserEventsRequest(self.eventPageVal)
         }else{
             
         }
@@ -209,6 +217,8 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
             self.notisPageVal = 1
         }else if(segControl.selectedSegmentIndex == 1){
             self.issuesPageVal = 1
+        }else if(segControl.selectedSegmentIndex == 2){
+            self.eventPageVal = 1
         }
         mvc_updateNetrokData()
     }
@@ -220,6 +230,8 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
             self.notisPageVal += 1
         }else if(segControl.selectedSegmentIndex == 1){
             self.issuesPageVal += 1
+        }else if(segControl.selectedSegmentIndex == 2){
+            self.eventPageVal += 1
         }
         mvc_updateNetrokData()
     }
@@ -320,7 +332,54 @@ class CPMessageViewController: CPBaseViewController,UIAlertViewDelegate {
         }
         
     }
-
+    
+    func svc_getUserEventsRequest(_ pageVal:Int) {
+        
+        JSMBHUDBridge.showHud(view: self.view)
+        
+        Provider.sharedProvider.request(.userEvents(username:ObjUser.loadUserInfo()!.login! ,page:pageVal,perpage:15) ) { (result) -> () in
+            
+            var message = kNoDataFoundTip
+            
+            if(pageVal == 1) {
+                self.tableView.mj_header.endRefreshing()
+            }else{
+                self.tableView.mj_footer.endRefreshing()
+            }
+            
+            JSMBHUDBridge.hideHud(view: self.view)
+            
+            switch result {
+            case let .success(response):
+                
+                do {
+                    if let events:[ObjEvent]? = try response.mapArray(ObjEvent){
+                        if(pageVal == 1) {
+                            self.eventsData.removeAll()
+                            self.eventsData = events!
+                        }else{
+                            self.eventsData = self.eventsData+events!
+                        }
+                        
+                        
+                    } else {
+                    }
+                } catch {
+                    JSMBHUDBridge.showError(message, view: self.view)
+                }
+                self.tableView.reloadData()
+                
+            case let .failure(error):
+                guard let error = error as? CustomStringConvertible else {
+                    break
+                }
+                message = error.description
+                JSMBHUDBridge.showError(message, view: self.view)
+                
+            }
+        }
+        
+    }
 }
 
 extension CPMessageViewController : UITableViewDataSource {
@@ -333,9 +392,13 @@ extension CPMessageViewController : UITableViewDataSource {
 
         if (segControl.selectedSegmentIndex == 0) {
             return self.notificationsData.count
+        }else if (segControl.selectedSegmentIndex == 1) {
+            return self.issuesData.count
+        }else if (segControl.selectedSegmentIndex == 2) {
+            return self.eventsData.count
         }
         
-        return self.issuesData.count
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -367,13 +430,62 @@ extension CPMessageViewController : UITableViewDataSource {
             
             return cell!;
 
+        }else if(segControl.selectedSegmentIndex == 1){
             
+            cellId = "CPMesIssueCellIdentifier"
+            var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPMesIssueCell
+            if cell == nil {
+                cell = (CPMesIssueCell.cellFromNibNamed("CPMesIssueCell") as! CPMesIssueCell)
+                
+            }
+            
+            //handle line in cell
+            if row == 0 {
+                cell!.topline = true
+            }
+            if (row == issuesData.count-1) {
+                cell!.fullline = true
+            }else {
+                cell!.fullline = false
+            }
+            let issue = self.issuesData[row]
+            cell!.issue = issue
+            return cell!;
+
         }
         
-        cellId = "CPMesIssueCellIdentifier"
-        var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPMesIssueCell
-        if cell == nil {
-            cell = (CPMesIssueCell.cellFromNibNamed("CPMesIssueCell") as! CPMesIssueCell)
+        var cell:CPEventBaseCell?
+        let event = self.eventsData[row]
+        let eventType:EventType = EventType(rawValue: (event.type!))!
+        
+        switch(eventType) {
+        case .WatchEvent:
+            cellId = "CPEventStarredCellIdentifier"
+            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventStarredCell
+            if cell == nil {
+                cell = (CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell)
+            }
+            
+        case .CreateEvent:
+            cellId = "CPEventCreateCellIdentifier"
+            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventCreateCell
+            if cell == nil {
+                cell = (CPEventCreateCell.cellFromNibNamed("CPEventCreateCell") as! CPEventCreateCell)
+            }
+            
+        case .PushEvent:
+            cellId = "CPEventPushCellIdentifier"
+            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventPushCell
+            if cell == nil {
+                cell = (CPEventPushCell.cellFromNibNamed("CPEventPushCell") as! CPEventPushCell)
+            }
+            
+        default:
+            cellId = "CPEventStarredCellIdentifier"
+            cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPEventStarredCell
+            if cell == nil {
+                cell = (CPEventStarredCell.cellFromNibNamed("CPEventStarredCell") as! CPEventStarredCell)
+            }
             
         }
         
@@ -381,15 +493,15 @@ extension CPMessageViewController : UITableViewDataSource {
         if row == 0 {
             cell!.topline = true
         }
-        if (row == issuesData.count-1) {
+        if (row == eventsData.count-1) {
             cell!.fullline = true
         }else {
             cell!.fullline = false
         }
-        let issue = self.issuesData[row]
-        cell!.issue = issue
-        return cell!;
+        cell!.event = event
         
+        return cell!;
+
     }
     
 }
@@ -399,8 +511,31 @@ extension CPMessageViewController : UITableViewDelegate {
         
         if segControl.selectedSegmentIndex == 0 {
             return 55
+        }else if(segControl.selectedSegmentIndex == 1){
+            return 75
+        }else if(segControl.selectedSegmentIndex == 2){
+            let event:ObjEvent = self.eventsData[indexPath.row]
+            let eventType:EventType = EventType(rawValue: (event.type!))!
+            
+            switch(eventType) {
+            case .WatchEvent:
+                return 45
+                
+            case .CreateEvent:
+                return 65
+                
+            case .PushEvent:
+                
+                let height:CGFloat = CGFloat( (event.payload?.commits!.count)! ) * 25.0
+                let totalHeight:CGFloat = 65+height
+                return totalHeight
+                
+            default:
+                return 0
+                
+            }
         }
-        return 75
+        return 0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

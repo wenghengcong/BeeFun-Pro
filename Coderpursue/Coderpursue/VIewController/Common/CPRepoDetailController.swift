@@ -126,11 +126,11 @@ class CPRepoDetailController: CPBaseViewController {
             
             if objRepo.html_url != nil {
                 if reposInfoArr.count < 2 {
-                    let homepage:[String:String] = ["key":"homepage","img":"coticon_repository_25","desc":"Homepage".localized,"discolsure":"true"]
+                    let homepage:[String:String] = ["key":"homepage","img":"repos_homepage","desc":"Homepage".localized,"discolsure":"true"]
                     reposInfoArr.insert(homepage, at: 0)
                     
                     let uname = repos!.owner!.login!
-                    let ownerDic:[String:String] = ["key":"owner","img":"octicon_person_25","desc":uname,"discolsure":"true"]
+                    let ownerDic:[String:String] = ["key":"owner","img":"repos_me","desc":uname,"discolsure":"true"]
                     reposInfoArr.append(ownerDic)
                     
                     tableView.reloadData()

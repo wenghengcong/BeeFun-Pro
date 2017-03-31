@@ -143,7 +143,7 @@ class CPUserDetailController: CPBaseViewController {
         devInfoArr.removeAll()
         
         if let _ = developer!.html_url {
-            let homepageDic:Dictionary = ["key":"homepage","img":"coticon_home_25","desc":"Homepage".localized,"discolsure":"true"]
+            let homepageDic:Dictionary = ["key":"homepage","img":"user_home","desc":"Homepage".localized,"discolsure":"true"]
             devInfoArr.insert(homepageDic, at: 0)
         }
         
@@ -151,17 +151,17 @@ class CPUserDetailController: CPBaseViewController {
             let ind = joinTime.characters.index(joinTime.startIndex, offsetBy: 10)
             let subStr = joinTime.substring(to: ind)
             let join = "Joined on".localized + " "+subStr
-            let joinDic:[String:String] = ["key":"join","img":"octicon_time_25","desc":join,"discolsure":"false"]
+            let joinDic:[String:String] = ["key":"join","img":"user_time","desc":join,"discolsure":"false"]
             devInfoArr.append(joinDic)
         }
         
         if let location:String = developer!.location {
-            let locDic:[String:String] = ["key":"location","img":"octicon_loc_25","desc":location,"discolsure":"false"]
+            let locDic:[String:String] = ["key":"location","img":"user_loc","desc":location,"discolsure":"false"]
             devInfoArr.append(locDic)
         }
         
         if let company = developer!.company {
-            let companyDic:Dictionary = ["key":"company","img":"octicon_org_25","desc":company,"discolsure":"false"]
+            let companyDic:Dictionary = ["key":"company","img":"user_org","desc":company,"discolsure":"false"]
             devInfoArr.append(companyDic)
         }
         

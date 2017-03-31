@@ -509,7 +509,7 @@ extension CPRepoDetailController : UITableViewDataSource {
         }
         
         //handle line in cell
-        if row == 1 {
+        if row == 0 {
             cell!.topline = true
         }
         

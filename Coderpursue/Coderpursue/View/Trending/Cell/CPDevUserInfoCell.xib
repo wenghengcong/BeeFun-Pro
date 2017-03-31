@@ -60,6 +60,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow_right_gray" width="24" height="24"/>
+        <image name="arrow_right_gray" width="32" height="32"/>
     </resources>
 </document>

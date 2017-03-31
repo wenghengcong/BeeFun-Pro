@@ -369,7 +369,7 @@ class CPUserDetailController: CPBaseViewController {
 extension CPUserDetailController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -386,28 +386,6 @@ extension CPUserDetailController : UITableViewDataSource {
         
         let cellId = "CPDevUserInfoCellIdentifier"
 
-        if ((indexPath as NSIndexPath).section == 0){
-            
-            var cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPDevUserInfoCell
-            if cell == nil {
-                cell = (CPDevUserInfoCell.cellFromNibNamed("CPDevUserInfoCell") as! CPDevUserInfoCell)
-            }
-            
-            //handle line in cell
-            if row == 1 {
-                cell!.topline = true
-            }
-            
-            if (row == devInfoArr.count-1) {
-                cell!.fullline = true
-            }else {
-                cell!.fullline = false
-            }
-            cell!.duic_fillData(devInfoArr[row])
-            
-            return cell!;
-        }
-        
         var cell = tableView .dequeueReusableCell(withIdentifier: cellId) as? CPDevUserInfoCell
         if cell == nil {
             cell = (CPDevUserInfoCell.cellFromNibNamed("CPDevUserInfoCell") as! CPDevUserInfoCell)
@@ -417,12 +395,15 @@ extension CPUserDetailController : UITableViewDataSource {
         if row == 0 {
             cell!.topline = true
         }
-        if (row == 1) {
+        
+        if (row == devInfoArr.count-1) {
             cell!.fullline = true
+        }else {
+            cell!.fullline = false
         }
+        cell!.duic_fillData(devInfoArr[row])
         
         return cell!;
-        
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -448,7 +429,6 @@ extension CPUserDetailController : UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        
         return 44
     }
     

@@ -29,10 +29,11 @@ PODS:
   - ReachabilitySwift (3)
   - Result (3.2.1)
   - SnapKit (3.2.0)
-  - SwiftDate (4.0.13)
+  - SwiftDate (4.0.14)
   - SwiftMessages (3.3.2)
   - SwiftyBeaver (1.1.4)
   - SwiftyJSON (3.1.4)
+  - SwiftyStoreKit (0.8.4)
 
 DEPENDENCIES:
   - Alamofire
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - SwiftMessages
   - SwiftyBeaver
   - SwiftyJSON
+  - SwiftyStoreKit
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
@@ -69,11 +71,12 @@ SPEC CHECKSUMS:
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  SwiftDate: 8ec416bb1b5129d1f35e8efaed720421f41d42df
+  SwiftDate: 4ef029fd3117cc287fe642658b9aca2217628976
   SwiftMessages: 278ef49901fae934241d73b2a781edb1bf7bea5c
   SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
+  SwiftyStoreKit: b235756bd6e541cafbed6e75d28b29b8a1c1caef
 
-PODFILE CHECKSUM: 2f8846c3aa4b7a19bbb9ee59909a4319b6fea9a1
+PODFILE CHECKSUM: 357c51bfd33422c7da092aac6a20f6a3d8249e20
 
 COCOAPODS: 1.2.0

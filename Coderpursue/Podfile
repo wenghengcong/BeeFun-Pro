@@ -28,6 +28,7 @@ target 'Coderpursue' do
     pod 'SwiftMessages'
     pod 'JPush'
     #pod 'UMengAnalytics-NO-IDFA'
+    pod 'SwiftyStoreKit'
 end
 
 #post_install do |installer|

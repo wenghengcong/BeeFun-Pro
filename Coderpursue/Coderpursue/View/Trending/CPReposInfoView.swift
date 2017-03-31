@@ -54,14 +54,14 @@ class CPReposInfoView: UIView {
         
         self.backgroundColor = UIColor.white
         
-        watchBtn.setImage(UIImage(named: "octicon_watch_20"), for: UIControlState())
-        starBtn.setImage(UIImage(named: "octicon_star_20"), for: UIControlState())
-        forkBtn.setImage(UIImage(named: "octicon_fork_20"), for: UIControlState())
+        watchBtn.setImage(UIImage(named: "repos_watch"), for: UIControlState())
+        starBtn.setImage(UIImage(named: "repos_star"), for: UIControlState())
+        forkBtn.setImage(UIImage(named: "repos_fork"), for: UIControlState())
         
-        lanBtn.setImage(UIImage(named: "octicon_language_20"), for: UIControlState())
-        privateBtn.setImage(UIImage(named: "octicon_private_20"), for: UIControlState())
-        issueBtn.setImage(UIImage(named: "octicon_issue_20"), for: UIControlState())
-        filesizeBtn.setImage(UIImage(named: "octicon_filesize_20"), for: UIControlState())
+        lanBtn.setImage(UIImage(named: "repos_lan"), for: UIControlState())
+        privateBtn.setImage(UIImage(named: "repos_unlock"), for: UIControlState())
+        issueBtn.setImage(UIImage(named: "repos_issue"), for: UIControlState())
+        filesizeBtn.setImage(UIImage(named: "repos_file"), for: UIControlState())
         
         let widthBy3Part = UIScreen.width/3
         let widthBy2Part = UIScreen.width/2
@@ -134,8 +134,10 @@ class CPReposInfoView: UIView {
         if let cprivate = repo?.cprivate {
             if(cprivate){
                 privateBtn.setTitle("Private".localized, for: UIControlState())
+                privateBtn.setImage(UIImage(named: "repos_lock"), for: UIControlState())
             }else{
                 privateBtn.setTitle("Public".localized, for: UIControlState())
+                privateBtn.setImage(UIImage(named: "repos_unlock"), for: UIControlState())
             }
         }
         

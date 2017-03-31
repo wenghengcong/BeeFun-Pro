@@ -383,10 +383,24 @@ extension CPStarsViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let repos = self.reposData[indexPath.row]
+        
+        let repos:ObjRepos?
+
+        if self.segControl.selectedSegmentIndex == 0 {
+            if self.reposData.isBeyond(index: indexPath.row) {
+                return
+            }
+            repos = self.reposData[indexPath.row]
+        }else{
+            if self.watchsData.isBeyond(index: indexPath.row) {
+                return
+            }
+            repos = self.watchsData[indexPath.row]
+        }
+
         let vc = CPRepoDetailController()
         vc.hidesBottomBarWhenPushed = true
-        vc.repos = repos
+        vc.repos = repos!
         self.navigationController?.pushViewController(vc, animated: true)        
     }
 }

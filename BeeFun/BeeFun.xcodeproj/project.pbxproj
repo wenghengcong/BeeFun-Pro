@@ -138,7 +138,6 @@
 		5E0FE6411E8FFFDB00356232 /* tab_star_sel@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE4EA1E8FFFDA00356232 /* tab_star_sel@3x.png */; };
 		5E0FE6421E8FFFDB00356232 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE4FF1E8FFFDA00356232 /* Localizable.strings */; };
 		5E0FE6431E8FFFDB00356232 /* CPAboutList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE5031E8FFFDA00356232 /* CPAboutList.plist */; };
-		5E0FE6441E8FFFDB00356232 /* CPAppLanguage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE5051E8FFFDA00356232 /* CPAppLanguage.plist */; };
 		5E0FE6451E8FFFDB00356232 /* CPCity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE5071E8FFFDA00356232 /* CPCity.plist */; };
 		5E0FE6461E8FFFDB00356232 /* CPCountry.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE5091E8FFFDA00356232 /* CPCountry.plist */; };
 		5E0FE6471E8FFFDB00356232 /* CPFilterLanguage.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE50B1E8FFFDA00356232 /* CPFilterLanguage.plist */; };
@@ -433,14 +432,12 @@
 		5E0FE5001E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5E0FE5011E8FFFDA00356232 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		5E0FE5041E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPAboutList.plist; sourceTree = "<group>"; };
-		5E0FE5061E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPAppLanguage.plist; sourceTree = "<group>"; };
 		5E0FE5081E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPCity.plist; sourceTree = "<group>"; };
 		5E0FE50A1E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPCountry.plist; sourceTree = "<group>"; };
 		5E0FE50C1E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPFilterLanguage.plist; sourceTree = "<group>"; };
 		5E0FE50E1E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPProfileList.plist; sourceTree = "<group>"; };
 		5E0FE5101E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/CPSettingsList.plist; sourceTree = "<group>"; };
 		5E0FE5111E8FFFDA00356232 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPAboutList.plist"; sourceTree = "<group>"; };
-		5E0FE5121E8FFFDA00356232 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPAppLanguage.plist"; sourceTree = "<group>"; };
 		5E0FE5131E8FFFDA00356232 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPCity.plist"; sourceTree = "<group>"; };
 		5E0FE5141E8FFFDA00356232 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPCountry.plist"; sourceTree = "<group>"; };
 		5E0FE5151E8FFFDA00356232 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPFilterLanguage.plist"; sourceTree = "<group>"; };
@@ -1053,7 +1050,6 @@
 			isa = PBXGroup;
 			children = (
 				5E0FE5031E8FFFDA00356232 /* CPAboutList.plist */,
-				5E0FE5051E8FFFDA00356232 /* CPAppLanguage.plist */,
 				5E0FE5071E8FFFDA00356232 /* CPCity.plist */,
 				5E0FE5091E8FFFDA00356232 /* CPCountry.plist */,
 				5E0FE50B1E8FFFDA00356232 /* CPFilterLanguage.plist */,
@@ -1615,7 +1611,6 @@
 				5E0FE6311E8FFFDB00356232 /* tab_gist_sel@2x.png in Resources */,
 				5E0FE6371E8FFFDB00356232 /* tab_me@3x.png in Resources */,
 				5E0FE6851E8FFFDB00356232 /* CPMesIssueCell.xib in Resources */,
-				5E0FE6441E8FFFDB00356232 /* CPAppLanguage.plist in Resources */,
 				5E0FE63A1E8FFFDB00356232 /* tab_mes@2x.png in Resources */,
 				5E0FE6331E8FFFDB00356232 /* tab_hot@3x.png in Resources */,
 				5E0FE5CC1E8FFFDB00356232 /* LaunchScreen.storyboard in Resources */,
@@ -2082,15 +2077,6 @@
 				5E0FE5111E8FFFDA00356232 /* zh-Hans */,
 			);
 			name = CPAboutList.plist;
-			sourceTree = "<group>";
-		};
-		5E0FE5051E8FFFDA00356232 /* CPAppLanguage.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E0FE5061E8FFFDA00356232 /* en */,
-				5E0FE5121E8FFFDA00356232 /* zh-Hans */,
-			);
-			name = CPAppLanguage.plist;
 			sourceTree = "<group>";
 		};
 		5E0FE5071E8FFFDA00356232 /* CPCity.plist */ = {

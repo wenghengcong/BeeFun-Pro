@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  Coderpursue
+//  BeeFun
 //
 //  Created by wenghengcong on 15/12/22.
 //  Copyright © 2015年 JungleSong. All rights reserved.

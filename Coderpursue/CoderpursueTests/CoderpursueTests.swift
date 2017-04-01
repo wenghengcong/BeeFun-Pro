@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Coderpursue
+@testable import BeeFun
 
 class CoderpursueTests: XCTestCase {
     

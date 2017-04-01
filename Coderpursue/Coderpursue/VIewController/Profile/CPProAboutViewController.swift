@@ -42,7 +42,7 @@ class CPProAboutViewController: CPBaseViewController {
     }
 
     func pavc_customView(){
-        introTextV.text = "  Coderpursue is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!".localized
+        introTextV.text = "  BeeFun is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!".localized
         introTextV.isEditable = false
     }
     
@@ -146,14 +146,14 @@ extension CPProAboutViewController : UITableViewDelegate {
         }else if(viewType == "website"){
 //            self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: nil)
 
-        }else if(viewType == "coderpursue"){
+        }else if(viewType == "beefun"){
             
-            let coderpursuePrj = ObjRepos()
-            coderpursuePrj.owner = me
-            coderpursuePrj.name = JSApp.displayName
+            let beefunPrj = ObjRepos()
+            beefunPrj.owner = me
+            beefunPrj.name = JSApp.displayName
             let vc = CPRepoDetailController()
             vc.hidesBottomBarWhenPushed = true
-            vc.repos = coderpursuePrj
+            vc.repos = beefunPrj
             self.navigationController?.pushViewController(vc, animated: true)
             
         }else if(viewType == "me"){

@@ -1,6 +1,6 @@
 //
 //  ObjUser.swift
-//  Coderpursue
+//  BeeFun
 //
 //  Created by wenghengcong on 16/1/12.
 //  Copyright © 2016年 JungleSong. All rights reserved.

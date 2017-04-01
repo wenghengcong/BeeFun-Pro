@@ -1,6 +1,6 @@
 /* 
   Localizable.strings
-  Coderpursue
+  BeeFun
 
   Created by WengHengcong on 2017/3/13.
   Copyright © 2017年 JungleSong. All rights reserved.
@@ -96,7 +96,7 @@
 "Following"="关注";
 
 //长文本
-"  Coderpursue is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!" = "  Coderpursue 是github客户端，也是Swift语言编写的一个开源项目。欢迎更多的人参与到该项目的设计与开发工作，也欢迎大家能提出更多的建议和上报bugs!";
+"  BeeFun is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!" = "  BeeFun 是github客户端，也是Swift语言编写的一个开源项目。欢迎更多的人参与到该项目的设计与开发工作，也欢迎大家能提出更多的建议和上报bugs!";
 "registers the user to receive notifications on new discussions" = "用户注册后，可以接受新讨论的通知";
 "lets users bookmark repositories."="用户可以收藏项目";
 "A fork is a copy of a repository."="拷贝项目";

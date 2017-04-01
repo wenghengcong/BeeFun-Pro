@@ -606,13 +606,13 @@
 		FE91BA941C333AE2002AECB6 /* CPBaseTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPBaseTabBarController.swift; sourceTree = "<group>"; };
 		FE91BA961C334C9F002AECB6 /* CPLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPLoginViewController.swift; sourceTree = "<group>"; };
 		FEAB7EB51C5E2B8500C78E87 /* DataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
-		FEC0DC361C28B39F0008C7C1 /* Coderpursue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Coderpursue.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEC0DC361C28B39F0008C7C1 /* BeeFun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BeeFun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC0DC391C28B39F0008C7C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEC0DC451C28B39F0008C7C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		FEC0DC4C1C28B39F0008C7C1 /* CoderpursueTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderpursueTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEC0DC4C1C28B39F0008C7C1 /* BeeFunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeeFunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC0DC501C28B39F0008C7C1 /* CoderpursueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderpursueTests.swift; sourceTree = "<group>"; };
 		FEC0DC521C28B39F0008C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FEC0DC571C28B39F0008C7C1 /* CoderpursueUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CoderpursueUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FEC0DC571C28B39F0008C7C1 /* BeeFunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BeeFunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEC0DC5B1C28B39F0008C7C1 /* CoderpursueUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoderpursueUITests.swift; sourceTree = "<group>"; };
 		FEC0DC5D1C28B39F0008C7C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FED481081C3C7121002956A8 /* CPStyleGuide.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPStyleGuide.swift; sourceTree = "<group>"; };
@@ -1538,9 +1538,9 @@
 		FEC0DC371C28B39F0008C7C1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FEC0DC361C28B39F0008C7C1 /* Coderpursue.app */,
-				FEC0DC4C1C28B39F0008C7C1 /* CoderpursueTests.xctest */,
-				FEC0DC571C28B39F0008C7C1 /* CoderpursueUITests.xctest */,
+				FEC0DC361C28B39F0008C7C1 /* BeeFun.app */,
+				FEC0DC4C1C28B39F0008C7C1 /* BeeFunTests.xctest */,
+				FEC0DC571C28B39F0008C7C1 /* BeeFunUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1587,9 +1587,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FEC0DC351C28B39F0008C7C1 /* Coderpursue */ = {
+		FEC0DC351C28B39F0008C7C1 /* BeeFun */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FEC0DC601C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "Coderpursue" */;
+			buildConfigurationList = FEC0DC601C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "BeeFun" */;
 			buildPhases = (
 				D804F693A26BEDF21E8179BB /* [CP] Check Pods Manifest.lock */,
 				FEC0DC321C28B39F0008C7C1 /* Sources */,
@@ -1602,14 +1602,14 @@
 			);
 			dependencies = (
 			);
-			name = Coderpursue;
+			name = BeeFun;
 			productName = Coderpursue;
-			productReference = FEC0DC361C28B39F0008C7C1 /* Coderpursue.app */;
+			productReference = FEC0DC361C28B39F0008C7C1 /* BeeFun.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FEC0DC4B1C28B39F0008C7C1 /* CoderpursueTests */ = {
+		FEC0DC4B1C28B39F0008C7C1 /* BeeFunTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FEC0DC631C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "CoderpursueTests" */;
+			buildConfigurationList = FEC0DC631C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "BeeFunTests" */;
 			buildPhases = (
 				FEC0DC481C28B39F0008C7C1 /* Sources */,
 				FEC0DC491C28B39F0008C7C1 /* Frameworks */,
@@ -1620,14 +1620,14 @@
 			dependencies = (
 				FEC0DC4E1C28B39F0008C7C1 /* PBXTargetDependency */,
 			);
-			name = CoderpursueTests;
+			name = BeeFunTests;
 			productName = CoderpursueTests;
-			productReference = FEC0DC4C1C28B39F0008C7C1 /* CoderpursueTests.xctest */;
+			productReference = FEC0DC4C1C28B39F0008C7C1 /* BeeFunTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FEC0DC561C28B39F0008C7C1 /* CoderpursueUITests */ = {
+		FEC0DC561C28B39F0008C7C1 /* BeeFunUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FEC0DC661C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "CoderpursueUITests" */;
+			buildConfigurationList = FEC0DC661C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "BeeFunUITests" */;
 			buildPhases = (
 				FEC0DC531C28B39F0008C7C1 /* Sources */,
 				FEC0DC541C28B39F0008C7C1 /* Frameworks */,
@@ -1638,9 +1638,9 @@
 			dependencies = (
 				FEC0DC591C28B39F0008C7C1 /* PBXTargetDependency */,
 			);
-			name = CoderpursueUITests;
+			name = BeeFunUITests;
 			productName = CoderpursueUITests;
-			productReference = FEC0DC571C28B39F0008C7C1 /* CoderpursueUITests.xctest */;
+			productReference = FEC0DC571C28B39F0008C7C1 /* BeeFunUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -1693,9 +1693,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FEC0DC351C28B39F0008C7C1 /* Coderpursue */,
-				FEC0DC4B1C28B39F0008C7C1 /* CoderpursueTests */,
-				FEC0DC561C28B39F0008C7C1 /* CoderpursueUITests */,
+				FEC0DC351C28B39F0008C7C1 /* BeeFun */,
+				FEC0DC4B1C28B39F0008C7C1 /* BeeFunTests */,
+				FEC0DC561C28B39F0008C7C1 /* BeeFunUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1993,12 +1993,12 @@
 /* Begin PBXTargetDependency section */
 		FEC0DC4E1C28B39F0008C7C1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FEC0DC351C28B39F0008C7C1 /* Coderpursue */;
+			target = FEC0DC351C28B39F0008C7C1 /* BeeFun */;
 			targetProxy = FEC0DC4D1C28B39F0008C7C1 /* PBXContainerItemProxy */;
 		};
 		FEC0DC591C28B39F0008C7C1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FEC0DC351C28B39F0008C7C1 /* Coderpursue */;
+			target = FEC0DC351C28B39F0008C7C1 /* BeeFun */;
 			targetProxy = FEC0DC581C28B39F0008C7C1 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -2647,7 +2647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FEC0DC601C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "Coderpursue" */ = {
+		FEC0DC601C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "BeeFun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEC0DC611C28B39F0008C7C1 /* Debug */,
@@ -2657,7 +2657,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FEC0DC631C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "CoderpursueTests" */ = {
+		FEC0DC631C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "BeeFunTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEC0DC641C28B39F0008C7C1 /* Debug */,
@@ -2667,7 +2667,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FEC0DC661C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "CoderpursueUITests" */ = {
+		FEC0DC661C28B39F0008C7C1 /* Build configuration list for PBXNativeTarget "BeeFunUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FEC0DC671C28B39F0008C7C1 /* Debug */,

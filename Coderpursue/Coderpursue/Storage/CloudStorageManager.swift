@@ -17,7 +17,7 @@ class CloudStorageManager: NSObject {
     class func storageInit(){
         AVOSCloud.setApplicationId(LeanCloudAppID, clientKey: LeanCloudAppKey)
         // TODO: log关闭
-        AVOSCloud.setAllLogsEnabled(true)
+//        AVOSCloud.setAllLogsEnabled(true)
         
         //获取设置
         getAppRewardSwitch()

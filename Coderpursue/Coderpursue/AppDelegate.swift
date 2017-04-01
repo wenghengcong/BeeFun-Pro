@@ -47,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         
         //JPush
         // TODO: channel改为正式
-        JPUSHService.setup(withOption: launchOptions, appKey: JPushAppKey, channel: JPushChannel, apsForProduction: false)
+        JPUSHService.setup(withOption: launchOptions, appKey: JPushAppKey, channel: JPushChannel, apsForProduction: true)
 
         let pushConfig = JPUSHRegisterEntity.init()
         let pushSwitch = (UIUserNotificationType.badge.rawValue|UIUserNotificationType.sound.rawValue|UIUserNotificationType.alert.rawValue)

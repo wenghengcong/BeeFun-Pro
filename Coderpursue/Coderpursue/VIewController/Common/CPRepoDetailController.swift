@@ -589,7 +589,6 @@ extension CPRepoDetailController:ReposActionProtocol {
 //        var clickSure: ((UIAlertAction) -> Void) = {
 //            (UIAlertAction)->Void in
 //        }
-        // TODO: localized
         switch(actionType){
         case .Watch:
             if(hasWatchedRepos){

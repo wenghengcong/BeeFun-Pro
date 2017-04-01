@@ -1,6 +1,6 @@
 //
 //  NetworkHelper.swift
-//  Coderpursue
+//  BeeFun
 //
 //  Created by wenghengcong on 16/1/10.
 //  Copyright © 2016年 JungleSong. All rights reserved.

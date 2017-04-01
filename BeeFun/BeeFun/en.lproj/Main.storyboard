@@ -12,7 +12,7 @@
         <!--Base Tab Bar Controller-->
         <scene sceneID="55k-1z-RJw">
             <objects>
-                <tabBarController storyboardIdentifier="tabbarController" id="ivC-bI-4sF" customClass="CPBaseTabBarController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbarController" id="ivC-bI-4sF" customClass="CPBaseTabBarController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="oKF-J0-Nde">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -32,7 +32,7 @@
         <!--Stars-->
         <scene sceneID="CGQ-og-QC3">
             <objects>
-                <navigationController title="Stars" id="3ai-xQ-RFW" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController title="Stars" id="3ai-xQ-RFW" customClass="CPBaseNavigationController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Stars" image="tab_star" selectedImage="tab_star_sel" id="cip-ko-VOO"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PGE-k7-b3G">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -49,7 +49,7 @@
         <!--Stars-->
         <scene sceneID="vdc-QR-8AQ">
             <objects>
-                <viewController storyboardIdentifier="CPStarsViewController" title="Stars" id="Yd6-KV-moW" customClass="CPStarsViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CPStarsViewController" title="Stars" id="Yd6-KV-moW" customClass="CPStarsViewController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Cmq-uo-Yi4"/>
                         <viewControllerLayoutGuide type="bottom" id="G1D-iP-BEs"/>
@@ -62,7 +62,7 @@
                                 <rect key="frame" x="0.0" y="99" width="375" height="519"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CPStarredReposCellIdentifier" rowHeight="85" id="yLE-TZ-D3o" customClass="CPStarredReposCell" customModule="Coderpursue" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CPStarredReposCellIdentifier" rowHeight="85" id="yLE-TZ-D3o" customClass="CPStarredReposCell" customModule="BeeFun" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yLE-TZ-D3o" id="gGU-Hi-TFB">
@@ -211,7 +211,7 @@
         <!--Explore-->
         <scene sceneID="TB7-hQ-fi8">
             <objects>
-                <navigationController id="lAP-Eg-5KM" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="lAP-Eg-5KM" customClass="CPBaseNavigationController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Explore" image="tab_hot" selectedImage="tab_hot_sel" id="6tt-Ce-XeT"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="pV5-to-I10">
@@ -229,7 +229,7 @@
         <!--Explore-->
         <scene sceneID="oAb-6D-aD0">
             <objects>
-                <viewController storyboardIdentifier="CPTrendingViewController" id="IYd-sN-OJ9" customClass="CPTrendingViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CPTrendingViewController" id="IYd-sN-OJ9" customClass="CPTrendingViewController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cbp-sy-yoy"/>
                         <viewControllerLayoutGuide type="bottom" id="pdP-H3-tAU"/>
@@ -268,7 +268,7 @@
         <!--Pro Settings View Controller-->
         <scene sceneID="eDz-7i-Rhi">
             <objects>
-                <viewController id="PAH-Xm-8JL" customClass="CPProSettingsViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PAH-Xm-8JL" customClass="CPProSettingsViewController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BgW-gN-mu5"/>
                         <viewControllerLayoutGuide type="bottom" id="SED-Gz-H9l"/>
@@ -328,7 +328,7 @@
         <!--Pro About View Controller-->
         <scene sceneID="Zc9-E2-T0Z">
             <objects>
-                <viewController id="Bka-Au-Ffg" customClass="CPProAboutViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Bka-Au-Ffg" customClass="CPProAboutViewController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="o41-Tz-oHQ"/>
                         <viewControllerLayoutGuide type="bottom" id="QF8-Wv-TnC"/>
@@ -344,7 +344,7 @@
                                     <constraint firstAttribute="height" constant="90" id="ze9-Hz-mnU"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="  Coderpursue is a client of Github." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lwb-pO-CWh">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="  BeeFun is a client of Github." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="lwb-pO-CWh">
                                 <rect key="frame" x="0.0" y="180" width="375" height="133"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -387,7 +387,7 @@
         <!--Trending Showcase View Controller-->
         <scene sceneID="H5G-K4-gEm">
             <objects>
-                <viewController id="9Nl-ng-E8B" customClass="CPTrendingShowcaseViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9Nl-ng-E8B" customClass="CPTrendingShowcaseViewController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bFK-ZM-eyD"/>
                         <viewControllerLayoutGuide type="bottom" id="ucc-gp-Oau"/>
@@ -400,7 +400,7 @@
                                 <rect key="frame" x="0.0" y="251" width="375" height="416"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKX-5W-Toc" customClass="CPShowcaseInfoView" customModule="Coderpursue" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MKX-5W-Toc" customClass="CPShowcaseInfoView" customModule="BeeFun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="172"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6Gv-RL-bdy">
@@ -464,7 +464,7 @@
         <!--Profile-->
         <scene sceneID="uph-4U-viH">
             <objects>
-                <navigationController id="CLS-sg-WiJ" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="CLS-sg-WiJ" customClass="CPBaseNavigationController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="tab_me" selectedImage="tab_me_sel" id="xw0-IQ-hKh"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xvZ-Mh-LAR">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -481,7 +481,7 @@
         <!--Profile-->
         <scene sceneID="9K1-Qp-dmN">
             <objects>
-                <viewController storyboardIdentifier="CPProfileViewController" id="PYK-d1-O6X" customClass="CPProfileViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CPProfileViewController" id="PYK-d1-O6X" customClass="CPProfileViewController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EWC-Ee-5mA"/>
                         <viewControllerLayoutGuide type="bottom" id="ctG-BS-VmZ"/>
@@ -490,7 +490,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y22-sW-0Lp" userLabel="ProfileBgView" customClass="CPProfileHeaderView" customModule="Coderpursue" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y22-sW-0Lp" userLabel="ProfileBgView" customClass="CPProfileHeaderView" customModule="BeeFun" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="204"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Zhs-OY-NPm">
@@ -727,7 +727,7 @@
         <!--Funny Lab View Controller-->
         <scene sceneID="JFR-6s-nY5">
             <objects>
-                <viewController id="z0k-zo-1DG" customClass="CPFunnyLabViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="z0k-zo-1DG" customClass="CPFunnyLabViewController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NjS-bG-rYa"/>
                         <viewControllerLayoutGuide type="bottom" id="lxl-rk-UQK"/>
@@ -782,7 +782,7 @@
         <!--Message-->
         <scene sceneID="igp-jT-fcW">
             <objects>
-                <navigationController id="n2v-4O-Ysv" customClass="CPBaseNavigationController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="n2v-4O-Ysv" customClass="CPBaseNavigationController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Message" image="tab_mes" selectedImage="tab_mes_sel" id="1vW-qp-Co7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="OR1-eh-UTX">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -799,7 +799,7 @@
         <!--Message-->
         <scene sceneID="sqn-RG-YNS">
             <objects>
-                <viewController storyboardIdentifier="CPMessageViewController" id="stj-JY-WEa" customClass="CPMessageViewController" customModule="Coderpursue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CPMessageViewController" id="stj-JY-WEa" customClass="CPMessageViewController" customModule="BeeFun" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tiP-LD-t2V"/>
                         <viewControllerLayoutGuide type="bottom" id="Qww-Du-t98"/>

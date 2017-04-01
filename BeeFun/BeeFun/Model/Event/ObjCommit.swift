@@ -1,6 +1,6 @@
 //
 //  ObjCommit.swift
-//  Coderpursue
+//  BeeFun
 //
 //  Created by WengHengcong on 2/23/16.
 //  Copyright © 2016 JungleSong. All rights reserved.
@@ -15,7 +15,7 @@ import ObjectMapper
 "author":ObjUser,
 "message": "starred repos done",
 "distinct": true,
-"url": "https://api.github.com/repos/wenghengcong/Coderpursue/commits/134f57a577b4dc45a29818d11d2484c549a86ac0"
+"url": "https://api.github.com/repos/wenghengcong/BeeFun/commits/134f57a577b4dc45a29818d11d2484c549a86ac0"
 
 */
 

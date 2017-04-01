@@ -17,9 +17,7 @@
 		5E0DDC731E72D4DB00493ABA /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E0DDC721E72D4DB00493ABA /* libc++.tbd */; };
 		5E0FE5C91E8FFFDB00356232 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0FE4431E8FFFDA00356232 /* AppDelegate.swift */; };
 		5E0FE5CA1E8FFFDB00356232 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE4441E8FFFDA00356232 /* Assets.xcassets */; };
-		5E0FE5CB1E8FFFDB00356232 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE4451E8FFFDA00356232 /* Info.plist */; };
 		5E0FE5CC1E8FFFDB00356232 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE4471E8FFFDA00356232 /* LaunchScreen.storyboard */; };
-		5E0FE5CD1E8FFFDB00356232 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE44C1E8FFFDA00356232 /* InfoPlist.strings */; };
 		5E0FE5CE1E8FFFDB00356232 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE44E1E8FFFDA00356232 /* Main.storyboard */; };
 		5E0FE5CF1E8FFFDB00356232 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E0FE4501E8FFFDA00356232 /* Info.plist */; };
 		5E0FE5D01E8FFFDB00356232 /* JSHMSegmentedBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0FE4531E8FFFDA00356232 /* JSHMSegmentedBridge.swift */; };
@@ -287,15 +285,13 @@
 		5E09439C1CC1F0320047118D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5E09439E1CC1F03C0047118D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5E0DDC721E72D4DB00493ABA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		5E0FE4431E8FFFDA00356232 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5E0FE4441E8FFFDA00356232 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5E0FE4461E8FFFDA00356232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Base; path = Base.lproj/Info.plist; sourceTree = "<group>"; };
+		5E0FE4431E8FFFDA00356232 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BeeFun/AppDelegate.swift; sourceTree = "<group>"; };
+		5E0FE4441E8FFFDA00356232 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BeeFun/Assets.xcassets; sourceTree = "<group>"; };
 		5E0FE4481E8FFFDA00356232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E0FE4491E8FFFDA00356232 /* BeeFun-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BeeFun-Bridging-Header.h"; sourceTree = "<group>"; };
 		5E0FE44A1E8FFFDA00356232 /* BeeFun.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BeeFun.entitlements; sourceTree = "<group>"; };
-		5E0FE44D1E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E0FE44F1E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5E0FE4501E8FFFDA00356232 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E0FE4501E8FFFDA00356232 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BeeFun/Info.plist; sourceTree = "<group>"; };
 		5E0FE4531E8FFFDA00356232 /* JSHMSegmentedBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSHMSegmentedBridge.swift; sourceTree = "<group>"; };
 		5E0FE4541E8FFFDA00356232 /* JSMBHUDBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSMBHUDBridge.swift; sourceTree = "<group>"; };
 		5E0FE4551E8FFFDA00356232 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -718,15 +714,7 @@
 		5E0FE4421E8FFFDA00356232 /* BeeFun */ = {
 			isa = PBXGroup;
 			children = (
-				5E0FE4431E8FFFDA00356232 /* AppDelegate.swift */,
-				5E0FE4441E8FFFDA00356232 /* Assets.xcassets */,
-				5E0FE4451E8FFFDA00356232 /* Info.plist */,
-				5E0FE4471E8FFFDA00356232 /* LaunchScreen.storyboard */,
-				5E0FE4491E8FFFDA00356232 /* BeeFun-Bridging-Header.h */,
-				5E0FE44A1E8FFFDA00356232 /* BeeFun.entitlements */,
-				5E0FE44C1E8FFFDA00356232 /* InfoPlist.strings */,
-				5E0FE44E1E8FFFDA00356232 /* Main.storyboard */,
-				5E0FE4501E8FFFDA00356232 /* Info.plist */,
+				5EF3C04E1E900FB900BDB8B0 /* Support Files */,
 				5E0FE4511E8FFFDA00356232 /* JSToolKit */,
 				5E0FE4851E8FFFDA00356232 /* Manager */,
 				5E0FE48F1E8FFFDA00356232 /* Model */,
@@ -737,7 +725,6 @@
 				5E0FE51C1E8FFFDA00356232 /* ThidParty */,
 				5E0FE56F1E8FFFDB00356232 /* View */,
 				5E0FE59F1E8FFFDB00356232 /* VIewController */,
-				5E0FE5C61E8FFFDB00356232 /* LaunchScreen.strings */,
 			);
 			path = BeeFun;
 			sourceTree = "<group>";
@@ -1496,6 +1483,18 @@
 			path = XcodeConfig;
 			sourceTree = "<group>";
 		};
+		5EF3C04E1E900FB900BDB8B0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E0FE44A1E8FFFDA00356232 /* BeeFun.entitlements */,
+				5E0FE4491E8FFFDA00356232 /* BeeFun-Bridging-Header.h */,
+				5E0FE5C61E8FFFDB00356232 /* LaunchScreen.strings */,
+				5E0FE4471E8FFFDA00356232 /* LaunchScreen.storyboard */,
+				5E0FE44E1E8FFFDA00356232 /* Main.storyboard */,
+			);
+			name = "Support Files";
+			sourceTree = "<group>";
+		};
 		DD25BC4C339CD1DA8D65519D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1510,6 +1509,9 @@
 			children = (
 				5E87F6B31E820407001608F1 /* XcodeConfig */,
 				5E0FE4421E8FFFDA00356232 /* BeeFun */,
+				5E0FE4431E8FFFDA00356232 /* AppDelegate.swift */,
+				5E0FE4501E8FFFDA00356232 /* Info.plist */,
+				5E0FE4441E8FFFDA00356232 /* Assets.xcassets */,
 				FEC0DC371C28B39F0008C7C1 /* Products */,
 				4D8F6ECC1AEDFB027177FDBB /* Frameworks */,
 				DD25BC4C339CD1DA8D65519D /* Pods */,
@@ -1636,7 +1638,6 @@
 				5E0FE6BD1E8FFFDB00356232 /* LaunchScreen.strings in Resources */,
 				5E0FE6901E8FFFDB00356232 /* CPSettingsLabelCell.xib in Resources */,
 				5E0FE68C1E8FFFDB00356232 /* CPProfileReposCell.xib in Resources */,
-				5E0FE5CD1E8FFFDB00356232 /* InfoPlist.strings in Resources */,
 				5E0FE64F1E8FFFDB00356232 /* ShareSDKConfigFile.bundle in Resources */,
 				5E0FE6451E8FFFDB00356232 /* CPCity.plist in Resources */,
 				5E0FE6341E8FFFDB00356232 /* tab_hot_sel@2x.png in Resources */,
@@ -1647,7 +1648,6 @@
 				5E0FE6891E8FFFDB00356232 /* CPMyReposCell.xib in Resources */,
 				5E0FE6831E8FFFDB00356232 /* CPEventStarredCell.xib in Resources */,
 				5E0FE63F1E8FFFDB00356232 /* tab_star@3x.png in Resources */,
-				5E0FE5CB1E8FFFDB00356232 /* Info.plist in Resources */,
 				5E0FE5CA1E8FFFDB00356232 /* Assets.xcassets in Resources */,
 				5E0FE6811E8FFFDB00356232 /* CPEventPushCell.xib in Resources */,
 			);
@@ -1862,28 +1862,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5E0FE4451E8FFFDA00356232 /* Info.plist */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E0FE4461E8FFFDA00356232 /* Base */,
-			);
-			name = Info.plist;
-			sourceTree = "<group>";
-		};
 		5E0FE4471E8FFFDA00356232 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				5E0FE4481E8FFFDA00356232 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		5E0FE44C1E8FFFDA00356232 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5E0FE44D1E8FFFDA00356232 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 		5E0FE44E1E8FFFDA00356232 /* Main.storyboard */ = {

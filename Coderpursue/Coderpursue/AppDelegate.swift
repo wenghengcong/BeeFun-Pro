@@ -11,6 +11,7 @@ import IQKeyboardManagerSwift
 import UserNotifications
 import SwiftDate
 import SwiftyStoreKit
+import AVOSCloud
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
@@ -89,6 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
             }
         }
 
+        //lean cloud
+        CloudStorageManager.storageInit()
         
         return true
     }

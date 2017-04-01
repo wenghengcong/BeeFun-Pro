@@ -71,6 +71,9 @@ class UserManager: NSObject {
     }
     
     
+    var rewarSwitch:Bool? = false
+    
+    
     /// 删除用户对象
     func deleteUser() {
         

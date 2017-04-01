@@ -187,6 +187,9 @@
 		5E7F24781CB8F622001BD4C8 /* ParaSearchRepos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24771CB8F622001BD4C8 /* ParaSearchRepos.swift */; };
 		5E7F247A1CB92BD0001BD4C8 /* ObjSearchReposResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F24791CB92BD0001BD4C8 /* ObjSearchReposResponse.swift */; };
 		5E95E75C1E8F2D2C006C80BE /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E95E75B1E8F2D2C006C80BE /* MobileCoreServices.framework */; };
+		5E95E7611E8F37F2006C80BE /* CloudTableName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E95E7601E8F37F2006C80BE /* CloudTableName.swift */; };
+		5E95E7631E8F3931006C80BE /* CloudStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E95E7621E8F3931006C80BE /* CloudStorageManager.swift */; };
+		5E95E7651E8F3AB4006C80BE /* CloudObjectId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E95E7641E8F3AB4006C80BE /* CloudObjectId.swift */; };
 		5EA9493B1E89282E00D5A8E1 /* CPIssueDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA9493A1E89282E00D5A8E1 /* CPIssueDetailController.swift */; };
 		5EA9493D1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA9493C1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift */; };
 		5EACCFC71C8D52B80059A303 /* CPMesIssueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EACCFC61C8D52B80059A303 /* CPMesIssueCell.swift */; };
@@ -520,6 +523,9 @@
 		5E87F6B51E820407001608F1 /* Debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		5E87F6B61E820407001608F1 /* Release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		5E95E75B1E8F2D2C006C80BE /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		5E95E7601E8F37F2006C80BE /* CloudTableName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudTableName.swift; sourceTree = "<group>"; };
+		5E95E7621E8F3931006C80BE /* CloudStorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudStorageManager.swift; sourceTree = "<group>"; };
+		5E95E7641E8F3AB4006C80BE /* CloudObjectId.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloudObjectId.swift; sourceTree = "<group>"; };
 		5EA9493A1E89282E00D5A8E1 /* CPIssueDetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPIssueDetailController.swift; sourceTree = "<group>"; };
 		5EA9493C1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSHMSegmentedBridge.swift; sourceTree = "<group>"; };
 		5EA9493E1E8A643A00D5A8E1 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "zh-Hans"; path = "zh-Hans.lproj/CPFilterLanguage.plist"; sourceTree = "<group>"; };
@@ -1179,6 +1185,16 @@
 			path = XcodeConfig;
 			sourceTree = "<group>";
 		};
+		5E95E75F1E8F37C5006C80BE /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				5E95E7601E8F37F2006C80BE /* CloudTableName.swift */,
+				5E95E7641E8F3AB4006C80BE /* CloudObjectId.swift */,
+				5E95E7621E8F3931006C80BE /* CloudStorageManager.swift */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
 		5EACCFCA1C8DEB210059A303 /* Parameters */ = {
 			isa = PBXGroup;
 			children = (
@@ -1534,6 +1550,7 @@
 			children = (
 				5EBBA6F31E82182700651BE6 /* Coderpursue.entitlements */,
 				5E03FD301E7A982B005B9664 /* JSToolKit */,
+				5E95E75F1E8F37C5006C80BE /* Storage */,
 				FE19F93A1C390865009986FE /* ProConfig */,
 				FE19F93B1C390865009986FE /* Resources */,
 				5EC58D621E6DAAF60069AE82 /* Manager */,
@@ -1886,6 +1903,7 @@
 				5E03FD691E7A982C005B9664 /* JSNavigationController.swift in Sources */,
 				FE0FE0D91C3F14F10005DDE5 /* ProjectKey.swift in Sources */,
 				FE17EA401C5723270061F624 /* ObjReposSum.swift in Sources */,
+				5E95E7631E8F3931006C80BE /* CloudStorageManager.swift in Sources */,
 				5E7F247A1CB92BD0001BD4C8 /* ObjSearchReposResponse.swift in Sources */,
 				FE19F93D1C39331B009986FE /* UIColor+Project.swift in Sources */,
 				5E546D9A1C8F61A000E94997 /* ObjSearchUserResponse.swift in Sources */,
@@ -1925,6 +1943,7 @@
 				5E03FD6C1E7A982C005B9664 /* JSUIKit.swift in Sources */,
 				FE6980E41C5602C40026089B /* ObjPlan.swift in Sources */,
 				5E03FD5A1E7A982C005B9664 /* JSClass.swift in Sources */,
+				5E95E7611E8F37F2006C80BE /* CloudTableName.swift in Sources */,
 				5E4ABFD01C907DDE0041FA89 /* CPReposInfoView.swift in Sources */,
 				5E4ABFDB1C91047A0041FA89 /* CPTrendingShowcaseViewController.swift in Sources */,
 				5EC58D7E1E6DAAF60069AE82 /* NetworkHelper.swift in Sources */,
@@ -1941,6 +1960,7 @@
 				5E03FD6B1E7A982C005B9664 /* JSTableViewCell.swift in Sources */,
 				5EA9493D1E8A368B00D5A8E1 /* JSHMSegmentedBridge.swift in Sources */,
 				5E03FD6A1E7A982C005B9664 /* JSTabBarController.swift in Sources */,
+				5E95E7651E8F3AB4006C80BE /* CloudObjectId.swift in Sources */,
 				FE19F93F1C394398009986FE /* UIFont+Project.swift in Sources */,
 				FEC0DC3A1C28B39F0008C7C1 /* AppDelegate.swift in Sources */,
 				5EE91F7F1C7C481A003F4CBF /* ObjNotification.swift in Sources */,

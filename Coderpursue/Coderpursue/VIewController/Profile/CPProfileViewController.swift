@@ -14,6 +14,7 @@ import SwiftDate
 import MessageUI
 import Alamofire
 import SwiftyStoreKit
+import AVOSCloud
 
 class CPProfileViewController: CPBaseViewController {
     
@@ -69,10 +70,12 @@ class CPProfileViewController: CPBaseViewController {
     }
     
     func pvc_loadSettingPlistData() {
-        
         settingsArr = CPGlobalHelper.readPlist("CPProfileList")
+        //reward开关关闭
+        if (!(UserManager.shared.rewarSwitch!)) {
+            settingsArr.remove(at: 1)
+        }
         self.tableView.reloadData()
-
     }
     
     func pvc_isLogin()->Bool{

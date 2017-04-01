@@ -10,6 +10,14 @@
 public let AppBundleIdentifier = "com.junglesong.coderpursue";
 
 
+//lean cloud  https://leancloud.cn
+
+
+public let LeanCloudAppID = "ghlejYYQiuNbEQftPzNzVlCQ-gzGzoHsz";
+public let LeanCloudAppKey = "L2hNnngqRj5cDfGTSQqDiYlm";
+public let LeanCloudMasterKey = "umO2aAwGqiTtLQTGKL726Igj";
+
+
 //github
 public let GithubAppClientId = "294e97e63b0e68f456ad";
 public let GithubAppClientSecret = "d208e4cc6b9afcdea382e6afae58c8b27bf18377";

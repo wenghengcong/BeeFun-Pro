@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.4.0)
+  - AVOSCloud (4.2.0)
   - Bugly (2.4.7)
   - HMSegmentedControl (1.5.3)
   - IQKeyboardManagerSwift (4.0.8)
@@ -29,14 +30,15 @@ PODS:
   - ReachabilitySwift (3)
   - Result (3.2.1)
   - SnapKit (3.2.0)
-  - SwiftDate (4.0.14)
-  - SwiftMessages (3.3.2)
+  - SwiftDate (4.1.0)
+  - SwiftMessages (3.3.3)
   - SwiftyBeaver (1.1.4)
   - SwiftyJSON (3.1.4)
   - SwiftyStoreKit (0.8.4)
 
 DEPENDENCIES:
   - Alamofire
+  - AVOSCloud
   - Bugly
   - HMSegmentedControl
   - IQKeyboardManagerSwift
@@ -57,6 +59,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
+  AVOSCloud: 5446ad0320f4942cce1a036d131992cd1115db99
   Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
   HMSegmentedControl: 7c6145afb50f26cec5f3243082f6f12b9f41318f
   IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
@@ -71,12 +74,12 @@ SPEC CHECKSUMS:
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  SwiftDate: 4ef029fd3117cc287fe642658b9aca2217628976
-  SwiftMessages: 278ef49901fae934241d73b2a781edb1bf7bea5c
+  SwiftDate: 1cb9a0a930a1f0fff392806829fed0ee370ff94f
+  SwiftMessages: '09cea3336e3fb63c3578983c8aac65acaa6d884a'
   SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyStoreKit: b235756bd6e541cafbed6e75d28b29b8a1c1caef
 
-PODFILE CHECKSUM: 357c51bfd33422c7da092aac6a20f6a3d8249e20
+PODFILE CHECKSUM: 589b414fd72684cab2ede5e047eac301264009e4
 
 COCOAPODS: 1.2.0

@@ -13,6 +13,7 @@ import ObjectMapper
 import SwiftDate
 import MessageUI
 import Alamofire
+import SwiftyStoreKit
 
 class CPProfileViewController: CPBaseViewController {
     
@@ -369,7 +370,21 @@ extension CPProfileViewController : UITableViewDelegate {
         }else if(viewType == "funnylab"){
             self.performSegue(withIdentifier: SegueProfileFunnyLabView, sender: nil)
         }else if(viewType == "reward"){
-
+            
+            SwiftyStoreKit.retrieveProductsInfo(["com.junglesong.coderpursue.1025"]) { result in
+               
+                if let product = result.retrievedProducts.first {
+                    let priceString = product.localizedPrice!
+                    print("Product: \(product.localizedDescription), price: \(priceString)")
+                }
+                else if let invalidProductId = result.invalidProductIDs.first {
+                    
+                }
+                else {
+                    print("Error: \(result.error)")
+                }
+            }
+            
         }
     }
 }

@@ -10,6 +10,7 @@ import UIKit
 import IQKeyboardManagerSwift
 import UserNotifications
 import SwiftDate
+import SwiftyStoreKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {
@@ -71,6 +72,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         // Our Region also uses Gregorian Calendar and Italy Locale
 //        let romeRegion = Region(tz: TimeZoneName.asiaShanghai, cal: CalendarName.gregorian, loc: LocaleName.chineseSimplified)
 //        Date.setDefaultRegion(romeRegion)
+        
+        
+        SwiftyStoreKit.completeTransactions(atomically: true) { products in
+            
+            for product in products {
+                // swiftlint:disable:next for_where
+                if product.transaction.transactionState == .purchased || product.transaction.transactionState == .restored {
+                    
+                    if product.needsFinishTransaction {
+                        // Deliver content from server, then:
+                        SwiftyStoreKit.finishTransaction(product.transaction)
+                    }
+                    print("purchased: \(product.productId)")
+                }
+            }
+        }
+
         
         return true
     }

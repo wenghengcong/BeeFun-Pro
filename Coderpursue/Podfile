@@ -29,6 +29,7 @@ target 'Coderpursue' do
     pod 'JPush'
     #pod 'UMengAnalytics-NO-IDFA'
     pod 'SwiftyStoreKit'
+    pod 'AVOSCloud'
 end
 
 #post_install do |installer|

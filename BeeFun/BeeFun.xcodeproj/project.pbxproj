@@ -285,13 +285,13 @@
 		5E09439C1CC1F0320047118D /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		5E09439E1CC1F03C0047118D /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		5E0DDC721E72D4DB00493ABA /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		5E0FE4431E8FFFDA00356232 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = BeeFun/AppDelegate.swift; sourceTree = "<group>"; };
-		5E0FE4441E8FFFDA00356232 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = BeeFun/Assets.xcassets; sourceTree = "<group>"; };
+		5E0FE4431E8FFFDA00356232 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5E0FE4441E8FFFDA00356232 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E0FE4481E8FFFDA00356232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E0FE4491E8FFFDA00356232 /* BeeFun-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BeeFun-Bridging-Header.h"; sourceTree = "<group>"; };
 		5E0FE44A1E8FFFDA00356232 /* BeeFun.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BeeFun.entitlements; sourceTree = "<group>"; };
 		5E0FE44F1E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
-		5E0FE4501E8FFFDA00356232 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BeeFun/Info.plist; sourceTree = "<group>"; };
+		5E0FE4501E8FFFDA00356232 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E0FE4531E8FFFDA00356232 /* JSHMSegmentedBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSHMSegmentedBridge.swift; sourceTree = "<group>"; };
 		5E0FE4541E8FFFDA00356232 /* JSMBHUDBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSMBHUDBridge.swift; sourceTree = "<group>"; };
 		5E0FE4551E8FFFDA00356232 /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
@@ -714,7 +714,6 @@
 		5E0FE4421E8FFFDA00356232 /* BeeFun */ = {
 			isa = PBXGroup;
 			children = (
-				5EF3C04E1E900FB900BDB8B0 /* Support Files */,
 				5E0FE4511E8FFFDA00356232 /* JSToolKit */,
 				5E0FE4851E8FFFDA00356232 /* Manager */,
 				5E0FE48F1E8FFFDA00356232 /* Model */,
@@ -725,6 +724,10 @@
 				5E0FE51C1E8FFFDA00356232 /* ThidParty */,
 				5E0FE56F1E8FFFDB00356232 /* View */,
 				5E0FE59F1E8FFFDB00356232 /* VIewController */,
+				5EF3C04E1E900FB900BDB8B0 /* Support Files */,
+				5E0FE4431E8FFFDA00356232 /* AppDelegate.swift */,
+				5E0FE4501E8FFFDA00356232 /* Info.plist */,
+				5E0FE4441E8FFFDA00356232 /* Assets.xcassets */,
 			);
 			path = BeeFun;
 			sourceTree = "<group>";
@@ -1382,11 +1385,11 @@
 			children = (
 				5E0FE5A01E8FFFDB00356232 /* Base */,
 				5E0FE5A61E8FFFDB00356232 /* Common */,
-				5E0FE5AB1E8FFFDB00356232 /* Gist */,
-				5E0FE5AD1E8FFFDB00356232 /* Message */,
-				5E0FE5B01E8FFFDB00356232 /* Profile */,
-				5E0FE5BF1E8FFFDB00356232 /* Stars */,
 				5E0FE5C11E8FFFDB00356232 /* Trending */,
+				5E0FE5AD1E8FFFDB00356232 /* Message */,
+				5E0FE5BF1E8FFFDB00356232 /* Stars */,
+				5E0FE5AB1E8FFFDB00356232 /* Gist */,
+				5E0FE5B01E8FFFDB00356232 /* Profile */,
 			);
 			path = VIewController;
 			sourceTree = "<group>";
@@ -1509,9 +1512,6 @@
 			children = (
 				5E87F6B31E820407001608F1 /* XcodeConfig */,
 				5E0FE4421E8FFFDA00356232 /* BeeFun */,
-				5E0FE4431E8FFFDA00356232 /* AppDelegate.swift */,
-				5E0FE4501E8FFFDA00356232 /* Info.plist */,
-				5E0FE4441E8FFFDA00356232 /* Assets.xcassets */,
 				FEC0DC371C28B39F0008C7C1 /* Products */,
 				4D8F6ECC1AEDFB027177FDBB /* Frameworks */,
 				DD25BC4C339CD1DA8D65519D /* Pods */,

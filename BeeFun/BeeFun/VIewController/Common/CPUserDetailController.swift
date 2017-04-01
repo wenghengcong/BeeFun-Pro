@@ -68,6 +68,7 @@ class CPUserDetailController: CPBaseViewController {
         
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
+        self.rightItem?.isHidden = false
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.viewBackgroundColor

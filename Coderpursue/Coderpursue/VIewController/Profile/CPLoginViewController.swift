@@ -28,7 +28,7 @@ class CPLoginViewController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
         lvc_customView()
     }
 
@@ -39,23 +39,23 @@ class CPLoginViewController: CPBaseViewController {
     // MAEK: - view
     func lvc_customView() {
         
-        seplineV.backgroundColor = UIColor.lineBackgroundColor()
+        seplineV.backgroundColor = UIColor.lineBackgroundColor
         
-        inputTextBgV.layer.borderColor = UIColor.lineBackgroundColor().cgColor
+        inputTextBgV.layer.borderColor = UIColor.lineBackgroundColor.cgColor
         inputTextBgV.layer.borderWidth = 0.5
         
         usernameTF.attributedPlaceholder = NSAttributedString.init(string: "username or email", attributes: CPStyleGuide.textFieldPlaceholderAttributes())
         passwordTF.attributedPlaceholder = NSAttributedString.init(string: "password", attributes: CPStyleGuide.textFieldPlaceholderAttributes())
         
-        usernameTF.textColor = UIColor.textViewTextColor()
+        usernameTF.textColor = UIColor.textViewTextColor
         usernameTF.font = UIFont.hugeSizeSystemFont()
-        passwordTF.textColor = UIColor.textViewTextColor()
+        passwordTF.textColor = UIColor.textViewTextColor
         passwordTF.font = UIFont.hugeSizeSystemFont()
         
         signInButton.layer.cornerRadius = 5
         signInButton.layer.masksToBounds = true
-        signInButton.backgroundColor = UIColor.buttonRedBackgroundColor()
-        signInButton.setTitleColor(UIColor.buttonWihteTitleTextColor(), for: UIControlState())
+        signInButton.backgroundColor = UIColor.buttonRedBackgroundColor
+        signInButton.setTitleColor(UIColor.buttonWihteTitleTextColor, for: UIControlState())
         signInButton.addTarget(self, action: #selector(CPLoginViewController.lvc_singInAction(_:)), for: UIControlEvents.touchUpInside)
         
         
@@ -74,11 +74,11 @@ class CPLoginViewController: CPBaseViewController {
         let urlString = "https://api.github.com/user"
         let headers = ["Authorization": authorizationHeaderStr]
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud(view: self.view)
         
         Alamofire.request(urlString, parameters: ["":""], headers: headers).responseJSON { response in
 
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud(view: self.view)
             
             debugPrint(response)
             switch response.result{
@@ -95,7 +95,8 @@ class CPLoginViewController: CPBaseViewController {
     func lvc_checkInputText(){
         
         if( (usernameTF.text!.isEmpty) || (passwordTF.text!.isEmpty) ){
-            CPGlobalHelper.showMessage("Input username or password", view: self.view)
+            // TODO: localized
+            JSMBHUDBridge.showMessage("Input username or password", view: self.view)
             return
         }
         

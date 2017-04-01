@@ -26,7 +26,7 @@ public extension Dictionary {
      */
     static func readPlist(_ filename: String) throws -> Dictionary<String, AnyObject> {
         
-        guard let path = Bundle.main.path(forResource: filename, ofType: "plist")  else {
+        guard let path = Bundle.appBundle.path(forResource: filename, ofType: "plist")  else {
             throw PHError.nil("[PlistHelper][readPlist] (pathForResource) The file could not be located\nFile : '\(filename).plist'")
         }
         guard let plistDict = NSDictionary(contentsOfFile: path) as? Dictionary<String, AnyObject> else {
@@ -49,7 +49,7 @@ public extension Array {
      */
     static func readPlist(_ filename: String) throws -> [String : AnyObject] {
         
-        guard let path = Bundle.main.path(forResource: filename, ofType: "plist")  else {
+        guard let path = Bundle.appBundle.path(forResource: filename, ofType: "plist")  else {
             throw PHError.nil("[EasyHelper][readPList] (pathForResource) The file could not be located\nFile : '\(filename).plist'")
         }
         guard let plistDict = NSDictionary(contentsOfFile: path) as? [String : AnyObject] else {

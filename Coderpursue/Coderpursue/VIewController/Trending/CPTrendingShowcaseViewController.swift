@@ -27,7 +27,7 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
         tsc_setupTableView()
         tsc_updateContentView()
         tsc_getShowcaseRequest()
@@ -48,13 +48,13 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.automaticallyAdjustsScrollViewInsets = false
         
         // 下拉刷新
         header.setTitle("Pull down to refresh", for: .idle)
-        header.setTitle("Release to refresh", for: .pulling)
-        header.setTitle("Loading ...", for: .refreshing)
+        header.setTitle(kHeaderPullTip, for: .pulling)
+        header.setTitle(kHeaderPullingTip, for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPTrendingShowcaseViewController.headerRefresh))
         // 现在的版本要用mj_header
         self.tableView.mj_header = header
@@ -73,15 +73,15 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
     
     func tsc_getShowcaseRequest(){
     
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud(view: self.view)
         
         Provider.sharedProvider.request(.trendingShowcase(showcase:showcase.slug!) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             self.tableView.mj_header.endRefreshing()
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):
@@ -102,14 +102,14 @@ class CPTrendingShowcaseViewController: CPBaseViewController {
                     }
 
                 } catch {
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
             
@@ -138,7 +138,7 @@ extension CPTrendingShowcaseViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         
         let cellId = "CPTrendingRepoCellIdentifier"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingRepoCell
@@ -175,25 +175,13 @@ extension CPTrendingShowcaseViewController : UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
-        let repos = self.showcase.repositories![(indexPath as NSIndexPath).row]
-        self.performSegue(withIdentifier: SegueTrendingShowRepositoryDetail, sender: repos)
-
+        let repos = self.showcase.repositories![indexPath.row]
+        let vc = CPRepoDetailController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.repos = repos
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if (segue.identifier == SegueTrendingShowRepositoryDetail){
-            
-            let reposVC = segue.destination as! CPTrendingRepositoryViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            let repos = sender as? ObjRepos
-            if(repos != nil){
-                reposVC.repos = repos
-            }
-            
-        }
-        
-    }
     
 }
 

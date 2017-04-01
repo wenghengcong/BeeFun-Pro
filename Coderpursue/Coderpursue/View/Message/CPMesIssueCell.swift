@@ -34,11 +34,11 @@ class CPMesIssueCell: CPBaseViewCell {
     
     override func customCellView() {
         
-//        numberLabel.textColor = UIColor.labelSubtitleTextColor()
-        reposNameLabel.textColor = UIColor.labelSubtitleTextColor()
-        stateLabel.textColor = UIColor.labelSubtitleTextColor()
-        assignLabel.textColor = UIColor.labelSubtitleTextColor()
-        timeLabel.textColor = UIColor.labelSubtitleTextColor()
+//        numberLabel.textColor = UIColor.labelSubtitleTextColor
+        reposNameLabel.textColor = UIColor.labelSubtitleTextColor
+        stateLabel.textColor = UIColor.labelSubtitleTextColor
+        assignLabel.textColor = UIColor.labelSubtitleTextColor
+        timeLabel.textColor = UIColor.labelSubtitleTextColor
 
     }
     

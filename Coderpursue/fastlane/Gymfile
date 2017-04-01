@@ -1,0 +1,30 @@
+
+output_directory "~/Desktop/Coderpursue/"
+
+# In general, you can use the options available
+# gym --help
+
+# Remove the # in front of the line to enable the option
+
+# scheme "Example"
+
+# sdk "iphoneos9.0"
+
+#output_name "MyApp"           # the name of the ipa file
+
+#configuration					#The configuration to use when building the app. Defaults to 'Release'
+
+#codesigning_identity	#The name of the code signing identity to use. It has to match the name exactly. e.g. 'iPhone Distribution: SunApps GmbH'
+
+#provisioning_profile_path   true# [DEPRECATED!] Use target specific provisioning profiles instead - The path to the provisioning profile (optional)
+
+#export_options(
+#  method: "ad-hoc",
+#  manifest: {
+#    appURL: "https://example.com/My App.ipa",
+#  },
+#  thinning: "<thin-for-all-variants>"
+#)
+
+# For more information about this configuration visit
+# https://github.com/fastlane/gym#gymfile

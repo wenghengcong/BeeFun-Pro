@@ -13,6 +13,7 @@ import ObjectMapper
 import SwiftDate
 import MessageUI
 import Alamofire
+import SwiftyStoreKit
 
 class CPProfileViewController: CPBaseViewController {
     
@@ -26,18 +27,20 @@ class CPProfileViewController: CPBaseViewController {
 
     var data: NSMutableData = NSMutableData()
 
+    // MARK: - view cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         pvc_loadSettingPlistData()
         pvc_customView()
         pvc_setupTableView()
+        //pvc_addNavigationbar()
        
         NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: kNotificationDidGitLogin), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(CPProfileViewController.pvc_updateUserinfoData), name: NSNotification.Name(rawValue: kNotificationDidGitLogOut), object: nil)
         self.leftItem?.isHidden = true
-        self.title = "Profile"
+        self.title = "Profile".localized
 
     }
     
@@ -51,7 +54,7 @@ class CPProfileViewController: CPBaseViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    // MARK: load data
+    // MARK: - load data
     //登录成功后刷新数据
     func pvc_updateUserinfoData() {
         
@@ -66,10 +69,12 @@ class CPProfileViewController: CPBaseViewController {
     }
     
     func pvc_loadSettingPlistData() {
-        
         settingsArr = CPGlobalHelper.readPlist("CPProfileList")
+        //reward开关关闭
+        if (!(UserManager.shared.rewarSwitch!)) {
+            settingsArr.remove(at: 1)
+        }
         self.tableView.reloadData()
-
     }
     
     func pvc_isLogin()->Bool{
@@ -79,7 +84,14 @@ class CPProfileViewController: CPBaseViewController {
         return true
     }
     
-    // MARK: view
+    // MARK: - view
+    
+    /// 不在导航栏有按钮，不方便
+    func pvc_addNavigationbar() {
+        self.rightItemImage = UIImage(named: "set_settings_white")
+        self.rightItemSelImage = UIImage(named: "set_settings_white")
+        self.rightItem?.isHidden = false
+    }
     
     func pvc_customView() {
         
@@ -103,15 +115,18 @@ class CPProfileViewController: CPBaseViewController {
         self.tableView.dataSource=self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
 //        self.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: cellId)    //register class by code
         self.tableView.register(UINib(nibName: "CPSettingsCell", bundle: nil), forCellReuseIdentifier: cellId) //regiseter by xib
-//        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Top)
-//        self.tableView.addSingleBorder(UIColor.lineBackgroundColor(), at:UIView.ViewBorder.Bottom)
+//        self.tableView.addSingleBorder(UIColor.lineBackgroundColor, at:UIView.ViewBorder.Top)
+//        self.tableView.addSingleBorder(UIColor.lineBackgroundColor, at:UIView.ViewBorder.Bottom)
     }
     
+    // MARK: - Action
+    override func rightItemAction(_ sender: UIButton?) {
+    }
     
-    // MARK: segue
+    // MARK:- segue
     
     func pvc_getUserinfoRequest(){
         
@@ -122,7 +137,7 @@ class CPProfileViewController: CPBaseViewController {
         
         Provider.sharedProvider.request(.userInfo(username:username) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             switch result {
             case let .success(response):
@@ -136,14 +151,14 @@ class CPProfileViewController: CPBaseViewController {
                         
                     }
                 } catch {
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -154,36 +169,7 @@ class CPProfileViewController: CPBaseViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-        if (segue.identifier == SegueProfileShowRepositoryList){
-          
-            let reposVC = segue.destination as! CPReposViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            
-            let dic = sender as? [String:String]
-            if (dic != nil) {
-                reposVC.dic = dic!
-                reposVC.username = dic!["uname"]
-                reposVC.viewType = dic!["type"]
-            }
-            
-        }else if(segue.identifier == SegueProfileShowFollowerList){
-            
-            let followVC = segue.destination as! CPFollowersViewController
-            followVC.hidesBottomBarWhenPushed = true
-            
-            let dic = sender as? [String:String]
-            if (dic != nil) {
-                followVC.dic = dic!
-                followVC.username = dic!["uname"]
-                followVC.viewType = dic!["type"]
-            }
-            
-        }else if(segue.identifier == SegueProfileAboutView){
-            
-            let aboutVC = segue.destination as! CPProAboutViewController
-            aboutVC.hidesBottomBarWhenPushed = true
-            
-        }else if(segue.identifier == SegueProfileSettingView){
+        if(segue.identifier == SegueProfileSettingView){
             let settingsVC = segue.destination as! CPProSettingsViewController
             settingsVC.hidesBottomBarWhenPushed = true
             
@@ -204,7 +190,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         Provider.sharedProvider.request(.myInfo ) { (result) -> () in
 
             var success = true
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
 
             switch result {
             case let .success(response):
@@ -221,7 +207,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                     }
                 } catch {
                     success = false
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
@@ -229,7 +215,7 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
                 }
                 message = error.description
                 success = false
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
             }
         }
 
@@ -247,7 +233,12 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( UserManager.shared.needLogin() ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"myrepositories"]
-            self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
+            let vc = CPRepoListController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.dic = dic
+            vc.username = dic["uname"]
+            vc.viewType = dic["type"]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -255,7 +246,12 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( UserManager.shared.needLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"follower"]
-            self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
+            let vc = CPUserListController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.dic = dic
+            vc.username = dic["uname"]
+            vc.viewType = dic["type"]
+            self.navigationController?.pushViewController(vc, animated: true)
         }else{
 
         }
@@ -265,7 +261,12 @@ extension CPProfileViewController : ProfileHeaderActionProtocol {
         if ( UserManager.shared.needLogin()  ){
             let uname = user!.login
             let dic:[String:String] = ["uname":uname!,"type":"following"]
-            self.performSegue(withIdentifier: SegueProfileShowFollowerList, sender: dic)
+            let vc = CPUserListController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.dic = dic
+            vc.username = dic["uname"]
+            vc.viewType = dic["type"]
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -291,7 +292,7 @@ extension CPProfileViewController : UITableViewDataSource {
                 cell = (CPSettingsCell.cellFromNibNamed("CPSettingsCell") as! CPSettingsCell)
             }
             let section = (indexPath as NSIndexPath).section
-            let row = (indexPath as NSIndexPath).row
+            let row = indexPath.row
             let settings:ObjSettings = settingsArr[section][row]
             cell!.objSettings = settings
             
@@ -312,7 +313,7 @@ extension CPProfileViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 10))
-        view.backgroundColor = UIColor.viewBackgroundColor()
+        view.backgroundColor = UIColor.viewBackgroundColor
         return view
         
     }
@@ -337,17 +338,22 @@ extension CPProfileViewController : UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
 
         let viewType = settings.itemKey!
 
-        if ( (viewType == "watched")||(viewType == "forked") ){
+        if ( (viewType == "forked") ){
             
             if (UserManager.shared.needLogin() ){
                 let uname = user!.login
                 let dic:[String:String] = ["uname":uname!,"type":viewType]
-                self.performSegue(withIdentifier: SegueProfileShowRepositoryList, sender: dic)
+                let vc = CPRepoListController()
+                vc.hidesBottomBarWhenPushed = true
+                vc.dic = dic
+                vc.username = dic["uname"]
+                vc.viewType = dic["type"]
+                self.navigationController?.pushViewController(vc, animated: true)
             }
         
         }else if(viewType == "feedback"){
@@ -359,30 +365,17 @@ extension CPProfileViewController : UITableViewDelegate {
                 self.showSendMailErrorAlert()
             }
             
-        }else if(viewType == "rate"){
-            
-            AppVersionHelper.shared.rateUs()
-            
         }else if(viewType == "share"){
-            
             ShareManager.shared.shareApp()
-            
         }else if(viewType == "settings"){
-            
             self.performSegue(withIdentifier: SegueProfileSettingView, sender: nil)
-            
-        }else if(viewType == "about"){
-
-            self.performSegue(withIdentifier: SegueProfileAboutView, sender: nil)
-            
         }else if(viewType == "funnylab"){
-            
             self.performSegue(withIdentifier: SegueProfileFunnyLabView, sender: nil)
-            
+        }else if(viewType == "reward"){
+//            PurchaseManager.shared.getInfo(PurchaseProduct.reward)
+            PurchaseManager.shared.purchase(PurchaseProduct.reward)
         }
-        
     }
-    
 }
 
 extension CPProfileViewController : MFMailComposeViewControllerDelegate {
@@ -392,9 +385,9 @@ extension CPProfileViewController : MFMailComposeViewControllerDelegate {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
         
-        mailComposerVC.setToRecipients(["wenghengcong@icloud.com"])
+        mailComposerVC.setToRecipients([KMyIcloudEmail])
         mailComposerVC.setCcRecipients([""])
-        mailComposerVC.setSubject("Suggestions or report bugs")
+        mailComposerVC.setSubject(KMailSubject)
         mailComposerVC.setMessageBody("", isHTML: false)
         
         return mailComposerVC
@@ -402,7 +395,7 @@ extension CPProfileViewController : MFMailComposeViewControllerDelegate {
     
     func showSendMailErrorAlert() {
         
-        let sendMailErrorAlert = UIAlertView(title: "Could not send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        let sendMailErrorAlert = UIAlertView(title: KSendEmailErrorTitle, message: KSendEmailErrorContent, delegate: self, cancelButtonTitle: "Sure".localized)
         sendMailErrorAlert.show()
     }
     

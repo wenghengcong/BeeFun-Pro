@@ -8,13 +8,32 @@
 
 import UIKit
 
+
+/// 筛选视图的协议方法
 protocol CPFilterTableViewProtocol {
 
+    /// 选中了筛选视图中的类型
+    ///
+    /// - Parameters:
+    ///   - row: <#row description#>
+    ///   - type: <#type description#>
+    ///   - value: <#value description#>
     func didSelectTypeColoumn(_ row:Int ,type:String ,value:String)
+    
+    /// 选中了筛选视图中的值
+    ///
+    /// - Parameters:
+    ///   - row: <#row description#>
+    ///   - type: <#type description#>
+    ///   - value: <#value description#>
     func didSelectValueColoumn(_ row:Int ,type:String ,value:String)
 
 }
 
+/// 筛选视图的列数
+///
+/// - two: 两列
+/// - three: 三列
 public enum CPFilterTableViewColumns:Int {
     
     case two = 2
@@ -22,12 +41,15 @@ public enum CPFilterTableViewColumns:Int {
     
 }
 
+/// 筛选视图
 class CPFilterTableView: UIView {
 
     let cellID = "FilterCell"
 
     var filterDelegate:CPFilterTableViewProtocol?
     
+    
+    /// 筛选视图的列数
     var coloumn:CPFilterTableViewColumns = .two {
         
         didSet{
@@ -35,12 +57,16 @@ class CPFilterTableView: UIView {
         }
     }
     
+    
+    /// 每行的宽度组合(多个tableview)
     var rowWidths:[CGFloat] = [0,0] {
         didSet {
             
         }
     }
     
+    
+    /// 每行的高度组合(多个tableview)
     var rowHeights:[CGFloat] = [0.0,0.0] {
         didSet {
 
@@ -57,14 +83,23 @@ class CPFilterTableView: UIView {
         
     }
     
+    /// 当前选中的类型
     var selTypeIndex = 0
+    
+    /// 上一次选中的类型
     var lastTypeIndex = 0
+    
     
     var selFirValueIndex = 0
     var selSecValueIndex = 0
 
+    /// 类型Table
     var firTableView:UITableView?
+    
+    /// 值Table
     var secTableView:UITableView?    
+    
+    // MARK: - view cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -77,7 +112,8 @@ class CPFilterTableView: UIView {
     
     func ftv_customView(){
         
-        if( (coloumn.rawValue != rowWidths.count) || (coloumn.rawValue != rowWidths.count)  ){
+        //如果column的数目与当前的宽度组合数目不对，直接返回
+        if( (coloumn.rawValue != rowWidths.count) || (coloumn.rawValue != rowHeights.count)  ){
             
             print("check coloumns and the datasouce count is equal")
             return
@@ -100,7 +136,7 @@ class CPFilterTableView: UIView {
             let width = rowWidths[index]
             if(index == 0){
                 tableView.frame = CGRect(x: 0, y: 0, width: width, height: self.height)
-                tableView.backgroundColor = UIColor.viewBackgroundColor()
+                tableView.backgroundColor = UIColor.viewBackgroundColor
             }else{
                 let lastTableview = tableviews[index-1]
                 tableView.frame = CGRect(x: lastTableview.right, y: 0, width: width, height: 260)
@@ -116,7 +152,7 @@ class CPFilterTableView: UIView {
         }
         
         let bottomView = UIView(frame:CGRect(x: 0, y: firTableView!.bottom, width: width, height: 10))
-        bottomView.backgroundColor = UIColor.cpRedColor()
+        bottomView.backgroundColor = UIColor.cpRedColor
         self.addSubview(bottomView)
     }
     
@@ -125,6 +161,7 @@ class CPFilterTableView: UIView {
         
     }
     
+    /// 重新加载所有数据
     func resetAllColoumnsData(){
         
         if (firTableView != nil) {
@@ -137,11 +174,17 @@ class CPFilterTableView: UIView {
         
     }
     
+    
+    /// 重置类型表格之外的所有数据
+    ///
+    /// - Parameter selindex: <#selindex description#>
     func resetOtherColoumnsData(_ selindex:Int){
         
         secTableView!.reloadData()
     }
     
+    
+    /// 重置所有属性
     func resetProperty() {
         selTypeIndex = 0
         lastTypeIndex = 0
@@ -180,26 +223,26 @@ extension CPFilterTableView:UITableViewDataSource {
         var cellText = ""
 
         if(tableView == firTableView){
-            cellText = filterTypes[(indexPath as NSIndexPath).row]
+            cellText = filterTypes[indexPath.row]
         }else{
-            cellText = filterData[selTypeIndex][(indexPath as NSIndexPath).row]
+            cellText = filterData[selTypeIndex][indexPath.row]
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         
-        cell.textLabel?.textColor = UIColor.labelTitleTextColor()
+        cell.textLabel?.textColor = UIColor.labelTitleTextColor
 
         if(tableView == firTableView){
             
-            cell.backgroundColor = UIColor.viewBackgroundColor()
+            cell.backgroundColor = UIColor.viewBackgroundColor
             cell.textLabel!.font = UIFont.systemFont(ofSize: 14.0)
-            cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .bottom)
-            cell.addSingleBorder(UIColor.lineBackgroundColor(), linewidth: 0.5, at: .right)
+            cell.addSingleBorder(UIColor.lineBackgroundColor, linewidth: 0.5, at: .bottom)
+            cell.addSingleBorder(UIColor.lineBackgroundColor, linewidth: 0.5, at: .right)
             
-            if((indexPath as NSIndexPath).row == selTypeIndex){
+            if(indexPath.row == selTypeIndex){
                 cell.backgroundColor = UIColor.white
                 cell.removeBorder(.right)
-                cell.textLabel?.textColor = UIColor.cpRedColor()
+                cell.textLabel?.textColor = UIColor.cpRedColor
             }
             
         }else{
@@ -207,11 +250,13 @@ extension CPFilterTableView:UITableViewDataSource {
             cell.selectionStyle = .none
             
             let selValueIndex = (selTypeIndex == 0) ? selFirValueIndex : selSecValueIndex
-            if((indexPath as NSIndexPath).row == selValueIndex){
-                cell.textLabel?.textColor = UIColor.cpRedColor()
+            if(indexPath.row == selValueIndex){
+                cell.textLabel?.textColor = UIColor.cpRedColor
             }
             
         }
+        
+        //所有数据从Plist读取的时候，已经经过本地化了
         cell.textLabel!.text = cellText
         return cell
             
@@ -235,31 +280,32 @@ extension CPFilterTableView:UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if (tableView == firTableView){
-            selTypeIndex = (indexPath as NSIndexPath).row
+            selTypeIndex = indexPath.row
         }else{
             if (selTypeIndex == 0) {
-                selFirValueIndex = (indexPath as NSIndexPath).row
+                selFirValueIndex = indexPath.row
             }else{
-                selSecValueIndex = (indexPath as NSIndexPath).row
+                selSecValueIndex = indexPath.row
             }
         }
 
         let indexOfTableviews = (tableView == firTableView) ? 0:1
         
-        let type = filterTypes[selTypeIndex]
+        /// 其中的数据在传进来时，已经本地化
+        let type = filterTypes[selTypeIndex].enLocalized
         let selValueIndex = (selTypeIndex == 0) ? selFirValueIndex : selSecValueIndex
-        let value = filterData[selTypeIndex][selValueIndex]
+        //其中的数据从plist中读取已经本地化
+        let value = (filterData[selTypeIndex][selValueIndex]).enLocalized
         
         resetAllColoumnsData()
         
         if(filterDelegate != nil){
             if (indexOfTableviews == 0 ) {
-                filterDelegate?.didSelectTypeColoumn((indexPath as NSIndexPath).row, type: type, value: value)
+                filterDelegate?.didSelectTypeColoumn(indexPath.row, type: type, value: value)
             }else if(indexOfTableviews == 1){
-                filterDelegate?.didSelectValueColoumn((indexPath as NSIndexPath).row, type: type, value: value)
+                filterDelegate?.didSelectValueColoumn(indexPath.row, type: type, value: value)
             }
             
         }
-        
     }
 }

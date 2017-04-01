@@ -22,11 +22,11 @@ class TimeHelper: NSObject {
         
         if let rareStr:String = rare {
             do {
-                let createAt:DateInRegion =  try rareStr.date(format: DateFormat.iso8601(options: .withInternetDateTime))
+                let createAt:DateInRegion =  try rareStr.date(format: DateFormat.iso8601(options: .withInternetDateTime))!
                 
                 var internet = createAt.string()
                 if prefix != nil {
-                   internet = prefix! + internet
+                   internet = prefix!.localized + " :" + internet
                 }
                 return internet
             } catch  {
@@ -48,11 +48,11 @@ class TimeHelper: NSObject {
         
         if let rareStr:String = rare {
             do {
-                let createAt:DateInRegion =  try rareStr.date(format: DateFormat.iso8601(options: .withInternetDateTime))
+                let createAt:DateInRegion =  try rareStr.date(format: DateFormat.iso8601(options: .withInternetDateTime))!
                 
                 var (readable,_) = try createAt.colloquialSinceNow()
                 if prefix != nil {
-                    readable = prefix! + readable
+                    readable = prefix!.localized + " :"  + readable
                 }
                 return readable
             } catch  {

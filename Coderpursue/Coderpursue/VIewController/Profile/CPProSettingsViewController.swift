@@ -17,11 +17,11 @@ class CPProSettingsViewController: CPBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         psvc_setupTableView()
         psvc_customView()
         psvc_readPlist()
-        self.title = "Settings"
+        self.title = "Settings".localized
 
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -41,7 +41,7 @@ class CPProSettingsViewController: CPBaseViewController {
         self.tableView.dataSource=self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.automaticallyAdjustsScrollViewInsets = false
     }
     
@@ -53,7 +53,7 @@ class CPProSettingsViewController: CPBaseViewController {
     func psvc_logoutAction() {
         
         if( !(UserManager.shared.isLogin) ){
-            CPGlobalHelper.showMessage("You didn't login !", view: self.view)
+            JSMBHUDBridge.showMessage(kLoginFirstTip, view: self.view)
             return
         }
         
@@ -87,10 +87,10 @@ extension CPProSettingsViewController : UITableViewDataSource {
             
         }
         let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
         if(settings.itemKey == "version"){
-            settings.itemValue = AppVersionHelper.shared.bundleReleaseVersion()
+            settings.itemValue = JSApp.appVersion
         }
         
         cell!.objSettings = settings
@@ -116,7 +116,7 @@ extension CPProSettingsViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 15))
-        view.backgroundColor = UIColor.viewBackgroundColor()
+        view.backgroundColor = UIColor.viewBackgroundColor
         return view
         
     }
@@ -146,7 +146,93 @@ extension CPProSettingsViewController : UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
+        let section = (indexPath as NSIndexPath).section
+        let row = indexPath.row
+        let settings:ObjSettings = settingsArr[section][row]
         
+        let viewType = settings.itemKey!
+        
+        if(viewType == "language"){
+            let viewValue = settings.itemValue
+            if viewValue == "切换到英语" {
+                
+                let alertController = UIAlertController(title: "切换到英语?", message:"Tha app shows in English", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+                    // ...
+                }
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "确定", style: .default) { (action) in
+                    JSLanguage.setEnglish()
+                    JSLanguage.synchronize()
+                    self.reloadAllResource()
+                }
+                alertController.addAction(OKAction)
+                
+                self.present(alertController, animated: true) {
+                    // ...
+                }
+
+            }else if(viewValue == "Change to Chinese"){
+                
+                let alertController = UIAlertController(title: "Change to Chinese?", message:"App将会显示成中文", preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+                    // ...
+                }
+                alertController.addAction(cancelAction)
+                
+                let OKAction = UIAlertAction(title: "Sure", style: .default) { (action) in
+                    JSLanguage.setChinese()
+                    JSLanguage.synchronize()
+                    self.reloadAllResource()
+                }
+                alertController.addAction(OKAction)
+                
+                self.present(alertController, animated: true) {
+                    // ...
+                }
+                
+            }
+        }else if(viewType == "rate"){
+            
+            JSApp.rateUs()
+            
+        }else if(viewType == "about"){
+            
+            self.performSegue(withIdentifier: SegueProfileAboutView, sender: nil)
+            
+        }
+        
+    }
+    // MARK: - segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == SegueProfileAboutView){
+            let aboutVC = segue.destination as! CPProAboutViewController
+            aboutVC.hidesBottomBarWhenPushed = true
+        }
+    }
+}
+
+
+extension CPProSettingsViewController {
+
+    func reloadAllResource() {
+        self.tableView.reloadData()
+        self.reloadMainStroyboard()
+        self.reloadOtherViewController()
+    }
+    
+    func reloadMainStroyboard() {
+        
+        let storyboardName = "Main"
+        let storyboard = UIStoryboard.init(name: storyboardName, bundle:Bundle.appBundle)
+        jsKeywindow?.rootViewController = storyboard.instantiateInitialViewController()
+    }
+    
+    func reloadOtherViewController() {
+        jsAppDelegate.tabBarController?.reloadAllChildController()
     }
     
 }

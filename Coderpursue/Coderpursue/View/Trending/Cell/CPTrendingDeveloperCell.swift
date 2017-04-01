@@ -62,7 +62,7 @@ class CPTrendingDeveloperCell: CPBaseViewCell {
         avatarImgV.layer.cornerRadius = avatarImgV.width/2
         avatarImgV.layer.masksToBounds = true
         
-//        noLabel.backgroundColor = UIColor.blueColor()
+//        noLabel.backgroundColor = UIColor.blueColor
         
     }
     
@@ -70,13 +70,13 @@ class CPTrendingDeveloperCell: CPBaseViewCell {
         
 //        if(userNo < 3){
 //            
-//            noLabel.textColor = UIColor.cpRedColor()
-//            nameLabel.textColor = UIColor.cpRedColor()
+//            noLabel.textColor = UIColor.cpRedColor
+//            nameLabel.textColor = UIColor.cpRedColor
 //            
 //        }else{
         
-            noLabel.textColor = UIColor.cpBlackColor()
-            nameLabel.textColor = UIColor.cpBlackColor()
+            noLabel.textColor = UIColor.cpBlackColor
+            nameLabel.textColor = UIColor.cpBlackColor
 //        }
         
 //        noLabel.sizeToFit()

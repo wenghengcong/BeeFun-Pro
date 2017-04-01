@@ -13,6 +13,7 @@ class UserManager: NSObject {
     
     static let shared = UserManager()
 
+    /// 用户对象
     var user:ObjUser? {
         get {
             let user:ObjUser? = ObjUser.loadUserInfo()
@@ -24,6 +25,7 @@ class UserManager: NSObject {
         }
     }
     
+    /// 是否登录，不作登录操作
     var isLogin:Bool {
         get {
             if user != nil {
@@ -35,6 +37,8 @@ class UserManager: NSObject {
         }
     }
     
+    
+    /// 判断用户类型
     var isUser:Bool {
         get {
             if (isLogin && ( (user!.type!) == "User" )) {
@@ -44,6 +48,18 @@ class UserManager: NSObject {
         }
     }
     
+    
+    /// 用户名，可能不唯一
+    var name:String? {
+        return user?.name
+    }
+    
+    /// 登录名，唯一
+    var login:String?  {
+        return user?.login
+    }
+    
+    /// user token
     var userToken:String {
         get {
             return AppToken().access_token!
@@ -54,6 +70,11 @@ class UserManager: NSObject {
         }
     }
     
+    
+    var rewarSwitch:Bool? = false
+    
+    
+    /// 删除用户对象
     func deleteUser() {
         
         ObjUser.deleteUserInfo()
@@ -98,7 +119,7 @@ class UserManager: NSObject {
         loginVC.hudMode = .topOffset
         loginVC.hidesBottomBarWhenPushed = true
         
-        cpAppDelegate.tabBarController?.currentNavigationViewController()?.pushViewController(loginVC, animated: true)
+        jsTopNavigationViewController?.pushViewController(loginVC, animated: true)
         
     }
     

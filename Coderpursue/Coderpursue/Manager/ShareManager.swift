@@ -160,7 +160,7 @@ class ShareManager: NSObject {
         SSUIShareActionSheetStyle.setShareActionSheetStyle(.simple)
         
         //3、分享
-        ShareSDK.showShareActionSheet(cpTopView!, items: showPlatforms, shareParams: shareParams) { (state, platform, userdata, entity : SSDKContentEntity?, error :Error?, end:Bool) in
+        ShareSDK.showShareActionSheet(jsTopView!, items: showPlatforms, shareParams: shareParams) { (state, platform, userdata, entity : SSDKContentEntity?, error :Error?, end:Bool) in
             
             if let method = self.delegate?.didStateChange(state: platform: userdata: content: error: end:){
                 method(state,platform,userdata,entity,error,end)
@@ -175,19 +175,19 @@ class ShareManager: NSObject {
                 }
             case SSDKResponseState.success:
                 print("分享成功")
-                CPGlobalHelper.showMessage("Share Success", view: cpKeywindow!)
+                JSMBHUDBridge.showMessage("Share Success".localized, view: jsKeywindow!)
                 if let method = self.delegate?.didShareSuccess(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)
                 }
             case SSDKResponseState.fail:
-                print("授权失败,错误描述:\(error)")
-                CPGlobalHelper.showError("Share Failure", view: cpKeywindow!)
+                print("授权失败,错误描述:\(String(describing: error))")
+                JSMBHUDBridge.showError("Share Failure".localized, view: jsKeywindow!)
                 if let method = self.delegate?.didShareFail(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)
                 }
             case SSDKResponseState.cancel:
                 print("操作取消")
-                CPGlobalHelper.showMessage("Share Cancel", view: cpKeywindow!)
+                JSMBHUDBridge.showMessage("Share Cancel".localized, view: jsKeywindow!)
                 if let method = self.delegate?.didShareCancel(state: platform: userdata: content: error: end:){
                     method(state,platform,userdata,entity,error,end)
                 }

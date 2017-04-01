@@ -1,0 +1,13 @@
+
+//
+//  Config.xcconfig
+//  Coderpursue
+//
+//  Created by WengHengcong on 2017/3/21.
+//  Copyright © 2017年 JungleSong. All rights reserved.
+//
+#include "Common.xcconfig"
+#include "Pods/Target Support Files/Pods-Coderpursue/Pods-Coderpursue.debug.xcconfig"
+
+
+APP_DISPLAYNAME = Debug

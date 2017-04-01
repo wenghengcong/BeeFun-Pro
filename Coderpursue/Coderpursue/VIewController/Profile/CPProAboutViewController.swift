@@ -21,7 +21,7 @@ class CPProAboutViewController: CPBaseViewController {
         pavc_readPlist()
         pavc_setupTableView()
         pavc_customView()
-        self.title = "About"
+        self.title = "About".localized
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,12 +37,13 @@ class CPProAboutViewController: CPBaseViewController {
         self.tableView.dataSource = self
         self.tableView.delegate = self
         self.tableView.separatorStyle = .none
-        self.tableView.backgroundColor = UIColor.viewBackgroundColor()
+        self.tableView.backgroundColor = UIColor.viewBackgroundColor
         self.automaticallyAdjustsScrollViewInsets = false
     }
 
     func pavc_customView(){
-        introTextV.text = "  Coderpursue is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or develope work. Also welcome more suggestions and reports of bugs come from you!\n  Thank you!"
+        introTextV.text = "  BeeFun is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!".localized
+        introTextV.isEditable = false
     }
     
     func pavc_readPlist(){
@@ -72,7 +73,7 @@ extension CPProAboutViewController : UITableViewDataSource {
             
         }
         let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
         cell!.objSettings = settings
         
@@ -94,7 +95,7 @@ extension CPProAboutViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         let view:UIView = UIView.init(frame: CGRect(x: 0, y: 0, width: ScreenSize.width, height: 15))
-        view.backgroundColor = UIColor.viewBackgroundColor()
+        view.backgroundColor = UIColor.viewBackgroundColor
         return view
         
     }
@@ -129,10 +130,14 @@ extension CPProAboutViewController : UITableViewDelegate {
         }
         
         let section = (indexPath as NSIndexPath).section
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         let settings:ObjSettings = settingsArr[section][row]
         
         let viewType = settings.itemKey!
+        
+        let me = ObjUser()
+        me.name = "wenghengcong"
+        me.login = "wenghengcong"
         
         if(viewType == "openlib"){
             
@@ -141,43 +146,26 @@ extension CPProAboutViewController : UITableViewDelegate {
         }else if(viewType == "website"){
 //            self.performSegueWithIdentifier(SegueTrendingShowRepositoryDetail, sender: nil)
 
-        }else if(viewType == "coderpursue"){
+        }else if(viewType == "beefun"){
             
-            self.performSegue(withIdentifier: SegueProfileAboutCoderpursue, sender: nil)
-
+            let beefunPrj = ObjRepos()
+            beefunPrj.owner = me
+            beefunPrj.name = JSApp.displayName
+            let vc = CPRepoDetailController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.repos = beefunPrj
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }else if(viewType == "me"){
-            self.performSegue(withIdentifier: SegueProfileAboutMe, sender: nil)
+
+            let vc = CPUserDetailController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.developer = me
+            self.navigationController?.pushViewController(vc, animated: true)
 
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        
-        let me = ObjUser()
-        me.name = "wenghengcong"
-        me.login = "wenghengcong"
-        
-        let coderpursuePrj = ObjRepos()
-        coderpursuePrj.owner = me
-        coderpursuePrj.name = "Coderpursue"
-        
-        if (segue.identifier == SegueProfileAboutCoderpursue){
-            
-            let reposVC = segue.destination as! CPTrendingRepositoryViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            
-            reposVC.repos = coderpursuePrj
-            
-        }else if(segue.identifier == SegueProfileAboutMe){
-            
-            let devVC = segue.destination as! CPTrendingDeveloperViewController
-            devVC.hidesBottomBarWhenPushed = true
-            devVC.developer = me
-            
-        }
-        
-    }
+
     
 }
 

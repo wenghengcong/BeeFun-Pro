@@ -112,6 +112,18 @@ struct APIKeyName {
 
 
 public enum GitHubAPI {
+    
+    
+    //url
+    case gerUrl(url:String)
+    case postUrl(url:String)
+    case headtUrl(url:String)
+    case putUrl(url:String)
+    case patchUrl(url:String)
+    case deleteUrl(url:String)
+    case traceUrl(url:String)
+    case connectUrl(url:String)
+
     //user
     case myInfo
     case userInfo(username:String)
@@ -134,7 +146,7 @@ public enum GitHubAPI {
     case unfollow(username:String)
     
     //repository
-    case myRepos(type:String, sort:String ,direction:String)
+    case myRepos(page:Int,perpage:Int,type:String, sort:String ,direction:String)
     case userRepos( username:String ,page:Int,perpage:Int,type:String, sort:String ,direction:String)
     case orgRepos(type:String, organization:String)
     case pubRepos(page:Int,perpage:Int)
@@ -224,6 +236,24 @@ extension GitHubAPI: TargetType {
     
     public var path: String {
         switch self {
+        //url
+        case .gerUrl(let url):
+            return url
+        case .postUrl(let url):
+            return url
+        case .headtUrl(let url):
+            return url
+        case .putUrl(let url):
+            return url
+        case .patchUrl(let url):
+            return url
+        case .deleteUrl(let url):
+            return url
+        case .traceUrl(let url):
+            return url
+        case .connectUrl(let url):
+            return url
+            
           //user
         case .myInfo:
             return "/user"
@@ -387,6 +417,26 @@ extension GitHubAPI: TargetType {
     public var method: Moya.Method {
         
         switch self {
+            
+        //url
+        case .gerUrl:
+            return .get
+        case .postUrl:
+            return .post
+        case .headtUrl:
+            return .head
+        case .putUrl:
+            return .put
+        case .patchUrl:
+            return .patch
+        case .deleteUrl:
+            return .delete
+        case .traceUrl:
+            return .trace
+        case .connectUrl:
+            return .connect
+            
+            
         case .updateUserInfo:
             return .patch
             //user email
@@ -463,8 +513,10 @@ extension GitHubAPI: TargetType {
                 "page":page as AnyObject,
                 "per_page":perpage as AnyObject
             ]
-        case .myRepos(let type, let sort ,let direction):
+        case .myRepos(let page, let perpage,let type, let sort ,let direction):
             return [
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
                 "type":type as AnyObject,
                 "sort":sort as AnyObject,
                 "direction":direction as AnyObject

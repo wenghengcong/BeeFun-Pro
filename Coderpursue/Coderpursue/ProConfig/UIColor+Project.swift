@@ -10,185 +10,118 @@ import UIKit
 import Foundation
 
 extension UIColor {
-    
-    // MARK: - init
-    
-    public convenience init(r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat = 1) {
-        self.init(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: a)
-    }
-    
-    public convenience init?(hex: String, alpha: CGFloat = 1.0) {
-        var formatted = hex.replacingOccurrences(of: "0x", with: "")
-        formatted = formatted.replacingOccurrences(of: "#", with: "")
-        if let hex = Int(formatted, radix: 16) {
-            let red = CGFloat(CGFloat((hex & 0xFF0000) >> 16)/255.0)
-            let green = CGFloat(CGFloat((hex & 0x00FF00) >> 8)/255.0)
-            let blue = CGFloat(CGFloat((hex & 0x0000FF) >> 0)/255.0)
-            self.init(red: red, green: green, blue: blue, alpha: alpha)        } else {
-            return nil
-        }
-    }
-    
-    public convenience init(gray: CGFloat, alpha: CGFloat = 1) {
-        self.init(red: gray/255, green: gray/255, blue: gray/255, alpha: alpha)
-    }
-    
-    // MARK: - Class funcs
-    
-    public class func hex(_ hexStr : String, alpha : CGFloat = 1.0) -> UIColor {
-        return UIColor.init(hex: hexStr , alpha: alpha)!
-    }
-    
-    public class func gray(gray: CGFloat, alpha: CGFloat = 1) -> UIColor {
-        return UIColor.init(gray: gray)
-    }
-    
-    // MARK: - component
-    
-    public var redComponent: Int {
-        var r: CGFloat = 0
-        getRed(&r, green: nil, blue: nil, alpha: nil)
-        return Int(r * 255)
-    }
-    
-    public var greenComponent: Int {
-        var g: CGFloat = 0
-        getRed(nil, green: &g, blue: nil, alpha: nil)
-        return Int(g * 255)
-    }
-    
-    public var blueComponent: Int {
-        var b: CGFloat = 0
-        getRed(nil, green: nil, blue: &b, alpha: nil)
-        return Int(b * 255)
-    }
-    
-    public var alpha: CGFloat {
-        var a: CGFloat = 0
-        getRed(nil, green: nil, blue: nil, alpha: &a)
-        return a
-    }
-    
-    public static func random(randomAlpha: Bool = false) -> UIColor {
-        let randomRed = CGFloat.random()
-        let randomGreen = CGFloat.random()
-        let randomBlue = CGFloat.random()
-        let alpha = randomAlpha ? CGFloat.random() : 1.0
-        return UIColor(red: randomRed, green: randomGreen, blue: randomBlue, alpha: alpha)
-    }
-    
-    
+
     //MARK: navigation bar
-    class func navigationBarTitleTextColor() -> UIColor {
+    class var navigationBarTitleTextColor:UIColor {
         //white
         return UIColor.hex("ffffff", alpha: 1.0)
     }
     
-    class func navigationBarBackgroundColor() -> UIColor {
+    class var navigationBarBackgroundColor:UIColor {
         //red
         return UIColor.hex("e31100", alpha: 1.0)
     }
     
     //MARK: tab bar
-    class func tabBarTitleTextColor() -> UIColor {
+    class var tabBarTitleTextColor:UIColor {
         //red
-        return UIColor.hex("e31100", alpha: 1.0)
+        return UIColor.hex("d81e06", alpha: 1.0)
     }
     
-    class func tabBarBackgroundColor() -> UIColor {
+    class var tabBarBackgroundColor:UIColor {
         //light gray
         return UIColor.white
     }
     
     //MARK: label
-    class func labelSubtitleTextColor() -> UIColor {
+    class var labelSubtitleTextColor:UIColor {
         //black
         return UIColor.hex("9b9b9b", alpha: 1.0)
     }
     
-    class func labelTitleTextColor() -> UIColor {
+    class var labelTitleTextColor:UIColor {
         //gray
         return UIColor.hex("000000", alpha: 1.0)
     }
     
     //MARK: text field
-    class func textFieldTextColor() -> UIColor {
+    class var textFieldTextColor:UIColor {
         //black
         return UIColor.hex("000000", alpha: 1.0)
     }
     
-    class func textFieldPlaceholderTextColor() -> UIColor {
+    class var textFieldPlaceholderTextColor:UIColor {
         //light gray
         return UIColor.hex("c7c6cd", alpha: 1.0)
     }
     
     //MARK: text view
-    class func textViewTextColor() -> UIColor {
+    class var textViewTextColor:UIColor {
         return UIColor.hex("000000", alpha: 1.0)
     }
     
-    class func textViewPlaceholderTextColor() -> UIColor {
+    class var textViewPlaceholderTextColor:UIColor {
         return UIColor.hex("c7c6cd", alpha: 1.0)
     }
     
     //MARK: button
-    class func buttonWihteTitleTextColor() -> UIColor {
+    class var buttonWihteTitleTextColor:UIColor {
         return UIColor.hex("ffffff", alpha: 1.0)
     }
     
-    class func buttonBlackTitleTextColor() -> UIColor {
+    class var buttonBlackTitleTextColor:UIColor {
         return UIColor.hex("000000", alpha: 1.0)
     }
     
-    class func buttonRedTitleTextColor() -> UIColor {
+    class var buttonRedTitleTextColor:UIColor {
         return UIColor.hex("e31100", alpha: 1.0)
     }
     
-    class func buttonRedBackgroundColor() -> UIColor {
+    class var buttonRedBackgroundColor:UIColor {
         return UIColor.hex("e31100", alpha: 1.0)
     }
     
     //below 3 color group
-    class func buttonWhiteBackgroundColor() -> UIColor {
+    class var buttonWhiteBackgroundColor:UIColor {
         return UIColor.hex("ffffff", alpha: 1.0)
     }
     
-    class func buttonHighlightBackgroundColor() -> UIColor {
+    class var buttonHighlightBackgroundColor:UIColor {
         return UIColor.hex("e31100", alpha: 1.0)
     }
     
-    class func buttonSelectedBackgroundColor() -> UIColor {
+    class var buttonSelectedBackgroundColor:UIColor {
         return UIColor.hex("e31100", alpha: 1.0)
     }
     
     //MARK: view
-    class func viewBackgroundColor() -> UIColor {
+    class var viewBackgroundColor:UIColor {
         return UIColor.hex("f8f8f8", alpha: 1.0)
     }
     
     //badege
-    class func badgeBackgroundColor() -> UIColor {
+    class var badgeBackgroundColor:UIColor {
         return UIColor.hex("e31100", alpha: 1.0);
     }
     
     //line
-    class func lineBackgroundColor() -> UIColor {
+    class var lineBackgroundColor:UIColor {
         return UIColor.hex("d9d9d9", alpha: 1.0);
     }
     
     
     //MARK: color name
-    class func cpBlackColor() -> UIColor {
+    class var cpBlackColor:UIColor {
         //black
         return UIColor.hex("000000", alpha: 1.0)
     }
     
-    class func cpRedColor() -> UIColor {
+    class var cpRedColor:UIColor {
         //red
         return UIColor.hex("e31100", alpha: 1.0)
     }
     
-    class func cpBlueColor() -> UIColor {
+    class var cpBlueColor:UIColor {
         //red
         return UIColor.hex("5677fc", alpha: 1.0)
     }

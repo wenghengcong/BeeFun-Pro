@@ -15,8 +15,8 @@ import MBProgressHUD
 
 class CPSearchViewController: CPBaseViewController {
 
-    var pageType:TrendingViewPageType = .Repos
-    var searchPlacehoder = "Search"
+    var pageType:TrendingViewPageType = .repos
+    var searchPlacehoder = "Search".localized
     
     var searchFilterH:CGFloat = 290
     lazy var searchBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: ScreenSize.width-70, height: 20))
@@ -40,16 +40,11 @@ class CPSearchViewController: CPBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
         svc_initNavBar()
         svc_initSearchFilterView()
         svc_setupTableView()
         svc_setupMaskView()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func svc_initNavBar() {
@@ -64,19 +59,21 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_initSearchFilterView() {
         
-        if let path = Bundle.main.path(forResource: "CPLanguage", ofType: "plist") {
+        if let path = Bundle.appBundle.path(forResource: "CPFilterLanguage", ofType: "plist") {
+            //编程语言没有本地化，均为统一
             languageArr = NSArray(contentsOfFile: path)! as? [String]
         }
-        
-        if  pageType == .Repos {
-            sortArr = ["Best match","Most stars","Fewest stars","Most forks","Fewest forks","Recently updated","Leaest recently updated"]
+        //sort选项是有本地化
+        if  pageType == .repos {
+            sortArr = ["Best match".localized,"Most stars".localized,"Fewest stars".localized,"Most forks".localized,"Fewest forks".localized,"Recently updated".localized,"Leaest recently updated".localized]
         }else{
-            sortArr = ["Best match","Most followers","Fewest followers","Most recently joined","Leaest recently joined","Most repositories","Fewest repositories"]
+            sortArr = ["Best match".localized,"Most followers".localized,"Fewest followers".localized,"Most recently joined".localized,"Leaest recently joined".localized,"Most repositories".localized,"Fewest repositories".localized]
         }
         searchFilterView = CPSearchFilterView()
         searchFilterView?.frame = CGRect(x: 0, y: topOffset, width: self.view.width, height: searchFilterH)
         searchFilterView?.searchParaDelegate = self
-        searchFilterView?.filterPara = ["Language","Sort"]
+        //筛选选项：是有本地化，语言、排序
+        searchFilterView?.filterPara = ["Language".localized,"Sort".localized]
         searchFilterView?.filterData = [languageArr!,sortArr!]
         searchFilterView?.sfv_customView()
         self.view.addSubview(searchFilterView!)
@@ -94,22 +91,22 @@ class CPSearchViewController: CPBaseViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        tableView.backgroundColor = UIColor.viewBackgroundColor()
+        tableView.backgroundColor = UIColor.viewBackgroundColor
         automaticallyAdjustsScrollViewInsets = false
         self.view.insertSubview(tableView, belowSubview: self.searchFilterView!)
         
         // 下拉刷新
         header.setTitle("", for: .idle)
-        header.setTitle("Release to refresh", for: .pulling)
-        header.setTitle("Loading ...", for: .refreshing)
+        header.setTitle(kHeaderPullTip, for: .pulling)
+        header.setTitle(kHeaderPullingTip, for: .refreshing)
         header.setRefreshingTarget(self, refreshingAction: #selector(CPSearchViewController.svc_headerRefresh) )
         header.isHidden = true
         self.tableView.mj_header = header
         
         // 上拉刷新
         footer.setTitle("", for: .idle)
-        footer.setTitle("Loading more ...", for: .pulling)
-        footer.setTitle("No more data", for: .noMoreData)
+        footer.setTitle(kFooterLoadTip, for: .pulling)
+        footer.setTitle(kFooterLoadNoDataTip, for: .noMoreData)
         footer.setRefreshingTarget(self, refreshingAction: #selector(CPSearchViewController.svc_footerRefresh) )
         footer.isRefreshingTitleHidden = true
         footer.isHidden = true
@@ -127,11 +124,8 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_headerRefresh() {
         
-        if svc_checkSearchKeywordIsNull() {
-            return
-        }
-        
-        if pageType == .Repos {
+        svc_checkSearchKeywordIsNull()
+        if pageType == .repos {
             paraRepos.page = 1
             searchRepos()
         }else{
@@ -143,11 +137,8 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_footerRefresh() {
         
-        if svc_checkSearchKeywordIsNull() {
-            return
-        }
-        
-        if pageType == .Repos {
+        svc_checkSearchKeywordIsNull()
+        if pageType == .repos {
             paraRepos.page += 1
             searchRepos()
         }else{
@@ -159,7 +150,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_combineQueryString() {
         
-        if pageType == .Repos {
+        if pageType == .repos {
             paraRepos.keyword = searchBar.text!
             paraRepos.q =  paraRepos.combineQuery()
         }else{
@@ -168,29 +159,18 @@ class CPSearchViewController: CPBaseViewController {
         }
     }
     
-    func svc_checkSearchKeywordIsNull() -> Bool {
+    /// 检查搜索关键字是否为空，假如为空，生成一个长度为5的随机字符串
+    func svc_checkSearchKeywordIsNull() {
         
         let keyword:String? = searchBar.text
-        
         if ( (keyword == nil) || (keyword?.isEmpty)! ) {
-            CPGlobalHelper.showError("input keyword",view: self.view)
-            return true
-        }else{
-            
+            searchBar.text =  String.randomChars(length: 2)
         }
-        
-        return false
-        
     }
     
     func svc_searchNow() {
-        
-        if svc_checkSearchKeywordIsNull(){
-            return
-        }else{
-            svc_startSearchRequest()
-        }
-        
+        svc_checkSearchKeywordIsNull()
+        svc_startSearchRequest()
     }
     
     func svc_startSearchRequest() {
@@ -202,11 +182,11 @@ class CPSearchViewController: CPBaseViewController {
     
     func searchUser() {
         
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud(view: self.view)
 
         Provider.sharedProvider.request(.searchUsers(para:self.paraUser) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if(self.paraRepos.page == 1 ) {
                 self.tableView.mj_header.endRefreshing()
@@ -214,7 +194,7 @@ class CPSearchViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):
@@ -249,14 +229,14 @@ class CPSearchViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -266,11 +246,11 @@ class CPSearchViewController: CPBaseViewController {
     
     func searchRepos() {
 
-        MBProgressHUD.showAdded(to: self.view, animated: true)
+        JSMBHUDBridge.showHud(view: self.view)
 
         Provider.sharedProvider.request(.searchRepos(para:self.paraRepos) ) { (result) -> () in
             
-            var message = kNoMessageTip
+            var message = kNoDataFoundTip
             
             if( self.paraRepos.page == 1 ) {
                 self.tableView.mj_header.endRefreshing()
@@ -278,7 +258,7 @@ class CPSearchViewController: CPBaseViewController {
                 self.tableView.mj_footer.endRefreshing()
             }
             
-            MBProgressHUD.hideAllHUDs(for: self.view, animated: true)
+            JSMBHUDBridge.hideHud(view: self.view)
             
             switch result {
             case let .success(response):
@@ -312,14 +292,14 @@ class CPSearchViewController: CPBaseViewController {
                     } else {
                     }
                 } catch {
-                    CPGlobalHelper.showError(message, view: self.view)
+                    JSMBHUDBridge.showError(message, view: self.view)
                 }
             case let .failure(error):
                 guard let error = error as? CustomStringConvertible else {
                     break
                 }
                 message = error.description
-                CPGlobalHelper.showError(message, view: self.view)
+                JSMBHUDBridge.showError(message, view: self.view)
                 
             }
         }
@@ -330,7 +310,7 @@ class CPSearchViewController: CPBaseViewController {
     
     func svc_reloadData() {
 
-        if pageType == .Repos {
+        if pageType == .repos {
 
             if ((reposData == nil) || (reposData.count == 0))  {
                 header.isHidden = true
@@ -387,14 +367,14 @@ extension CPSearchViewController:CPSearchFilterViewProtcocol {
     
     func didBeginSearch(_ para: [String : Int]) {
         
-        let languageIndex:Int = para["Language"]!
-        let sortIndex:Int = para["Sort"]!
+        let languageIndex:Int = para["Language".localized]!
+        let sortIndex:Int = para["Sort".localized]!
         
         let languageStr = languageArr![languageIndex]
         
         var lanPara:String?
         
-        if languageStr == "All" {
+        if languageStr == "All".localized {
             
         }else{
             lanPara = languageStr
@@ -405,7 +385,7 @@ extension CPSearchViewController:CPSearchFilterViewProtcocol {
         
 
         
-        if pageType == .Repos {
+        if pageType == .repos {
             paraRepos.languagePara = lanPara
             if sortIndex == 0 {
                 sortPara = ""
@@ -487,7 +467,7 @@ extension CPSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if pageType == .Repos {
+        if pageType == .repos {
             if (reposData != nil){
                 return reposData.count
             }
@@ -503,10 +483,10 @@ extension CPSearchViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let row = (indexPath as NSIndexPath).row
+        let row = indexPath.row
         var cellId = ""
         
-        if pageType == .Repos {
+        if pageType == .repos {
             
             cellId = "CPTrendingRepoCellIdentifier"
             var cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? CPTrendingRepoCell
@@ -563,7 +543,7 @@ extension CPSearchViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if pageType == .Repos {
+        if pageType == .repos {
             return 85
         }
         return 71
@@ -573,42 +553,23 @@ extension CPSearchViewController: UITableViewDelegate {
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if pageType == .Repos {
-            let repos = self.reposData[(indexPath as NSIndexPath).row]
-            self.performSegue(withIdentifier: SegueTrendingSearchReposDetailView, sender: repos)
+        if pageType == .repos {
+            let repos = self.reposData[indexPath.row]
+            let vc = CPRepoDetailController()
+            vc.hidesBottomBarWhenPushed = true
+            vc.repos = repos
+            self.navigationController?.pushViewController(vc, animated: true)
+            
             return
         }
             
-        let dev = self.usersData[(indexPath as NSIndexPath).row]
-        self.performSegue(withIdentifier: SegueTrendingSearchUserDetailView, sender: dev)
+        let dev = self.usersData[indexPath.row]
+        let vc = CPUserDetailController()
+        vc.hidesBottomBarWhenPushed = true
+        vc.developer = dev
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if (segue.identifier == SegueTrendingSearchReposDetailView){
-
-            let reposVC = segue.destination as! CPTrendingRepositoryViewController
-            reposVC.hidesBottomBarWhenPushed = true
-            
-            let repos = sender as? ObjRepos
-            if(repos != nil){
-                reposVC.repos = repos
-            }
-            
-        }else if(segue.identifier == SegueTrendingSearchUserDetailView){
-            
-            let devVC = segue.destination as! CPTrendingDeveloperViewController
-            devVC.hidesBottomBarWhenPushed = true
-            
-            let dev = sender as? ObjUser
-            if(dev != nil){
-                devVC.developer = dev
-            }
-            
-        }
-    }
-
     
 }
 

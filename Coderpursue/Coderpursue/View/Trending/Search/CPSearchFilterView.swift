@@ -24,14 +24,21 @@ class CPSearchFilterView: UIView {
     var tableView:UITableView = UITableView()
     var contentView = UIView()
     
+    /// 筛选项一行的高度
     var paraBtnH:CGFloat = 40.0
+    
+    /// 筛选具体选项数据展示的高度
     var contengH:CGFloat = 0.0
     
     var selParaIndex = 0    //current select para index
+
+    /// 筛选后得到的字典{[选项：选项序]}，比如：{[语言：1]}
     var selValueDic:[String:Int] = [:]
     
+    //顶部一排的筛选选项按钮
     var paraBtns:[UIButton] = []
     
+    /// 筛选项，比如“Language”和"Sort"
     var filterPara:[String] = [] {
         didSet {
             for item in filterPara {
@@ -40,6 +47,7 @@ class CPSearchFilterView: UIView {
         }
     }
     
+    /// 筛选项对应的选项数据，需要跟筛选项对应
     var filterData:[[String]] = [[]] {
         didSet {
             
@@ -57,7 +65,7 @@ class CPSearchFilterView: UIView {
     
     func sfv_customView() {
         
-        self.backgroundColor = UIColor.viewBackgroundColor()
+        self.backgroundColor = UIColor.viewBackgroundColor
 
         let column = filterPara.count
         let btnW:CGFloat = width/CGFloat(column)
@@ -73,8 +81,8 @@ class CPSearchFilterView: UIView {
             paraBtn.setImage(UIImage(named: "arrow_down"), for: .highlighted)
 
             paraBtn.setImage(UIImage(named: "arrow_up"), for: .selected)
-            paraBtn.setTitleColor(UIColor.cpBlackColor(), for: UIControlState())
-            paraBtn.setTitleColor(UIColor.cpRedColor(), for: .selected)
+            paraBtn.setTitleColor(UIColor.cpBlackColor, for: UIControlState())
+            paraBtn.setTitleColor(UIColor.cpRedColor, for: .selected)
             paraBtn.setTitle(filterPara[index], for: UIControlState())
             paraBtn.titleLabel?.font = UIFont.middleSizeSystemFont()
             paraBtn.tag = index
@@ -97,7 +105,7 @@ class CPSearchFilterView: UIView {
         let actionBtnH:CGFloat = 40
         
         tableView.frame = CGRect(x: 0, y: 0, width: width,height: contentView.height-actionBtnH)
-        tableView.backgroundColor = UIColor.viewBackgroundColor()
+        tableView.backgroundColor = UIColor.viewBackgroundColor
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .singleLine
@@ -109,16 +117,16 @@ class CPSearchFilterView: UIView {
         let footView = UIView.init(frame: CGRect(x: 0, y: tableView.bottom, width: width, height: actionBtnH))
         
         let resetBtn = UIButton.init(frame: CGRect(x: 0, y: 0, width: width/2, height: actionBtnH))
-        resetBtn.setTitle("Reset", for: UIControlState())
-        resetBtn.setTitleColor(UIColor.cpBlackColor(), for: UIControlState())
+        resetBtn.setTitle("Reset".localized, for: UIControlState())
+        resetBtn.setTitleColor(UIColor.cpBlackColor, for: UIControlState())
         resetBtn.backgroundColor = UIColor.white
         resetBtn.addTarget(self, action: #selector(CPSearchFilterView.resetParaAction), for: .touchUpInside)
         footView.addSubview(resetBtn)
         
         let sureBtn = UIButton.init(frame: CGRect(x: width/2,y: 0, width: width/2, height: actionBtnH))
-        sureBtn.setTitle("Sure", for: UIControlState())
+        sureBtn.setTitle("Sure".localized, for: UIControlState())
         sureBtn.setTitleColor(UIColor.white, for: UIControlState())
-        sureBtn.backgroundColor = UIColor.cpRedColor()
+        sureBtn.backgroundColor = UIColor.cpRedColor
         sureBtn.addTarget(self, action: #selector(CPSearchFilterView.sureAction), for: .touchUpInside)
         
         footView.addSubview(sureBtn)
@@ -148,6 +156,9 @@ class CPSearchFilterView: UIView {
     }
     
     
+    /// 点击筛选项按钮
+    ///
+    /// - Parameter sender: <#sender description#>
     func clickParaBtnAction(_ sender:UIButton?){
         
         if let btn = sender {
@@ -177,6 +188,7 @@ class CPSearchFilterView: UIView {
         
     }
     
+    /// 充值按钮
     func resetParaAction() {
         
         for (selPara, _) in selValueDic {
@@ -186,6 +198,7 @@ class CPSearchFilterView: UIView {
         sureAction()
     }
     
+    /// 确定按钮
     func sureAction() {
         
         if searchParaDelegate != nil {
@@ -219,17 +232,18 @@ extension CPSearchFilterView:UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        cell.textLabel?.textColor = UIColor.labelTitleTextColor()
-        cell.backgroundColor = UIColor.viewBackgroundColor()
+        cell.textLabel?.textColor = UIColor.labelTitleTextColor
+        cell.backgroundColor = UIColor.viewBackgroundColor
         cell.textLabel!.font = UIFont.systemFont(ofSize: 14.0)
         cell.textLabel?.textAlignment = .center
         cell.selectionStyle = .none
         
+        //排序选项已经本地化
         let currentPara = filterPara[selParaIndex]
         let selValueIndex = selValueDic[currentPara]
-        if((indexPath as NSIndexPath).row == selValueIndex){
+        if(indexPath.row == selValueIndex){
             cell.backgroundColor = UIColor.white
-            cell.textLabel?.textColor = UIColor.cpRedColor()
+            cell.textLabel?.textColor = UIColor.cpRedColor
         }
         
         //make the seperator line is full width
@@ -240,7 +254,7 @@ extension CPSearchFilterView:UITableViewDataSource {
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
         
-        cell.textLabel!.text = filterData[selParaIndex][(indexPath as NSIndexPath).row]
+        cell.textLabel!.text = filterData[selParaIndex][indexPath.row]
         
         return cell
     }
@@ -254,10 +268,17 @@ extension CPSearchFilterView:UITableViewDelegate {
         return 35
     }
     
+    
+    /// 点击具体某一个筛选项对应的选项
+    ///
+    /// - Parameters:
+    ///   - tableView: <#tableView description#>
+    ///   - indexPath: <#indexPath description#>
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let currentPara = filterPara[selParaIndex]
-        selValueDic[currentPara] = (indexPath as NSIndexPath).row
+        /// 获取选中的value，需要将其英文化
+        let currentPara = filterPara[selParaIndex].localized
+        selValueDic[currentPara] = indexPath.row
         print(selValueDic)
         tableView.reloadData()
         

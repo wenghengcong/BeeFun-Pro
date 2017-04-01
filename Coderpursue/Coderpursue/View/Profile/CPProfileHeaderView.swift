@@ -146,9 +146,9 @@ class CPProfileHeaderView: UIView {
             if let followerCount = user?.followers {
                 phv_numOfFollwerLabel.text = String("\(followerCount)")
             }
-            if let reposCount = user?.public_repos {
-                phv_numOfReposLabel.text = String("\(reposCount)")
-            }
+            let reposCount = (user?.public_repos)! + (user?.total_private_repos)!
+            phv_numOfReposLabel.text = String("\(reposCount)")
+
             if let followingCount = user?.following {
                 phv_numOfFollowingLabel.text = String("\(followingCount)")
             }

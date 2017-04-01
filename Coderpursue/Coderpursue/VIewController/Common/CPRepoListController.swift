@@ -142,7 +142,7 @@ class CPRepoListController: CPBaseViewController {
             return
         }
         
-        Provider.sharedProvider.request( .userRepos( username:self.username!,page:self.reposPageVal,perpage:self.reposPerpage,type:self.typeVal, sort:self.sortVal ,direction:self.directionVal ) ) { (result) -> () in
+        Provider.sharedProvider.request( .myRepos(page:self.reposPageVal,perpage:self.reposPerpage,type:self.typeVal, sort:self.sortVal ,direction:self.directionVal ) ) { (result) -> () in
             print(result)
             
             var message = kNoDataFoundTip

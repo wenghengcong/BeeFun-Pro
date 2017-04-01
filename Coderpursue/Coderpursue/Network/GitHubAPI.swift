@@ -146,7 +146,7 @@ public enum GitHubAPI {
     case unfollow(username:String)
     
     //repository
-    case myRepos(type:String, sort:String ,direction:String)
+    case myRepos(page:Int,perpage:Int,type:String, sort:String ,direction:String)
     case userRepos( username:String ,page:Int,perpage:Int,type:String, sort:String ,direction:String)
     case orgRepos(type:String, organization:String)
     case pubRepos(page:Int,perpage:Int)
@@ -513,8 +513,10 @@ extension GitHubAPI: TargetType {
                 "page":page as AnyObject,
                 "per_page":perpage as AnyObject
             ]
-        case .myRepos(let type, let sort ,let direction):
+        case .myRepos(let page, let perpage,let type, let sort ,let direction):
             return [
+                "page":page as AnyObject,
+                "per_page":perpage as AnyObject,
                 "type":type as AnyObject,
                 "sort":sort as AnyObject,
                 "direction":direction as AnyObject

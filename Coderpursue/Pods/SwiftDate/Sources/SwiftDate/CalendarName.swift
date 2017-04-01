@@ -153,9 +153,9 @@ extension Calendar {
 		let res: Bool = withUnsafeMutablePointer(to: &start) { startp -> Bool in
 			return withUnsafeMutablePointer(to: &ti) { tip -> Bool in
 				let startPtr: UnsafeMutablePointer<CFAbsoluteTime> =
-					startp
+					unsafeBitCast(startp, to: UnsafeMutablePointer<CFAbsoluteTime>.self)
 				let tiPtr: UnsafeMutablePointer<CFTimeInterval> =
-					tip
+					unsafeBitCast(tip, to: UnsafeMutablePointer<CFTimeInterval>.self)
 				return CFCalendarGetTimeRangeOfUnit(cfObject, component.cfValue,
 				                                    date.timeIntervalSinceReferenceDate, startPtr, tiPtr)
 			}

@@ -30,22 +30,13 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
 
     var url : String? {
         didSet {
-            
-            if let urlNONil = url {
-                
-                let urlTmp = URL(string: urlNONil)
-                if urlTmp != nil {
-                    let urlRequest = URLRequest(url: urlTmp!)
-                    if webView != nil {
-                        self.webView!.loadRequest(urlRequest)
-                    }
-                }
-
+            let urlTmp = URL(string: url!)
+            let urlRequest = URLRequest(url: urlTmp!)
+            if webView != nil {
+                self.webView!.loadRequest(urlRequest)
             }
-
         }
     }
-    
     var html : String? {
         
         didSet {
@@ -56,14 +47,11 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
         
     }
     
-    convenience init() {
-        self.init(nibName:nil, bundle:nil)
-        wvc_customInit()
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Do any additional setup after loading the view.
+        wvc_customInit()
     }
 
     // MARK: - view
@@ -158,10 +146,10 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
         hud.show(animated: true)
         
         if isFull {
-            if hud.isDescendant(of: jsKeywindow!){
+            if hud.isDescendant(of: cpKeywindow!){
                 hud.hide(animated: false)
             }
-            jsKeywindow!.addSubview(hud)
+            cpKeywindow!.addSubview(hud)
         }else{
             if hud.isDescendant(of: self.view){
                 hud.hide(animated: false)
@@ -172,8 +160,6 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
     }
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        
-        self.title = webView.stringByEvaluatingJavaScript(from: "document.title")
         //hud hide后会自动移除
         hud.hide(animated: true)
         self.webView!.scrollView.contentInset = UIEdgeInsetsMake(self.topOffset, 0, 0, 0)
@@ -195,16 +181,12 @@ class CPWebViewController: CPBaseViewController,WKNavigationDelegate,UIWebViewDe
         UIApplication.shared.isNetworkActivityIndicatorVisible = false
     }
     
-    override func leftItemAction(_ sender: UIButton?) {
-        goBack()
-    }
-    
     // MARK: back and forward
     func goBack() {
         if (webView!.canGoBack) {
             webView!.goBack()
         }else {
-            _ = self.navigationController?.popViewController(animated: true)
+            leftItemAction(nil)
         }
     }
     

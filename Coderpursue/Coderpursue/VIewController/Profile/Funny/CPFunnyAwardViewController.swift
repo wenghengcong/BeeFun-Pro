@@ -15,6 +15,7 @@ class CPFunnyAwardViewController: CPWebViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Do any additional setup after loading the view.
         self.title = "Award"
     }
 
@@ -30,7 +31,7 @@ class CPFunnyAwardViewController: CPWebViewController {
         
         if navigationType == .other {
             let userDefault = UserDefaults.standard
-            userDefault.set(true, forKey: "\(String(describing: username))needauth")
+            userDefault.set(true, forKey: "\(username)needauth")
         }
         
         return true

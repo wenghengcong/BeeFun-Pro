@@ -14,6 +14,8 @@ class CPFunnyLabViewController: CPBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Do any additional setup after loading the view.
         self.title = "Funny Lab"
     }
 
@@ -24,6 +26,16 @@ class CPFunnyLabViewController: CPBaseViewController {
     override func leftItemAction(_ sender: UIButton?) {
         _ = self.navigationController?.popViewController(animated: true)
     }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
     @IBAction func lag_getAward(_ sender: AnyObject) {
         
@@ -48,8 +60,7 @@ class CPFunnyLabViewController: CPBaseViewController {
             self.navigationController?.pushViewController(awardVC, animated: true)
             
         }else{
-            // TODO: localized
-            JSMBHUDBridge.showMessage("Input your github username", view: self.view)
+            CPGlobalHelper.showMessage("Input your github username", view: self.view)
             return
         }
         

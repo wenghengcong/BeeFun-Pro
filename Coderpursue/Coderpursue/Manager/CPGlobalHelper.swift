@@ -14,7 +14,19 @@ class CPGlobalHelper {
     
     static let shared = CPGlobalHelper()
 
-
+    class func showMessage(_ message:String ,view:UIView) {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.labelText = message
+        hud.mode = .text
+        hud.hide(true, afterDelay: 1.5)
+    }
+    
+    class func showError(_ error:String ,view:UIView) {
+        let hud = MBProgressHUD.showAdded(to: view, animated: true)
+        hud.labelText = error
+        hud.mode = .text
+        hud.hide(true, afterDelay: 1.5)
+    }
     
     /** calculator text size */
     
@@ -51,7 +63,7 @@ class CPGlobalHelper {
         
         var settingsArr:[[ObjSettings]] = []
 
-        if let path = Bundle.appBundle.path(forResource: file, ofType: "plist") {
+        if let path = Bundle.main.path(forResource: file, ofType: "plist") {
             let dictArr = NSArray(contentsOfFile: path)!
             // use swift dictionary as normal
 //            print(dictArr)

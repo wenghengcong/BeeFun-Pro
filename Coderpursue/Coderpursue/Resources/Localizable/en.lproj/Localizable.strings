@@ -1,12 +1,10 @@
 /* 
   Localizable.strings
-  BeeFun
+  Coderpursue
 
   Created by WengHengcong on 2017/3/13.
   Copyright © 2017年 JungleSong. All rights reserved.
 */
-
-/*****英文转中文 Start******/
 
 //explore
 "Explore" = "Explore";
@@ -20,7 +18,6 @@
 "weekly"="weekly";
 "monthly"="monthly";
 //search
-"All" = "All";
 "Language"="Language";
 "Country"="Country";
 "Sort"="Sort";
@@ -35,13 +32,13 @@
 "Leaest recently updated"="Leaest recently updated";
 
 "Search repositories"="Search repositories";
-"Search users"="Search users";
+"Search Users"="Search Users";
 
 "Best match"="Best match";
 "Most followers"="Most followers";
 "Fewest followers"="Fewest followers";
 "Most recently joined"="Most recently joined";
-"Leaest recently joined"="Fewest recently joined";
+"Fewest recently joined"="Fewest recently joined";
 "Most repositories"="Most repositories";
 "Fewest repositories"="Fewest repositories";
 
@@ -50,10 +47,12 @@
 "Message" = "Message";
 
 "Notifications"="Notifications";
+"Issues"="Issues";
 
 //Stars
 "Stars" = "Stars";
 
+"Repositories"="Repositories";
 "Event"="Event";
 
 //Profile
@@ -90,155 +89,3 @@
 "Joined on"="Joined on";
 "Follow"="Follow";
 "Unfollow"="Unfollow";
-"Follower"="Follower";
-"Repositories"="Repositories";
-"Following"="Following";
-
-//长文本
-"  BeeFun is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!" = "  BeeFun is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!";
-
-//提醒
-"Share Success"="Share Success";
-"Share Failure"="Share Failure";
-"Share Cancel"="Share Cancel";
-"Please login first"="Please login first";
-"No Data Found"="No Data Found";
-"Release to refresh"="Release to refresh";
-"Load"="Load";
-"Loading"="Loading";
-"More"="More";
-"No More data"="😭No More data";
-
-
-
-//其他
-"Unknown" = "Unknown";
-"Success"="Success";
-"created at"="created at";
-"Homepage"="Homepage";
-"Cancel"="Cancel";
-"Failure"="Failure";
-
-
-/*****英文转中文 End******/
-
-
-/*****中文转英文 Start******/
-
-//explore
-"发现" = "Explore";
-
-"项目" = "Repositories";
-"用户" = "Developers";
-"列表"="Showcases";
-//filter
-"时间"="Since";
-"每天"="daily";
-"每周"="weekly";
-"每月"="monthly";
-"全部"="All";
-
-//country
-"中国"="China";
-"美国"="USA";
-"印度"="India";
-"日本"="Japan";
-"韩国"="Korea";
-"巴西"="Brazil";
-"德国"="Germany";
-"俄罗斯"="Russia";
-"英国"="UK";
-"法国"="France";
-"西班牙"="Spain";
-"加拿大"="Canada";
-"新加坡"="Singapore";
-"荷兰"="Netherlands";
-"意大利"="Italy";
-"瑞士"="Switzerland";
-"澳大利亚"="Australia";
-
-//City
-"北京"="Beijing";
-"上海"="Shanghai";
-"深圳"="Shenzhen";
-"杭州"="Hangzhou";
-"广州"="Guangzhou";
-"成都"="Chengdu";
-"南昌"="NanChang";
-
-
-//search
-"语言"="Language";
-"国家"="Country";
-"排序"="Sort";
-"重置"="Reset";
-"确认"="Sure";
-"最优匹配"="Best match";
-"收藏最多"="Most stars";
-"收藏最少"="Fewest stars";
-"派生最多"="Most forks";
-"派生最少"="Fewest forks";
-"更新最近"="Recently updated";
-"更新最少"="Leaest recently updated";
-
-"搜索项目"="Search repositories";
-"搜索用户"="Search Users";
-
-"最优匹配"="Best match";
-"粉丝最多"="Most followers";
-"粉丝最少"="Fewest followers";
-"加入最新"="Most recently joined";
-"加入最旧"="Fewest recently joined";
-"项目最多"="Most repositories";
-"项目最少"="Fewest repositories";
-
-
-//Message
-"消息" = "Message";
-
-"通知"="Notifications";
-"问题"="Issues";
-
-//Stars
-"收藏" = "Stars";
-
-"项目"="Repositories";
-"事件"="Event";
-
-//Profile
-"我" = "Profile";
-"登录"="Sign In";
-"粉丝"="Followers";
-"关注"="Following";
-"关注"="Watched";
-"反馈"="Feedback";
-"设置"="Settings";
-"分享"="Share";
-"评价"="Rate";
-"关于"="About";
-
-//Settings
-"版本"="Version";
-"退出登录"="Log Out";
-
-//About
-"关于"="About";
-"我"="Me";
-
-//repo view
-"关注"="Watch";
-"取消关注"="Unwatch";
-"收藏"="Star";
-"取消收藏"="Unstar";
-"派生"="Fork";
-"公开"="Public";
-"私有"="Private";
-"创建"="catated at";
-
-//user view
-"加入于"="Joined on";
-"关注"="Follow";
-"取消关注"="Unfollow";
-
-/*****中文转英文 End******/
-

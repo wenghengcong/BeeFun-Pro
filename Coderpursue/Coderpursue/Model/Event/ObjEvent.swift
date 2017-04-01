@@ -74,6 +74,7 @@ class ObjEvent: NSObject,Mappable {
     //TODO: org is organization
     //var org:String?
     
+    
     required init?(map: Map) {
         //        super.init(map)
     }

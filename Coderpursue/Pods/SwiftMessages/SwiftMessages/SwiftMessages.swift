@@ -158,26 +158,6 @@ open class SwiftMessages: PresenterDelegate {
                           dimmed area dismisses the message view.
          */
         case color(color: UIColor, interactive: Bool)
-
-        public var interactive: Bool {
-            switch self {
-            case .gray(let interactive):
-                return interactive
-            case .color(_, let interactive):
-                return interactive
-            case .none:
-                return false
-            }
-        }
-
-        public var modal: Bool {
-            switch self {
-            case .gray, .color:
-                return true
-            case .none:
-                return false
-            }
-        }
     }
 
     /**
@@ -280,12 +260,6 @@ open class SwiftMessages: PresenterDelegate {
          > may designate a different window as needed.
          */
         public var becomeKeyWindow: Bool?
-
-        /**
-         The `dimMode` background will use this accessibility
-         label, e.g. "dismiss" when the `interactive` option is used.
-        */
-        public var dimModeAccessibilityLabel: String = "dismiss"
     }
     
     /**
@@ -489,7 +463,7 @@ open class SwiftMessages: PresenterDelegate {
     }
     
     func hideCurrent() {
-        guard let current = current, !current.isHiding else { return }
+        guard let current = current else { return }
         let delay = current.delayHide ?? 0
         DispatchQueue.main.asyncAfter(deadline: .now() + delay) { [weak self] in
             current.hide { (completed) in
@@ -497,7 +471,6 @@ open class SwiftMessages: PresenterDelegate {
                 guard let strongSelf = self else { return }
                 strongSelf.syncQueue.async(execute: {
                     guard let strongSelf = self else { return }
-                    guard strongSelf.current === current else { return }
                     strongSelf.current = nil
                 })
             }

@@ -18,7 +18,7 @@ class CPBaseViewCell: UITableViewCell {
         didSet {
             let retinaPixelSize = 1.0 / (UIScreen.main.scale)
             let botView:UIView = UIView()
-            botView.backgroundColor = UIColor.lineBackgroundColor
+            botView.backgroundColor = UIColor.lineBackgroundColor()
             self.addSubview(botView)
             
             if (fullline!) {
@@ -47,7 +47,7 @@ class CPBaseViewCell: UITableViewCell {
             let retinaPixelSize = 1.0 / (UIScreen.main.scale)
             if (topline != nil) {
                 let topView:UIView = UIView()
-                topView.backgroundColor = UIColor.lineBackgroundColor
+                topView.backgroundColor = UIColor.lineBackgroundColor()
                 self.addSubview(topView)
                 topView.snp.remakeConstraints({ (make) -> Void in
                     make.left.equalTo(0)

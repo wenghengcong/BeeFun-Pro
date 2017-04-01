@@ -1,4 +1,4 @@
-## BeeFun 
+## Coderpursue 
 
 [![](https://img.shields.io/badge/version-1.2.0-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-3.0-green.svg)](https://developer.apple.com/swift/)
@@ -21,12 +21,15 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 
 ### 功能
 
-* v2.0
-  * 全新的设计；
-  * 多语言支持（中英文）；
-  * 支持查看repository以及developer的GitHub web页面；
-  * 支持手势滑动查看各tab；
-  * 修复各种bug；
+- v1.2.0
+  1. 探索 Github
+  2. 搜索repository、user；
+  3. star/watch/fork repository；
+  4. follow/unfollow user;
+  5. 查看notification和issue;
+  6. 查看用户的 starred/watched repositories；
+  7. 查看用户的 event;
+  8. 查看用户的 followers/following user;
 
 ***
 
@@ -54,8 +57,8 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
   1. ~~增加搜索Repository功能；~~
   2. ~~增加Trending时间段选择；~~
   3. 增加查看notification 详情页面；
-  4. ~~增加查看Issue详情页面；~~
-  5. ~~增加查看Event详情页面；~~
+  4. 增加查看Issue详情页面；
+  5. 增加查看Event详情页面；
 
 ***
 

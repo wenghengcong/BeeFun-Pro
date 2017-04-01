@@ -14,7 +14,7 @@ class CPStyleGuide {
     class func textFieldPlaceholderAttributes() -> [String:AnyObject] {
         
         let font = UIFont.middleSizeSystemFont()
-        let color = UIColor.textFieldPlaceholderTextColor
+        let color = UIColor.textFieldPlaceholderTextColor()
         
         return [
             NSFontAttributeName:font,
@@ -25,7 +25,7 @@ class CPStyleGuide {
     class func textFieldTextAttributes() -> [String:AnyObject] {
         
         let font = UIFont.largeSizeSystemFont()
-        let color = UIColor.textViewTextColor
+        let color = UIColor.textViewTextColor()
         
         return [
             NSFontAttributeName:font,
@@ -36,7 +36,7 @@ class CPStyleGuide {
     class func navTitleTextAttributes() -> [String:AnyObject] {
         
         let font = UIFont.hugeSizeSystemFont()
-        let color = UIColor.navigationBarTitleTextColor
+        let color = UIColor.navigationBarTitleTextColor()
         return [
             NSFontAttributeName:font,
             NSForegroundColorAttributeName:color

@@ -1,2 +1,0 @@
-1.redesign repository view;
-2.fix repository created time disappear error.

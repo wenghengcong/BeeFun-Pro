@@ -7,16 +7,8 @@
 //
 
 
-public let AppBundleIdentifier = "com.junglesong.coderpursue";
-
-
-//lean cloud  https://leancloud.cn
-
-
-public let LeanCloudAppID = "ghlejYYQiuNbEQftPzNzVlCQ-gzGzoHsz";
-public let LeanCloudAppKey = "L2hNnngqRj5cDfGTSQqDiYlm";
-public let LeanCloudMasterKey = "umO2aAwGqiTtLQTGKL726Igj";
-
+//appid
+public let AppleAppID = "1094338006"
 
 //github
 public let GithubAppClientId = "294e97e63b0e68f456ad";
@@ -34,12 +26,6 @@ public let ShareSDKAppSecret = "480ba09dc992ae0234a0fef9183ff836"
 public let UMengAppSecret = "56eb5109e0f55a2e0f002f84"
 public let SocailGithub = "https://github.com/wenghengcong/Coderpursue"
 public let SocialAppStore = "https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8"
-
-
-//Jpush
-public let JPushAppKey = "4827a092fd9e6e3df7483caa"
-public let JPushAppSecret = ""
-public let JPushChannel = "App Store"
 
 
 /// 新浪短链服务

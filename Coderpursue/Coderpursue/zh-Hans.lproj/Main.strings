@@ -1,0 +1,126 @@
+
+/* Class = "UILabel"; text = "735929774@qq.com"; ObjectID = "0Hd-PB-L8b"; */
+"0Hd-PB-L8b.text" = "735929774@qq.com";
+
+/* Class = "UITabBarItem"; title = "Message"; ObjectID = "1vW-qp-Co7"; */
+"1vW-qp-Co7.title" = "消息";
+
+/* Class = "UILabel"; text = "8 days ago"; ObjectID = "3Rc-4t-nx8"; */
+"3Rc-4t-nx8.text" = "8 days ago";
+
+/* Class = "UINavigationController"; title = "Stars"; ObjectID = "3ai-xQ-RFW"; */
+"3ai-xQ-RFW.title" = "收藏";
+
+/* Class = "UITabBarItem"; title = "Explore"; ObjectID = "6tt-Ce-XeT"; */
+"6tt-Ce-XeT.title" = "发现";
+
+/* Class = "UILabel"; text = "funny from github-awards.com"; ObjectID = "7mX-Er-tdD"; */
+"7mX-Er-tdD.text" = "funny from github-awards.com";
+
+/* Class = "UITabBarItem"; title = "Gist"; ObjectID = "8Kp-o3-Rn0"; */
+"8Kp-o3-Rn0.title" = "Gist";
+
+/* Class = "UIButton"; normalTitle = "Follow"; ObjectID = "9AD-ne-g0n"; */
+"9AD-ne-g0n.normalTitle" = "关注";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Ak7-pF-M3c"; */
+"Ak7-pF-M3c.text" = "Label";
+
+/* Class = "UILabel"; text = "A delightful networking framework"; ObjectID = "B5T-Pe-jXA"; */
+"B5T-Pe-jXA.text" = "A delightful networking framework";
+
+/* Class = "UINavigationItem"; title = "Message"; ObjectID = "BZf-3C-k9a"; */
+"BZf-3C-k9a.title" = "消息";
+
+/* Class = "UILabel"; text = "Objective-C"; ObjectID = "DLW-sV-cIU"; */
+"DLW-sV-cIU.text" = "Objective-C";
+
+/* Class = "UIButton"; normalTitle = "Sign   In"; ObjectID = "GCd-cT-27L"; */
+"GCd-cT-27L.normalTitle" = "Sign   In";
+
+/* Class = "UIButton"; normalTitle = "Sign In"; ObjectID = "J2b-aB-lZr"; */
+"J2b-aB-lZr.normalTitle" = "登录";
+
+/* Class = "UILabel"; text = "Followers"; ObjectID = "LEZ-fc-j8q"; */
+"LEZ-fc-j8q.text" = "粉丝";
+
+/* Class = "UIButton"; normalTitle = "Followers"; ObjectID = "MCC-gp-l5h"; */
+"MCC-gp-l5h.normalTitle" = "粉丝";
+
+/* Class = "UIButton"; normalTitle = "Log Out"; ObjectID = "TPN-1C-0rZ"; */
+"TPN-1C-0rZ.normalTitle" = "退出登录";
+
+/* Class = "UILabel"; text = "Respositories"; ObjectID = "Whm-2U-6Jd"; */
+"Whm-2U-6Jd.text" = "项目";
+
+/* Class = "UIViewController"; title = "Stars"; ObjectID = "Yd6-KV-moW"; */
+"Yd6-KV-moW.title" = "收藏";
+
+/* Class = "UITextField"; placeholder = "password"; ObjectID = "aRc-t0-jgC"; */
+"aRc-t0-jgC.placeholder" = "password";
+
+/* Class = "UITextField"; placeholder = "username"; ObjectID = "bwa-jJ-b7d"; */
+"bwa-jJ-b7d.placeholder" = "username";
+
+/* Class = "UITabBarItem"; title = "Stars"; ObjectID = "cip-ko-VOO"; */
+"cip-ko-VOO.title" = "收藏";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "csg-AS-XnP"; */
+"csg-AS-XnP.text" = "0";
+
+/* Class = "UIButton"; normalTitle = "Following"; ObjectID = "eYN-qc-tcB"; */
+"eYN-qc-tcB.normalTitle" = "关注";
+
+/* Class = "UIButton"; normalTitle = "Starred"; ObjectID = "hwI-GK-LVA"; */
+"hwI-GK-LVA.normalTitle" = "Starred";
+
+/* Class = "UINavigationItem"; title = "Stars"; ObjectID = "jcF-kd-uq7"; */
+"jcF-kd-uq7.title" = "收藏";
+
+/* Class = "UINavigationItem"; title = "Repos"; ObjectID = "kMM-wg-JW6"; */
+"kMM-wg-JW6.title" = "Repos";
+
+/* Class = "UINavigationItem"; title = "Profile"; ObjectID = "kWI-VN-UCm"; */
+"kWI-VN-UCm.title" = "我";
+
+/* Class = "UIButton"; normalTitle = "Go"; ObjectID = "ko3-Oc-FaT"; */
+"ko3-Oc-FaT.normalTitle" = "Go";
+
+/* Class = "UILabel"; text = "22068"; ObjectID = "kxy-h2-vWA"; */
+"kxy-h2-vWA.text" = "22068";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "l3K-vn-kdf"; */
+"l3K-vn-kdf.text" = "0";
+
+/* Class = "UITextView"; text = "  Coderpursue is a client of Github."; ObjectID = "lwb-pO-CWh"; */
+"lwb-pO-CWh.text" = "  Coderpursue is a client of Github.";
+
+/* Class = "UINavigationItem"; title = "Gist"; ObjectID = "o9u-Pv-1BB"; */
+"o9u-Pv-1BB.title" = "Gist";
+
+/* Class = "UINavigationItem"; title = "Explore"; ObjectID = "qoa-mp-B6Q"; */
+"qoa-mp-B6Q.title" = "发现";
+
+/* Class = "UINavigationItem"; title = "Sign In"; ObjectID = "sF3-Pf-8sG"; */
+"sF3-Pf-8sG.title" = "登录";
+
+/* Class = "UILabel"; text = "wenghengcong"; ObjectID = "szz-Ps-1VI"; */
+"szz-Ps-1VI.text" = "wenghengcong";
+
+/* Class = "UILabel"; text = "6955"; ObjectID = "tzS-eR-tmm"; */
+"tzS-eR-tmm.text" = "6955";
+
+/* Class = "UILabel"; text = "Following"; ObjectID = "v9f-7C-dt8"; */
+"v9f-7C-dt8.text" = "关注";
+
+/* Class = "UILabel"; text = "AFNetworking"; ObjectID = "wUM-Sj-BLQ"; */
+"wUM-Sj-BLQ.text" = "AFNetworking";
+
+/* Class = "UITextField"; placeholder = "username or email"; ObjectID = "wsd-gT-NyO"; */
+"wsd-gT-NyO.placeholder" = "username or email";
+
+/* Class = "UILabel"; text = "0"; ObjectID = "xlk-Sf-jIz"; */
+"xlk-Sf-jIz.text" = "0";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "xw0-IQ-hKh"; */
+"xw0-IQ-hKh.title" = "我";

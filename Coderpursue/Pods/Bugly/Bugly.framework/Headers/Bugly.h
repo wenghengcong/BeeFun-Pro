@@ -2,7 +2,7 @@
 //  Bugly.h
 //  Bugly
 //
-//  Version: 2.4(7)
+//  Version: 2.4(6)
 //
 //  Copyright (c) 2016年 Bugly. All rights reserved.
 //

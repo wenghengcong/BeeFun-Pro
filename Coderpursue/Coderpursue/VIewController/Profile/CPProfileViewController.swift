@@ -14,7 +14,6 @@ import SwiftDate
 import MessageUI
 import Alamofire
 import SwiftyStoreKit
-import AVOSCloud
 
 class CPProfileViewController: CPBaseViewController {
     

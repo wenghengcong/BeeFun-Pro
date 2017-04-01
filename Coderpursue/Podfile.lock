@@ -27,7 +27,6 @@ PODS:
     - PromiseKit/CorePromise
   - PromiseKit/UIKit (4.1.7):
     - PromiseKit/CorePromise
-  - ReachabilitySwift (3)
   - Result (3.2.1)
   - SnapKit (3.2.0)
   - SwiftDate (4.1.0)
@@ -49,7 +48,6 @@ DEPENDENCIES:
   - Moya
   - ObjectMapper (~> 2.2)
   - PromiseKit (~> 4.0)
-  - ReachabilitySwift (~> 3)
   - SnapKit
   - SwiftDate (~> 4.0)
   - SwiftMessages
@@ -71,7 +69,6 @@ SPEC CHECKSUMS:
   Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
   ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
   PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
-  ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
   Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SwiftDate: 1cb9a0a930a1f0fff392806829fed0ee370ff94f
@@ -80,6 +77,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
   SwiftyStoreKit: b235756bd6e541cafbed6e75d28b29b8a1c1caef
 
-PODFILE CHECKSUM: 589b414fd72684cab2ede5e047eac301264009e4
+PODFILE CHECKSUM: 35f07868cd2f29d675a0ea600c9807115eadf20c
 
 COCOAPODS: 1.2.0

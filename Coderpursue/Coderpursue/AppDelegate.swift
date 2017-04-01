@@ -11,7 +11,6 @@ import IQKeyboardManagerSwift
 import UserNotifications
 import SwiftDate
 import SwiftyStoreKit
-import AVOSCloud
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDelegate {

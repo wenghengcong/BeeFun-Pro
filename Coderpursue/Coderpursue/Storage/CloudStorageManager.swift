@@ -9,6 +9,9 @@
 import UIKit
 import AVOSCloud
 
+//管理台 https://leancloud.cn/dashboard/data.html?appid=ghlejYYQiuNbEQftPzNzVlCQ-gzGzoHsz#/
+//文档 https://leancloud.cn/docs/leanstorage_guide-objc.html
+
 class CloudStorageManager: NSObject {
     
     class func storageInit(){

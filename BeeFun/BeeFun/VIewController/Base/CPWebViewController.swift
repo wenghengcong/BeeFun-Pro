@@ -1,6 +1,6 @@
 //
 //  CPWebViewController.swift
-//  Coderpursue
+//  BeeFun
 //
 //  Created by wenghengcong on 16/1/9.
 //  Copyright © 2016年 JungleSong. All rights reserved.

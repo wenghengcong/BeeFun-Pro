@@ -1,6 +1,6 @@
 //
 //  GitV3API.swift
-//  Coderpursue
+//  BeeFun
 //
 //  Created by wenghengcong on 16/1/10.
 //  Copyright © 2016年 JungleSong. All rights reserved.
@@ -48,7 +48,7 @@ struct Provider{
             
         default:
 //            print("current token:\( AppToken.shared.access_token!)")
-           endpoint = endpoint.adding(newHTTPHeaderFields: ["User-Agent":"Coderpursue"])
+           endpoint = endpoint.adding(newHTTPHeaderFields: ["User-Agent":"BeeFun"])
 
             return endpoint.adding(newHTTPHeaderFields: ["Authorization": AppToken.shared.access_token ?? ""])
         }

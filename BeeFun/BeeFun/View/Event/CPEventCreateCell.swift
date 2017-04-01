@@ -1,7 +1,7 @@
 
 //
 //  CPEventCreateCell.swift
-//  Coderpursue
+//  BeeFun
 //
 //  Created by WengHengcong on 3/6/16.
 //  Copyright © 2016 JungleSong. All rights reserved.

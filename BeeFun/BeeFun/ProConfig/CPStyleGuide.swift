@@ -1,6 +1,6 @@
 //
 //  CPStyleGuide.swift
-//  Coderpursue
+//  BeeFun
 //
 //  Created by wenghengcong on 16/1/6.
 //  Copyright © 2016年 JungleSong. All rights reserved.

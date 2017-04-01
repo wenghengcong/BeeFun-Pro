@@ -1,6 +1,0 @@
-framework module Pods_Coderpursue {
-  umbrella header "Pods-Coderpursue-umbrella.h"
-
-  export *
-  module * { export * }
-}

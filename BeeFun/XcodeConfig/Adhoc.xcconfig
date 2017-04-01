@@ -1,0 +1,13 @@
+
+//
+//  Config.xcconfig
+//  BeeFun
+//
+//  Created by WengHengcong on 2017/3/21.
+//  Copyright © 2017年 JungleSong. All rights reserved.
+//
+
+#include "Common.xcconfig"
+#include "Pods/Target Support Files/Pods-BeeFun/Pods-BeeFun.achoc.xcconfig"
+
+APP_DISPLAYNAME = Debug

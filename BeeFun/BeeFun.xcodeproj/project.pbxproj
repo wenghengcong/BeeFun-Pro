@@ -293,7 +293,6 @@
 		5E0FE4481E8FFFDA00356232 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E0FE4491E8FFFDA00356232 /* BeeFun-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BeeFun-Bridging-Header.h"; sourceTree = "<group>"; };
 		5E0FE44A1E8FFFDA00356232 /* BeeFun.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = BeeFun.entitlements; sourceTree = "<group>"; };
-		5E0FE44B1E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en; path = en.lproj/Info.plist; sourceTree = "<group>"; };
 		5E0FE44D1E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5E0FE44F1E8FFFDA00356232 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5E0FE4501E8FFFDA00356232 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -571,7 +570,6 @@
 		5E0FE5C21E8FFFDB00356232 /* CPSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPSearchViewController.swift; sourceTree = "<group>"; };
 		5E0FE5C31E8FFFDB00356232 /* CPTrendingShowcaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingShowcaseViewController.swift; sourceTree = "<group>"; };
 		5E0FE5C41E8FFFDB00356232 /* CPTrendingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CPTrendingViewController.swift; sourceTree = "<group>"; };
-		5E0FE5C51E8FFFDB00356232 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		5E0FE5C71E8FFFDB00356232 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		5E0FE5C81E8FFFDB00356232 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = "zh-Hans"; path = "zh-Hans.lproj/Main.storyboard"; sourceTree = "<group>"; };
 		5E73686B1E77D4CC00AEBA77 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1868,7 +1866,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5E0FE4461E8FFFDA00356232 /* Base */,
-				5E0FE44B1E8FFFDA00356232 /* en */,
 			);
 			name = Info.plist;
 			sourceTree = "<group>";
@@ -1885,7 +1882,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				5E0FE44D1E8FFFDA00356232 /* en */,
-				5E0FE5C51E8FFFDB00356232 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

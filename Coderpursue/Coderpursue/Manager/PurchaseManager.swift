@@ -9,27 +9,37 @@
 import UIKit
 import SwiftyStoreKit
 
-enum RegisteredPurchase: String {
+enum PurchaseProduct: String {
     
-    case purchase1 = "com.junglesong.coderpursue.1"
+    case reward = "com.junglesong.coderpursue.1025"
 }
 
 class PurchaseManager: NSObject {
 
-    let appBundleId = AppBundleIdentifier
-    let purchase1Suffix = RegisteredPurchase.purchase1
+    static let shared = PurchaseManager()
     
-    func getInfo(_ purchase: RegisteredPurchase) {
+    func getInfo(_ purchase: PurchaseProduct) {
         
-        SwiftyStoreKit.retrieveProductsInfo([appBundleId + "." + purchase.rawValue]) { result in
+        SwiftyStoreKit.retrieveProductsInfo([purchase.rawValue]) { result in
+            
+            if let product = result.retrievedProducts.first {
+                let priceString = product.localizedPrice!
+                print("Product: \(product.localizedDescription), price: \(priceString)")
+            }
+            else if let invalidProductId = result.invalidProductIDs.first {
+                
+            }
+            else {
+                print("Error: \(String(describing: result.error))")
+            }
             
         }
     }
     
     
-    func purchase(_ purchase: RegisteredPurchase) {
+    func purchase(_ purchase: PurchaseProduct) {
         
-        SwiftyStoreKit.purchaseProduct(appBundleId + "." + purchase.rawValue, atomically: true) { result in
+        SwiftyStoreKit.purchaseProduct(purchase.rawValue, atomically: true) { result in
             
             if case .success(let product) = result {
                 // Deliver content from server, then:
@@ -41,7 +51,7 @@ class PurchaseManager: NSObject {
     }
     
     
-    func verifyPurchase(_ purchase: RegisteredPurchase) {
+    func verifyPurchase(_ purchase: PurchaseProduct) {
         
         let appleValidator = AppleReceiptValidator(service: .production)
         SwiftyStoreKit.verifyReceipt(using: appleValidator, password: "your-shared-secret") { result in
@@ -49,10 +59,10 @@ class PurchaseManager: NSObject {
             switch result {
             case .success(let receipt):
                 
-                let productId = self.appBundleId + "." + purchase.rawValue
+                let productId = purchase.rawValue
                 
                 switch purchase {
-                case .purchase1:
+                case .reward:
                     break
                 default:
                     let purchaseResult = SwiftyStoreKit.verifyPurchase(

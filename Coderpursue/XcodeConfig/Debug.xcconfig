@@ -9,8 +9,5 @@
 #include "Common.xcconfig"
 #include "Pods/Target Support Files/Pods-Coderpursue/Pods-Coderpursue.debug.xcconfig"
 
-VERSION_NUM = 1.1.1
-
-BUILD_NUM =  2
 
 APP_DISPLAYNAME = Debug

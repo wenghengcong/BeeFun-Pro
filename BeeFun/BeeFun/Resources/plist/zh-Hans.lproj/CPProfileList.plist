@@ -13,16 +13,6 @@
 			<key>itemDisclosure</key>
 			<true/>
 		</dict>
-		<dict>
-			<key>itemKey</key>
-			<string>share</string>
-			<key>itemName</key>
-			<string>分享</string>
-			<key>itemIcon</key>
-			<string>set_share</string>
-			<key>itemDisclosure</key>
-			<true/>
-		</dict>
 	</array>
 	<array>
 		<dict>

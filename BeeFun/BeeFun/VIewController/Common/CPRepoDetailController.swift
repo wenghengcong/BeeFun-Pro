@@ -66,13 +66,15 @@ class CPRepoDetailController: CPBaseViewController {
         self.reposPoseterV.isHidden = true
         self.reposInfoV.isHidden = true
         self.tableView.isHidden = true
+        
         self.view.addSubview(self.reposPoseterV)
         self.view.addSubview(self.reposInfoV)
         self.view.addSubview(self.tableView)
         
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
-        self.rightItem?.isHidden = false
+        // TODO: 隐藏分享按钮
+        self.rightItem?.isHidden = true
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         
         

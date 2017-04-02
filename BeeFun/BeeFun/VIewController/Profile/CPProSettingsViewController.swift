@@ -59,12 +59,12 @@ class CPProSettingsViewController: CPBaseViewController {
         
         let alertVC = UIAlertController.init(title: "Log Out".localized + "?", message:"", preferredStyle: .alert)
         
-        let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (action) in
+        let cancelAction = UIAlertAction(title: "Cancel".localized, style: .cancel) { (action) in
             // ...
         }
         alertVC.addAction(cancelAction)
         
-        let OKAction = UIAlertAction(title: "确定", style: .default) { (action) in
+        let OKAction = UIAlertAction(title: "Sure".localized, style: .default) { (action) in
             UserManager.shared.deleteUser()
             NotificationCenter.default.post(name: Notification.Name(rawValue:kNotificationDidGitLogOut), object:nil)
             _ = self.navigationController?.popViewController(animated: true)

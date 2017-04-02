@@ -69,7 +69,7 @@ class CPUserDetailController: CPBaseViewController {
         self.rightItemImage = UIImage(named: "nav_share_35")
         self.rightItemSelImage = UIImage(named: "nav_share_35")
         // TODO: 隐藏分享按钮
-        self.rightItem?.isHidden = false
+        self.rightItem?.isHidden = true
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.view.backgroundColor = UIColor.viewBackgroundColor

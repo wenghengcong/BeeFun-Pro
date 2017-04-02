@@ -607,7 +607,7 @@ extension CPRepoDetailController:ReposActionProtocol {
                 message = ""
             }else{
                 title = "Starring".localized + kSignApostrophe
-                message = kStaringTip
+//                message = kStaringTip
             }
 
         case .Fork:

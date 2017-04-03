@@ -1,6 +1,6 @@
 ## BeeFun 
 
-[![](https://img.shields.io/badge/version-1.2.0-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
+[![](https://img.shields.io/badge/version-2.0-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-3.0-green.svg)](https://developer.apple.com/swift/)
 
 
@@ -11,7 +11,7 @@
 
 [版本更新](https://github.com/wenghengcong/Coderpursue/blob/master/doc/versions.md)
 
-Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目前已开源。
+BeeFun，Github第三方客户端，使用最新的Swift语言编写，目前已开源。
 
 <a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/other/Screen%20Shot%202016-03-24%20at%208.25.36%20AM.png" height="200" width="200" ></a>
 
@@ -21,12 +21,30 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 
 ### 功能
 
-* v2.0
-  * 全新的设计；
-  * 多语言支持（中英文）；
-  * 支持查看repository以及developer的GitHub web页面；
-  * 支持手势滑动查看各tab；
-  * 修复各种bug；
+【发现】
+  紧跟每天、每周、每月的最新流行项目，搜索开发者，搜索项目，搜索你想要的！
+
+
+
+【消息】
+ 通知、事件、问题，一个都不放过，项目重在参与，提醒不容错过。
+
+【收藏】
+  收藏最棒的项目，关注最前沿的开源黑科技。
+
+
+
+【查看】
+查看每个项目的详情，查看每个开发者的详情，一丝丝细节都有含义。
+
+
+
+【其他特性】
+ 简洁的设计与交互，希望您喜爱~
+
+
+
+
 
 ***
 
@@ -50,10 +68,10 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 
 下一步的开发计划是：
 
-- v2.0
-  1. ~~增加搜索Repository功能；~~
-  2. ~~增加Trending时间段选择；~~
-  3. 增加查看notification 详情页面；
+- v3.0
+  1. 增加Gist功能；
+  2. 补全Event事件列表；
+  3. 增加Notification 详情页面；
   4. ~~增加查看Issue详情页面；~~
   5. ~~增加查看Event详情页面；~~
 
@@ -79,13 +97,19 @@ Coderpursue，Github第三方客户端，使用最新的Swift语言编写，目�
 
 <br />
 
+
+
 ***
 
-
 ### 关于我
+
 	邮箱：wenghengcong@163.com
 	微博：http://weibo.com/1820994470
 	博客：wenghengcong.com
+
+
+
+
 
 ***
 

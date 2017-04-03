@@ -1,6 +1,6 @@
 ## Coderpursue 
 
-[![](https://img.shields.io/badge/version-1.2.0-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
+[![](https://img.shields.io/badge/version-2.0-red.svg)](https://github.com/wenghengcong/Coderpursue/releases/tag/1.0.1)
 [![](https://img.shields.io/badge/swift-3.0-green.svg)](https://developer.apple.com/swift/)
 
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
@@ -21,15 +21,36 @@ You can get the app by QR code or on App Store.
 
 ### Feature
 
-- v1.2.0
-  1. Explore Github: Explore Trending Repositories or showcases；
-  2. Search User and Repositories；
-  3. star/watch/fork repository；
-  4. follow/unfollow user;
-  5. view your notification and issue;
-  6. view your starre/watched repositories；
-  7. viwe your event;
-  8. view your followers/following user;
+
+
+【Explore】
+
+Find everyday trengding repository,search developer and repository,search everything you want.
+
+
+
+【Message】
+
+Notification,Event and Issue,Nothing escape.
+
+
+
+【Star】
+
+Star awesome repository,Focus on new black technology.
+
+
+
+【View】
+
+View repository and user detail.
+
+
+
+【Other】
+
+Simple, easy to use,Hope you love it.
+
 
 
 ***

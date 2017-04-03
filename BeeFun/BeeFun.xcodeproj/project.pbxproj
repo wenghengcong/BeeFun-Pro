@@ -2439,8 +2439,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.junglesong.coderpursue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cf223cf5-c8d2-43d1-9f5e-acd2d54d4958";
-				PROVISIONING_PROFILE_SPECIFIER = coderpursue_ad_pp;
+				PROVISIONING_PROFILE = "d9afaffe-a65f-4c54-9fd5-287ca03055dc";
+				PROVISIONING_PROFILE_SPECIFIER = coderpursue_dis_pp;
 				SWIFT_OBJC_BRIDGING_HEADER = "BeeFun/BeeFun-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 1;

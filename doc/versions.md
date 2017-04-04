@@ -41,13 +41,12 @@
 
 ***
 
-v2.0
-
-- 全新的设计；
-- 多语言支持（中英文）；
-- 支持查看repository以及developer的GitHub web页面；
-- 支持手势滑动查看各tab；
-- 修复各种bug；
+* v2.0
+  * 全新的设计；
+  * 多语言支持（中英文）；
+  * 支持查看repository以及developer的GitHub web页面；
+  * 支持手势滑动查看各tab；
+  * 修复各种bug；
 
 ***
 

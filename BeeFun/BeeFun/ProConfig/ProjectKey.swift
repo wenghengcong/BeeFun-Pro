@@ -57,8 +57,8 @@ public let WeiboSDKAppKey = "1224249220"
 public let WeiboSDKAppSecret = "45b9b45c5e29ecc1127858fb076d05ae"
 
 //tencent
-public let TencentSDKAppID = "1105263895"
-public let TencentSDKAppKey = "iym79yrZuElPOCDh"
+public let TencentSDKAppID = "1106086248"
+public let TencentSDKAppKey = "lmSYALCN1XjiG7XN"
 //facebook
 public let FackbookSDKAppID = "789261007875015"
 public let FackbookSDKAppSecret = "b29f205f582c617fe26421b626c84576"

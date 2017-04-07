@@ -9,7 +9,7 @@
 
 
 
-Coderpursue，a Github 3rd client for iOS。It's written in lastest version Swift.Also,It's an open project.
+BeeFun，a Github 3rd client for iOS。It's written in lastest version Swift.Also,It's an open project.
 
 You can get the app by QR code or on App Store.
 
@@ -67,44 +67,27 @@ Simple, easy to use,Hope you love it.
 
  [other](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/other.md) 
 
- ***
-
-### TODO
-
-Now,I should improve the quality of the application first.
-
-Also,I will add these features to next version.
-
-- v2.0
-  1. ~~search Repository;~~
-  2. ~~trending Repositories filter by tiem period;~~
-  3. add notification detail page;
-  4. add Issue detail page;
-  5. add event deatail page;
 
 ***
+
 
 ### App Preview
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1417.PNG" align="left" height="356" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/explore.png" align="left" height="356" width="200" ></a>
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1418.PNG" align="left" height="356" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/home.png" align="left" height="356" width="200" ></a>
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1419.PNG" align="left" height="200" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/local.png" align="left" height="200" width="200" ></a>
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1420.PNG" align="left" height="356" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/message.png" align="left" height="356" width="200" ></a>
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1421.PNG" align="left" height="356" width="200" ></a>
-
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1422.PNG" align="left" height="356" width="200" ></a>
-
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1423.PNG" align="left" height="356" width="200" ></a>
-
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1424.PNG" align="left" height="356" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/web.png" align="left" height="356" width="200" ></a>
 
 <br />
 
+
 ***
+
 
 ### About Me
 	Email：wenghengcong@163.com

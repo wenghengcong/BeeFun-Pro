@@ -4,7 +4,6 @@
 [![](https://img.shields.io/badge/swift-3.0-green.svg)](https://developer.apple.com/swift/)
 
 
-
 [App Store](https://itunes.apple.com/cn/app/coderpursue/id1094338006?l=en&mt=8)
 
 [ReadMe English](https://github.com/wenghengcong/Coderpursue/blob/developer/README_En.md)  
@@ -60,46 +59,28 @@ BeeFun，Github第三方客户端，使用最新的Swift语言编写，目前已
 
  [其他](https://github.com/wenghengcong/Coderpursue/blob/developer/doc/other.md) 
 
- ***
-
-### 计划中
-
-目前，功能相对简单，代码质量也是堪忧，所以，要做的提高应用质量。
-
-下一步的开发计划是：
-
-- v3.0
-  1. 增加Gist功能；
-  2. 补全Event事件列表；
-  3. 增加Notification 详情页面；
-  4. ~~增加查看Issue详情页面；~~
-  5. ~~增加查看Event详情页面；~~
-
 ***
+
 
 ### 应用预览
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1417.PNG" align="left" height="356" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/explore.png" align="left" height="356" width="200" ></a>
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1418.PNG" align="left" height="356" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/home.png" align="left" height="356" width="200" ></a>
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1419.PNG" align="left" height="200" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/local.png" align="left" height="200" width="200" ></a>
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1420.PNG" align="left" height="356" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/message.png" align="left" height="356" width="200" ></a>
 
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1421.PNG" align="left" height="356" width="200" ></a>
-
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1422.PNG" align="left" height="356" width="200" ></a>
-
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1423.PNG" align="left" height="356" width="200" ></a>
-
-<a href="url"><img src="https://github.com/wenghengcong/Coderpursue/blob/master/screenshot%2Fversion1.0%2Fpreview%2FIMG_1424.PNG" align="left" height="356" width="200" ></a>
+<a href="url"><img src="https://github.com/wenghengcong/BeeFun/blob/master/screenshot/version2.0/orginal/desing/web.png" align="left" height="356" width="200" ></a>
 
 <br />
 
 
 
 ***
+
+
 
 ### 关于我
 
@@ -108,10 +89,9 @@ BeeFun，Github第三方客户端，使用最新的Swift语言编写，目前已
 	博客：wenghengcong.com
 
 
-
-
-
 ***
+
+
 
 ### 其他Github客户端
 

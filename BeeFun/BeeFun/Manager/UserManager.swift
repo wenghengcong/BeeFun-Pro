@@ -29,7 +29,7 @@ class UserManager: NSObject {
     var isLogin:Bool {
         get {
             if user != nil {
-                if ( ((user!.name) != nil) && !((user!.name!).isEmpty) && (AppToken().access_token != nil)){
+                if ( ((user!.login) != nil) && !((user!.login!).isEmpty) && (AppToken().access_token != nil)){
                     return true
                 }
             }
@@ -49,12 +49,12 @@ class UserManager: NSObject {
     }
     
     
-    /// 用户名，可能不唯一
+    /// 用户名，可能不唯一，也有可能为空
     var name:String? {
         return user?.name
     }
     
-    /// 登录名，唯一
+    /// 登录名，唯一，目前看来，不为空
     var login:String?  {
         return user?.login
     }

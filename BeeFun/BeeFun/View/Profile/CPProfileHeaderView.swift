@@ -136,7 +136,12 @@ class CPProfileHeaderView: UIView {
                 phv_avatarImgV.kf.setImage(with: URL(string: avatarUrl)!)
             }
             
-            phv_nameLabel.text = user?.name
+            if let name = user?.name {
+                phv_nameLabel.text = UserManager.shared.name
+            }else{
+                phv_nameLabel.text = UserManager.shared.login
+            }
+            
             if let email = user?.email {
                 phv_emailLabel.setTitle(email, for: UIControlState())
             }else{

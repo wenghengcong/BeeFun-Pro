@@ -137,7 +137,7 @@ class CPProfileHeaderView: UIView {
             }
             
             if let name = user?.name {
-                phv_nameLabel.text = UserManager.shared.name
+                phv_nameLabel.text = name
             }else{
                 phv_nameLabel.text = UserManager.shared.login
             }

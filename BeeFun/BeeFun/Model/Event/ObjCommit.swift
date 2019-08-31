@@ -19,18 +19,17 @@ import ObjectMapper
 
 */
 
-class ObjCommit: NSObject,Mappable {
-    
-    var sha:String?
-    var author:ObjUser?
-    var message:String?
-    var distinct:Bool?
-    var url:String?
+class ObjCommit: NSObject, Mappable {
+
+    var sha: String?
+    var author: ObjUser?
+    var message: String?
+    var distinct: Bool?
+    var url: String?
 
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
         sha <- map["sha"]
@@ -38,6 +37,6 @@ class ObjCommit: NSObject,Mappable {
         message <- map["message"]
         distinct <- map["distinct"]
         url <- map["url"]
-        
+
     }
 }

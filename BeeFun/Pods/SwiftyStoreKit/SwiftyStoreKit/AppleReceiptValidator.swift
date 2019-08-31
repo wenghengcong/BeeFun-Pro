@@ -25,6 +25,8 @@
 
 import Foundation
 
+// https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
+
 public struct AppleReceiptValidator: ReceiptValidator {
 
 	public enum VerifyReceiptURLType: String {
@@ -32,24 +34,29 @@ public struct AppleReceiptValidator: ReceiptValidator {
 		case sandbox = "https://sandbox.itunes.apple.com/verifyReceipt"
 	}
 
-	public init(service: VerifyReceiptURLType = .production) {
+    private let service: VerifyReceiptURLType
+    private let sharedSecret: String?
+
+    /**
+     * Reference Apple Receipt Validator
+     *  - Parameter service: Either .production or .sandbox
+     *  - Parameter sharedSecret: Only used for receipts that contain auto-renewable subscriptions. Your app’s shared secret (a hexadecimal string).
+     */
+    public init(service: VerifyReceiptURLType = .production, sharedSecret: String? = nil) {
 		self.service = service
+        self.sharedSecret = sharedSecret
 	}
 
-	private let service: VerifyReceiptURLType
-
-	public func validate(
-		receipt: String,
-		password autoRenewPassword: String? = nil,
-		completion: @escaping (VerifyReceiptResult) -> Void) {
+	public func validate(receiptData: Data, completion: @escaping (VerifyReceiptResult) -> Void) {
 
 		let storeURL = URL(string: service.rawValue)! // safe (until no more)
 		let storeRequest = NSMutableURLRequest(url: storeURL)
 		storeRequest.httpMethod = "POST"
 
+        let receipt = receiptData.base64EncodedString(options: [])
 		let requestContents: NSMutableDictionary = [ "receipt-data": receipt ]
 		// password if defined
-		if let password = autoRenewPassword {
+		if let password = sharedSecret {
 			requestContents.setValue(password, forKey: "password")
 		}
 
@@ -77,7 +84,7 @@ public struct AppleReceiptValidator: ReceiptValidator {
 			}
 
 			// cannot decode data
-			guard let receiptInfo = try? JSONSerialization.jsonObject(with: data!, options: .mutableLeaves) as? ReceiptInfo ?? [:] else {
+			guard let receiptInfo = try? JSONSerialization.jsonObject(with: safeData, options: .mutableLeaves) as? ReceiptInfo ?? [:] else {
 				let jsonStr = String(data: safeData, encoding: String.Encoding.utf8)
 				completion(.error(error: .jsonDecodeError(string: jsonStr)))
 				return
@@ -99,8 +106,8 @@ public struct AppleReceiptValidator: ReceiptValidator {
 				*/
 				let receiptStatus = ReceiptStatus(rawValue: status) ?? ReceiptStatus.unknown
 				if case .testReceipt = receiptStatus {
-					let sandboxValidator = AppleReceiptValidator(service: .sandbox)
-					sandboxValidator.validate(receipt: receipt, password: autoRenewPassword, completion: completion)
+                    let sandboxValidator = AppleReceiptValidator(service: .sandbox, sharedSecret: self.sharedSecret)
+					sandboxValidator.validate(receiptData: receiptData, completion: completion)
 				} else {
 					if receiptStatus.isValid {
 						completion(.success(receipt: receiptInfo))

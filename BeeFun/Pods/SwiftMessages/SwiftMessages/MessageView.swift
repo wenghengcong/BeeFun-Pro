@@ -20,7 +20,7 @@ open class MessageView: BaseView, Identifiable, AccessibleMessage {
     /// configured to call this tap handler on `.TouchUpInside`.
     open var buttonTapHandler: ((_ button: UIButton) -> Void)?
     
-    func buttonTapped(_ button: UIButton) {
+    @objc func buttonTapped(_ button: UIButton) {
         buttonTapHandler?(button)
     }
 
@@ -34,7 +34,7 @@ open class MessageView: BaseView, Identifiable, AccessibleMessage {
         // touches. This helps with tap dismissal when using `DimMode.gray` and `DimMode.color`.
         return backgroundView == self
             ? super.point(inside: point, with: event)
-            : backgroundView.point(inside: point, with: event)
+            : backgroundView.point(inside: convert(point, to: backgroundView), with: event)
     }
 
     /*
@@ -92,10 +92,14 @@ open class MessageView: BaseView, Identifiable, AccessibleMessage {
      the view's background color or icon might convey that a message is
      a warning, in which case one may specify the value "warning".
      */
-    private var accessibilityPrefix: String?
+    open var accessibilityPrefix: String?
 
     open var accessibilityMessage: String? {
+        #if swift(>=4.1)
+        let components = [accessibilityPrefix, titleLabel?.text, bodyLabel?.text].compactMap { $0 }
+        #else
         let components = [accessibilityPrefix, titleLabel?.text, bodyLabel?.text].flatMap { $0 }
+        #endif
         guard components.count > 0 else { return nil }
         return components.joined(separator: ", ")
     }
@@ -144,30 +148,30 @@ extension MessageView {
          The standard message view that stretches across the full width of the
          container view.
          */
-        case MessageView = "MessageView"
+        case messageView = "MessageView"
         
         /**
          A floating card-style view with rounded corners.
          */
-        case CardView = "CardView"
+        case cardView = "CardView"
 
         /**
          Like `CardView` with one end attached to the super view.
          */
-        case TabView = "TabView"
+        case tabView = "TabView"
 
         /**
          A 20pt tall view that can be used to overlay the status bar.
          Note that this layout will automatically grow taller if displayed
          directly under the status bar (see the `ContentInsetting` protocol).
          */
-        case StatusLine = "StatusLine"
-        
+        case statusLine = "StatusLine"
+
         /**
-         A standard message view like `MessageView`, but without
-         stack views for iOS 8.
+         A floating card-style view with elements centered and arranged vertically.
+         This view is typically used with `.center` presentation style.         
          */
-        case MessageViewIOS8 = "MessageViewIOS8"
+        case centeredView = "CenteredView"
     }
     
     /**
@@ -206,7 +210,6 @@ extension MessageView {
  */
 
 extension MessageView {
-    @available(iOS 9, *)
     /**
      Constrains the image view to a specified size. By default, the size of the
      image view is determined by its `intrinsicContentSize`.
@@ -214,13 +217,14 @@ extension MessageView {
      - Parameter size: The size to be translated into Auto Layout constraints.
      - Parameter contentMode: The optional content mode to apply.
      */
-    public func configureIcon(withSize size: CGSize, contentMode: UIViewContentMode? = nil) {
+    public func configureIcon(withSize size: CGSize, contentMode: UIView.ContentMode? = nil) {
         var views: [UIView] = []
         if let iconImageView = iconImageView { views.append(iconImageView) }
         if let iconLabel = iconLabel { views.append(iconLabel) }
         views.forEach {
             let constraints = [$0.heightAnchor.constraint(equalToConstant: size.height),
                                $0.widthAnchor.constraint(equalToConstant: size.width)]
+            constraints.forEach { $0.priority = UILayoutPriority(999.0) }
             $0.addConstraints(constraints)
             if let contentMode = contentMode {
                 $0.contentMode = contentMode
@@ -286,7 +290,7 @@ extension MessageView {
         bodyLabel?.textColor = foregroundColor
         button?.backgroundColor = foregroundColor
         button?.tintColor = backgroundColor
-        button?.contentEdgeInsets = UIEdgeInsetsMake(7.0, 7.0, 7.0, 7.0)
+        button?.contentEdgeInsets = UIEdgeInsets(top: 7.0, left: 7.0, bottom: 7.0, right: 7.0)
         button?.layer.cornerRadius = 5.0
         iconImageView?.isHidden = iconImageView?.image == nil
         iconLabel?.isHidden = iconLabel?.text == nil
@@ -377,11 +381,12 @@ extension MessageView {
         bodyLabel?.text = body
         iconImageView?.image = iconImage
         iconLabel?.text = iconText
-        button?.setImage(buttonImage, for: UIControlState())
-        button?.setTitle(buttonTitle, for: UIControlState())
+        button?.setImage(buttonImage, for: .normal)
+        button?.setTitle(buttonTitle, for: .normal)
         self.buttonTapHandler = buttonTapHandler
         iconImageView?.isHidden = iconImageView?.image == nil
         iconLabel?.isHidden = iconLabel?.text == nil
     }
 }
+
 

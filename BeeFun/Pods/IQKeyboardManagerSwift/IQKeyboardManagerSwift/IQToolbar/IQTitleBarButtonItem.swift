@@ -21,124 +21,157 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-
+import Foundation
 import UIKit
-
-private var kIQBarTitleInvocationTarget     = "kIQBarTitleInvocationTarget"
-private var kIQBarTitleInvocationSelector   = "kIQBarTitleInvocationSelector"
 
 open class IQTitleBarButtonItem: IQBarButtonItem {
    
-    open var font : UIFont? {
+    @objc open var titleFont: UIFont? {
     
         didSet {
-            if let unwrappedFont = font {
-                _titleButton?.titleLabel?.font = unwrappedFont
+            if let unwrappedFont = titleFont {
+                titleButton?.titleLabel?.font = unwrappedFont
             } else {
-                _titleButton?.titleLabel?.font = UIFont.systemFont(ofSize: 13)
+                titleButton?.titleLabel?.font = UIFont.systemFont(ofSize: 13)
             }
         }
     }
 
-    override open var title: String? {
+    @objc override open var title: String? {
         didSet {
-                _titleButton?.setTitle(title, for: UIControlState())
+                titleButton?.setTitle(title, for: .normal)
         }
     }
     
     /**
-     selectableTextColor to be used for displaying button text when button is enabled.
+     titleColor to be used for displaying button text when displaying title (disabled state).
      */
-    open var selectableTextColor : UIColor? {
+    @objc open var titleColor: UIColor? {
+
+        didSet {
+            
+            if let color = titleColor {
+                titleButton?.setTitleColor(color, for: .disabled)
+            } else {
+                titleButton?.setTitleColor(UIColor.lightGray, for: .disabled)
+            }
+        }
+    }
+    
+    /**
+     selectableTitleColor to be used for displaying button text when button is enabled.
+     */
+    @objc open var selectableTitleColor: UIColor? {
         
         didSet {
-            if let color = selectableTextColor {
-                _titleButton?.setTitleColor(color, for:UIControlState())
+            
+            if let color = selectableTitleColor {
+                titleButton?.setTitleColor(color, for: .normal)
             } else {
-                _titleButton?.setTitleColor(UIColor.init(colorLiteralRed: 0.0, green: 0.5, blue: 1.0, alpha: 1), for:UIControlState())
+                titleButton?.setTitleColor(UIColor.init(red: 0.0, green: 0.5, blue: 1.0, alpha: 1), for: .normal)
             }
         }
     }
 
-    /**
-     Optional target & action to behave toolbar title button as clickable button
-     
-     @param target Target object.
-     @param action Target Selector.
-     */
-    open func setTitleTarget(_ target: AnyObject?, action: Selector?) {
-        titleInvocation = (target, action)
-    }
-    
     /**
      Customized Invocation to be called on title button action. titleInvocation is internally created using setTitleTarget:action: method.
      */
-    open var titleInvocation : (target: AnyObject?, action: Selector?) {
-        get {
-            let target: AnyObject? = objc_getAssociatedObject(self, &kIQBarTitleInvocationTarget) as AnyObject?
-            var action : Selector?
+    @objc override open var invocation: IQInvocation? {
+
+        didSet {
             
-            if let selectorString = objc_getAssociatedObject(self, &kIQBarTitleInvocationSelector) as? String {
-                action = NSSelectorFromString(selectorString)
-            }
-            
-            return (target: target, action: action)
-        }
-        set(newValue) {
-            objc_setAssociatedObject(self, &kIQBarTitleInvocationTarget, newValue.target, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            
-            if let unwrappedSelector = newValue.action {
-                objc_setAssociatedObject(self, &kIQBarTitleInvocationSelector, NSStringFromSelector(unwrappedSelector), objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            } else {
-                objc_setAssociatedObject(self, &kIQBarTitleInvocationSelector, nil, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-            }
-            
-            if (newValue.target == nil || newValue.action == nil)
-            {
-                self.isEnabled = false
-                _titleButton?.isEnabled = false
-                _titleButton?.removeTarget(nil, action: nil, for: .touchUpInside)
-            }
-            else
-            {
+            if let target = invocation?.target, let action = invocation?.action {
                 self.isEnabled = true
-                _titleButton?.isEnabled = true
-                _titleButton?.addTarget(newValue.target, action: newValue.action!, for: .touchUpInside)
+                titleButton?.isEnabled = true
+                titleButton?.addTarget(target, action: action, for: .touchUpInside)
+            } else {
+                self.isEnabled = false
+                titleButton?.isEnabled = false
+                titleButton?.removeTarget(nil, action: nil, for: .touchUpInside)
             }
         }
     }
 
-    fileprivate var _titleButton : UIButton?
-    fileprivate var _titleView : UIView?
+    internal var titleButton: UIButton?
+    private var _titleView: UIView?
 
     override init() {
         super.init()
     }
     
-    init(title : String?) {
+    @objc public convenience init(title: String?) {
 
-        self.init(title: nil, style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        self.init(title: nil, style: .plain, target: nil, action: nil)
         
         _titleView = UIView()
         _titleView?.backgroundColor = UIColor.clear
-        _titleView?.autoresizingMask = [.flexibleWidth,.flexibleHeight]
         
-        _titleButton = UIButton(type: .system)
-        _titleButton?.isEnabled = false
-        _titleButton?.titleLabel?.numberOfLines = 3
-        _titleButton?.setTitleColor(UIColor.lightGray, for:.disabled)
-        _titleButton?.setTitleColor(UIColor.init(colorLiteralRed: 0.0, green: 0.5, blue: 1.0, alpha: 1), for:UIControlState())
-        _titleButton?.backgroundColor = UIColor.clear
-        _titleButton?.titleLabel?.textAlignment = .center
-        _titleButton?.setTitle(title, for: UIControlState())
-        _titleButton?.autoresizingMask = [.flexibleWidth,.flexibleHeight]
-        font = UIFont.systemFont(ofSize: 13.0)
-        _titleButton?.titleLabel?.font = self.font
-        _titleView?.addSubview(_titleButton!)
+        titleButton = UIButton(type: .system)
+        titleButton?.isEnabled = false
+        titleButton?.titleLabel?.numberOfLines = 3
+        titleButton?.setTitleColor(UIColor.lightGray, for: .disabled)
+        titleButton?.setTitleColor(UIColor.init(red: 0.0, green: 0.5, blue: 1.0, alpha: 1), for: .normal)
+        titleButton?.backgroundColor = UIColor.clear
+        titleButton?.titleLabel?.textAlignment = .center
+        titleButton?.setTitle(title, for: .normal)
+        titleFont = UIFont.systemFont(ofSize: 13.0)
+        titleButton?.titleLabel?.font = self.titleFont
+        _titleView?.addSubview(titleButton!)
+        
+#if swift(>=3.2)
+        if #available(iOS 11, *) {
+            
+            var layoutDefaultLowPriority: UILayoutPriority
+            var layoutDefaultHighPriority: UILayoutPriority
+
+            #if swift(>=4.0)
+                let layoutPriorityLowValue = UILayoutPriority.defaultLow.rawValue-1
+                let layoutPriorityHighValue = UILayoutPriority.defaultHigh.rawValue-1
+                layoutDefaultLowPriority = UILayoutPriority(rawValue: layoutPriorityLowValue)
+                layoutDefaultHighPriority = UILayoutPriority(rawValue: layoutPriorityHighValue)
+            #else
+                layoutDefaultLowPriority = UILayoutPriorityDefaultLow-1
+                layoutDefaultHighPriority = UILayoutPriorityDefaultHigh-1
+            #endif
+            
+            _titleView?.translatesAutoresizingMaskIntoConstraints = false
+            _titleView?.setContentHuggingPriority(layoutDefaultLowPriority, for: .vertical)
+            _titleView?.setContentHuggingPriority(layoutDefaultLowPriority, for: .horizontal)
+            _titleView?.setContentCompressionResistancePriority(layoutDefaultHighPriority, for: .vertical)
+            _titleView?.setContentCompressionResistancePriority(layoutDefaultHighPriority, for: .horizontal)
+            
+            titleButton?.translatesAutoresizingMaskIntoConstraints = false
+            titleButton?.setContentHuggingPriority(layoutDefaultLowPriority, for: .vertical)
+            titleButton?.setContentHuggingPriority(layoutDefaultLowPriority, for: .horizontal)
+            titleButton?.setContentCompressionResistancePriority(layoutDefaultHighPriority, for: .vertical)
+            titleButton?.setContentCompressionResistancePriority(layoutDefaultHighPriority, for: .horizontal)
+
+            let top = NSLayoutConstraint.init(item: titleButton!, attribute: .top, relatedBy: .equal, toItem: _titleView, attribute: .top, multiplier: 1, constant: 0)
+            let bottom = NSLayoutConstraint.init(item: titleButton!, attribute: .bottom, relatedBy: .equal, toItem: _titleView, attribute: .bottom, multiplier: 1, constant: 0)
+            let leading = NSLayoutConstraint.init(item: titleButton!, attribute: .leading, relatedBy: .equal, toItem: _titleView, attribute: .leading, multiplier: 1, constant: 0)
+            let trailing = NSLayoutConstraint.init(item: titleButton!, attribute: .trailing, relatedBy: .equal, toItem: _titleView, attribute: .trailing, multiplier: 1, constant: 0)
+            
+            _titleView?.addConstraints([top, bottom, leading, trailing])
+        } else {
+            _titleView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            titleButton?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        }
+#else
+    _titleView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    titleButton?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+#endif
+
         customView = _titleView
     }
 
-    required public init?(coder aDecoder: NSCoder) {
+    @objc required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    deinit {
+        customView = nil
+        titleButton?.removeTarget(nil, action: nil, for: .touchUpInside)
+        _titleView = nil
+        titleButton = nil
     }
 }

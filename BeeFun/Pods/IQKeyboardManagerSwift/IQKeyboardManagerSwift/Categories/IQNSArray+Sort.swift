@@ -21,12 +21,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
+import Foundation
 import UIKit
 
 /**
 UIView.subviews sorting category.
 */
-internal extension Array {
+internal extension Array where Element: UIView {
     
     ///--------------
     /// MARK: Sorting
@@ -35,38 +36,25 @@ internal extension Array {
     /**
     Returns the array by sorting the UIView's by their tag property.
     */
-    internal func sortedArrayByTag() -> [Element] {
+    func sortedArrayByTag() -> [Element] {
         
-        return sorted(by: { (obj1 : Element, obj2 : Element) -> Bool in
+        return sorted(by: { (obj1: Element, obj2: Element) -> Bool in
             
-            let view1 = obj1 as! UIView
-            let view2 = obj2 as! UIView
-            
-            return (view1.tag < view2.tag)
+            return (obj1.tag < obj2.tag)
         })
     }
     
     /**
     Returns the array by sorting the UIView's by their tag property.
     */
-    internal func sortedArrayByPosition() -> [Element] {
+    func sortedArrayByPosition() -> [Element] {
         
-        return sorted(by: { (obj1 : Element, obj2 : Element) -> Bool in
-            
-            let view1 = obj1 as! UIView
-            let view2 = obj2 as! UIView
-            
-            let x1 = view1.frame.minX
-            let y1 = view1.frame.minY
-            let x2 = view2.frame.minX
-            let y2 = view2.frame.minY
-            
-            if y1 != y2 {
-                return y1 < y2
+        return sorted(by: { (obj1: Element, obj2: Element) -> Bool in
+            if obj1.frame.minY != obj2.frame.minY {
+                return obj1.frame.minY < obj2.frame.minY
             } else {
-                return x1 < x2
+                return obj1.frame.minX < obj2.frame.minX
             }
         })
     }
 }
-

@@ -34,8 +34,9 @@ class InAppReceiptRefreshRequest: NSObject, SKRequestDelegate {
     }
 
     typealias RequestCallback = (ResultType) -> Void
+    typealias ReceiptRefresh = (_ receiptProperties: [String: Any]?, _ callback: @escaping RequestCallback) -> InAppReceiptRefreshRequest
 
-    class func refresh(_ receiptProperties: [String : Any]? = nil, callback: @escaping RequestCallback) -> InAppReceiptRefreshRequest {
+    class func refresh(_ receiptProperties: [String: Any]? = nil, callback: @escaping RequestCallback) -> InAppReceiptRefreshRequest {
         let request = InAppReceiptRefreshRequest(receiptProperties: receiptProperties, callback: callback)
         request.start()
         return request
@@ -48,7 +49,7 @@ class InAppReceiptRefreshRequest: NSObject, SKRequestDelegate {
         refreshReceiptRequest.delegate = nil
     }
 
-    private init(receiptProperties: [String : Any]? = nil, callback: @escaping RequestCallback) {
+    init(receiptProperties: [String: Any]? = nil, callback: @escaping RequestCallback) {
         self.callback = callback
         self.refreshReceiptRequest = SKReceiptRefreshRequest(receiptProperties: receiptProperties)
         super.init()
@@ -66,11 +67,15 @@ class InAppReceiptRefreshRequest: NSObject, SKRequestDelegate {
          print("\(k): \(v)")
          }
          }*/
-        callback(.success)
+        performCallback(.success)
     }
     func request(_ request: SKRequest, didFailWithError error: Error) {
         // XXX could here check domain and error code to return typed exception
-        callback(.error(e: error))
+        performCallback(.error(e: error))
     }
-
+    private func performCallback(_ result: ResultType) {
+        DispatchQueue.main.async {
+            self.callback(result)
+        }
+    }
 }

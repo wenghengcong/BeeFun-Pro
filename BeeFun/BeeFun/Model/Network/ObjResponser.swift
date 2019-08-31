@@ -16,15 +16,14 @@ headers {
 }
 
 */
-class ObjResponser: NSObject ,Mappable{
+class ObjResponser: NSObject, Mappable {
 
-    var statusCode:Int?
-    var headers:ObjResponseHeader?
-    
+    var statusCode: Int?
+    var headers: ObjResponseHeader?
+
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
         statusCode <- map["status code"]

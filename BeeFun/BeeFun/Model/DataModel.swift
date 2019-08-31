@@ -10,5 +10,5 @@ import UIKit
 import Foundation
 
 class DataModel: NSObject {
-     
+
 }

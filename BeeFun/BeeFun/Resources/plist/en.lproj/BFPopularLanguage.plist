@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>ActionScript</string>
+	<string>C</string>
+	<string>C#</string>
+	<string>C++</string>
+	<string>Clojure</string>
+	<string>CoffeeScript</string>
+	<string>CSS</string>
+	<string>Go</string>
+	<string>Haskell</string>
+	<string>HTML</string>
+	<string>Java</string>
+	<string>JavaScript</string>
+	<string>Lua</string>
+	<string>Matlab</string>
+	<string>Objective-C</string>
+	<string>Perl</string>
+	<string>PHP</string>
+	<string>Python</string>
+	<string>R</string>
+	<string>Ruby</string>
+	<string>Scala</string>
+	<string>Shell</string>
+	<string>Swift</string>
+	<string>TeX</string>
+	<string>Vim script</string>
+</array>
+</plist>

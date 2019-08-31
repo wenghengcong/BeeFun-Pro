@@ -11,16 +11,20 @@
 	<string>Python</string>
 	<string>Javascript</string>
 	<string>Swift</string>
+	<string>Kotlin</string>
 	<string>Perl</string>
 	<string>Ruby</string>
+	<string>Assembly language</string>
 	<string>Objective-C</string>
+	<string>Objective-C++</string>
 	<string>CSS</string>
 	<string>HTML</string>
 	<string>R</string>
 	<string>Go</string>
+	<string>PLSQL</string>
 	<string>MATLAB</string>
 	<string>SQL</string>
-	<string>PLSQL</string>
+	<string>SQLPL</string>
 	<string>Pascal</string>
 	<string>Assembly</string>
 	<string>Visual Basic</string>
@@ -39,9 +43,19 @@
 	<string>Lua</string>
 	<string>Scala</string>
 	<string>Logo</string>
+	<string>Prolog</string>
 	<string>F#</string>
 	<string>Haskell</string>
 	<string>Clojure</string>
+	<string>LabVIEW</string>
 	<string>CoffeeScript</string>
+	<string>Hack</string>
+	<string>Rust</string>
+	<string>Apex</string>
+	<string>Scheme</string>
+	<string>Awk</string>
+	<string>Erlang</string>
+	<string>MQL4</string>
+	<string>Groovy</string>
 </array>
 </plist>

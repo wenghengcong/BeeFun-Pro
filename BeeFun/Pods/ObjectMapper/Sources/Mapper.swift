@@ -6,7 +6,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2014-2016 Hearst
+//  Copyright (c) 2014-2018 Tristan Himmelman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -106,8 +106,23 @@ public final class Mapper<N: BaseMappable> {
 				object.mapping(map: map)
 				return object
 			}
-		} else if N.self is ImmutableMappable.Type { // Check if object is ImmutableMappable
-			assert(false, "'ImmutableMappable' type requires throwing version of function \(#function)  - use 'try' before \(#function)")
+		} else if let klass = N.self as? ImmutableMappable.Type { // Check if object is ImmutableMappable
+			do {
+				if var object = try klass.init(map: map) as? N {
+					object.mapping(map: map)
+					return object
+				}
+			} catch let error {
+				#if DEBUG
+				let exception: NSException
+				if let mapError = error as? MapError {
+					exception = NSException(name: .init(rawValue: "MapError"), reason: mapError.description, userInfo: nil)
+				} else {
+					exception = NSException(name: .init(rawValue: "ImmutableMappableError"), reason: error.localizedDescription, userInfo: nil)
+				}
+				exception.raise()
+				#endif
+			}
 		} else {
 			// Ensure BaseMappable is not implemented directly
 			assert(false, "BaseMappable should not be implemented directly. Please implement Mappable, StaticMappable or ImmutableMappable")
@@ -145,9 +160,13 @@ public final class Mapper<N: BaseMappable> {
 	}
 	
 	/// Maps an array of JSON dictionary to an array of Mappable objects
-	public func mapArray(JSONArray: [[String: Any]]) -> [N]? {
+	public func mapArray(JSONArray: [[String: Any]]) -> [N] {
 		// map every element in JSON array to type N
+		#if swift(>=4.1)
+		let result = JSONArray.compactMap(map)
+		#else
 		let result = JSONArray.flatMap(map)
+		#endif
 		return result
 	}
 	
@@ -170,7 +189,7 @@ public final class Mapper<N: BaseMappable> {
 	public func mapDictionary(JSON: [String: [String: Any]]) -> [String: N]? {
 		// map every value in dictionary to type N
 		let result = JSON.filterMap(map)
-		if result.isEmpty == false {
+		if !result.isEmpty {
 			return result
 		}
 		
@@ -216,7 +235,7 @@ public final class Mapper<N: BaseMappable> {
 			mapArray(JSONArray: $0)
         }
         
-		if result.isEmpty == false {
+		if !result.isEmpty {
 			return result
 		}
         
@@ -226,14 +245,11 @@ public final class Mapper<N: BaseMappable> {
 	/// Maps an 2 dimentional array of JSON dictionaries to a 2 dimentional array of Mappable objects
 	public func mapArrayOfArrays(JSONObject: Any?) -> [[N]]? {
 		if let JSONArray = JSONObject as? [[[String: Any]]] {
-			var objectArray = [[N]]()
-			for innerJSONArray in JSONArray {
-				if let array = mapArray(JSONArray: innerJSONArray){
-					objectArray.append(array)
-				}
+			let objectArray = JSONArray.map { innerJSONArray in
+				return mapArray(JSONArray: innerJSONArray)
 			}
 			
-			if objectArray.isEmpty == false {
+			if !objectArray.isEmpty {
 				return objectArray
 			}
 		}
@@ -268,6 +284,44 @@ public final class Mapper<N: BaseMappable> {
 }
 
 extension Mapper {
+	// MARK: Functions that create model from JSON file
+
+	/// JSON file to Mappable object
+	/// - parameter JSONfile: Filename
+	/// - Returns: Mappable object
+	public func map(JSONfile: String) -> N? {
+		if let path = Bundle.main.path(forResource: JSONfile, ofType: nil) {
+			do {
+				let JSONString = try String(contentsOfFile: path)
+				do {
+					return self.map(JSONString: JSONString)
+				}
+			} catch {
+				return nil
+			}
+		}
+		return nil
+	}
+
+	/// JSON file to Mappable object array
+	/// - parameter JSONfile: Filename
+	/// - Returns: Mappable object array
+	public func mapArray(JSONfile: String) -> [N]? {
+		if let path = Bundle.main.path(forResource: JSONfile, ofType: nil) {
+			do {
+				let JSONString = try String(contentsOfFile: path)
+				do {
+					return self.mapArray(JSONString: JSONString)
+				}
+			} catch {
+				return nil
+			}
+		}
+		return nil
+	}
+}
+
+extension Mapper {
     
 	// MARK: Functions that create JSON from objects	
 	
@@ -289,17 +343,17 @@ extension Mapper {
 	
 	///Maps a dictionary of Objects that conform to Mappable to a JSON dictionary of dictionaries.
 	public func toJSONDictionary(_ dictionary: [String: N]) -> [String: [String: Any]] {
-		return dictionary.map { k, v in
+		return dictionary.map { (arg: (key: String, value: N)) in
 			// convert every value in dictionary to its JSON dictionary equivalent
-			return (k, self.toJSON(v))
+			return (arg.key, self.toJSON(arg.value))
 		}
 	}
 	
 	///Maps a dictionary of Objects that conform to Mappable to a JSON dictionary of dictionaries.
 	public func toJSONDictionaryOfArrays(_ dictionary: [String: [N]]) -> [String: [[String: Any]]] {
-		return dictionary.map { k, v in
+		return dictionary.map { (arg: (key: String, value: [N])) in
 			// convert every value (array) in dictionary to its JSON dictionary equivalent
-			return (k, self.toJSONArray(v))
+			return (arg.key, self.toJSONArray(arg.value))
 		}
 	}
 	
@@ -376,7 +430,11 @@ extension Mapper where N: Hashable {
 	/// Maps an Set of JSON dictionary to an array of Mappable objects
 	public func mapSet(JSONArray: [[String: Any]]) -> Set<N> {
 		// map every element in JSON array to type N
+		#if swift(>=4.1)
+		return Set(JSONArray.compactMap(map))
+		#else
 		return Set(JSONArray.flatMap(map))
+		#endif
 	}
 
 	///Maps a Set of Objects to a Set of JSON dictionaries [[String : Any]]
@@ -396,7 +454,7 @@ extension Mapper where N: Hashable {
 }
 
 extension Dictionary {
-	internal func map<K: Hashable, V>(_ f: (Element) throws -> (K, V)) rethrows -> [K: V] {
+	internal func map<K, V>(_ f: (Element) throws -> (K, V)) rethrows -> [K: V] {
 		var mapped = [K: V]()
 
 		for element in self {
@@ -407,7 +465,7 @@ extension Dictionary {
 		return mapped
 	}
 
-	internal func map<K: Hashable, V>(_ f: (Element) throws -> (K, [V])) rethrows -> [K: [V]] {
+	internal func map<K, V>(_ f: (Element) throws -> (K, [V])) rethrows -> [K: [V]] {
 		var mapped = [K: [V]]()
 		
 		for element in self {

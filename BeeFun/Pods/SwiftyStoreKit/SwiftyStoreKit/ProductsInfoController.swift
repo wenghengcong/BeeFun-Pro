@@ -25,45 +25,51 @@
 import Foundation
 import StoreKit
 
+protocol InAppProductRequestBuilder: class {
+    func request(productIds: Set<String>, callback: @escaping InAppProductRequestCallback) -> InAppProductRequest
+}
+
+class InAppProductQueryRequestBuilder: InAppProductRequestBuilder {
+    
+    func request(productIds: Set<String>, callback: @escaping InAppProductRequestCallback) -> InAppProductRequest {
+        return InAppProductQueryRequest(productIds: productIds, callback: callback)
+    }
+}
+
 class ProductsInfoController: NSObject {
 
-    // MARK: Private declarations
-
-    // As we can have multiple inflight queries and purchases, we store them in a dictionary by product id
-    private var inflightQueries: [Set<String>: InAppProductQueryRequest] = [:]
-
-    private(set) var products: [String: SKProduct] = [:]
-
-    private func addProduct(_ product: SKProduct) {
-        products[product.productIdentifier] = product
+    struct InAppProductQuery {
+        let request: InAppProductRequest
+        var completionHandlers: [InAppProductRequestCallback]
     }
-
-    private func allProductsMatching(_ productIds: Set<String>) -> Set<SKProduct> {
-
-        return Set(productIds.flatMap { self.products[$0] })
+    
+    let inAppProductRequestBuilder: InAppProductRequestBuilder
+    init(inAppProductRequestBuilder: InAppProductRequestBuilder = InAppProductQueryRequestBuilder()) {
+        self.inAppProductRequestBuilder = inAppProductRequestBuilder
     }
-
-    private func requestProducts(_ productIds: Set<String>, completion: @escaping (RetrieveResults) -> Void) {
-
-        inflightQueries[productIds] = InAppProductQueryRequest.startQuery(productIds) { result in
-
-            self.inflightQueries[productIds] = nil
-            for product in result.retrievedProducts {
-                self.addProduct(product)
-            }
-            completion(result)
-        }
-    }
+    
+    // As we can have multiple inflight requests, we store them in a dictionary by product ids
+    private var inflightRequests: [Set<String>: InAppProductQuery] = [:]
 
     func retrieveProductsInfo(_ productIds: Set<String>, completion: @escaping (RetrieveResults) -> Void) {
 
-        let products = allProductsMatching(productIds)
-        guard products.count == productIds.count else {
-
-            requestProducts(productIds, completion: completion)
-            return
+        if inflightRequests[productIds] == nil {
+            let request = inAppProductRequestBuilder.request(productIds: productIds) { results in
+                
+                if let query = self.inflightRequests[productIds] {
+                    for completion in query.completionHandlers {
+                        completion(results)
+                    }
+                    self.inflightRequests[productIds] = nil
+                } else {
+                    // should not get here, but if it does it seems reasonable to call the outer completion block
+                    completion(results)
+                }
+            }
+            inflightRequests[productIds] = InAppProductQuery(request: request, completionHandlers: [completion])
+            request.start()
+        } else {
+            inflightRequests[productIds]!.completionHandlers.append(completion)
         }
-        completion(RetrieveResults(retrievedProducts: products, invalidProductIDs: [], error: nil))
     }
-
 }

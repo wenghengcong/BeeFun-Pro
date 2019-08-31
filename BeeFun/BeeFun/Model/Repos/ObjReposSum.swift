@@ -6,7 +6,6 @@
 //  Copyright © 2016年 JungleSong. All rights reserved.
 //
 
-import UIKit
 import ObjectMapper
 
 /*

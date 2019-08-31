@@ -58,7 +58,7 @@
 
 //Profile
 "Profile" = "Profile";
-"Sign In"="Sign In";
+"Sign in"="Sign in";
 "Followers"="Followers";
 "Following"="Following";
 "Watched"="Watched";
@@ -67,6 +67,7 @@
 "Share"="Share";
 "Rate"="Rate";
 "About"="About";
+"Edit"="Edit";
 
 //Settings
 "Version"="Version";
@@ -95,7 +96,7 @@
 "Following"="Following";
 
 //长文本
-"  BeeFun is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!" = "  BeeFun is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!";
+"  BeeFun is a client for github.It is written in Swift language. Welcome more suggestions and reports of bugs come from everyone! Thanks."  = "  BeeFun is a client for github.It is written in Swift language. Welcome more suggestions and reports of bugs come from everyone! Thanks.";
 
 //提醒
 "Share Success"="Share Success";
@@ -104,13 +105,32 @@
 "Please login first"="Please login first";
 "No Data Found"="No Data Found";
 "Release to refresh"="Release to refresh";
+"Pull down to refresh"="Pull down to refresh";
 "Load"="Load";
 "Loading"="Loading";
 "More"="More";
 "No More data"="😭No More data";
+"Network error /(ㄒoㄒ)/~~"="Network error /(ㄒoㄒ)/~~";
+"Sign in Now?" = "Sign in Now?";
+"access data ask github account"="access data ask github account";
 
+"Watch?"="Watch?";
+"Unwatch?"="Unwatch?";
+"Unstar?"="Unstar?";
+"Star?"="Star?";
+"Fork?"="Fork?";
 
-
+"Watch Success"="Watch Success";
+"Unwatch Success"="Unwatch Success";
+"Star Success"="Star Success";
+"Unstar Success"="Unstar Success";
+"Fork Success"="Fork Success";
+"Follow Success"="Follow Success";
+"UnFollow Success"="UnFollow Success";
+"Immediately sync your star repositories from github.com in silence."="Immediately sync your star repositories from github.com in silence.";
+"Sync"="Sync";
+"Sync start"="Sync start";
+"Sync end"="Sync end";
 //其他
 "Unknown" = "Unknown";
 "Success"="Success";
@@ -118,8 +138,73 @@
 "Homepage"="Homepage";
 "Cancel"="Cancel";
 "Failure"="Failure";
+"Repository"="Repository";
+"Tags"="Tags";
+"All Tags"="All Tags";
+"Save"="Save";
+"Save Tags?"="Save Tags?";
+"Add new tag"="Add new tag";
+"input new tag name"="input new tag name";
+"input tag"="input tag";
+"Already exists!"="Already exists!";
+"No tag to save"="No tag to save";
+"Demo" = "Demo";
+"Edit"="Edit";
+"Trash"="Trash";
+"OK"="OK";
+"make a change"="make a change";
 
+"Lists"="Lists";
 
+//其他
+"Owner"="Owner";
+"Join"="Join";
+"Location"="Location";
+"Company"="Company";
+"Name"="Name";
+"Email"="Email";
+"Blog"="Blog";
+"Hireable"="Hireable";
+"Bio"="Bio";
+"Trash it will remove this tag from star repositories!"="Trash it will remove this tag from star repositories!";
+
+    //搜索
+"Historical records" = "Historical records";
+"Clear All Records" = "Clear All Records";
+"Search repositories、users..." = "Search repositories、users...";
+"Clear all history records?" = "Clear all history records?";
+"Forks" = "Forks";
+"Updated" = "Updated";
+"Users"="Users";
+"Search"="Search";
+"Joined"="Joined";
+"Comments"="Comments";
+"Created"="Created";
+"Repo"="Repo";
+"Foll"="Foll";
+"Comm"="Comm";
+"Join"="Join";
+"Creat"="Creat";
+"Delete"="Delete";
+"Submit"="Submit";
+"Title can't be empty"="Title can't be empty";
+"bug? function？..."="bug? function？...";
+
+    //分享
+"It's A Wonderful Repository from github! Hurry UP!" = "It's A Wonderful Repository from github! Hurry UP!";
+"from BeeFun App"="from BeeFun App";
+"Download Here"="Download Here";
+"A Talented Developer"="A Talented Developer";
+
+"BeeFun,excellent Github client. Download here: http://t.cn/RinAeZq \n Office website: http://www.beefun.top" = "BeeFun,excellent Github client. Download here: http://t.cn/RinAeZq \n Office website: http://www.beefun.top";
+"Update Failure" = "Update Failure";
+"'All' is default,change one."="'All' is default,change one.";
+"Try Again"="Try Again";
+"Wake up your connection!"="Wake up your connection!";
+"Empty now"="Empty now";
+"Go"="Go";
+"Explore more"="Explore more";
+"Empty now,star repositories and tag it"="Empty now,star repositories and tag it";
 /*****英文转中文 End******/
 
 
@@ -197,7 +282,7 @@
 "消息" = "Message";
 
 "通知"="Notifications";
-"问题"="Issues";
+"讨论"="Issues";
 
 //Stars
 "收藏" = "Stars";
@@ -207,7 +292,7 @@
 
 //Profile
 "我" = "Profile";
-"登录"="Sign In";
+"登录"="Sign in";
 "粉丝"="Followers";
 "关注"="Following";
 "关注"="Watched";

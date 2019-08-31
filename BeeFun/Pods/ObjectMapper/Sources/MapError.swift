@@ -6,7 +6,7 @@
 //
 //  The MIT License (MIT)
 //
-//  Copyright (c) 2014-2016 Hearst
+//  Copyright (c) 2014-2018 Tristan Himmelman
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
 //  of this software and associated documentation files (the "Software"), to deal
@@ -61,7 +61,7 @@ extension MapError: CustomStringConvertible {
 			("- key", key),
 			("- currentValue", currentValue),
 			]
-		let infoString = info.map { "\($0): \($1 ?? "nil")" }.joined(separator: "\n")
+		let infoString = info.map { "\($0.0): \($0.1 ?? "nil")" }.joined(separator: "\n")
 		return "Got an error while mapping.\n\(infoString)"
 	}
 	

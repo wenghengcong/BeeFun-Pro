@@ -18,22 +18,29 @@ import ObjectMapper
 "repositories": [ObjRespo]
 
 */
-class ObjShowcase: NSObject,Mappable {
+class ObjShowcase: NSObject, Mappable {
 
-    var name:String?
-    var slug:String?
-    var cdescription:String?
-    var image_url:String?
-    var repositories:[ObjRepos]?
+    var name: String?
+    var slug: String?
+    var cdescription: String?
+    var image_url: String?
+    var repositories: [ObjRepos]?
     
+    //自定义字段，从网页解析
+    /// 项目数目
+    var trend_repo_text: String?
+    /// 语言数目
+    var trend_lan_text: String?
+    /// 解析后的图片svg数据，base64未解码数据
+    var svgXml: String?
+
     override init() {
         super.init()
     }
-    
+
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
         name <- map["name"]
@@ -41,6 +48,7 @@ class ObjShowcase: NSObject,Mappable {
         cdescription <- map["description"]
         image_url <- map["image_url"]
         repositories <- map["repositories"]
-        
+        //自定义字段
+        //repos_count\launguage_count
     }
 }

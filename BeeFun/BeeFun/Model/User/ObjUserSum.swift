@@ -29,27 +29,27 @@ import ObjectMapper
 "site_admin": false
 */
 
-class ObjUserSum: NSObject,Mappable {
+class ObjUserSum: NSObject, Mappable {
 
-    var login:String?       //wenghengcong
-    var id:Int?;
-    var avatar_url:String?
-    var url:String?
-    var html_url:String?
-    var following_url:String?
-    var followers_url:String?
-    var gists_url:String?
-    var starred_url:String?
-    var subscriptions_url:String?
-    var organizations_url:String?
-    var repos_url:String?
-    var events_url:String?
-    var received_events_url:String?
-    var type:String?
-    var site_admin:Bool?
+    var login: String?       //wenghengcong
+    var id: Int?
+    var avatar_url: String?
+    var url: String?
+    var html_url: String?
+    var following_url: String?
+    var followers_url: String?
+    var gists_url: String?
+    var starred_url: String?
+    var subscriptions_url: String?
+    var organizations_url: String?
+    var repos_url: String?
+    var events_url: String?
+    var received_events_url: String?
+    var type: String?
+    var site_admin: Bool?
 
     struct UserSumKey {
-        
+
         static let reposUrlKey = "repos_url"
         static let followingUrlKey = "following_url"
         static let followersUrlKey = "followers_url"
@@ -58,7 +58,7 @@ class ObjUserSum: NSObject,Mappable {
         static let emailKey = "email"
         static let loginKey = "login"
         static let gistsUrlKey = "gists_url"
-        
+
         static let typeKey = "type"
         static let starredUrlKey = "starred_url"
         static let idKey = "id"
@@ -68,15 +68,12 @@ class ObjUserSum: NSObject,Mappable {
         static let subscriptionsUrlKey = "subscriptions_url"
         static let eventsUrlKey = "events_url"
         static let htmlUrlKey = "html_url:"
-        
+
     }
     // MARK: init and mapping
     required init?(map: Map) {
-        //        super.init(map)
-        
     }
-    
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
 
@@ -87,7 +84,7 @@ class ObjUserSum: NSObject,Mappable {
         avatar_url <- map[UserSumKey.avatarUrlKey]
         login <- map[UserSumKey.loginKey]
         gists_url <- map[UserSumKey.gistsUrlKey]
-        
+
         type <- map[UserSumKey.typeKey]
         starred_url <- map[UserSumKey.starredUrlKey]
         id <- map[UserSumKey.idKey]
@@ -97,7 +94,7 @@ class ObjUserSum: NSObject,Mappable {
         subscriptions_url <- map[UserSumKey.subscriptionsUrlKey]
         events_url <- map[UserSumKey.eventsUrlKey]
         html_url <- map[UserSumKey.htmlUrlKey]
-        
+
     }
 
 }

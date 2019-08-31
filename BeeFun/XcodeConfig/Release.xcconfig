@@ -9,4 +9,6 @@
 #include "Common.xcconfig"
 #include "Pods/Target Support Files/Pods-BeeFun/Pods-BeeFun.release.xcconfig"
 
-APP_DISPLAYNAME = BeeFun
+APP_DISPLAYNAME = BeeFun for iOS
+VERSION_NUM = 1.0
+BUILD_NUM = 1000

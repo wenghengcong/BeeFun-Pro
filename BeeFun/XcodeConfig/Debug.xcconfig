@@ -9,5 +9,6 @@
 #include "Common.xcconfig"
 #include "Pods/Target Support Files/Pods-BeeFun/Pods-BeeFun.debug.xcconfig"
 
-
-APP_DISPLAYNAME = Debug
+APP_DISPLAYNAME = BeeFun Adhoc
+VERSION_NUM = 0.9
+BUILD_NUM = 101

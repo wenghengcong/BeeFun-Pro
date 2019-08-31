@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<array>
+		<dict>
+			<key>type</key>
+			<string>image</string>
+			<key>id</key>
+			<string>feedback</string>
+			<key>key</key>
+			<string>反馈</string>
+			<key>icon</key>
+			<string>set_feedback</string>
+			<key>disclosure</key>
+			<true/>
+		</dict>
+	</array>
+	<array>
+		<dict>
+			<key>id</key>
+			<string>tags</string>
+			<key>key</key>
+			<string>标签</string>
+			<key>icon</key>
+			<string>set_tag</string>
+			<key>disclosure</key>
+			<true/>
+			<key>type</key>
+			<string>image</string>
+		</dict>
+		<dict>
+			<key>id</key>
+			<string>sync</string>
+			<key>key</key>
+			<string>同步</string>
+			<key>icon</key>
+			<string>set_sync</string>
+			<key>disclosure</key>
+			<true/>
+			<key>type</key>
+			<string>image</string>
+		</dict>
+	</array>
+</array>
+</plist>

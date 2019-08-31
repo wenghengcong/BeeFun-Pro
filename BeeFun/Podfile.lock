@@ -1,82 +1,142 @@
 PODS:
-  - Alamofire (4.4.0)
-  - AVOSCloud (4.2.0)
-  - Bugly (2.4.7)
-  - HMSegmentedControl (1.5.3)
-  - IQKeyboardManagerSwift (4.0.8)
-  - JCore (1.1.1)
-  - JPush (3.0.2):
-    - JCore (~> 1.1.1)
-  - Kingfisher (3.6.1)
-  - MBProgressHUD (1.0.0)
-  - MJRefresh (3.1.12)
-  - Moya (8.0.3):
-    - Moya/Core (= 8.0.3)
-  - Moya/Core (8.0.3):
+  - Alamofire (4.8.2)
+  - Crashlytics (3.13.2):
+    - Fabric (~> 1.10.2)
+  - Fabric (1.10.2)
+  - GDPerformanceView-Swift (1.3.2)
+  - HMSegmentedControl (1.5.5)
+  - iCarousel (1.8.3)
+  - IQKeyboardManagerSwift (6.4.0)
+  - JCore (2.0.2)
+  - JPush (3.2.1):
+    - JCore (< 3.0.0, >= 2.0.0)
+  - Kanna (5.0.0)
+  - Kingfisher (4.10.1)
+  - MBProgressHUD (1.1.0)
+  - MJRefresh (3.2.0)
+  - Moya (13.0.1):
+    - Moya/Core (= 13.0.1)
+  - Moya/Core (13.0.1):
     - Alamofire (~> 4.1)
-    - Result (~> 3.0)
-  - ObjectMapper (2.2.5)
-  - PromiseKit (4.1.7):
-    - PromiseKit/Foundation (= 4.1.7)
-    - PromiseKit/QuartzCore (= 4.1.7)
-    - PromiseKit/UIKit (= 4.1.7)
-  - PromiseKit/CorePromise (4.1.7)
-  - PromiseKit/Foundation (4.1.7):
-    - PromiseKit/CorePromise
-  - PromiseKit/QuartzCore (4.1.7):
-    - PromiseKit/CorePromise
-  - PromiseKit/UIKit (4.1.7):
-    - PromiseKit/CorePromise
-  - Result (3.2.1)
-  - SnapKit (3.2.0)
-  - SwiftDate (4.1.0)
-  - SwiftMessages (3.3.3)
-  - SwiftyBeaver (1.1.4)
-  - SwiftyJSON (3.1.4)
-  - SwiftyStoreKit (0.8.4)
+    - Result (~> 4.1)
+  - OAuthSwift (2.0.0)
+  - ObjectMapper (3.5.0)
+  - ReachabilitySwift (4.3.1)
+  - Result (4.1.0)
+  - SkeletonView (1.6)
+  - SnapKit (4.2.0)
+  - SQLite.swift (0.12.2):
+    - SQLite.swift/standard (= 0.12.2)
+  - SQLite.swift/standard (0.12.2)
+  - SwiftDate (6.0.3)
+  - SwiftLint (0.33.0)
+  - SwiftMessages (7.0.0):
+    - SwiftMessages/App (= 7.0.0)
+  - SwiftMessages/App (7.0.0)
+  - SwiftyBeaver (1.7.0)
+  - SwiftyJSON (5.0.0)
+  - SwiftyStoreKit (0.15.0)
+  - SwipeCellKit (2.6.0)
+  - TOWebViewController (2.2.8):
+    - TOWebViewController/Core (= 2.2.8)
+  - TOWebViewController/Core (2.2.8)
+  - YYText (1.0.7)
 
 DEPENDENCIES:
   - Alamofire
-  - AVOSCloud
-  - Bugly
+  - Crashlytics
+  - Fabric
+  - GDPerformanceView-Swift (~> 1.3.2)
   - HMSegmentedControl
+  - iCarousel
   - IQKeyboardManagerSwift
   - JPush
+  - Kanna
   - Kingfisher
-  - MBProgressHUD (~> 1.0.0)
+  - MBProgressHUD
   - MJRefresh
   - Moya
-  - ObjectMapper (~> 2.2)
-  - PromiseKit (~> 4.0)
+  - OAuthSwift
+  - ObjectMapper
+  - ReachabilitySwift
+  - SkeletonView
   - SnapKit
-  - SwiftDate (~> 4.0)
+  - SQLite.swift
+  - SwiftDate
+  - SwiftLint
   - SwiftMessages
   - SwiftyBeaver
   - SwiftyJSON
   - SwiftyStoreKit
+  - SwipeCellKit
+  - TOWebViewController
+  - YYText
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Crashlytics
+    - Fabric
+    - GDPerformanceView-Swift
+    - HMSegmentedControl
+    - iCarousel
+    - IQKeyboardManagerSwift
+    - JCore
+    - JPush
+    - Kanna
+    - Kingfisher
+    - MBProgressHUD
+    - MJRefresh
+    - Moya
+    - OAuthSwift
+    - ObjectMapper
+    - ReachabilitySwift
+    - Result
+    - SkeletonView
+    - SnapKit
+    - SQLite.swift
+    - SwiftDate
+    - SwiftLint
+    - SwiftMessages
+    - SwiftyBeaver
+    - SwiftyJSON
+    - SwiftyStoreKit
+    - SwipeCellKit
+    - TOWebViewController
+    - YYText
 
 SPEC CHECKSUMS:
-  Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
-  AVOSCloud: 5446ad0320f4942cce1a036d131992cd1115db99
-  Bugly: 2c256069145f550171907c5cb1c0f84ad291f6c1
-  HMSegmentedControl: 7c6145afb50f26cec5f3243082f6f12b9f41318f
-  IQKeyboardManagerSwift: c04bc9f68473823f825eb44d958fce98d921bead
-  JCore: 2210a789c8efb7dc2a46b1c24d2209b995b18ad2
-  JPush: 01a693fafe51b93eafc2e368bbc7a7cc07e12ce4
-  Kingfisher: 2f31cb75f3e98d3d4c406cbdcd9b263e956cfa67
-  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
-  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
-  Moya: d3721622e3cc0cc2f038d69a258686f0b66e7252
-  ObjectMapper: fb30f71e08470d1e5a20b199fafe1246281db898
-  PromiseKit: 779f2e41faf62d854e7593026ddbcb0bb5c5002d
-  Result: 2453a22e5c5b11c0c3a478736e82cd02f763b781
-  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
-  SwiftDate: 1cb9a0a930a1f0fff392806829fed0ee370ff94f
-  SwiftMessages: '09cea3336e3fb63c3578983c8aac65acaa6d884a'
-  SwiftyBeaver: 9216b6e163c145628ccc7c0126df4287880d6e1e
-  SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
-  SwiftyStoreKit: b235756bd6e541cafbed6e75d28b29b8a1c1caef
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Crashlytics: 611738c7847f8291a1a51084e35987b86ba6b3ee
+  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  GDPerformanceView-Swift: a74cd679587b199e4526492b6e68ce61593c6123
+  HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
+  iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
+  IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
+  JCore: d4cbe6d178eaeb0ed263e42a6ebcb617855ef7cb
+  JPush: a1ff8b8ec53fa3419b414946e4db4efa313baeae
+  Kanna: a32875df62975f8f4b871e933b4ea1a5c3b8be0f
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
+  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
+  OAuthSwift: 6805456763cf1c7ae0c16765257ed430b7aacae7
+  ObjectMapper: 078b564ed25c6578b62588e306bf1da3924636d4
+  ReachabilitySwift: 4032e2f59586e11e3b0ebe15b167abdd587a388b
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  SkeletonView: 6c2bf622c352c7e36b4f3c8d73afc46d6c9360d6
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
+  SwiftDate: 8d4f14bf1ef68e95094511504856547bf9e3e1a6
+  SwiftLint: fed9c66336e41fc74dc48a73678380718f0c8b0e
+  SwiftMessages: a952f7a9103d9aeab93730a2861d2d8fcdd8758f
+  SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  SwiftyStoreKit: 033d06b6f87955405d3f844a18a7687c2438592a
+  SwipeCellKit: 935ca28c187ec6e1ffb2b578cf8ddca842bfdcbb
+  TOWebViewController: 953a24619d32f7aa1d9d4098a74885a9236f7348
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: fae56d40e6e6113a89c69e76166249ce0496aa2d
+PODFILE CHECKSUM: df046a354aaa6f85a5aa6526aaef401447482d30
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.5.2

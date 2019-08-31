@@ -2,7 +2,7 @@
 //  Use this file to import your target's public headers that you would like to expose to Swift.
 //
 
-#import <Bugly/Bugly.h>
+//#import <Bugly/Bugly.h>
 
 #import <JPush/JPUSHService.h>
 
@@ -26,4 +26,5 @@
 #import "WeiboSDK.h"
 //新浪微博SDK需要在项目Build Settings中的Other Linker Flags添加"-ObjC"
 
+    //#import "iCarousel.h"
 

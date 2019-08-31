@@ -17,72 +17,159 @@
 import UIKit
 import ObjectMapper
 
-
-
-
-class ObjEventPayload: NSObject,Mappable {
+enum EventAction: String {
     
-    //IssueCommentEvent,IssuesEvent,WatchEvent,MemberEvent
-    var action:String?
+    //GistEvent
+    case create
     
-    //IssueCommentEvent,IssuesEvent,
-    var issue:ObjIssue?
+    //GistEvent
+    case update
     
-    //IssueCommentEvent
-    var comment:ObjComment?
+    //GollumEvent/InstallationEvent/IssueCommentEvent/LabelEvent
+    //MilestoneEvent/ProjectCardEvent/ProjectColumnEvent
+    //ProjectEvent/PullRequestReviewCommentEvent
+    //RepositoryEvent/TeamEvent
+    case created
+    
+    //GollumEvent/IssueCommentEvent/IssuesEvent/LabelEvent
+    //MemberEvent/MilestoneEvent/ProjectCardEvent/ProjectColumnEvent
+    //ProjectEvent/PullRequestEvent/PullRequestReviewEvent
+    //PullRequestReviewCommentEvent/TeamEvent
+    case edited
+    
+    //InstallationEvent/IssueCommentEvent/LabelEvent
+    //MemberEvent/MilestoneEvent/ProjectCardEvent/ProjectColumnEvent
+    //ProjectEvent/PullRequestReviewCommentEvent
+    //RepositoryEvent/TeamEvent
+    case deleted
+    
+    //InstallationRepositoriesEvent/MemberEvent/MembershipEvent
+    //MembershipEvent
+    case added
+    
+    //InstallationRepositoriesEvent
+    case removed
+    
+    //IssuesEvent
+    case milestoned
+     //IssuesEvent
+    case demilestoned
+    
+    //IssuesEvent
+    case labeled
 
-    //CreateEvent
-    /**
-    "ref": "master",
-    "ref_type": "branch",
-    "master_branch": "master",
-    "description": "test",
-    "pusher_type": "user"
-    */
-    var ref:String?
-    var ref_type:String?
-    var master_branch:String?
-    var cdescription:String?
-    var pusher_type:String?
+    //IssuesEvent
+    case unlabeled
 
+    //IssuesEvent/PullRequestEvent
+    case assigned
     
-    //PushEvent
-    /**
-    "push_id": 982473441,
-    "size": 2,
-    "distinct_size": 2,
-    "ref": "refs/heads/master",
-    "head": "4c845c219cb70976ddca7937e4ad1c03dca1bb97",
-    "before": "53111de7f5dbcd886c719dc734ab1badc02d0dc3"
-    */
-    var push_id:Int?
-    var size:Int?
-    var distinct_size:Int?
-//    var ref:String?
-    var head:String?
-    var before:String?
-    var commits:[ObjCommit]?
+    //IssuesEvent/PullRequestEvent
+    case unassigned
+    
+    //IssuesEvent/ProjectEvent/PullRequestEvent
+    case reopened
 
-    //MemberEvent
-    var member:ObjUser?
+    //IssuesEvent/MilestoneEvent/PullRequestEvent
+    case opened
 
-    //TODO:add event type
-    //ForkEvent
-    //forkee
+    //IssuesEvent/MilestoneEvent/ProjectEvent/PullRequestEvent
+    case closed
     
-    //TODO:add event type
-    //PullRequestReviewCommentEvent
-    //pull_request
+    //MarketplacePurchaseEvent
+    case purchased
     
-    //TODO:add event type
+    //MarketplacePurchaseEvent
+    case cancelled
+    
+    //MarketplacePurchaseEvent
+    case changed
+    
+    //OrganizationEvent
+    case member_added
+    
+    //OrganizationEvent
+    case member_removed
+    
+    //OrganizationEvent
+    case member_invited
+    
+    //OrgBlockEvent
+    case blocked
+    
+    //OrgBlockEvent
+    case unblocked
+    
+    //ProjectCardEvent
+    case converted
+    
+    //ProjectCardEvent/ProjectColumnEvent
+    case moved
+    
     //PullRequestEvent
-    //var number:Int?
-    //pull_request
+    case review_requested
     
+    //PullRequestEvent
+    case review_request_removed
+
+    //PullRequestReviewEvent
+    case submitted
+    
+    //PullRequestReviewEvent
+    case dismissed
+    
+    //ReleaseEvent
+    case published
+    
+    //RepositoryEvent
+    case publicized
+    
+    //RepositoryEvent
+    case privatized
+    
+    //TeamEvent
+    case added_to_repository
+    
+    //TeamEvent
+    case removed_from_repository
+    
+    //WatchEvent
+    case started
+}
+
+class ObjEventPayload: NSObject, Mappable {
+
+    var action: EventAction?
+    var issue: ObjIssue?
+    var comment: ObjComment?
+    var ref: String?
+    var ref_type: String?
+    
+    var master_branch: String?
+    var cdescription: String?
+    var pusher_type: String?
+    var sender: ObjUser?
+    var push_id: Int?
+    
+    var size: Int?
+    var distinct_size: Int?
+    var head: String?
+    var before: String?
+    var commits: [ObjCommit]?
+    
+    var member: ObjMember?
+    var pull_request: ObjPullRequest?
+    var number: Int?
+    var cpublic: Bool?  //对应public，添加c为前缀
+    var release: ObjRelease?
+    var forkee: ObjRepos?
+    
+    //GollumEvent
+    var pages: [ObjPage]?
+
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
         action <- map["action"]
@@ -90,17 +177,27 @@ class ObjEventPayload: NSObject,Mappable {
         comment <- map["comment"]
         ref <- map["ref"]
         ref_type <- map["ref_type"]
+        
         master_branch <- map["master_branch"]
         cdescription <- map["description"]
         pusher_type <- map["pusher_type"]
-        
+        sender <- map["sender"]
         push_id <- map["push_id"]
+        
         size <- map["size"]
         distinct_size <- map["distinct_size"]
         head <- map["head"]
         before <- map["before"]
         commits <- map["commits"]
         
+        number <- map["number"]
+        cpublic <- map["public"]
+        pull_request <- map["pull_request"]
+        release <- map["release"]
+        member <- map["member"]
+        
+        forkee <- map["forkee"]
+        pages <- map["pages"]
     }
 
 }

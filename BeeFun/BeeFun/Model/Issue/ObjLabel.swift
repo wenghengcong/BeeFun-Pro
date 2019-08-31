@@ -15,21 +15,20 @@
 import UIKit
 import ObjectMapper
 
-class ObjLabel: NSObject,Mappable {
-    var url:String?
-    var name:String?
-    var color:String?
-    
+class ObjLabel: NSObject, Mappable {
+    var url: String?
+    var name: String?
+    var color: String?
+
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
-        
+
         url <- map["url"]
         name <- map["name"]
         color <- map["color"]
-        
+
     }
 }

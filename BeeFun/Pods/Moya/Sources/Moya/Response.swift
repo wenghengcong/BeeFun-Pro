@@ -2,13 +2,20 @@ import Foundation
 
 /// Represents a response to a `MoyaProvider.request`.
 public final class Response: CustomDebugStringConvertible, Equatable {
-    public let statusCode: Int
-    public let data: Data
-    public let request: URLRequest?
-    public let response: URLResponse?
 
-    /// Initialize a new `Response`.
-    public init(statusCode: Int, data: Data, request: URLRequest? = nil, response: URLResponse? = nil) {
+    /// The status code of the response.
+    public let statusCode: Int
+
+    /// The response data.
+    public let data: Data
+
+    /// The original URLRequest for the response.
+    public let request: URLRequest?
+
+    /// The HTTPURLResponse object.
+    public let response: HTTPURLResponse?
+
+    public init(statusCode: Int, data: Data, request: URLRequest? = nil, response: HTTPURLResponse? = nil) {
         self.statusCode = statusCode
         self.data = data
         self.request = request
@@ -41,7 +48,7 @@ public extension Response {
         - statusCodes: The range of acceptable status codes.
      - throws: `MoyaError.statusCode` when others are encountered.
     */
-    public func filter(statusCodes: ClosedRange<Int>) throws -> Response {
+    func filter<R: RangeExpression>(statusCodes: R) throws -> Response where R.Bound == Int {
         guard statusCodes.contains(statusCode) else {
             throw MoyaError.statusCode(self)
         }
@@ -55,7 +62,7 @@ public extension Response {
         - statusCode: The acceptable status code.
      - throws: `MoyaError.statusCode` when others are encountered.
     */
-    public func filter(statusCode: Int) throws -> Response {
+    func filter(statusCode: Int) throws -> Response {
         return try filter(statusCodes: statusCode...statusCode)
     }
 
@@ -64,7 +71,7 @@ public extension Response {
 
      - throws: `MoyaError.statusCode` when others are encountered.
     */
-    public func filterSuccessfulStatusCodes() throws -> Response {
+    func filterSuccessfulStatusCodes() throws -> Response {
         return try filter(statusCodes: 200...299)
     }
 
@@ -73,11 +80,11 @@ public extension Response {
 
      - throws: `MoyaError.statusCode` when others are encountered.
     */
-    public func filterSuccessfulStatusAndRedirectCodes() throws -> Response {
+    func filterSuccessfulStatusAndRedirectCodes() throws -> Response {
         return try filter(statusCodes: 200...399)
     }
 
-    /// Maps data received from the signal into a UIImage.
+    /// Maps data received from the signal into an Image.
     func mapImage() throws -> Image {
         guard let image = Image(data: data) else {
             throw MoyaError.imageMapping(self)
@@ -86,6 +93,9 @@ public extension Response {
     }
 
     /// Maps data received from the signal into a JSON object.
+    ///
+    /// - parameter failsOnEmptyData: A Boolean value determining
+    /// whether the mapping should fail if the data is empty.
     func mapJSON(failsOnEmptyData: Bool = true) throws -> Any {
         do {
             return try JSONSerialization.jsonObject(with: data, options: .allowFragments)
@@ -100,11 +110,11 @@ public extension Response {
     /// Maps data received from the signal into a String.
     ///
     /// - parameter atKeyPath: Optional key path at which to parse string.
-    public func mapString(atKeyPath keyPath: String? = nil) throws -> String {
+    func mapString(atKeyPath keyPath: String? = nil) throws -> String {
         if let keyPath = keyPath {
             // Key path was provided, try to parse string at key path
             guard let jsonDictionary = try mapJSON() as? NSDictionary,
-                let string = jsonDictionary.value(forKeyPath:keyPath) as? String else {
+                let string = jsonDictionary.value(forKeyPath: keyPath) as? String else {
                     throw MoyaError.stringMapping(self)
             }
             return string
@@ -116,4 +126,67 @@ public extension Response {
             return string
         }
     }
+
+    /// Maps data received from the signal into a Decodable object.
+    ///
+    /// - parameter atKeyPath: Optional key path at which to parse object.
+    /// - parameter using: A `JSONDecoder` instance which is used to decode data to an object.
+    func map<D: Decodable>(_ type: D.Type, atKeyPath keyPath: String? = nil, using decoder: JSONDecoder = JSONDecoder(), failsOnEmptyData: Bool = true) throws -> D {
+        let serializeToData: (Any) throws -> Data? = { (jsonObject) in
+            guard JSONSerialization.isValidJSONObject(jsonObject) else {
+                return nil
+            }
+            do {
+                return try JSONSerialization.data(withJSONObject: jsonObject)
+            } catch {
+                throw MoyaError.jsonMapping(self)
+            }
+        }
+        let jsonData: Data
+        keyPathCheck: if let keyPath = keyPath {
+            guard let jsonObject = (try mapJSON(failsOnEmptyData: failsOnEmptyData) as? NSDictionary)?.value(forKeyPath: keyPath) else {
+                if failsOnEmptyData {
+                    throw MoyaError.jsonMapping(self)
+                } else {
+                    jsonData = data
+                    break keyPathCheck
+                }
+            }
+
+            if let data = try serializeToData(jsonObject) {
+                jsonData = data
+            } else {
+                let wrappedJsonObject = ["value": jsonObject]
+                let wrappedJsonData: Data
+                if let data = try serializeToData(wrappedJsonObject) {
+                    wrappedJsonData = data
+                } else {
+                    throw MoyaError.jsonMapping(self)
+                }
+                do {
+                    return try decoder.decode(DecodableWrapper<D>.self, from: wrappedJsonData).value
+                } catch let error {
+                    throw MoyaError.objectMapping(error, self)
+                }
+            }
+        } else {
+            jsonData = data
+        }
+        do {
+            if jsonData.count < 1 && !failsOnEmptyData {
+                if let emptyJSONObjectData = "{}".data(using: .utf8), let emptyDecodableValue = try? decoder.decode(D.self, from: emptyJSONObjectData) {
+                    return emptyDecodableValue
+                } else if let emptyJSONArrayData = "[{}]".data(using: .utf8), let emptyDecodableValue = try? decoder.decode(D.self, from: emptyJSONArrayData) {
+                    return emptyDecodableValue
+                }
+            }
+            return try decoder.decode(D.self, from: jsonData)
+        } catch let error {
+            throw MoyaError.objectMapping(error, self)
+        }
+    }
+}
+
+private struct DecodableWrapper<T: Decodable>: Decodable {
+    let value: T
 }

@@ -146,9 +146,7 @@ ObjectMapper 使用这个函数获取对象后进行映射。开发者需要在�
 
 如果你需要在 extension 里实现 ObjectMapper，你需要选择这个协议而不是 `Mappable` 。
 
-## `ImmutableMappable` Protocol (Beta)
-
-> ⚠️ 这个特性还处于 Beta 阶段。正式发布时 API 可能会完全不同。
+## `ImmutableMappable` Protocol
 
 使用 `ImmutableMappable` 可以映射不可变的属性。下面的表格展示了 `ImmutableMappable` 和 `Mappable` 的不同：
 
@@ -434,12 +432,12 @@ let context = Context()
 let user = Mapper<User>(context: context).map(JSONString)
 ```
 
-#ObjectMapper + Alamofire
+# ObjectMapper + Alamofire
 
 如果网络层你使用的是  [Alamofire](https://github.com/Alamofire/Alamofire) ，并且你希望把返回的结果转换成 Swift 对象，你可以使用 [AlamofireObjectMapper](https://github.com/tristanhimmelman/AlamofireObjectMapper) 。这是一个使用 ObjectMapper 实现的把返回的 JSON 自动转成 Swift 对象的 Alamofire 的扩展。 
 
 
-#ObjectMapper + Realm
+# ObjectMapper + Realm
 
 ObjectMapper 可以和 Realm 一起配合使用。使用下面的声明结构就可以使用 ObjectMapper 生成 Realm 对象：
 

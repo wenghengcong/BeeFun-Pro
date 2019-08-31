@@ -17,9 +17,9 @@ class ObjBase: Mappable {
 //    
 
     required init?(map: Map) {
-        
+
     }
-    
+
     func mapping(map: Map) {
 
     }

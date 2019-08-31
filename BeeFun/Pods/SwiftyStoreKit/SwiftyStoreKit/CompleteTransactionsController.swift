@@ -27,9 +27,9 @@ import StoreKit
 
 struct CompleteTransactions {
     let atomically: Bool
-    let callback: ([Product]) -> Void
+    let callback: ([Purchase]) -> Void
 
-    init(atomically: Bool, callback: @escaping ([Product]) -> Void) {
+    init(atomically: Bool, callback: @escaping ([Purchase]) -> Void) {
         self.atomically = atomically
         self.callback = callback
     }
@@ -47,7 +47,7 @@ class CompleteTransactionsController: TransactionController {
         }
 
         var unhandledTransactions: [SKPaymentTransaction] = []
-        var products: [Product] = []
+        var purchases: [Purchase] = []
 
         for transaction in transactions {
 
@@ -55,21 +55,21 @@ class CompleteTransactionsController: TransactionController {
 
             if transactionState != .purchasing {
 
-                let product = Product(productId: transaction.payment.productIdentifier, transaction: transaction, needsFinishTransaction: !completeTransactions.atomically)
+                let willFinishTransaction = completeTransactions.atomically || transactionState == .failed
+                let purchase = Purchase(productId: transaction.payment.productIdentifier, quantity: transaction.payment.quantity, transaction: transaction, originalTransaction: transaction.original, needsFinishTransaction: !willFinishTransaction)
 
-                products.append(product)
+                purchases.append(purchase)
 
-                print("Finishing transaction for payment \"\(transaction.payment.productIdentifier)\" with state: \(transactionState.debugDescription)")
-
-                if completeTransactions.atomically {
+                if willFinishTransaction {
+                    print("Finishing transaction for payment \"\(transaction.payment.productIdentifier)\" with state: \(transactionState.debugDescription)")
                     paymentQueue.finishTransaction(transaction)
                 }
             } else {
                 unhandledTransactions.append(transaction)
             }
         }
-        if products.count > 0 {
-            completeTransactions.callback(products)
+        if purchases.count > 0 {
+            completeTransactions.callback(purchases)
         }
 
         return unhandledTransactions

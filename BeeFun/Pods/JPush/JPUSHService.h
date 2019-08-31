@@ -9,7 +9,7 @@
  * Copyright (c) 2011 ~ 2017 Shenzhen HXHG. All rights reserved.
  */
 
-#define JPUSH_VERSION_NUMBER 3.0.2
+#define JPUSH_VERSION_NUMBER 3.2.1
 
 #import <Foundation/Foundation.h>
 
@@ -21,6 +21,11 @@
 @class UNNotificationRequest;
 @class UNNotification;
 @protocol JPUSHRegisterDelegate;
+@protocol JPUSHGeofenceDelegate;
+
+typedef void (^JPUSHTagsOperationCompletion)(NSInteger iResCode, NSSet *iTags, NSInteger seq);
+typedef void (^JPUSHTagValidOperationCompletion)(NSInteger iResCode, NSSet *iTags, NSInteger seq, BOOL isBind);
+typedef void (^JPUSHAliasOperationCompletion)(NSInteger iResCode, NSString *iAlias, NSInteger seq);
 
 extern NSString *const kJPFNetworkIsConnectingNotification; // 正在连接中
 extern NSString *const kJPFNetworkDidSetupNotification;     // 建立连接
@@ -36,6 +41,11 @@ typedef NS_OPTIONS(NSUInteger, JPAuthorizationOptions) {
     JPAuthorizationOptionBadge   = (1 << 0),    // the application may badge its icon upon a notification being received
     JPAuthorizationOptionSound   = (1 << 1),    // the application may play a sound upon a notification being received
     JPAuthorizationOptionAlert   = (1 << 2),    // the application may display an alert upon a notification being received
+    JPAuthorizationOptionCarPlay = (1 << 3),    // The ability to display notifications in a CarPlay environment.
+    JPAuthorizationOptionCriticalAlert NS_AVAILABLE_IOS(12.0) = (1 << 4) ,   //The ability to play sounds for critical alerts.
+    JPAuthorizationOptionProvidesAppNotificationSettings NS_AVAILABLE_IOS(12.0) = (1 << 5) ,      //An option indicating the system should display a button for in-app notification settings.
+    JPAuthorizationOptionProvisional NS_AVAILABLE_IOS(12.0) = (1 << 6) ,     //The ability to post noninterrupting notifications provisionally to the Notification Center.
+  
 };
 
 /*!
@@ -69,6 +79,17 @@ typedef NS_OPTIONS(NSUInteger, JPAuthorizationOptions) {
 @end
 
 /*!
+ * 推送通知声音实体类
+ * iOS10以上有效
+ */
+@interface JPushNotificationSound : NSObject <NSCopying, NSCoding>
+@property (nonatomic, copy) NSString *soundName; //普通通知铃声
+@property (nonatomic, copy) NSString *criticalSoundName NS_AVAILABLE_IOS(12.0); //警告通知铃声
+@property (nonatomic, assign) float criticalSoundVolume NS_AVAILABLE_IOS(12.0); //警告通知铃声音量，有效值在0~1之间，默认为1
+@end
+
+
+/*!
  * 推送内容实体类
  */
 @interface JPushNotificationContent : NSObject<NSCopying, NSCoding>
@@ -81,11 +102,15 @@ typedef NS_OPTIONS(NSUInteger, JPAuthorizationOptions) {
 @property (nonatomic, copy) NSString *categoryIdentifier;   // 行为分类标识
 @property (nonatomic, copy) NSDictionary *userInfo;         // 本地推送时可以设置userInfo来增加附加信息，远程推送时设置的payload推送内容作为此userInfo
 @property (nonatomic, copy) NSString *sound;                // 声音名称，不设置则为默认声音
+@property (nonatomic, copy) JPushNotificationSound *soundSetting NS_AVAILABLE_IOS(10.0);   //推送声音实体
 @property (nonatomic, copy) NSArray *attachments NS_AVAILABLE_IOS(10_0);                 // 附件，iOS10以上有效，需要传入UNNotificationAttachment对象数组类型
 @property (nonatomic, copy) NSString *threadIdentifier NS_AVAILABLE_IOS(10_0); // 线程或与推送请求相关对话的标识，iOS10以上有效，可用来对推送进行分组
 @property (nonatomic, copy) NSString *launchImageName NS_AVAILABLE_IOS(10_0);  // 启动图片名，iOS10以上有效，从推送启动时将会用到
+@property (nonatomic, copy) NSString *summaryArgument NS_AVAILABLE_IOS(12.0);  //插入到通知摘要中的部分参数。iOS12以上有效。
+@property (nonatomic, assign) NSUInteger summaryArgumentCount NS_AVAILABLE_IOS(12.0); //插入到通知摘要中的项目数。iOS12以上有效。
 
 @end
+
 
 /*!
  * 推送触发方式实体类
@@ -123,12 +148,6 @@ typedef NS_OPTIONS(NSUInteger, JPAuthorizationOptions) {
 /// @name Setup 启动相关
 ///----------------------------------------------------
 
-/*!
- * @abstract 启动SDK
- *
- * @discussion 这是旧版本的启动方法, 依赖于 PushConfig.plist 文件. 建议不要使用, 已经过期.
- */
-+ (void)setupWithOption:(NSDictionary *)launchingOption __attribute__((deprecated("JPush 2.1.0 版本已过期")));
 
 /*!
  * @abstract 启动SDK
@@ -137,7 +156,7 @@ typedef NS_OPTIONS(NSUInteger, JPAuthorizationOptions) {
  * @param appKey 一个JPush 应用必须的,唯一的标识. 请参考 JPush 相关说明文档来获取这个标识.
  * @param channel 发布渠道. 可选.
  * @param isProduction 是否生产环境. 如果为开发状态,设置为 NO; 如果为生产状态,应改为 YES.
- * @param advertisingIdentifier 广告标识符（IDFA） 如果不需要使用IDFA，传nil.
+ *                     App 证书环境取决于profile provision的配置，此处建议与证书环境保持一致.
  *
  * @discussion 提供SDK启动必须的参数, 来启动 SDK.
  * 此接口必须在 App 启动时调用, 否则 JPush SDK 将无法正常工作.
@@ -147,7 +166,19 @@ typedef NS_OPTIONS(NSUInteger, JPAuthorizationOptions) {
                 channel:(NSString *)channel
        apsForProduction:(BOOL)isProduction;
 
-
+/*!
+ * @abstract 启动SDK
+ *
+ * @param launchingOption 启动参数.
+ * @param appKey 一个JPush 应用必须的,唯一的标识. 请参考 JPush 相关说明文档来获取这个标识.
+ * @param channel 发布渠道. 可选.
+ * @param isProduction 是否生产环境. 如果为开发状态,设置为 NO; 如果为生产状态,应改为 YES.
+ *                     App 证书环境取决于profile provision的配置，此处建议与证书环境保持一致.
+ * @param advertisingId 广告标识符（IDFA） 如果不需要使用IDFA，传nil.
+ *
+ * @discussion 提供SDK启动必须的参数, 来启动 SDK.
+ * 此接口必须在 App 启动时调用, 否则 JPush SDK 将无法正常工作.
+ */
 + (void)setupWithOption:(NSDictionary *)launchingOption
                  appKey:(NSString *)appKey
                 channel:(NSString *)channel
@@ -186,41 +217,102 @@ typedef NS_OPTIONS(NSUInteger, JPAuthorizationOptions) {
  */
 + (void)handleRemoteNotification:(NSDictionary *)remoteInfo;
 
-
-///----------------------------------------------------
-/// @name Tag alias setting 设置别名与标签
-///----------------------------------------------------
-
 /*!
- * 下面的接口是可选的
- * 设置标签和(或)别名（若参数为nil，则忽略；若是空对象，则清空；详情请参考文档：https://docs.jiguang.cn/jpush/client/iOS/ios_api/）
- * setTags:alias:fetchCompletionHandle:是新的设置标签别名的方法，不再需要显示声明回调函数，只需要在block里面处理设置结果即可.
- * WARN: 使用block时需要注意循环引用问题
+ * Tags操作接口
+ * 支持增加/覆盖/删除/清空/查询操作
+ * 详情请参考文档：https://docs.jiguang.cn/jpush/client/iOS/ios_api/）
  */
-+ (void) setTags:(NSSet *)tags
-           alias:(NSString *)alias
-callbackSelector:(SEL)cbSelector
-          target:(id)theTarget __attribute__((deprecated("JPush 2.1.1 版本已过期")));
 
-+ (void) setTags:(NSSet *)tags
-           alias:(NSString *)alias
-callbackSelector:(SEL)cbSelector
-          object:(id)theTarget;
+/**
+ 增加tags
 
-+ (void) setTags:(NSSet *)tags
-callbackSelector:(SEL)cbSelector
-          object:(id)theTarget;
+ @param tags 需要增加的tags集合
+ @param completion 响应回调
+ @param seq 请求序列号
+ */
++ (void)addTags:(NSSet<NSString *> *)tags
+     completion:(JPUSHTagsOperationCompletion)completion
+            seq:(NSInteger)seq;
 
-+ (void)setTags:(NSSet *)tags
-          alias:(NSString *)alias
-    fetchCompletionHandle:(void (^)(int iResCode, NSSet *iTags, NSString *iAlias))completionHandler;
+/**
+ 覆盖tags
+ 调用该接口会覆盖用户所有的tags
 
-+ (void)  setTags:(NSSet *)tags
-aliasInbackground:(NSString *)alias;
+ @param tags 需要设置的tags集合
+ @param completion 响应回调
+ @param seq 请求序列号
+ */
++ (void)setTags:(NSSet<NSString *> *)tags
+     completion:(JPUSHTagsOperationCompletion)completion
+            seq:(NSInteger)seq;
 
+/**
+ 删除指定tags
+
+ @param tags 需要删除的tags集合
+ @param completion 响应回调
+ @param seq 请求序列号
+ */
++ (void)deleteTags:(NSSet<NSString *> *)tags
+        completion:(JPUSHTagsOperationCompletion)completion
+               seq:(NSInteger)seq;
+
+/**
+ 清空所有tags
+ @param completion 响应回调
+ @param seq 请求序列号
+ */
++ (void)cleanTags:(JPUSHTagsOperationCompletion)completion
+              seq:(NSInteger)seq;
+
+/**
+ 查询全部tags
+
+ @param completion 响应回调，请在回调中获取查询结果
+ @param seq 请求序列号
+ */
++ (void)getAllTags:(JPUSHTagsOperationCompletion)completion
+               seq:(NSInteger)seq;
+
+/**
+ 验证tag是否绑定
+ 
+ @param completion 响应回调，回调中查看是否绑定
+ @param seq 请求序列号
+ */
++ (void)validTag:(NSString *)tag
+      completion:(JPUSHTagValidOperationCompletion)completion
+             seq:(NSInteger)seq;
+
+/**
+ 设置Alias
+
+ @param alias 需要设置的alias
+ @param completion 响应回调
+ @param seq 请求序列号
+ */
 + (void)setAlias:(NSString *)alias
-callbackSelector:(SEL)cbSelector
-          object:(id)theTarget;
+      completion:(JPUSHAliasOperationCompletion)completion
+             seq:(NSInteger)seq;
+
+/**
+ 删除alias
+
+ @param completion 响应回调
+ @param seq 请求序列号
+ */
++ (void)deleteAlias:(JPUSHAliasOperationCompletion)completion
+                seq:(NSInteger)seq;
+
+/**
+ 查询当前alias
+
+ @param completion 响应回调
+ @param seq 请求序列号
+ */
++ (void)getAlias:(JPUSHAliasOperationCompletion)completion
+             seq:(NSInteger)seq;
+
 
 /*!
  * @abstract 过滤掉无效的 tags
@@ -230,7 +322,6 @@ callbackSelector:(SEL)cbSelector
  */
 + (NSSet *)filterValidTags:(NSSet *)tags;
 
-
 ///----------------------------------------------------
 /// @name Stats 统计功能
 ///----------------------------------------------------
@@ -239,23 +330,26 @@ callbackSelector:(SEL)cbSelector
  * @abstract 开始记录页面停留
  *
  * @param pageName 页面名称
+ * @discussion JCore 1.1.8 版本后，如需统计页面流，请使用 JAnalytics
  */
-+ (void)startLogPageView:(NSString *)pageName;
++ (void)startLogPageView:(NSString *)pageName __attribute__((deprecated("JCore 1.1.8 版本已过期")));
 
 /*!
  * @abstract 停止记录页面停留
  *
  * @param pageName 页面
+ * @discussion JCore 1.1.8 版本后，如需统计页面流，请使用 JAnalytics
  */
-+ (void)stopLogPageView:(NSString *)pageName;
++ (void)stopLogPageView:(NSString *)pageName __attribute__((deprecated("JCore 1.1.8 版本已过期")));
 
 /*!
  * @abstract 直接上报在页面的停留时间
  *
  * @param pageName 页面
  * @param seconds 停留的秒数
+ * @discussion JCore 1.1.8 版本后，如需统计页面流，请使用 JAnalytics
  */
-+ (void)beginLogPageView:(NSString *)pageName duration:(int)seconds;
++ (void)beginLogPageView:(NSString *)pageName duration:(int)seconds __attribute__((deprecated("JCore 1.1.8 版本已过期")));
 
 /*!
  * @abstract 开启Crash日志收集
@@ -282,6 +376,26 @@ callbackSelector:(SEL)cbSelector
  */
 + (void)setLocation:(CLLocation *)location;
 
+/**
+ 设置地理围栏的最大个数
+ 默认值为 10 ，iOS系统默认地理围栏最大个数为20
+ @param count 个数 count
+ */
++ (void)setGeofenecMaxCount:(NSInteger)count;
+/**
+ 注册地理围栏的代理
+
+ @param delegate 代理
+ @param launchOptions app启动完成是收到的字段参数
+ */
++ (void)registerLbsGeofenceDelegate:(id<JPUSHGeofenceDelegate>)delegate withLaunchOptions:(NSDictionary *)launchOptions;
+
+/**
+ 删除地理围栏
+ 
+ @param geofenceId 地理围栏id
+ */
++ (void)removeGeofenceWithIdentifier:(NSString *)geofenceId;
 
 ///----------------------------------------------------
 /// @name Local Notification 本地通知
@@ -310,7 +424,7 @@ callbackSelector:(SEL)cbSelector
  * @abstract 查找推送 (支持iOS10，并兼容iOS10以下版本)
  *
  * JPush 2.1.9新接口
- * @param identifier JPushNotificationIdentifier类型，iOS10以上可以通过设置identifier.delivered和identifier.identifiers来查找相应在通知中心显示推送或待推送请求，identifier.identifiers如果设置为nil或空数组则返回相应标志下所有在通知中心显示推送或待推送请求；iOS10以下identifier.delivered属性无效，identifier.identifiers如果设置nil或空数组则返回所有推送。须要设置identifier.findCompletionHandler回调才能得到查找结果，通过(NSArray *results)返回相应对象数组。
+ * @param identifier JPushNotificationIdentifier类型，iOS10以上可以通过设置identifier.delivered和identifier.identifiers来查找相应在通知中心显示推送或待推送请求，identifier.identifiers如果设置为nil或空数组则返回相应标志下所有在通知中心显示推送或待推送请求；iOS10以下identifier.delivered属性无效，identifier.identifiers如果设置nil或空数组则返回所有未触发的推送。须要设置identifier.findCompletionHandler回调才能得到查找结果，通过(NSArray *results)返回相应对象数组。
  * @discussion 旧的查找推送接口被废弃，使用此接口可以替换
  *
  */
@@ -428,6 +542,20 @@ callbackSelector:(SEL)cbSelector
  */
 + (void)resetBadge;
 
+///----------------------------------------------------
+/// @name Other Feature 其他功能
+///----------------------------------------------------
+
+/*!
+ * @abstract 设置手机号码(到服务器)
+ *
+ * @param mobileNumber 手机号码. 会与用户信息一一对应。可为空，为空则清除号码
+ * @param completion 响应回调。成功则error为空，失败则error带有错误码及错误信息
+ *
+ * @discussion 设置手机号码后，可实现“推送不到短信到”的通知方式，提高推送达到率。结果信息通过completion异步返回，也可将completion设置为nil不处理结果信息。
+ *
+ */
++ (void)setMobileNumber:(NSString *)mobileNumber completion:(void (^)(NSError *error))completion;
 
 ///----------------------------------------------------
 /// @name Logs and others 日志与其他
@@ -456,7 +584,7 @@ callbackSelector:(SEL)cbSelector
  *
  * SDK 默认开启的日志级别为: Info. 只显示必要的信息, 不打印调试日志.
  *
- * 调用本接口可打开日志级别为: Debug, 打印调试日志.
+ * 请在SDK启动后调用本接口，调用本接口可打开日志级别为: Debug, 打印调试日志.
  */
 + (void)setDebugMode;
 
@@ -470,6 +598,39 @@ callbackSelector:(SEL)cbSelector
  * 建议在发布的版本里, 调用此接口, 关闭掉日志打印.
  */
 + (void)setLogOFF;
+
+///----------------------------------------------------
+///********************下列方法已过期********************
+///**************请使用新版tag/alias操作接口**************
+///----------------------------------------------------
+/// @name Tag alias setting 设置别名与标签
+///----------------------------------------------------
+
+/*!
+ * 下面的接口是可选的
+ * 设置标签和(或)别名（若参数为nil，则忽略；若是空对象，则清空；详情请参考文档：https://docs.jiguang.cn/jpush/client/iOS/ios_api/）
+ * setTags:alias:fetchCompletionHandle:是新的设置标签别名的方法，不再需要显示声明回调函数，只需要在block里面处理设置结果即可.
+ * WARN: 使用block时需要注意循环引用问题
+ */
++ (void) setTags:(NSSet *)tags
+           alias:(NSString *)alias
+callbackSelector:(SEL)cbSelector
+          target:(id)theTarget __attribute__((deprecated("JPush 2.1.1 版本已过期")));
++ (void) setTags:(NSSet *)tags
+           alias:(NSString *)alias
+callbackSelector:(SEL)cbSelector
+          object:(id)theTarget __attribute__((deprecated("JPush 3.0.6 版本已过期")));
++ (void) setTags:(NSSet *)tags
+callbackSelector:(SEL)cbSelector
+          object:(id)theTarget __attribute__((deprecated("JPush 3.0.6 版本已过期")));
++ (void)setTags:(NSSet *)tags
+          alias:(NSString *)alias
+fetchCompletionHandle:(void (^)(int iResCode, NSSet *iTags, NSString *iAlias))completionHandler __attribute__((deprecated("JPush 3.0.6 版本已过期")));
++ (void)  setTags:(NSSet *)tags
+aliasInbackground:(NSString *)alias __attribute__((deprecated("JPush 3.0.6 版本已过期")));
++ (void)setAlias:(NSString *)alias
+callbackSelector:(SEL)cbSelector
+          object:(id)theTarget __attribute__((deprecated("JPush 3.0.6 版本已过期")));
 
 @end
 
@@ -491,6 +652,35 @@ callbackSelector:(SEL)cbSelector
  * @param response 通知响应对象
  * @param completionHandler
  */
-- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler;
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)(void))completionHandler;
+
+/*
+ * @brief handle UserNotifications.framework [openSettingsForNotification:]
+ * @param center [UNUserNotificationCenter currentNotificationCenter] 新特性用户通知中心
+ * @param notification 当前管理的通知对象
+ */
+- (void)jpushNotificationCenter:(UNUserNotificationCenter *)center openSettingsForNotification:(nullable UNNotification *)notification NS_AVAILABLE_IOS(12.0);
+
+@end
+
+@protocol JPUSHGeofenceDelegate <NSObject>
+
+/**
+ 进入地理围栏区域
+ 
+ @param geofenceId 地理围栏id
+ @param userInfo 地理围栏触发时返回的信息
+ @param error 错误信息
+ */
+- (void)jpushGeofenceIdentifer:(NSString * _Nonnull)geofenceId didEnterRegion:(NSDictionary * _Nullable)userInfo error:(NSError * _Nullable)error;
+
+/**
+ 离开地理围栏区域
+ 
+ @param geofenceId 地理围栏id
+ @param userInfo 地理围栏触发时返回的信息
+ @param error 错误信息
+ */
+- (void)jpushGeofenceIdentifer:(NSString * _Nonnull)geofenceId didExitRegion:(NSDictionary * _Nullable)userInfo error:(NSError * _Nullable)error;
 
 @end

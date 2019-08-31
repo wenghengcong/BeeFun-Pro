@@ -7,69 +7,72 @@
 //
 /**
 {
-"url": "https://api.github.com/repos/wenghengcong/TestForCoder/issues/2",
-"repository_url": "https://api.github.com/repos/wenghengcong/TestForCoder",
-"labels_url": "https://api.github.com/repos/wenghengcong/TestForCoder/issues/2/labels{/name}",
-"comments_url": "https://api.github.com/repos/wenghengcong/TestForCoder/issues/2/comments",
-"events_url": "https://api.github.com/repos/wenghengcong/TestForCoder/issues/2/events",
-"html_url": "https://github.com/wenghengcong/TestForCoder/issues/2",
-"id": 135574763,
-"number": 2,
-"title": "Issue 2",
+    "url": "https://api.github.com/repos/wenghengcong/TestForCoder/issues/2",
+    "repository_url": "https://api.github.com/repos/wenghengcong/TestForCoder",
+    "labels_url": "https://api.github.com/repos/wenghengcong/TestForCoder/issues/2/labels{/name}",
+    "comments_url": "https://api.github.com/repos/wenghengcong/TestForCoder/issues/2/comments",
+    "events_url": "https://api.github.com/repos/wenghengcong/TestForCoder/issues/2/events",
+    "html_url": "https://github.com/wenghengcong/TestForCoder/issues/2",
+    "id": 135574763,
+    "number": 2,
+    "title": "Issue 2",
 
-"user": ObjUser,
+    "user": ObjUser,
 
-"labels": [],
-"state": "open",
-"locked": false,
-"assignee": null,
-"milestone": null,
-"comments": 1,
-"created_at": "2016-02-22T23:11:00Z",
-"updated_at": "2016-02-22T23:11:15Z",
-"closed_at": null,
-"repository": ObjRepos
-"closed_by":ObjUser
-"pull_request":ObjPullRequest
-"body": "@wenghengcong\r\nnoti user"
+    "labels": [],
+    "state": "open",
+    "locked": false,
+    "assignee": null,
+    "milestone": null,
+    "comments": 1,
+    "created_at": "2016-02-22T23:11:00Z",
+    "updated_at": "2016-02-22T23:11:15Z",
+    "closed_at": null,
+    "repository": ObjRepos
+    "closed_by":ObjUser
+    "pull_request":ObjPullRequest
+    "body": "@wenghengcong\r\nnoti user"
 }
 */
 import UIKit
 import ObjectMapper
 
-class ObjIssue: NSObject,Mappable {
+class ObjIssue: NSObject, Mappable {
 
-    var url:String?
-    var repository_url:String?
-    var labels_url:String?
-    var comments_url:String?
-    var events_url:String?
-    var html_url:String?
-    var id:Int?
-    var number:Int?
-    var title:String?
-    var user:ObjUser?
-    var labels:[ObjLabel]?
-    var state:String?
-    var locked:Bool?
-    var assignee:ObjUser?
-    var milestone:ObjMilestone?
-    var comments:Int?
-    var created_at:String?
-    var updated_at:String?
-    var closed_at:String?
-    var repository:ObjRepos?
-    var closed_by:ObjUser?
-    var pull_request:ObjPullRequest?
-    var body:String?
+    var url: String?
+    var repository_url: String?
+    var labels_url: String?
+    var comments_url: String?
+    var events_url: String?
+    var html_url: String?
+    var id: Int?
+    var number: Int?
+    var title: String?
+    var user: ObjUser?
+    var labels: [ObjLabel]?
+    var state: String?
+    var locked: Bool?
+    var assignee: ObjUser?
+    var assignees: [ObjUser]?
+    var milestone: ObjMilestone?
+    var comments: Int?
+    var created_at: String?
+    var updated_at: String?
+    var closed_at: String?
+    var repository: ObjRepos?
+    var closed_by: ObjUser?
+    var pull_request: ObjPullRequest?
+    var body: String?
+    var score: Double?
+    //值可为：OWNER、NONE、 CONTRIBUTOR、COLLABORATOR
+    var author_association: String?
     
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
-        
+
         url <- map["url"]
         repository_url <- map["repository_url"]
         labels_url <- map["labels_url"]
@@ -84,6 +87,7 @@ class ObjIssue: NSObject,Mappable {
         state <- map["state"]
         locked <- map["locked"]
         assignee <- map["assignee"]
+        assignees <- map["assignees"]
         milestone <- map["milestone"]
         comments <- map["comments"]
         created_at <- map["created_at"]
@@ -93,7 +97,8 @@ class ObjIssue: NSObject,Mappable {
         closed_by <- map["closed_by"]
         pull_request <- map["pull_request"]
         body <- map["body"]
+        score <- map["score"]   //搜索匹配得分
+        author_association <- map["author_association"]
 
-        
     }
 }

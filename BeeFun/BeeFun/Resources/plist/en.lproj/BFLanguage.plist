@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>All</string>
+	<string>1C Enterprise</string>
+	<string>ABAP</string>
+	<string>ABNF</string>
+	<string>ActionScript</string>
+	<string>Ada</string>
+	<string>Agda</string>
+	<string>AGS Script</string>
+	<string>Alloy</string>
+	<string>Alpine Abuild</string>
+	<string>AMPL</string>
+	<string>Ant Build System</string>
+	<string>ANTLR</string>
+	<string>ApacheConf</string>
+	<string>Apex</string>
+	<string>API Blueprint</string>
+	<string>APL</string>
+	<string>Apollo Guidance Computer</string>
+	<string>AppleScript</string>
+	<string>Arc</string>
+	<string>Arduino</string>
+	<string>AsciiDoc</string>
+	<string>ASN.1</string>
+	<string>ASP</string>
+	<string>AspectJ</string>
+	<string>Assembly</string>
+	<string>ATS</string>
+	<string>Augeas</string>
+	<string>AutoHotkey</string>
+	<string>AutoIt</string>
+	<string>Awk</string>
+	<string>Batchfile</string>
+	<string>Befunge</string>
+	<string>Bison</string>
+	<string>BitBake</string>
+	<string>Blade</string>
+	<string>BlitzBasic</string>
+	<string>BlitzMax</string>
+	<string>Bluespec</string>
+	<string>Boo</string>
+	<string>Brainfuck</string>
+	<string>Brightscript</string>
+	<string>Bro</string>
+	<string>C</string>
+	<string>C#</string>
+	<string>C++</string>
+	<string>C-ObjDump</string>
+	<string>C2hs Haskell</string>
+	<string>Cap&apos;n Proto</string>
+	<string>CartoCSS</string>
+	<string>Ceylon</string>
+	<string>Chapel</string>
+	<string>Charity</string>
+	<string>ChucK</string>
+	<string>Cirru</string>
+	<string>Clarion</string>
+	<string>Clean</string>
+	<string>Click</string>
+	<string>CLIPS</string>
+	<string>Clojure</string>
+	<string>Closure Templates</string>
+	<string>CMake</string>
+	<string>COBOL</string>
+	<string>CoffeeScript</string>
+	<string>ColdFusion</string>
+	<string>ColdFusion CFC</string>
+	<string>COLLADA</string>
+	<string>Common Lisp</string>
+	<string>Component Pascal</string>
+	<string>Cool</string>
+	<string>Coq</string>
+	<string>Cpp-ObjDump</string>
+	<string>Creole</string>
+	<string>Crystal</string>
+	<string>CSON</string>
+	<string>Csound</string>
+	<string>Csound Document</string>
+	<string>Csound Score</string>
+	<string>CSS</string>
+	<string>CSV</string>
+	<string>Gherkin</string>
+	<string>Cuda</string>
+	<string>CWeb</string>
+	<string>Cycript</string>
+	<string>Cython</string>
+	<string>D</string>
+	<string>D-ObjDump</string>
+	<string>Darcs Patch</string>
+	<string>Dart</string>
+	<string>desktop</string>
+	<string>Diff</string>
+	<string>DIGITAL Command Language</string>
+	<string>DM</string>
+	<string>DNS Zone</string>
+	<string>Dockerfile</string>
+	<string>Dogescript</string>
+	<string>DTrace</string>
+	<string>Dylan</string>
+	<string>E</string>
+	<string>Eagle</string>
+	<string>EBNF</string>
+	<string>eC</string>
+	<string>Ecere Projects</string>
+	<string>ECL</string>
+	<string>ECLiPSe</string>
+	<string>edn</string>
+	<string>Eiffel</string>
+	<string>EJS</string>
+	<string>Elixir</string>
+	<string>Elm</string>
+	<string>Emacs Lisp</string>
+	<string>EmberScript</string>
+	<string>EQ</string>
+	<string>Erlang</string>
+	<string>F#</string>
+	<string>Factor</string>
+	<string>Fancy</string>
+	<string>Fantom</string>
+	<string>Filebench WML</string>
+	<string>Filterscript</string>
+	<string>fish</string>
+	<string>FLUX</string>
+	<string>Formatted</string>
+	<string>Forth</string>
+	<string>Fortran</string>
+	<string>FreeMarker</string>
+	<string>Frege</string>
+	<string>G-code</string>
+	<string>Game Maker Language</string>
+	<string>GAMS</string>
+	<string>GAP</string>
+	<string>GCC Machine Description</string>
+	<string>GDB</string>
+	<string>GDScript</string>
+	<string>Genie</string>
+	<string>Genshi</string>
+	<string>Gentoo Ebuild</string>
+	<string>Gentoo Eclass</string>
+	<string>Gettext Catalog</string>
+	<string>Gherkin</string>
+	<string>GLSL</string>
+	<string>Glyph</string>
+	<string>GN</string>
+	<string>Gnuplot</string>
+	<string>Go</string>
+	<string>Golo</string>
+	<string>Gosu</string>
+	<string>Grace</string>
+	<string>Gradle</string>
+	<string>Grammatical Framework</string>
+	<string>Graph Modeling Language</string>
+	<string>GraphQL</string>
+	<string>Graphviz (DOT)</string>
+	<string>Groovy</string>
+	<string>Groovy Server Pages</string>
+	<string>Hack</string>
+	<string>Haml</string>
+	<string>Handlebars</string>
+	<string>Harbour</string>
+	<string>Haskell</string>
+	<string>Haxe</string>
+	<string>HCL</string>
+	<string>HLSL</string>
+	<string>HTML</string>
+	<string>HTML+Django</string>
+	<string>HTML+ECR</string>
+	<string>HTML+EEX</string>
+	<string>HTML+ERB</string>
+	<string>HTML+PHP</string>
+	<string>HTTP</string>
+	<string>Hy</string>
+	<string>HyPhy</string>
+	<string>IDL</string>
+	<string>Idris</string>
+	<string>IGOR Pro</string>
+	<string>Inform 7</string>
+	<string>INI</string>
+	<string>Inno Setup</string>
+	<string>Io</string>
+	<string>Ioke</string>
+	<string>IRC log</string>
+	<string>Isabelle</string>
+	<string>Isabelle ROOT</string>
+	<string>J</string>
+	<string>Jasmin</string>
+	<string>Java</string>
+	<string>Java Server Pages</string>
+	<string>JavaScript</string>
+	<string>JFlex</string>
+	<string>Jison</string>
+	<string>Jison Lex</string>
+	<string>Jolie</string>
+	<string>JSON</string>
+	<string>JSON5</string>
+	<string>JSONiq</string>
+	<string>JSONLD</string>
+	<string>JSX</string>
+	<string>Julia</string>
+	<string>Jupyter Notebook</string>
+	<string>KiCad</string>
+	<string>Kit</string>
+	<string>Kotlin</string>
+	<string>KRL</string>
+	<string>LabVIEW</string>
+	<string>Lasso</string>
+	<string>Latte</string>
+	<string>Lean</string>
+	<string>Less</string>
+	<string>Lex</string>
+	<string>LFE</string>
+	<string>LilyPond</string>
+	<string>Limbo</string>
+	<string>Linker Script</string>
+	<string>Linux Kernel Module</string>
+	<string>Liquid</string>
+	<string>Literate Agda</string>
+	<string>Literate CoffeeScript</string>
+	<string>Literate Haskell</string>
+	<string>LiveScript</string>
+	<string>LLVM</string>
+	<string>Logos</string>
+	<string>Logtalk</string>
+	<string>LOLCODE</string>
+	<string>LookML</string>
+	<string>LoomScript</string>
+	<string>LSL</string>
+	<string>Lua</string>
+	<string>M</string>
+	<string>M4</string>
+	<string>M4Sugar</string>
+	<string>Makefile</string>
+	<string>Mako</string>
+	<string>Markdown</string>
+	<string>Marko</string>
+	<string>Mask</string>
+	<string>Mathematica</string>
+	<string>Matlab</string>
+	<string>Maven POM</string>
+	<string>Max</string>
+	<string>MAXScript</string>
+	<string>MediaWiki</string>
+	<string>Mercury</string>
+	<string>Meson</string>
+	<string>Metal</string>
+	<string>MiniD</string>
+	<string>Mirah</string>
+	<string>Modelica</string>
+	<string>Modula-2</string>
+	<string>Module Management System</string>
+	<string>Monkey</string>
+	<string>Moocode</string>
+	<string>MoonScript</string>
+	<string>MQL4</string>
+	<string>MQL5</string>
+	<string>MTML</string>
+	<string>MUF</string>
+	<string>mupad</string>
+	<string>Myghty</string>
+	<string>NCL</string>
+	<string>Nemerle</string>
+	<string>nesC</string>
+	<string>NetLinx</string>
+	<string>NetLinx+ERB</string>
+	<string>NetLogo</string>
+	<string>NewLisp</string>
+	<string>Nginx</string>
+	<string>Nim</string>
+	<string>Ninja</string>
+	<string>Nit</string>
+	<string>Nix</string>
+	<string>NL</string>
+	<string>NSIS</string>
+	<string>Nu</string>
+	<string>NumPy</string>
+	<string>ObjDump</string>
+	<string>Objective-C</string>
+	<string>Objective-C++</string>
+	<string>Objective-J</string>
+	<string>OCaml</string>
+	<string>Omgrofl</string>
+	<string>ooc</string>
+	<string>Opa</string>
+	<string>Opal</string>
+	<string>OpenCL</string>
+	<string>OpenEdge ABL</string>
+	<string>OpenRC runscript</string>
+	<string>OpenSCAD</string>
+	<string>OpenType Feature File</string>
+	<string>Org</string>
+	<string>Ox</string>
+	<string>Oxygene</string>
+	<string>Oz</string>
+	<string>P4</string>
+	<string>Pan</string>
+	<string>Papyrus</string>
+	<string>Parrot</string>
+	<string>Parrot Assembly</string>
+	<string>Parrot Internal Representation</string>
+	<string>Pascal</string>
+	<string>PAWN</string>
+	<string>Pep8</string>
+	<string>Perl</string>
+	<string>Perl6</string>
+	<string>PHP</string>
+	<string>Pic</string>
+	<string>Pickle</string>
+	<string>PicoLisp</string>
+	<string>PigLatin</string>
+	<string>Pike</string>
+	<string>PLpgSQL</string>
+	<string>PLSQL</string>
+	<string>Pod</string>
+	<string>PogoScript</string>
+	<string>Pony</string>
+	<string>PostScript</string>
+	<string>POV-Ray SDL</string>
+	<string>PowerBuilder</string>
+	<string>PowerShell</string>
+	<string>Processing</string>
+	<string>Prolog</string>
+	<string>Propeller Spin</string>
+	<string>Protocol Buffer</string>
+	<string>Public Key</string>
+	<string>Pug</string>
+	<string>Puppet</string>
+	<string>Pure Data</string>
+	<string>PureBasic</string>
+	<string>PureScript</string>
+	<string>Python</string>
+	<string>Python console</string>
+	<string>Python traceback</string>
+	<string>QMake</string>
+	<string>QML</string>
+	<string>R</string>
+	<string>Racket</string>
+	<string>Ragel</string>
+	<string>RAML</string>
+	<string>Rascal</string>
+	<string>Raw token data</string>
+	<string>RDoc</string>
+	<string>REALbasic</string>
+	<string>Reason</string>
+	<string>Rebol</string>
+	<string>Red</string>
+	<string>Redcode</string>
+	<string>Regular Expression</string>
+	<string>Ren&apos;Py</string>
+	<string>RenderScript</string>
+	<string>reStructuredText</string>
+	<string>REXX</string>
+	<string>RHTML</string>
+	<string>RMarkdown</string>
+	<string>RobotFramework</string>
+	<string>Roff</string>
+	<string>Rouge</string>
+	<string>RPM Spec</string>
+	<string>Ruby</string>
+	<string>RUNOFF</string>
+	<string>Rust</string>
+	<string>Sage</string>
+	<string>SaltStack</string>
+	<string>SAS</string>
+	<string>Sass</string>
+	<string>Scala</string>
+	<string>Scaml</string>
+	<string>Scheme</string>
+	<string>Scilab</string>
+	<string>SCSS</string>
+	<string>Self</string>
+	<string>ShaderLab</string>
+	<string>Shell</string>
+	<string>ShellSession</string>
+	<string>Shen</string>
+	<string>Slash</string>
+	<string>Slim</string>
+	<string>Smali</string>
+	<string>Smalltalk</string>
+	<string>Smarty</string>
+	<string>SMT</string>
+	<string>SourcePawn</string>
+	<string>SPARQL</string>
+	<string>Spline Font Database</string>
+	<string>SQF</string>
+	<string>SQL</string>
+	<string>SQLPL</string>
+	<string>Squirrel</string>
+	<string>SRecode Template</string>
+	<string>Stan</string>
+	<string>Standard ML</string>
+	<string>Stata</string>
+	<string>STON</string>
+	<string>Stylus</string>
+	<string>Sublime Text Config</string>
+	<string>SubRip Text</string>
+	<string>SuperCollider</string>
+	<string>SVG</string>
+	<string>Swift</string>
+	<string>SystemVerilog</string>
+	<string>Tcl</string>
+	<string>Tcsh</string>
+	<string>Tea</string>
+	<string>Terra</string>
+	<string>TeX</string>
+	<string>Text</string>
+	<string>Textile</string>
+	<string>Thrift</string>
+	<string>TI Program</string>
+	<string>TLA</string>
+	<string>TOML</string>
+	<string>Turing</string>
+	<string>Turtle</string>
+	<string>Twig</string>
+	<string>TXL</string>
+	<string>TypeScript</string>
+	<string>Unified Parallel C</string>
+	<string>Unity3D Asset</string>
+	<string>Unix Assembly</string>
+	<string>Uno</string>
+	<string>UnrealScript</string>
+	<string>UrWeb</string>
+	<string>Vala</string>
+	<string>VCL</string>
+	<string>Verilog</string>
+	<string>VHDL</string>
+	<string>Vim script</string>
+	<string>Vim script</string>
+	<string>Visual Basic</string>
+	<string>Volt</string>
+	<string>Vue</string>
+	<string>Wavefront Material</string>
+	<string>Wavefront Object</string>
+	<string>Web Ontology Language</string>
+	<string>WebIDL</string>
+	<string>wisp</string>
+	<string>World of Warcraft Addon Data</string>
+	<string>X10</string>
+	<string>xBase</string>
+	<string>XC</string>
+	<string>XCompose</string>
+	<string>XML</string>
+	<string>Xojo</string>
+	<string>XPages</string>
+	<string>XProc</string>
+	<string>XQuery</string>
+	<string>XS</string>
+	<string>XSLT</string>
+	<string>Xtend</string>
+	<string>Yacc</string>
+	<string>YAML</string>
+	<string>YANG</string>
+	<string>Zephir</string>
+	<string>Zimpl</string>
+</array>
+</plist>

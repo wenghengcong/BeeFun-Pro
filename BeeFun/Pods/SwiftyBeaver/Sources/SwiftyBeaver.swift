@@ -12,9 +12,9 @@ import Foundation
 open class SwiftyBeaver {
 
     /// version string of framework
-    public static let version = "1.1.4"  // UPDATE ON RELEASE!
+    public static let version = "1.7.0"  // UPDATE ON RELEASE!
     /// build number of framework
-    public static let build = 1140 // version 0.7.1 -> 710, UPDATE ON RELEASE!
+    public static let build = 1700 // version 1.6.2 -> 1620, UPDATE ON RELEASE!
 
     public enum Level: Int {
         case verbose = 0
@@ -25,7 +25,7 @@ open class SwiftyBeaver {
     }
 
     // a set of active destinations
-    open private(set) static var destinations = Set<BaseDestination>()
+    public private(set) static var destinations = Set<BaseDestination>()
 
     // MARK: Destination Handling
 
@@ -85,44 +85,69 @@ open class SwiftyBeaver {
 
     /// log something generally unimportant (lowest priority)
     open class func verbose(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .verbose, message: message, file: file, function: function, line: line)
+        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
+        #if swift(>=5)
+        custom(level: .verbose, message: message(), file: file, function: function, line: line, context: context)
+        #else
+        custom(level: .verbose, message: message, file: file, function: function, line: line, context: context)
+        #endif
     }
 
     /// log something which help during debugging (low priority)
     open class func debug(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .debug, message: message, file: file, function: function, line: line)
+        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
+        #if swift(>=5)
+        custom(level: .debug, message: message(), file: file, function: function, line: line, context: context)
+        #else
+        custom(level: .debug, message: message, file: file, function: function, line: line, context: context)
+        #endif
     }
 
     /// log something which you are really interested but which is not an issue or error (normal priority)
     open class func info(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .info, message: message, file: file, function: function, line: line)
+        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
+        #if swift(>=5)
+        custom(level: .info, message: message(), file: file, function: function, line: line, context: context)
+        #else
+        custom(level: .info, message: message, file: file, function: function, line: line, context: context)
+        #endif
     }
 
     /// log something which may cause big trouble soon (high priority)
     open class func warning(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .warning, message: message, file: file, function: function, line: line)
+        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
+        #if swift(>=5)
+        custom(level: .warning, message: message(), file: file, function: function, line: line, context: context)
+        #else
+        custom(level: .warning, message: message, file: file, function: function, line: line, context: context)
+        #endif
     }
 
     /// log something which will keep you awake at night (highest priority)
     open class func error(_ message: @autoclosure () -> Any, _
-        file: String = #file, _ function: String = #function, line: Int = #line) {
-        custom(level: .error, message: message, file: file, function: function, line: line)
+        file: String = #file, _ function: String = #function, line: Int = #line, context: Any? = nil) {
+        #if swift(>=5)
+        custom(level: .error, message: message(), file: file, function: function, line: line, context: context)
+        #else
+        custom(level: .error, message: message, file: file, function: function, line: line, context: context)
+        #endif
     }
 
     /// custom logging to manually adjust values, should just be used by other frameworks
     public class func custom(level: SwiftyBeaver.Level, message: @autoclosure () -> Any,
-        file: String = #file, function: String = #function, line: Int = #line) {
+                             file: String = #file, function: String = #function, line: Int = #line, context: Any? = nil) {
+        #if swift(>=5)
+        dispatch_send(level: level, message: message(), thread: threadName(),
+                      file: file, function: function, line: line, context: context)
+        #else
         dispatch_send(level: level, message: message, thread: threadName(),
-                      file: file, function: function, line: line)
+                      file: file, function: function, line: line, context: context)
+        #endif
     }
 
     /// internal helper which dispatches send to dedicated queue if minLevel is ok
     class func dispatch_send(level: SwiftyBeaver.Level, message: @autoclosure () -> Any,
-        thread: String, file: String, function: String, line: Int) {
+        thread: String, file: String, function: String, line: Int, context: Any?) {
         var resolvedMessage: String?
         for dest in destinations {
 
@@ -130,7 +155,7 @@ open class SwiftyBeaver {
                 continue
             }
 
-            resolvedMessage = resolvedMessage == nil && dest.hasMessageFilters() ? "\(message())" : nil
+            resolvedMessage = resolvedMessage == nil && dest.hasMessageFilters() ? "\(message())" : resolvedMessage
             if dest.shouldLevelBeLogged(level, path: file, function: function, message: resolvedMessage) {
                 // try to convert msg object to String and put it on queue
                 let msgStr = resolvedMessage == nil ? "\(message())" : resolvedMessage!
@@ -138,11 +163,11 @@ open class SwiftyBeaver {
 
                 if dest.asynchronously {
                     queue.async {
-                        let _ = dest.send(level, msg: msgStr, thread: thread, file: file, function: f, line: line)
+                        _ = dest.send(level, msg: msgStr, thread: thread, file: file, function: f, line: line, context: context)
                     }
                 } else {
                     queue.sync {
-                        let _ = dest.send(level, msg: msgStr, thread: thread, file: file, function: f, line: line)
+                        _ = dest.send(level, msg: msgStr, thread: thread, file: file, function: f, line: line, context: context)
                     }
                 }
             }
@@ -178,8 +203,12 @@ open class SwiftyBeaver {
     /// removes the parameters from a function because it looks weird with a single param
     class func stripParams(function: String) -> String {
         var f = function
-        if let indexOfBrace = f.characters.index(of: "(") {
+        if let indexOfBrace = f.find("(") {
+            #if swift(>=4.0)
+            f = String(f[..<indexOfBrace])
+            #else
             f = f.substring(to: indexOfBrace)
+            #endif
         }
         f += "()"
         return f

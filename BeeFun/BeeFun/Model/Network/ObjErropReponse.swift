@@ -24,22 +24,21 @@ import ObjectMapper
 
 */
 
-class ObjErropReponse: NSObject,Mappable {
-    
-    var message:String?
-    var errors:[ObjError]?
-    var documentationUrl:String?
-    
+class ObjErropReponse: NSObject, Mappable {
+
+    var message: String?
+    var errors: [ObjError]?
+    var documentationUrl: String?
+
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
         message <- map["message"]
         errors <- map["errors"]
         documentationUrl <- map["documentation_url"]
-        
+
     }
-    
+
 }

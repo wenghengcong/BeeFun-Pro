@@ -24,27 +24,27 @@
 
 import StoreKit
 
-class InAppProductQueryRequest: NSObject, SKProductsRequestDelegate {
+typealias InAppProductRequestCallback = (RetrieveResults) -> Void
 
-    typealias RequestCallback = (RetrieveResults) -> Void
-    private let callback: RequestCallback
+protocol InAppProductRequest: class {
+    func start()
+    func cancel()
+}
+
+class InAppProductQueryRequest: NSObject, InAppProductRequest, SKProductsRequestDelegate {
+
+    private let callback: InAppProductRequestCallback
     private let request: SKProductsRequest
-    // http://stackoverflow.com/questions/24011575/what-is-the-difference-between-a-weak-reference-and-an-unowned-reference
+
     deinit {
         request.delegate = nil
     }
-    private init(productIds: Set<String>, callback: @escaping RequestCallback) {
+    init(productIds: Set<String>, callback: @escaping InAppProductRequestCallback) {
 
         self.callback = callback
         request = SKProductsRequest(productIdentifiers: productIds)
         super.init()
         request.delegate = self
-    }
-
-    class func startQuery(_ productIds: Set<String>, callback: @escaping RequestCallback) -> InAppProductQueryRequest {
-        let request = InAppProductQueryRequest(productIds: productIds, callback: callback)
-        request.start()
-        return request
     }
 
     func start() {
@@ -59,7 +59,7 @@ class InAppProductQueryRequest: NSObject, SKProductsRequestDelegate {
 
         let retrievedProducts = Set<SKProduct>(response.products)
         let invalidProductIDs = Set<String>(response.invalidProductIdentifiers)
-        callback(RetrieveResults(retrievedProducts: retrievedProducts,
+        performCallback(RetrieveResults(retrievedProducts: retrievedProducts,
             invalidProductIDs: invalidProductIDs, error: nil))
     }
 
@@ -68,6 +68,12 @@ class InAppProductQueryRequest: NSObject, SKProductsRequestDelegate {
     }
 
     func request(_ request: SKRequest, didFailWithError error: Error) {
-        callback(RetrieveResults(retrievedProducts: Set<SKProduct>(), invalidProductIDs: Set<String>(), error: error))
+        performCallback(RetrieveResults(retrievedProducts: Set<SKProduct>(), invalidProductIDs: Set<String>(), error: error))
+    }
+    
+    private func performCallback(_ results: RetrieveResults) {
+        DispatchQueue.main.async {
+            self.callback(results)
+        }
     }
 }

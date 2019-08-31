@@ -19,16 +19,15 @@ import ObjectMapper
 
 */
 
-class ObjError: NSObject,Mappable {
+class ObjError: NSObject, Mappable {
 
-    var resource:String?
-    var field:String?
-    var code:String?
-    
+    var resource: String?
+    var field: String?
+    var code: String?
+
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
         resource <- map["resource"]

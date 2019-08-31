@@ -50,7 +50,7 @@
 "Message" = "消息";
 
 "Notifications"="通知";
-"Issues"="问题";
+"Issues"="讨论";
 
 //Stars
 "Stars" = "收藏";
@@ -59,7 +59,7 @@
 
 //Profile
 "Profile" = "我";
-"Sign In"="登录";
+"Sign in"="登录";
 "Followers"="粉丝";
 "Following"="关注";
 "Watched"="关注";
@@ -68,6 +68,7 @@
 "Share"="分享";
 "Rate"="评价";
 "About"="关于";
+"Edit"="编辑";
 
 //Settings
 "Version"="版本";
@@ -94,33 +95,50 @@
 "Follower"="粉丝";
 "Repositories"="项目";
 "Following"="关注";
+"Submit"="提交";
+"Title can't be empty"="标题不能为空";
+"bug? function？..."="bug，功能建议....";
 
 //长文本
-"  BeeFun is a client for github.It is written in Swift language. Also it is open source project on github.com.  \n  Welcome more people to join this project. You can participate in design or development work. Also welcome more suggestions and reports of bugs come from everyone!\n  Thank you!" = "  BeeFun 是github客户端，也是Swift语言编写的一个开源项目。欢迎更多的人参与到该项目的设计与开发工作，也欢迎大家能提出更多的建议和上报bugs!";
-"registers the user to receive notifications on new discussions" = "用户注册后，可以接受新讨论的通知";
+"  BeeFun is a client for github.It is written in Swift language. Welcome more suggestions and reports of bugs come from everyone! Thanks."  = "  BeeFun ，是使用Swift语言编写的Github客户端。欢迎大家能提出更多的建议和反馈bugs。";
+"registers the user to receive notifications on new discussions" = "用户关注后，可以接受新讨论的通知";
 "lets users bookmark repositories."="用户可以收藏项目";
 "A fork is a copy of a repository."="拷贝项目";
 "Suggestions or report bugs"="建议或者提报Bugs";
 "Could not send Email"="无法发送邮件";
 "Your device could not send e-mail.  Please check e-mail configuration and try again."="您的设备无法发送邮件，请检查【设置】中【邮件】设置，然后重试。";
-
+"Immediately sync your star repositories from github.com in silence."="点击‘同步’按钮，将会及时同步您GitHub账户下Star repositories";
+"Sync"="同步";
 //提醒
 "Share Success"="分享成功";
 "Share Failure"="分享失败";
 "Share Cancel"="取消分享";
 "Please login first"="请先登录";
 "No Data Found"="没有找到宝藏";
-"Release to refresh"="下拉刷新";
+"Release to refresh"="松开刷新";
+"Pull down to refresh"="下拉刷新";
 "Load"="加载";
 "Loading"="加载中";
 "More"="更多";
 "No More data"="😭没有更多数据啦";
+"Network error /(ㄒoㄒ)/~~"="呀，网络正在开小差~";
+"Sign in Now?" = "立刻登录？";
+"access data ask github account"="访问这些数据，需要登录Github账户";
 
-"Watching"="关注";
-"Unwatching"="取消关注中";
-"Unstarring"="取消收藏中";
-"Starring"="收藏中";
-"Forking"="派生中";
+"Watch?"="是否关注";
+"Unwatch?"="是否取消关注？";
+"Unstar?"="是否取消收藏？";
+"Star?"="是否收藏？";
+"Fork?"="是否派生？";
+
+"Watch Success"="关注成功";
+"Unwatch Success"="取消关注";
+"Star Success"="收藏成功";
+"Unstar Success"="取消收藏";
+"Fork Success"="派生成功";
+"Follow Success"="关注成功";
+"UnFollow Success"="取消关注";
+
 
 //其他
 "Unknown" = "未知";
@@ -129,7 +147,72 @@
 "Homepage"="主页";
 "Cancel"="取消";
 "Failure"="失败";
+"Repository"="项目";
+"Tags"="标签";
+"All Tags"="所有标签";
+"Save"="保存";
+"Save Tags?"="保存本次编辑";
+"Add new tag"="新建标签";
+"input new tag name"="输入新标签名字";
+"input tag"="输入标签";
+"Already exists!"="已经存在！";
+"No tag to save"="无须保存";
+"Demo" = "示例";
+"Edit"="编辑";
+"Trash"="删除";
+"OK"="好的";
+"make a change"="换个新名字试试";
 
+"Lists"="列表";
+
+//其他
+"Owner"="用户";
+"Join"="加入";
+"Location"="位置";
+"Company"="公司";
+"Name"="用户名";
+"Email"="邮箱";
+"Blog"="博客";
+"Hireable"="在职";
+"Bio"="简介";
+"Trash it will remove this tag from star repositories!"="删除后，将从所有star项目中移除该tag";
+"Sync start"="同步开始";
+"Sync end"="同步完成";
+"Delete"="删除";
+
+    //搜索
+"Historical records" = "历史记录";
+"Clear All Records" = "清除所有记录";
+"Search repositories、users..." = "搜索项目、用户...";
+"Clear all history records?" = "是否删除所有历史记录？";
+"Forks" = "派生";
+"Updated" = "更新";
+"Users"="用户";
+"Search"="搜索";
+"Joined"="加入";
+"Comments"="评论";
+"Created"="创建";
+"Repo"="项目";
+"Foll"="粉丝";
+"Comm"="评论";
+"Join"="加入";
+"Creat"="创建";
+
+    //分享
+"It's A Wonderful Repository from github! Hurry UP!" = "这么棒的项目，赶紧来看看！";
+"from BeeFun App"="来源BeeFun App";
+"Download Here"="点击下载";
+"A Talented Developer"="一位天才开发者";
+
+"BeeFun,excellent Github client. Download here: http://t.cn/RinAeZq \n Office website: http://www.beefun.top" = "BeeFun，优秀的Github客户端。  下载: http://t.cn/RinAeZq \n 官网: http://www.beefun.top";
+"Update Failure" = "更新失败";
+"'All' is default,change one."="'All'是默认tag，换一个吧";
+"Try Again"="重新加载";
+"Wake up your connection!" = "网络走丢了，快去找回来!";
+"Empty now"="暂无数据，去添加吧!";
+"Go"="Go";
+"Explore more"="探索更多";
+"Empty now,star repositories and tag it"="没有数据，去收藏标记项目吧！";
 /*****英文转中文 End******/
 
 
@@ -206,7 +289,7 @@
 //Message
 "消息" = "消息";
 "通知"="通知";
-"问题"="问题";
+"讨论"="讨论";
 
 //Stars
 "收藏" = "收藏";

@@ -78,10 +78,12 @@ public class SBPlatformDestination: BaseDestination {
 
     /// init platform with default internal filenames
     public init(appID: String, appSecret: String, encryptionKey: String,
-        entriesFileName: String = "sbplatform_entries.json",
-        sendingfileName: String = "sbplatform_entries_sending.json",
-        analyticsFileName: String = "sbplatform_analytics.json") {
+                serverURL: URL? = URL(string: "https://api.swiftybeaver.com/api/entries/"),
+                entriesFileName: String = "sbplatform_entries.json",
+                sendingfileName: String = "sbplatform_entries_sending.json",
+                analyticsFileName: String = "sbplatform_analytics.json") {
         super.init()
+        self.serverURL = serverURL
         self.appID = appID
         self.appSecret = appSecret
         self.encryptionKey = encryptionKey
@@ -128,7 +130,7 @@ public class SBPlatformDestination: BaseDestination {
         #if os(Linux)
             // get, update loaded and save analytics data to file on start
             let dict = analytics(analyticsFileURL, update: true)
-            let _ = saveDictToFile(dict, url: analyticsFileURL)
+            _ = saveDictToFile(dict, url: analyticsFileURL)
         #else
             if let baseURL = baseURL {
                 // is just set for everything but not Linux
@@ -141,14 +143,14 @@ public class SBPlatformDestination: BaseDestination {
 
                 // get, update loaded and save analytics data to file on start
                 let dict = analytics(analyticsFileURL, update: true)
-                let _ = saveDictToFile(dict, url: analyticsFileURL)
+                _ = saveDictToFile(dict, url: analyticsFileURL)
             }
         #endif
     }
 
     // append to file, each line is a JSON dict
     override public func send(_ level: SwiftyBeaver.Level, msg: String, thread: String,
-        file: String, function: String, line: Int) -> String? {
+        file: String, function: String, line: Int, context: Any? = nil) -> String? {
 
         var jsonString: String?
 
@@ -165,7 +167,7 @@ public class SBPlatformDestination: BaseDestination {
 
         if let str = jsonString {
             toNSLog("saving '\(msg)' to \(entriesFileURL)")
-            let _ = saveToFile(str, url: entriesFileURL)
+            _ = saveToFile(str, url: entriesFileURL)
             //toNSLog(entriesFileURL.path!)
 
             // now decide if the stored log entries should be sent to the server
@@ -242,15 +244,13 @@ public class SBPlatformDestination: BaseDestination {
                     toNSLog("Encrypting \(lines) log entries ...")
                     if let encryptedStr = encrypt(str) {
                         var msg = "Sending \(lines) encrypted log entries "
-                        msg += "(\(encryptedStr.characters.count) chars) to server ..."
+                        msg += "(\(encryptedStr.length) chars) to server ..."
                         toNSLog(msg)
-                        //toNSLog("Sending \(encryptedStr) ...")
-
                         sendToServerAsync(encryptedStr) { ok, _ in
 
                             self.toNSLog("Sent \(lines) encrypted log entries to server, received ok: \(ok)")
                             if ok {
-                                let _ = self.deleteFile(self.sendingFileURL)
+                                _ = self.deleteFile(self.sendingFileURL)
                             }
                             self.sendingInProgress = false
                             self.points = 0
@@ -293,7 +293,12 @@ public class SBPlatformDestination: BaseDestination {
                     toNSLog("Error! Could not set basic auth header")
                     return complete(false, 0)
             }
+
+            #if os(Linux)
+            let base64Credentials = Base64.encode([UInt8](credentials))
+            #else
             let base64Credentials = credentials.base64EncodedString(options: [])
+            #endif
             request.setValue("Basic \(base64Credentials)", forHTTPHeaderField: "Authorization")
             //toNSLog("\nrequest:")
             //print(request)
@@ -337,6 +342,7 @@ public class SBPlatformDestination: BaseDestination {
                 return complete(ok, status)
             }
             task.resume()
+            session.finishTasksAndInvalidate()
             //while true {} // commenting this line causes a crash on Linux unit tests?!?
         }
     }
@@ -345,13 +351,13 @@ public class SBPlatformDestination: BaseDestination {
     func sendingPointsForLevel(_ level: SwiftyBeaver.Level) -> Int {
 
         switch level {
-        case SwiftyBeaver.Level.debug:
+        case .debug:
             return sendingPoints.debug
-        case SwiftyBeaver.Level.info:
+        case .info:
             return sendingPoints.info
-        case SwiftyBeaver.Level.warning:
+        case .warning:
             return sendingPoints.warning
-        case SwiftyBeaver.Level.error:
+        case .error:
             return sendingPoints.error
         default:
             return sendingPoints.verbose
@@ -371,7 +377,7 @@ public class SBPlatformDestination: BaseDestination {
             } else {
                 // append to end of file
                 let fileHandle = try FileHandle(forWritingTo: url)
-                let _ = fileHandle.seekToEndOfFile()
+                _ = fileHandle.seekToEndOfFile()
                 let line = str + "\n"
                 if let data = line.data(using: String.Encoding.utf8) {
                     fileHandle.write(data)
@@ -409,7 +415,7 @@ public class SBPlatformDestination: BaseDestination {
             var dicts = [[String: Any]()] // array of dictionaries
             for lineJSON in linesArray {
                 lines += 1
-                if lineJSON.characters.first == "{" && lineJSON.characters.last == "}" {
+                if lineJSON.firstChar == "{" && lineJSON.lastChar == "}" {
                     // try to parse json string into dict
                     if let data = lineJSON.data(using: .utf8) {
                         do {

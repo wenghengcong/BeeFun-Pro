@@ -6,7 +6,6 @@
 //  Copyright © 2016年 JungleSong. All rights reserved.
 //
 
-
 import UIKit
 import ObjectMapper
 
@@ -40,41 +39,39 @@ Vary = "Accept, Authorization, Cookie, X-GitHub-OTP, Accept-Encoding";
 "X-XSS-Protection" = "1; mode=block";
 
 */
-class ObjResponseHeader: NSObject,Mappable {
+class ObjResponseHeader: NSObject, Mappable {
 
-    var AccessControlAllowCredentials:String?
-    var AccessControlAllowOrigin:String?
-    var AccessControlExposeHeaders:String?
-    var CacheControl:String?
-    var ContentEncoding:String?
-    var ContentSecurityPolicy:String?
-    var ContentType:String?
-    var Date:String?
-    var Etag:String?
-    var Link:String?
-    var Server:String?
-    var Status:String?
-    var StrictTransportSecurity:String?
-    var TransferEncoding:String?
-    var Vary:String?
-    var XAcceptedOAuthScopes:String?
-    var XContentTypeOptions:String?
-    var XFrameOptions:String?
-    var XGitHubMediaType:String?
-    var XGitHubRequestId:String?
-    var XOAuthClientId:String?
-    var XOAuthScopes:String?
-    var XRateLimitLimit:Int?
-    var XRateLimitRemaining:Int?
-    var XRateLimitReset:Int?
-    var XServedBy:String?
-    var XXSSProtection:String?
+    var AccessControlAllowCredentials: String?
+    var AccessControlAllowOrigin: String?
+    var AccessControlExposeHeaders: String?
+    var CacheControl: String?
+    var ContentEncoding: String?
+    var ContentSecurityPolicy: String?
+    var ContentType: String?
+    var Date: String?
+    var Etag: String?
+    var Link: String?
+    var Server: String?
+    var Status: String?
+    var StrictTransportSecurity: String?
+    var TransferEncoding: String?
+    var Vary: String?
+    var XAcceptedOAuthScopes: String?
+    var XContentTypeOptions: String?
+    var XFrameOptions: String?
+    var XGitHubMediaType: String?
+    var XGitHubRequestId: String?
+    var XOAuthClientId: String?
+    var XOAuthScopes: String?
+    var XRateLimitLimit: Int?
+    var XRateLimitRemaining: Int?
+    var XRateLimitReset: Int?
+    var XServedBy: String?
+    var XXSSProtection: String?
 
-    
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
         AccessControlAllowCredentials <- map["Access-Control-Allow-Credentials"]

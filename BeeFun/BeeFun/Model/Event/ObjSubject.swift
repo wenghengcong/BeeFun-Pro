@@ -15,29 +15,28 @@
 import UIKit
 import ObjectMapper
 
-public enum SubjectType:String {
-    
-    case Issue = "Issue"
-    case PullRequest = "PullRequest"
-    case Release = "Release"
-    case Commit = "Commit"
-    
+public enum SubjectType: String {
+
+    case issue = "Issue"
+    case pullRequest = "PullRequest"
+    case release = "Release"
+    case commit = "Commit"
+
 }
 
-class ObjSubject: NSObject,Mappable {
-    
-    var title:String?
-    var url:String?
-    var latest_comment_url:String?
-    var type:String?
+class ObjSubject: NSObject, Mappable {
+
+    var title: String?
+    var url: String?
+    var latest_comment_url: String?
+    var type: String?
 
     required init?(map: Map) {
-        //        super.init(map)
     }
-    
+
     func mapping(map: Map) {
         //        super.mapping(map)
-        
+
         title <- map["title"]
         url <- map["url"]
         latest_comment_url <- map["latest_comment_url"]

@@ -27,13 +27,20 @@ import StoreKit
 
 struct Payment: Hashable {
     let product: SKProduct
+    let quantity: Int
     let atomically: Bool
     let applicationUsername: String
+    let simulatesAskToBuyInSandbox: Bool
     let callback: (TransactionResult) -> Void
 
-    var hashValue: Int {
-        return product.productIdentifier.hashValue
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(product)
+        hasher.combine(quantity)
+        hasher.combine(atomically)
+        hasher.combine(applicationUsername)
+        hasher.combine(simulatesAskToBuyInSandbox)
     }
+    
     static func == (lhs: Payment, rhs: Payment) -> Bool {
         return lhs.product.productIdentifier == rhs.product.productIdentifier
     }
@@ -44,10 +51,8 @@ class PaymentsController: TransactionController {
     private var payments: [Payment] = []
 
     private func findPaymentIndex(withProductIdentifier identifier: String) -> Int? {
-        for payment in payments {
-            if payment.product.productIdentifier == identifier {
-                return payments.index(of: payment)
-            }
+        for payment in payments where payment.product.productIdentifier == identifier {
+            return payments.firstIndex(of: payment)
         }
         return nil
     }
@@ -73,10 +78,9 @@ class PaymentsController: TransactionController {
         let transactionState = transaction.transactionState
 
         if transactionState == .purchased {
-
-            let product = Product(productId: transactionProductIdentifier, transaction: transaction, needsFinishTransaction: !payment.atomically)
-
-            payment.callback(.purchased(product: product))
+            let purchase = PurchaseDetails(productId: transactionProductIdentifier, quantity: transaction.payment.quantity, product: payment.product, transaction: transaction, originalTransaction: transaction.original, needsFinishTransaction: !payment.atomically)
+            
+            payment.callback(.purchased(purchase: purchase))
 
             if payment.atomically {
                 paymentQueue.finishTransaction(transaction)

@@ -35,8 +35,10 @@ public let kFooterIdleTip = "".localized
 /// 上拉加载提示
 public let kFooterLoadTip = "Load".localized+"More".localized+kSignApostrophe
 
+
 /// 上拉加载无数据提示
 public let kFooterLoadNoDataTip = "No More data".localized
+
 
 public let kChineseLanguage = "zh-Hans"
 

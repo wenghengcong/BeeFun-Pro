@@ -647,7 +647,6 @@
 		5E737BA31F596A1D00C0E28D /* JSHMSegmentedBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSHMSegmentedBridge.swift; sourceTree = "<group>"; };
 		5E737BA51F596A1D00C0E28D /* JSSQLiteSwiftBridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSQLiteSwiftBridge.swift; sourceTree = "<group>"; };
 		5E737BA61F596A1D00C0E28D /* JSSwiftyBeaver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSSwiftyBeaver.swift; sourceTree = "<group>"; };
-		5E737BA81F596A1D00C0E28D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5E737BAA1F596A1D00C0E28D /* Array+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		5E737BAB1F596A1D00C0E28D /* Bundle+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
 		5E737BAC1F596A1D00C0E28D /* Character+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Character+Extension.swift"; sourceTree = "<group>"; };
@@ -668,7 +667,6 @@
 		5E737BBB1F596A1D00C0E28D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5E737BBC1F596A1D00C0E28D /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		5E737BBE1F596A1D00C0E28D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		5E737BC01F596A1D00C0E28D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5E737BC21F596A1D00C0E28D /* JSCommentStyleGudie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSCommentStyleGudie.swift; sourceTree = "<group>"; };
 		5E737BC31F596A1D00C0E28D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5E737BC61F596A1D00C0E28D /* JSBaseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSBaseCell.swift; sourceTree = "<group>"; };
@@ -1782,10 +1780,8 @@
 			isa = PBXGroup;
 			children = (
 				5E737BA21F596A1D00C0E28D /* JSBridge */,
-				5E737BA71F596A1D00C0E28D /* JSCrash */,
 				5E737BA91F596A1D00C0E28D /* JSFoundation */,
 				5E737BBD1F596A1D00C0E28D /* JSModel */,
-				5E737BBF1F596A1D00C0E28D /* JSNetwork */,
 				5E737BC11F596A1D00C0E28D /* JSStyleGuide */,
 				5E737BC41F596A1D00C0E28D /* JSUI */,
 				5E737BDC1F596A1D00C0E28D /* JSUIKit */,
@@ -1805,14 +1801,6 @@
 				5E008CCB1F8DC0D80007850F /* JSMBProgressHud.xcassets */,
 			);
 			path = JSBridge;
-			sourceTree = "<group>";
-		};
-		5E737BA71F596A1D00C0E28D /* JSCrash */ = {
-			isa = PBXGroup;
-			children = (
-				5E737BA81F596A1D00C0E28D /* README.md */,
-			);
-			path = JSCrash;
 			sourceTree = "<group>";
 		};
 		5E737BA91F596A1D00C0E28D /* JSFoundation */ = {
@@ -1849,14 +1837,6 @@
 				5E737BBE1F596A1D00C0E28D /* README.md */,
 			);
 			path = JSModel;
-			sourceTree = "<group>";
-		};
-		5E737BBF1F596A1D00C0E28D /* JSNetwork */ = {
-			isa = PBXGroup;
-			children = (
-				5E737BC01F596A1D00C0E28D /* README.md */,
-			);
-			path = JSNetwork;
 			sourceTree = "<group>";
 		};
 		5E737BC11F596A1D00C0E28D /* JSStyleGuide */ = {

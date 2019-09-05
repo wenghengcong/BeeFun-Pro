@@ -6,7 +6,7 @@
 
 [Mac  App Store](https://apps.apple.com/cn/app/beefun/id1400043300?mt=12) 
 
-[BeeFun for Mac open source github](https://github.com/wenghengcong/BeeFunMac)
+[BeeFun for Mac open source github](https://github.com/wenghengcong/BeeFun-for-Mac)
 
 
 

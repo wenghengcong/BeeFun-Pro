@@ -1,10 +1,12 @@
 # BeeFun Pro
 
-[![](https://img.shields.io/badge/iOS-1.0.6-red.svg)](https://apps.apple.com/cn/app/beefun-pro/id1393808664?l=en)  [![](https://img.shields.io/badge/macOS-1.0.6-blue.svg)](https://apps.apple.com/cn/app/beefun/id1400043300?mt=12)    [![](https://img.shields.io/badge/swift-5.0-green.svg)](https://developer.apple.com/swift/)   [![](https://img.shields.io/badge/oepn_source-star-yellow.svg)](https://github.com/wenghengcong/BeeFun-Pro)
+[![](https://img.shields.io/badge/iOS-1.0.6-red.svg)](https://apps.apple.com/cn/app/beefun-pro/id1393808664?l=en)  [![](https://img.shields.io/badge/macOS-1.1.6-blue.svg)](https://apps.apple.com/cn/app/beefun/id1400043300?mt=12)    [![](https://img.shields.io/badge/swift-5.0-green.svg)](https://developer.apple.com/swift/)   [![](https://img.shields.io/badge/oepn_source-star-yellow.svg)](https://github.com/wenghengcong/BeeFun-Pro)
 
 [iOS  App Store](https://apps.apple.com/cn/app/beefun-pro/id1393808664?l=en)
 
-[Mac  App Store](https://apps.apple.com/cn/app/beefun/id1400043300?mt=12)
+[Mac  App Store](https://apps.apple.com/cn/app/beefun/id1400043300?mt=12) 
+
+[BeeFun for Mac open source github](https://github.com/wenghengcong/BeeFunMac)
 
 
 

@@ -14,7 +14,7 @@ public let BeeFunAppStore = "itms-apps://itunes.apple.com/app/id1393808664"
 public let AppBundleIdentifier = "com.luci.beefun.ios"
 public let APNsAuthKeyID = ""
 
-// MARK: - BeeFun
+// MARK: - BeeFun，已经下线，后期补上
 public let AppOfficeSite = "http://www.beefun.top"
 public let AppOfficeShortSite = "www.beefun.top"
 

@@ -17,33 +17,6 @@ class InsideBeeFunProvider<Target>: MoyaProvider<Target> where Target: TargetTyp
     override init(endpointClosure: @escaping (Target) -> Endpoint, requestClosure: @escaping (Endpoint, @escaping
         MoyaProvider<BeeFunAPI>.RequestResultClosure) -> Void, stubClosure: @escaping (Target) -> StubBehavior, callbackQueue: DispatchQueue?, manager: Manager, plugins: [PluginType], trackInflights: Bool) {
         
-        //证书签名对应网站地址
-//        let selfSignedHosts = ["www.beefun.top", "beefun.top"]
-//        let identityAndTrust: IdentityAndTrust = IdentityAndTrust.extractIdentity(certificate: "beefuntop", type: "p12", password: "luci@123")
-//
-//        let configuration = URLSessionConfiguration.default
-//        let signedManager = Alamofire.SessionManager(configuration: configuration)
-//        manager.delegate.sessionDidReceiveChallenge = { session, challenge in
-//            if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust
-//                && selfSignedHosts.contains(challenge.protectionSpace.host) {
-//                //认证服务器（这里不使用服务器证书认证，只需地址是我们定义的几个地址即可信任）
-//                print("服务器认证！")
-//                let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
-//                return (.useCredential, credential)
-//            } else if challenge.protectionSpace.authenticationMethod
-//                == NSURLAuthenticationMethodClientCertificate {
-//                print("客户端证书认证！")
-//                let urlCredential: URLCredential = URLCredential(
-//                    identity: identityAndTrust.identityRef,
-//                    certificates: identityAndTrust.certArray as? [AnyObject],
-//                    persistence: URLCredential.Persistence.forSession);
-//                return (.useCredential, urlCredential);
-//            } else {
-//                print("其它情况（不接受认证）")
-//                return (.performDefaultHandling, nil)
-//            }
-//        }
-        
         super.init(endpointClosure: endpointClosure, requestClosure: requestClosure, stubClosure: stubClosure, callbackQueue: callbackQueue, manager: manager, plugins: plugins, trackInflights: trackInflights)
     }
 }
@@ -136,6 +109,7 @@ extension BeeFunAPI: TargetType {
         switch self {
         default:
             //Check list:  修改上线环境及证书
+            // beefun.top 已经下线
             return URL(string: "https://www.beefun.top:8082/beefun")!                    //远程环境
 //            return URL(string: "http://localhost:8082")!                                  //本地测试环境
         }

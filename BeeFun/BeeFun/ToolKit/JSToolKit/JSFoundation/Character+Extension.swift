@@ -64,12 +64,12 @@ public extension Character {
     
     /// SwifterSwift: Return the character lowercased.
     public var lowercased: Character {
-        return String(self).lowercased().characters.first!
+        return String(self).lowercased().first!
     }
     
     /// SwifterSwift: Return the character uppercased.
     public var uppercased: Character {
-        return String(self).uppercased().characters.first!
+        return String(self).uppercased().first!
     }
     
 }

@@ -11,11 +11,8 @@ import UIKit
 class InsetNavigationBar: UINavigationBar {
     override func layoutSubviews() {
         super.layoutSubviews()
-        for view in subviews {
-            // Setting the layout margins to 0 lines the bar buttons items up at
-            // the edges of the screen. You can set this to any number to change
-            // the spacing.
-            view.layoutMargins = .zero
-        }
+        // iOS now throws if we mutate layout margins on private nav bar subviews.
+        // Keep customization on the public UINavigationBar instance only.
+        layoutMargins = .zero
     }
 }

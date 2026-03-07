@@ -59,7 +59,7 @@ class OAuthManager: NSObject {
             return OAuthSwiftOpenURLExternally.sharedInstance
         } else {
             if internalWebViewController.parent == nil {
-                BFTabbarManager.shared.jsTopViewController()?.addChildViewController(internalWebViewController)
+                BFTabbarManager.shared.jsTopViewController()?.addChild(internalWebViewController)
             }
             return internalWebViewController
         }

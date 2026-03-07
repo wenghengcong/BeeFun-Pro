@@ -16,7 +16,7 @@ extension UIImage {
 
     /// EZSE: Returns base64 string
     var base64: String {
-        return UIImageJPEGRepresentation(self, 1.0)!.base64EncodedString()
+        return self.jpegData(compressionQuality: 1.0)!.base64EncodedString()
     }
 
     /// EZSE: Returns compressed image to rate from 0 to 1
@@ -26,7 +26,7 @@ extension UIImage {
     /// - Parameter rate: 压缩比
     /// - Returns: 返回图片时的Data
     public func compressImage(rate: CGFloat) -> Data? {
-        return UIImageJPEGRepresentation(self, rate)
+        return self.jpegData(compressionQuality: rate)
     }
 
     /// EZSE: Returns Image size in Bytes
@@ -35,7 +35,7 @@ extension UIImage {
     ///
     /// - Returns: byte
     public func getSizeAsBytes() -> Int {
-        return UIImageJPEGRepresentation(self, 1)?.count ?? 0
+        return self.jpegData(compressionQuality: 1)?.count ?? 0
     }
 
     /// 返回图片的大小
@@ -127,7 +127,7 @@ extension UIImage {
         }
         let scaledBounds: CGRect = CGRect(x: bound.x * self.scale, y: bound.y * self.scale, width: bound.w * self.scale, height: bound.h * self.scale)
         let imageRef = self.cgImage?.cropping(to: scaledBounds)
-        let croppedImage: UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImageOrientation.up)
+        let croppedImage: UIImage = UIImage(cgImage: imageRef!, scale: self.scale, orientation: UIImage.Orientation.up)
         return croppedImage
     }
 

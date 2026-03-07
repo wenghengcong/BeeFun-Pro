@@ -286,7 +286,7 @@ extension BFProfileController: PersonCardViewActionProtocol {
 
 extension BFProfileController:UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         /*
         Swift Dictionary named “info”.
         We have to unpack it from there with a key asking for what media information we want.
@@ -301,27 +301,27 @@ extension BFProfileController:UIImagePickerControllerDelegate, UINavigationContr
         UIImagePickerControllerMediaMetadata
         
         */
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let pickedImage = info[.originalImage] as? UIImage {
 
             var imgData: Data?
 
-            if let refreUrl = info[UIImagePickerControllerReferenceURL] {
+            if let refreUrl = info[.referenceURL] {
                 if let convertURl = refreUrl as? URL {
                     let refUrl: URL = convertURl
                     let refUrlStr = refUrl.absoluteString.lowercased()
                     let pngRange = refUrlStr.range(of: "png", options: String.CompareOptions.literal, range: refUrlStr.startIndex..<refUrlStr.endIndex, locale: nil)
                     if pngRange != nil {
-                        imgData = UIImagePNGRepresentation(pickedImage)
+                        imgData = pickedImage.pngData()
                     }
                     
                     let jpegRange = refUrlStr.range(of: "jpeg", options: String.CompareOptions.literal, range: refUrlStr.startIndex..<refUrlStr.endIndex, locale: nil)
                     if jpegRange != nil {
-                        imgData = UIImageJPEGRepresentation(pickedImage, 1.0)
+                        imgData = pickedImage.jpegData(compressionQuality: 1.0)
                     }
                     
                     let jpgRange = refUrlStr.range(of: "jpg", options: String.CompareOptions.literal, range: refUrlStr.startIndex..<refUrlStr.endIndex, locale: nil)
                     if jpgRange != nil {
-                        imgData = UIImageJPEGRepresentation(pickedImage, 1.0)
+                        imgData = pickedImage.jpegData(compressionQuality: 1.0)
                     }
                     
                     UserDefaults.standard.set(imgData, forKey: "userBackgroundImgage")

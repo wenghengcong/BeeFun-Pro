@@ -10,6 +10,6 @@ import UIKit
 
 class BFTrendingSearchBar: UIView {
     override var intrinsicContentSize: CGSize {
-        return UILayoutFittingExpandedSize
+        return UIView.layoutFittingExpandedSize
     }
 }

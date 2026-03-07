@@ -473,7 +473,7 @@ class BFEventLayout: NSObject {
                 let size = CGSize(width: 10, height: 10)
                 var image = UIImage(named: "event_commit_icon")
                 if image != nil {
-                    image = UIImage(cgImage: image!.cgImage!, scale: 2.0, orientation: UIImageOrientation.up)
+                    image = UIImage(cgImage: image!.cgImage!, scale: 2.0, orientation: UIImage.Orientation.up)
                     let imageText = NSMutableAttributedString.yy_attachmentString(withContent: image, contentMode: .center, attachmentSize: size, alignTo: font, alignment: .center)
                     prDetailText.append(imageText)
                     prDetailText.addBlankSpaceCharacterAttribute(1)

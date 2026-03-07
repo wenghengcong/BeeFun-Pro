@@ -278,9 +278,8 @@ class ShareManager: NSObject {
             shareParams.ssdkSetupFacebookParams(byText: en_content, image: image, url: sURL, urlTitle: en_title, urlName: nil, attachementUrl: nil, type: .webPage)
         } else {
 
-            if (text?.characters.count)! >= 140 {
-                let index = text?.index((text?.startIndex)!, offsetBy: 140)
-                text = text?.substring(to: index!)
+            if (text?.count ?? 0) >= 140 {
+                text = String((text ?? "").prefix(140))
                 shareParams.ssdkSetupTwitterParams(byText: text, images: images, latitude: 0.0, longitude: 0.0, type: .auto)
             }
 

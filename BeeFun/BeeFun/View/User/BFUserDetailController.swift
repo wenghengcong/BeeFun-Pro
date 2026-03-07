@@ -134,7 +134,7 @@ class BFUserDetailController: BFBaseViewController {
         }
         
         if let joinTime: String = developer!.created_at {
-            let ind = joinTime.characters.index(joinTime.startIndex, offsetBy: 10)
+            let ind = joinTime.index(joinTime.startIndex, offsetBy: 10)
             let subStr = joinTime.substring(to: ind)
             let join = "Joined on".localized + " "+subStr
             

@@ -340,7 +340,7 @@ extension BFMessageConentView {
                             self.tableView.reloadData()
                         } else {
                             self.tableView.beginUpdates()
-                            self.tableView.insertRows(at: indexPaths, with: UITableViewRowAnimation.bottom)
+                            self.tableView.insertRows(at: indexPaths, with: UITableView.RowAnimation.bottom)
                             self.tableView.endUpdates()
                         }
 //                            self.p_screenshotImage()

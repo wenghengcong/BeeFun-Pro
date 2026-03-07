@@ -15,7 +15,7 @@ struct IdentityAndTrust {
     var certArray: AnyObject
     
     static func extractIdentity(certificate path: String, type: String, password: String) -> IdentityAndTrust {
-        var identityAndTrust: IdentityAndTrust!
+        var identityAndTrust: IdentityAndTrust?
         var securityError: OSStatus = errSecSuccess
         
         let path: String = Bundle.main.path(forResource: path, ofType: type)!
@@ -27,25 +27,23 @@ struct IdentityAndTrust {
         var items: CFArray?
         securityError = SecPKCS12Import(PKCS12Data, options, &items)
         if securityError == errSecSuccess {
-            let certItems: CFArray = items as CFArray!
-            let certItemsArray: Array = certItems as Array
-            let dict: AnyObject? = certItemsArray.first
+            let certItemsArray = items as? [[String: AnyObject]]
+            let dict: AnyObject? = certItemsArray?.first as AnyObject?
             if let certEntry: Dictionary = dict as? Dictionary<String, AnyObject> {
                 // grab the identity
                 let identityPointer: AnyObject? = certEntry["identity"]
-                let secIdentityRef: SecIdentity = identityPointer as! SecIdentity!
+                let secIdentityRef = identityPointer as! SecIdentity
                 print("\(String(describing: identityPointer))  :::: \(secIdentityRef)")
                 // grab the trust
                 let trustPointer: AnyObject? = certEntry["trust"]
-                if let trustRef: SecTrust = trustPointer as! SecTrust {
-                    print("\(String(describing: trustPointer))  :::: \(trustRef)")
-                    // grab the cert
-                    let chainPointer: AnyObject? = certEntry["chain"]
-                    identityAndTrust = IdentityAndTrust(identityRef: secIdentityRef,
-                                                        trust: trustRef, certArray: chainPointer!)
-                }
+                let trustRef = trustPointer as! SecTrust
+                print("\(String(describing: trustPointer))  :::: \(trustRef)")
+                // grab the cert
+                let chainPointer: AnyObject? = certEntry["chain"]
+                identityAndTrust = IdentityAndTrust(identityRef: secIdentityRef,
+                                                    trust: trustRef, certArray: chainPointer!)
             }
         }
-        return identityAndTrust
+        return identityAndTrust!
     }
 }

@@ -83,10 +83,10 @@ class JSTabBarController: UITabBarController {
             if #available(iOS 11, *) {
                 let nav = JSNavigationController(navigationBarClass: InsetNavigationBar.self, toolbarClass: UIToolbar.self)
                 nav.setViewControllers([vc], animated: false)
-                self.addChildViewController(nav)
+                self.addChild(nav)
             } else {
                 let nav = JSNavigationController(rootViewController: vc)
-                self.addChildViewController(nav)
+                self.addChild(nav)
             }
         }
     }
@@ -95,7 +95,7 @@ class JSTabBarController: UITabBarController {
     open func removeAllChildrenViewController() {
         if let vcs = self.viewControllers {
             for vc in vcs {
-                vc.removeFromParentViewController()
+                vc.removeFromParent()
             }
         }
     }

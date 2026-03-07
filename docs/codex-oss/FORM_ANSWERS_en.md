@@ -6,7 +6,7 @@ Form URL: <https://openai.com/form/codex-for-oss/>
 `Hengcong Weng`
 
 ## 2) Applicant email
-`wenghengcong@163.com`
+`wenghengcong@icloud.com`
 
 ## 3) GitHub profile
 `https://github.com/wenghengcong`

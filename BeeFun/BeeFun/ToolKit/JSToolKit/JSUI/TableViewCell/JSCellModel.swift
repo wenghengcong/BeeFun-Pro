@@ -63,10 +63,10 @@ class JSCellModel: NSObject {
     /// 右边详情描述,attributetext可用，只能通过setter方法设置，不能从plist等数据源获取该部分
     var attributeValue: NSAttributedString?
     /// cellModel didSelect closure
-    var didSelectClosure: CellDidSelectHandler
+    var didSelectClosure: CellDidSelectHandler = nil
     
     /// cellModel didSelect closure
-    var switchValueChangeClosure: SwitchValueChangeHandler
+    var switchValueChangeClosure: SwitchValueChangeHandler = nil
     
     override init() {
         super.init()

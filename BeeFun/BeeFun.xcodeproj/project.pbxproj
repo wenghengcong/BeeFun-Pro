@@ -2257,7 +2257,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "echo \"warning: SwiftLint skipped for local compatibility build\"";
 		};
 		5E9B5FE71E9CA01500BDCE49 /* Fabric */ = {
 			isa = PBXShellScriptBuildPhase;

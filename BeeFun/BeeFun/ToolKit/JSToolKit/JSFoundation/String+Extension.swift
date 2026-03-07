@@ -50,7 +50,7 @@ extension String {
 extension String {
     /// 字符串长度
     var length: Int {
-        return characters.count
+        return self.count
     }
 
     /// 按UTF16标准的字符串长度
@@ -175,23 +175,23 @@ public extension String {
         return plainData?.base64EncodedString()
     }
     
-    /// SwifterSwift: Array of characters of a string.
+    /// SwifterSwift: Array of self of a string.
     public var charactersArray: [Character] {
-        return Array(characters)
+        return Array(self)
     }
     
     /// SwifterSwift: CamelCase of string.
     public var camelCased: String {
         let source = lowercased()
-        if source.characters.contains(" ") {
+        if source.contains(" ") {
             let first = source.substring(to: source.index(after: source.startIndex))
             let camel = source.capitalized.replacing(" ", with: "").replacing("\n", with: "")
-            let rest = String(camel.characters.dropFirst())
+            let rest = String(camel.dropFirst())
             return first + rest
         }
         
         let first = source.lowercased().substring(to: source.index(after: source.startIndex))
-        let rest = String(source.characters.dropFirst())
+        let rest = String(source.dropFirst())
         return first + rest
     }
     
@@ -215,7 +215,7 @@ public extension String {
     
     /// SwifterSwift: First character of string (if applicable).
     public var firstCharacter: String? {
-        guard let first = characters.first else {
+        guard let first = self.first else {
             return nil
         }
         return String(first)
@@ -238,7 +238,7 @@ public extension String {
     
     /// SwifterSwift: Check if string contains at least one letter and one number.
     public var isAlphaNumeric: Bool {
-        return components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").characters.count == 0 && hasLetters && hasNumbers
+        return components(separatedBy: CharacterSet.alphanumerics).joined(separator: "").count == 0 && hasLetters && hasNumbers
     }
     
     /// SwifterSwift: Check if string is valid email format.
@@ -295,7 +295,7 @@ public extension String {
     
     /// SwifterSwift: Last character of string (if applicable).
     public var lastCharacter: String? {
-        guard let last = characters.last else {
+        guard let last = self.last else {
             return nil
         }
         return String(last)
@@ -317,7 +317,7 @@ public extension String {
     
     /// SwifterSwift: The most common character in string.
     public var mostCommonCharacter: String {
-        let mostCommon = withoutSpacesAndNewLines.characters.reduce([Character: Int]()) {
+        let mostCommon = withoutSpacesAndNewLines.reduce([Character: Int]()) {
             var counts = $0
             counts[$1] = ($0[$1] ?? 0) + 1
             return counts
@@ -327,7 +327,7 @@ public extension String {
     
     /// SwifterSwift: Reversed string.
     public var reversed: String {
-        return String(characters.reversed())
+        return String(self.reversed())
     }
     
     /// SwifterSwift: Bool value from string (if applicable).
@@ -420,7 +420,7 @@ public extension String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
-    /// SwifterSwift: Array with unicodes for all characters in a string.
+    /// SwifterSwift: Array with unicodes for all self in a string.
     public var unicodeArray: [Int] {
         return unicodeScalars.map({$0.hashValue})
     }
@@ -449,7 +449,7 @@ public extension String {
     ///
     /// - Parameter i: index.
     public subscript(i: Int) -> String? {
-        guard i >= 0 && i < characters.count else {
+        guard i >= 0 && i < self.count else {
             return nil
         }
         return String(self[index(startIndex, offsetBy: i)])
@@ -517,7 +517,7 @@ public extension String {
     /// - Parameter string: substring to search for.
     /// - Returns: first index of substring in string (if applicable).
     public func firstIndex(of string: String) -> Int? {
-        return Array(characters).map({String($0)}).index(of: string)
+        return Array(self).map({String($0)}).index(of: string)
     }
     
     /// SwifterSwift: Latinize string.
@@ -537,7 +537,7 @@ public extension String {
     
     /// SwifterSwift: Reverse string.
     public mutating func reverse() {
-        self = String(characters.reversed())
+        self = String(self.reversed())
     }
 
     /// SwifterSwift: Array of strings separated by given string.
@@ -545,7 +545,7 @@ public extension String {
     /// - Parameter separator: separator to split string by.
     /// - Returns: array of strings separated by given string.
     public func splitted(by separator: Character) -> [String] {
-        return characters.split{$0 == separator}.map(String.init)
+        return self.split{$0 == separator}.map(String.init)
     }
     
     /// SwifterSwift: Check if string starts with substring.
@@ -576,28 +576,28 @@ public extension String {
         self = trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
     }
     
-    /// SwifterSwift: Truncate string (cut it to a given number of characters).
+    /// SwifterSwift: Truncate string (cut it to a given number of self).
     ///
     /// - Parameters:
-    ///   - toLength: maximum number of characters before cutting.
+    ///   - toLength: maximum number of self before cutting.
     ///   - trailing: string to add at the end of truncated string (default is "...").
     public mutating func truncate(toLength: Int, trailing: String? = "...") {
         guard toLength > 0 else {
             return
         }
-        if characters.count > toLength {
+        if self.count > toLength {
             self = substring(to: index(startIndex, offsetBy: toLength)) + (trailing ?? "")
         }
     }
     
-    /// SwifterSwift: Truncated string (limited to a given number of characters).
+    /// SwifterSwift: Truncated string (limited to a given number of self).
     ///
     /// - Parameters:
-    ///   - toLength: maximum number of characters before cutting.
+    ///   - toLength: maximum number of self before cutting.
     ///   - trailing: string to add at the end of truncated string.
     /// - Returns: truncated string (this is an extr...).
     public func truncated(toLength: Int, trailing: String? = "...") -> String {
-        guard 1..<characters.count ~= toLength else { return self }
+        guard 1..<self.count ~= toLength else { return self }
         return substring(to: index(startIndex, offsetBy: toLength)) + (trailing ?? "")
     }
     
@@ -689,12 +689,12 @@ public extension String {
     
     /// SwifterSwift: Underlined string
     public var underline: NSAttributedString {
-        return NSAttributedString(string: self, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        return NSAttributedString(string: self, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue])
     }
     
     /// SwifterSwift: Strikethrough string.
     public var strikethrough: NSAttributedString {
-        return NSAttributedString(string: self, attributes: [NSAttributedString.Key.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
+        return NSAttributedString(string: self, attributes: [NSAttributedString.Key.strikethroughStyle: NSNumber(value: NSUnderlineStyle.single.rawValue as Int)])
     }
     
     #if os(iOS)
@@ -776,7 +776,7 @@ public extension String {
 
 extension String {
     
-    /// EZSE: Checks if string is empty or consists only of whitespace and newline characters
+    /// EZSE: Checks if string is empty or consists only of whitespace and newline self
     public var isBlank: Bool {
         let trimmed = trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty
@@ -790,8 +790,8 @@ extension String {
     }
     
     /// EZSE: split string with delimiters, returns an array of string
-    public func split(_ characters: CharacterSet) -> [String] {
-        return self.components(separatedBy: characters).filter {
+    public func split(_ separator: CharacterSet) -> [String] {
+        return self.components(separatedBy: separator).filter {
             !$0.trimmed.isEmpty
         }
     }
@@ -818,7 +818,7 @@ extension String {
         let text = self
         
         if let detector = detector {
-            detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.characters.count), using: {
+            detector.enumerateMatches(in: text, options: [], range: NSRange(location: 0, length: text.count), using: {
                 (result: NSTextCheckingResult?, flags: NSRegularExpression.MatchingFlags, stop: UnsafeMutablePointer<ObjCBool>) -> Void in
                 if let result = result, let url = result.url {
                     urls.append(url)
@@ -891,6 +891,6 @@ public func hasSuffix(_ suffix: String) -> (_ value: String) -> Bool {
 
 extension String {
     var numbers: String {
-        return String(characters.filter { "0"..."9" ~= $0 })
+        return String(self.filter { "0"..."9" ~= $0 })
     }
 }

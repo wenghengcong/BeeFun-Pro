@@ -394,6 +394,7 @@
 
 /* Begin PBXFileReference section */
 		1E8CC865E56BA5C5F2757091 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		28BC2F5A583018320065668C /* Pods-BeeFun.achoc.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeFun.achoc.xcconfig"; path = "Pods/Target Support Files/Pods-BeeFun/Pods-BeeFun.achoc.xcconfig"; sourceTree = "<group>"; };
 		29E3608C6B9F8CEB6E8B525C /* Pods_Coderpursue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coderpursue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E008CCB1F8DC0D80007850F /* JSMBProgressHud.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = JSMBProgressHud.xcassets; sourceTree = "<group>"; };
 		5E03B08620C03D5200D3561E /* BFBaseViewController+Reload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BFBaseViewController+Reload.swift"; sourceTree = "<group>"; };
@@ -825,6 +826,8 @@
 		69DA18879BDE528600046027 /* Pods-Coderpursue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coderpursue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Coderpursue/Pods-Coderpursue.debug.xcconfig"; sourceTree = "<group>"; };
 		7C4A8DBCF2271C938FDD0F1B /* Pods-Coderpursue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coderpursue.release.xcconfig"; path = "Pods/Target Support Files/Pods-Coderpursue/Pods-Coderpursue.release.xcconfig"; sourceTree = "<group>"; };
 		8B5E816C288376FF8745B070 /* Pods_BeeFun.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BeeFun.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B89AFF6A75319EC156E476E /* Pods-BeeFun.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeFun.release.xcconfig"; path = "Pods/Target Support Files/Pods-BeeFun/Pods-BeeFun.release.xcconfig"; sourceTree = "<group>"; };
+		A45747E9B436E16CD67E3161 /* Pods-BeeFun.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BeeFun.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BeeFun/Pods-BeeFun.debug.xcconfig"; sourceTree = "<group>"; };
 		FE26BCBC1C4231FB00887534 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Alamofire.framework"; sourceTree = "<group>"; };
 		FE26BCC51C44754C00887534 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "Pods/../build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
 		FE37DEF61C4A8F1F00B8449D /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = "../../../Library/Developer/Xcode/DerivedData/Coderpursue-fyrcacrvclpljuegolrtoeolcnta/Build/Products/Debug-iphoneos/Kingfisher.framework"; sourceTree = "<group>"; };
@@ -2053,6 +2056,9 @@
 			children = (
 				69DA18879BDE528600046027 /* Pods-Coderpursue.debug.xcconfig */,
 				7C4A8DBCF2271C938FDD0F1B /* Pods-Coderpursue.release.xcconfig */,
+				A45747E9B436E16CD67E3161 /* Pods-BeeFun.debug.xcconfig */,
+				28BC2F5A583018320065668C /* Pods-BeeFun.achoc.xcconfig */,
+				8B89AFF6A75319EC156E476E /* Pods-BeeFun.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2273,9 +2279,8 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-BeeFun/Pods-BeeFun-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-BeeFun/Pods-BeeFun-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/GDPerformanceView-Swift/GDPerformanceView_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/HMSegmentedControl/HMSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kanna/Kanna.framework",
@@ -2299,11 +2304,11 @@
 				"${BUILT_PRODUCTS_DIR}/TOWebViewController/TOWebViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/YYText/YYText.framework",
 				"${BUILT_PRODUCTS_DIR}/iCarousel/iCarousel.framework",
+				"${BUILT_PRODUCTS_DIR}/GDPerformanceView-Swift/GDPerformanceView_Swift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HMSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kanna.framework",
@@ -2327,10 +2332,11 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TOWebViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYText.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/iCarousel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GDPerformanceView_Swift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BeeFun/Pods-BeeFun-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BeeFun/Pods-BeeFun-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D804F693A26BEDF21E8179BB /* [CP] Check Pods Manifest.lock */ = {
@@ -2953,6 +2959,7 @@
 				DEVELOPMENT_TEAM = 69XHTLCF36;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -2972,7 +2979,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64;
 			};
 			name = Achoc;
 		};
@@ -2989,6 +2995,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 69XHTLCF36;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BeeFun/ThirdParty/MobSDK/Required",
@@ -3000,7 +3007,8 @@
 					"$(PROJECT_DIR)/BeeFun/ThirdParty",
 				);
 				INFOPLIST_FILE = BeeFun/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -3017,7 +3025,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = BETA;
 				SWIFT_OBJC_BRIDGING_HEADER = "BeeFun/BeeFun-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3056,6 +3063,7 @@
 				DEVELOPMENT_TEAM = 69XHTLCF36;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -3075,7 +3083,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64;
 			};
 			name = Debug;
 		};
@@ -3112,6 +3119,7 @@
 				DEVELOPMENT_TEAM = 69XHTLCF36;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -3124,7 +3132,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -3142,6 +3149,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEVELOPMENT_TEAM = 69XHTLCF36;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -3160,7 +3168,8 @@
 					"$(PROJECT_DIR)/BeeFun/ThirdParty",
 				);
 				INFOPLIST_FILE = BeeFun/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -3177,7 +3186,6 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OBJC_BRIDGING_HEADER = "BeeFun/BeeFun-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -3195,6 +3203,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 69XHTLCF36;
 				ENABLE_BITCODE = NO;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -3213,7 +3222,8 @@
 					"$(PROJECT_DIR)/BeeFun/ThirdParty",
 				);
 				INFOPLIST_FILE = BeeFun/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_GENERATE_MAP_FILE = YES;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -3229,7 +3239,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = Release;
 				SWIFT_OBJC_BRIDGING_HEADER = "BeeFun/BeeFun-Bridging-Header.h";
-				EXCLUDED_ARCHS[sdk=iphonesimulator*] = arm64;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

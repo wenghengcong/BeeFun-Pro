@@ -73,7 +73,7 @@ DEPENDENCIES:
   - YYText
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Crashlytics
     - Fabric
@@ -107,8 +107,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
-  Crashlytics: 611738c7847f8291a1a51084e35987b86ba6b3ee
-  Fabric: 706c8b8098fff96c33c0db69cbf81f9c551d0d74
+  Crashlytics: ccc83294f626469f0f24ef28c8c0e9b840f23821
+  Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
   GDPerformanceView-Swift: a74cd679587b199e4526492b6e68ce61593c6123
   HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
@@ -137,6 +137,6 @@ SPEC CHECKSUMS:
   TOWebViewController: 953a24619d32f7aa1d9d4098a74885a9236f7348
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: df046a354aaa6f85a5aa6526aaef401447482d30
+PODFILE CHECKSUM: 48a07935d198bfef944dd71e99c8d80d1cfe352c
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.11.2

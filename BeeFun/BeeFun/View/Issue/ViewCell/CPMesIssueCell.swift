@@ -42,7 +42,7 @@ class CPMesIssueCell: BFBaseCell {
     func notiCell_fillData() {
 
         let issueTitle = issue!.title
-        issueTitleBtn.setTitle(issueTitle, for: UIControlState())
+        issueTitleBtn.setTitle(issueTitle, for: UIControl.State())
 
         if let number = issue?.number {
             let issueNum = "#\(number)"

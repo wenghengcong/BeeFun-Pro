@@ -63,7 +63,7 @@ class BFReposSyncController: BFBaseViewController {
         syncButton.titleLabel?.font = UIFont.bfSystemFont(ofSize: 20.0)
         syncButton.backgroundColor = UIColor.bfRedColor
         syncButton.radius = 5.0
-        syncButton.addTarget(self, action: #selector(BFReposSyncController.rsc_syncAction), for: UIControlEvents.touchUpInside)
+        syncButton.addTarget(self, action: #selector(BFReposSyncController.rsc_syncAction), for: UIControl.Event.touchUpInside)
         view.addSubview(syncButton)
         
         let logX: CGFloat = 10

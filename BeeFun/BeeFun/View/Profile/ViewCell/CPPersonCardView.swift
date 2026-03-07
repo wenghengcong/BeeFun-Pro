@@ -181,7 +181,7 @@ class CPPersonCardView: UIButton {
 //                blogButton.setTitle(blogTitle, for: .highlighted)
 //            }
 
-        let blackAttribute = [NSAttributedStringKey.foregroundColor: UIColor.iOS11Black]
+        let blackAttribute = [NSAttributedString.Key.foregroundColor: UIColor.iOS11Black]
 
         //
         var repos = "0 \n"+"Repositories".localized

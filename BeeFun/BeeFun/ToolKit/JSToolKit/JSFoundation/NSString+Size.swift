@@ -20,7 +20,7 @@ extension NSString {
     /// - Returns: 文本高度
     func height(with width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width:width, height:.greatestFiniteMagnitude)
-        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox = boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return boundingBox.height
     }
 
@@ -32,7 +32,7 @@ extension NSString {
     /// - Returns: 文本宽度
     func width(with height: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
-        let attributes = [NSAttributedStringKey.font: font]
+        let attributes = [NSAttributedString.Key.font: font]
         let option = NSStringDrawingOptions.usesLineFragmentOrigin
 
         let boundingBox = boundingRect(with: constraintRect, options: option, attributes: attributes, context: nil)

@@ -26,7 +26,7 @@ class BFEmptyDataCell: UITableViewCell, BFPlaceHolderViewDelegate {
     
     private let emptyViewTag: Int = 12353
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     

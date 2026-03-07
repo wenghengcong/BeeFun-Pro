@@ -69,7 +69,7 @@ class BFPlaceHolderView: UIView {
         actionButton.setTitleColor(UIColor.bfRedColor, for: .highlighted)
         actionButton.titleLabel?.textAlignment = .center
         actionButton.titleLabel?.font = UIFont.bfSystemFont(ofSize: 18.0)
-        actionButton.addTarget(self, action: #selector(buttonAction), for: UIControlEvents.touchUpInside)
+        actionButton.addTarget(self, action: #selector(buttonAction), for: UIControl.Event.touchUpInside)
         addSubview(actionButton)
         
         fillDataToUI()

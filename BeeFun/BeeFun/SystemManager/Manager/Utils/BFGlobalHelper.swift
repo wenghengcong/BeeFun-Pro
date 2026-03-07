@@ -17,7 +17,7 @@ class BFGlobalHelper {
 
     class func calculatorTextSize(_ text: String, size: CGSize, font: UIFont) -> CGRect {
 
-        let boundingBox: CGRect = text.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox: CGRect = text.boundingRect(with: size, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
         return boundingBox
 
     }
@@ -26,7 +26,7 @@ class BFGlobalHelper {
 
         let constraintRect = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
 
-        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
 
         return boundingBox.height
     }
@@ -35,7 +35,7 @@ class BFGlobalHelper {
 
         let constraintRect = CGSize(width: CGFloat.greatestFiniteMagnitude, height: height)
 
-        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedStringKey.font: font], context: nil)
+        let boundingBox = text.boundingRect(with: constraintRect, options: NSStringDrawingOptions.usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
 
         return boundingBox.width
     }

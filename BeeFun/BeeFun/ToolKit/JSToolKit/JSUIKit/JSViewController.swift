@@ -33,7 +33,7 @@ class JSViewController: UIViewController, UIGestureRecognizerDelegate {
 
     var leftItemImage: UIImage? {
         didSet {
-            leftItem!.setImage(leftItemImage, for: UIControlState())
+            leftItem!.setImage(leftItemImage, for: UIControl.State())
         }
     }
 
@@ -45,7 +45,7 @@ class JSViewController: UIViewController, UIGestureRecognizerDelegate {
 
     var rightItemImage: UIImage? {
         didSet {
-            rightItem!.setImage(rightItemImage, for: UIControlState())
+            rightItem!.setImage(rightItemImage, for: UIControl.State())
         }
     }
 
@@ -79,7 +79,7 @@ class JSViewController: UIViewController, UIGestureRecognizerDelegate {
     func customLeftItem() {
 
         leftItem = UIButton()
-        leftItem!.setImage(UIImage(named: "arrow_left"), for: UIControlState())
+        leftItem!.setImage(UIImage(named: "arrow_left"), for: UIControl.State())
         leftItem!.setImage(UIImage(named: "arrow_left"), for: .selected)
 
         leftItem!.frame = CGRect(x: 0, y: 5, width: 25, height: 25)

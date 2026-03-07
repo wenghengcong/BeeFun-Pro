@@ -44,7 +44,7 @@ extension UILabel {
 
         let range = attributedString.mutableString.range(of: subText, options:NSString.CompareOptions.caseInsensitive)
         if range.location != NSNotFound {
-            attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: color, range: range)
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
         }
         self.attributedText = attributedString
     }

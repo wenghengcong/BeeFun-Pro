@@ -22,8 +22,8 @@ class JSHMSegmentedBridge: NSObject {
         segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
         segControl.selectionIndicatorColor = UIColor.bfRedColor
         segControl.selectionIndicatorHeight = 1
-        segControl.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.iOS11Black, NSAttributedStringKey.font: UIFont.middleSizeSystemFont()]
-        segControl.selectedTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.bfRedColor, NSAttributedStringKey.font: UIFont.middleSizeSystemFont()]
+        segControl.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.iOS11Black, NSAttributedString.Key.font: UIFont.middleSizeSystemFont()]
+        segControl.selectedTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.bfRedColor, NSAttributedString.Key.font: UIFont.middleSizeSystemFont()]
 
         return segControl
     }
@@ -40,8 +40,8 @@ class JSHMSegmentedBridge: NSObject {
         segControl.selectionIndicatorLocation = HMSegmentedControlSelectionIndicatorLocation.down
         segControl.selectionIndicatorColor = UIColor.bfRedColor
         segControl.selectionIndicatorHeight = 1
-        segControl.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.iOS11Black, NSAttributedStringKey.font: UIFont.middleSizeSystemFont()]
-        segControl.selectedTitleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.bfRedColor, NSAttributedStringKey.font: UIFont.middleSizeSystemFont()]
+        segControl.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.iOS11Black, NSAttributedString.Key.font: UIFont.middleSizeSystemFont()]
+        segControl.selectedTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.bfRedColor, NSAttributedString.Key.font: UIFont.middleSizeSystemFont()]
         
         return segControl
     }

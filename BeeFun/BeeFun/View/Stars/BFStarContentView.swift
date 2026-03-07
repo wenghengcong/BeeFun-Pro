@@ -142,7 +142,7 @@ extension BFStarContentView: BFPlaceHolderViewDelegate {
         placeReloadView.placeHolderActionDelegate = self
         placeReloadView.tag = reloadViewTag
         insertSubview(placeReloadView, at: 0)
-        self.bringSubview(toFront: placeReloadView)
+        self.bringSubviewToFront(placeReloadView)
     }
     
     func removeReloadView() {

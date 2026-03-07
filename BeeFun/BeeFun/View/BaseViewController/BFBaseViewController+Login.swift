@@ -55,7 +55,7 @@ extension BFBaseViewController {
             view.insertSubview(placeLoginView!, at: 0)
         }
         if let reloadView = placeLoginView {
-            view.bringSubview(toFront: reloadView)
+            view.bringSubviewToFront(reloadView)
         }
     }
     

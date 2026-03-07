@@ -16,7 +16,7 @@ class BFLanunchManager: NSObject {
     static let shared = BFLanunchManager()
     
     // MARK: - Appdelegate
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         launchBeeFunService(application, didFinishLaunchingWithOptions: launchOptions)
         launchThirdParty(application, didFinishLaunchingWithOptions: launchOptions)
         launchDataAnalysis(application, didFinishLaunchingWithOptions: launchOptions)
@@ -30,7 +30,7 @@ class BFLanunchManager: NSObject {
     }
     
     // MARK: - Launch
-    func launchBeeFunService(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    func launchBeeFunService(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         JSCellFactory.registerCellInfo()
         //启动从Github拉取数据，更新服务端数据库
         BeeFunDBManager.shared.updateServerDB(showTips: false, first: false)
@@ -41,7 +41,7 @@ class BFLanunchManager: NSObject {
 //        LanguageManager.shared.requestForLanguage()
     }
     
-    func launchThirdParty(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    func launchThirdParty(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         //JSLog
         JSSwiftyBeaver.bridgeInit()
         // Override point for customization after application launch.
@@ -52,7 +52,7 @@ class BFLanunchManager: NSObject {
 //        Date.setDefaultRegion(romeRegion)
     }
     
-    func launchDataAnalysis(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    func launchDataAnalysis(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         //友盟分析
         UMAnalyticsConfig.sharedInstance().appKey = UMengAppSecret
         //发送策略：BATCH启动，SEND_INTERVAL，间隔发送
@@ -70,7 +70,7 @@ class BFLanunchManager: NSObject {
         #endif
     }
     
-    func launchPushAndShare(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    func launchPushAndShare(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         UIApplication.shared.applicationIconBadgeNumber = 0
         //JPush
         _ = JPushManager.init(launchOptions: launchOptions)
@@ -79,7 +79,7 @@ class BFLanunchManager: NSObject {
         //        ShareManager.shared.register()
     }
     
-    func launchNetworkMonitor(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    func launchNetworkMonitor(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         BFMonitor.shared.start()
         _ = BFNetworkManager.shared.startListening()
     }

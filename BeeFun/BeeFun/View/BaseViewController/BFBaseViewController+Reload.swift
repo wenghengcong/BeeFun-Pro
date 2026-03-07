@@ -57,7 +57,7 @@ extension BFBaseViewController {
             view.insertSubview(placeReloadView!, at: 0)
         }
         if let reloadView = placeReloadView {
-            view.bringSubview(toFront: reloadView)
+            view.bringSubviewToFront(reloadView)
         }
     }
     

@@ -185,7 +185,7 @@ extension BFProfileController: PersonCardViewActionProtocol {
         imagePicker.navigationBar.barTintColor = UIColor.bfRedColor
         imagePicker.navigationBar.tintColor = UIColor.white
         imagePicker.navigationBar.titleTextAttributes = [
-            NSAttributedStringKey.foregroundColor: UIColor.white
+            NSAttributedString.Key.foregroundColor: UIColor.white
         ]
         imagePicker.allowsEditing = false
         self.present(imagePicker, animated: true, completion: nil)

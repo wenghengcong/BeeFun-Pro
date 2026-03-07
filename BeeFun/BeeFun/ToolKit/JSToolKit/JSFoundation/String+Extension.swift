@@ -682,25 +682,25 @@ public extension String {
         #if os(macOS)
             return NSMutableAttributedString(string: self, attributes: [NSFontAttributeName: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize())])
         #else
-            return NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
+            return NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)])
         #endif
     }
     #endif
     
     /// SwifterSwift: Underlined string
     public var underline: NSAttributedString {
-        return NSAttributedString(string: self, attributes: [NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+        return NSAttributedString(string: self, attributes: [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
     }
     
     /// SwifterSwift: Strikethrough string.
     public var strikethrough: NSAttributedString {
-        return NSAttributedString(string: self, attributes: [NSAttributedStringKey.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
+        return NSAttributedString(string: self, attributes: [NSAttributedString.Key.strikethroughStyle: NSNumber(value: NSUnderlineStyle.styleSingle.rawValue as Int)])
     }
     
     #if os(iOS)
     /// SwifterSwift: Italic string.
     public var italic: NSAttributedString {
-        return NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
+        return NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)])
     }
     #endif
     
@@ -718,7 +718,7 @@ public extension String {
     /// - Parameter color: text color.
     /// - Returns: a NSAttributedString versions of string colored with given color.
     public func colored(with color: UIColor) -> NSAttributedString {
-        return NSMutableAttributedString(string: self, attributes: [NSAttributedStringKey.foregroundColor: color])
+        return NSMutableAttributedString(string: self, attributes: [NSAttributedString.Key.foregroundColor: color])
     }
     #endif
     

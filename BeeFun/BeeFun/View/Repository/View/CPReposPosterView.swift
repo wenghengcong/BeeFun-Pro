@@ -41,11 +41,11 @@ class CPReposPosterView: UIView {
     var watched: Bool? {
         didSet {
             if watched! {
-                watchBtn.setTitle("Unwatch".localized, for: UIControlState())
+                watchBtn.setTitle("Unwatch".localized, for: UIControl.State())
                 watchBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
 
             } else {
-                watchBtn.setTitle("Watch".localized, for: UIControlState())
+                watchBtn.setTitle("Watch".localized, for: UIControl.State())
                 watchBtn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -5, bottom: 0, right: 10)
 
             }
@@ -55,9 +55,9 @@ class CPReposPosterView: UIView {
     var stared: Bool? {
         didSet {
             if stared! {
-                starBtn.setTitle("Unstar".localized, for: UIControlState())
+                starBtn.setTitle("Unstar".localized, for: UIControl.State())
             } else {
-                starBtn.setTitle("Star".localized, for: UIControlState())
+                starBtn.setTitle("Star".localized, for: UIControl.State())
             }
         }
 
@@ -107,16 +107,16 @@ class CPReposPosterView: UIView {
         timeLabel.backgroundColor = UIColor.white
         timeLabel.textColor = UIColor.hex("#4876FF")
 
-        watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), for: UIControlState())
-        watchBtn.setTitle("Watch".localized, for: UIControlState())
+        watchBtn.setImage(UIImage(named: "octicon_watch_red_20"), for: UIControl.State())
+        watchBtn.setTitle("Watch".localized, for: UIControl.State())
         watchBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_watchAction), for: .touchUpInside)
 
-        starBtn.setImage(UIImage(named: "octicon_star_red_20"), for: UIControlState())
-        starBtn.setTitle("Star".localized, for: UIControlState())
+        starBtn.setImage(UIImage(named: "octicon_star_red_20"), for: UIControl.State())
+        starBtn.setTitle("Star".localized, for: UIControl.State())
         starBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_starAction), for: .touchUpInside)
 
-        forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), for: UIControlState())
-        forkBtn.setTitle("Fork".localized, for: UIControlState())
+        forkBtn.setImage(UIImage(named: "octicon_fork_red_20"), for: UIControl.State())
+        forkBtn.setTitle("Fork".localized, for: UIControl.State())
         forkBtn.addTarget(self, action: #selector(CPReposPosterView.rpv_forkAction), for: .touchUpInside)
 
         let margin: CGFloat = 10.0
@@ -147,7 +147,7 @@ class CPReposPosterView: UIView {
             btn.layer.masksToBounds = true
             btn.layer.borderColor = UIColor.bfRedColor.cgColor
             btn.layer.borderWidth = borderWidth
-            btn.setTitleColor(UIColor.bfRedColor, for: UIControlState())
+            btn.setTitleColor(UIColor.bfRedColor, for: UIControl.State())
             btn.titleLabel?.font = UIFont.bfSystemFont(ofSize: 15.0)
 
             let left = CGFloat(index) * (width+margin) + margin

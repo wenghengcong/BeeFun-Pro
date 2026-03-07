@@ -88,7 +88,7 @@ class BFFeedbackController: BFBaseViewController {
         submitBtn.backgroundColor = UIColor.bfRedColor
         submitBtn.radius = 5.0
         submitBtn.frame = CGRect(x: leftMargin, y: contentTextView.bottom + 35, w: contentWidth, h: 50)
-        submitBtn.addTarget(self, action: #selector(fc_uploadAction), for: UIControlEvents.touchUpInside)
+        submitBtn.addTarget(self, action: #selector(fc_uploadAction), for: UIControl.Event.touchUpInside)
         view.addSubview(submitBtn)
     }
     

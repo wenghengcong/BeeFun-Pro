@@ -168,14 +168,14 @@ extension SESearchResultController {
             languageTable.estimatedSectionFooterHeight = 0
         }
         view.addSubview(languageTable)
-        view.bringSubview(toFront: languageTable)
+        view.bringSubviewToFront(languageTable)
         
         maskView.backgroundColor = UIColor.iOS11Black
 //        view.addSubview(maskView)
     }
     
     func srvc_showLanguageTableView() {
-        view.bringSubview(toFront: languageTable)
+        view.bringSubviewToFront(languageTable)
         languageTable.isHidden = false
         UIView.animate(withDuration: 0.25) {
             let lanFrame = CGRect(x: 0, y: self.filterBarView.bottom, w: self.languageTabWidth, h: ScreenSize.height-self.filterBarView.bottom)

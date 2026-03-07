@@ -10,11 +10,11 @@ import UIKit
 
 class JSApperence: NSObject {
 
-    public class func setTabbarTextColor(_ color: UIColor, for state: UIControlState) {
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedStringKey.foregroundColor: color], for: state)
+    public class func setTabbarTextColor(_ color: UIColor, for state: UIControl.State) {
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: color], for: state)
     }
 
-    public class func setTabbarTextAttributes(_ attributes: [NSAttributedStringKey : Any]?, for state: UIControlState) {
+    public class func setTabbarTextAttributes(_ attributes: [NSAttributedString.Key : Any]?, for state: UIControl.State) {
         UITabBarItem.appearance().setTitleTextAttributes(attributes, for: state)
     }
 }

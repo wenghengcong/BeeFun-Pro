@@ -19,7 +19,7 @@ class JPushManager: NSObject {
         super.init()
     }
     
-    convenience init(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    convenience init(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         self.init()
 
         NotificationCenter.default.addObserver(self, selector: #selector(setAlias), name: NSNotification.Name.BeeFun.DidLogin, object: nil)
@@ -27,7 +27,7 @@ class JPushManager: NSObject {
         register(launchOptions: launchOptions)
     }
     
-    func register(launchOptions: [UIApplicationLaunchOptionsKey: Any]?) {
+    func register(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         JPUSHService.setup(withOption: launchOptions, appKey: JPushAppKey, channel: JPushChannel, apsForProduction: apsProduction)
         let pushConfig = JPUSHRegisterEntity.init()
         let pushSwitch = (UIUserNotificationType.badge.rawValue|UIUserNotificationType.sound.rawValue|UIUserNotificationType.alert.rawValue)

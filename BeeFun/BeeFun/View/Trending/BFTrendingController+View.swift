@@ -58,7 +58,7 @@ extension BFTrendingController {
             filterView!.filterTypes = ["Language".localized]
             filterView!.filterData = [languageArr!]
         }
-        view.bringSubview(toFront: filterView!)
+        view.bringSubviewToFront(filterView!)
         filterView!.frame = CGRect(x: 0, y: uiTopBarHeight, width: self.view.width, height: filterVHeight)
     }
     

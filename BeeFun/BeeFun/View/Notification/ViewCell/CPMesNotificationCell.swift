@@ -62,7 +62,7 @@ class CPMesNotificationCell: BFBaseCell {
         }
 
         if let name = noti?.repository?.name {
-            reposBtn.setTitle(name, for: UIControlState())
+            reposBtn.setTitle(name, for: UIControl.State())
         }
 
         if let time = noti?.updated_at {

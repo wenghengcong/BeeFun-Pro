@@ -83,7 +83,7 @@ class BFUserDetailController: BFBaseViewController {
         followBtn.titleLabel?.font = UIFont.bfSystemFont(ofSize: 15.0)
         followBtn.backgroundColor = UIColor.bfRedColor
         followBtn.radius = 3.0
-        followBtn.addTarget(self, action: #selector(BFUserDetailController.dvc_followAction), for: UIControlEvents.touchUpInside)
+        followBtn.addTarget(self, action: #selector(BFUserDetailController.dvc_followAction), for: UIControl.Event.touchUpInside)
 
         let followX: CGFloat = 10.0
         let followW = ScreenSize.width-2*followX
@@ -111,9 +111,9 @@ class BFUserDetailController: BFBaseViewController {
 
     func dvc_updateFolloweBtn() {
         if followed {
-            followBtn.setTitle("Unfollow".localized, for: UIControlState())
+            followBtn.setTitle("Unfollow".localized, for: UIControl.State())
         } else {
-            followBtn.setTitle("Follow".localized, for: UIControlState())
+            followBtn.setTitle("Follow".localized, for: UIControl.State())
         }
     }
 

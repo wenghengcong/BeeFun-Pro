@@ -54,14 +54,14 @@ class CPReposInfoView: UIView {
 
         self.backgroundColor = UIColor.white
 
-        watchBtn.setImage(UIImage(named: "repos_watch"), for: UIControlState())
-        starBtn.setImage(UIImage(named: "repos_star"), for: UIControlState())
-        forkBtn.setImage(UIImage(named: "repos_fork"), for: UIControlState())
+        watchBtn.setImage(UIImage(named: "repos_watch"), for: UIControl.State())
+        starBtn.setImage(UIImage(named: "repos_star"), for: UIControl.State())
+        forkBtn.setImage(UIImage(named: "repos_fork"), for: UIControl.State())
 
-        lanBtn.setImage(UIImage(named: "repos_lan"), for: UIControlState())
-        privateBtn.setImage(UIImage(named: "repos_unlock"), for: UIControlState())
-        issueBtn.setImage(UIImage(named: "repos_issue"), for: UIControlState())
-        filesizeBtn.setImage(UIImage(named: "repos_file"), for: UIControlState())
+        lanBtn.setImage(UIImage(named: "repos_lan"), for: UIControl.State())
+        privateBtn.setImage(UIImage(named: "repos_unlock"), for: UIControl.State())
+        issueBtn.setImage(UIImage(named: "repos_issue"), for: UIControl.State())
+        filesizeBtn.setImage(UIImage(named: "repos_file"), for: UIControl.State())
 
         let widthBy3Part = UIScreen.width/3
         let widthBy2Part = UIScreen.width/2
@@ -81,7 +81,7 @@ class CPReposInfoView: UIView {
             btn.layer.borderColor = UIColor.bfLineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
             btn.titleLabel?.font = UIFont.bfSystemFont(ofSize: 15.0)
-            btn.setTitleColor(UIColor.iOS11Black, for: UIControlState())
+            btn.setTitleColor(UIColor.iOS11Black, for: UIControl.State())
         }
 
         let imgEdgeInsets2 = UIEdgeInsets(top: 0, left: -40, bottom: 0, right: 10)
@@ -98,7 +98,7 @@ class CPReposInfoView: UIView {
             btn.titleLabel?.font = UIFont.bfSystemFont(ofSize: 15.0)
             btn.layer.borderColor = UIColor.bfLineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
-            btn.setTitleColor(UIColor.iOS11Black, for: UIControlState())
+            btn.setTitleColor(UIColor.iOS11Black, for: UIControl.State())
             btn.addTarget(self, action:#selector(jumpWebView(sender:)), for: .touchUpInside)
         }
 
@@ -114,43 +114,43 @@ class CPReposInfoView: UIView {
     func riv_fillData() {
 
         if let watchCount = repo?.subscribers_count {
-            watchBtn.setTitle("\(watchCount)", for: UIControlState())
+            watchBtn.setTitle("\(watchCount)", for: UIControl.State())
         }
 
         if let stargazersCount = repo?.stargazers_count {
-            starBtn.setTitle("\(stargazersCount)", for: UIControlState())
+            starBtn.setTitle("\(stargazersCount)", for: UIControl.State())
         }
 
         if let forksCount = repo?.forks_count {
-            forkBtn.setTitle("\(forksCount)", for: UIControlState())
+            forkBtn.setTitle("\(forksCount)", for: UIControl.State())
         }
 
         if let lan = repo?.language {
-            lanBtn.setTitle("\(lan)", for: UIControlState())
+            lanBtn.setTitle("\(lan)", for: UIControl.State())
         } else {
-            lanBtn.setTitle("Unknown".localized, for: UIControlState())
+            lanBtn.setTitle("Unknown".localized, for: UIControl.State())
         }
 
         if let cprivate = repo?.cprivate {
             if cprivate {
-                privateBtn.setTitle("Private".localized, for: UIControlState())
-                privateBtn.setImage(UIImage(named: "repos_lock"), for: UIControlState())
+                privateBtn.setTitle("Private".localized, for: UIControl.State())
+                privateBtn.setImage(UIImage(named: "repos_lock"), for: UIControl.State())
             } else {
-                privateBtn.setTitle("Public".localized, for: UIControlState())
-                privateBtn.setImage(UIImage(named: "repos_unlock"), for: UIControlState())
+                privateBtn.setTitle("Public".localized, for: UIControl.State())
+                privateBtn.setImage(UIImage(named: "repos_unlock"), for: UIControl.State())
             }
         }
 
         if let issueCount = repo?.open_issues_count {
             if issueCount <= 1 {
-                issueBtn.setTitle("\(issueCount) issue", for: UIControlState())
+                issueBtn.setTitle("\(issueCount) issue", for: UIControl.State())
             } else {
-                issueBtn.setTitle("\(issueCount) issues", for: UIControlState())
+                issueBtn.setTitle("\(issueCount) issues", for: UIControl.State())
             }
         }
         if let fileMB = repo?.size {
             let fileMB = String(format: "%.2f", ((Double)(fileMB)/1024.0) )
-            filesizeBtn.setTitle("\(fileMB) MB", for: UIControlState())
+            filesizeBtn.setTitle("\(fileMB) MB", for: UIControl.State())
         }
 
         self.setNeedsLayout()

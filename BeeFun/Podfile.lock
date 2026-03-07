@@ -3,7 +3,6 @@ PODS:
   - Crashlytics (3.13.2):
     - Fabric (~> 1.10.2)
   - Fabric (1.10.2)
-  - GDPerformanceView-Swift (1.3.2)
   - HMSegmentedControl (1.5.5)
   - iCarousel (1.8.3)
   - IQKeyboardManagerSwift (6.4.0)
@@ -46,7 +45,6 @@ DEPENDENCIES:
   - Alamofire
   - Crashlytics
   - Fabric
-  - GDPerformanceView-Swift (~> 1.3.2)
   - HMSegmentedControl
   - iCarousel
   - IQKeyboardManagerSwift
@@ -77,7 +75,6 @@ SPEC REPOS:
     - Alamofire
     - Crashlytics
     - Fabric
-    - GDPerformanceView-Swift
     - HMSegmentedControl
     - iCarousel
     - IQKeyboardManagerSwift
@@ -109,7 +106,6 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   Crashlytics: ccc83294f626469f0f24ef28c8c0e9b840f23821
   Fabric: ea977e3cd9c20425516d3dafd3bf8c941c51223f
-  GDPerformanceView-Swift: a74cd679587b199e4526492b6e68ce61593c6123
   HMSegmentedControl: f514c6dad47aa3065e0ed2e8046b73efc71221b9
   iCarousel: d782f635afac190c49bb8ee455882284cff8b85f
   IQKeyboardManagerSwift: ed9b04ee0e3067ffba543283462d619f944b05e5
@@ -137,6 +133,6 @@ SPEC CHECKSUMS:
   TOWebViewController: 953a24619d32f7aa1d9d4098a74885a9236f7348
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 48a07935d198bfef944dd71e99c8d80d1cfe352c
+PODFILE CHECKSUM: b1e4fcdbae6630f3301be5e245cc0f31608e6235
 
 COCOAPODS: 1.11.2

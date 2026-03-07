@@ -94,18 +94,18 @@ class CPDeveloperInfoView: UIView {
             btn.imageEdgeInsets = imgEdgeInsets1
             btn.layer.borderColor = UIColor.bfLineBackgroundColor.cgColor
             btn.layer.borderWidth = borderWidth
-            btn.setTitleColor(UIColor.bfRedColor, for: UIControlState())
+            btn.setTitleColor(UIColor.bfRedColor, for: UIControl.State())
             btn.titleLabel?.numberOfLines = 0
             btn.titleLabel?.textAlignment = .center
         }
 
-        followerBtn.setTitle("0 \n"+"Follower".localized, for: UIControlState())
+        followerBtn.setTitle("0 \n"+"Follower".localized, for: UIControl.State())
         followerBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followAction), for: .touchUpInside)
 
-        reposBtn.setTitle("0 \n"+"Repositories".localized, for: UIControlState())
+        reposBtn.setTitle("0 \n"+"Repositories".localized, for: UIControl.State())
         reposBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_reposAction), for: .touchUpInside)
 
-        followingBtn.setTitle("0 \n"+"Following".localized, for: UIControlState())
+        followingBtn.setTitle("0 \n"+"Following".localized, for: UIControl.State())
         followingBtn.addTarget(self, action: #selector(CPDeveloperInfoView.div_followingAction), for: .touchUpInside)
 
     }
@@ -126,15 +126,15 @@ class CPDeveloperInfoView: UIView {
         }
 
         if let followerCount = developer!.followers {
-            followerBtn.setTitle("\(followerCount) \n"+"Follower".localized, for: UIControlState())
+            followerBtn.setTitle("\(followerCount) \n"+"Follower".localized, for: UIControl.State())
         }
 
         if let reposCount = developer!.public_repos {
-            reposBtn.setTitle("\(reposCount) \n"+"Repositories".localized, for: UIControlState())
+            reposBtn.setTitle("\(reposCount) \n"+"Repositories".localized, for: UIControl.State())
         }
 
         if let followingCount = developer!.following {
-            followingBtn.setTitle("\(followingCount) \n"+"Following".localized, for: UIControlState())
+            followingBtn.setTitle("\(followingCount) \n"+"Following".localized, for: UIControl.State())
         }
 
     }

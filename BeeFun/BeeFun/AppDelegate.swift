@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions
-                     launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+                     launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         BFLanunchManager.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
 
@@ -196,7 +196,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         return true
     }
 
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         applicationHandle(url: url)
         return true
     }

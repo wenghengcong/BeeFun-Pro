@@ -113,27 +113,27 @@ class JSTagItem: UIView {
         }
     }
     
-    func setTitle(_ title: String?, for state: UIControlState) {
+    func setTitle(_ title: String?, for state: UIControl.State) {
         titleBtn.setTitle(title, for: state)
     }
     
-    func setTitleColor(_ color: UIColor?, for state: UIControlState) {
+    func setTitleColor(_ color: UIColor?, for state: UIControl.State) {
         titleBtn.setTitleColor(color, for: state)
     }
     
-    func setImage(_ image: UIImage?, for state: UIControlState) {
+    func setImage(_ image: UIImage?, for state: UIControl.State) {
         titleBtn.setImage(image, for: state)
     }
     
-    func setBackgroundImage(_ image: UIImage?, for state: UIControlState) {
+    func setBackgroundImage(_ image: UIImage?, for state: UIControl.State) {
         titleBtn.setBackgroundImage(image, for: state)
     }
     
-    func setAttributedTitle(_ title: NSAttributedString?, for state: UIControlState) {
+    func setAttributedTitle(_ title: NSAttributedString?, for state: UIControl.State) {
         titleBtn.setAttributedTitle(title, for: state)
     }
     
-    func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControlEvents) {
+    func addTarget(_ target: Any?, action: Selector, for controlEvents: UIControl.Event) {
         titleBtn.addTarget(target, action: action, for: controlEvents)
     }
 

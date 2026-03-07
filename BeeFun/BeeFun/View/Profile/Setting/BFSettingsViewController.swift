@@ -48,7 +48,7 @@ class BFSettingsViewController: BFBaseViewController {
         logOutBtn.titleLabel?.font = UIFont.bfSystemFont(ofSize: 15.0)
         logOutBtn.backgroundColor = UIColor.bfRedColor
         logOutBtn.radius = 3.0
-        logOutBtn.addTarget(self, action: #selector(BFSettingsViewController.psvc_logoutAction), for: UIControlEvents.touchUpInside)
+        logOutBtn.addTarget(self, action: #selector(BFSettingsViewController.psvc_logoutAction), for: UIControl.Event.touchUpInside)
         self.view.addSubview(logOutBtn)
 
         let logX: CGFloat = 10

@@ -103,7 +103,7 @@ class BFMessageController: BFBaseViewController, UIAlertViewDelegate, iCarouselD
         view.addSubview(carouselContent)
         //FIXME: 此处添加后，carouselContent仍然在loginView上面，不知道为什么，通过下面方式解决。
         if let loginView = placeLoginView {
-            view.bringSubview(toFront: loginView)
+            view.bringSubviewToFront(loginView)
         }
     }
     

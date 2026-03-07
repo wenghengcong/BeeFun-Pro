@@ -30,7 +30,7 @@ extension BFBaseViewController {
     func customLeftItem() {
 
         leftItem = UIButton()
-        leftItem!.setImage(UIImage(named: "arrow_left"), for: UIControlState())
+        leftItem!.setImage(UIImage(named: "arrow_left"), for: UIControl.State())
         leftItem!.setImage(UIImage(named: "arrow_left"), for: .selected)
         leftItem?.titleLabel?.font = UIFont.bfSystemFont(ofSize: 17.0)
         leftItem?.setTitleColor(.white, for: .normal)

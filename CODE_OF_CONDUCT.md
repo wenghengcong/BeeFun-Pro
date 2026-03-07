@@ -23,4 +23,4 @@ Project maintainers may remove or reject contributions that violate this Code of
 
 ## Contact
 
-For conduct concerns, contact: `wenghengcong@163.com`
+For conduct concerns, contact: `wenghengcong@icloud.com`

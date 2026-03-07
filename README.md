@@ -76,6 +76,6 @@ Historical docs moved to [`docs/legacy/`](docs/legacy/):
 
 ## Contact
 
-- Email: wenghengcong@163.com
+- Email: wenghengcong@icloud.com
 - Weibo: <http://weibo.com/1820994470>
 - Blog: <https://wenghengcong.com>
